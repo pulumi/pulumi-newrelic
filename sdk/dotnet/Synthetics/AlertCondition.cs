@@ -32,6 +32,88 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
+    /// ## Tags
+    /// 
+    /// Manage synthetics alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    /// 
+    ///     var fooMonitor = new NewRelic.Synthetics.Monitor("fooMonitor", new()
+    ///     {
+    ///         Status = "ENABLED",
+    ///         Period = "EVERY_MINUTE",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         Type = "SIMPLE",
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "AP_EAST_1",
+    ///         },
+    ///         CustomHeaders = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
+    ///             {
+    ///                 Name = "some_name",
+    ///                 Value = "some_value",
+    ///             },
+    ///         },
+    ///         TreatRedirectAsFailure = true,
+    ///         ValidationString = "success",
+    ///         BypassHeadRequest = true,
+    ///         VerifySsl = true,
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooAlertCondition = new NewRelic.Synthetics.AlertCondition("fooAlertCondition", new()
+    ///     {
+    ///         PolicyId = fooAlertPolicy.Id,
+    ///         MonitorId = fooMonitor.Id,
+    ///         RunbookUrl = "https://www.example.com",
+    ///     });
+    /// 
+    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
+    ///     {
+    ///         Guid = fooAlertCondition.EntityGuid,
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Inputs.EntityTagsTagArgs
+    ///             {
+    ///                 Key = "my-key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "my-value",
+    ///                     "my-other-value",
+    ///                 },
+    ///             },
+    ///             new NewRelic.Inputs.EntityTagsTagArgs
+    ///             {
+    ///                 Key = "my-key-2",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "my-value-2",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -49,6 +131,12 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique entity identifier of the condition in New Relic.
+        /// </summary>
+        [Output("entityGuid")]
+        public Output<string> EntityGuid { get; private set; } = null!;
 
         /// <summary>
         /// The GUID of the Synthetics monitor to be referenced in the alert condition.
@@ -163,6 +251,12 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// The unique entity identifier of the condition in New Relic.
+        /// </summary>
+        [Input("entityGuid")]
+        public Input<string>? EntityGuid { get; set; }
 
         /// <summary>
         /// The GUID of the Synthetics monitor to be referenced in the alert condition.

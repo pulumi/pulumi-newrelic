@@ -151,6 +151,7 @@ class _MultiLocationAlertConditionState:
                  critical: Optional[pulumi.Input['MultiLocationAlertConditionCriticalArgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 entity_guid: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[int]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
@@ -161,6 +162,7 @@ class _MultiLocationAlertConditionState:
         :param pulumi.Input['MultiLocationAlertConditionCriticalArgs'] critical: A condition term with the priority set to critical.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition.  Defaults to true.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The Monitor GUID's of the Synthetics monitors to alert on.
+        :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -173,6 +175,8 @@ class _MultiLocationAlertConditionState:
             pulumi.set(__self__, "enabled", enabled)
         if entities is not None:
             pulumi.set(__self__, "entities", entities)
+        if entity_guid is not None:
+            pulumi.set(__self__, "entity_guid", entity_guid)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if policy_id is not None:
@@ -219,6 +223,18 @@ class _MultiLocationAlertConditionState:
     @entities.setter
     def entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "entities", value)
+
+    @property
+    @pulumi.getter(name="entityGuid")
+    def entity_guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique entity identifier of the condition in New Relic.
+        """
+        return pulumi.get(self, "entity_guid")
+
+    @entity_guid.setter
+    def entity_guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "entity_guid", value)
 
     @property
     @pulumi.getter
@@ -326,6 +342,61 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
                 threshold=1,
             ))
         ```
+        ## Tags
+
+        Manage synthetics multilocation alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+        foo_monitor = newrelic.synthetics.Monitor("fooMonitor",
+            status="ENABLED",
+            period="EVERY_MINUTE",
+            uri="https://www.one.newrelic.com",
+            type="SIMPLE",
+            locations_publics=["AP_EAST_1"],
+            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
+                name="some_name",
+                value="some_value",
+            )],
+            treat_redirect_as_failure=True,
+            validation_string="success",
+            bypass_head_request=True,
+            verify_ssl=True,
+            tags=[newrelic.synthetics.MonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )])
+        foo_multi_location_alert_condition = newrelic.synthetics.MultiLocationAlertCondition("fooMultiLocationAlertCondition",
+            policy_id=foo_alert_policy.id,
+            runbook_url="https://example.com",
+            enabled=True,
+            violation_time_limit_seconds=3600,
+            entities=[foo_monitor.id],
+            critical=newrelic.synthetics.MultiLocationAlertConditionCriticalArgs(
+                threshold=2,
+            ),
+            warning=newrelic.synthetics.MultiLocationAlertConditionWarningArgs(
+                threshold=1,
+            ))
+        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
+            guid=foo_multi_location_alert_condition.entity_guid,
+            tags=[
+                newrelic.EntityTagsTagArgs(
+                    key="my-key",
+                    values=[
+                        "my-value",
+                        "my-other-value",
+                    ],
+                ),
+                newrelic.EntityTagsTagArgs(
+                    key="my-key-2",
+                    values=["my-value-2"],
+                ),
+            ])
+        ```
 
         ## Import
 
@@ -384,6 +455,61 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
             warning=newrelic.synthetics.MultiLocationAlertConditionWarningArgs(
                 threshold=1,
             ))
+        ```
+        ## Tags
+
+        Manage synthetics multilocation alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+        foo_monitor = newrelic.synthetics.Monitor("fooMonitor",
+            status="ENABLED",
+            period="EVERY_MINUTE",
+            uri="https://www.one.newrelic.com",
+            type="SIMPLE",
+            locations_publics=["AP_EAST_1"],
+            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
+                name="some_name",
+                value="some_value",
+            )],
+            treat_redirect_as_failure=True,
+            validation_string="success",
+            bypass_head_request=True,
+            verify_ssl=True,
+            tags=[newrelic.synthetics.MonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )])
+        foo_multi_location_alert_condition = newrelic.synthetics.MultiLocationAlertCondition("fooMultiLocationAlertCondition",
+            policy_id=foo_alert_policy.id,
+            runbook_url="https://example.com",
+            enabled=True,
+            violation_time_limit_seconds=3600,
+            entities=[foo_monitor.id],
+            critical=newrelic.synthetics.MultiLocationAlertConditionCriticalArgs(
+                threshold=2,
+            ),
+            warning=newrelic.synthetics.MultiLocationAlertConditionWarningArgs(
+                threshold=1,
+            ))
+        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
+            guid=foo_multi_location_alert_condition.entity_guid,
+            tags=[
+                newrelic.EntityTagsTagArgs(
+                    key="my-key",
+                    values=[
+                        "my-value",
+                        "my-other-value",
+                    ],
+                ),
+                newrelic.EntityTagsTagArgs(
+                    key="my-key-2",
+                    values=["my-value-2"],
+                ),
+            ])
         ```
 
         ## Import
@@ -444,6 +570,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'violation_time_limit_seconds'")
             __props__.__dict__["violation_time_limit_seconds"] = violation_time_limit_seconds
             __props__.__dict__["warning"] = warning
+            __props__.__dict__["entity_guid"] = None
         super(MultiLocationAlertCondition, __self__).__init__(
             'newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition',
             resource_name,
@@ -457,6 +584,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
             critical: Optional[pulumi.Input[pulumi.InputType['MultiLocationAlertConditionCriticalArgs']]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            entity_guid: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             policy_id: Optional[pulumi.Input[int]] = None,
             runbook_url: Optional[pulumi.Input[str]] = None,
@@ -472,6 +600,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MultiLocationAlertConditionCriticalArgs']] critical: A condition term with the priority set to critical.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition.  Defaults to true.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The Monitor GUID's of the Synthetics monitors to alert on.
+        :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -485,6 +614,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         __props__.__dict__["critical"] = critical
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["entities"] = entities
+        __props__.__dict__["entity_guid"] = entity_guid
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["runbook_url"] = runbook_url
@@ -515,6 +645,14 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         The Monitor GUID's of the Synthetics monitors to alert on.
         """
         return pulumi.get(self, "entities")
+
+    @property
+    @pulumi.getter(name="entityGuid")
+    def entity_guid(self) -> pulumi.Output[str]:
+        """
+        The unique entity identifier of the condition in New Relic.
+        """
+        return pulumi.get(self, "entity_guid")
 
     @property
     @pulumi.getter

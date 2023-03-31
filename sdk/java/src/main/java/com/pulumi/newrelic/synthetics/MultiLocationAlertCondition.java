@@ -78,6 +78,94 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ## Tags
+ * 
+ * Manage synthetics multilocation alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.synthetics.Monitor;
+ * import com.pulumi.newrelic.synthetics.MonitorArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorCustomHeaderArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorTagArgs;
+ * import com.pulumi.newrelic.synthetics.MultiLocationAlertCondition;
+ * import com.pulumi.newrelic.synthetics.MultiLocationAlertConditionArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MultiLocationAlertConditionCriticalArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MultiLocationAlertConditionWarningArgs;
+ * import com.pulumi.newrelic.EntityTags;
+ * import com.pulumi.newrelic.EntityTagsArgs;
+ * import com.pulumi.newrelic.inputs.EntityTagsTagArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ * 
+ *         var fooMonitor = new Monitor(&#34;fooMonitor&#34;, MonitorArgs.builder()        
+ *             .status(&#34;ENABLED&#34;)
+ *             .period(&#34;EVERY_MINUTE&#34;)
+ *             .uri(&#34;https://www.one.newrelic.com&#34;)
+ *             .type(&#34;SIMPLE&#34;)
+ *             .locationsPublics(&#34;AP_EAST_1&#34;)
+ *             .customHeaders(MonitorCustomHeaderArgs.builder()
+ *                 .name(&#34;some_name&#34;)
+ *                 .value(&#34;some_value&#34;)
+ *                 .build())
+ *             .treatRedirectAsFailure(true)
+ *             .validationString(&#34;success&#34;)
+ *             .bypassHeadRequest(true)
+ *             .verifySsl(true)
+ *             .tags(MonitorTagArgs.builder()
+ *                 .key(&#34;some_key&#34;)
+ *                 .values(&#34;some_value&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var fooMultiLocationAlertCondition = new MultiLocationAlertCondition(&#34;fooMultiLocationAlertCondition&#34;, MultiLocationAlertConditionArgs.builder()        
+ *             .policyId(fooAlertPolicy.id())
+ *             .runbookUrl(&#34;https://example.com&#34;)
+ *             .enabled(true)
+ *             .violationTimeLimitSeconds(&#34;3600&#34;)
+ *             .entities(fooMonitor.id())
+ *             .critical(MultiLocationAlertConditionCriticalArgs.builder()
+ *                 .threshold(2)
+ *                 .build())
+ *             .warning(MultiLocationAlertConditionWarningArgs.builder()
+ *                 .threshold(1)
+ *                 .build())
+ *             .build());
+ * 
+ *         var myConditionEntityTags = new EntityTags(&#34;myConditionEntityTags&#34;, EntityTagsArgs.builder()        
+ *             .guid(fooMultiLocationAlertCondition.entityGuid())
+ *             .tags(            
+ *                 EntityTagsTagArgs.builder()
+ *                     .key(&#34;my-key&#34;)
+ *                     .values(                    
+ *                         &#34;my-value&#34;,
+ *                         &#34;my-other-value&#34;)
+ *                     .build(),
+ *                 EntityTagsTagArgs.builder()
+ *                     .key(&#34;my-key-2&#34;)
+ *                     .values(&#34;my-value-2&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -133,6 +221,20 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      */
     public Output<List<String>> entities() {
         return this.entities;
+    }
+    /**
+     * The unique entity identifier of the condition in New Relic.
+     * 
+     */
+    @Export(name="entityGuid", type=String.class, parameters={})
+    private Output<String> entityGuid;
+
+    /**
+     * @return The unique entity identifier of the condition in New Relic.
+     * 
+     */
+    public Output<String> entityGuid() {
+        return this.entityGuid;
     }
     /**
      * The title of the condition.

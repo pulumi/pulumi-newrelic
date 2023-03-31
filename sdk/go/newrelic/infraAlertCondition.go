@@ -113,6 +113,75 @@ import (
 //   - `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infraMetric` and `infraProcessRunning` alert condition types.
 //   - `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infraMetric` alert condition type.
 //
+// ## Tags
+//
+// Manage infra alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooInfraAlertCondition, err := newrelic.NewInfraAlertCondition(ctx, "fooInfraAlertCondition", &newrelic.InfraAlertConditionArgs{
+//				PolicyId:    fooAlertPolicy.ID(),
+//				Description: pulumi.String("Warning if disk usage goes above 80% and critical alert if goes above 90%"),
+//				Type:        pulumi.String("infra_metric"),
+//				Event:       pulumi.String("StorageSample"),
+//				Select:      pulumi.String("diskUsedPercent"),
+//				Comparison:  pulumi.String("above"),
+//				Where:       pulumi.String("(hostname LIKE '%frontend%')"),
+//				Critical: &newrelic.InfraAlertConditionCriticalArgs{
+//					Duration:     pulumi.Int(25),
+//					Value:        pulumi.Float64(90),
+//					TimeFunction: pulumi.String("all"),
+//				},
+//				Warning: &newrelic.InfraAlertConditionWarningArgs{
+//					Duration:     pulumi.Int(10),
+//					Value:        pulumi.Float64(80),
+//					TimeFunction: pulumi.String("all"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
+//				Guid: fooInfraAlertCondition.EntityGuid,
+//				Tags: newrelic.EntityTagsTagArray{
+//					&newrelic.EntityTagsTagArgs{
+//						Key: pulumi.String("my-key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("my-value"),
+//							pulumi.String("my-other-value"),
+//						},
+//					},
+//					&newrelic.EntityTagsTagArgs{
+//						Key: pulumi.String("my-key-2"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("my-value-2"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Infrastructure alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
@@ -135,6 +204,8 @@ type InfraAlertCondition struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The unique entity identifier of the condition in New Relic.
+	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
 	// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
 	Event pulumi.StringOutput `pulumi:"event"`
 	// For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
@@ -206,6 +277,8 @@ type infraAlertConditionState struct {
 	Description *string `pulumi:"description"`
 	// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The unique entity identifier of the condition in New Relic.
+	EntityGuid *string `pulumi:"entityGuid"`
 	// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
 	Event *string `pulumi:"event"`
 	// For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
@@ -243,6 +316,8 @@ type InfraAlertConditionState struct {
 	Description pulumi.StringPtrInput
 	// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The unique entity identifier of the condition in New Relic.
+	EntityGuid pulumi.StringPtrInput
 	// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
 	Event pulumi.StringPtrInput
 	// For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
@@ -450,6 +525,11 @@ func (o InfraAlertConditionOutput) Description() pulumi.StringPtrOutput {
 // Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
 func (o InfraAlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The unique entity identifier of the condition in New Relic.
+func (o InfraAlertConditionOutput) EntityGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringOutput { return v.EntityGuid }).(pulumi.StringOutput)
 }
 
 // The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.

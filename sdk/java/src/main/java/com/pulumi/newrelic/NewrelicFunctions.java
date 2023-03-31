@@ -26,6 +26,8 @@ import com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;
 import com.pulumi.newrelic.inputs.GetNotificationDestinationPlainArgs;
 import com.pulumi.newrelic.inputs.GetObfuscationExpressionArgs;
 import com.pulumi.newrelic.inputs.GetObfuscationExpressionPlainArgs;
+import com.pulumi.newrelic.inputs.GetServiceLevelAlertHelperArgs;
+import com.pulumi.newrelic.inputs.GetServiceLevelAlertHelperPlainArgs;
 import com.pulumi.newrelic.inputs.GetTestGrokPatternArgs;
 import com.pulumi.newrelic.inputs.GetTestGrokPatternPlainArgs;
 import com.pulumi.newrelic.outputs.GetAccountResult;
@@ -37,6 +39,7 @@ import com.pulumi.newrelic.outputs.GetEntityResult;
 import com.pulumi.newrelic.outputs.GetKeyTransactionResult;
 import com.pulumi.newrelic.outputs.GetNotificationDestinationResult;
 import com.pulumi.newrelic.outputs.GetObfuscationExpressionResult;
+import com.pulumi.newrelic.outputs.GetServiceLevelAlertHelperResult;
 import com.pulumi.newrelic.outputs.GetTestGrokPatternResult;
 import java.util.concurrent.CompletableFuture;
 
@@ -2034,6 +2037,526 @@ public final class NewrelicFunctions {
      */
     public static CompletableFuture<GetObfuscationExpressionResult> getObfuscationExpressionPlain(GetObfuscationExpressionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getObfuscationExpression:getObfuscationExpression", TypeShape.of(GetObfuscationExpressionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+     * 
+     * ## Example Usage
+     * 
+     * Firstly set up your service level objective, we recommend to use local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.ServiceLevel;
+     * import com.pulumi.newrelic.ServiceLevelArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooTarget = 99.9;
+     * 
+     *         final var fooPeriod = 28;
+     * 
+     *         var foo = new ServiceLevel(&#34;foo&#34;, ServiceLevelArgs.builder()        
+     *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
+     *             .description(&#34;Proportion of requests that are served faster than a threshold.&#34;)
+     *             .events(ServiceLevelEventsArgs.builder()
+     *                 .accountId(12345678)
+     *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
+     *                     .from(&#34;Transaction&#34;)
+     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType=&#39;Web&#39;)&#34;)
+     *                     .build())
+     *                 .goodEvents(ServiceLevelEventsGoodEventsArgs.builder()
+     *                     .from(&#34;Transaction&#34;)
+     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType= &#39;Web&#39;) AND duration &lt; 0.1&#34;)
+     *                     .build())
+     *                 .build())
+     *             .objective(ServiceLevelObjectiveArgs.builder()
+     *                 .target(fooTarget)
+     *                 .timeWindow(ServiceLevelObjectiveTimeWindowArgs.builder()
+     *                     .rolling(ServiceLevelObjectiveTimeWindowRollingArgs.builder()
+     *                         .count(fooPeriod)
+     *                         .unit(&#34;DAY&#34;)
+     *                         .build())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetServiceLevelAlertHelperArgs;
+     * import com.pulumi.newrelic.NrqlAlertCondition;
+     * import com.pulumi.newrelic.NrqlAlertConditionArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooCustom = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
+     *             .alertType(&#34;custom&#34;)
+     *             .sliGuid(newrelic_service_level.foo().sli_guid())
+     *             .sloTarget(local.foo_target())
+     *             .sloPeriod(local.foo_period())
+     *             .customToleratedBudgetConsumption(5)
+     *             .customEvaluationPeriod(90)
+     *             .build());
+     * 
+     *         var yourCondition = new NrqlAlertCondition(&#34;yourCondition&#34;, NrqlAlertConditionArgs.builder()        
+     *             .accountId(12345678)
+     *             .policyId(67890)
+     *             .type(&#34;static&#34;)
+     *             .enabled(true)
+     *             .violationTimeLimitSeconds(259200)
+     *             .nrql(NrqlAlertConditionNrqlArgs.builder()
+     *                 .query(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.nrql()))
+     *                 .build())
+     *             .critical(NrqlAlertConditionCriticalArgs.builder()
+     *                 .operator(&#34;above&#34;)
+     *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
+     *                 .thresholdDuration(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *                 .thresholdOccurrences(&#34;at_least_once&#34;)
+     *                 .build())
+     *             .fillOption(&#34;none&#34;)
+     *             .aggregationWindow(3600)
+     *             .aggregationMethod(&#34;event_flow&#34;)
+     *             .aggregationDelay(120)
+     *             .slideBy(60)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetServiceLevelAlertHelperResult> getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs args) {
+        return getServiceLevelAlertHelper(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+     * 
+     * ## Example Usage
+     * 
+     * Firstly set up your service level objective, we recommend to use local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.ServiceLevel;
+     * import com.pulumi.newrelic.ServiceLevelArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooTarget = 99.9;
+     * 
+     *         final var fooPeriod = 28;
+     * 
+     *         var foo = new ServiceLevel(&#34;foo&#34;, ServiceLevelArgs.builder()        
+     *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
+     *             .description(&#34;Proportion of requests that are served faster than a threshold.&#34;)
+     *             .events(ServiceLevelEventsArgs.builder()
+     *                 .accountId(12345678)
+     *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
+     *                     .from(&#34;Transaction&#34;)
+     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType=&#39;Web&#39;)&#34;)
+     *                     .build())
+     *                 .goodEvents(ServiceLevelEventsGoodEventsArgs.builder()
+     *                     .from(&#34;Transaction&#34;)
+     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType= &#39;Web&#39;) AND duration &lt; 0.1&#34;)
+     *                     .build())
+     *                 .build())
+     *             .objective(ServiceLevelObjectiveArgs.builder()
+     *                 .target(fooTarget)
+     *                 .timeWindow(ServiceLevelObjectiveTimeWindowArgs.builder()
+     *                     .rolling(ServiceLevelObjectiveTimeWindowRollingArgs.builder()
+     *                         .count(fooPeriod)
+     *                         .unit(&#34;DAY&#34;)
+     *                         .build())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetServiceLevelAlertHelperArgs;
+     * import com.pulumi.newrelic.NrqlAlertCondition;
+     * import com.pulumi.newrelic.NrqlAlertConditionArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooCustom = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
+     *             .alertType(&#34;custom&#34;)
+     *             .sliGuid(newrelic_service_level.foo().sli_guid())
+     *             .sloTarget(local.foo_target())
+     *             .sloPeriod(local.foo_period())
+     *             .customToleratedBudgetConsumption(5)
+     *             .customEvaluationPeriod(90)
+     *             .build());
+     * 
+     *         var yourCondition = new NrqlAlertCondition(&#34;yourCondition&#34;, NrqlAlertConditionArgs.builder()        
+     *             .accountId(12345678)
+     *             .policyId(67890)
+     *             .type(&#34;static&#34;)
+     *             .enabled(true)
+     *             .violationTimeLimitSeconds(259200)
+     *             .nrql(NrqlAlertConditionNrqlArgs.builder()
+     *                 .query(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.nrql()))
+     *                 .build())
+     *             .critical(NrqlAlertConditionCriticalArgs.builder()
+     *                 .operator(&#34;above&#34;)
+     *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
+     *                 .thresholdDuration(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *                 .thresholdOccurrences(&#34;at_least_once&#34;)
+     *                 .build())
+     *             .fillOption(&#34;none&#34;)
+     *             .aggregationWindow(3600)
+     *             .aggregationMethod(&#34;event_flow&#34;)
+     *             .aggregationDelay(120)
+     *             .slideBy(60)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetServiceLevelAlertHelperResult> getServiceLevelAlertHelperPlain(GetServiceLevelAlertHelperPlainArgs args) {
+        return getServiceLevelAlertHelperPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+     * 
+     * ## Example Usage
+     * 
+     * Firstly set up your service level objective, we recommend to use local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.ServiceLevel;
+     * import com.pulumi.newrelic.ServiceLevelArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooTarget = 99.9;
+     * 
+     *         final var fooPeriod = 28;
+     * 
+     *         var foo = new ServiceLevel(&#34;foo&#34;, ServiceLevelArgs.builder()        
+     *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
+     *             .description(&#34;Proportion of requests that are served faster than a threshold.&#34;)
+     *             .events(ServiceLevelEventsArgs.builder()
+     *                 .accountId(12345678)
+     *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
+     *                     .from(&#34;Transaction&#34;)
+     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType=&#39;Web&#39;)&#34;)
+     *                     .build())
+     *                 .goodEvents(ServiceLevelEventsGoodEventsArgs.builder()
+     *                     .from(&#34;Transaction&#34;)
+     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType= &#39;Web&#39;) AND duration &lt; 0.1&#34;)
+     *                     .build())
+     *                 .build())
+     *             .objective(ServiceLevelObjectiveArgs.builder()
+     *                 .target(fooTarget)
+     *                 .timeWindow(ServiceLevelObjectiveTimeWindowArgs.builder()
+     *                     .rolling(ServiceLevelObjectiveTimeWindowRollingArgs.builder()
+     *                         .count(fooPeriod)
+     *                         .unit(&#34;DAY&#34;)
+     *                         .build())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetServiceLevelAlertHelperArgs;
+     * import com.pulumi.newrelic.NrqlAlertCondition;
+     * import com.pulumi.newrelic.NrqlAlertConditionArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooCustom = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
+     *             .alertType(&#34;custom&#34;)
+     *             .sliGuid(newrelic_service_level.foo().sli_guid())
+     *             .sloTarget(local.foo_target())
+     *             .sloPeriod(local.foo_period())
+     *             .customToleratedBudgetConsumption(5)
+     *             .customEvaluationPeriod(90)
+     *             .build());
+     * 
+     *         var yourCondition = new NrqlAlertCondition(&#34;yourCondition&#34;, NrqlAlertConditionArgs.builder()        
+     *             .accountId(12345678)
+     *             .policyId(67890)
+     *             .type(&#34;static&#34;)
+     *             .enabled(true)
+     *             .violationTimeLimitSeconds(259200)
+     *             .nrql(NrqlAlertConditionNrqlArgs.builder()
+     *                 .query(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.nrql()))
+     *                 .build())
+     *             .critical(NrqlAlertConditionCriticalArgs.builder()
+     *                 .operator(&#34;above&#34;)
+     *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
+     *                 .thresholdDuration(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *                 .thresholdOccurrences(&#34;at_least_once&#34;)
+     *                 .build())
+     *             .fillOption(&#34;none&#34;)
+     *             .aggregationWindow(3600)
+     *             .aggregationMethod(&#34;event_flow&#34;)
+     *             .aggregationDelay(120)
+     *             .slideBy(60)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetServiceLevelAlertHelperResult> getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", TypeShape.of(GetServiceLevelAlertHelperResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+     * 
+     * ## Example Usage
+     * 
+     * Firstly set up your service level objective, we recommend to use local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.ServiceLevel;
+     * import com.pulumi.newrelic.ServiceLevelArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooTarget = 99.9;
+     * 
+     *         final var fooPeriod = 28;
+     * 
+     *         var foo = new ServiceLevel(&#34;foo&#34;, ServiceLevelArgs.builder()        
+     *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
+     *             .description(&#34;Proportion of requests that are served faster than a threshold.&#34;)
+     *             .events(ServiceLevelEventsArgs.builder()
+     *                 .accountId(12345678)
+     *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
+     *                     .from(&#34;Transaction&#34;)
+     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType=&#39;Web&#39;)&#34;)
+     *                     .build())
+     *                 .goodEvents(ServiceLevelEventsGoodEventsArgs.builder()
+     *                     .from(&#34;Transaction&#34;)
+     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType= &#39;Web&#39;) AND duration &lt; 0.1&#34;)
+     *                     .build())
+     *                 .build())
+     *             .objective(ServiceLevelObjectiveArgs.builder()
+     *                 .target(fooTarget)
+     *                 .timeWindow(ServiceLevelObjectiveTimeWindowArgs.builder()
+     *                     .rolling(ServiceLevelObjectiveTimeWindowRollingArgs.builder()
+     *                         .count(fooPeriod)
+     *                         .unit(&#34;DAY&#34;)
+     *                         .build())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetServiceLevelAlertHelperArgs;
+     * import com.pulumi.newrelic.NrqlAlertCondition;
+     * import com.pulumi.newrelic.NrqlAlertConditionArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooCustom = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
+     *             .alertType(&#34;custom&#34;)
+     *             .sliGuid(newrelic_service_level.foo().sli_guid())
+     *             .sloTarget(local.foo_target())
+     *             .sloPeriod(local.foo_period())
+     *             .customToleratedBudgetConsumption(5)
+     *             .customEvaluationPeriod(90)
+     *             .build());
+     * 
+     *         var yourCondition = new NrqlAlertCondition(&#34;yourCondition&#34;, NrqlAlertConditionArgs.builder()        
+     *             .accountId(12345678)
+     *             .policyId(67890)
+     *             .type(&#34;static&#34;)
+     *             .enabled(true)
+     *             .violationTimeLimitSeconds(259200)
+     *             .nrql(NrqlAlertConditionNrqlArgs.builder()
+     *                 .query(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.nrql()))
+     *                 .build())
+     *             .critical(NrqlAlertConditionCriticalArgs.builder()
+     *                 .operator(&#34;above&#34;)
+     *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
+     *                 .thresholdDuration(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *                 .thresholdOccurrences(&#34;at_least_once&#34;)
+     *                 .build())
+     *             .fillOption(&#34;none&#34;)
+     *             .aggregationWindow(3600)
+     *             .aggregationMethod(&#34;event_flow&#34;)
+     *             .aggregationDelay(120)
+     *             .slideBy(60)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetServiceLevelAlertHelperResult> getServiceLevelAlertHelperPlain(GetServiceLevelAlertHelperPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", TypeShape.of(GetServiceLevelAlertHelperResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage

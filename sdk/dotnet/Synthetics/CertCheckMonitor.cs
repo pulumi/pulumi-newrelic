@@ -49,6 +49,50 @@ namespace Pulumi.NewRelic.Synthetics
     /// See additional examples.
     /// ## Additional Examples
     /// 
+    /// ### Create a monitor with a private location
+    /// 
+    /// The below example shows how you can define a private location and attach it to a monitor.
+    /// 
+    /// &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
+    ///     {
+    ///         Description = "Test Description",
+    ///         VerifiedScriptExecution = false,
+    ///     });
+    /// 
+    ///     var monitor = new NewRelic.Synthetics.CertCheckMonitor("monitor", new()
+    ///     {
+    ///         Domain = "https://www.one.example.com",
+    ///         LocationsPrivates = new[]
+    ///         {
+    ///             location.Id,
+    ///         },
+    ///         Period = "EVERY_6_HOURS",
+    ///         Status = "ENABLED",
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.CertCheckMonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Synthetics certificate check monitor scripts can be imported using the `guid`, e.g. bash

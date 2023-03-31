@@ -49,6 +49,51 @@ import * as utilities from "./utilities";
  *   * `threshold` - (Required) Must be 0 or greater.
  *   * `timeFunction` - (Required) `all` or `any`.
  *
+ * ## Tags
+ *
+ * Manage alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooEntity = newrelic.getEntity({
+ *     name: "foo entitiy",
+ * });
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
+ *     policyId: fooAlertPolicy.id,
+ *     type: "apm_app_metric",
+ *     entities: [fooEntity.then(fooEntity => fooEntity.applicationId)],
+ *     metric: "apdex",
+ *     runbookUrl: "https://www.example.com",
+ *     conditionScope: "application",
+ *     terms: [{
+ *         duration: 5,
+ *         operator: "below",
+ *         priority: "critical",
+ *         threshold: 0.75,
+ *         timeFunction: "all",
+ *     }],
+ * });
+ * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
+ *     guid: fooAlertCondition.entityGuid,
+ *     tags: [
+ *         {
+ *             key: "my-key",
+ *             values: [
+ *                 "my-value",
+ *                 "my-other-value",
+ *             ],
+ *         },
+ *         {
+ *             key: "my-key-2",
+ *             values: ["my-value-2"],
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Alert conditions can be imported using notation `alert_policy_id:alert_condition_id`, e.g.
@@ -97,6 +142,10 @@ export class AlertCondition extends pulumi.CustomResource {
      * The instance IDs associated with this condition.
      */
     public readonly entities!: pulumi.Output<number[]>;
+    /**
+     * The unique entity identifier of the condition in New Relic.
+     */
+    public /*out*/ readonly entityGuid!: pulumi.Output<string>;
     /**
      * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      */
@@ -154,6 +203,7 @@ export class AlertCondition extends pulumi.CustomResource {
             resourceInputs["conditionScope"] = state ? state.conditionScope : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["entities"] = state ? state.entities : undefined;
+            resourceInputs["entityGuid"] = state ? state.entityGuid : undefined;
             resourceInputs["gcMetric"] = state ? state.gcMetric : undefined;
             resourceInputs["metric"] = state ? state.metric : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -194,6 +244,7 @@ export class AlertCondition extends pulumi.CustomResource {
             resourceInputs["userDefinedMetric"] = args ? args.userDefinedMetric : undefined;
             resourceInputs["userDefinedValueFunction"] = args ? args.userDefinedValueFunction : undefined;
             resourceInputs["violationCloseTimer"] = args ? args.violationCloseTimer : undefined;
+            resourceInputs["entityGuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertCondition.__pulumiType, name, resourceInputs, opts);
@@ -216,6 +267,10 @@ export interface AlertConditionState {
      * The instance IDs associated with this condition.
      */
     entities?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The unique entity identifier of the condition in New Relic.
+     */
+    entityGuid?: pulumi.Input<string>;
     /**
      * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      */

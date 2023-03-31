@@ -42,6 +42,91 @@ import (
 //	}
 //
 // ```
+// ## Tags
+//
+// Manage synthetics alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooMonitor, err := synthetics.NewMonitor(ctx, "fooMonitor", &synthetics.MonitorArgs{
+//				Status: pulumi.String("ENABLED"),
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				Uri:    pulumi.String("https://www.one.newrelic.com"),
+//				Type:   pulumi.String("SIMPLE"),
+//				LocationsPublics: pulumi.StringArray{
+//					pulumi.String("AP_EAST_1"),
+//				},
+//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
+//					&synthetics.MonitorCustomHeaderArgs{
+//						Name:  pulumi.String("some_name"),
+//						Value: pulumi.String("some_value"),
+//					},
+//				},
+//				TreatRedirectAsFailure: pulumi.Bool(true),
+//				ValidationString:       pulumi.String("success"),
+//				BypassHeadRequest:      pulumi.Bool(true),
+//				VerifySsl:              pulumi.Bool(true),
+//				Tags: synthetics.MonitorTagArray{
+//					&synthetics.MonitorTagArgs{
+//						Key: pulumi.String("some_key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("some_value"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooAlertCondition, err := synthetics.NewAlertCondition(ctx, "fooAlertCondition", &synthetics.AlertConditionArgs{
+//				PolicyId:   fooAlertPolicy.ID(),
+//				MonitorId:  fooMonitor.ID(),
+//				RunbookUrl: pulumi.String("https://www.example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
+//				Guid: fooAlertCondition.EntityGuid,
+//				Tags: newrelic.EntityTagsTagArray{
+//					&newrelic.EntityTagsTagArgs{
+//						Key: pulumi.String("my-key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("my-value"),
+//							pulumi.String("my-other-value"),
+//						},
+//					},
+//					&newrelic.EntityTagsTagArgs{
+//						Key: pulumi.String("my-key-2"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("my-value-2"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -57,6 +142,8 @@ type AlertCondition struct {
 
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The unique entity identifier of the condition in New Relic.
+	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
 	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId pulumi.StringOutput `pulumi:"monitorId"`
 	// The title of this condition.
@@ -104,6 +191,8 @@ func GetAlertCondition(ctx *pulumi.Context,
 type alertConditionState struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The unique entity identifier of the condition in New Relic.
+	EntityGuid *string `pulumi:"entityGuid"`
 	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId *string `pulumi:"monitorId"`
 	// The title of this condition.
@@ -117,6 +206,8 @@ type alertConditionState struct {
 type AlertConditionState struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The unique entity identifier of the condition in New Relic.
+	EntityGuid pulumi.StringPtrInput
 	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId pulumi.StringPtrInput
 	// The title of this condition.
@@ -248,6 +339,11 @@ func (o AlertConditionOutput) ToAlertConditionOutputWithContext(ctx context.Cont
 // Set whether to enable the alert condition. Defaults to `true`.
 func (o AlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The unique entity identifier of the condition in New Relic.
+func (o AlertConditionOutput) EntityGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.EntityGuid }).(pulumi.StringOutput)
 }
 
 // The GUID of the Synthetics monitor to be referenced in the alert condition.
