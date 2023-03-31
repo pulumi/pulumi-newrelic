@@ -246,7 +246,7 @@ func Provider() tfbridge.ProviderInfo {
 		"insights_",
 		"plugins_",
 	}, x.MakeStandardToken(mainPkg)))
-	contract.AssertNoError(err)
+	contract.AssertNoErrorf(err, "auto token mapping failed")
 
 	prov.SetAutonaming(255, "-")
 
