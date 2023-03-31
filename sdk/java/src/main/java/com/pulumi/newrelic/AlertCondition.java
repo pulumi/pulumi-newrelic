@@ -86,6 +86,78 @@ import javax.annotation.Nullable;
  *   * `threshold` - (Required) Must be 0 or greater.
  *   * `time_function` - (Required) `all` or `any`.
  * 
+ * ## Tags
+ * 
+ * Manage alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NewrelicFunctions;
+ * import com.pulumi.newrelic.inputs.GetEntityArgs;
+ * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertCondition;
+ * import com.pulumi.newrelic.AlertConditionArgs;
+ * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
+ * import com.pulumi.newrelic.EntityTags;
+ * import com.pulumi.newrelic.EntityTagsArgs;
+ * import com.pulumi.newrelic.inputs.EntityTagsTagArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var fooEntity = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+ *             .name(&#34;foo entitiy&#34;)
+ *             .build());
+ * 
+ *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ * 
+ *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
+ *             .policyId(fooAlertPolicy.id())
+ *             .type(&#34;apm_app_metric&#34;)
+ *             .entities(fooEntity.applyValue(getEntityResult -&gt; getEntityResult.applicationId()))
+ *             .metric(&#34;apdex&#34;)
+ *             .runbookUrl(&#34;https://www.example.com&#34;)
+ *             .conditionScope(&#34;application&#34;)
+ *             .terms(AlertConditionTermArgs.builder()
+ *                 .duration(5)
+ *                 .operator(&#34;below&#34;)
+ *                 .priority(&#34;critical&#34;)
+ *                 .threshold(&#34;0.75&#34;)
+ *                 .timeFunction(&#34;all&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var myConditionEntityTags = new EntityTags(&#34;myConditionEntityTags&#34;, EntityTagsArgs.builder()        
+ *             .guid(fooAlertCondition.entityGuid())
+ *             .tags(            
+ *                 EntityTagsTagArgs.builder()
+ *                     .key(&#34;my-key&#34;)
+ *                     .values(                    
+ *                         &#34;my-value&#34;,
+ *                         &#34;my-other-value&#34;)
+ *                     .build(),
+ *                 EntityTagsTagArgs.builder()
+ *                     .key(&#34;my-key-2&#34;)
+ *                     .values(&#34;my-value-2&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Alert conditions can be imported using notation `alert_policy_id:alert_condition_id`, e.g.
@@ -138,6 +210,20 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      */
     public Output<List<Integer>> entities() {
         return this.entities;
+    }
+    /**
+     * The unique entity identifier of the condition in New Relic.
+     * 
+     */
+    @Export(name="entityGuid", type=String.class, parameters={})
+    private Output<String> entityGuid;
+
+    /**
+     * @return The unique entity identifier of the condition in New Relic.
+     * 
+     */
+    public Output<String> entityGuid() {
+        return this.entityGuid;
     }
     /**
      * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.

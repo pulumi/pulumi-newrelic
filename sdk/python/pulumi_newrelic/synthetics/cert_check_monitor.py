@@ -351,6 +351,30 @@ class CertCheckMonitor(pulumi.CustomResource):
         See additional examples.
         ## Additional Examples
 
+        ### Create a monitor with a private location
+
+        The below example shows how you can define a private location and attach it to a monitor.
+
+        > **NOTE:** It can take up to 10 minutes for a private location to become available.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Test Description",
+            verified_script_execution=False)
+        monitor = newrelic.synthetics.CertCheckMonitor("monitor",
+            domain="https://www.one.example.com",
+            locations_privates=[location.id],
+            period="EVERY_6_HOURS",
+            status="ENABLED",
+            tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )])
+        ```
+
         ## Import
 
         Synthetics certificate check monitor scripts can be imported using the `guid`, e.g. bash
@@ -399,6 +423,30 @@ class CertCheckMonitor(pulumi.CustomResource):
         ```
         See additional examples.
         ## Additional Examples
+
+        ### Create a monitor with a private location
+
+        The below example shows how you can define a private location and attach it to a monitor.
+
+        > **NOTE:** It can take up to 10 minutes for a private location to become available.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Test Description",
+            verified_script_execution=False)
+        monitor = newrelic.synthetics.CertCheckMonitor("monitor",
+            domain="https://www.one.example.com",
+            locations_privates=[location.id],
+            period="EVERY_6_HOURS",
+            status="ENABLED",
+            tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )])
+        ```
 
         ## Import
 

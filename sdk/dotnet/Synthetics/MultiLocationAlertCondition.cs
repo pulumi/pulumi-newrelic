@@ -59,6 +59,101 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
+    /// ## Tags
+    /// 
+    /// Manage synthetics multilocation alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    /// 
+    ///     var fooMonitor = new NewRelic.Synthetics.Monitor("fooMonitor", new()
+    ///     {
+    ///         Status = "ENABLED",
+    ///         Period = "EVERY_MINUTE",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         Type = "SIMPLE",
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "AP_EAST_1",
+    ///         },
+    ///         CustomHeaders = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
+    ///             {
+    ///                 Name = "some_name",
+    ///                 Value = "some_value",
+    ///             },
+    ///         },
+    ///         TreatRedirectAsFailure = true,
+    ///         ValidationString = "success",
+    ///         BypassHeadRequest = true,
+    ///         VerifySsl = true,
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooMultiLocationAlertCondition = new NewRelic.Synthetics.MultiLocationAlertCondition("fooMultiLocationAlertCondition", new()
+    ///     {
+    ///         PolicyId = fooAlertPolicy.Id,
+    ///         RunbookUrl = "https://example.com",
+    ///         Enabled = true,
+    ///         ViolationTimeLimitSeconds = 3600,
+    ///         Entities = new[]
+    ///         {
+    ///             fooMonitor.Id,
+    ///         },
+    ///         Critical = new NewRelic.Synthetics.Inputs.MultiLocationAlertConditionCriticalArgs
+    ///         {
+    ///             Threshold = 2,
+    ///         },
+    ///         Warning = new NewRelic.Synthetics.Inputs.MultiLocationAlertConditionWarningArgs
+    ///         {
+    ///             Threshold = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
+    ///     {
+    ///         Guid = fooMultiLocationAlertCondition.EntityGuid,
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Inputs.EntityTagsTagArgs
+    ///             {
+    ///                 Key = "my-key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "my-value",
+    ///                     "my-other-value",
+    ///                 },
+    ///             },
+    ///             new NewRelic.Inputs.EntityTagsTagArgs
+    ///             {
+    ///                 Key = "my-key-2",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "my-value-2",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -90,6 +185,12 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Output("entities")]
         public Output<ImmutableArray<string>> Entities { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique entity identifier of the condition in New Relic.
+        /// </summary>
+        [Output("entityGuid")]
+        public Output<string> EntityGuid { get; private set; } = null!;
 
         /// <summary>
         /// The title of the condition.
@@ -252,6 +353,12 @@ namespace Pulumi.NewRelic.Synthetics
             get => _entities ?? (_entities = new InputList<string>());
             set => _entities = value;
         }
+
+        /// <summary>
+        /// The unique entity identifier of the condition in New Relic.
+        /// </summary>
+        [Input("entityGuid")]
+        public Input<string>? EntityGuid { get; set; }
 
         /// <summary>
         /// The title of the condition.

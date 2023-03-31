@@ -147,7 +147,14 @@ class OneDashboardJson(pulumi.CustomResource):
                  json: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a OneDashboardJson resource with the given unique name, props, and options.
+        ## Import
+
+        New Relic dashboards can be imported using their GUID, e.g. bash
+
+        ```sh
+         $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard <dashboard GUID>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The New Relic account ID where you want to create the dashboard.
@@ -160,7 +167,14 @@ class OneDashboardJson(pulumi.CustomResource):
                  args: OneDashboardJsonArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a OneDashboardJson resource with the given unique name, props, and options.
+        ## Import
+
+        New Relic dashboards can be imported using their GUID, e.g. bash
+
+        ```sh
+         $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard <dashboard GUID>
+        ```
+
         :param str resource_name: The name of the resource.
         :param OneDashboardJsonArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

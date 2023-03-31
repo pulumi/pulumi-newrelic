@@ -11,6 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// New Relic dashboards can be imported using their GUID, e.g. bash
+//
+// ```sh
+//
+//	$ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard <dashboard GUID>
+//
+// ```
 type OneDashboardJson struct {
 	pulumi.CustomResourceState
 

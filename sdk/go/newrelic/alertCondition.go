@@ -78,6 +78,81 @@ import (
 //   - `threshold` - (Required) Must be 0 or greater.
 //   - `timeFunction` - (Required) `all` or `any`.
 //
+// ## Tags
+//
+// Manage alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooEntity, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+//				Name: "foo entitiy",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooAlertCondition, err := newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
+//				PolicyId: fooAlertPolicy.ID(),
+//				Type:     pulumi.String("apm_app_metric"),
+//				Entities: pulumi.IntArray{
+//					*pulumi.Int(fooEntity.ApplicationId),
+//				},
+//				Metric:         pulumi.String("apdex"),
+//				RunbookUrl:     pulumi.String("https://www.example.com"),
+//				ConditionScope: pulumi.String("application"),
+//				Terms: newrelic.AlertConditionTermArray{
+//					&newrelic.AlertConditionTermArgs{
+//						Duration:     pulumi.Int(5),
+//						Operator:     pulumi.String("below"),
+//						Priority:     pulumi.String("critical"),
+//						Threshold:    pulumi.Float64(0.75),
+//						TimeFunction: pulumi.String("all"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
+//				Guid: fooAlertCondition.EntityGuid,
+//				Tags: newrelic.EntityTagsTagArray{
+//					&newrelic.EntityTagsTagArgs{
+//						Key: pulumi.String("my-key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("my-value"),
+//							pulumi.String("my-other-value"),
+//						},
+//					},
+//					&newrelic.EntityTagsTagArgs{
+//						Key: pulumi.String("my-key-2"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("my-value-2"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Alert conditions can be imported using notation `alert_policy_id:alert_condition_id`, e.g.
@@ -96,6 +171,8 @@ type AlertCondition struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The instance IDs associated with this condition.
 	Entities pulumi.IntArrayOutput `pulumi:"entities"`
+	// The unique entity identifier of the condition in New Relic.
+	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
 	GcMetric pulumi.StringPtrOutput `pulumi:"gcMetric"`
 	// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
@@ -168,6 +245,8 @@ type alertConditionState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The instance IDs associated with this condition.
 	Entities []int `pulumi:"entities"`
+	// The unique entity identifier of the condition in New Relic.
+	EntityGuid *string `pulumi:"entityGuid"`
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
 	GcMetric *string `pulumi:"gcMetric"`
 	// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
@@ -197,6 +276,8 @@ type AlertConditionState struct {
 	Enabled pulumi.BoolPtrInput
 	// The instance IDs associated with this condition.
 	Entities pulumi.IntArrayInput
+	// The unique entity identifier of the condition in New Relic.
+	EntityGuid pulumi.StringPtrInput
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
 	GcMetric pulumi.StringPtrInput
 	// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
@@ -382,6 +463,11 @@ func (o AlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
 // The instance IDs associated with this condition.
 func (o AlertConditionOutput) Entities() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.IntArrayOutput { return v.Entities }).(pulumi.IntArrayOutput)
+}
+
+// The unique entity identifier of the condition in New Relic.
+func (o AlertConditionOutput) EntityGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.EntityGuid }).(pulumi.StringOutput)
 }
 
 // A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.

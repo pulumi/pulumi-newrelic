@@ -68,6 +68,76 @@ namespace Pulumi.NewRelic
     ///   * `threshold` - (Required) Must be 0 or greater.
     ///   * `time_function` - (Required) `all` or `any`.
     /// 
+    /// ## Tags
+    /// 
+    /// Manage alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooEntity = NewRelic.GetEntity.Invoke(new()
+    ///     {
+    ///         Name = "foo entitiy",
+    ///     });
+    /// 
+    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    /// 
+    ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+    ///     {
+    ///         PolicyId = fooAlertPolicy.Id,
+    ///         Type = "apm_app_metric",
+    ///         Entities = new[]
+    ///         {
+    ///             fooEntity.Apply(getEntityResult =&gt; getEntityResult.ApplicationId),
+    ///         },
+    ///         Metric = "apdex",
+    ///         RunbookUrl = "https://www.example.com",
+    ///         ConditionScope = "application",
+    ///         Terms = new[]
+    ///         {
+    ///             new NewRelic.Inputs.AlertConditionTermArgs
+    ///             {
+    ///                 Duration = 5,
+    ///                 Operator = "below",
+    ///                 Priority = "critical",
+    ///                 Threshold = 0.75,
+    ///                 TimeFunction = "all",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
+    ///     {
+    ///         Guid = fooAlertCondition.EntityGuid,
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Inputs.EntityTagsTagArgs
+    ///             {
+    ///                 Key = "my-key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "my-value",
+    ///                     "my-other-value",
+    ///                 },
+    ///             },
+    ///             new NewRelic.Inputs.EntityTagsTagArgs
+    ///             {
+    ///                 Key = "my-key-2",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "my-value-2",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Alert conditions can be imported using notation `alert_policy_id:alert_condition_id`, e.g.
@@ -96,6 +166,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("entities")]
         public Output<ImmutableArray<int>> Entities { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique entity identifier of the condition in New Relic.
+        /// </summary>
+        [Output("entityGuid")]
+        public Output<string> EntityGuid { get; private set; } = null!;
 
         /// <summary>
         /// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
@@ -324,6 +400,12 @@ namespace Pulumi.NewRelic
             get => _entities ?? (_entities = new InputList<int>());
             set => _entities = value;
         }
+
+        /// <summary>
+        /// The unique entity identifier of the condition in New Relic.
+        /// </summary>
+        [Input("entityGuid")]
+        public Input<string>? EntityGuid { get; set; }
 
         /// <summary>
         /// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.

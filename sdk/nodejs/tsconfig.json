@@ -44,6 +44,7 @@
         "getKeyTransaction.ts",
         "getNotificationDestination.ts",
         "getObfuscationExpression.ts",
+        "getServiceLevelAlertHelper.ts",
         "getTestGrokPattern.ts",
         "index.ts",
         "infraAlertCondition.ts",

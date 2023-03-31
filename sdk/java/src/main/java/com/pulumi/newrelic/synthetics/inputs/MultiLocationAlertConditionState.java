@@ -66,6 +66,21 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
     }
 
     /**
+     * The unique entity identifier of the condition in New Relic.
+     * 
+     */
+    @Import(name="entityGuid")
+    private @Nullable Output<String> entityGuid;
+
+    /**
+     * @return The unique entity identifier of the condition in New Relic.
+     * 
+     */
+    public Optional<Output<String>> entityGuid() {
+        return Optional.ofNullable(this.entityGuid);
+    }
+
+    /**
      * The title of the condition.
      * 
      */
@@ -146,6 +161,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         this.critical = $.critical;
         this.enabled = $.enabled;
         this.entities = $.entities;
+        this.entityGuid = $.entityGuid;
         this.name = $.name;
         this.policyId = $.policyId;
         this.runbookUrl = $.runbookUrl;
@@ -242,6 +258,27 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
          */
         public Builder entities(String... entities) {
             return entities(List.of(entities));
+        }
+
+        /**
+         * @param entityGuid The unique entity identifier of the condition in New Relic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder entityGuid(@Nullable Output<String> entityGuid) {
+            $.entityGuid = entityGuid;
+            return this;
+        }
+
+        /**
+         * @param entityGuid The unique entity identifier of the condition in New Relic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder entityGuid(String entityGuid) {
+            return entityGuid(Output.of(entityGuid));
         }
 
         /**
