@@ -18,7 +18,7 @@ jobs:
               workflow_id: 'upgrade-provider.yml',
               ref: 'main',
               inputs: {
-          	    "provider-name": pulumi-newrelic
+          	    'provider-name': 'pulumi-newrelic'
               }})
 name: Upgrade provider
 on:
