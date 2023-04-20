@@ -7,13 +7,10 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific entity in New Relic One that already exists.
- *
  * ## Additional Examples
  *
  * > If the entities are not found please try again without providing the `types` field.
- *
- * ### Query for an OTEL entity
+ * ### An example of querying OTEL entities
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -26,19 +23,22 @@ import * as utilities from "./utilities";
  *         key: "accountID",
  *         value: "12345",
  *     }],
- *     type: "SERVICE",
  * });
  * ```
  *
- * ### Query for an entity by type (AWS Lambda entity in this example)
+ * ### An example of querying AWS lambda entities
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const app = newrelic.getEntity({
+ *     domain: "INFRA",
  *     name: "my_lambda_trace",
- *     type: "AWSLAMBDAFUNCTION",
+ *     tags: [{
+ *         key: "accountID",
+ *         value: "12345",
+ *     }],
  * });
  * ```
  */
@@ -75,7 +75,7 @@ export interface GetEntityArgs {
      */
     tags?: inputs.GetEntityTag[];
     /**
-     * The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
+     * The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
      */
     type?: string;
 }
@@ -111,13 +111,10 @@ export interface GetEntityResult {
     readonly type: string;
 }
 /**
- * Use this data source to get information about a specific entity in New Relic One that already exists.
- *
  * ## Additional Examples
  *
  * > If the entities are not found please try again without providing the `types` field.
- *
- * ### Query for an OTEL entity
+ * ### An example of querying OTEL entities
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -130,19 +127,22 @@ export interface GetEntityResult {
  *         key: "accountID",
  *         value: "12345",
  *     }],
- *     type: "SERVICE",
  * });
  * ```
  *
- * ### Query for an entity by type (AWS Lambda entity in this example)
+ * ### An example of querying AWS lambda entities
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const app = newrelic.getEntity({
+ *     domain: "INFRA",
  *     name: "my_lambda_trace",
- *     type: "AWSLAMBDAFUNCTION",
+ *     tags: [{
+ *         key: "accountID",
+ *         value: "12345",
+ *     }],
  * });
  * ```
  */
@@ -171,7 +171,7 @@ export interface GetEntityOutputArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.GetEntityTagArgs>[]>;
     /**
-     * The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
+     * The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
      */
     type?: pulumi.Input<string>;
 }

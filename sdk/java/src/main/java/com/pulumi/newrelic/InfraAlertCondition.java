@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 /**
  * Use this resource to create and manage Infrastructure alert conditions in New Relic.
  * 
- * &gt; **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
+ * &gt; **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
  * 
  * ## Example Usage
  * ```java
@@ -120,77 +120,6 @@ import javax.annotation.Nullable;
  *   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infra_metric` and `infra_process_running` alert condition types.
  *   * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infra_metric` alert condition type.
  * 
- * ## Tags
- * 
- * Manage infra alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.AlertPolicy;
- * import com.pulumi.newrelic.InfraAlertCondition;
- * import com.pulumi.newrelic.InfraAlertConditionArgs;
- * import com.pulumi.newrelic.inputs.InfraAlertConditionCriticalArgs;
- * import com.pulumi.newrelic.inputs.InfraAlertConditionWarningArgs;
- * import com.pulumi.newrelic.EntityTags;
- * import com.pulumi.newrelic.EntityTagsArgs;
- * import com.pulumi.newrelic.inputs.EntityTagsTagArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
- * 
- *         var fooInfraAlertCondition = new InfraAlertCondition(&#34;fooInfraAlertCondition&#34;, InfraAlertConditionArgs.builder()        
- *             .policyId(fooAlertPolicy.id())
- *             .description(&#34;Warning if disk usage goes above 80% and critical alert if goes above 90%&#34;)
- *             .type(&#34;infra_metric&#34;)
- *             .event(&#34;StorageSample&#34;)
- *             .select(&#34;diskUsedPercent&#34;)
- *             .comparison(&#34;above&#34;)
- *             .where(&#34;(hostname LIKE &#39;%frontend%&#39;)&#34;)
- *             .critical(InfraAlertConditionCriticalArgs.builder()
- *                 .duration(25)
- *                 .value(90)
- *                 .timeFunction(&#34;all&#34;)
- *                 .build())
- *             .warning(InfraAlertConditionWarningArgs.builder()
- *                 .duration(10)
- *                 .value(80)
- *                 .timeFunction(&#34;all&#34;)
- *                 .build())
- *             .build());
- * 
- *         var myConditionEntityTags = new EntityTags(&#34;myConditionEntityTags&#34;, EntityTagsArgs.builder()        
- *             .guid(fooInfraAlertCondition.entityGuid())
- *             .tags(            
- *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key&#34;)
- *                     .values(                    
- *                         &#34;my-value&#34;,
- *                         &#34;my-other-value&#34;)
- *                     .build(),
- *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key-2&#34;)
- *                     .values(&#34;my-value-2&#34;)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Infrastructure alert conditions can be imported using a composite ID of `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g.
@@ -271,20 +200,6 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
-    }
-    /**
-     * The unique entity identifier of the condition in New Relic.
-     * 
-     */
-    @Export(name="entityGuid", type=String.class, parameters={})
-    private Output<String> entityGuid;
-
-    /**
-     * @return The unique entity identifier of the condition in New Relic.
-     * 
-     */
-    public Output<String> entityGuid() {
-        return this.entityGuid;
     }
     /**
      * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.

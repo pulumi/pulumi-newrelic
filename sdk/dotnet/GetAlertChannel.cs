@@ -11,19 +11,9 @@ namespace Pulumi.NewRelic
 {
     public static class GetAlertChannel
     {
-        /// <summary>
-        /// Use this data source to get information about a specific alert channel in New Relic that already exists.
-        /// 
-        /// &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
-        /// </summary>
         public static Task<GetAlertChannelResult> InvokeAsync(GetAlertChannelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a specific alert channel in New Relic that already exists.
-        /// 
-        /// &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
-        /// </summary>
         public static Output<GetAlertChannelResult> Invoke(GetAlertChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelInvokeArgs(), options.WithDefaults());
     }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Use this resource to create, update, and delete a New Relic Synthetics Location Alerts.
  *
- * > **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
+ * > **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
  *
  * ## Example Usage
  *
@@ -37,64 +37,6 @@ import * as utilities from "../utilities";
  *     warning: {
  *         threshold: 1,
  *     },
- * });
- * ```
- * ## Tags
- *
- * Manage synthetics multilocation alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooMonitor = new newrelic.synthetics.Monitor("fooMonitor", {
- *     status: "ENABLED",
- *     period: "EVERY_MINUTE",
- *     uri: "https://www.one.newrelic.com",
- *     type: "SIMPLE",
- *     locationsPublics: ["AP_EAST_1"],
- *     customHeaders: [{
- *         name: "some_name",
- *         value: "some_value",
- *     }],
- *     treatRedirectAsFailure: true,
- *     validationString: "success",
- *     bypassHeadRequest: true,
- *     verifySsl: true,
- *     tags: [{
- *         key: "some_key",
- *         values: ["some_value"],
- *     }],
- * });
- * const fooMultiLocationAlertCondition = new newrelic.synthetics.MultiLocationAlertCondition("fooMultiLocationAlertCondition", {
- *     policyId: fooAlertPolicy.id,
- *     runbookUrl: "https://example.com",
- *     enabled: true,
- *     violationTimeLimitSeconds: 3600,
- *     entities: [fooMonitor.id],
- *     critical: {
- *         threshold: 2,
- *     },
- *     warning: {
- *         threshold: 1,
- *     },
- * });
- * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
- *     guid: fooMultiLocationAlertCondition.entityGuid,
- *     tags: [
- *         {
- *             key: "my-key",
- *             values: [
- *                 "my-value",
- *                 "my-other-value",
- *             ],
- *         },
- *         {
- *             key: "my-key-2",
- *             values: ["my-value-2"],
- *         },
- *     ],
  * });
  * ```
  *
@@ -149,10 +91,6 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
      */
     public readonly entities!: pulumi.Output<string[]>;
     /**
-     * The unique entity identifier of the condition in New Relic.
-     */
-    public /*out*/ readonly entityGuid!: pulumi.Output<string>;
-    /**
      * The title of the condition.
      */
     public readonly name!: pulumi.Output<string>;
@@ -189,7 +127,6 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
             resourceInputs["critical"] = state ? state.critical : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["entities"] = state ? state.entities : undefined;
-            resourceInputs["entityGuid"] = state ? state.entityGuid : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
             resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
@@ -217,7 +154,6 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
             resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
             resourceInputs["violationTimeLimitSeconds"] = args ? args.violationTimeLimitSeconds : undefined;
             resourceInputs["warning"] = args ? args.warning : undefined;
-            resourceInputs["entityGuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MultiLocationAlertCondition.__pulumiType, name, resourceInputs, opts);
@@ -240,10 +176,6 @@ export interface MultiLocationAlertConditionState {
      * The Monitor GUID's of the Synthetics monitors to alert on.
      */
     entities?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The unique entity identifier of the condition in New Relic.
-     */
-    entityGuid?: pulumi.Input<string>;
     /**
      * The title of the condition.
      */

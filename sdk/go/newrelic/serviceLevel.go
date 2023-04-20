@@ -136,7 +136,8 @@ import (
 //	}
 //
 // ```
-// For up-to-date documentation about the tagging resource, please check EntityTags
+//
+// # For up-to-date documentation about the tagging resource, please check EntityTags
 //
 // ## Import
 //

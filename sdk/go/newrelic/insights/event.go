@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this resource to create one or more Insights events.
-//
 // ## Example Usage
 //
 // ```go

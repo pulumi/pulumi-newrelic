@@ -65,21 +65,6 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The unique entity identifier of the condition in New Relic.
-     * 
-     */
-    @Import(name="entityGuid")
-    private @Nullable Output<String> entityGuid;
-
-    /**
-     * @return The unique entity identifier of the condition in New Relic.
-     * 
-     */
-    public Optional<Output<String>> entityGuid() {
-        return Optional.ofNullable(this.entityGuid);
-    }
-
-    /**
      * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      * 
      */
@@ -235,7 +220,6 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         this.conditionScope = $.conditionScope;
         this.enabled = $.enabled;
         this.entities = $.entities;
-        this.entityGuid = $.entityGuid;
         this.gcMetric = $.gcMetric;
         this.metric = $.metric;
         this.name = $.name;
@@ -337,27 +321,6 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
          */
         public Builder entities(Integer... entities) {
             return entities(List.of(entities));
-        }
-
-        /**
-         * @param entityGuid The unique entity identifier of the condition in New Relic.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder entityGuid(@Nullable Output<String> entityGuid) {
-            $.entityGuid = entityGuid;
-            return this;
-        }
-
-        /**
-         * @param entityGuid The unique entity identifier of the condition in New Relic.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder entityGuid(String entityGuid) {
-            return entityGuid(Output.of(entityGuid));
         }
 
         /**

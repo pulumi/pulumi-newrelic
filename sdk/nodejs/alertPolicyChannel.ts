@@ -86,7 +86,8 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
-     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+     * drift your Terraform state.
      */
     public readonly channelIds!: pulumi.Output<number[]>;
     /**
@@ -136,7 +137,8 @@ export interface AlertPolicyChannelState {
      */
     accountId?: pulumi.Input<number>;
     /**
-     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+     * drift your Terraform state.
      */
     channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -154,7 +156,8 @@ export interface AlertPolicyChannelArgs {
      */
     accountId?: pulumi.Input<number>;
     /**
-     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+     * drift your Terraform state.
      */
     channelIds: pulumi.Input<pulumi.Input<number>[]>;
     /**

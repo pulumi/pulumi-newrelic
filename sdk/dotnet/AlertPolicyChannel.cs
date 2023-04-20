@@ -16,6 +16,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -83,7 +84,8 @@ namespace Pulumi.NewRelic
         public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+        /// drift your Terraform state.
         /// </summary>
         [Output("channelIds")]
         public Output<ImmutableArray<int>> ChannelIds { get; private set; } = null!;
@@ -150,7 +152,8 @@ namespace Pulumi.NewRelic
         private InputList<int>? _channelIds;
 
         /// <summary>
-        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+        /// drift your Terraform state.
         /// </summary>
         public InputList<int> ChannelIds
         {
@@ -182,7 +185,8 @@ namespace Pulumi.NewRelic
         private InputList<int>? _channelIds;
 
         /// <summary>
-        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+        /// drift your Terraform state.
         /// </summary>
         public InputList<int> ChannelIds
         {

@@ -14,6 +14,7 @@ namespace Pulumi.NewRelic
     /// ### Email
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -36,6 +37,7 @@ namespace Pulumi.NewRelic
     /// ##### Slack
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -57,6 +59,7 @@ namespace Pulumi.NewRelic
     /// ### OpsGenie
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -80,6 +83,7 @@ namespace Pulumi.NewRelic
     /// ### PagerDuty
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -100,6 +104,7 @@ namespace Pulumi.NewRelic
     /// ### VictorOps
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -121,6 +126,7 @@ namespace Pulumi.NewRelic
     /// ### Webhook
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -152,6 +158,7 @@ namespace Pulumi.NewRelic
     /// ### Webhook with complex payload
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 

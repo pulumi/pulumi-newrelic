@@ -13,7 +13,7 @@ import (
 
 // Use this resource to create, update, and delete a New Relic Synthetics Location Alerts.
 //
-// > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
+// > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
 //
 // ## Example Usage
 //
@@ -69,101 +69,6 @@ import (
 //	}
 //
 // ```
-// ## Tags
-//
-// Manage synthetics multilocation alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
-//			if err != nil {
-//				return err
-//			}
-//			fooMonitor, err := synthetics.NewMonitor(ctx, "fooMonitor", &synthetics.MonitorArgs{
-//				Status: pulumi.String("ENABLED"),
-//				Period: pulumi.String("EVERY_MINUTE"),
-//				Uri:    pulumi.String("https://www.one.newrelic.com"),
-//				Type:   pulumi.String("SIMPLE"),
-//				LocationsPublics: pulumi.StringArray{
-//					pulumi.String("AP_EAST_1"),
-//				},
-//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
-//					&synthetics.MonitorCustomHeaderArgs{
-//						Name:  pulumi.String("some_name"),
-//						Value: pulumi.String("some_value"),
-//					},
-//				},
-//				TreatRedirectAsFailure: pulumi.Bool(true),
-//				ValidationString:       pulumi.String("success"),
-//				BypassHeadRequest:      pulumi.Bool(true),
-//				VerifySsl:              pulumi.Bool(true),
-//				Tags: synthetics.MonitorTagArray{
-//					&synthetics.MonitorTagArgs{
-//						Key: pulumi.String("some_key"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("some_value"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fooMultiLocationAlertCondition, err := synthetics.NewMultiLocationAlertCondition(ctx, "fooMultiLocationAlertCondition", &synthetics.MultiLocationAlertConditionArgs{
-//				PolicyId:                  fooAlertPolicy.ID(),
-//				RunbookUrl:                pulumi.String("https://example.com"),
-//				Enabled:                   pulumi.Bool(true),
-//				ViolationTimeLimitSeconds: pulumi.Int(3600),
-//				Entities: pulumi.StringArray{
-//					fooMonitor.ID(),
-//				},
-//				Critical: &synthetics.MultiLocationAlertConditionCriticalArgs{
-//					Threshold: pulumi.Int(2),
-//				},
-//				Warning: &synthetics.MultiLocationAlertConditionWarningArgs{
-//					Threshold: pulumi.Int(1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
-//				Guid: fooMultiLocationAlertCondition.EntityGuid,
-//				Tags: newrelic.EntityTagsTagArray{
-//					&newrelic.EntityTagsTagArgs{
-//						Key: pulumi.String("my-key"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("my-value"),
-//							pulumi.String("my-other-value"),
-//						},
-//					},
-//					&newrelic.EntityTagsTagArgs{
-//						Key: pulumi.String("my-key-2"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("my-value-2"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -185,8 +90,6 @@ type MultiLocationAlertCondition struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The Monitor GUID's of the Synthetics monitors to alert on.
 	Entities pulumi.StringArrayOutput `pulumi:"entities"`
-	// The unique entity identifier of the condition in New Relic.
-	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
 	// The title of the condition.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the policy where this condition will be used.
@@ -246,8 +149,6 @@ type multiLocationAlertConditionState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The Monitor GUID's of the Synthetics monitors to alert on.
 	Entities []string `pulumi:"entities"`
-	// The unique entity identifier of the condition in New Relic.
-	EntityGuid *string `pulumi:"entityGuid"`
 	// The title of the condition.
 	Name *string `pulumi:"name"`
 	// The ID of the policy where this condition will be used.
@@ -267,8 +168,6 @@ type MultiLocationAlertConditionState struct {
 	Enabled pulumi.BoolPtrInput
 	// The Monitor GUID's of the Synthetics monitors to alert on.
 	Entities pulumi.StringArrayInput
-	// The unique entity identifier of the condition in New Relic.
-	EntityGuid pulumi.StringPtrInput
 	// The title of the condition.
 	Name pulumi.StringPtrInput
 	// The ID of the policy where this condition will be used.
@@ -424,11 +323,6 @@ func (o MultiLocationAlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
 // The Monitor GUID's of the Synthetics monitors to alert on.
 func (o MultiLocationAlertConditionOutput) Entities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.StringArrayOutput { return v.Entities }).(pulumi.StringArrayOutput)
-}
-
-// The unique entity identifier of the condition in New Relic.
-func (o MultiLocationAlertConditionOutput) EntityGuid() pulumi.StringOutput {
-	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.StringOutput { return v.EntityGuid }).(pulumi.StringOutput)
 }
 
 // The title of the condition.

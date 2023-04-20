@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
-    /// Use this resource to create and manage NRQL alert conditions in New Relic.
-    /// 
-    /// ## Example Usage
     /// ## NRQL
     /// 
     /// The `nrql` block supports the following arguments:
@@ -41,64 +38,6 @@ namespace Pulumi.NewRelic
     /// - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
     /// - `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
     /// 
-    /// ## Additional Examples
-    /// 
-    /// ##### Type: `baseline`
-    /// 
-    /// [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-    /// 
-    ///     var fooIndex_alertPolicyAlertPolicy = new NewRelic.AlertPolicy("fooIndex/alertPolicyAlertPolicy");
-    /// 
-    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("fooNrqlAlertCondition", new()
-    ///     {
-    ///         AccountId = "your_account_id",
-    ///         PolicyId = fooAlertPolicy.Id,
-    ///         Type = "static",
-    ///         Description = "Alert when transactions are taking too long",
-    ///         RunbookUrl = "https://www.example.com",
-    ///         Enabled = true,
-    ///         ViolationTimeLimitSeconds = 3600,
-    ///         FillOption = "static",
-    ///         FillValue = 1,
-    ///         AggregationWindow = 60,
-    ///         AggregationMethod = "event_flow",
-    ///         AggregationDelay = "120",
-    ///         ExpirationDuration = 120,
-    ///         OpenViolationOnExpiration = true,
-    ///         CloseViolationsOnExpiration = true,
-    ///         SlideBy = 30,
-    ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
-    ///         {
-    ///             Query = "SELECT average(duration) FROM Transaction where appName = 'Your App'",
-    ///         },
-    ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
-    ///         {
-    ///             Operator = "above",
-    ///             Threshold = 5.5,
-    ///             ThresholdDuration = 300,
-    ///             ThresholdOccurrences = "ALL",
-    ///         },
-    ///         Warning = new NewRelic.Inputs.NrqlAlertConditionWarningArgs
-    ///         {
-    ///             Operator = "above",
-    ///             Threshold = 3.5,
-    ///             ThresholdDuration = 600,
-    ///             ThresholdOccurrences = "ALL",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Upgrade from 1.x to 2.x
     /// 
     /// There have been several deprecations in the `newrelic.NrqlAlertCondition`
@@ -109,6 +48,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -142,6 +82,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -187,6 +128,8 @@ namespace Pulumi.NewRelic
     /// ```sh
     ///  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
     /// ```
+    /// 
+    ///  Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
     /// </summary>
     [NewRelicResourceType("newrelic:index/nrqlAlertCondition:NrqlAlertCondition")]
     public partial class NrqlAlertCondition : global::Pulumi.CustomResource

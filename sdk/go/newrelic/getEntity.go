@@ -10,13 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about a specific entity in New Relic One that already exists.
-//
 // ## Additional Examples
 //
 // > If the entities are not found please try again without providing the `types` field.
-//
-// ### Query for an OTEL entity
+// ### An example of querying OTEL entities
 //
 // ```go
 // package main
@@ -39,7 +36,6 @@ import (
 //						Value: "12345",
 //					},
 //				},
-//				Type: pulumi.StringRef("SERVICE"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -50,7 +46,7 @@ import (
 //
 // ```
 //
-// ### Query for an entity by type (AWS Lambda entity in this example)
+// ### An example of querying AWS lambda entities
 //
 // ```go
 // package main
@@ -65,8 +61,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
-//				Name: "my_lambda_trace",
-//				Type: pulumi.StringRef("AWSLAMBDAFUNCTION"),
+//				Domain: pulumi.StringRef("INFRA"),
+//				Name:   "my_lambda_trace",
+//				Tags: []newrelic.GetEntityTag{
+//					{
+//						Key:   "accountID",
+//						Value: "12345",
+//					},
+//				},
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -95,7 +97,7 @@ type GetEntityArgs struct {
 	Name string `pulumi:"name"`
 	// A tag applied to the entity. See Nested tag blocks below for details.
 	Tags []GetEntityTag `pulumi:"tags"`
-	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
+	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
 	Type *string `pulumi:"type"`
 }
 
@@ -141,7 +143,7 @@ type GetEntityOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// A tag applied to the entity. See Nested tag blocks below for details.
 	Tags GetEntityTagArrayInput `pulumi:"tags"`
-	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
+	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 

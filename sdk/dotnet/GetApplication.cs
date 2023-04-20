@@ -12,16 +12,13 @@ namespace Pulumi.NewRelic
     public static class GetApplication
     {
         /// <summary>
-        /// #### DEPRECATED! Use at your own risk. Use the `newrelic.getEntity` data source instead. This feature may be removed in the next major release
-        /// 
-        /// Use this data source to get information about a specific application in New Relic that already exists.
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
@@ -66,16 +63,13 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("newrelic:index/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// #### DEPRECATED! Use at your own risk. Use the `newrelic.getEntity` data source instead. This feature may be removed in the next major release
-        /// 
-        /// Use this data source to get information about a specific application in New Relic that already exists.
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 

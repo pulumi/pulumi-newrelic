@@ -230,7 +230,6 @@ class _AlertConditionState:
                  condition_scope: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entities: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 entity_guid: Optional[pulumi.Input[str]] = None,
                  gc_metric: Optional[pulumi.Input[str]] = None,
                  metric: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -246,7 +245,6 @@ class _AlertConditionState:
         :param pulumi.Input[str] condition_scope: `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         :param pulumi.Input[bool] enabled: Whether the condition is enabled or not. Defaults to true.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] entities: The instance IDs associated with this condition.
-        :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] gc_metric: A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
         :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
@@ -264,8 +262,6 @@ class _AlertConditionState:
             pulumi.set(__self__, "enabled", enabled)
         if entities is not None:
             pulumi.set(__self__, "entities", entities)
-        if entity_guid is not None:
-            pulumi.set(__self__, "entity_guid", entity_guid)
         if gc_metric is not None:
             pulumi.set(__self__, "gc_metric", gc_metric)
         if metric is not None:
@@ -322,18 +318,6 @@ class _AlertConditionState:
     @entities.setter
     def entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "entities", value)
-
-    @property
-    @pulumi.getter(name="entityGuid")
-    def entity_guid(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unique entity identifier of the condition in New Relic.
-        """
-        return pulumi.get(self, "entity_guid")
-
-    @entity_guid.setter
-    def entity_guid(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "entity_guid", value)
 
     @property
     @pulumi.getter(name="gcMetric")
@@ -478,7 +462,7 @@ class AlertCondition(pulumi.CustomResource):
         """
         Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
 
-        > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
+        > **WARNING:** The  AlertCondition resource will be deprecated in the near future and will no longer receive product updates. Please use the NrqlAlertCondition resource to avoid being impacted by these changes.
 
         ## Example Usage
 
@@ -514,47 +498,6 @@ class AlertCondition(pulumi.CustomResource):
           * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
           * `threshold` - (Required) Must be 0 or greater.
           * `time_function` - (Required) `all` or `any`.
-
-        ## Tags
-
-        Manage alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo_entity = newrelic.get_entity(name="foo entitiy")
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
-            policy_id=foo_alert_policy.id,
-            type="apm_app_metric",
-            entities=[foo_entity.application_id],
-            metric="apdex",
-            runbook_url="https://www.example.com",
-            condition_scope="application",
-            terms=[newrelic.AlertConditionTermArgs(
-                duration=5,
-                operator="below",
-                priority="critical",
-                threshold=0.75,
-                time_function="all",
-            )])
-        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
-            guid=foo_alert_condition.entity_guid,
-            tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="my-key",
-                    values=[
-                        "my-value",
-                        "my-other-value",
-                    ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="my-key-2",
-                    values=["my-value-2"],
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -589,7 +532,7 @@ class AlertCondition(pulumi.CustomResource):
         """
         Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
 
-        > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
+        > **WARNING:** The  AlertCondition resource will be deprecated in the near future and will no longer receive product updates. Please use the NrqlAlertCondition resource to avoid being impacted by these changes.
 
         ## Example Usage
 
@@ -625,47 +568,6 @@ class AlertCondition(pulumi.CustomResource):
           * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
           * `threshold` - (Required) Must be 0 or greater.
           * `time_function` - (Required) `all` or `any`.
-
-        ## Tags
-
-        Manage alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo_entity = newrelic.get_entity(name="foo entitiy")
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
-            policy_id=foo_alert_policy.id,
-            type="apm_app_metric",
-            entities=[foo_entity.application_id],
-            metric="apdex",
-            runbook_url="https://www.example.com",
-            condition_scope="application",
-            terms=[newrelic.AlertConditionTermArgs(
-                duration=5,
-                operator="below",
-                priority="critical",
-                threshold=0.75,
-                time_function="all",
-            )])
-        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
-            guid=foo_alert_condition.entity_guid,
-            tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="my-key",
-                    values=[
-                        "my-value",
-                        "my-other-value",
-                    ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="my-key-2",
-                    values=["my-value-2"],
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -735,7 +637,6 @@ class AlertCondition(pulumi.CustomResource):
             __props__.__dict__["user_defined_metric"] = user_defined_metric
             __props__.__dict__["user_defined_value_function"] = user_defined_value_function
             __props__.__dict__["violation_close_timer"] = violation_close_timer
-            __props__.__dict__["entity_guid"] = None
         super(AlertCondition, __self__).__init__(
             'newrelic:index/alertCondition:AlertCondition',
             resource_name,
@@ -749,7 +650,6 @@ class AlertCondition(pulumi.CustomResource):
             condition_scope: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             entities: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-            entity_guid: Optional[pulumi.Input[str]] = None,
             gc_metric: Optional[pulumi.Input[str]] = None,
             metric: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -770,7 +670,6 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] condition_scope: `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         :param pulumi.Input[bool] enabled: Whether the condition is enabled or not. Defaults to true.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] entities: The instance IDs associated with this condition.
-        :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] gc_metric: A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
         :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
@@ -789,7 +688,6 @@ class AlertCondition(pulumi.CustomResource):
         __props__.__dict__["condition_scope"] = condition_scope
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["entities"] = entities
-        __props__.__dict__["entity_guid"] = entity_guid
         __props__.__dict__["gc_metric"] = gc_metric
         __props__.__dict__["metric"] = metric
         __props__.__dict__["name"] = name
@@ -825,14 +723,6 @@ class AlertCondition(pulumi.CustomResource):
         The instance IDs associated with this condition.
         """
         return pulumi.get(self, "entities")
-
-    @property
-    @pulumi.getter(name="entityGuid")
-    def entity_guid(self) -> pulumi.Output[str]:
-        """
-        The unique entity identifier of the condition in New Relic.
-        """
-        return pulumi.get(self, "entity_guid")
 
     @property
     @pulumi.getter(name="gcMetric")

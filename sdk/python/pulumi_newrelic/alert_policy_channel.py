@@ -19,7 +19,8 @@ class AlertPolicyChannelArgs:
                  account_id: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a AlertPolicyChannel resource.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+               drift your Terraform state.
         :param pulumi.Input[int] policy_id: The ID of the policy.
         :param pulumi.Input[int] account_id: Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
         """
@@ -32,7 +33,8 @@ class AlertPolicyChannelArgs:
     @pulumi.getter(name="channelIds")
     def channel_ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
         """
-        Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+        drift your Terraform state.
         """
         return pulumi.get(self, "channel_ids")
 
@@ -74,7 +76,8 @@ class _AlertPolicyChannelState:
         """
         Input properties used for looking up and filtering AlertPolicyChannel resources.
         :param pulumi.Input[int] account_id: Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+               drift your Terraform state.
         :param pulumi.Input[int] policy_id: The ID of the policy.
         """
         if account_id is not None:
@@ -100,7 +103,8 @@ class _AlertPolicyChannelState:
     @pulumi.getter(name="channelIds")
     def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
-        Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+        drift your Terraform state.
         """
         return pulumi.get(self, "channel_ids")
 
@@ -177,7 +181,8 @@ class AlertPolicyChannel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+               drift your Terraform state.
         :param pulumi.Input[int] policy_id: The ID of the policy.
         """
         ...
@@ -285,7 +290,8 @@ class AlertPolicyChannel(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+               drift your Terraform state.
         :param pulumi.Input[int] policy_id: The ID of the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -309,7 +315,8 @@ class AlertPolicyChannel(pulumi.CustomResource):
     @pulumi.getter(name="channelIds")
     def channel_ids(self) -> pulumi.Output[Sequence[int]]:
         """
-        Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+        drift your Terraform state.
         """
         return pulumi.get(self, "channel_ids")
 

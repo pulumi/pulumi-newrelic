@@ -95,21 +95,6 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The unique entity identifier of the condition in New Relic.
-     * 
-     */
-    @Import(name="entityGuid")
-    private @Nullable Output<String> entityGuid;
-
-    /**
-     * @return The unique entity identifier of the condition in New Relic.
-     * 
-     */
-    public Optional<Output<String>> entityGuid() {
-        return Optional.ofNullable(this.entityGuid);
-    }
-
-    /**
      * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
      * 
      */
@@ -297,7 +282,6 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
         this.critical = $.critical;
         this.description = $.description;
         this.enabled = $.enabled;
-        this.entityGuid = $.entityGuid;
         this.event = $.event;
         this.integrationProvider = $.integrationProvider;
         this.name = $.name;
@@ -433,27 +417,6 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
-        }
-
-        /**
-         * @param entityGuid The unique entity identifier of the condition in New Relic.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder entityGuid(@Nullable Output<String> entityGuid) {
-            $.entityGuid = entityGuid;
-            return this;
-        }
-
-        /**
-         * @param entityGuid The unique entity identifier of the condition in New Relic.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder entityGuid(String entityGuid) {
-            return entityGuid(Output.of(entityGuid));
         }
 
         /**

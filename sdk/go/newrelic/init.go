@@ -20,8 +20,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "newrelic:index/accountManagement:AccountManagement":
-		r = &AccountManagement{}
 	case "newrelic:index/alertChannel:AlertChannel":
 		r = &AlertChannel{}
 	case "newrelic:index/alertCondition:AlertCondition":
@@ -34,10 +32,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlertPolicyChannel{}
 	case "newrelic:index/apiAccessKey:ApiAccessKey":
 		r = &ApiAccessKey{}
-	case "newrelic:index/browserApplication:BrowserApplication":
-		r = &BrowserApplication{}
-	case "newrelic:index/dataPartitionRule:DataPartitionRule":
-		r = &DataPartitionRule{}
 	case "newrelic:index/entityTags:EntityTags":
 		r = &EntityTags{}
 	case "newrelic:index/eventsToMetricsRule:EventsToMetricsRule":
@@ -98,11 +92,6 @@ func init() {
 	version, _ := PkgVersion()
 	pulumi.RegisterResourceModule(
 		"newrelic",
-		"index/accountManagement",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"newrelic",
 		"index/alertChannel",
 		&module{version},
 	)
@@ -129,16 +118,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/apiAccessKey",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"newrelic",
-		"index/browserApplication",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"newrelic",
-		"index/dataPartitionRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

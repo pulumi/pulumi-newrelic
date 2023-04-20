@@ -11,9 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this resource to create and manage NRQL alert conditions in New Relic.
-//
-// ## Example Usage
 // ## NRQL
 //
 // The `nrql` block supports the following arguments:
@@ -41,74 +38,6 @@ import (
 // - `thresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 // - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
 // - `timeFunction` - (Optional) **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-//
-// ## Additional Examples
-//
-// ##### Type: `baseline`
-//
-// [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = newrelic.NewAlertPolicy(ctx, "fooIndex/alertPolicyAlertPolicy", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = newrelic.NewNrqlAlertCondition(ctx, "fooNrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
-//				AccountId:                   pulumi.Int("your_account_id"),
-//				PolicyId:                    fooAlertPolicy.ID(),
-//				Type:                        pulumi.String("static"),
-//				Description:                 pulumi.String("Alert when transactions are taking too long"),
-//				RunbookUrl:                  pulumi.String("https://www.example.com"),
-//				Enabled:                     pulumi.Bool(true),
-//				ViolationTimeLimitSeconds:   pulumi.Int(3600),
-//				FillOption:                  pulumi.String("static"),
-//				FillValue:                   pulumi.Float64(1),
-//				AggregationWindow:           pulumi.Int(60),
-//				AggregationMethod:           pulumi.String("event_flow"),
-//				AggregationDelay:            pulumi.String("120"),
-//				ExpirationDuration:          pulumi.Int(120),
-//				OpenViolationOnExpiration:   pulumi.Bool(true),
-//				CloseViolationsOnExpiration: pulumi.Bool(true),
-//				SlideBy:                     pulumi.Int(30),
-//				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
-//					Query: pulumi.String("SELECT average(duration) FROM Transaction where appName = 'Your App'"),
-//				},
-//				Critical: &newrelic.NrqlAlertConditionCriticalArgs{
-//					Operator:             pulumi.String("above"),
-//					Threshold:            pulumi.Float64(5.5),
-//					ThresholdDuration:    pulumi.Int(300),
-//					ThresholdOccurrences: pulumi.String("ALL"),
-//				},
-//				Warning: &newrelic.NrqlAlertConditionWarningArgs{
-//					Operator:             pulumi.String("above"),
-//					Threshold:            pulumi.Float64(3.5),
-//					ThresholdDuration:    pulumi.Int(600),
-//					ThresholdOccurrences: pulumi.String("ALL"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Upgrade from 1.x to 2.x
 //
@@ -215,6 +144,8 @@ import (
 //	$ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
 //
 // ```
+//
+//	Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
 type NrqlAlertCondition struct {
 	pulumi.CustomResourceState
 

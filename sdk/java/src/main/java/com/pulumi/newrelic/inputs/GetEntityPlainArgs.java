@@ -78,14 +78,14 @@ public final class GetEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
+     * The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
      * 
      */
     @Import(name="type")
     private @Nullable String type;
 
     /**
-     * @return The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
+     * @return The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
      * 
      */
     public Optional<String> type() {
@@ -175,7 +175,7 @@ public final class GetEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
+         * @param type The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
          * 
          * @return builder
          * 

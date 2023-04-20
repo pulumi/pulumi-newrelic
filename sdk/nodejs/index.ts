@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export { AccountManagementArgs, AccountManagementState } from "./accountManagement";
-export type AccountManagement = import("./accountManagement").AccountManagement;
-export const AccountManagement: typeof import("./accountManagement").AccountManagement = null as any;
-utilities.lazyLoad(exports, ["AccountManagement"], () => require("./accountManagement"));
-
 export { AlertChannelArgs, AlertChannelState } from "./alertChannel";
 export type AlertChannel = import("./alertChannel").AlertChannel;
 export const AlertChannel: typeof import("./alertChannel").AlertChannel = null as any;
@@ -39,16 +34,6 @@ export { ApiAccessKeyArgs, ApiAccessKeyState } from "./apiAccessKey";
 export type ApiAccessKey = import("./apiAccessKey").ApiAccessKey;
 export const ApiAccessKey: typeof import("./apiAccessKey").ApiAccessKey = null as any;
 utilities.lazyLoad(exports, ["ApiAccessKey"], () => require("./apiAccessKey"));
-
-export { BrowserApplicationArgs, BrowserApplicationState } from "./browserApplication";
-export type BrowserApplication = import("./browserApplication").BrowserApplication;
-export const BrowserApplication: typeof import("./browserApplication").BrowserApplication = null as any;
-utilities.lazyLoad(exports, ["BrowserApplication"], () => require("./browserApplication"));
-
-export { DataPartitionRuleArgs, DataPartitionRuleState } from "./dataPartitionRule";
-export type DataPartitionRule = import("./dataPartitionRule").DataPartitionRule;
-export const DataPartitionRule: typeof import("./dataPartitionRule").DataPartitionRule = null as any;
-utilities.lazyLoad(exports, ["DataPartitionRule"], () => require("./dataPartitionRule"));
 
 export { EntityTagsArgs, EntityTagsState } from "./entityTags";
 export type EntityTags = import("./entityTags").EntityTags;
@@ -104,11 +89,6 @@ export { GetObfuscationExpressionArgs, GetObfuscationExpressionResult, GetObfusc
 export const getObfuscationExpression: typeof import("./getObfuscationExpression").getObfuscationExpression = null as any;
 export const getObfuscationExpressionOutput: typeof import("./getObfuscationExpression").getObfuscationExpressionOutput = null as any;
 utilities.lazyLoad(exports, ["getObfuscationExpression","getObfuscationExpressionOutput"], () => require("./getObfuscationExpression"));
-
-export { GetServiceLevelAlertHelperArgs, GetServiceLevelAlertHelperResult, GetServiceLevelAlertHelperOutputArgs } from "./getServiceLevelAlertHelper";
-export const getServiceLevelAlertHelper: typeof import("./getServiceLevelAlertHelper").getServiceLevelAlertHelper = null as any;
-export const getServiceLevelAlertHelperOutput: typeof import("./getServiceLevelAlertHelper").getServiceLevelAlertHelperOutput = null as any;
-utilities.lazyLoad(exports, ["getServiceLevelAlertHelper","getServiceLevelAlertHelperOutput"], () => require("./getServiceLevelAlertHelper"));
 
 export { GetTestGrokPatternArgs, GetTestGrokPatternResult, GetTestGrokPatternOutputArgs } from "./getTestGrokPattern";
 export const getTestGrokPattern: typeof import("./getTestGrokPattern").getTestGrokPattern = null as any;
@@ -207,8 +187,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "newrelic:index/accountManagement:AccountManagement":
-                return new AccountManagement(name, <any>undefined, { urn })
             case "newrelic:index/alertChannel:AlertChannel":
                 return new AlertChannel(name, <any>undefined, { urn })
             case "newrelic:index/alertCondition:AlertCondition":
@@ -221,10 +199,6 @@ const _module = {
                 return new AlertPolicyChannel(name, <any>undefined, { urn })
             case "newrelic:index/apiAccessKey:ApiAccessKey":
                 return new ApiAccessKey(name, <any>undefined, { urn })
-            case "newrelic:index/browserApplication:BrowserApplication":
-                return new BrowserApplication(name, <any>undefined, { urn })
-            case "newrelic:index/dataPartitionRule:DataPartitionRule":
-                return new DataPartitionRule(name, <any>undefined, { urn })
             case "newrelic:index/entityTags:EntityTags":
                 return new EntityTags(name, <any>undefined, { urn })
             case "newrelic:index/eventsToMetricsRule:EventsToMetricsRule":
@@ -260,15 +234,12 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("newrelic", "index/accountManagement", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertChannel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertMutingRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertPolicy", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertPolicyChannel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/apiAccessKey", _module)
-pulumi.runtime.registerResourceModule("newrelic", "index/browserApplication", _module)
-pulumi.runtime.registerResourceModule("newrelic", "index/dataPartitionRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/entityTags", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/eventsToMetricsRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/infraAlertCondition", _module)

@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
  * Use this resource to create and manage New Relic alert policies.
  * 
  * ## Example Usage
- * ### Basic Usage
  * ```java
  * package generated_program;
  * 
@@ -49,7 +48,10 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Provision multiple notification channels and add those channels to a policy
+ * See additional examples.
+ * ## Additional Examples
+ * 
+ * ##### Provision multiple notification channels and add those channels to a policy
  * ```java
  * package generated_program;
  * 
@@ -77,7 +79,7 @@ import javax.annotation.Nullable;
  *         var slackChannel = new AlertChannel(&#34;slackChannel&#34;, AlertChannelArgs.builder()        
  *             .type(&#34;slack&#34;)
  *             .config(AlertChannelConfigArgs.builder()
- *                 .url(&#34;https://hooks.slack.com/services/xxxxxxx/yyyyyyyy&#34;)
+ *                 .url(&#34;https://hooks.slack.com/services/&lt;*****&gt;/&lt;*****&gt;&#34;)
  *                 .channel(&#34;example-alerts-channel&#34;)
  *                 .build())
  *             .build());
@@ -100,7 +102,9 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Reference existing notification channels and add those channel to a policy
+ * &lt;br&gt;
+ * 
+ * ##### Reference existing notification channels and add those channel to a policy
  * ```java
  * package generated_program;
  * 
@@ -171,18 +175,18 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
-     * 
-     * @deprecated
-     * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+     * imported via terraform import.
      * 
      */
-    @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
     @Export(name="channelIds", type=List.class, parameters={Integer.class})
     private Output</* @Nullable */ List<Integer>> channelIds;
 
     /**
-     * @return An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+     * @return An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+     * imported via terraform import.
      * 
      */
     public Output<Optional<List<Integer>>> channelIds() {

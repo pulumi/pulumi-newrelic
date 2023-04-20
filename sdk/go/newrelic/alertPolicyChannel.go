@@ -85,7 +85,8 @@ type AlertPolicyChannel struct {
 
 	// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
-	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+	// drift your Terraform state.
 	ChannelIds pulumi.IntArrayOutput `pulumi:"channelIds"`
 	// The ID of the policy.
 	PolicyId pulumi.IntOutput `pulumi:"policyId"`
@@ -128,7 +129,8 @@ func GetAlertPolicyChannel(ctx *pulumi.Context,
 type alertPolicyChannelState struct {
 	// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
 	AccountId *int `pulumi:"accountId"`
-	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+	// drift your Terraform state.
 	ChannelIds []int `pulumi:"channelIds"`
 	// The ID of the policy.
 	PolicyId *int `pulumi:"policyId"`
@@ -137,7 +139,8 @@ type alertPolicyChannelState struct {
 type AlertPolicyChannelState struct {
 	// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntPtrInput
-	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+	// drift your Terraform state.
 	ChannelIds pulumi.IntArrayInput
 	// The ID of the policy.
 	PolicyId pulumi.IntPtrInput
@@ -150,7 +153,8 @@ func (AlertPolicyChannelState) ElementType() reflect.Type {
 type alertPolicyChannelArgs struct {
 	// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
 	AccountId *int `pulumi:"accountId"`
-	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+	// drift your Terraform state.
 	ChannelIds []int `pulumi:"channelIds"`
 	// The ID of the policy.
 	PolicyId int `pulumi:"policyId"`
@@ -160,7 +164,8 @@ type alertPolicyChannelArgs struct {
 type AlertPolicyChannelArgs struct {
 	// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntPtrInput
-	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+	// drift your Terraform state.
 	ChannelIds pulumi.IntArrayInput
 	// The ID of the policy.
 	PolicyId pulumi.IntInput
@@ -258,7 +263,8 @@ func (o AlertPolicyChannelOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *AlertPolicyChannel) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
 
-// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+// drift your Terraform state.
 func (o AlertPolicyChannelOutput) ChannelIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *AlertPolicyChannel) pulumi.IntArrayOutput { return v.ChannelIds }).(pulumi.IntArrayOutput)
 }

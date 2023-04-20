@@ -32,14 +32,16 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+     * drift your Terraform state.
      * 
      */
     @Import(name="channelIds", required=true)
     private Output<List<Integer>> channelIds;
 
     /**
-     * @return Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+     * @return Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+     * drift your Terraform state.
      * 
      */
     public Output<List<Integer>> channelIds() {
@@ -109,7 +111,8 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param channelIds Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+         * @param channelIds Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+         * drift your Terraform state.
          * 
          * @return builder
          * 
@@ -120,7 +123,8 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param channelIds Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+         * @param channelIds Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+         * drift your Terraform state.
          * 
          * @return builder
          * 
@@ -130,7 +134,8 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param channelIds Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+         * @param channelIds Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+         * drift your Terraform state.
          * 
          * @return builder
          * 

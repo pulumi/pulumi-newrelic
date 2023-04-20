@@ -33,21 +33,6 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The unique entity identifier of the condition in New Relic.
-     * 
-     */
-    @Import(name="entityGuid")
-    private @Nullable Output<String> entityGuid;
-
-    /**
-     * @return The unique entity identifier of the condition in New Relic.
-     * 
-     */
-    public Optional<Output<String>> entityGuid() {
-        return Optional.ofNullable(this.entityGuid);
-    }
-
-    /**
      * The GUID of the Synthetics monitor to be referenced in the alert condition.
      * 
      */
@@ -111,7 +96,6 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
 
     private AlertConditionState(AlertConditionState $) {
         this.enabled = $.enabled;
-        this.entityGuid = $.entityGuid;
         this.monitorId = $.monitorId;
         this.name = $.name;
         this.policyId = $.policyId;
@@ -155,27 +139,6 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
-        }
-
-        /**
-         * @param entityGuid The unique entity identifier of the condition in New Relic.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder entityGuid(@Nullable Output<String> entityGuid) {
-            $.entityGuid = entityGuid;
-            return this;
-        }
-
-        /**
-         * @param entityGuid The unique entity identifier of the condition in New Relic.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder entityGuid(String entityGuid) {
-            return entityGuid(Output.of(entityGuid));
         }
 
         /**

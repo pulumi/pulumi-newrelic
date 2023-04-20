@@ -14,16 +14,6 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * New Relic dashboards can be imported using their GUID, e.g. bash
- * 
- * ```sh
- *  $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard &lt;dashboard GUID&gt;
- * ```
- * 
- */
 @ResourceType(type="newrelic:index/oneDashboardJson:OneDashboardJson")
 public class OneDashboardJson extends com.pulumi.resources.CustomResource {
     /**

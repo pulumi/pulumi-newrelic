@@ -23,9 +23,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Use this resource to create and manage NRQL alert conditions in New Relic.
- * 
- * ## Example Usage
  * ## NRQL
  * 
  * The `nrql` block supports the following arguments:
@@ -53,78 +50,6 @@ import javax.annotation.Nullable;
  * - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
  * - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
  * - `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
- * 
- * ## Additional Examples
- * 
- * ##### Type: `baseline`
- * 
- * [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.AlertPolicy;
- * import com.pulumi.newrelic.NrqlAlertCondition;
- * import com.pulumi.newrelic.NrqlAlertConditionArgs;
- * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
- * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
- * import com.pulumi.newrelic.inputs.NrqlAlertConditionWarningArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
- * 
- *         var fooIndex_alertPolicyAlertPolicy = new AlertPolicy(&#34;fooIndex/alertPolicyAlertPolicy&#34;);
- * 
- *         var fooNrqlAlertCondition = new NrqlAlertCondition(&#34;fooNrqlAlertCondition&#34;, NrqlAlertConditionArgs.builder()        
- *             .accountId(&#34;your_account_id&#34;)
- *             .policyId(fooAlertPolicy.id())
- *             .type(&#34;static&#34;)
- *             .description(&#34;Alert when transactions are taking too long&#34;)
- *             .runbookUrl(&#34;https://www.example.com&#34;)
- *             .enabled(true)
- *             .violationTimeLimitSeconds(3600)
- *             .fillOption(&#34;static&#34;)
- *             .fillValue(1)
- *             .aggregationWindow(60)
- *             .aggregationMethod(&#34;event_flow&#34;)
- *             .aggregationDelay(120)
- *             .expirationDuration(120)
- *             .openViolationOnExpiration(true)
- *             .closeViolationsOnExpiration(true)
- *             .slideBy(30)
- *             .nrql(NrqlAlertConditionNrqlArgs.builder()
- *                 .query(&#34;SELECT average(duration) FROM Transaction where appName = &#39;Your App&#39;&#34;)
- *                 .build())
- *             .critical(NrqlAlertConditionCriticalArgs.builder()
- *                 .operator(&#34;above&#34;)
- *                 .threshold(5.5)
- *                 .thresholdDuration(300)
- *                 .thresholdOccurrences(&#34;ALL&#34;)
- *                 .build())
- *             .warning(NrqlAlertConditionWarningArgs.builder()
- *                 .operator(&#34;above&#34;)
- *                 .threshold(3.5)
- *                 .thresholdDuration(600)
- *                 .thresholdOccurrences(&#34;ALL&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Upgrade from 1.x to 2.x
  * 
@@ -237,6 +162,8 @@ import javax.annotation.Nullable;
  * ```sh
  *  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
  * ```
+ * 
+ *  Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
  * 
  */
 @ResourceType(type="newrelic:index/nrqlAlertCondition:NrqlAlertCondition")

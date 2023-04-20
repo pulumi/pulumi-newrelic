@@ -267,7 +267,6 @@ class _InfraAlertConditionState:
                  critical: Optional[pulumi.Input['InfraAlertConditionCriticalArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 entity_guid: Optional[pulumi.Input[str]] = None,
                  event: Optional[pulumi.Input[str]] = None,
                  integration_provider: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -287,7 +286,6 @@ class _InfraAlertConditionState:
         :param pulumi.Input['InfraAlertConditionCriticalArgs'] critical: Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
         :param pulumi.Input[str] description: The description of the Infrastructure alert condition.
         :param pulumi.Input[bool] enabled: Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
-        :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] event: The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] name: The Infrastructure alert condition's name.
@@ -311,8 +309,6 @@ class _InfraAlertConditionState:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if entity_guid is not None:
-            pulumi.set(__self__, "entity_guid", entity_guid)
         if event is not None:
             pulumi.set(__self__, "event", event)
         if integration_provider is not None:
@@ -397,18 +393,6 @@ class _InfraAlertConditionState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter(name="entityGuid")
-    def entity_guid(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unique entity identifier of the condition in New Relic.
-        """
-        return pulumi.get(self, "entity_guid")
-
-    @entity_guid.setter
-    def entity_guid(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "entity_guid", value)
 
     @property
     @pulumi.getter
@@ -579,7 +563,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         """
         Use this resource to create and manage Infrastructure alert conditions in New Relic.
 
-        > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
+        > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
 
         ## Example Usage
 
@@ -647,50 +631,6 @@ class InfraAlertCondition(pulumi.CustomResource):
           * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
           * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infra_metric` and `infra_process_running` alert condition types.
           * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infra_metric` alert condition type.
-
-        ## Tags
-
-        Manage infra alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_infra_alert_condition = newrelic.InfraAlertCondition("fooInfraAlertCondition",
-            policy_id=foo_alert_policy.id,
-            description="Warning if disk usage goes above 80% and critical alert if goes above 90%",
-            type="infra_metric",
-            event="StorageSample",
-            select="diskUsedPercent",
-            comparison="above",
-            where="(hostname LIKE '%frontend%')",
-            critical=newrelic.InfraAlertConditionCriticalArgs(
-                duration=25,
-                value=90,
-                time_function="all",
-            ),
-            warning=newrelic.InfraAlertConditionWarningArgs(
-                duration=10,
-                value=80,
-                time_function="all",
-            ))
-        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
-            guid=foo_infra_alert_condition.entity_guid,
-            tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="my-key",
-                    values=[
-                        "my-value",
-                        "my-other-value",
-                    ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="my-key-2",
-                    values=["my-value-2"],
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -727,7 +667,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         """
         Use this resource to create and manage Infrastructure alert conditions in New Relic.
 
-        > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
+        > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
 
         ## Example Usage
 
@@ -795,50 +735,6 @@ class InfraAlertCondition(pulumi.CustomResource):
           * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
           * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infra_metric` and `infra_process_running` alert condition types.
           * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infra_metric` alert condition type.
-
-        ## Tags
-
-        Manage infra alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_infra_alert_condition = newrelic.InfraAlertCondition("fooInfraAlertCondition",
-            policy_id=foo_alert_policy.id,
-            description="Warning if disk usage goes above 80% and critical alert if goes above 90%",
-            type="infra_metric",
-            event="StorageSample",
-            select="diskUsedPercent",
-            comparison="above",
-            where="(hostname LIKE '%frontend%')",
-            critical=newrelic.InfraAlertConditionCriticalArgs(
-                duration=25,
-                value=90,
-                time_function="all",
-            ),
-            warning=newrelic.InfraAlertConditionWarningArgs(
-                duration=10,
-                value=80,
-                time_function="all",
-            ))
-        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
-            guid=foo_infra_alert_condition.entity_guid,
-            tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="my-key",
-                    values=[
-                        "my-value",
-                        "my-other-value",
-                    ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="my-key-2",
-                    values=["my-value-2"],
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -907,7 +803,6 @@ class InfraAlertCondition(pulumi.CustomResource):
             __props__.__dict__["warning"] = warning
             __props__.__dict__["where"] = where
             __props__.__dict__["created_at"] = None
-            __props__.__dict__["entity_guid"] = None
             __props__.__dict__["updated_at"] = None
         super(InfraAlertCondition, __self__).__init__(
             'newrelic:index/infraAlertCondition:InfraAlertCondition',
@@ -924,7 +819,6 @@ class InfraAlertCondition(pulumi.CustomResource):
             critical: Optional[pulumi.Input[pulumi.InputType['InfraAlertConditionCriticalArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            entity_guid: Optional[pulumi.Input[str]] = None,
             event: Optional[pulumi.Input[str]] = None,
             integration_provider: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -949,7 +843,6 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InfraAlertConditionCriticalArgs']] critical: Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
         :param pulumi.Input[str] description: The description of the Infrastructure alert condition.
         :param pulumi.Input[bool] enabled: Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
-        :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] event: The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] name: The Infrastructure alert condition's name.
@@ -972,7 +865,6 @@ class InfraAlertCondition(pulumi.CustomResource):
         __props__.__dict__["critical"] = critical
         __props__.__dict__["description"] = description
         __props__.__dict__["enabled"] = enabled
-        __props__.__dict__["entity_guid"] = entity_guid
         __props__.__dict__["event"] = event
         __props__.__dict__["integration_provider"] = integration_provider
         __props__.__dict__["name"] = name
@@ -1026,14 +918,6 @@ class InfraAlertCondition(pulumi.CustomResource):
         Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter(name="entityGuid")
-    def entity_guid(self) -> pulumi.Output[str]:
-        """
-        The unique entity identifier of the condition in New Relic.
-        """
-        return pulumi.get(self, "entity_guid")
 
     @property
     @pulumi.getter

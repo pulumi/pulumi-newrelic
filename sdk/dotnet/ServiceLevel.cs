@@ -24,6 +24,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -69,6 +70,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -133,6 +135,7 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// 
     /// For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
     /// 
     /// ## Import

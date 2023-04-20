@@ -4,7 +4,6 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,11 +17,10 @@ public final class ServiceLevelEventsBadEventsSelect {
      */
     private @Nullable String attribute;
     /**
-     * @return The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+     * @return The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
      * 
      */
     private String function;
-    private @Nullable Double threshold;
 
     private ServiceLevelEventsBadEventsSelect() {}
     /**
@@ -33,14 +31,11 @@ public final class ServiceLevelEventsBadEventsSelect {
         return Optional.ofNullable(this.attribute);
     }
     /**
-     * @return The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+     * @return The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
      * 
      */
     public String function() {
         return this.function;
-    }
-    public Optional<Double> threshold() {
-        return Optional.ofNullable(this.threshold);
     }
 
     public static Builder builder() {
@@ -54,13 +49,11 @@ public final class ServiceLevelEventsBadEventsSelect {
     public static final class Builder {
         private @Nullable String attribute;
         private String function;
-        private @Nullable Double threshold;
         public Builder() {}
         public Builder(ServiceLevelEventsBadEventsSelect defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attribute = defaults.attribute;
     	      this.function = defaults.function;
-    	      this.threshold = defaults.threshold;
         }
 
         @CustomType.Setter
@@ -73,16 +66,10 @@ public final class ServiceLevelEventsBadEventsSelect {
             this.function = Objects.requireNonNull(function);
             return this;
         }
-        @CustomType.Setter
-        public Builder threshold(@Nullable Double threshold) {
-            this.threshold = threshold;
-            return this;
-        }
         public ServiceLevelEventsBadEventsSelect build() {
             final var o = new ServiceLevelEventsBadEventsSelect();
             o.attribute = attribute;
             o.function = function;
-            o.threshold = threshold;
             return o;
         }
     }

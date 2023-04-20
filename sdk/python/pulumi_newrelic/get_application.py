@@ -80,10 +80,6 @@ class AwaitableGetApplicationResult(GetApplicationResult):
 def get_application(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    #### DEPRECATED! Use at your own risk. Use the `get_entity` data source instead. This feature may be removed in the next major release
-
-    Use this data source to get information about a specific application in New Relic that already exists.
-
     ## Example Usage
 
     ```python
@@ -126,10 +122,6 @@ def get_application(name: Optional[str] = None,
 def get_application_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    #### DEPRECATED! Use at your own risk. Use the `get_entity` data source instead. This feature may be removed in the next major release
-
-    Use this data source to get information about a specific application in New Relic that already exists.
-
     ## Example Usage
 
     ```python

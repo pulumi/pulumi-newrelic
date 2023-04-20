@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
  * Use this resource to create and manage New Relic alert policies.
  *
  * ## Example Usage
- * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -16,8 +15,10 @@ import * as utilities from "./utilities";
  *
  * const foo = new newrelic.AlertPolicy("foo", {incidentPreference: "PER_POLICY"});
  * ```
- * ### Provision multiple notification channels and add those channels to a policy
+ * See additional examples.
+ * ## Additional Examples
  *
+ * ##### Provision multiple notification channels and add those channels to a policy
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -26,7 +27,7 @@ import * as utilities from "./utilities";
  * const slackChannel = new newrelic.AlertChannel("slackChannel", {
  *     type: "slack",
  *     config: {
- *         url: "https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
+ *         url: "https://hooks.slack.com/services/<*****>/<*****>",
  *         channel: "example-alerts-channel",
  *     },
  * });
@@ -47,7 +48,9 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * ### Reference existing notification channels and add those channel to a policy
+ * <br>
+ *
+ * ##### Reference existing notification channels and add those channel to a policy
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -111,9 +114,9 @@ export class AlertPolicy extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
-     *
-     * @deprecated The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+     * imported via terraform import.
      */
     public readonly channelIds!: pulumi.Output<number[] | undefined>;
     /**
@@ -163,9 +166,9 @@ export interface AlertPolicyState {
      */
     accountId?: pulumi.Input<number>;
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
-     *
-     * @deprecated The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+     * imported via terraform import.
      */
     channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -187,9 +190,9 @@ export interface AlertPolicyArgs {
      */
     accountId?: pulumi.Input<number>;
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
-     *
-     * @deprecated The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+     * imported via terraform import.
      */
     channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**

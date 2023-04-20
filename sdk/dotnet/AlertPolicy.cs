@@ -13,10 +13,10 @@ namespace Pulumi.NewRelic
     /// Use this resource to create and manage New Relic alert policies.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -29,10 +29,13 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// ### Provision multiple notification channels and add those channels to a policy
+    /// See additional examples.
+    /// ## Additional Examples
     /// 
+    /// ##### Provision multiple notification channels and add those channels to a policy
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -44,7 +47,7 @@ namespace Pulumi.NewRelic
     ///         Type = "slack",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
-    ///             Url = "https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
+    ///             Url = "https://hooks.slack.com/services/&lt;*****&gt;/&lt;*****&gt;",
     ///             Channel = "example-alerts-channel",
     ///         },
     ///     });
@@ -73,9 +76,12 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// ### Reference existing notification channels and add those channel to a policy
+    /// &lt;br&gt;
+    /// 
+    /// ##### Reference existing notification channels and add those channel to a policy
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -125,7 +131,9 @@ namespace Pulumi.NewRelic
         public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+        /// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+        /// imported via terraform import.
         /// </summary>
         [Output("channelIds")]
         public Output<ImmutableArray<int>> ChannelIds { get; private set; } = null!;
@@ -198,9 +206,10 @@ namespace Pulumi.NewRelic
         private InputList<int>? _channelIds;
 
         /// <summary>
-        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+        /// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+        /// imported via terraform import.
         /// </summary>
-        [Obsolete(@"The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.")]
         public InputList<int> ChannelIds
         {
             get => _channelIds ?? (_channelIds = new InputList<int>());
@@ -237,9 +246,10 @@ namespace Pulumi.NewRelic
         private InputList<int>? _channelIds;
 
         /// <summary>
-        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+        /// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+        /// imported via terraform import.
         /// </summary>
-        [Obsolete(@"The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.")]
         public InputList<int> ChannelIds
         {
             get => _channelIds ?? (_channelIds = new InputList<int>());

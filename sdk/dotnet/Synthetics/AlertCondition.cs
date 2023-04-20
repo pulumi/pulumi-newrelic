@@ -12,12 +12,13 @@ namespace Pulumi.NewRelic.Synthetics
     /// <summary>
     /// Use this resource to create and manage synthetics alert conditions in New Relic.
     /// 
-    /// &gt; **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
+    /// &gt; **WARNING:** The  newrelic.synthetics.AlertCondition resource will be deprecated in the near future and will no longer receive product updates. Please use the newrelic.NrqlAlertCondition resource to avoid being impacted by these changes.
     /// 
     /// ## Example Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -28,88 +29,6 @@ namespace Pulumi.NewRelic.Synthetics
     ///         PolicyId = newrelic_alert_policy.Foo.Id,
     ///         MonitorId = newrelic_synthetics_monitor.Foo.Id,
     ///         RunbookUrl = "https://www.example.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ## Tags
-    /// 
-    /// Manage synthetics alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-    /// 
-    ///     var fooMonitor = new NewRelic.Synthetics.Monitor("fooMonitor", new()
-    ///     {
-    ///         Status = "ENABLED",
-    ///         Period = "EVERY_MINUTE",
-    ///         Uri = "https://www.one.newrelic.com",
-    ///         Type = "SIMPLE",
-    ///         LocationsPublics = new[]
-    ///         {
-    ///             "AP_EAST_1",
-    ///         },
-    ///         CustomHeaders = new[]
-    ///         {
-    ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
-    ///             {
-    ///                 Name = "some_name",
-    ///                 Value = "some_value",
-    ///             },
-    ///         },
-    ///         TreatRedirectAsFailure = true,
-    ///         ValidationString = "success",
-    ///         BypassHeadRequest = true,
-    ///         VerifySsl = true,
-    ///         Tags = new[]
-    ///         {
-    ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
-    ///             {
-    ///                 Key = "some_key",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "some_value",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var fooAlertCondition = new NewRelic.Synthetics.AlertCondition("fooAlertCondition", new()
-    ///     {
-    ///         PolicyId = fooAlertPolicy.Id,
-    ///         MonitorId = fooMonitor.Id,
-    ///         RunbookUrl = "https://www.example.com",
-    ///     });
-    /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
-    ///     {
-    ///         Guid = fooAlertCondition.EntityGuid,
-    ///         Tags = new[]
-    ///         {
-    ///             new NewRelic.Inputs.EntityTagsTagArgs
-    ///             {
-    ///                 Key = "my-key",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "my-value",
-    ///                     "my-other-value",
-    ///                 },
-    ///             },
-    ///             new NewRelic.Inputs.EntityTagsTagArgs
-    ///             {
-    ///                 Key = "my-key-2",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "my-value-2",
-    ///                 },
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });
@@ -131,12 +50,6 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique entity identifier of the condition in New Relic.
-        /// </summary>
-        [Output("entityGuid")]
-        public Output<string> EntityGuid { get; private set; } = null!;
 
         /// <summary>
         /// The GUID of the Synthetics monitor to be referenced in the alert condition.
@@ -251,12 +164,6 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The unique entity identifier of the condition in New Relic.
-        /// </summary>
-        [Input("entityGuid")]
-        public Input<string>? EntityGuid { get; set; }
 
         /// <summary>
         /// The GUID of the Synthetics monitor to be referenced in the alert condition.

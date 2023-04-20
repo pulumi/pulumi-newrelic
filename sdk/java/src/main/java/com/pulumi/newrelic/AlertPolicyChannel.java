@@ -103,14 +103,16 @@ public class AlertPolicyChannel extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+     * drift your Terraform state.
      * 
      */
     @Export(name="channelIds", type=List.class, parameters={Integer.class})
     private Output<List<Integer>> channelIds;
 
     /**
-     * @return Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+     * @return Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+     * drift your Terraform state.
      * 
      */
     public Output<List<Integer>> channelIds() {

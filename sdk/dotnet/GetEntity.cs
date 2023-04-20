@@ -12,16 +12,14 @@ namespace Pulumi.NewRelic
     public static class GetEntity
     {
         /// <summary>
-        /// Use this data source to get information about a specific entity in New Relic One that already exists.
-        /// 
         /// ## Additional Examples
         /// 
         /// &gt; If the entities are not found please try again without providing the `types` field.
-        /// 
-        /// ### Query for an OTEL entity
+        /// ### An example of querying OTEL entities
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
@@ -39,16 +37,16 @@ namespace Pulumi.NewRelic
         ///                 Value = "12345",
         ///             },
         ///         },
-        ///         Type = "SERVICE",
         ///     });
         /// 
         /// });
         /// ```
         /// 
-        /// ### Query for an entity by type (AWS Lambda entity in this example)
+        /// ### An example of querying AWS lambda entities
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
@@ -56,8 +54,16 @@ namespace Pulumi.NewRelic
         /// {
         ///     var app = NewRelic.GetEntity.Invoke(new()
         ///     {
+        ///         Domain = "INFRA",
         ///         Name = "my_lambda_trace",
-        ///         Type = "AWSLAMBDAFUNCTION",
+        ///         Tags = new[]
+        ///         {
+        ///             new NewRelic.Inputs.GetEntityTagInputArgs
+        ///             {
+        ///                 Key = "accountID",
+        ///                 Value = "12345",
+        ///             },
+        ///         },
         ///     });
         /// 
         /// });
@@ -67,16 +73,14 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("newrelic:index/getEntity:getEntity", args ?? new GetEntityArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about a specific entity in New Relic One that already exists.
-        /// 
         /// ## Additional Examples
         /// 
         /// &gt; If the entities are not found please try again without providing the `types` field.
-        /// 
-        /// ### Query for an OTEL entity
+        /// ### An example of querying OTEL entities
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
@@ -94,16 +98,16 @@ namespace Pulumi.NewRelic
         ///                 Value = "12345",
         ///             },
         ///         },
-        ///         Type = "SERVICE",
         ///     });
         /// 
         /// });
         /// ```
         /// 
-        /// ### Query for an entity by type (AWS Lambda entity in this example)
+        /// ### An example of querying AWS lambda entities
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
@@ -111,8 +115,16 @@ namespace Pulumi.NewRelic
         /// {
         ///     var app = NewRelic.GetEntity.Invoke(new()
         ///     {
+        ///         Domain = "INFRA",
         ///         Name = "my_lambda_trace",
-        ///         Type = "AWSLAMBDAFUNCTION",
+        ///         Tags = new[]
+        ///         {
+        ///             new NewRelic.Inputs.GetEntityTagInputArgs
+        ///             {
+        ///                 Key = "accountID",
+        ///                 Value = "12345",
+        ///             },
+        ///         },
         ///     });
         /// 
         /// });
@@ -156,7 +168,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
+        /// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
         /// </summary>
         [Input("type")]
         public string? Type { get; set; }
@@ -200,7 +212,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
+        /// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

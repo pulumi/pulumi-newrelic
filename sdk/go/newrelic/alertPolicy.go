@@ -13,7 +13,6 @@ import (
 // Use this resource to create and manage New Relic alert policies.
 //
 // ## Example Usage
-// ### Basic Usage
 //
 // ```go
 // package main
@@ -38,8 +37,10 @@ import (
 //	}
 //
 // ```
-// ### Provision multiple notification channels and add those channels to a policy
+// See additional examples.
+// ## Additional Examples
 //
+// ##### Provision multiple notification channels and add those channels to a policy
 // ```go
 // package main
 //
@@ -55,7 +56,7 @@ import (
 //			slackChannel, err := newrelic.NewAlertChannel(ctx, "slackChannel", &newrelic.AlertChannelArgs{
 //				Type: pulumi.String("slack"),
 //				Config: &newrelic.AlertChannelConfigArgs{
-//					Url:     pulumi.String("https://hooks.slack.com/services/xxxxxxx/yyyyyyyy"),
+//					Url:     pulumi.String("https://hooks.slack.com/services/<*****>/<*****>"),
 //					Channel: pulumi.String("example-alerts-channel"),
 //				},
 //			})
@@ -87,7 +88,9 @@ import (
 //	}
 //
 // ```
-// ### Reference existing notification channels and add those channel to a policy
+// <br>
+//
+// ##### Reference existing notification channels and add those channel to a policy
 // ```go
 // package main
 //
@@ -144,9 +147,9 @@ type AlertPolicy struct {
 
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
-	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
-	//
-	// Deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+	// imported via terraform import.
 	ChannelIds pulumi.IntArrayOutput `pulumi:"channelIds"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrOutput `pulumi:"incidentPreference"`
@@ -185,9 +188,9 @@ func GetAlertPolicy(ctx *pulumi.Context,
 type alertPolicyState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *int `pulumi:"accountId"`
-	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
-	//
-	// Deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+	// imported via terraform import.
 	ChannelIds []int `pulumi:"channelIds"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference *string `pulumi:"incidentPreference"`
@@ -198,9 +201,9 @@ type alertPolicyState struct {
 type AlertPolicyState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntPtrInput
-	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
-	//
-	// Deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+	// imported via terraform import.
 	ChannelIds pulumi.IntArrayInput
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrInput
@@ -215,9 +218,9 @@ func (AlertPolicyState) ElementType() reflect.Type {
 type alertPolicyArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *int `pulumi:"accountId"`
-	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
-	//
-	// Deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+	// imported via terraform import.
 	ChannelIds []int `pulumi:"channelIds"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference *string `pulumi:"incidentPreference"`
@@ -229,9 +232,9 @@ type alertPolicyArgs struct {
 type AlertPolicyArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntPtrInput
-	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
-	//
-	// Deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+	// imported via terraform import.
 	ChannelIds pulumi.IntArrayInput
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrInput
@@ -331,9 +334,9 @@ func (o AlertPolicyOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *AlertPolicy) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
 
-// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
-//
-// Deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+// imported via terraform import.
 func (o AlertPolicyOutput) ChannelIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *AlertPolicy) pulumi.IntArrayOutput { return v.ChannelIds }).(pulumi.IntArrayOutput)
 }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Use this resource to create and manage synthetics alert conditions in New Relic.
  *
- * > **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
+ * > **WARNING:** The  newrelic.synthetics.AlertCondition resource will be deprecated in the near future and will no longer receive product updates. Please use the newrelic.NrqlAlertCondition resource to avoid being impacted by these changes.
  *
  * ## Example Usage
  *
@@ -19,56 +19,6 @@ import * as utilities from "../utilities";
  *     policyId: newrelic_alert_policy.foo.id,
  *     monitorId: newrelic_synthetics_monitor.foo.id,
  *     runbookUrl: "https://www.example.com",
- * });
- * ```
- * ## Tags
- *
- * Manage synthetics alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooMonitor = new newrelic.synthetics.Monitor("fooMonitor", {
- *     status: "ENABLED",
- *     period: "EVERY_MINUTE",
- *     uri: "https://www.one.newrelic.com",
- *     type: "SIMPLE",
- *     locationsPublics: ["AP_EAST_1"],
- *     customHeaders: [{
- *         name: "some_name",
- *         value: "some_value",
- *     }],
- *     treatRedirectAsFailure: true,
- *     validationString: "success",
- *     bypassHeadRequest: true,
- *     verifySsl: true,
- *     tags: [{
- *         key: "some_key",
- *         values: ["some_value"],
- *     }],
- * });
- * const fooAlertCondition = new newrelic.synthetics.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
- *     monitorId: fooMonitor.id,
- *     runbookUrl: "https://www.example.com",
- * });
- * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
- *     guid: fooAlertCondition.entityGuid,
- *     tags: [
- *         {
- *             key: "my-key",
- *             values: [
- *                 "my-value",
- *                 "my-other-value",
- *             ],
- *         },
- *         {
- *             key: "my-key-2",
- *             values: ["my-value-2"],
- *         },
- *     ],
  * });
  * ```
  *
@@ -113,10 +63,6 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The unique entity identifier of the condition in New Relic.
-     */
-    public /*out*/ readonly entityGuid!: pulumi.Output<string>;
-    /**
      * The GUID of the Synthetics monitor to be referenced in the alert condition.
      */
     public readonly monitorId!: pulumi.Output<string>;
@@ -147,7 +93,6 @@ export class AlertCondition extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AlertConditionState | undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["entityGuid"] = state ? state.entityGuid : undefined;
             resourceInputs["monitorId"] = state ? state.monitorId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
@@ -165,7 +110,6 @@ export class AlertCondition extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policyId"] = args ? args.policyId : undefined;
             resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
-            resourceInputs["entityGuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertCondition.__pulumiType, name, resourceInputs, opts);
@@ -180,10 +124,6 @@ export interface AlertConditionState {
      * Set whether to enable the alert condition. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * The unique entity identifier of the condition in New Relic.
-     */
-    entityGuid?: pulumi.Input<string>;
     /**
      * The GUID of the Synthetics monitor to be referenced in the alert condition.
      */

@@ -5,12 +5,8 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.newrelic.inputs.OneDashboardPageWidgetLineColorArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetLineNrqlQueryArgs;
-import com.pulumi.newrelic.inputs.OneDashboardPageWidgetLineNullValueArgs;
-import com.pulumi.newrelic.inputs.OneDashboardPageWidgetLineUnitArgs;
 import java.lang.Boolean;
-import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -22,21 +18,6 @@ import javax.annotation.Nullable;
 public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final OneDashboardPageWidgetLineArgs Empty = new OneDashboardPageWidgetLineArgs();
-
-    /**
-     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
-     * 
-     */
-    @Import(name="colors")
-    private @Nullable Output<List<OneDashboardPageWidgetLineColorArgs>> colors;
-
-    /**
-     * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
-     * 
-     */
-    public Optional<Output<List<OneDashboardPageWidgetLineColorArgs>>> colors() {
-        return Optional.ofNullable(this.colors);
-    }
 
     /**
      * (Required) Column position of widget from top left, starting at `1`.
@@ -51,21 +32,6 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
      */
     public Output<Integer> column() {
         return this.column;
-    }
-
-    /**
-     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
-     * 
-     */
-    @Import(name="facetShowOtherSeries")
-    private @Nullable Output<Boolean> facetShowOtherSeries;
-
-    /**
-     * @return (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
-     * 
-     */
-    public Optional<Output<Boolean>> facetShowOtherSeries() {
-        return Optional.ofNullable(this.facetShowOtherSeries);
     }
 
     /**
@@ -106,21 +72,6 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
     }
 
     /**
-     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
-     * 
-     */
-    @Import(name="legendEnabled")
-    private @Nullable Output<Boolean> legendEnabled;
-
-    /**
-     * @return (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
-     * 
-     */
-    public Optional<Output<Boolean>> legendEnabled() {
-        return Optional.ofNullable(this.legendEnabled);
-    }
-
-    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      * 
      */
@@ -133,21 +84,6 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
      */
     public Output<List<OneDashboardPageWidgetLineNrqlQueryArgs>> nrqlQueries() {
         return this.nrqlQueries;
-    }
-
-    /**
-     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
-     * 
-     */
-    @Import(name="nullValues")
-    private @Nullable Output<List<OneDashboardPageWidgetLineNullValueArgs>> nullValues;
-
-    /**
-     * @return (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
-     * 
-     */
-    public Optional<Output<List<OneDashboardPageWidgetLineNullValueArgs>>> nullValues() {
-        return Optional.ofNullable(this.nullValues);
     }
 
     /**
@@ -181,21 +117,6 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
     }
 
     /**
-     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
-     * 
-     */
-    @Import(name="units")
-    private @Nullable Output<List<OneDashboardPageWidgetLineUnitArgs>> units;
-
-    /**
-     * @return (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
-     * 
-     */
-    public Optional<Output<List<OneDashboardPageWidgetLineUnitArgs>>> units() {
-        return Optional.ofNullable(this.units);
-    }
-
-    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      * 
      */
@@ -210,46 +131,17 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.width);
     }
 
-    @Import(name="yAxisLeftMax")
-    private @Nullable Output<Double> yAxisLeftMax;
-
-    public Optional<Output<Double>> yAxisLeftMax() {
-        return Optional.ofNullable(this.yAxisLeftMax);
-    }
-
-    /**
-     * , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
-     * 
-     */
-    @Import(name="yAxisLeftMin")
-    private @Nullable Output<Double> yAxisLeftMin;
-
-    /**
-     * @return , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
-     * 
-     */
-    public Optional<Output<Double>> yAxisLeftMin() {
-        return Optional.ofNullable(this.yAxisLeftMin);
-    }
-
     private OneDashboardPageWidgetLineArgs() {}
 
     private OneDashboardPageWidgetLineArgs(OneDashboardPageWidgetLineArgs $) {
-        this.colors = $.colors;
         this.column = $.column;
-        this.facetShowOtherSeries = $.facetShowOtherSeries;
         this.height = $.height;
         this.id = $.id;
         this.ignoreTimeRange = $.ignoreTimeRange;
-        this.legendEnabled = $.legendEnabled;
         this.nrqlQueries = $.nrqlQueries;
-        this.nullValues = $.nullValues;
         this.row = $.row;
         this.title = $.title;
-        this.units = $.units;
         this.width = $.width;
-        this.yAxisLeftMax = $.yAxisLeftMax;
-        this.yAxisLeftMin = $.yAxisLeftMin;
     }
 
     public static Builder builder() {
@@ -271,37 +163,6 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param colors (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder colors(@Nullable Output<List<OneDashboardPageWidgetLineColorArgs>> colors) {
-            $.colors = colors;
-            return this;
-        }
-
-        /**
-         * @param colors (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder colors(List<OneDashboardPageWidgetLineColorArgs> colors) {
-            return colors(Output.of(colors));
-        }
-
-        /**
-         * @param colors (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder colors(OneDashboardPageWidgetLineColorArgs... colors) {
-            return colors(List.of(colors));
-        }
-
-        /**
          * @param column (Required) Column position of widget from top left, starting at `1`.
          * 
          * @return builder
@@ -320,27 +181,6 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
          */
         public Builder column(Integer column) {
             return column(Output.of(column));
-        }
-
-        /**
-         * @param facetShowOtherSeries (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
-         * 
-         * @return builder
-         * 
-         */
-        public Builder facetShowOtherSeries(@Nullable Output<Boolean> facetShowOtherSeries) {
-            $.facetShowOtherSeries = facetShowOtherSeries;
-            return this;
-        }
-
-        /**
-         * @param facetShowOtherSeries (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
-         * 
-         * @return builder
-         * 
-         */
-        public Builder facetShowOtherSeries(Boolean facetShowOtherSeries) {
-            return facetShowOtherSeries(Output.of(facetShowOtherSeries));
         }
 
         /**
@@ -395,27 +235,6 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param legendEnabled (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder legendEnabled(@Nullable Output<Boolean> legendEnabled) {
-            $.legendEnabled = legendEnabled;
-            return this;
-        }
-
-        /**
-         * @param legendEnabled (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder legendEnabled(Boolean legendEnabled) {
-            return legendEnabled(Output.of(legendEnabled));
-        }
-
-        /**
          * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
          * 
          * @return builder
@@ -444,37 +263,6 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
          */
         public Builder nrqlQueries(OneDashboardPageWidgetLineNrqlQueryArgs... nrqlQueries) {
             return nrqlQueries(List.of(nrqlQueries));
-        }
-
-        /**
-         * @param nullValues (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder nullValues(@Nullable Output<List<OneDashboardPageWidgetLineNullValueArgs>> nullValues) {
-            $.nullValues = nullValues;
-            return this;
-        }
-
-        /**
-         * @param nullValues (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder nullValues(List<OneDashboardPageWidgetLineNullValueArgs> nullValues) {
-            return nullValues(Output.of(nullValues));
-        }
-
-        /**
-         * @param nullValues (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder nullValues(OneDashboardPageWidgetLineNullValueArgs... nullValues) {
-            return nullValues(List.of(nullValues));
         }
 
         /**
@@ -520,37 +308,6 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param units (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder units(@Nullable Output<List<OneDashboardPageWidgetLineUnitArgs>> units) {
-            $.units = units;
-            return this;
-        }
-
-        /**
-         * @param units (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder units(List<OneDashboardPageWidgetLineUnitArgs> units) {
-            return units(Output.of(units));
-        }
-
-        /**
-         * @param units (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder units(OneDashboardPageWidgetLineUnitArgs... units) {
-            return units(List.of(units));
-        }
-
-        /**
          * @param width (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
          * 
          * @return builder
@@ -569,36 +326,6 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
          */
         public Builder width(Integer width) {
             return width(Output.of(width));
-        }
-
-        public Builder yAxisLeftMax(@Nullable Output<Double> yAxisLeftMax) {
-            $.yAxisLeftMax = yAxisLeftMax;
-            return this;
-        }
-
-        public Builder yAxisLeftMax(Double yAxisLeftMax) {
-            return yAxisLeftMax(Output.of(yAxisLeftMax));
-        }
-
-        /**
-         * @param yAxisLeftMin , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder yAxisLeftMin(@Nullable Output<Double> yAxisLeftMin) {
-            $.yAxisLeftMin = yAxisLeftMin;
-            return this;
-        }
-
-        /**
-         * @param yAxisLeftMin , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder yAxisLeftMin(Double yAxisLeftMin) {
-            return yAxisLeftMin(Output.of(yAxisLeftMin));
         }
 
         public OneDashboardPageWidgetLineArgs build() {

@@ -103,8 +103,7 @@ def get_alert_policy(account_id: Optional[int] = None,
                      name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertPolicyResult:
     """
-    Use this data source to get information about a specific alert policy in New Relic that already exists.
-
+    Use this data source to access information about an existing resource.
 
     :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
@@ -132,8 +131,7 @@ def get_alert_policy_output(account_id: Optional[pulumi.Input[Optional[int]]] = 
                             name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertPolicyResult]:
     """
-    Use this data source to get information about a specific alert policy in New Relic that already exists.
-
+    Use this data source to access information about an existing resource.
 
     :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.

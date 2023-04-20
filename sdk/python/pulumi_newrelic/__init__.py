@@ -5,15 +5,12 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
-from .account_management import *
 from .alert_channel import *
 from .alert_condition import *
 from .alert_muting_rule import *
 from .alert_policy import *
 from .alert_policy_channel import *
 from .api_access_key import *
-from .browser_application import *
-from .data_partition_rule import *
 from .entity_tags import *
 from .events_to_metrics_rule import *
 from .get_account import *
@@ -25,7 +22,6 @@ from .get_entity import *
 from .get_key_transaction import *
 from .get_notification_destination import *
 from .get_obfuscation_expression import *
-from .get_service_level_alert_helper import *
 from .get_test_grok_pattern import *
 from .infra_alert_condition import *
 from .log_parsing_rule import *
@@ -132,14 +128,6 @@ _utilities.register(
  },
  {
   "pkg": "newrelic",
-  "mod": "index/accountManagement",
-  "fqn": "pulumi_newrelic",
-  "classes": {
-   "newrelic:index/accountManagement:AccountManagement": "AccountManagement"
-  }
- },
- {
-  "pkg": "newrelic",
   "mod": "index/alertChannel",
   "fqn": "pulumi_newrelic",
   "classes": {
@@ -184,22 +172,6 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/apiAccessKey:ApiAccessKey": "ApiAccessKey"
-  }
- },
- {
-  "pkg": "newrelic",
-  "mod": "index/browserApplication",
-  "fqn": "pulumi_newrelic",
-  "classes": {
-   "newrelic:index/browserApplication:BrowserApplication": "BrowserApplication"
-  }
- },
- {
-  "pkg": "newrelic",
-  "mod": "index/dataPartitionRule",
-  "fqn": "pulumi_newrelic",
-  "classes": {
-   "newrelic:index/dataPartitionRule:DataPartitionRule": "DataPartitionRule"
   }
  },
  {

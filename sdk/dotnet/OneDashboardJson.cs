@@ -9,15 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// New Relic dashboards can be imported using their GUID, e.g. bash
-    /// 
-    /// ```sh
-    ///  $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard &lt;dashboard GUID&gt;
-    /// ```
-    /// </summary>
     [NewRelicResourceType("newrelic:index/oneDashboardJson:OneDashboardJson")]
     public partial class OneDashboardJson : global::Pulumi.CustomResource
     {

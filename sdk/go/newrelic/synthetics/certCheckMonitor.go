@@ -55,56 +55,6 @@ import (
 // See additional examples.
 // ## Additional Examples
 //
-// ### Create a monitor with a private location
-//
-// The below example shows how you can define a private location and attach it to a monitor.
-//
-// > **NOTE:** It can take up to 10 minutes for a private location to become available.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
-//				Description:             pulumi.String("Test Description"),
-//				VerifiedScriptExecution: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = synthetics.NewCertCheckMonitor(ctx, "monitor", &synthetics.CertCheckMonitorArgs{
-//				Domain: pulumi.String("https://www.one.example.com"),
-//				LocationsPrivates: pulumi.StringArray{
-//					location.ID(),
-//				},
-//				Period: pulumi.String("EVERY_6_HOURS"),
-//				Status: pulumi.String("ENABLED"),
-//				Tags: synthetics.CertCheckMonitorTagArray{
-//					&synthetics.CertCheckMonitorTagArgs{
-//						Key: pulumi.String("some_key"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("some_value"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Synthetics certificate check monitor scripts can be imported using the `guid`, e.g. bash

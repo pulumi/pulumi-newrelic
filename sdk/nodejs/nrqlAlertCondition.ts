@@ -7,9 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this resource to create and manage NRQL alert conditions in New Relic.
- *
- * ## Example Usage
  * ## NRQL
  *
  * The `nrql` block supports the following arguments:
@@ -37,53 +34,6 @@ import * as utilities from "./utilities";
  * - `thresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
  * - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
  * - `timeFunction` - (Optional) **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
- *
- * ## Additional Examples
- *
- * ##### Type: `baseline`
- *
- * [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooIndex_alertPolicyAlertPolicy = new newrelic.AlertPolicy("fooIndex/alertPolicyAlertPolicy", {});
- * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
- *     accountId: "your_account_id",
- *     policyId: fooAlertPolicy.id,
- *     type: "static",
- *     description: "Alert when transactions are taking too long",
- *     runbookUrl: "https://www.example.com",
- *     enabled: true,
- *     violationTimeLimitSeconds: 3600,
- *     fillOption: "static",
- *     fillValue: 1,
- *     aggregationWindow: 60,
- *     aggregationMethod: "event_flow",
- *     aggregationDelay: "120",
- *     expirationDuration: 120,
- *     openViolationOnExpiration: true,
- *     closeViolationsOnExpiration: true,
- *     slideBy: 30,
- *     nrql: {
- *         query: "SELECT average(duration) FROM Transaction where appName = 'Your App'",
- *     },
- *     critical: {
- *         operator: "above",
- *         threshold: 5.5,
- *         thresholdDuration: 300,
- *         thresholdOccurrences: "ALL",
- *     },
- *     warning: {
- *         operator: "above",
- *         threshold: 3.5,
- *         thresholdDuration: 600,
- *         thresholdOccurrences: "ALL",
- *     },
- * });
- * ```
  *
  * ## Upgrade from 1.x to 2.x
  *
@@ -154,6 +104,8 @@ import * as utilities from "./utilities";
  * ```sh
  *  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
  * ```
+ *
+ *  Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
  */
 export class NrqlAlertCondition extends pulumi.CustomResource {
     /**

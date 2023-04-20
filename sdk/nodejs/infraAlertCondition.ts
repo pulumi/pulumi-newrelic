@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create and manage Infrastructure alert conditions in New Relic.
  *
- * > **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
+ * > **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
  *
  * ## Example Usage
  *
@@ -82,52 +82,6 @@ import * as utilities from "./utilities";
  *   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infraMetric` and `infraProcessRunning` alert condition types.
  *   * `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infraMetric` alert condition type.
  *
- * ## Tags
- *
- * Manage infra alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooInfraAlertCondition = new newrelic.InfraAlertCondition("fooInfraAlertCondition", {
- *     policyId: fooAlertPolicy.id,
- *     description: "Warning if disk usage goes above 80% and critical alert if goes above 90%",
- *     type: "infra_metric",
- *     event: "StorageSample",
- *     select: "diskUsedPercent",
- *     comparison: "above",
- *     where: "(hostname LIKE '%frontend%')",
- *     critical: {
- *         duration: 25,
- *         value: 90,
- *         timeFunction: "all",
- *     },
- *     warning: {
- *         duration: 10,
- *         value: 80,
- *         timeFunction: "all",
- *     },
- * });
- * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
- *     guid: fooInfraAlertCondition.entityGuid,
- *     tags: [
- *         {
- *             key: "my-key",
- *             values: [
- *                 "my-value",
- *                 "my-other-value",
- *             ],
- *         },
- *         {
- *             key: "my-key-2",
- *             values: ["my-value-2"],
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Infrastructure alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
@@ -184,10 +138,6 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * The unique entity identifier of the condition in New Relic.
-     */
-    public /*out*/ readonly entityGuid!: pulumi.Output<string>;
     /**
      * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
      */
@@ -255,7 +205,6 @@ export class InfraAlertCondition extends pulumi.CustomResource {
             resourceInputs["critical"] = state ? state.critical : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["entityGuid"] = state ? state.entityGuid : undefined;
             resourceInputs["event"] = state ? state.event : undefined;
             resourceInputs["integrationProvider"] = state ? state.integrationProvider : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -292,7 +241,6 @@ export class InfraAlertCondition extends pulumi.CustomResource {
             resourceInputs["warning"] = args ? args.warning : undefined;
             resourceInputs["where"] = args ? args.where : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["entityGuid"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -324,10 +272,6 @@ export interface InfraAlertConditionState {
      * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * The unique entity identifier of the condition in New Relic.
-     */
-    entityGuid?: pulumi.Input<string>;
     /**
      * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
      */

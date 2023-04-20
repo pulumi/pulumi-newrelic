@@ -12,12 +12,13 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage Infrastructure alert conditions in New Relic.
     /// 
-    /// &gt; **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
+    /// &gt; **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
     /// 
     /// ## Example Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -103,70 +104,6 @@ namespace Pulumi.NewRelic
     ///   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infra_metric` and `infra_process_running` alert condition types.
     ///   * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infra_metric` alert condition type.
     /// 
-    /// ## Tags
-    /// 
-    /// Manage infra alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-    /// 
-    ///     var fooInfraAlertCondition = new NewRelic.InfraAlertCondition("fooInfraAlertCondition", new()
-    ///     {
-    ///         PolicyId = fooAlertPolicy.Id,
-    ///         Description = "Warning if disk usage goes above 80% and critical alert if goes above 90%",
-    ///         Type = "infra_metric",
-    ///         Event = "StorageSample",
-    ///         Select = "diskUsedPercent",
-    ///         Comparison = "above",
-    ///         Where = "(hostname LIKE '%frontend%')",
-    ///         Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
-    ///         {
-    ///             Duration = 25,
-    ///             Value = 90,
-    ///             TimeFunction = "all",
-    ///         },
-    ///         Warning = new NewRelic.Inputs.InfraAlertConditionWarningArgs
-    ///         {
-    ///             Duration = 10,
-    ///             Value = 80,
-    ///             TimeFunction = "all",
-    ///         },
-    ///     });
-    /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
-    ///     {
-    ///         Guid = fooInfraAlertCondition.EntityGuid,
-    ///         Tags = new[]
-    ///         {
-    ///             new NewRelic.Inputs.EntityTagsTagArgs
-    ///             {
-    ///                 Key = "my-key",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "my-value",
-    ///                     "my-other-value",
-    ///                 },
-    ///             },
-    ///             new NewRelic.Inputs.EntityTagsTagArgs
-    ///             {
-    ///                 Key = "my-key-2",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "my-value-2",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Infrastructure alert conditions can be imported using a composite ID of `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g.
@@ -207,12 +144,6 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique entity identifier of the condition in New Relic.
-        /// </summary>
-        [Output("entityGuid")]
-        public Output<string> EntityGuid { get; private set; } = null!;
 
         /// <summary>
         /// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
@@ -459,12 +390,6 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The unique entity identifier of the condition in New Relic.
-        /// </summary>
-        [Input("entityGuid")]
-        public Input<string>? EntityGuid { get; set; }
 
         /// <summary>
         /// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.

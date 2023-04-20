@@ -66,6 +66,7 @@ import javax.annotation.Nullable;
  * The below example shows how you can define a private location and attach it to a monitor.
  * 
  * &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
+ * 
  * ```java
  * package generated_program;
  * 
@@ -96,7 +97,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var monitor = new CertCheckMonitor(&#34;monitor&#34;, CertCheckMonitorArgs.builder()        
- *             .domain(&#34;https://www.one.example.com&#34;)
+ *             .uri(&#34;https://www.one.example.com&#34;)
  *             .locationsPrivates(location.id())
  *             .period(&#34;EVERY_6_HOURS&#34;)
  *             .status(&#34;ENABLED&#34;)

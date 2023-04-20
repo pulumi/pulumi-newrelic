@@ -17,8 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Use this resource to create, update, and delete New Relic Events to Metrics rules.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;
