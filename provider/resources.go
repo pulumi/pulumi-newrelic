@@ -16,6 +16,8 @@ package newrelic
 
 import (
 	"fmt"
+	// embed is used to store bridge-metadata.json in the compiled binary
+	_ "embed"
 	"path/filepath"
 	"strings"
 	"unicode"
@@ -237,7 +239,7 @@ func Provider() tfbridge.ProviderInfo {
 				"Pulumi": "3.*",
 			},
 			Namespaces: namespaceMap,
-		},
+		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 	}
 
 	err := x.ComputeDefaults(&prov, x.TokensKnownModules("newrelic_", mainMod, []string{
@@ -247,8 +249,13 @@ func Provider() tfbridge.ProviderInfo {
 		"plugins_",
 	}, x.MakeStandardToken(mainPkg)))
 	contract.AssertNoErrorf(err, "auto token mapping failed")
+	err = x.AutoAliasing(&prov, prov.GetMetadata())
+	contract.AssertNoErrorf(err, "auto aliasing apply failed")
 
 	prov.SetAutonaming(255, "-")
 
 	return prov
 }
+
+//go:embed cmd/pulumi-resource-newrelic/bridge-metadata.json
+var metadata []byte
