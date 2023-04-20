@@ -8,7 +8,7 @@ index 2b27f6d2..1c986ee3 100644
          with:
 -          go-version: 1.19.x
 +          go-version: 1.18.x
- 
+
        - name: Add GOBIN to PATH
          run: echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
 diff --git b/.github/workflows/compile.yml a/.github/workflows/compile.yml
@@ -34,12 +34,12 @@ index bdbf10df..1f669077 100644
          with:
 -          go-version: 1.19
 +          go-version: 1.18
- 
+
        - name: Install PGP private key
          shell: bash
 @@ -37,3 +37,4 @@ jobs:
            ./scripts/release.sh
- 
+
            make release-publish
 +
 diff --git b/.github/workflows/test.yml a/.github/workflows/test.yml
@@ -52,7 +52,7 @@ index 1880bd59..febc708e 100644
          with:
 -          go-version: 1.19.x
 +          go-version: 1.18.x
- 
+
        - name: Add GOBIN to PATH
          run: echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
 @@ -52,7 +52,7 @@ jobs:
@@ -61,7 +61,7 @@ index 1880bd59..febc708e 100644
          with:
 -          go-version: 1.19.x
 +          go-version: 1.18.x
- 
+
        - name: Add GOBIN to PATH
          run: echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
 @@ -92,7 +92,7 @@ jobs:
@@ -70,7 +70,7 @@ index 1880bd59..febc708e 100644
          with:
 -          go-version: 1.19.x
 +          go-version: 1.18.x
- 
+
        - name: Add GOBIN to PATH
          run: echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
 diff --git b/.goreleaser.yml a/.goreleaser.yml
@@ -190,7 +190,7 @@ index 396c639e..39c41119 100644
 -- **data_notification_destination:** fix data source + try to fix tests
  - **data_notification_destination:** fix data source - wip
  - **one_dashboard:** fix for updating with filter_current_dashboard
- 
+
 @@ -208,15 +122,15 @@
  - **destination:** unset destination ID and return nil if destination not found (prevents crash)
  - **notifications:** added deleted test
@@ -201,7 +201,7 @@ index 396c639e..39c41119 100644
  - **synthetics:** set period and status on update of newrelic_synthetics_script_monitor
 -- **synthetics:** set additional attribute values on import
  - **workflow:** unset workflow ID and return nil if workflow not found (prevents crash)
- 
+
  ### Documentation Updates
 -- Update 'violations' to 'incidents' in Alerts docs
  - fix import command for script monitor
@@ -230,7 +230,7 @@ index 396c639e..39c41119 100644
  - **workflows:** add schema upgrade version
  - **workflows:** docs small change
 -- **workflows:** change workflows schema
- 
+
  ### Documentation Updates
  - **newrelic_one_dashboard:** Fix incorrect permission value)
 @@ -403,34 +317,34 @@
@@ -275,12 +275,12 @@ index 396c639e..39c41119 100644
 +- **workflows:** add custom errors handling to workflows
  - **workflows:** lint fix
 +- **workflows:** upgrade newrelic-client-go
- 
+
  ### Documentation Updates
  - add v3 migration guide
 @@ -442,18 +356,18 @@
  - **synthetics:** update docs for private location data source
- 
+
  ### Features
 -- swap secure credential resource to GraphQL API
  - add new synthetics resources
@@ -300,7 +300,7 @@ index 396c639e..39c41119 100644
 -- **workflows:** add workflows resources workinggg - wip
 -- **workflows:** add tests
  - **workflows:** resolve conflict
- 
+
  ### BREAKING CHANGE
 @@ -637,8 +551,8 @@ new synthetics resources use GraphQL API schema
  <a name="v2.41.2"></a>
@@ -314,7 +314,7 @@ index 396c639e..39c41119 100644
  - **cloud_azure_link_account:** rename client_secret_id to client_secret
 @@ -704,7 +618,7 @@ new synthetics resources use GraphQL API schema
  - fixed mistakes in the Doc
- 
+
  ### Documentation Updates
 -- added gcp integration documentation
 +- minor changes
@@ -334,11 +334,11 @@ index 396c639e..39c41119 100644
  - update version in docs
 +- add cloud_aws_link_account resource to docs
  - **servicelevel:** SLO periods now include complete weeks
- 
+
  ### Features
 @@ -937,10 +851,10 @@ new synthetics resources use GraphQL API schema
  - **OneDashboardRaw:** Update docs
- 
+
  ### Features
 +- use client method context from within resources
  - removed binary file
@@ -363,12 +363,12 @@ index 396c639e..39c41119 100644
 -- **dashboard:** add cross-account example
  - **dashboard:** update docs with info regarding widget.account_id and cross-account widgets
 +- **dashboard:** add cross-account example
- 
+
  ### Features
  - **dashboard:** support cross-account widgets :)
 @@ -1335,12 +1249,12 @@ new synthetics resources use GraphQL API schema
  - **alerts:** improve nil handling for alert_channel
- 
+
  ### Documentation Updates
 +- **provider:** additional v2 updates, migration guide updates
  - **provider:** add getting started guide to the quick links
@@ -378,7 +378,7 @@ index 396c639e..39c41119 100644
  - **provider:** update getting started example to reflect v2 updates
 -- **provider:** additional v2 updates, migration guide updates
  - **readme:** update title, add link to latest documentation
- 
+
  <a name="v2.1.1"></a>
 @@ -1363,30 +1277,30 @@ new synthetics resources use GraphQL API schema
  - Require condition_scope = `instance` for validation_close_timer
@@ -391,7 +391,7 @@ index 396c639e..39c41119 100644
  - **deps:** Revert terraform sdk to 1.10.0
  - **newrelic:** fix the failing integration tests ([#519](https://github.com/newrelic/terraform-provider-newrelic/issues/519))
  - **nrql_alert_condition:** threshold_occurrences is case insensitive, attribute description updates
- 
+
  ### Documentation Updates
 -- update API key references to match desires
 -- prep for v2.x, isolate v1.x docs
@@ -449,7 +449,7 @@ index 7784e700..e8da3e5b 100644
  	@$(TEST_RUNNER) -f testname --junitfile $(COVERAGE_DIR)/unit.xml --packages "$(GO_PKGS)" \
 -		-- -v -parallel 10 -tags=unit $(TEST_ARGS) -covermode=$(COVERMODE) -coverprofile $(COVERAGE_DIR)/unit.tmp
 +		-- -v -parallel 4 -tags=unit $(TEST_ARGS) -covermode=$(COVERMODE) -coverprofile $(COVERAGE_DIR)/unit.tmp
- 
+
  test-integration: tools
  	@echo "=== $(PROJECT_NAME) === [ test-integration ]: running integration tests..."
  	@mkdir -p $(COVERAGE_DIR)
@@ -458,7 +458,7 @@ index 7784e700..e8da3e5b 100644
 +	@TF_ACC=1 $(TEST_RUNNER) -f testname --junitfile $(COVERAGE_DIR)/integration.xml --rerun-fails=2 --packages "$(GO_PKGS)" \
 +		-- -v -parallel 6 -tags=integration $(TEST_ARGS) -covermode=$(COVERMODE) -coverprofile $(COVERAGE_DIR)/integration.tmp \
  		   -timeout 120m -ldflags=$(LDFLAGS_TEST)
- 
+
  #
 diff --git b/go.mod a/go.mod
 index 7acbcb34..1117c3c6 100644
@@ -466,10 +466,10 @@ index 7acbcb34..1117c3c6 100644
 +++ a/go.mod
 @@ -1,45 +1,46 @@
  module github.com/newrelic/terraform-provider-newrelic/v2
- 
+
 -go 1.19
 +go 1.18
- 
+
  require (
 -	github.com/hashicorp/terraform-plugin-sdk/v2 v2.26.1
 +	github.com/hashicorp/terraform-plugin-sdk/v2 v2.20.0
@@ -481,7 +481,7 @@ index 7acbcb34..1117c3c6 100644
 +	github.com/newrelic/newrelic-client-go/v2 v2.13.0
 +	github.com/stretchr/testify v1.8.1
  )
- 
+
  require (
  	github.com/agext/levenshtein v1.2.2 // indirect
 +	github.com/apparentlymart/go-cidr v1.1.0 // indirect
@@ -923,7 +923,7 @@ index 2949772e..016a9c6f 100644
 +++ a/newrelic/data_source_newrelic_alert_channel.go
 @@ -19,8 +19,7 @@ func dataSourceNewRelicAlertChannel() *schema.Resource {
  	}
- 
+
  	return &schema.Resource{
 -		DeprecationMessage: "The `newrelic_alert_channel` data source is deprecated and will be removed in the next major release.",
 -		ReadContext:        dataSourceNewRelicAlertChannelRead,
@@ -949,16 +949,16 @@ index c6e455a1..a52f5821 100644
 --- b/newrelic/data_source_newrelic_entity.go
 +++ a/newrelic/data_source_newrelic_entity.go
 @@ -8,7 +8,6 @@ import (
- 
+
  	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 -
  	"github.com/newrelic/newrelic-client-go/v2/pkg/entities"
  )
- 
+
 @@ -94,30 +93,24 @@ func dataSourceNewRelicEntityRead(ctx context.Context, d *schema.ResourceData, m
  	log.Printf("[INFO] Reading New Relic entities")
- 
+
  	name := d.Get("name").(string)
 -	name = escapeSingleQuote(name)
  	ignoreCase := d.Get("ignore_case").(bool)
@@ -968,7 +968,7 @@ index c6e455a1..a52f5821 100644
 +	entityType := entities.EntitySearchQueryBuilderType(strings.ToUpper(d.Get("type").(string)))
 +	tags := expandEntityTag(d.Get("tag").([]interface{}))
 +	domain := entities.EntitySearchQueryBuilderDomain(strings.ToUpper(d.Get("domain").(string)))
- 
+
 -	query := buildEntitySearchQuery(name, domain, entityType, tags)
 +	params := entities.EntitySearchQueryBuilder{
 +		Name:   name,
@@ -976,7 +976,7 @@ index c6e455a1..a52f5821 100644
 +		Tags:   tags,
 +		Domain: domain,
 +	}
- 
+
 -	entityResults, err := client.Entities.GetEntitySearchByQueryWithContext(ctx,
 -		entities.EntitySearchOptions{
 -			CaseSensitiveTagMatching: ignoreCase,
@@ -985,11 +985,11 @@ index c6e455a1..a52f5821 100644
 -		[]entities.EntitySearchSortCriteria{},
 -	)
 +	entityResults, err := client.Entities.GetEntitySearchWithContext(ctx, entities.EntitySearchOptions{}, "", params, []entities.EntitySearchSortCriteria{})
- 
+
  	if err != nil {
  		return diag.FromErr(err)
  	}
- 
+
 -	if entityResults == nil {
 -		return diag.FromErr(fmt.Errorf("GetEntitySearchByQuery response was nil"))
 -	}
@@ -1000,46 +1000,46 @@ index c6e455a1..a52f5821 100644
 @@ -125,7 +118,6 @@ func dataSourceNewRelicEntityRead(ctx context.Context, d *schema.ResourceData, m
  		str := e.GetName()
  		str = strings.TrimSpace(str)
- 
+
 -		name = revertEscapedSingleQuote(name)
  		if strings.Compare(str, name) == 0 || (ignoreCase && strings.EqualFold(str, name)) {
  			entity = &e
  			break
 @@ -133,7 +125,7 @@ func dataSourceNewRelicEntityRead(ctx context.Context, d *schema.ResourceData, m
  	}
- 
+
  	if entity == nil {
 -		return diag.FromErr(fmt.Errorf("no entities found for the provided search parameters, please ensure your schema attributes are valid"))
 +		return diag.FromErr(fmt.Errorf("the name '%s' does not match any New Relic One entity for the given search parameters (ignore_case: %t)", name, ignoreCase))
  	}
- 
+
  	return diag.FromErr(flattenEntityData(entity, d))
 @@ -191,43 +183,29 @@ func flattenEntityData(entity *entities.EntityOutlineInterface, d *schema.Resour
  	return nil
  }
- 
+
 -func buildEntitySearchQuery(name string, domain string, entityType string, tags []interface{}) string {
 -	var query string
 +func expandEntityTag(cfg []interface{}) []entities.EntitySearchQueryBuilderTag {
 +	var tags []entities.EntitySearchQueryBuilderTag
- 
+
 -	if name != "" {
 -		query = fmt.Sprintf("name = '%s'", name)
 +	if len(cfg) == 0 {
 +		return tags
  	}
- 
+
 -	if domain != "" {
 -		query = fmt.Sprintf("%s AND domain = '%s'", query, domain)
 -	}
 +	tags = make([]entities.EntitySearchQueryBuilderTag, 0, len(cfg))
- 
+
 -	if entityType != "" {
 -		query = fmt.Sprintf("%s AND type = '%s'", query, entityType)
 -	}
 +	for _, t := range cfg {
 +		cfgTag := t.(map[string]interface{})
- 
+
 -	if len(tags) > 0 {
 -		query = fmt.Sprintf("%s AND %s", query, buildTagsQueryFragment(tags))
 -	}
@@ -1047,14 +1047,14 @@ index c6e455a1..a52f5821 100644
 -	return query
 -}
 +		tag := entities.EntitySearchQueryBuilderTag{}
- 
+
 -func buildTagsQueryFragment(tags []interface{}) string {
 -	var query string
 +		if k, ok := cfgTag["key"]; ok {
 +			tag.Key = k.(string)
 +			if v, ok := cfgTag["value"]; ok {
 +				tag.Value = v.(string)
- 
+
 -	for i, t := range tags {
 -		tag := t.(map[string]interface{})
 -
@@ -1069,7 +1069,7 @@ index c6e455a1..a52f5821 100644
 -
 -		query = fmt.Sprintf("%s%s", query, q)
  	}
- 
+
 -	return query
 +	return tags
  }
@@ -1080,7 +1080,7 @@ index cb29064c..5fe5dab2 100644
 @@ -30,26 +30,39 @@ func TestAccNewRelicEntityData_Basic(t *testing.T) {
  	})
  }
- 
+
 -// This test case checks if an entity with a single quote "'" in its name
 -// is created, and is subsequently, fetched by the data source.
 -func TestAccNewRelicSingleQuotedEntityData_Basic(t *testing.T) {
@@ -1118,7 +1118,7 @@ index cb29064c..5fe5dab2 100644
  		},
  	})
  }
- 
+
 -func TestAccNewRelicEntityData_Missing(t *testing.T) {
 +func TestAccNewRelicEntityData_TypeFail(t *testing.T) {
  	resource.ParallelTest(t, resource.TestCase{
@@ -1136,7 +1136,7 @@ index cb29064c..5fe5dab2 100644
  		},
  	})
  }
- 
+
 -func TestAccNewRelicEntityData_IgnoreCase(t *testing.T) {
 +func TestAccNewRelicEntityData_DomainFail(t *testing.T) {
  	resource.ParallelTest(t, resource.TestCase{
@@ -1162,11 +1162,11 @@ index bbba7e7b..db42633c 100644
 @@ -6,94 +6,27 @@ package newrelic
  import (
  	"testing"
- 
+
 +	"github.com/newrelic/newrelic-client-go/v2/pkg/entities"
  	"github.com/stretchr/testify/require"
  )
- 
+
 -func TestBuildTagsQueryFragment_SingleTag(t *testing.T) {
 -	t.Parallel()
 -
@@ -1182,7 +1182,7 @@ index bbba7e7b..db42633c 100644
 +			"value": "my-value",
  		},
  	}
- 
+
 -	result := buildTagsQueryFragment(tags)
 -
 -	require.Equal(t, expected, result)
@@ -1211,7 +1211,7 @@ index bbba7e7b..db42633c 100644
 +			Value: "my-value",
  		},
  	}
- 
+
 -	result := buildTagsQueryFragment(tags)
 -
 -	require.Equal(t, expected, result)
@@ -1220,7 +1220,7 @@ index bbba7e7b..db42633c 100644
 -func TestBuildTagsQueryFragment_EmptyTags(t *testing.T) {
 -	t.Parallel()
 +	expanded := expandEntityTag(flattened)
- 
+
 -	expected := ""
 -	tags := []interface{}{}
 -
@@ -1739,7 +1739,7 @@ index f0839972..04279b42 100755
  			"newrelic_test_grok_pattern":            dataSourceNewRelicTestGrokPattern(),
 -			"newrelic_service_level_alert_helper":   dataSourceNewRelicServiceLevelAlertHelper(),
  		},
- 
+
  		ResourcesMap: map[string]*schema.Resource{
 @@ -143,7 +142,6 @@ func Provider() *schema.Provider {
  			"newrelic_alert_policy_channel":                     resourceNewRelicAlertPolicyChannel(),
@@ -1764,14 +1764,14 @@ index f0839972..04279b42 100755
 -			"newrelic_account_management":                       resourceNewRelicWorkloadAccountManagement(),
  		},
  	}
- 
+
 diff --git b/newrelic/provider_integration_test.go a/newrelic/provider_integration_test.go
 index 92155694..71aa08af 100644
 --- b/newrelic/provider_integration_test.go
 +++ a/newrelic/provider_integration_test.go
 @@ -32,7 +32,7 @@ func TestAccNewRelicProvider_Region(t *testing.T) {
  	rName := acctest.RandString(5)
- 
+
  	resource.ParallelTest(t, resource.TestCase{
 -		PreCheck:     func() { testAccPreCheckEnvVars(t) },
 +		PreCheck:     func() { testAccPreCheck(t) },
@@ -1789,14 +1789,14 @@ index eb22d5bb..951c0536 100644
 -	"strings"
  	"testing"
  	"time"
- 
+
 @@ -24,29 +23,25 @@ import (
  	"github.com/newrelic/newrelic-client-go/v2/pkg/apm"
  	"github.com/newrelic/newrelic-client-go/v2/pkg/config"
  	"github.com/newrelic/newrelic-client-go/v2/pkg/entities"
 -	"github.com/newrelic/newrelic-client-go/v2/pkg/logconfigurations"
  )
- 
+
  var (
 -	testAccExpectedAlertChannelName            string
 -	testAccExpectedApplicationName             string
@@ -1823,7 +1823,7 @@ index eb22d5bb..951c0536 100644
 +	testAccAPMEntityCreated         = false
 +	testAccCleanupComplete          = false
  )
- 
+
  func init() {
  	testAccExpectedAlertChannelName = fmt.Sprintf("%s tf-test@example.com", acctest.RandString(5))
  	testAccExpectedApplicationName = fmt.Sprintf("tf_test_%s", acctest.RandString(10))
@@ -1837,10 +1837,10 @@ index eb22d5bb..951c0536 100644
  provider "newrelic" {
 -	alias = "integration-test-provider"
  	region = "%[1]s"
- 
+
  	%[2]s
  }
- 
+
  resource "newrelic_alert_policy" "foo" {
 -	provider = newrelic.integration-test-provider
    name = "tf-test-%[3]s"
@@ -1849,7 +1849,7 @@ index eb22d5bb..951c0536 100644
 @@ -92,72 +85,45 @@ resource "newrelic_alert_policy" "foo" {
  func testAccPreCheck(t *testing.T) {
  	testAccPreCheckEnvVars(t)
- 
+
 -	// Clean up old data partitions
 -	//testAccLogDataPartitionsCleanup(t)
 -
@@ -1900,7 +1900,7 @@ index eb22d5bb..951c0536 100644
 +			Type:   "APPLICATION",
 +			Domain: "APM",
 +		}
- 
+
 -	// Create the application, with the given 'name' in the argument.
 -	testAccCreateApplication(t, name)
 +		retryErr := resource.RetryContext(context.Background(), 30*time.Second, func() *resource.RetryError {
@@ -1908,7 +1908,7 @@ index eb22d5bb..951c0536 100644
 +			if err != nil {
 +				return resource.RetryableError(err)
 +			}
- 
+
 -	// We need to give the entity search engine time to index the app so
 -	// we try to get the entity, and retry if it fails for a certain amount
 -	// of time
@@ -1923,7 +1923,7 @@ index eb22d5bb..951c0536 100644
 +			if entityResults.Count != 1 {
 +				return resource.RetryableError(fmt.Errorf("Entity not found, or found more than one"))
 +			}
- 
+
 -	retryErr := resource.RetryContext(context.Background(), 30*time.Second, func() *resource.RetryError {
 -		entityResults, err := client.GetEntitySearchWithContext(context.Background(), entities.EntitySearchOptions{}, "", params, []entities.EntitySearchSortCriteria{})
 -		if err != nil {
@@ -1931,13 +1931,13 @@ index eb22d5bb..951c0536 100644
 -		}
 +			return nil
 +		})
- 
+
 -		if entityResults.Count != 1 {
 -			return resource.RetryableError(fmt.Errorf("Entity not found, or found more than one"))
 +		if retryErr != nil {
 +			t.Fatalf("Unable to find application entity: %s", retryErr)
  		}
- 
+
 -		return nil
 -	})
 -
@@ -1947,12 +1947,12 @@ index eb22d5bb..951c0536 100644
  	}
 -
  }
- 
+
  func testAccPreCheckEnvVars(t *testing.T) {
 @@ -174,10 +140,10 @@ func testAccPreCheckEnvVars(t *testing.T) {
  	}
  }
- 
+
 -func testAccCreateApplication(t *testing.T, name string) {
 +func testAccCreateApplication(t *testing.T) {
  	app, err := newrelic.NewApplication(
@@ -1961,7 +1961,7 @@ index eb22d5bb..951c0536 100644
 +		newrelic.ConfigAppName(testAccExpectedApplicationName),
  		newrelic.ConfigLicense(os.Getenv("NEW_RELIC_LICENSE_KEY")),
  	)
- 
+
 @@ -240,75 +206,5 @@ func testAccApplicationsCleanup(t *testing.T) {
  // resources with names that start with "tf-test-". This helps avoid
  // deleting any resources that might be cross-account, such as workloads.
@@ -2045,12 +2045,12 @@ index 67d14760..0a0089b4 100644
 +++ a/newrelic/provider_unit_test.go
 @@ -19,7 +19,7 @@ func TestGenerateNameForIntegrationTestResource(t *testing.T) {
  	t.Parallel()
- 
+
  	result := generateNameForIntegrationTestResource()
 -	require.Contains(t, result, "tf-test-")
 +	require.Contains(t, result, "tf_test_")
  }
- 
+
  func TestBuildUserAgentStringWithDefaultServiceName(t *testing.T) {
 diff --git b/newrelic/resource_newrelic_account_management.go a/newrelic/resource_newrelic_account_management.go
 deleted file mode 100644
@@ -2673,7 +2673,7 @@ index de242293..bfb1b7c8 100644
 +++ a/newrelic/resource_newrelic_alert_channel.go
 @@ -55,9 +55,8 @@ func resourceNewRelicAlertChannel() *schema.Resource {
  	}
- 
+
  	return &schema.Resource{
 -		DeprecationMessage: "The `newrelic_alert_channel` resource is deprecated and will be removed in the next major release. Please use `newrelic_notification_channel` instead.",
 -		CreateContext:      resourceNewRelicAlertChannelCreate,
@@ -2700,22 +2700,22 @@ index 889d4f70..f499f7e9 100644
  	}
  }
 @@ -223,7 +218,7 @@ func resourceNewRelicAlertConditionCreate(ctx context.Context, d *schema.Resourc
- 
+
  	d.SetId(serializeIDs([]int{policyID, condition.ID}))
- 
+
 -	return resourceNewRelicAlertConditionRead(ctx, d, meta)
 +	return nil
  }
- 
+
  func resourceNewRelicAlertConditionRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 @@ -262,13 +257,10 @@ func resourceNewRelicAlertConditionRead(ctx context.Context, d *schema.ResourceD
- 
+
  	_ = d.Set("policy_id", policyID)
- 
+
 -	return diag.FromErr(flattenAlertCondition(condition, accountID, d))
 +	return diag.FromErr(flattenAlertCondition(condition, d))
  }
- 
+
  func resourceNewRelicAlertConditionUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 -	providerConfig := meta.(*ProviderConfig)
 -	accountID := selectAccountID(providerConfig, d)
@@ -2724,20 +2724,20 @@ index 889d4f70..f499f7e9 100644
  	condition, err := expandAlertCondition(d)
  	if err != nil {
 @@ -293,7 +285,7 @@ func resourceNewRelicAlertConditionUpdate(ctx context.Context, d *schema.Resourc
- 
+
  	_ = d.Set("policy_id", policyID)
- 
+
 -	return diag.FromErr(flattenAlertCondition(updatedCondition, accountID, d))
 +	return diag.FromErr(flattenAlertCondition(updatedCondition, d))
  }
- 
+
  func resourceNewRelicAlertConditionDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 diff --git b/newrelic/resource_newrelic_alert_condition_test.go a/newrelic/resource_newrelic_alert_condition_test.go
 index df3175ef..24625c43 100644
 --- b/newrelic/resource_newrelic_alert_condition_test.go
 +++ a/newrelic/resource_newrelic_alert_condition_test.go
 @@ -73,6 +73,9 @@ func testAccCheckNewRelicAlertConditionExists(n string) resource.TestCheckFunc {
- 
+
  func testAccNewRelicAlertConditionConfig(rName string) string {
  	return fmt.Sprintf(`
 +provider "newrelic" {
@@ -2747,7 +2747,7 @@ index df3175ef..24625c43 100644
  	name = "%[2]s"
  }
 @@ -163,6 +166,9 @@ resource "newrelic_alert_condition" "foo" {
- 
+
  func testAccNewRelicAlertConditionConfigDuration(name string, duration int) string {
  	return fmt.Sprintf(`
 +provider "newrelic" {
@@ -2757,7 +2757,7 @@ index df3175ef..24625c43 100644
  	name = "%[1]s"
  }
 @@ -188,6 +194,9 @@ resource "newrelic_alert_condition" "foo" {
- 
+
  func testAccNewRelicAlertConditionApplicationScopeWithCloseTimerConfig(rName string) string {
  	return fmt.Sprintf(`
 +provider "newrelic" {
@@ -2767,7 +2767,7 @@ index df3175ef..24625c43 100644
  	name = "%[2]s"
  }
 @@ -219,6 +228,9 @@ resource "newrelic_alert_condition" "foo" {
- 
+
  func testAccNewRelicAlertConditionInstanceScopeWithCloseTimerConfig(rName string) string {
  	return fmt.Sprintf(`
 +provider "newrelic" {
@@ -2777,7 +2777,7 @@ index df3175ef..24625c43 100644
  	name = "%[2]s"
  }
 @@ -250,6 +262,9 @@ resource "newrelic_alert_condition" "foo" {
- 
+
  func testAccNewRelicAlertConditionAPMJVMMetricApplicationScopeConfig(rName string) string {
  	return fmt.Sprintf(`
 +provider "newrelic" {
@@ -2787,7 +2787,7 @@ index df3175ef..24625c43 100644
  	name = "%[2]s"
  }
 @@ -281,6 +296,9 @@ resource "newrelic_alert_condition" "foo" {
- 
+
  func testAccNewRelicAlertConditionAPMJVMMetricInstanceScopeConfig(rName string) string {
  	return fmt.Sprintf(`
 +provider "newrelic" {
@@ -2813,7 +2813,7 @@ index 254fdcd7..555f3394 100644
 --- b/newrelic/resource_newrelic_alert_policy_channel.go
 +++ a/newrelic/resource_newrelic_alert_policy_channel.go
 @@ -16,9 +16,8 @@ import (
- 
+
  func resourceNewRelicAlertPolicyChannel() *schema.Resource {
  	return &schema.Resource{
 -		DeprecationMessage: "The `newrelic_alert_policy_channel` resource is deprecated and will be removed in the next major release.",
@@ -2829,7 +2829,7 @@ index 34fa2318..737607ea 100644
 --- b/newrelic/resource_newrelic_alert_policy_test.go
 +++ a/newrelic/resource_newrelic_alert_policy_test.go
 @@ -91,6 +91,10 @@ resource "newrelic_alert_policy" "foo" {
- 
+
  func testAccNewRelicAlertPolicyConfigNameEmpty() string {
  	return `
 +provider "newrelic" {
@@ -2859,7 +2859,7 @@ index fd97ac1e..43c565e2 100644
 -`, access_key_id, aws_account_id, secret_access_key, name, testAccountID)
 +`, access_key_id, aws_account_id, secret_access_key, name)
  }
- 
+
  func testAccNewRelicCloudAwsGovCloudIntegrationsConfigUpdated(access_key_id string, aws_account_id string, secret_access_key string, name string) string {
 @@ -268,7 +268,7 @@ func testAccNewRelicCloudAwsGovCloudIntegrationsConfigUpdated(access_key_id stri
     secret_access_key = "%[3]s"
@@ -2886,11 +2886,11 @@ index b14d70d1..1a359ec1 100644
  	"context"
  	"strconv"
 -	"strings"
- 
+
  	"github.com/newrelic/newrelic-client-go/v2/pkg/cloud"
- 
+
 @@ -580,10 +579,6 @@ func resourceNewRelicCloudAwsIntegrationsRead(ctx context.Context, d *schema.Res
- 
+
  	linkedAccount, err := client.Cloud.GetLinkedAccountWithContext(ctx, accountID, linkedAccountID)
  	if err != nil {
 -		if strings.Contains(err.Error(), "not found") {
@@ -2899,14 +2899,14 @@ index b14d70d1..1a359ec1 100644
 -		}
  		return diag.FromErr(err)
  	}
- 
+
 diff --git b/newrelic/resource_newrelic_cloud_aws_link_account.go a/newrelic/resource_newrelic_cloud_aws_link_account.go
 index 58c603b0..277771cf 100644
 --- b/newrelic/resource_newrelic_cloud_aws_link_account.go
 +++ a/newrelic/resource_newrelic_cloud_aws_link_account.go
 @@ -136,10 +136,6 @@ func resourceNewRelicCloudAwsAccountLinkRead(ctx context.Context, d *schema.Reso
  	linkedAccount, err := client.Cloud.GetLinkedAccountWithContext(ctx, accountID, linkedAccountID)
- 
+
  	if err != nil {
 -		if strings.Contains(err.Error(), "not found") {
 -			d.SetId("")
@@ -2914,7 +2914,7 @@ index 58c603b0..277771cf 100644
 -		}
  		return diag.FromErr(err)
  	}
- 
+
 diff --git b/newrelic/resource_newrelic_cloud_azure_integrations.go a/newrelic/resource_newrelic_cloud_azure_integrations.go
 index 3d52274e..e4fd09d5 100644
 --- b/newrelic/resource_newrelic_cloud_azure_integrations.go
@@ -2924,11 +2924,11 @@ index 3d52274e..e4fd09d5 100644
  	"context"
  	"strconv"
 -	"strings"
- 
+
  	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 @@ -2165,10 +2164,6 @@ func resourceNewRelicCloudAzureIntegrationsRead(ctx context.Context, d *schema.R
- 
+
  	linkedAccount, err := client.Cloud.GetLinkedAccountWithContext(ctx, accountID, linkedAccountID)
  	if err != nil {
 -		if strings.Contains(err.Error(), "not found") {
@@ -2937,7 +2937,7 @@ index 3d52274e..e4fd09d5 100644
 -		}
  		return diag.FromErr(err)
  	}
- 
+
 diff --git b/newrelic/resource_newrelic_cloud_azure_link_account.go a/newrelic/resource_newrelic_cloud_azure_link_account.go
 index 5f4b8fa7..5ab544b9 100755
 --- b/newrelic/resource_newrelic_cloud_azure_link_account.go
@@ -2947,21 +2947,21 @@ index 5f4b8fa7..5ab544b9 100755
  	"context"
  	"strconv"
 -	"strings"
- 
+
  	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 @@ -66,7 +65,7 @@ func resourceNewRelicCloudAzureLinkAccountCreate(ctx context.Context, d *schema.
  	cloudLinkAccountPayload, err := client.Cloud.CloudLinkAccountWithContext(ctx, accountID, linkAccountInput)
- 
+
  	if err != nil {
 -		return diag.FromErr(err)
 +		diag.FromErr(err)
  	}
- 
+
  	if len(cloudLinkAccountPayload.Errors) > 0 {
 @@ -127,10 +126,6 @@ func resourceNewRelicCloudAzureLinkAccountRead(ctx context.Context, d *schema.Re
  	linkedAccount, err := client.Cloud.GetLinkedAccountWithContext(ctx, accountID, linkedAccountID)
- 
+
  	if err != nil {
 -		if strings.Contains(err.Error(), "not found") {
 -			d.SetId("")
@@ -2969,7 +2969,7 @@ index 5f4b8fa7..5ab544b9 100755
 -		}
  		return diag.FromErr(err)
  	}
- 
+
 diff --git b/newrelic/resource_newrelic_cloud_gcp_integrations.go a/newrelic/resource_newrelic_cloud_gcp_integrations.go
 index e966d3d3..6b7a4529 100644
 --- b/newrelic/resource_newrelic_cloud_gcp_integrations.go
@@ -2979,11 +2979,11 @@ index e966d3d3..6b7a4529 100644
  	"context"
  	"strconv"
 -	"strings"
- 
+
  	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 @@ -1198,10 +1197,6 @@ func resourceNewrelicCloudGcpIntegrationsRead(ctx context.Context, d *schema.Res
- 
+
  	linkedAccount, err := client.Cloud.GetLinkedAccountWithContext(ctx, accountID, linkedAccountID)
  	if err != nil {
 -		if strings.Contains(err.Error(), "not found") {
@@ -3004,18 +3004,18 @@ index 9cf163b3..987fc7c2 100644
 +	if testGcpIntegrationProjectID == "" {
 +		t.Skipf("INTEGRATION_TESTING_GCP_INTEGRATIONS_PROJECT_ID must be set for acceptance test")
 +	}
- 
+
  	testGcpAccountName := acctest.RandString(5)
- 
+
 @@ -106,12 +109,12 @@ func testAccNewRelicCloudGcpIntegrationsConfig(projectID string, name string) st
- 
+
  resource "newrelic_cloud_gcp_link_account" "foo" {
    name       = "%[2]s"
 -  account_id = %[3]d
 +  account_id = 2520528
    project_id = "%[1]s"
  }
- 
+
  resource "newrelic_cloud_gcp_integrations" "foo1" {
 -  account_id        = %[3]d
 +  account_id        = 2520528
@@ -3029,7 +3029,7 @@ index 9cf163b3..987fc7c2 100644
 -	`, projectID, name, testAccountID)
 +	`, projectID, name)
  }
- 
+
  func testAccNewRelicCloudGcpIntegrationsConfigUpdated(projectID string, name string) string {
  	return fmt.Sprintf(`
  	resource "newrelic_cloud_gcp_link_account" "foo"{
@@ -3038,7 +3038,7 @@ index 9cf163b3..987fc7c2 100644
 +			account_id = 2520528
  			project_id="%[1]s"
  	}
- 
+
  	resource "newrelic_cloud_gcp_integrations" "foo1" {
 -		  account_id = %[3]d
 +		  account_id = 2520528
@@ -3057,18 +3057,18 @@ index 35c110ec..940de4c5 100644
 --- b/newrelic/resource_newrelic_cloud_gcp_link_account.go
 +++ a/newrelic/resource_newrelic_cloud_gcp_link_account.go
 @@ -2,9 +2,7 @@ package newrelic
- 
+
  import (
  	"context"
 -	"fmt"
  	"strconv"
 -	"strings"
- 
+
  	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 @@ -55,11 +53,7 @@ func resourceNewRelicCloudGcpLinkAccountCreate(ctx context.Context, d *schema.Re
  	cloudLinkAccountPayload, err := client.Cloud.CloudLinkAccountWithContext(ctx, accountID, linkAccountInput)
- 
+
  	if err != nil {
 -		return diag.FromErr(err)
 -	}
@@ -3077,11 +3077,11 @@ index 35c110ec..940de4c5 100644
 -		return diag.FromErr(fmt.Errorf("[ERROR] cloudLinkAccountPayload was nil"))
 +		diag.FromErr(err)
  	}
- 
+
  	if len(cloudLinkAccountPayload.Errors) > 0 {
 @@ -114,10 +108,6 @@ func resourceNewRelicCloudGcpLinkAccountRead(ctx context.Context, d *schema.Reso
  	linkedAccount, err := client.Cloud.GetLinkedAccountWithContext(ctx, accountID, linkedAccountID)
- 
+
  	if err != nil {
 -		if strings.Contains(err.Error(), "not found") {
 -			d.SetId("")
@@ -3089,7 +3089,7 @@ index 35c110ec..940de4c5 100644
 -		}
  		return diag.FromErr(err)
  	}
- 
+
 diff --git b/newrelic/resource_newrelic_cloud_gcp_link_account_test.go a/newrelic/resource_newrelic_cloud_gcp_link_account_test.go
 index 9cc5db39..3ffa5a13 100644
 --- b/newrelic/resource_newrelic_cloud_gcp_link_account_test.go
@@ -3105,7 +3105,7 @@ index 9cc5db39..3ffa5a13 100644
 -	`, name, projectId, testAccountID)
 +	`, name, projectId)
  }
- 
+
  func testAccNewRelicCloudGcpLinkAccountConfigUpdated(name string, projectId string) string {
  	return fmt.Sprintf(`
  	resource "newrelic_cloud_gcp_link_account" "foo"{
@@ -3683,11 +3683,11 @@ index 67373d31..46a42ca6 100644
 @@ -238,7 +233,7 @@ func resourceNewRelicInfraAlertConditionRead(ctx context.Context, d *schema.Reso
  		return diag.FromErr(err)
  	}
- 
+
 -	return diag.FromErr(flattenInfraAlertCondition(condition, accountID, d))
 +	return diag.FromErr(flattenInfraAlertCondition(condition, d))
  }
- 
+
  func resourceNewRelicInfraAlertConditionUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 diff --git b/newrelic/resource_newrelic_log_parsing_rule_test.go a/newrelic/resource_newrelic_log_parsing_rule_test.go
 index 0f623529..ca5209ae 100644
@@ -3696,7 +3696,7 @@ index 0f623529..ca5209ae 100644
 @@ -9,6 +9,7 @@ import (
  	"regexp"
  	"testing"
- 
+
 +	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
@@ -3731,7 +3731,7 @@ index 0f623529..ca5209ae 100644
  			},
  		},
 @@ -86,7 +87,7 @@ func TestAccNewRelicLogParsingRule_Unique_Name_Create(t *testing.T) {
- 
+
  func TestAccNewRelicLogParsingRule_Grok_Test_Matched(t *testing.T) {
  	resourceName := "newrelic_log_parsing_rule.foo"
 -	rName := generateNameForIntegrationTestResource()
@@ -3740,7 +3740,7 @@ index 0f623529..ca5209ae 100644
  		PreCheck:     func() { testAccPreCheck(t) },
  		Providers:    testAccProviders,
 @@ -104,7 +105,7 @@ func TestAccNewRelicLogParsingRule_Grok_Test_Matched(t *testing.T) {
- 
+
  func TestAccNewRelicLogParsingRule_Grok_Test_Unmatched(t *testing.T) {
  	resourceName := "newrelic_log_parsing_rule.foo"
 -	rName := generateNameForIntegrationTestResource()
@@ -3750,7 +3750,7 @@ index 0f623529..ca5209ae 100644
  		Providers:    testAccProviders,
 @@ -121,7 +122,7 @@ func TestAccNewRelicLogParsingRule_Grok_Test_Unmatched(t *testing.T) {
  }
- 
+
  func TestAccNewRelicLogParsingRule_Invalid_Grok_Test(t *testing.T) {
 -	rName := generateNameForIntegrationTestResource()
 +	rName := acctest.RandString(7)
@@ -3851,7 +3851,7 @@ index 41cbdbf6..dde2ab7d 100644
  					"static",
  					"0",
 @@ -646,7 +646,7 @@ func testAccCheckNewRelicNrqlAlertConditionExists(n string) resource.TestCheckFu
- 
+
  func testAccNewRelicNrqlAlertConditionConfigBasic(
  	name string,
 -	aggregationDelay string,
@@ -3861,11 +3861,11 @@ index 41cbdbf6..dde2ab7d 100644
  	fillValue string,
 @@ -661,7 +661,7 @@ resource "newrelic_alert_policy" "foo" {
  }
- 
+
  resource "newrelic_nrql_alert_condition" "foo" {
 -  policy_id = newrelic_alert_policy.foo.id
 +	policy_id = newrelic_alert_policy.foo.id
- 
+
    name                           = "tf-test-%[1]s"
    runbook_url                    = "https://foo.example.com"
 @@ -669,35 +669,34 @@ resource "newrelic_nrql_alert_condition" "foo" {
@@ -3880,7 +3880,7 @@ index 41cbdbf6..dde2ab7d 100644
    open_violation_on_expiration   = true
    expiration_duration            = 120
    violation_time_limit_seconds   = %[9]s
- 
+
 -  nrql {
 -    query = "SELECT uniqueCount(hostname) FROM ComputeSample"
 -  }
@@ -3888,7 +3888,7 @@ index 41cbdbf6..dde2ab7d 100644
 +    query             = "SELECT uniqueCount(hostname) FROM ComputeSample"
 +    evaluation_offset = "%[2]s"
 +	}
- 
+
 -  critical {
 +	critical {
      operator              = "above"
@@ -3897,7 +3897,7 @@ index 41cbdbf6..dde2ab7d 100644
      threshold_occurrences = "all"
 -  }
 +	}
- 
+
 -  warning {
 -    operator              = "equals"
 -    threshold             = 0.5
@@ -3910,14 +3910,14 @@ index 41cbdbf6..dde2ab7d 100644
 +		threshold_duration    = 120
 +		threshold_occurrences = "AT_LEAST_ONCE"
 +	}
- 
+
 -  %[6]s
 +	%[6]s
  }
 -`, name, aggregationDelay, duration, fillOption, fillValue, conditionalAttrs, aggregationWindow, slideBy, violation_time_limit_seconds)
 +`, name, evaluationOffset, duration, fillOption, fillValue, conditionalAttrs, aggregationWindow, slideBy, violation_time_limit_seconds)
  }
- 
+
  // Uses deprecated attributes for test case
 @@ -723,7 +722,7 @@ resource "newrelic_nrql_alert_condition" "foo" {
  	runbook_url                    = "https://foo.example.com"
@@ -3943,12 +3943,12 @@ index 41cbdbf6..dde2ab7d 100644
  	aggregation_window             = 60
 -	aggregation_delay              = %[3]d
 -	aggregation_method             = "EVENT_FLOW"
- 
+
  	nrql {
  		query             = "SELECT uniqueCount(hostname) FROM ComputeSample"
 +		evaluation_offset = %[3]d
  	}
- 
+
  	critical {
 @@ -812,7 +810,7 @@ resource "newrelic_nrql_alert_condition" "foo" {
  	# Will be baseline_direction depending on condition type
@@ -3957,7 +3957,7 @@ index 41cbdbf6..dde2ab7d 100644
 -`, name, conditionType, aggregationDelay, termDuration, fillOption, fillValue, conditionalAttr)
 +`, name, conditionType, nrqlEvalOffset, termDuration, fillOption, fillValue, conditionalAttr)
  }
- 
+
  func testAccNewRelicNrqlAlertConditionStreamingMethodsNerdGraphConfig(
 diff --git b/newrelic/resource_newrelic_nrql_drop_rule.go a/newrelic/resource_newrelic_nrql_drop_rule.go
 index c7ab673e..e946d34e 100644
@@ -3965,7 +3965,7 @@ index c7ab673e..e946d34e 100644
 +++ a/newrelic/resource_newrelic_nrql_drop_rule.go
 @@ -116,8 +116,9 @@ func resourceNewRelicNRQLDropRuleRead(ctx context.Context, d *schema.ResourceDat
  	}
- 
+
  	rule, err := getNRQLDropRuleByID(ctx, client, accountID, ruleID)
 +
  	if err != nil {
@@ -3976,7 +3976,7 @@ index c7ab673e..e946d34e 100644
  		}
 @@ -208,12 +209,12 @@ func getNRQLDropRuleByID(ctx context.Context, client *newrelic.NewRelic, account
  	}
- 
+
  	if rules.Error.Reason == nrqldroprules.NRQLDropRulesErrorReasonTypes.RULE_NOT_FOUND {
 -		return nil, nrErrors.NewNotFound("RULE_NOT_FOUND\n" + rules.Error.Description)
 +		return nil, errors.New("RULE_NOT_FOUND\n" + rules.Error.Description)
@@ -3996,7 +3996,7 @@ index 646ee19d..bd290ee4 100644
 @@ -11,6 +11,7 @@ import (
  	"github.com/newrelic/newrelic-client-go/v2/pkg/logconfigurations"
  )
- 
+
 +//
  func resourceNewRelicObfuscationExpression() *schema.Resource {
  	return &schema.Resource{
@@ -4004,7 +4004,7 @@ index 646ee19d..bd290ee4 100644
 @@ -46,7 +47,7 @@ func resourceNewRelicObfuscationExpression() *schema.Resource {
  	}
  }
- 
+
 -// Create the obfuscation expression
 +//Create the obfuscation expression
  func resourceNewRelicObfuscationExpressionCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -4013,7 +4013,7 @@ index 646ee19d..bd290ee4 100644
 @@ -75,7 +76,7 @@ func resourceNewRelicObfuscationExpressionCreate(ctx context.Context, d *schema.
  	return resourceNewRelicObfuscationExpressionRead(ctx, d, meta)
  }
- 
+
 -// Read the obfuscation expression
 +//Read the obfuscation expression
  func resourceNewRelicObfuscationExpressionRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -4022,7 +4022,7 @@ index 646ee19d..bd290ee4 100644
 @@ -108,7 +109,7 @@ func resourceNewRelicObfuscationExpressionRead(ctx context.Context, d *schema.Re
  	return nil
  }
- 
+
 -// Update the obfuscation expression
 +//Update the obfuscation expression
  func resourceNewRelicObfuscationExpressionUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -4031,7 +4031,7 @@ index 646ee19d..bd290ee4 100644
 @@ -145,7 +146,7 @@ func expandObfuscationExpressionUpdateInput(d *schema.ResourceData) logconfigura
  	return updateInp
  }
- 
+
 -// Delete the obfuscation expression
 +//Delete the obfuscation expression
  func resourceNewRelicObfuscationExpressionDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -4055,7 +4055,7 @@ index 7e877d22..859ba096 100644
  	"github.com/newrelic/newrelic-client-go/v2/pkg/logconfigurations"
 +	"log"
  )
- 
+
 -// Defining the schema of the New Relic Obfuscation rule
 +//Defining the schema of the New Relic Obfuscation rule
  func resourceNewRelicObfuscationRule() *schema.Resource {
@@ -4064,7 +4064,7 @@ index 7e877d22..859ba096 100644
 @@ -61,7 +60,7 @@ func resourceNewRelicObfuscationRule() *schema.Resource {
  	}
  }
- 
+
 -// ObfuscationRuleActionInputSchemaElem returns the schema of the actions of the New Relic obfuscation rule
 +//ObfuscationRuleActionInputSchemaElem returns the schema of the actions of the New Relic obfuscation rule
  func ObfuscationRuleActionInputSchemaElem() *schema.Resource {
@@ -4073,7 +4073,7 @@ index 7e877d22..859ba096 100644
 @@ -95,7 +94,7 @@ func listValidLogConfigurationsObfuscationMethod() []string {
  	}
  }
- 
+
 -// Create the obfuscation rule
 +//Create the obfuscation rule
  func resourceNewRelicObfuscationRuleCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -4082,7 +4082,7 @@ index 7e877d22..859ba096 100644
 @@ -146,7 +145,7 @@ func resourceNewRelicObfuscationRuleCreate(ctx context.Context, d *schema.Resour
  	return nil
  }
- 
+
 -// Read the obfuscation Rule
 +//Read the obfuscation Rule
  func resourceNewRelicObfuscationRuleRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -4091,7 +4091,7 @@ index 7e877d22..859ba096 100644
 @@ -200,7 +199,7 @@ func flattenActions(actions *[]logconfigurations.LogConfigurationsObfuscationAct
  	return flatActions
  }
- 
+
 -// Update the obfuscation Rule
 +//Update the obfuscation Rule
  func resourceNewRelicObfuscationRuleUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -4100,7 +4100,7 @@ index 7e877d22..859ba096 100644
 @@ -247,7 +246,7 @@ func expandObfuscationRuleUpdateInput(d *schema.ResourceData) logconfigurations.
  	return updateInp
  }
- 
+
 -// Delete the obfuscation Rule
 +//Delete the obfuscation Rule
  func resourceNewRelicObfuscationRuleDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -4235,7 +4235,7 @@ index 02b69279..35a55b21 100644
 -		},
  	}
  }
- 
+
 diff --git b/newrelic/resource_newrelic_one_dashboard_test.go a/newrelic/resource_newrelic_one_dashboard_test.go
 index 0b006a77..fd1e79e7 100644
 --- b/newrelic/resource_newrelic_one_dashboard_test.go
@@ -4426,7 +4426,7 @@ index f9c5f7b4..53f2fe81 100644
 -}
  `, testAccountID, name)
  }
- 
+
 diff --git b/newrelic/resource_newrelic_synthetics_alert_condition.go a/newrelic/resource_newrelic_synthetics_alert_condition.go
 index a94cf9b5..ed9db2c3 100644
 --- b/newrelic/resource_newrelic_synthetics_alert_condition.go
@@ -4446,33 +4446,33 @@ index a94cf9b5..ed9db2c3 100644
 @@ -72,20 +67,18 @@ func expandSyntheticsCondition(d *schema.ResourceData, monitorID string) *alerts
  	return &condition
  }
- 
+
 -func flattenSyntheticsCondition(condition *alerts.SyntheticsCondition, accountID int, d *schema.ResourceData) error {
 +func flattenSyntheticsCondition(condition *alerts.SyntheticsCondition, d *schema.ResourceData) error {
  	ids, err := parseIDs(d.Id(), 2)
  	if err != nil {
  		return err
  	}
- 
+
  	policyID := ids[0]
 -	entityGUID := getConditionEntityGUID(condition.ID, accountID)
- 
+
  	_ = d.Set("policy_id", policyID)
  	_ = d.Set("name", condition.Name)
  	_ = d.Set("runbook_url", condition.RunbookURL)
  	_ = d.Set("enabled", condition.Enabled)
 -	_ = d.Set("entity_guid", entityGUID)
- 
+
  	return nil
  }
 @@ -147,7 +140,7 @@ func resourceNewRelicSyntheticsAlertConditionRead(ctx context.Context, d *schema
  		return diag.FromErr(err)
  	}
- 
+
 -	return diag.FromErr(flattenSyntheticsCondition(condition, accountID, d))
 +	return diag.FromErr(flattenSyntheticsCondition(condition, d))
  }
- 
+
  func resourceNewRelicSyntheticsAlertConditionUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 diff --git b/newrelic/resource_newrelic_synthetics_multilocation_alert_condition.go a/newrelic/resource_newrelic_synthetics_multilocation_alert_condition.go
 index dcabfde6..20798e60 100644
@@ -4493,11 +4493,11 @@ index dcabfde6..20798e60 100644
 @@ -149,7 +144,7 @@ func resourceNewRelicSyntheticsMultiLocationAlertConditionRead(ctx context.Conte
  		return diag.FromErr(err)
  	}
- 
+
 -	return diag.FromErr(flattenMultiLocationSyntheticsCondition(condition, accountID, d))
 +	return diag.FromErr(flattenMultiLocationSyntheticsCondition(condition, d))
  }
- 
+
  func resourceNewRelicSyntheticsMultiLocationAlertConditionUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 diff --git b/newrelic/resource_newrelic_synthetics_secure_credential_test.go a/newrelic/resource_newrelic_synthetics_secure_credential_test.go
 index b388a2e8..c84fdcd9 100644
@@ -4506,18 +4506,18 @@ index b388a2e8..c84fdcd9 100644
 @@ -10,7 +10,6 @@ import (
  	"testing"
  	"time"
- 
+
 -	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
  	"github.com/newrelic/newrelic-client-go/v2/pkg/entities"
 @@ -18,10 +17,10 @@ import (
- 
+
  func TestAccNewRelicSyntheticsSecureCredential_Basic(t *testing.T) {
  	resourceName := "newrelic_synthetics_secure_credential.foo"
 -	rName := fmt.Sprintf("TF_TEST_%s", acctest.RandString(7))
 +	rName := generateNameForIntegrationTestResource()
- 
+
  	resource.ParallelTest(t, resource.TestCase{
 -		PreCheck:     func() { testAccPreCheckEnvVars(t) },
 +		PreCheck:     func() { testAccPreCheck(t) },
@@ -4526,7 +4526,7 @@ index b388a2e8..c84fdcd9 100644
  		Steps: []resource.TestStep{
 @@ -58,7 +57,7 @@ func TestAccNewRelicSyntheticsSecureCredential_Error(t *testing.T) {
  	resourceName := "newrelic_synthetics_secure_credential.foo"
- 
+
  	resource.ParallelTest(t, resource.TestCase{
 -		PreCheck:     func() { testAccPreCheckEnvVars(t) },
 +		PreCheck:     func() { testAccPreCheck(t) },
@@ -4540,7 +4540,7 @@ index dae374bf..6317dcba 100644
 @@ -122,22 +122,6 @@ func TestNewRelicWorkflow_MinimalConfig(t *testing.T) {
  	})
  }
- 
+
 -func TestNewRelicWorkflow_InvalidIssuesFilterAttr(t *testing.T) {
 -	rName := generateNameForIntegrationTestResource()
 -
@@ -4562,7 +4562,7 @@ index dae374bf..6317dcba 100644
  	channelResourceName := "oldChannel"
 @@ -403,58 +387,7 @@ resource "newrelic_workflow" "foo" {
      type = "FILTER"
- 
+
      predicate {
 -      attribute = "accumulations.sources"
 -      operator  = "EQUAL"
@@ -4622,7 +4622,7 @@ index dae374bf..6317dcba 100644
      }
 @@ -512,7 +445,7 @@ resource "newrelic_workflow" "foo" {
      type = "FILTER"
- 
+
      predicate {
 -      attribute = "priority"
 +      attribute = "source"
@@ -4631,7 +4631,7 @@ index dae374bf..6317dcba 100644
      }
 @@ -583,7 +516,7 @@ resource "newrelic_workflow" "foo" {
      type = "FILTER"
- 
+
      predicate {
 -      attribute = "priority"
 +      attribute = "source"
@@ -4640,7 +4640,7 @@ index dae374bf..6317dcba 100644
      }
 @@ -659,7 +592,7 @@ resource "newrelic_workflow" "foo" {
      type = "FILTER"
- 
+
      predicate {
 -      attribute = "priority"
 +      attribute = "attr"
@@ -4649,7 +4649,7 @@ index dae374bf..6317dcba 100644
      }
 @@ -684,7 +617,7 @@ resource "newrelic_workflow" "foo" {
      type = "FILTER"
- 
+
      predicate {
 -      attribute = "priority"
 +      attribute = "attr"
@@ -4658,7 +4658,7 @@ index dae374bf..6317dcba 100644
      }
 @@ -710,10 +643,10 @@ resource "newrelic_workflow" "foo" {
  		type = "FILTER"
- 
+
  		predicate {
 -			attribute = "priority"
 -			operator  = "EQUAL"
@@ -4669,7 +4669,7 @@ index dae374bf..6317dcba 100644
 +		values    = ["test"]
 +	}
  	}
- 
+
  	destination {
 diff --git b/newrelic/structures_newrelic_alert_condition.go a/newrelic/structures_newrelic_alert_condition.go
 index 1c2a18fa..9169eefa 100644
@@ -4678,7 +4678,7 @@ index 1c2a18fa..9169eefa 100644
 @@ -72,9 +72,7 @@ func expandAlertConditionTerms(terms []interface{}) []alerts.ConditionTerm {
  	return perms
  }
- 
+
 -func flattenAlertCondition(condition *alerts.Condition, accountID int, d *schema.ResourceData) error {
 -	entityGUID := getConditionEntityGUID(condition.ID, accountID)
 -
@@ -4691,7 +4691,7 @@ index 1c2a18fa..9169eefa 100644
  	_ = d.Set("user_defined_metric", condition.UserDefined.Metric)
  	_ = d.Set("user_defined_value_function", condition.UserDefined.ValueFunction)
 -	_ = d.Set("entity_guid", entityGUID)
- 
+
  	// The condition_scope field is not always returned by the API. This conditional
  	// handles flattening for all cases.
 diff --git b/newrelic/structures_newrelic_infra_alert_condition.go a/newrelic/structures_newrelic_infra_alert_condition.go
@@ -4701,17 +4701,17 @@ index f09f753a..ba6143db 100644
 @@ -79,14 +79,13 @@ func expandInfraAlertThreshold(v interface{}) *alerts.InfrastructureConditionThr
  	return alertInfraThreshold
  }
- 
+
 -func flattenInfraAlertCondition(condition *alerts.InfrastructureCondition, accountID int, d *schema.ResourceData) error {
 +func flattenInfraAlertCondition(condition *alerts.InfrastructureCondition, d *schema.ResourceData) error {
  	ids, err := parseIDs(d.Id(), 2)
  	if err != nil {
  		return err
  	}
- 
+
  	policyID := ids[0]
 -	entityGUID := getConditionEntityGUID(condition.ID, accountID)
- 
+
  	_ = d.Set("policy_id", policyID)
  	_ = d.Set("name", condition.Name)
 @@ -99,7 +98,6 @@ func flattenInfraAlertCondition(condition *alerts.InfrastructureCondition, accou
@@ -4719,7 +4719,7 @@ index f09f753a..ba6143db 100644
  	_ = d.Set("created_at", time.Time(*condition.CreatedAt).Unix())
  	_ = d.Set("updated_at", time.Time(*condition.UpdatedAt).Unix())
 -	_ = d.Set("entity_guid", entityGUID)
- 
+
  	if condition.Where != "" {
  		_ = d.Set("where", condition.Where)
 diff --git b/newrelic/structures_newrelic_one_dashboard.go a/newrelic/structures_newrelic_one_dashboard.go
@@ -4729,7 +4729,7 @@ index f2ba05e2..f97158b5 100644
 @@ -479,29 +479,6 @@ func expandDashboardWidgetInput(w map[string]interface{}, meta interface{}, visu
  		}
  	}
- 
+
 -	if q, ok := w["legend_enabled"]; ok {
 -		var l dashboards.DashboardWidgetLegend
 -		l.Enabled = q.(bool)
@@ -4759,7 +4759,7 @@ index f2ba05e2..f97158b5 100644
 @@ -523,111 +500,6 @@ func expandDashboardWidgetInput(w map[string]interface{}, meta interface{}, visu
  	return &widget, &cfg, nil
  }
- 
+
 -func expandDashboardWidgetUnitsInput(w map[string]interface{}, cfg dashboards.RawConfiguration) dashboards.RawConfiguration {
 -	if q, ok := w["units"]; ok {
 -		units := q.([]interface{})
@@ -4867,11 +4867,11 @@ index f2ba05e2..f97158b5 100644
 -
  func expandLinkedEntityGUIDs(guids []interface{}) []common.EntityGUID {
  	out := make([]common.EntityGUID, len(guids))
- 
+
 @@ -877,26 +749,6 @@ func flattenDashboardWidget(in *entities.DashboardWidget, pageGUID string) (stri
  		out["ignore_time_range"] = rawCfg.PlatformOptions.IgnoreTimeRange
  	}
- 
+
 -	if rawCfg.Legend != nil {
 -		out["legend_enabled"] = rawCfg.Legend.Enabled
 -	}
@@ -4896,7 +4896,7 @@ index f2ba05e2..f97158b5 100644
  	switch in.Visualization.ID {
  	case "viz.area":
 @@ -1075,56 +927,3 @@ func setDashboardWidgetFilterCurrentDashboardLinkedEntity(d *schema.ResourceData
- 
+
  	return nil
  }
 -func flattenDashboardWidgetNullValues(in *dashboards.DashboardWidgetNullValues) interface{} {
@@ -4957,35 +4957,35 @@ index 76e80729..e1c2cb4c 100644
 --- b/newrelic/structures_newrelic_service_level.go
 +++ a/newrelic/structures_newrelic_service_level.go
 @@ -63,7 +63,6 @@ func flattenServiceLevelEventsQuerySelect(selectValue servicelevel.ServiceLevelE
- 
+
  	selectQueryMap["attribute"] = selectValue.Attribute
  	selectQueryMap["function"] = selectValue.Function
 -	selectQueryMap["threshold"] = selectValue.Threshold
- 
+
  	selectOutput[0] = selectQueryMap
  	return selectOutput
 @@ -176,10 +175,6 @@ func expandServiceLevelEventsQuerySelectCreateInput(cfg map[string]interface{})
- 
+
  	selectValue.Function = servicelevel.ServiceLevelEventsQuerySelectFunction(cfg["function"].(string))
- 
+
 -	if threshold, ok := cfg["threshold"]; ok {
 -		selectValue.Threshold = threshold.(float64)
 -	}
 -
  	return &selectValue
  }
- 
+
 @@ -301,10 +296,6 @@ func expandServiceLevelEventsQuerySelectUpdateInput(cfg map[string]interface{})
- 
+
  	selectValue.Function = servicelevel.ServiceLevelEventsQuerySelectFunction(cfg["function"].(string))
- 
+
 -	if threshold, ok := cfg["threshold"]; ok {
 -		selectValue.Threshold = threshold.(float64)
 -	}
 -
  	return &selectValue
  }
- 
+
 diff --git b/newrelic/structures_newrelic_synthetics_multilocation_alert_condition.go a/newrelic/structures_newrelic_synthetics_multilocation_alert_condition.go
 index c6fd82d7..cebedd1a 100644
 --- b/newrelic/structures_newrelic_synthetics_multilocation_alert_condition.go
@@ -4993,17 +4993,17 @@ index c6fd82d7..cebedd1a 100644
 @@ -85,14 +85,13 @@ func expandMultiLocationSyntheticsConditionTerm(term map[string]interface{}, pri
  	}, nil
  }
- 
+
 -func flattenMultiLocationSyntheticsCondition(condition *alerts.MultiLocationSyntheticsCondition, accountID int, d *schema.ResourceData) error {
 +func flattenMultiLocationSyntheticsCondition(condition *alerts.MultiLocationSyntheticsCondition, d *schema.ResourceData) error {
  	ids, err := parseIDs(d.Id(), 2)
  	if err != nil {
  		return err
  	}
- 
+
  	policyID := ids[0]
 -	entityGUID := getConditionEntityGUID(condition.ID, accountID)
- 
+
  	_ = d.Set("policy_id", policyID)
  	_ = d.Set("name", condition.Name)
 @@ -100,7 +99,6 @@ func flattenMultiLocationSyntheticsCondition(condition *alerts.MultiLocationSynt
@@ -5011,7 +5011,7 @@ index c6fd82d7..cebedd1a 100644
  	_ = d.Set("violation_time_limit_seconds", condition.ViolationTimeLimitSeconds)
  	_ = d.Set("policy_id", policyID)
 -	_ = d.Set("entity_guid", entityGUID)
- 
+
  	for _, term := range condition.Terms {
  		switch term.Priority {
 diff --git b/newrelic/structures_newrelic_synthetics_multilocation_alert_condition_test.go a/newrelic/structures_newrelic_synthetics_multilocation_alert_condition_test.go
@@ -5021,14 +5021,14 @@ index d2dcbaa8..57115a45 100644
 @@ -197,10 +197,7 @@ func TestFlattenMultiLocationSyntheticsCondition(t *testing.T) {
  			id := fmt.Sprintf("%d:%d", tc.Data["policy_id"], tc.Flattened.ID)
  			d.SetId(id)
- 
+
 -			accountID := 1
 -
 -
 -			err := flattenMultiLocationSyntheticsCondition(tc.Flattened, accountID, d)
 +			err := flattenMultiLocationSyntheticsCondition(tc.Flattened, d)
  			assert.NoError(t, err)
- 
+
  			for k, v := range tc.Data {
 diff --git b/tools/go.mod a/tools/go.mod
 index bd130d80..57a1ef87 100644
@@ -5036,10 +5036,10 @@ index bd130d80..57a1ef87 100644
 +++ a/tools/go.mod
 @@ -1,31 +1,30 @@
  module github.com/newrelic/terraform-provider-newrelic/v2/tools
- 
+
 -go 1.19
 +go 1.18
- 
+
  require (
  	github.com/bflad/tfproviderlint v0.28.1
  	github.com/client9/misspell v0.3.4
@@ -5057,7 +5057,7 @@ index bd130d80..57a1ef87 100644
 +	golang.org/x/tools v0.5.0
  	gotest.tools/gotestsum v1.9.0
  )
- 
+
  require (
 -	4d63.com/gocheckcompilerdirectives v1.2.1 // indirect
 -	4d63.com/gochecknoglobals v0.2.1 // indirect
@@ -6176,44 +6176,44 @@ index 0c49eb15..554051b9 100644
 --- b/website/docs/d/alert_channel.html.markdown
 +++ a/website/docs/d/alert_channel.html.markdown
 @@ -10,9 +10,6 @@ description: |-
- 
+
  Use this data source to get information about a specific alert channel in New Relic that already exists.
- 
+
 --> **WARNING:** The `newrelic_alert_channel` data source is deprecated and will be removed in the next major release.
 -
 -
  ## Example Usage
- 
+
  ```hcl
 diff --git b/website/docs/d/entity.html.markdown a/website/docs/d/entity.html.markdown
 index e5ce7016..14afe635 100644
 --- b/website/docs/d/entity.html.markdown
 +++ a/website/docs/d/entity.html.markdown
 @@ -38,6 +38,7 @@ resource "newrelic_nrql_alert_condition" "foo" {
- 
+
    nrql {
      query             = "SELECT average(duration) FROM Transaction where appName = '${data.newrelic_entity.app.name}'"
 +    evaluation_offset = 3
    }
- 
+
    critical {
 @@ -75,7 +76,7 @@ The following arguments are supported:
- 
+
  * `name` - (Required) The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
  * `ignore_case` - (Optional) Ignore case of the `name` when searching for the entity. Defaults to false.
 -* `type` - (Optional) The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
 +* `type` - (Optional) The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
  * `domain` - (Optional) The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
  * `tag` - (Optional) A tag applied to the entity. See [Nested tag blocks](#nested-`tag`-blocks) below for details.
- 
+
 @@ -99,15 +100,12 @@ In addition to all arguments above, the following attributes are exported:
  ## Additional Examples
- 
+
  -> If the entities are not found please try again without providing the `types` field.
 -
 -### Query for an OTEL entity
 +### An example of querying OTEL entities
- 
+
  ```hcl
  data "newrelic_entity" "app" {
    name = "my-otel-app"
@@ -6226,10 +6226,10 @@ index e5ce7016..14afe635 100644
 @@ -115,11 +113,15 @@ data "newrelic_entity" "app" {
  }
  ```
- 
+
 -### Query for an entity by type (AWS Lambda entity in this example)
 +### An example of querying AWS lambda entities
- 
+
  ```hcl
  data "newrelic_entity" "app" {
    name = "my_lambda_trace"
@@ -6365,23 +6365,23 @@ index 50f572e3..c044714b 100644
 --- b/website/docs/guides/getting_started.html.markdown
 +++ a/website/docs/guides/getting_started.html.markdown
 @@ -115,6 +115,7 @@ resource "newrelic_nrql_alert_condition" "foo" {
- 
+
    nrql {
      query             = "SELECT average(duration) FROM Transaction where appName = '${data.newrelic_entity.app_name.name}'"
 +    evaluation_offset = 3
    }
- 
+
    critical {
 diff --git b/website/docs/guides/migration_guide_v3.html.markdown a/website/docs/guides/migration_guide_v3.html.markdown
 index 2814cd5e..9b6f97fe 100644
 --- b/website/docs/guides/migration_guide_v3.html.markdown
 +++ a/website/docs/guides/migration_guide_v3.html.markdown
 @@ -14,7 +14,7 @@ Version 3.x of the provider uses a new underlying API for Synthetics. This resul
- 
+
  The v2 `newrelic_synthetics_monitor_resource` has been split into two new resources: `newrelic_synthetics_monitor_resource` and `newrelic_synthetics_script_monitor_resource`. Previously a monitor script had to be defined separately from a Synthetics Monitor using the `newrelic_synthetics_monitor_script_resource`. In v3 a script is attached directly to a scripted monitor. See the below example for how to migrate to version 3:
- 
+
 -v2
-+v2  
++v2
  ```hcl
  resource "newrelic_synthetics_monitor" "monitor" {
    name      = "monitor-name"
@@ -6392,7 +6392,7 @@ index 2814cd5e..9b6f97fe 100644
 -4. Run `terraform state rm newrelic_synthetics_monitor.<your_monitor_name>` and then log in to New Relic to find your monitor guid.
 +4. Run `terraform state rm newrelic_synthetics_monitor_script.<your_monitor_name>` and then log in to New Relic to find your monitor guid.
  5. Using the guid e.g. `MTk2MQxYjk3YWIzLWZlM05JVE9SfDQxYj...` run `terraform import newrelic_synthetics_script_monitor.<your_monitor_name> guid` to continue managing your existing monitor in Terraform. There won't be any down time, only a brief moment where your monitor is not managed by Terraform.
- 
+
  ### Migrating script Synthetics monitor resources with VSE
 diff --git b/website/docs/index.html.markdown a/website/docs/index.html.markdown
 index 2e616301..4d856b30 100644
@@ -6400,7 +6400,7 @@ index 2e616301..4d856b30 100644
 +++ a/website/docs/index.html.markdown
 @@ -58,8 +58,7 @@ resources compared to which endpoint is in use.
  ### Resources
- 
+
  | Resource                                            | Endpoint                | Authentication        |
 -|-----------------------------------------------------|-------------------------|-----------------------|
 -| `newrelic_account_management`                       | NerdGraph               | `api_key`             |
@@ -6452,9 +6452,9 @@ index 2e616301..4d856b30 100644
 +| `newrelic_synthetics_secure_credential`             | Synthetics REST API     | `api_key`             |
  | `newrelic_workflow`                                 | NerdGraph               | `api_key`             |
  | `newrelic_workload`                                 | NerdGraph               | `api_key`             |
- 
+
  ### Data Sources
- 
+
 -| Data Source                             | Endpoint  | Authentication |
 -| --------------------------------------- |-----------| -------------- |
 -| `newrelic_account`                      | NerdGraph | `api_key`      |
@@ -6480,16 +6480,16 @@ index 2e616301..4d856b30 100644
 +| `newrelic_key_transaction`              | RESTv2              | `api_key`      |
 +| `newrelic_synthetics_monitor`           | Synthetics REST API | `api_key`      |
 +| `newrelic_synthetics_secure_credential` | Synthetics REST API | `api_key`      |
- 
+
  ## Example Usage
- 
+
 @@ -156,6 +133,7 @@ resource "newrelic_nrql_alert_condition" "foo" {
- 
+
    nrql {
      query             = "SELECT average(duration) FROM Transaction where appName = '${data.newrelic_entity.foo.name}'"
 +    evaluation_offset = 3
    }
- 
+
    critical {
 diff --git b/website/docs/r/account_management.html.markdown a/website/docs/r/account_management.html.markdown
 deleted file mode 100644
@@ -6543,14 +6543,14 @@ index a99ddef0..21b2253f 100644
 --- b/website/docs/r/alert_channel.html.markdown
 +++ a/website/docs/r/alert_channel.html.markdown
 @@ -10,11 +10,11 @@ description: |-
- 
+
  Use this resource to create and manage New Relic alert channels.
- 
+
 --> **WARNING:** The `newrelic_alert_channel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use [`newrelic_notification_channel`](https://registry.terraform.io/providers/newrelic/newrelic/latest/docs/resources/notification_channel).
 +~> **NOTE:** This is a legacy resource. For managing channel resources in Workflows, use [`newrelic_notification_channel`](https://registry.terraform.io/providers/newrelic/newrelic/latest/docs/resources/notification_channel).
- 
+
  ## Example Usage
- 
+
 -##### Email
 +### Email
  ```hcl
@@ -6561,9 +6561,9 @@ index a99ddef0..21b2253f 100644
  }
  ```
 -See additional [examples](#additional-examples).
- 
+
  ## Argument Reference
- 
+
 @@ -60,7 +59,7 @@ Each alert channel type supports a specific set of arguments for the `config` bl
      * `key` - (Required) The key for integrating with VictorOps.
      * `route_key` - (Required) The route key for integrating with VictorOps.
@@ -6576,7 +6576,7 @@ index a99ddef0..21b2253f 100644
 @@ -90,9 +89,7 @@ resource "newrelic_alert_channel" "foo" {
  }
  ```
- 
+
 --> **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
 -
 -##### OpsGenie
@@ -6587,7 +6587,7 @@ index a99ddef0..21b2253f 100644
 @@ -107,7 +104,7 @@ resource "newrelic_alert_channel" "foo" {
  }
  ```
- 
+
 -##### PagerDuty
 +### PagerDuty
  ```hcl
@@ -6596,7 +6596,7 @@ index a99ddef0..21b2253f 100644
 @@ -119,7 +116,7 @@ resource "newrelic_alert_channel" "foo" {
  }
  ```
- 
+
 -##### VictorOps
 +### VictorOps
  ```hcl
@@ -6605,7 +6605,7 @@ index a99ddef0..21b2253f 100644
 @@ -132,7 +129,7 @@ resource "newrelic_alert_channel" "foo" {
  }
  ```
- 
+
 -##### Webhook
 +### Webhook
  ```hcl
@@ -6614,7 +6614,7 @@ index a99ddef0..21b2253f 100644
 @@ -154,7 +151,7 @@ resource "newrelic_alert_channel" "foo" {
  }
  ```
- 
+
 -##### Webhook with complex payload
 +### Webhook with complex payload
  ```hcl
@@ -6623,7 +6623,7 @@ index a99ddef0..21b2253f 100644
 @@ -175,6 +172,52 @@ EOF
  }
  ```
- 
+
 +## Argument Reference
 +
 +The following arguments are supported:
@@ -6671,29 +6671,29 @@ index a99ddef0..21b2253f 100644
 +  * `id` - The ID of the channel.
 +
  ## Import
- 
+
  Alert channels can be imported using the `id`, e.g.
 diff --git b/website/docs/r/alert_condition.html.markdown a/website/docs/r/alert_condition.html.markdown
 index 623455ac..d7403511 100644
 --- b/website/docs/r/alert_condition.html.markdown
 +++ a/website/docs/r/alert_condition.html.markdown
 @@ -10,7 +10,7 @@ description: |-
- 
+
  Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
- 
+
 --> **NOTE:** This is a legacy resource. The [newrelic_nrql_alert_condition](nrql_alert_condition.html) resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
 +-> **WARNING:** The  newrelic_alert_condition resource will be deprecated in the near future and will no longer receive product updates. Please use the [newrelic_nrql_alert_condition](nrql_alert_condition.html) resource to avoid being impacted by these changes.
- 
+
  ## Example Usage
- 
+
 @@ -126,7 +126,6 @@ The `term` mapping supports the following arguments:
  In addition to all arguments above, the following attributes are exported:
- 
+
    * `id` - The ID of the alert condition.
 -  * `entity_guid` - The unique entity identifier of the condition in New Relic.
- 
+
  ## Import
- 
+
 @@ -135,50 +134,3 @@ Alert conditions can be imported using notation `alert_policy_id:alert_condition
  ```
  $ terraform import newrelic_alert_condition.main 123456:6789012345
@@ -6752,7 +6752,7 @@ index ce35f5da..48c4f0b2 100644
 @@ -51,7 +51,6 @@ resource "newrelic_alert_policy" "policy_with_channels" {
    name                = "example-with-channels"
    incident_preference = "PER_CONDITION"
- 
+
 -  # NOTE: The `channel_ids` argument has been deprecated. Avoid usage.
    # Add the provisioned channels to the policy.
    channel_ids = [
@@ -6760,7 +6760,7 @@ index ce35f5da..48c4f0b2 100644
 @@ -77,7 +76,6 @@ resource "newrelic_alert_policy" "policy_with_channels" {
    name                = "example-with-channels"
    incident_preference = "PER_CONDITION"
- 
+
 -  # NOTE: The `channel_ids` argument has been deprecated. Avoid usage.
    # Add the referenced channels to the policy.
    channel_ids = [
@@ -6770,17 +6770,17 @@ index 946f0d02..c20c11a6 100644
 --- b/website/docs/r/alert_policy_channel.html.markdown
 +++ a/website/docs/r/alert_policy_channel.html.markdown
 @@ -10,7 +10,7 @@ description: |-
- 
+
  Use this resource to map alert policies to alert channels in New Relic.
- 
+
 --> **WARNING:** The `newrelic_alert_policy_channel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use [`newrelic_notification_channel`](https://registry.terraform.io/providers/newrelic/newrelic/latest/docs/resources/notification_channel).
 +~> **NOTE:** This is a legacy resource. For managing channel resources in Workflows, use [`newrelic_notification_channel`](https://registry.terraform.io/providers/newrelic/newrelic/latest/docs/resources/notification_channel).
- 
+
  ## Example Usage
- 
+
 @@ -73,3 +73,4 @@ $ terraform import newrelic_alert_policy_channel.foo 123456:3462754:2938324
  ```
- 
+
  When importing `newrelic_alert_policy_channel` resource, the attribute `channel_ids`\* will be set in your Terraform state. You can import multiple channels as long as those channel IDs are included as part of the import ID hash.
 +
 diff --git b/website/docs/r/api_access_key.html.markdown a/website/docs/r/api_access_key.html.markdown
@@ -6790,13 +6790,13 @@ index 1676d426..21c67ca3 100644
 @@ -33,10 +33,6 @@ resource "newrelic_api_access_key" "foobar" {
  }
  ```
- 
+
 -
 --> **WARNING:** Creating 'Ingest - License' and 'Ingest - Browser' keys using this resource is restricted to 'core' or 'full platform' New Relic user accounts. If you've signed up as a 'basic' user with New Relic, or have been added as a 'basic' user to your organization on New Relic, you would not be able to use your account to create 'Ingest' keys. If you see the message `"You do not have permission to create this key"` in the response of the API called by this resource, it could be owing to the aforementioned. For more insights into user account types on New Relic and associated privileges, please check out this [page](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/user-type/#api-access).
 -
 -
  ## Argument Reference
- 
+
  The following arguments are supported:
 diff --git b/website/docs/r/browser_application.html.markdown a/website/docs/r/browser_application.html.markdown
 deleted file mode 100644
@@ -6931,21 +6931,21 @@ index 9bb2a03c..69d47487 100644
 --- b/website/docs/r/infra_alert_condition.html.markdown
 +++ a/website/docs/r/infra_alert_condition.html.markdown
 @@ -10,7 +10,7 @@ description: |-
- 
+
  Use this resource to create and manage Infrastructure alert conditions in New Relic.
- 
+
 --> **NOTE:** This is a legacy resource. The [newrelic_nrql_alert_condition](nrql_alert_condition.html) resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
 +-> **NOTE:** The [newrelic_nrql_alert_condition](nrql_alert_condition.html) resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
- 
+
  ## Example Usage
- 
+
 @@ -110,7 +110,7 @@ The following arguments are supported:
    * `integration_provider` - (Optional) For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
    * `description` - (Optional) The description of the Infrastructure alert condition.
    * `runbook_url` - (Optional) Runbook URL to display in notifications.
 -  * `violation_close_timer` - (Optional) Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
-+  * `violation_close_timer` - (Optional) Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided. 
- 
++  * `violation_close_timer` - (Optional) Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+
  ```
  Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
 @@ -123,7 +123,6 @@ In addition to all arguments above, the following attributes are exported:
@@ -6953,9 +6953,9 @@ index 9bb2a03c..69d47487 100644
    * `created_at` - The timestamp the alert condition was created.
    * `updated_at` - The timestamp the alert condition was last updated.
 -  * `entity_guid` - The unique entity identifier of the condition in New Relic.
- 
+
  ## Thresholds
- 
+
 @@ -141,52 +140,3 @@ Infrastructure alert conditions can be imported using a composite ID of `<policy
  ```
  $ terraform import newrelic_infra_alert_condition.main 12345:67890
@@ -7014,18 +7014,18 @@ index 8108e653..98d910a0 100644
 --- b/website/docs/r/one_dashboard.html.markdown
 +++ a/website/docs/r/one_dashboard.html.markdown
 @@ -8,6 +8,7 @@ description: |-
- 
+
  # Resource: newrelic\_one\_dashboard
- 
+
 +-> **NOTE:** The [newrelic_one_dashboard_json](one_dashboard_json.html) resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will receive less investment compared to [newrelic_one_dashboard_json](one_dashboard_json.html).
- 
+
  ## Example Usage: Create a New Relic One Dashboard
- 
+
 @@ -61,19 +62,6 @@ resource "newrelic_one_dashboard" "exampledash" {
- 
+
        # Must be another dashboard GUID
        filter_current_dashboard = true
--      
+-
 -      # color customization
 -      colors {
 -        color = "#722727"
@@ -7039,24 +7039,24 @@ index 8108e653..98d910a0 100644
 -        }
 -      }
      }
- 
+
      widget_line {
 @@ -85,26 +73,12 @@ resource "newrelic_one_dashboard" "exampledash" {
- 
+
        nrql_query {
          account_id = 12345
 -        query      = "FROM Transaction select max(duration) as 'max duration' where httpResponseCode = '504' timeseries since 5 minutes ago"
 +        query      = "FROM Transaction SELECT average(duration) FACET appName"
        }
- 
+
        nrql_query {
          query = "FROM Transaction SELECT rate(count(*), 1 minute)"
        }
 -      legend_enabled = true
 -      ignore_time_range = false
 -      y_axis_left_min = 0
--      y_axis_left_max = 1 
--      
+-      y_axis_left_max = 1
+-
 -      units {
 -        unit = "ms"
 -        series_overrides {
@@ -7064,16 +7064,16 @@ index 8108e653..98d910a0 100644
 -          series_name = "max duration"
 -        }
 -      }
--     
--      
+-
+-
      }
- 
+
      widget_markdown {
 @@ -116,51 +90,6 @@ resource "newrelic_one_dashboard" "exampledash" {
- 
+
        text = "### Helpful Links\n\n* [New Relic One](https://one.newrelic.com)\n* [Developer Portal](https://developer.newrelic.com)"
      }
--    
+-
 -    widget_line {
 -      title = "Overall CPU % Statistics"
 -      row = 1
@@ -7083,7 +7083,7 @@ index 8108e653..98d910a0 100644
 -
 -      nrql_query {
 -        query = <<EOT
--SELECT average(cpuSystemPercent), average(cpuUserPercent), average(cpuIdlePercent), average(cpuIOWaitPercent) FROM SystemSample  SINCE 1 hour ago TIMESERIES 
+-SELECT average(cpuSystemPercent), average(cpuUserPercent), average(cpuIdlePercent), average(cpuIOWaitPercent) FROM SystemSample  SINCE 1 hour ago TIMESERIES
 -EOT
 -      }
 -      facet_show_other_series = false
@@ -7117,9 +7117,9 @@ index 8108e653..98d910a0 100644
 -      }
 -
 -    }
--    
+-
    }
- 
+
    variable {
 @@ -240,12 +169,6 @@ All nested `widget` blocks support the following common arguments:
    * `width` - (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -7131,13 +7131,13 @@ index 8108e653..98d910a0 100644
 -  * `null_values` - (Optional) A nested block that describes a Null Values. See [Nested Null Values blocks](#nested-null-values-blocks) below for details.
 -  * `units` - (Optional) A nested block that describes units on your Y axis. See [Nested Units blocks](#nested-units-blocks) below for details.
 -  * `colors` - (Optional) A nested block that describes colors of your charts per series. See [Nested Colors blocks](#nested-colors-blocks) below for details.
- 
+
  Each widget type supports an additional set of arguments:
- 
+
 @@ -321,7 +244,7 @@ widget_line {
- 
+
  The following arguments are supported:
- 
+
 -  * `default_values` - (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `["*"]`.
 +  * `default_values` - (Optional) A list of default values for this variable.
    * `is_multi_selection` - (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
@@ -7146,7 +7146,7 @@ index 8108e653..98d910a0 100644
 @@ -337,27 +260,6 @@ The following arguments are supported:
    * `title` - (Optional) A human-friendly display string for this value.
    * `value` - (Required) A possible variable value
- 
+
 -### Nested `Null Values` blocks
 -
 -The following arguments are supported:
@@ -7169,7 +7169,7 @@ index 8108e653..98d910a0 100644
 -* `series_overrides` - (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
 -
  ## Additional Examples
- 
+
  ### Create a two page dashboard
 diff --git b/website/docs/r/one_dashboard_json.html.markdown a/website/docs/r/one_dashboard_json.html.markdown
 index 15cbb5f4..cbeb0e2a 100644
@@ -7178,15 +7178,15 @@ index 15cbb5f4..cbeb0e2a 100644
 @@ -30,9 +30,9 @@ In addition to all arguments above, the following attributes are exported:
  - `permalink` - The URL for viewing the dashboard.
  - `updated_at` - The date and time when the dashboard was last updated.
- 
+
 -## Additional Examples
 +## Additional examples
- 
+
 -### Template
 +##### Template
- 
+
  Below is an example how you can use [templatefile](https://www.terraform.io/language/functions/templatefile) to dynamically generate pages based on a list. We also replace the `account_id` which is usually hardcoded in the json with a variable.
- 
+
 @@ -107,63 +107,3 @@ resource "newrelic_one_dashboard_json" "bar" {
    "variables": []
  }
@@ -7277,40 +7277,40 @@ index c663833a..5da6af45 100644
          * `attribute` - (Optional) The event attribute to use in the SELECT clause.
 -        * `function` - (Required) The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
 +        * `function` - (Required) The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
- 
+
  ### Objective
- 
+
 @@ -151,6 +151,7 @@ resource "newrelic_entity_tags" "my_synthetic_monitor_service_level_tags" {
      }
  }
  ```
 +
  For up-to-date documentation about the tagging resource, please check [newrelic_entity_tags](entity_tags.html#example-usage)
- 
+
  ## Import
 diff --git b/website/docs/r/synthetics_alert_condition.html.markdown a/website/docs/r/synthetics_alert_condition.html.markdown
 index 0023d6ae..953aa1d3 100644
 --- b/website/docs/r/synthetics_alert_condition.html.markdown
 +++ a/website/docs/r/synthetics_alert_condition.html.markdown
 @@ -10,7 +10,7 @@ description: |-
- 
+
  Use this resource to create and manage synthetics alert conditions in New Relic.
- 
+
 --> **NOTE:** This is a legacy resource. The [newrelic_nrql_alert_condition](nrql_alert_condition.html) resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
 +-> **WARNING:** The  newrelic_synthetics_alert_condition resource will be deprecated in the near future and will no longer receive product updates. Please use the [newrelic_nrql_alert_condition](nrql_alert_condition.html) resource to avoid being impacted by these changes.
- 
+
  ## Example Usage
- 
+
 @@ -43,7 +43,6 @@ Warning: This resource will use the account ID linked to your API key. At the mo
  In addition to all arguments above, the following attributes are exported:
- 
+
    * `id` - The ID of the Synthetics alert condition.
 -  * `entity_guid` - The unique entity identifier of the condition in New Relic.
- 
- 
+
+
  ## Import
 @@ -52,61 +51,4 @@ Synthetics alert conditions can be imported using a composite ID of `<policy_id>
- 
+
  ```
  $ terraform import newrelic_synthetics_alert_condition.main 12345:67890
 -```
@@ -7378,7 +7378,7 @@ index d5c4b518..4c92d74c 100644
 --- b/website/docs/r/synthetics_cert_check_monitor.html.markdown
 +++ a/website/docs/r/synthetics_cert_check_monitor.html.markdown
 @@ -66,7 +66,7 @@ resource "newrelic_synthetics_private_location" "location" {
- 
+
  resource "newrelic_synthetics_cert_check_monitor" "monitor" {
    name              = "cert_check_monitor"
 -  domain            = "https://www.one.example.com"
@@ -7391,18 +7391,18 @@ index 27b858c2..a4f53d79 100644
 --- b/website/docs/r/synthetics_multilocation_alert_condition.markdown
 +++ a/website/docs/r/synthetics_multilocation_alert_condition.markdown
 @@ -10,7 +10,7 @@ description: |-
- 
+
  Use this resource to create, update, and delete a New Relic Synthetics Location Alerts.
- 
+
 --> **NOTE:** This is a legacy resource. The [newrelic_nrql_alert_condition](nrql_alert_condition.html) resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
 +-> **NOTE:** The [newrelic_nrql_alert_condition](nrql_alert_condition.html) resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
- 
+
  ## Example Usage
- 
+
 @@ -66,12 +66,6 @@ The following arguments are supported:
  Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
  ```
- 
+
 -## Attributes Reference
 -
 -In addition to all arguments above, the following attributes are exported:
@@ -7410,12 +7410,12 @@ index 27b858c2..a4f53d79 100644
 -  * `entity_guid` - The unique entity identifier of the condition in New Relic.
 -
  ## Import
- 
+
  New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
 @@ -81,73 +75,3 @@ New Relic Synthetics MultiLocation Conditions can be imported using a concatenat
  $ terraform import newrelic_synthetics_multilocation_alert_condition.example 12345678:1456
  ```
- 
+
 -## Tags
 -
 -Manage synthetics multilocation alert condition tags with `newrelic_entity_tags`. For up-to-date documentation about the tagging resource, please check [newrelic_entity_tags](entity_tags.html#example-usage)
