@@ -20,14 +20,14 @@ public final class OneDashboardVariableArgs extends com.pulumi.resources.Resourc
     public static final OneDashboardVariableArgs Empty = new OneDashboardVariableArgs();
 
     /**
-     * (Optional) A list of default values for this variable.
+     * (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `[&#34;*&#34;]`.
      * 
      */
     @Import(name="defaultValues")
     private @Nullable Output<List<String>> defaultValues;
 
     /**
-     * @return (Optional) A list of default values for this variable.
+     * @return (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `[&#34;*&#34;]`.
      * 
      */
     public Optional<Output<List<String>>> defaultValues() {
@@ -171,7 +171,7 @@ public final class OneDashboardVariableArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param defaultValues (Optional) A list of default values for this variable.
+         * @param defaultValues (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `[&#34;*&#34;]`.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class OneDashboardVariableArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param defaultValues (Optional) A list of default values for this variable.
+         * @param defaultValues (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `[&#34;*&#34;]`.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class OneDashboardVariableArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param defaultValues (Optional) A list of default values for this variable.
+         * @param defaultValues (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `[&#34;*&#34;]`.
          * 
          * @return builder
          * 

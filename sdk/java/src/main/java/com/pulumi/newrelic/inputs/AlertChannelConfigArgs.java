@@ -302,14 +302,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+     * [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+     * @return [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
      * 
      */
     public Optional<Output<String>> url() {
@@ -767,7 +767,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param url [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+         * @param url [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
          * 
          * @return builder
          * 
@@ -778,7 +778,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param url [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+         * @param url [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
          * 
          * @return builder
          * 

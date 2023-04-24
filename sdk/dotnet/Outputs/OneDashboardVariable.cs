@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class OneDashboardVariable
     {
         /// <summary>
-        /// (Optional) A list of default values for this variable.
+        /// (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `["*"]`.
         /// </summary>
         public readonly ImmutableArray<string> DefaultValues;
         /// <summary>

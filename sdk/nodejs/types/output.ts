@@ -83,7 +83,7 @@ export interface AlertChannelConfig {
      */
     teams?: string;
     /**
-     * [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+     * [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
      */
     url?: string;
     userId?: string;
@@ -2243,7 +2243,7 @@ export interface OneDashboardRawPageWidget {
 
 export interface OneDashboardVariable {
     /**
-     * (Optional) A list of default values for this variable.
+     * (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `["*"]`.
      */
     defaultValues?: string[];
     /**
