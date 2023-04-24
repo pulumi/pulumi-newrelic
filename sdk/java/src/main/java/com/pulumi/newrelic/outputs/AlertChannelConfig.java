@@ -108,7 +108,7 @@ public final class AlertChannelConfig {
      */
     private @Nullable String teams;
     /**
-     * @return [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+     * @return [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
      * 
      */
     private @Nullable String url;
@@ -249,7 +249,7 @@ public final class AlertChannelConfig {
         return Optional.ofNullable(this.teams);
     }
     /**
-     * @return [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+     * @return [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
      * 
      */
     public Optional<String> url() {

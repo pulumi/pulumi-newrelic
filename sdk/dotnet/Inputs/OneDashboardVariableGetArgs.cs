@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<string>? _defaultValues;
 
         /// <summary>
-        /// (Optional) A list of default values for this variable.
+        /// (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `["*"]`.
         /// </summary>
         public InputList<string> DefaultValues
         {

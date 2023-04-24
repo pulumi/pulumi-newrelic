@@ -251,7 +251,7 @@ class AlertChannelConfig(dict):
         :param str service_key: Specifies the service key for integrating with Pagerduty.
         :param str tags: A set of tags for targeting notifications. Multiple values are comma separated.
         :param str teams: A set of teams for targeting notifications. Multiple values are comma separated.
-        :param str url: [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+        :param str url: [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -452,7 +452,7 @@ class AlertChannelConfig(dict):
     @pulumi.getter
     def url(self) -> Optional[str]:
         """
-        [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+        [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
         """
         return pulumi.get(self, "url")
 
@@ -9300,7 +9300,7 @@ class OneDashboardVariable(dict):
         :param str replacement_strategy: (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
         :param str title: (Optional) A human-friendly display string for this value.
         :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
-        :param Sequence[str] default_values: (Optional) A list of default values for this variable.
+        :param Sequence[str] default_values: (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `["*"]`.
         :param bool is_multi_selection: (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
         :param Sequence['OneDashboardVariableItemArgs'] items: (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
         :param 'OneDashboardVariableNrqlQueryArgs' nrql_query: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
@@ -9354,7 +9354,7 @@ class OneDashboardVariable(dict):
     @pulumi.getter(name="defaultValues")
     def default_values(self) -> Optional[Sequence[str]]:
         """
-        (Optional) A list of default values for this variable.
+        (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `["*"]`.
         """
         return pulumi.get(self, "default_values")
 

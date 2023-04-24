@@ -207,7 +207,7 @@ class AlertChannelConfigArgs:
         :param pulumi.Input[str] service_key: Specifies the service key for integrating with Pagerduty.
         :param pulumi.Input[str] tags: A set of tags for targeting notifications. Multiple values are comma separated.
         :param pulumi.Input[str] teams: A set of teams for targeting notifications. Multiple values are comma separated.
-        :param pulumi.Input[str] url: [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+        :param pulumi.Input[str] url: [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -484,7 +484,7 @@ class AlertChannelConfigArgs:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+        [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
         """
         return pulumi.get(self, "url")
 
@@ -8971,7 +8971,7 @@ class OneDashboardVariableArgs:
         :param pulumi.Input[str] replacement_strategy: (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
         :param pulumi.Input[str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input[str] type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_values: (Optional) A list of default values for this variable.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_values: (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `["*"]`.
         :param pulumi.Input[bool] is_multi_selection: (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableItemArgs']]] items: (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
         :param pulumi.Input['OneDashboardVariableNrqlQueryArgs'] nrql_query: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
@@ -9041,7 +9041,7 @@ class OneDashboardVariableArgs:
     @pulumi.getter(name="defaultValues")
     def default_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        (Optional) A list of default values for this variable.
+        (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `["*"]`.
         """
         return pulumi.get(self, "default_values")
 

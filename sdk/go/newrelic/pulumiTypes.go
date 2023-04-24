@@ -49,7 +49,7 @@ type AlertChannelConfig struct {
 	Tags *string `pulumi:"tags"`
 	// A set of teams for targeting notifications. Multiple values are comma separated.
 	Teams *string `pulumi:"teams"`
-	// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+	// [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
 	Url    *string `pulumi:"url"`
 	UserId *string `pulumi:"userId"`
 }
@@ -104,7 +104,7 @@ type AlertChannelConfigArgs struct {
 	Tags pulumi.StringPtrInput `pulumi:"tags"`
 	// A set of teams for targeting notifications. Multiple values are comma separated.
 	Teams pulumi.StringPtrInput `pulumi:"teams"`
-	// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+	// [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
 	Url    pulumi.StringPtrInput `pulumi:"url"`
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
 }
@@ -281,7 +281,7 @@ func (o AlertChannelConfigOutput) Teams() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Teams }).(pulumi.StringPtrOutput)
 }
 
-// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+// [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
 func (o AlertChannelConfigOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -504,7 +504,7 @@ func (o AlertChannelConfigPtrOutput) Teams() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+// [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
 func (o AlertChannelConfigPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {
@@ -16884,7 +16884,7 @@ func (o OneDashboardRawPageWidgetArrayOutput) Index(i pulumi.IntInput) OneDashbo
 }
 
 type OneDashboardVariable struct {
-	// (Optional) A list of default values for this variable.
+	// (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `["*"]`.
 	DefaultValues []string `pulumi:"defaultValues"`
 	// (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
 	IsMultiSelection *bool `pulumi:"isMultiSelection"`
@@ -16914,7 +16914,7 @@ type OneDashboardVariableInput interface {
 }
 
 type OneDashboardVariableArgs struct {
-	// (Optional) A list of default values for this variable.
+	// (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `["*"]`.
 	DefaultValues pulumi.StringArrayInput `pulumi:"defaultValues"`
 	// (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
 	IsMultiSelection pulumi.BoolPtrInput `pulumi:"isMultiSelection"`
@@ -16983,7 +16983,7 @@ func (o OneDashboardVariableOutput) ToOneDashboardVariableOutputWithContext(ctx 
 	return o
 }
 
-// (Optional) A list of default values for this variable.
+// (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `["*"]`.
 func (o OneDashboardVariableOutput) DefaultValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OneDashboardVariable) []string { return v.DefaultValues }).(pulumi.StringArrayOutput)
 }

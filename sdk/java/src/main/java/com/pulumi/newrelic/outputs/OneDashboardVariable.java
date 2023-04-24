@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OneDashboardVariable {
     /**
-     * @return (Optional) A list of default values for this variable.
+     * @return (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `[&#34;*&#34;]`.
      * 
      */
     private @Nullable List<String> defaultValues;
@@ -58,7 +58,7 @@ public final class OneDashboardVariable {
 
     private OneDashboardVariable() {}
     /**
-     * @return (Optional) A list of default values for this variable.
+     * @return (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `[&#34;*&#34;]`.
      * 
      */
     public List<String> defaultValues() {

@@ -240,7 +240,7 @@ namespace Pulumi.NewRelic.Inputs
         private Input<string>? _url;
 
         /// <summary>
-        /// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+        /// [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
         /// </summary>
         public Input<string>? Url
         {
