@@ -220,6 +220,20 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
         return this.period;
     }
     /**
+     * The interval in minutes at which Synthetic monitor should run.
+     * 
+     */
+    @Export(name="periodInMinutes", type=Integer.class, parameters={})
+    private Output<Integer> periodInMinutes;
+
+    /**
+     * @return The interval in minutes at which Synthetic monitor should run.
+     * 
+     */
+    public Output<Integer> periodInMinutes() {
+        return this.periodInMinutes;
+    }
+    /**
      * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
      * 
      */

@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *
  * ## Terms
  *
- * > **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed.
+ * > **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed. At least one `critical` or `warning` term must be defined.
  *
  * NRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.
  *
@@ -88,7 +88,7 @@ import * as utilities from "./utilities";
  * ## Upgrade from 1.x to 2.x
  *
  * There have been several deprecations in the `newrelic.NrqlAlertCondition`
- * resource.  Users will need to make some updates in order to have a smooth
+ * resource. Users will need to make some updates in order to have a smooth
  * upgrade.
  *
  * An example resource from 1.x might look like the following.
@@ -212,7 +212,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly closeViolationsOnExpiration!: pulumi.Output<boolean | undefined>;
     /**
-     * A list containing the `critical` threshold values. See Terms below for details.
+     * A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      */
     public readonly critical!: pulumi.Output<outputs.NrqlAlertConditionCritical | undefined>;
     /**
@@ -268,7 +268,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly slideBy!: pulumi.Output<number | undefined>;
     /**
-     * **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+     * **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
      *
      * @deprecated use `critical` and `warning` attributes instead
      */
@@ -290,7 +290,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly violationTimeLimitSeconds!: pulumi.Output<number | undefined>;
     /**
-     * A list containing the `warning` threshold values. See Terms below for details.
+     * A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      */
     public readonly warning!: pulumi.Output<outputs.NrqlAlertConditionWarning | undefined>;
 
@@ -406,7 +406,7 @@ export interface NrqlAlertConditionState {
      */
     closeViolationsOnExpiration?: pulumi.Input<boolean>;
     /**
-     * A list containing the `critical` threshold values. See Terms below for details.
+     * A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      */
     critical?: pulumi.Input<inputs.NrqlAlertConditionCritical>;
     /**
@@ -462,7 +462,7 @@ export interface NrqlAlertConditionState {
      */
     slideBy?: pulumi.Input<number>;
     /**
-     * **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+     * **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
      *
      * @deprecated use `critical` and `warning` attributes instead
      */
@@ -484,7 +484,7 @@ export interface NrqlAlertConditionState {
      */
     violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
-     * A list containing the `warning` threshold values. See Terms below for details.
+     * A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      */
     warning?: pulumi.Input<inputs.NrqlAlertConditionWarning>;
 }
@@ -522,7 +522,7 @@ export interface NrqlAlertConditionArgs {
      */
     closeViolationsOnExpiration?: pulumi.Input<boolean>;
     /**
-     * A list containing the `critical` threshold values. See Terms below for details.
+     * A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      */
     critical?: pulumi.Input<inputs.NrqlAlertConditionCritical>;
     /**
@@ -574,7 +574,7 @@ export interface NrqlAlertConditionArgs {
      */
     slideBy?: pulumi.Input<number>;
     /**
-     * **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+     * **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
      *
      * @deprecated use `critical` and `warning` attributes instead
      */
@@ -596,7 +596,7 @@ export interface NrqlAlertConditionArgs {
      */
     violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
-     * A list containing the `warning` threshold values. See Terms below for details.
+     * A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      */
     warning?: pulumi.Input<inputs.NrqlAlertConditionWarning>;
 }

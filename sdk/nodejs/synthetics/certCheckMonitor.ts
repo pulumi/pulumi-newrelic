@@ -121,6 +121,10 @@ export class CertCheckMonitor extends pulumi.CustomResource {
      */
     public readonly period!: pulumi.Output<string>;
     /**
+     * The interval in minutes at which Synthetic monitor should run.
+     */
+    public /*out*/ readonly periodInMinutes!: pulumi.Output<number>;
+    /**
      * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
      */
     public readonly status!: pulumi.Output<string>;
@@ -149,6 +153,7 @@ export class CertCheckMonitor extends pulumi.CustomResource {
             resourceInputs["locationsPublics"] = state ? state.locationsPublics : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["period"] = state ? state.period : undefined;
+            resourceInputs["periodInMinutes"] = state ? state.periodInMinutes : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -174,6 +179,7 @@ export class CertCheckMonitor extends pulumi.CustomResource {
             resourceInputs["period"] = args ? args.period : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["periodInMinutes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CertCheckMonitor.__pulumiType, name, resourceInputs, opts);
@@ -212,6 +218,10 @@ export interface CertCheckMonitorState {
      * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
      */
     period?: pulumi.Input<string>;
+    /**
+     * The interval in minutes at which Synthetic monitor should run.
+     */
+    periodInMinutes?: pulumi.Input<number>;
     /**
      * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
      */

@@ -10952,6 +10952,8 @@ type OneDashboardPageWidgetLine struct {
 	YAxisLeftMax *float64 `pulumi:"yAxisLeftMax"`
 	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
 	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
+	// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisLeftMin` (or 0 if it is not defined) to `yAxisLeftMax`. Use `yAxisLeftZero = true` with a combination of `yAxisLeftMin` and `yAxisLeftMax` to render values from 0 or the specified minimum to the maximum, and `yAxisLeftZero = false` to fit the graph to scale.
+	YAxisLeftZero *bool `pulumi:"yAxisLeftZero"`
 }
 
 // OneDashboardPageWidgetLineInput is an input type that accepts OneDashboardPageWidgetLineArgs and OneDashboardPageWidgetLineOutput values.
@@ -10994,6 +10996,8 @@ type OneDashboardPageWidgetLineArgs struct {
 	YAxisLeftMax pulumi.Float64PtrInput `pulumi:"yAxisLeftMax"`
 	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
 	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
+	// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisLeftMin` (or 0 if it is not defined) to `yAxisLeftMax`. Use `yAxisLeftZero = true` with a combination of `yAxisLeftMin` and `yAxisLeftMax` to render values from 0 or the specified minimum to the maximum, and `yAxisLeftZero = false` to fit the graph to scale.
+	YAxisLeftZero pulumi.BoolPtrInput `pulumi:"yAxisLeftZero"`
 }
 
 func (OneDashboardPageWidgetLineArgs) ElementType() reflect.Type {
@@ -11118,6 +11122,11 @@ func (o OneDashboardPageWidgetLineOutput) YAxisLeftMax() pulumi.Float64PtrOutput
 // , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
 func (o OneDashboardPageWidgetLineOutput) YAxisLeftMin() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *float64 { return v.YAxisLeftMin }).(pulumi.Float64PtrOutput)
+}
+
+// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisLeftMin` (or 0 if it is not defined) to `yAxisLeftMax`. Use `yAxisLeftZero = true` with a combination of `yAxisLeftMin` and `yAxisLeftMax` to render values from 0 or the specified minimum to the maximum, and `yAxisLeftZero = false` to fit the graph to scale.
+func (o OneDashboardPageWidgetLineOutput) YAxisLeftZero() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.YAxisLeftZero }).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetLineArrayOutput struct{ *pulumi.OutputState }

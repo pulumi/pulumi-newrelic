@@ -27,6 +27,7 @@ import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsLoadBalancer;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsLogicApps;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsMachineLearning;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsMariaDb;
+import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsMonitor;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsMysql;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsMysqlFlexible;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsPostgresql;
@@ -322,6 +323,20 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<AzureIntegrationsMariaDb>> mariaDb() {
         return Codegen.optional(this.mariaDb);
+    }
+    /**
+     * Azure Monitor. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="monitor", type=AzureIntegrationsMonitor.class, parameters={})
+    private Output</* @Nullable */ AzureIntegrationsMonitor> monitor;
+
+    /**
+     * @return Azure Monitor. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<AzureIntegrationsMonitor>> monitor() {
+        return Codegen.optional(this.monitor);
     }
     /**
      * Azure MySQL. See Integration blocks below for details.

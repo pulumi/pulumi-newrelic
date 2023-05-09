@@ -252,6 +252,34 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
+     * The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     * 
+     */
+    @Export(name="deviceOrientation", type=String.class, parameters={})
+    private Output</* @Nullable */ String> deviceOrientation;
+
+    /**
+     * @return The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     * 
+     */
+    public Output<Optional<String>> deviceOrientation() {
+        return Codegen.optional(this.deviceOrientation);
+    }
+    /**
+     * The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     * 
+     */
+    @Export(name="deviceType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> deviceType;
+
+    /**
+     * @return The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     * 
+     */
+    public Output<Optional<String>> deviceType() {
+        return Codegen.optional(this.deviceType);
+    }
+    /**
      * Capture a screenshot during job execution
      * 
      */
@@ -334,6 +362,20 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      */
     public Output<String> period() {
         return this.period;
+    }
+    /**
+     * The interval in minutes at which Synthetic monitor should run.
+     * 
+     */
+    @Export(name="periodInMinutes", type=Integer.class, parameters={})
+    private Output<Integer> periodInMinutes;
+
+    /**
+     * @return The interval in minutes at which Synthetic monitor should run.
+     * 
+     */
+    public Output<Integer> periodInMinutes() {
+        return this.periodInMinutes;
     }
     /**
      * The runtime that the monitor will use to run jobs.

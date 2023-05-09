@@ -17,6 +17,7 @@ namespace Pulumi.NewRelic
     /// Use this example to create the log parse rule.
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -39,6 +40,7 @@ namespace Pulumi.NewRelic
     /// information on grok pattern can be found [here](https://docs.newrelic.com/docs/logs/ui-data/parsing/#grok)
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 

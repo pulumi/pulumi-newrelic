@@ -11,8 +11,8 @@ import (
 )
 
 // Use this data source to get information about a specific account in New Relic.
-// Accounts can be located by ID or name.  Exactly one of the two attributes is
-// required.
+// Accounts can be located by ID or name.  At most one of the two attributes can
+// be provided. If neither are provided, the provider's `accountId` will be used.
 //
 // ## Example Usage
 //

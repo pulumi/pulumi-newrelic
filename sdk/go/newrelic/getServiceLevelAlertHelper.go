@@ -97,7 +97,7 @@ import (
 //					Query: *pulumi.String(fooCustom.Nrql),
 //				},
 //				Critical: &newrelic.NrqlAlertConditionCriticalArgs{
-//					Operator:             pulumi.String("above"),
+//					Operator:             pulumi.String("above_or_equals"),
 //					Threshold:            *pulumi.Float64(fooCustom.Threshold),
 //					ThresholdDuration:    *pulumi.Int(fooCustom.EvaluationPeriod),
 //					ThresholdOccurrences: pulumi.String("at_least_once"),

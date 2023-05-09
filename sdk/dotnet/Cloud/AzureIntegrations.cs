@@ -136,6 +136,12 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AzureIntegrationsMariaDb?> MariaDb { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Monitor. See Integration blocks below for details.
+        /// </summary>
+        [Output("monitor")]
+        public Output<Outputs.AzureIntegrationsMonitor?> Monitor { get; private set; } = null!;
+
+        /// <summary>
         /// Azure MySQL. See Integration blocks below for details.
         /// </summary>
         [Output("mysql")]
@@ -380,6 +386,12 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AzureIntegrationsMariaDbArgs>? MariaDb { get; set; }
 
         /// <summary>
+        /// Azure Monitor. See Integration blocks below for details.
+        /// </summary>
+        [Input("monitor")]
+        public Input<Inputs.AzureIntegrationsMonitorArgs>? Monitor { get; set; }
+
+        /// <summary>
         /// Azure MySQL. See Integration blocks below for details.
         /// </summary>
         [Input("mysql")]
@@ -584,6 +596,12 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Input("mariaDb")]
         public Input<Inputs.AzureIntegrationsMariaDbGetArgs>? MariaDb { get; set; }
+
+        /// <summary>
+        /// Azure Monitor. See Integration blocks below for details.
+        /// </summary>
+        [Input("monitor")]
+        public Input<Inputs.AzureIntegrationsMonitorGetArgs>? Monitor { get; set; }
 
         /// <summary>
         /// Azure MySQL. See Integration blocks below for details.

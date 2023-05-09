@@ -231,6 +231,10 @@ type ScriptMonitor struct {
 
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+	DeviceOrientation pulumi.StringPtrOutput `pulumi:"deviceOrientation"`
+	// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+	DeviceType pulumi.StringPtrOutput `pulumi:"deviceType"`
 	// Capture a screenshot during job execution
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrOutput `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The unique identifier for the Synthetics private location in New Relic.
@@ -243,6 +247,8 @@ type ScriptMonitor struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period pulumi.StringOutput `pulumi:"period"`
+	// The interval in minutes at which Synthetic monitor should run.
+	PeriodInMinutes pulumi.IntOutput `pulumi:"periodInMinutes"`
 	// The runtime that the monitor will use to run jobs.
 	RuntimeType pulumi.StringPtrOutput `pulumi:"runtimeType"`
 	// The specific version of the runtime type selected.
@@ -299,6 +305,10 @@ func GetScriptMonitor(ctx *pulumi.Context,
 type scriptMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId *int `pulumi:"accountId"`
+	// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+	DeviceOrientation *string `pulumi:"deviceOrientation"`
+	// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+	DeviceType *string `pulumi:"deviceType"`
 	// Capture a screenshot during job execution
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The unique identifier for the Synthetics private location in New Relic.
@@ -311,6 +321,8 @@ type scriptMonitorState struct {
 	Name *string `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period *string `pulumi:"period"`
+	// The interval in minutes at which Synthetic monitor should run.
+	PeriodInMinutes *int `pulumi:"periodInMinutes"`
 	// The runtime that the monitor will use to run jobs.
 	RuntimeType *string `pulumi:"runtimeType"`
 	// The specific version of the runtime type selected.
@@ -330,6 +342,10 @@ type scriptMonitorState struct {
 type ScriptMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.IntPtrInput
+	// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+	DeviceOrientation pulumi.StringPtrInput
+	// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+	DeviceType pulumi.StringPtrInput
 	// Capture a screenshot during job execution
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
 	// The unique identifier for the Synthetics private location in New Relic.
@@ -342,6 +358,8 @@ type ScriptMonitorState struct {
 	Name pulumi.StringPtrInput
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period pulumi.StringPtrInput
+	// The interval in minutes at which Synthetic monitor should run.
+	PeriodInMinutes pulumi.IntPtrInput
 	// The runtime that the monitor will use to run jobs.
 	RuntimeType pulumi.StringPtrInput
 	// The specific version of the runtime type selected.
@@ -365,6 +383,10 @@ func (ScriptMonitorState) ElementType() reflect.Type {
 type scriptMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId *int `pulumi:"accountId"`
+	// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+	DeviceOrientation *string `pulumi:"deviceOrientation"`
+	// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+	DeviceType *string `pulumi:"deviceType"`
 	// Capture a screenshot during job execution
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The location the monitor will run from. See Nested locationPrivate blocks below for details. At least one of either `locationsPublic` or `locationPrivate` is required.
@@ -395,6 +417,10 @@ type scriptMonitorArgs struct {
 type ScriptMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.IntPtrInput
+	// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+	DeviceOrientation pulumi.StringPtrInput
+	// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+	DeviceType pulumi.StringPtrInput
 	// Capture a screenshot during job execution
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
 	// The location the monitor will run from. See Nested locationPrivate blocks below for details. At least one of either `locationsPublic` or `locationPrivate` is required.
@@ -513,6 +539,16 @@ func (o ScriptMonitorOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
 
+// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+func (o ScriptMonitorOutput) DeviceOrientation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringPtrOutput { return v.DeviceOrientation }).(pulumi.StringPtrOutput)
+}
+
+// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+func (o ScriptMonitorOutput) DeviceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringPtrOutput { return v.DeviceType }).(pulumi.StringPtrOutput)
+}
+
 // Capture a screenshot during job execution
 func (o ScriptMonitorOutput) EnableScreenshotOnFailureAndScript() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.BoolPtrOutput { return v.EnableScreenshotOnFailureAndScript }).(pulumi.BoolPtrOutput)
@@ -541,6 +577,11 @@ func (o ScriptMonitorOutput) Name() pulumi.StringOutput {
 // The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 func (o ScriptMonitorOutput) Period() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringOutput { return v.Period }).(pulumi.StringOutput)
+}
+
+// The interval in minutes at which Synthetic monitor should run.
+func (o ScriptMonitorOutput) PeriodInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v *ScriptMonitor) pulumi.IntOutput { return v.PeriodInMinutes }).(pulumi.IntOutput)
 }
 
 // The runtime that the monitor will use to run jobs.

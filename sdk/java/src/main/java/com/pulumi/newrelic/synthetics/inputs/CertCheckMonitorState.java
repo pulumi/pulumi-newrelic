@@ -124,6 +124,21 @@ public final class CertCheckMonitorState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The interval in minutes at which Synthetic monitor should run.
+     * 
+     */
+    @Import(name="periodInMinutes")
+    private @Nullable Output<Integer> periodInMinutes;
+
+    /**
+     * @return The interval in minutes at which Synthetic monitor should run.
+     * 
+     */
+    public Optional<Output<Integer>> periodInMinutes() {
+        return Optional.ofNullable(this.periodInMinutes);
+    }
+
+    /**
      * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
      * 
      */
@@ -163,6 +178,7 @@ public final class CertCheckMonitorState extends com.pulumi.resources.ResourceAr
         this.locationsPublics = $.locationsPublics;
         this.name = $.name;
         this.period = $.period;
+        this.periodInMinutes = $.periodInMinutes;
         this.status = $.status;
         this.tags = $.tags;
     }
@@ -350,6 +366,27 @@ public final class CertCheckMonitorState extends com.pulumi.resources.ResourceAr
          */
         public Builder period(String period) {
             return period(Output.of(period));
+        }
+
+        /**
+         * @param periodInMinutes The interval in minutes at which Synthetic monitor should run.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder periodInMinutes(@Nullable Output<Integer> periodInMinutes) {
+            $.periodInMinutes = periodInMinutes;
+            return this;
+        }
+
+        /**
+         * @param periodInMinutes The interval in minutes at which Synthetic monitor should run.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder periodInMinutes(Integer periodInMinutes) {
+            return periodInMinutes(Output.of(periodInMinutes));
         }
 
         /**

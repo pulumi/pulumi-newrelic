@@ -16,6 +16,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -62,6 +63,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -116,6 +118,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -168,6 +171,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -277,6 +281,12 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Output("period")]
         public Output<string> Period { get; private set; } = null!;
+
+        /// <summary>
+        /// The interval in minutes at which Synthetic monitor should run.
+        /// </summary>
+        [Output("periodInMinutes")]
+        public Output<int> PeriodInMinutes { get; private set; } = null!;
 
         /// <summary>
         /// The runtime type that the monitor will run.
@@ -589,6 +599,12 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Input("period")]
         public Input<string>? Period { get; set; }
+
+        /// <summary>
+        /// The interval in minutes at which Synthetic monitor should run.
+        /// </summary>
+        [Input("periodInMinutes")]
+        public Input<int>? PeriodInMinutes { get; set; }
 
         /// <summary>
         /// The runtime type that the monitor will run.

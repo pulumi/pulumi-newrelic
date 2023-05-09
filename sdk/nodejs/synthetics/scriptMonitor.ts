@@ -168,6 +168,14 @@ export class ScriptMonitor extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
+     * The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     */
+    public readonly deviceOrientation!: pulumi.Output<string | undefined>;
+    /**
+     * The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     */
+    public readonly deviceType!: pulumi.Output<string | undefined>;
+    /**
      * Capture a screenshot during job execution
      */
     public readonly enableScreenshotOnFailureAndScript!: pulumi.Output<boolean | undefined>;
@@ -191,6 +199,10 @@ export class ScriptMonitor extends pulumi.CustomResource {
      * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
      */
     public readonly period!: pulumi.Output<string>;
+    /**
+     * The interval in minutes at which Synthetic monitor should run.
+     */
+    public /*out*/ readonly periodInMinutes!: pulumi.Output<number>;
     /**
      * The runtime that the monitor will use to run jobs.
      */
@@ -234,12 +246,15 @@ export class ScriptMonitor extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ScriptMonitorState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["deviceOrientation"] = state ? state.deviceOrientation : undefined;
+            resourceInputs["deviceType"] = state ? state.deviceType : undefined;
             resourceInputs["enableScreenshotOnFailureAndScript"] = state ? state.enableScreenshotOnFailureAndScript : undefined;
             resourceInputs["guid"] = state ? state.guid : undefined;
             resourceInputs["locationPrivates"] = state ? state.locationPrivates : undefined;
             resourceInputs["locationsPublics"] = state ? state.locationsPublics : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["period"] = state ? state.period : undefined;
+            resourceInputs["periodInMinutes"] = state ? state.periodInMinutes : undefined;
             resourceInputs["runtimeType"] = state ? state.runtimeType : undefined;
             resourceInputs["runtimeTypeVersion"] = state ? state.runtimeTypeVersion : undefined;
             resourceInputs["script"] = state ? state.script : undefined;
@@ -259,6 +274,8 @@ export class ScriptMonitor extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["deviceOrientation"] = args ? args.deviceOrientation : undefined;
+            resourceInputs["deviceType"] = args ? args.deviceType : undefined;
             resourceInputs["enableScreenshotOnFailureAndScript"] = args ? args.enableScreenshotOnFailureAndScript : undefined;
             resourceInputs["locationPrivates"] = args ? args.locationPrivates : undefined;
             resourceInputs["locationsPublics"] = args ? args.locationsPublics : undefined;
@@ -272,6 +289,7 @@ export class ScriptMonitor extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["guid"] = undefined /*out*/;
+            resourceInputs["periodInMinutes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ScriptMonitor.__pulumiType, name, resourceInputs, opts);
@@ -286,6 +304,14 @@ export interface ScriptMonitorState {
      * The account in which the Synthetics monitor will be created.
      */
     accountId?: pulumi.Input<number>;
+    /**
+     * The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     */
+    deviceOrientation?: pulumi.Input<string>;
+    /**
+     * The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     */
+    deviceType?: pulumi.Input<string>;
     /**
      * Capture a screenshot during job execution
      */
@@ -310,6 +336,10 @@ export interface ScriptMonitorState {
      * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
      */
     period?: pulumi.Input<string>;
+    /**
+     * The interval in minutes at which Synthetic monitor should run.
+     */
+    periodInMinutes?: pulumi.Input<number>;
     /**
      * The runtime that the monitor will use to run jobs.
      */
@@ -348,6 +378,14 @@ export interface ScriptMonitorArgs {
      * The account in which the Synthetics monitor will be created.
      */
     accountId?: pulumi.Input<number>;
+    /**
+     * The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     */
+    deviceOrientation?: pulumi.Input<string>;
+    /**
+     * The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     */
+    deviceType?: pulumi.Input<string>;
     /**
      * Capture a screenshot during job execution
      */

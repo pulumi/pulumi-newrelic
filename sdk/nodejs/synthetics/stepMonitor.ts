@@ -102,6 +102,10 @@ export class StepMonitor extends pulumi.CustomResource {
      */
     public readonly period!: pulumi.Output<string>;
     /**
+     * The interval in minutes at which Synthetic monitor should run.
+     */
+    public /*out*/ readonly periodInMinutes!: pulumi.Output<number>;
+    /**
      * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
      */
     public readonly status!: pulumi.Output<string>;
@@ -134,6 +138,7 @@ export class StepMonitor extends pulumi.CustomResource {
             resourceInputs["locationsPublics"] = state ? state.locationsPublics : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["period"] = state ? state.period : undefined;
+            resourceInputs["periodInMinutes"] = state ? state.periodInMinutes : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["steps"] = state ? state.steps : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -158,6 +163,7 @@ export class StepMonitor extends pulumi.CustomResource {
             resourceInputs["steps"] = args ? args.steps : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["guid"] = undefined /*out*/;
+            resourceInputs["periodInMinutes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StepMonitor.__pulumiType, name, resourceInputs, opts);
@@ -196,6 +202,10 @@ export interface StepMonitorState {
      * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
      */
     period?: pulumi.Input<string>;
+    /**
+     * The interval in minutes at which Synthetic monitor should run.
+     */
+    periodInMinutes?: pulumi.Input<number>;
     /**
      * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
      */

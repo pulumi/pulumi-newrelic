@@ -17,6 +17,7 @@ namespace Pulumi.NewRelic
     /// Basic usage to create a standalone browser application.
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 

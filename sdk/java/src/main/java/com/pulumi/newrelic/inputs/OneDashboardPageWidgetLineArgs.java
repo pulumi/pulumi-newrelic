@@ -232,6 +232,21 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.yAxisLeftMin);
     }
 
+    /**
+     * (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
+     * 
+     */
+    @Import(name="yAxisLeftZero")
+    private @Nullable Output<Boolean> yAxisLeftZero;
+
+    /**
+     * @return (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
+     * 
+     */
+    public Optional<Output<Boolean>> yAxisLeftZero() {
+        return Optional.ofNullable(this.yAxisLeftZero);
+    }
+
     private OneDashboardPageWidgetLineArgs() {}
 
     private OneDashboardPageWidgetLineArgs(OneDashboardPageWidgetLineArgs $) {
@@ -250,6 +265,7 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
         this.width = $.width;
         this.yAxisLeftMax = $.yAxisLeftMax;
         this.yAxisLeftMin = $.yAxisLeftMin;
+        this.yAxisLeftZero = $.yAxisLeftZero;
     }
 
     public static Builder builder() {
@@ -599,6 +615,27 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
          */
         public Builder yAxisLeftMin(Double yAxisLeftMin) {
             return yAxisLeftMin(Output.of(yAxisLeftMin));
+        }
+
+        /**
+         * @param yAxisLeftZero (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder yAxisLeftZero(@Nullable Output<Boolean> yAxisLeftZero) {
+            $.yAxisLeftZero = yAxisLeftZero;
+            return this;
+        }
+
+        /**
+         * @param yAxisLeftZero (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder yAxisLeftZero(Boolean yAxisLeftZero) {
+            return yAxisLeftZero(Output.of(yAxisLeftZero));
         }
 
         public OneDashboardPageWidgetLineArgs build() {

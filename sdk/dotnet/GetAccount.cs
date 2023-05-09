@@ -13,8 +13,8 @@ namespace Pulumi.NewRelic
     {
         /// <summary>
         /// Use this data source to get information about a specific account in New Relic.
-        /// Accounts can be located by ID or name.  Exactly one of the two attributes is
-        /// required.
+        /// Accounts can be located by ID or name.  At most one of the two attributes can
+        /// be provided. If neither are provided, the provider's `account_id` will be used.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -22,6 +22,7 @@ namespace Pulumi.NewRelic
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
@@ -42,8 +43,8 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// Use this data source to get information about a specific account in New Relic.
-        /// Accounts can be located by ID or name.  Exactly one of the two attributes is
-        /// required.
+        /// Accounts can be located by ID or name.  At most one of the two attributes can
+        /// be provided. If neither are provided, the provider's `account_id` will be used.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -51,6 +52,7 @@ namespace Pulumi.NewRelic
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 

@@ -67,6 +67,10 @@ namespace Pulumi.NewRelic.Outputs
         /// , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         /// </summary>
         public readonly double? YAxisLeftMin;
+        /// <summary>
+        /// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
+        /// </summary>
+        public readonly bool? YAxisLeftZero;
 
         [OutputConstructor]
         private OneDashboardPageWidgetLine(
@@ -98,7 +102,9 @@ namespace Pulumi.NewRelic.Outputs
 
             double? yAxisLeftMax,
 
-            double? yAxisLeftMin)
+            double? yAxisLeftMin,
+
+            bool? yAxisLeftZero)
         {
             Colors = colors;
             Column = column;
@@ -115,6 +121,7 @@ namespace Pulumi.NewRelic.Outputs
             Width = width;
             YAxisLeftMax = yAxisLeftMax;
             YAxisLeftMin = yAxisLeftMin;
+            YAxisLeftZero = yAxisLeftZero;
         }
     }
 }

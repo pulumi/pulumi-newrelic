@@ -36,6 +36,36 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     * 
+     */
+    @Import(name="deviceOrientation")
+    private @Nullable Output<String> deviceOrientation;
+
+    /**
+     * @return The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     * 
+     */
+    public Optional<Output<String>> deviceOrientation() {
+        return Optional.ofNullable(this.deviceOrientation);
+    }
+
+    /**
+     * The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     * 
+     */
+    @Import(name="deviceType")
+    private @Nullable Output<String> deviceType;
+
+    /**
+     * @return The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     * 
+     */
+    public Optional<Output<String>> deviceType() {
+        return Optional.ofNullable(this.deviceType);
+    }
+
+    /**
      * Capture a screenshot during job execution
      * 
      */
@@ -219,6 +249,8 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
 
     private ScriptMonitorArgs(ScriptMonitorArgs $) {
         this.accountId = $.accountId;
+        this.deviceOrientation = $.deviceOrientation;
+        this.deviceType = $.deviceType;
         this.enableScreenshotOnFailureAndScript = $.enableScreenshotOnFailureAndScript;
         this.locationPrivates = $.locationPrivates;
         this.locationsPublics = $.locationsPublics;
@@ -270,6 +302,48 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder accountId(Integer accountId) {
             return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param deviceOrientation The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deviceOrientation(@Nullable Output<String> deviceOrientation) {
+            $.deviceOrientation = deviceOrientation;
+            return this;
+        }
+
+        /**
+         * @param deviceOrientation The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deviceOrientation(String deviceOrientation) {
+            return deviceOrientation(Output.of(deviceOrientation));
+        }
+
+        /**
+         * @param deviceType The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deviceType(@Nullable Output<String> deviceType) {
+            $.deviceType = deviceType;
+            return this;
+        }
+
+        /**
+         * @param deviceType The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deviceType(String deviceType) {
+            return deviceType(Output.of(deviceType));
         }
 
         /**

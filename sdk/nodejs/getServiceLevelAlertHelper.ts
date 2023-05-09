@@ -66,7 +66,7 @@ import * as utilities from "./utilities";
  *         query: fooCustom.then(fooCustom => fooCustom.nrql),
  *     },
  *     critical: {
- *         operator: "above",
+ *         operator: "above_or_equals",
  *         threshold: fooCustom.then(fooCustom => fooCustom.threshold),
  *         thresholdDuration: fooCustom.then(fooCustom => fooCustom.evaluationPeriod),
  *         thresholdOccurrences: "at_least_once",
@@ -215,7 +215,7 @@ export interface GetServiceLevelAlertHelperResult {
  *         query: fooCustom.then(fooCustom => fooCustom.nrql),
  *     },
  *     critical: {
- *         operator: "above",
+ *         operator: "above_or_equals",
  *         threshold: fooCustom.then(fooCustom => fooCustom.threshold),
  *         thresholdDuration: fooCustom.then(fooCustom => fooCustom.evaluationPeriod),
  *         thresholdOccurrences: "at_least_once",

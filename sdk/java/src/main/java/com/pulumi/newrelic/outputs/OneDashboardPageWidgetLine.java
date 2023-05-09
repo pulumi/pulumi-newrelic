@@ -86,6 +86,11 @@ public final class OneDashboardPageWidgetLine {
      * 
      */
     private @Nullable Double yAxisLeftMin;
+    /**
+     * @return (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
+     * 
+     */
+    private @Nullable Boolean yAxisLeftZero;
 
     private OneDashboardPageWidgetLine() {}
     /**
@@ -185,6 +190,13 @@ public final class OneDashboardPageWidgetLine {
     public Optional<Double> yAxisLeftMin() {
         return Optional.ofNullable(this.yAxisLeftMin);
     }
+    /**
+     * @return (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
+     * 
+     */
+    public Optional<Boolean> yAxisLeftZero() {
+        return Optional.ofNullable(this.yAxisLeftZero);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -210,6 +222,7 @@ public final class OneDashboardPageWidgetLine {
         private @Nullable Integer width;
         private @Nullable Double yAxisLeftMax;
         private @Nullable Double yAxisLeftMin;
+        private @Nullable Boolean yAxisLeftZero;
         public Builder() {}
         public Builder(OneDashboardPageWidgetLine defaults) {
     	      Objects.requireNonNull(defaults);
@@ -228,6 +241,7 @@ public final class OneDashboardPageWidgetLine {
     	      this.width = defaults.width;
     	      this.yAxisLeftMax = defaults.yAxisLeftMax;
     	      this.yAxisLeftMin = defaults.yAxisLeftMin;
+    	      this.yAxisLeftZero = defaults.yAxisLeftZero;
         }
 
         @CustomType.Setter
@@ -317,6 +331,11 @@ public final class OneDashboardPageWidgetLine {
             this.yAxisLeftMin = yAxisLeftMin;
             return this;
         }
+        @CustomType.Setter
+        public Builder yAxisLeftZero(@Nullable Boolean yAxisLeftZero) {
+            this.yAxisLeftZero = yAxisLeftZero;
+            return this;
+        }
         public OneDashboardPageWidgetLine build() {
             final var o = new OneDashboardPageWidgetLine();
             o.colors = colors;
@@ -334,6 +353,7 @@ public final class OneDashboardPageWidgetLine {
             o.width = width;
             o.yAxisLeftMax = yAxisLeftMax;
             o.yAxisLeftMin = yAxisLeftMin;
+            o.yAxisLeftZero = yAxisLeftZero;
             return o;
         }
     }

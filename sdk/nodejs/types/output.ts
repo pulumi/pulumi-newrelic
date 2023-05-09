@@ -1486,6 +1486,10 @@ export interface OneDashboardPageWidgetLine {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: number;
+    /**
+     * (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisLeftMin` (or 0 if it is not defined) to `yAxisLeftMax`. Use `yAxisLeftZero = true` with a combination of `yAxisLeftMin` and `yAxisLeftMax` to render values from 0 or the specified minimum to the maximum, and `yAxisLeftZero = false` to fit the graph to scale.
+     */
+    yAxisLeftZero?: boolean;
 }
 
 export interface OneDashboardPageWidgetLineColor {
@@ -3263,6 +3267,33 @@ export namespace cloud {
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
         resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsMonitor {
+        /**
+         * A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
+         */
+        enabled?: boolean;
+        /**
+         * A list of resource tags associated with the resources that need to be excluded from monitoring.
+         */
+        excludeTags?: string[];
+        /**
+         * A list of resource tags associated with the resources that need to be monitored, in a "key:value" format. If this is not specified, all resources will be monitored.
+         */
+        includeTags?: string[];
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+        /**
+         * A list of Azure resource types that need to be monitored.
+         */
+        resourceTypes?: string[];
     }
 
     export interface AzureIntegrationsMysql {

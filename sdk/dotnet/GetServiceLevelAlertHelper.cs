@@ -22,6 +22,7 @@ namespace Pulumi.NewRelic
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
@@ -69,6 +70,7 @@ namespace Pulumi.NewRelic
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
@@ -97,7 +99,7 @@ namespace Pulumi.NewRelic
         ///         },
         ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
         ///         {
-        ///             Operator = "above",
+        ///             Operator = "above_or_equals",
         ///             Threshold = fooCustom.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.Threshold),
         ///             ThresholdDuration = fooCustom.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.EvaluationPeriod),
         ///             ThresholdOccurrences = "at_least_once",
@@ -128,6 +130,7 @@ namespace Pulumi.NewRelic
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
@@ -175,6 +178,7 @@ namespace Pulumi.NewRelic
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
@@ -203,7 +207,7 @@ namespace Pulumi.NewRelic
         ///         },
         ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
         ///         {
-        ///             Operator = "above",
+        ///             Operator = "above_or_equals",
         ///             Threshold = fooCustom.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.Threshold),
         ///             ThresholdDuration = fooCustom.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.EvaluationPeriod),
         ///             ThresholdOccurrences = "at_least_once",
