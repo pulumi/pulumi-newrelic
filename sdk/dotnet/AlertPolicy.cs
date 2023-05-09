@@ -17,6 +17,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -33,6 +34,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -76,6 +78,7 @@ namespace Pulumi.NewRelic
     /// ### Reference existing notification channels and add those channel to a policy
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 

@@ -61,6 +61,8 @@ type AzureIntegrations struct {
 	MachineLearning AzureIntegrationsMachineLearningPtrOutput `pulumi:"machineLearning"`
 	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb AzureIntegrationsMariaDbPtrOutput `pulumi:"mariaDb"`
+	// Azure Monitor. See Integration blocks below for details.
+	Monitor AzureIntegrationsMonitorPtrOutput `pulumi:"monitor"`
 	// Azure MySQL. See Integration blocks below for details.
 	Mysql AzureIntegrationsMysqlPtrOutput `pulumi:"mysql"`
 	// Azure MySQL Flexible Server. See Integration blocks below for details.
@@ -161,6 +163,8 @@ type azureIntegrationsState struct {
 	MachineLearning *AzureIntegrationsMachineLearning `pulumi:"machineLearning"`
 	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb *AzureIntegrationsMariaDb `pulumi:"mariaDb"`
+	// Azure Monitor. See Integration blocks below for details.
+	Monitor *AzureIntegrationsMonitor `pulumi:"monitor"`
 	// Azure MySQL. See Integration blocks below for details.
 	Mysql *AzureIntegrationsMysql `pulumi:"mysql"`
 	// Azure MySQL Flexible Server. See Integration blocks below for details.
@@ -230,6 +234,8 @@ type AzureIntegrationsState struct {
 	MachineLearning AzureIntegrationsMachineLearningPtrInput
 	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb AzureIntegrationsMariaDbPtrInput
+	// Azure Monitor. See Integration blocks below for details.
+	Monitor AzureIntegrationsMonitorPtrInput
 	// Azure MySQL. See Integration blocks below for details.
 	Mysql AzureIntegrationsMysqlPtrInput
 	// Azure MySQL Flexible Server. See Integration blocks below for details.
@@ -303,6 +309,8 @@ type azureIntegrationsArgs struct {
 	MachineLearning *AzureIntegrationsMachineLearning `pulumi:"machineLearning"`
 	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb *AzureIntegrationsMariaDb `pulumi:"mariaDb"`
+	// Azure Monitor. See Integration blocks below for details.
+	Monitor *AzureIntegrationsMonitor `pulumi:"monitor"`
 	// Azure MySQL. See Integration blocks below for details.
 	Mysql *AzureIntegrationsMysql `pulumi:"mysql"`
 	// Azure MySQL Flexible Server. See Integration blocks below for details.
@@ -373,6 +381,8 @@ type AzureIntegrationsArgs struct {
 	MachineLearning AzureIntegrationsMachineLearningPtrInput
 	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb AzureIntegrationsMariaDbPtrInput
+	// Azure Monitor. See Integration blocks below for details.
+	Monitor AzureIntegrationsMonitorPtrInput
 	// Azure MySQL. See Integration blocks below for details.
 	Mysql AzureIntegrationsMysqlPtrInput
 	// Azure MySQL Flexible Server. See Integration blocks below for details.
@@ -583,6 +593,11 @@ func (o AzureIntegrationsOutput) MachineLearning() AzureIntegrationsMachineLearn
 // Azure MariaDB. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) MariaDb() AzureIntegrationsMariaDbPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsMariaDbPtrOutput { return v.MariaDb }).(AzureIntegrationsMariaDbPtrOutput)
+}
+
+// Azure Monitor. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) Monitor() AzureIntegrationsMonitorPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsMonitorPtrOutput { return v.Monitor }).(AzureIntegrationsMonitorPtrOutput)
 }
 
 // Azure MySQL. See Integration blocks below for details.

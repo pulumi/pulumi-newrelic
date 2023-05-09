@@ -52,7 +52,7 @@ class NrqlAlertConditionArgs:
         :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
         :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         :param pulumi.Input[bool] close_violations_on_expiration: Whether to close all open incidents when the signal expires.
-        :param pulumi.Input['NrqlAlertConditionCriticalArgs'] critical: A list containing the `critical` threshold values. See Terms below for details.
+        :param pulumi.Input['NrqlAlertConditionCriticalArgs'] critical: A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[int] evaluation_delay: How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
@@ -63,13 +63,13 @@ class NrqlAlertConditionArgs:
         :param pulumi.Input[bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
-        :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
-        :param pulumi.Input['NrqlAlertConditionWarningArgs'] warning: A list containing the `warning` threshold values. See Terms below for details.
+        :param pulumi.Input['NrqlAlertConditionWarningArgs'] warning: A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         pulumi.set(__self__, "nrql", nrql)
         pulumi.set(__self__, "policy_id", policy_id)
@@ -238,7 +238,7 @@ class NrqlAlertConditionArgs:
     @pulumi.getter
     def critical(self) -> Optional[pulumi.Input['NrqlAlertConditionCriticalArgs']]:
         """
-        A list containing the `critical` threshold values. See Terms below for details.
+        A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         return pulumi.get(self, "critical")
 
@@ -370,7 +370,7 @@ class NrqlAlertConditionArgs:
     @pulumi.getter
     def terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]:
         """
-        **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+        **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         """
         return pulumi.get(self, "terms")
 
@@ -420,7 +420,7 @@ class NrqlAlertConditionArgs:
     @pulumi.getter
     def warning(self) -> Optional[pulumi.Input['NrqlAlertConditionWarningArgs']]:
         """
-        A list containing the `warning` threshold values. See Terms below for details.
+        A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         return pulumi.get(self, "warning")
 
@@ -467,7 +467,7 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
         :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         :param pulumi.Input[bool] close_violations_on_expiration: Whether to close all open incidents when the signal expires.
-        :param pulumi.Input['NrqlAlertConditionCriticalArgs'] critical: A list containing the `critical` threshold values. See Terms below for details.
+        :param pulumi.Input['NrqlAlertConditionCriticalArgs'] critical: A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the NRQL Condition in New Relic.
@@ -481,13 +481,13 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
-        :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
-        :param pulumi.Input['NrqlAlertConditionWarningArgs'] warning: A list containing the `warning` threshold values. See Terms below for details.
+        :param pulumi.Input['NrqlAlertConditionWarningArgs'] warning: A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -636,7 +636,7 @@ class _NrqlAlertConditionState:
     @pulumi.getter
     def critical(self) -> Optional[pulumi.Input['NrqlAlertConditionCriticalArgs']]:
         """
-        A list containing the `critical` threshold values. See Terms below for details.
+        A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         return pulumi.get(self, "critical")
 
@@ -804,7 +804,7 @@ class _NrqlAlertConditionState:
     @pulumi.getter
     def terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]:
         """
-        **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+        **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         """
         return pulumi.get(self, "terms")
 
@@ -854,7 +854,7 @@ class _NrqlAlertConditionState:
     @pulumi.getter
     def warning(self) -> Optional[pulumi.Input['NrqlAlertConditionWarningArgs']]:
         """
-        A list containing the `warning` threshold values. See Terms below for details.
+        A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         return pulumi.get(self, "warning")
 
@@ -908,7 +908,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         ## Terms
 
-        > **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed.
+        > **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed. At least one `critical` or `warning` term must be defined.
 
         NRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.
 
@@ -975,7 +975,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         ## Upgrade from 1.x to 2.x
 
         There have been several deprecations in the `NrqlAlertCondition`
-        resource.  Users will need to make some updates in order to have a smooth
+        resource. Users will need to make some updates in order to have a smooth
         upgrade.
 
         An example resource from 1.x might look like the following.
@@ -1049,7 +1049,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
         :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         :param pulumi.Input[bool] close_violations_on_expiration: Whether to close all open incidents when the signal expires.
-        :param pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']] critical: A list containing the `critical` threshold values. See Terms below for details.
+        :param pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']] critical: A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[int] evaluation_delay: How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
@@ -1062,13 +1062,13 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
-        :param pulumi.Input[pulumi.InputType['NrqlAlertConditionWarningArgs']] warning: A list containing the `warning` threshold values. See Terms below for details.
+        :param pulumi.Input[pulumi.InputType['NrqlAlertConditionWarningArgs']] warning: A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         ...
     @overload
@@ -1090,7 +1090,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         ## Terms
 
-        > **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed.
+        > **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed. At least one `critical` or `warning` term must be defined.
 
         NRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.
 
@@ -1157,7 +1157,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         ## Upgrade from 1.x to 2.x
 
         There have been several deprecations in the `NrqlAlertCondition`
-        resource.  Users will need to make some updates in order to have a smooth
+        resource. Users will need to make some updates in order to have a smooth
         upgrade.
 
         An example resource from 1.x might look like the following.
@@ -1357,7 +1357,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
         :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         :param pulumi.Input[bool] close_violations_on_expiration: Whether to close all open incidents when the signal expires.
-        :param pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']] critical: A list containing the `critical` threshold values. See Terms below for details.
+        :param pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']] critical: A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the NRQL Condition in New Relic.
@@ -1371,13 +1371,13 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
-        :param pulumi.Input[pulumi.InputType['NrqlAlertConditionWarningArgs']] warning: A list containing the `warning` threshold values. See Terms below for details.
+        :param pulumi.Input[pulumi.InputType['NrqlAlertConditionWarningArgs']] warning: A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1471,7 +1471,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     @pulumi.getter
     def critical(self) -> pulumi.Output[Optional['outputs.NrqlAlertConditionCritical']]:
         """
-        A list containing the `critical` threshold values. See Terms below for details.
+        A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         return pulumi.get(self, "critical")
 
@@ -1583,7 +1583,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     @pulumi.getter
     def terms(self) -> pulumi.Output[Optional[Sequence['outputs.NrqlAlertConditionTerm']]]:
         """
-        **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+        **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         """
         return pulumi.get(self, "terms")
 
@@ -1617,7 +1617,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     @pulumi.getter
     def warning(self) -> pulumi.Output[Optional['outputs.NrqlAlertConditionWarning']]:
         """
-        A list containing the `warning` threshold values. See Terms below for details.
+        A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         return pulumi.get(self, "warning")
 

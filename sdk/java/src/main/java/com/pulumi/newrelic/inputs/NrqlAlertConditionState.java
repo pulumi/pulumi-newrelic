@@ -129,14 +129,14 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list containing the `critical` threshold values. See Terms below for details.
+     * A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      * 
      */
     @Import(name="critical")
     private @Nullable Output<NrqlAlertConditionCriticalArgs> critical;
 
     /**
-     * @return A list containing the `critical` threshold values. See Terms below for details.
+     * @return A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      * 
      */
     public Optional<Output<NrqlAlertConditionCriticalArgs>> critical() {
@@ -339,7 +339,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+     * **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
      * 
      * @deprecated
      * use `critical` and `warning` attributes instead
@@ -350,7 +350,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     private @Nullable Output<List<NrqlAlertConditionTermArgs>> terms;
 
     /**
-     * @return **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+     * @return **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
      * 
      * @deprecated
      * use `critical` and `warning` attributes instead
@@ -419,14 +419,14 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list containing the `warning` threshold values. See Terms below for details.
+     * A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      * 
      */
     @Import(name="warning")
     private @Nullable Output<NrqlAlertConditionWarningArgs> warning;
 
     /**
-     * @return A list containing the `warning` threshold values. See Terms below for details.
+     * @return A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      * 
      */
     public Optional<Output<NrqlAlertConditionWarningArgs>> warning() {
@@ -630,7 +630,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param critical A list containing the `critical` threshold values. See Terms below for details.
+         * @param critical A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param critical A list containing the `critical` threshold values. See Terms below for details.
+         * @param critical A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
          * 
          * @return builder
          * 
@@ -924,7 +924,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param terms **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+         * @param terms **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
          * 
          * @return builder
          * 
@@ -939,7 +939,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param terms **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+         * @param terms **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
          * 
          * @return builder
          * 
@@ -953,7 +953,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param terms **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+         * @param terms **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
          * 
          * @return builder
          * 
@@ -1042,7 +1042,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param warning A list containing the `warning` threshold values. See Terms below for details.
+         * @param warning A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
          * 
          * @return builder
          * 
@@ -1053,7 +1053,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param warning A list containing the `warning` threshold values. See Terms below for details.
+         * @param warning A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
          * 
          * @return builder
          * 

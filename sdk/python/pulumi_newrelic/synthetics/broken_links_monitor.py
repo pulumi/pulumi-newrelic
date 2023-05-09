@@ -155,6 +155,7 @@ class _BrokenLinksMonitorState:
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  period: Optional[pulumi.Input[str]] = None,
+                 period_in_minutes: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
@@ -166,6 +167,7 @@ class _BrokenLinksMonitorState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
         :param pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         :param pulumi.Input[str] uri: The URI the monitor runs against.
@@ -182,6 +184,8 @@ class _BrokenLinksMonitorState:
             pulumi.set(__self__, "name", name)
         if period is not None:
             pulumi.set(__self__, "period", period)
+        if period_in_minutes is not None:
+            pulumi.set(__self__, "period_in_minutes", period_in_minutes)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -260,6 +264,18 @@ class _BrokenLinksMonitorState:
     @period.setter
     def period(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "period", value)
+
+    @property
+    @pulumi.getter(name="periodInMinutes")
+    def period_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The interval in minutes at which Synthetic monitor should run.
+        """
+        return pulumi.get(self, "period_in_minutes")
+
+    @period_in_minutes.setter
+    def period_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period_in_minutes", value)
 
     @property
     @pulumi.getter
@@ -484,6 +500,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'uri'")
             __props__.__dict__["uri"] = uri
             __props__.__dict__["guid"] = None
+            __props__.__dict__["period_in_minutes"] = None
         super(BrokenLinksMonitor, __self__).__init__(
             'newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor',
             resource_name,
@@ -500,6 +517,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             period: Optional[pulumi.Input[str]] = None,
+            period_in_minutes: Optional[pulumi.Input[int]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokenLinksMonitorTagArgs']]]]] = None,
             uri: Optional[pulumi.Input[str]] = None) -> 'BrokenLinksMonitor':
@@ -516,6 +534,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokenLinksMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         :param pulumi.Input[str] uri: The URI the monitor runs against.
@@ -530,6 +549,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         __props__.__dict__["locations_publics"] = locations_publics
         __props__.__dict__["name"] = name
         __props__.__dict__["period"] = period
+        __props__.__dict__["period_in_minutes"] = period_in_minutes
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["uri"] = uri
@@ -582,6 +602,14 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         """
         return pulumi.get(self, "period")
+
+    @property
+    @pulumi.getter(name="periodInMinutes")
+    def period_in_minutes(self) -> pulumi.Output[int]:
+        """
+        The interval in minutes at which Synthetic monitor should run.
+        """
+        return pulumi.get(self, "period_in_minutes")
 
     @property
     @pulumi.getter

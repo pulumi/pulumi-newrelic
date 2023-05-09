@@ -36,7 +36,7 @@ import javax.annotation.Nullable;
  * 
  * ## Terms
  * 
- * &gt; **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed.
+ * &gt; **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed. At least one `critical` or `warning` term must be defined.
  * 
  * NRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.
  * 
@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  * ## Upgrade from 1.x to 2.x
  * 
  * There have been several deprecations in the `newrelic.NrqlAlertCondition`
- * resource.  Users will need to make some updates in order to have a smooth
+ * resource. Users will need to make some updates in order to have a smooth
  * upgrade.
  * 
  * An example resource from 1.x might look like the following.
@@ -340,14 +340,14 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.closeViolationsOnExpiration);
     }
     /**
-     * A list containing the `critical` threshold values. See Terms below for details.
+     * A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      * 
      */
     @Export(name="critical", type=NrqlAlertConditionCritical.class, parameters={})
     private Output</* @Nullable */ NrqlAlertConditionCritical> critical;
 
     /**
-     * @return A list containing the `critical` threshold values. See Terms below for details.
+     * @return A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      * 
      */
     public Output<Optional<NrqlAlertConditionCritical>> critical() {
@@ -536,7 +536,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.slideBy);
     }
     /**
-     * **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+     * **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
      * 
      * @deprecated
      * use `critical` and `warning` attributes instead
@@ -547,7 +547,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<NrqlAlertConditionTerm>> terms;
 
     /**
-     * @return **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+     * @return **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
      * 
      */
     public Output<Optional<List<NrqlAlertConditionTerm>>> terms() {
@@ -604,14 +604,14 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.violationTimeLimitSeconds);
     }
     /**
-     * A list containing the `warning` threshold values. See Terms below for details.
+     * A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      * 
      */
     @Export(name="warning", type=NrqlAlertConditionWarning.class, parameters={})
     private Output</* @Nullable */ NrqlAlertConditionWarning> warning;
 
     /**
-     * @return A list containing the `warning` threshold values. See Terms below for details.
+     * @return A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      * 
      */
     public Output<Optional<NrqlAlertConditionWarning>> warning() {

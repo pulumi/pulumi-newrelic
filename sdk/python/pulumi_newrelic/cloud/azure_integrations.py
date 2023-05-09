@@ -35,6 +35,7 @@ class AzureIntegrationsArgs:
                  logic_apps: Optional[pulumi.Input['AzureIntegrationsLogicAppsArgs']] = None,
                  machine_learning: Optional[pulumi.Input['AzureIntegrationsMachineLearningArgs']] = None,
                  maria_db: Optional[pulumi.Input['AzureIntegrationsMariaDbArgs']] = None,
+                 monitor: Optional[pulumi.Input['AzureIntegrationsMonitorArgs']] = None,
                  mysql: Optional[pulumi.Input['AzureIntegrationsMysqlArgs']] = None,
                  mysql_flexible: Optional[pulumi.Input['AzureIntegrationsMysqlFlexibleArgs']] = None,
                  postgresql: Optional[pulumi.Input['AzureIntegrationsPostgresqlArgs']] = None,
@@ -70,6 +71,7 @@ class AzureIntegrationsArgs:
         :param pulumi.Input['AzureIntegrationsLogicAppsArgs'] logic_apps: Azure Logic Apps. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMachineLearningArgs'] machine_learning: Azure Machine Learning. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMariaDbArgs'] maria_db: Azure MariaDB. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsMonitorArgs'] monitor: Azure Monitor. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMysqlArgs'] mysql: Azure MySQL. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMysqlFlexibleArgs'] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsPostgresqlArgs'] postgresql: Azure PostgreSQL. See Integration blocks below for details.
@@ -122,6 +124,8 @@ class AzureIntegrationsArgs:
             pulumi.set(__self__, "machine_learning", machine_learning)
         if maria_db is not None:
             pulumi.set(__self__, "maria_db", maria_db)
+        if monitor is not None:
+            pulumi.set(__self__, "monitor", monitor)
         if mysql is not None:
             pulumi.set(__self__, "mysql", mysql)
         if mysql_flexible is not None:
@@ -381,6 +385,18 @@ class AzureIntegrationsArgs:
 
     @property
     @pulumi.getter
+    def monitor(self) -> Optional[pulumi.Input['AzureIntegrationsMonitorArgs']]:
+        """
+        Azure Monitor. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "monitor")
+
+    @monitor.setter
+    def monitor(self, value: Optional[pulumi.Input['AzureIntegrationsMonitorArgs']]):
+        pulumi.set(self, "monitor", value)
+
+    @property
+    @pulumi.getter
     def mysql(self) -> Optional[pulumi.Input['AzureIntegrationsMysqlArgs']]:
         """
         Azure MySQL. See Integration blocks below for details.
@@ -570,6 +586,7 @@ class _AzureIntegrationsState:
                  logic_apps: Optional[pulumi.Input['AzureIntegrationsLogicAppsArgs']] = None,
                  machine_learning: Optional[pulumi.Input['AzureIntegrationsMachineLearningArgs']] = None,
                  maria_db: Optional[pulumi.Input['AzureIntegrationsMariaDbArgs']] = None,
+                 monitor: Optional[pulumi.Input['AzureIntegrationsMonitorArgs']] = None,
                  mysql: Optional[pulumi.Input['AzureIntegrationsMysqlArgs']] = None,
                  mysql_flexible: Optional[pulumi.Input['AzureIntegrationsMysqlFlexibleArgs']] = None,
                  postgresql: Optional[pulumi.Input['AzureIntegrationsPostgresqlArgs']] = None,
@@ -605,6 +622,7 @@ class _AzureIntegrationsState:
         :param pulumi.Input['AzureIntegrationsLogicAppsArgs'] logic_apps: Azure Logic Apps. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMachineLearningArgs'] machine_learning: Azure Machine Learning. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMariaDbArgs'] maria_db: Azure MariaDB. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsMonitorArgs'] monitor: Azure Monitor. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMysqlArgs'] mysql: Azure MySQL. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMysqlFlexibleArgs'] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsPostgresqlArgs'] postgresql: Azure PostgreSQL. See Integration blocks below for details.
@@ -658,6 +676,8 @@ class _AzureIntegrationsState:
             pulumi.set(__self__, "machine_learning", machine_learning)
         if maria_db is not None:
             pulumi.set(__self__, "maria_db", maria_db)
+        if monitor is not None:
+            pulumi.set(__self__, "monitor", monitor)
         if mysql is not None:
             pulumi.set(__self__, "mysql", mysql)
         if mysql_flexible is not None:
@@ -917,6 +937,18 @@ class _AzureIntegrationsState:
 
     @property
     @pulumi.getter
+    def monitor(self) -> Optional[pulumi.Input['AzureIntegrationsMonitorArgs']]:
+        """
+        Azure Monitor. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "monitor")
+
+    @monitor.setter
+    def monitor(self, value: Optional[pulumi.Input['AzureIntegrationsMonitorArgs']]):
+        pulumi.set(self, "monitor", value)
+
+    @property
+    @pulumi.getter
     def mysql(self) -> Optional[pulumi.Input['AzureIntegrationsMysqlArgs']]:
         """
         Azure MySQL. See Integration blocks below for details.
@@ -1108,6 +1140,7 @@ class AzureIntegrations(pulumi.CustomResource):
                  logic_apps: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']]] = None,
                  machine_learning: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']]] = None,
                  maria_db: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']]] = None,
+                 monitor: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMonitorArgs']]] = None,
                  mysql: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']]] = None,
                  mysql_flexible: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlFlexibleArgs']]] = None,
                  postgresql: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']]] = None,
@@ -1153,6 +1186,7 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']] machine_learning: Azure Machine Learning. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']] maria_db: Azure MariaDB. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMonitorArgs']] monitor: Azure Monitor. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']] mysql: Azure MySQL. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlFlexibleArgs']] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']] postgresql: Azure PostgreSQL. See Integration blocks below for details.
@@ -1217,6 +1251,7 @@ class AzureIntegrations(pulumi.CustomResource):
                  logic_apps: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']]] = None,
                  machine_learning: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']]] = None,
                  maria_db: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']]] = None,
+                 monitor: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMonitorArgs']]] = None,
                  mysql: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']]] = None,
                  mysql_flexible: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlFlexibleArgs']]] = None,
                  postgresql: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']]] = None,
@@ -1261,6 +1296,7 @@ class AzureIntegrations(pulumi.CustomResource):
             __props__.__dict__["logic_apps"] = logic_apps
             __props__.__dict__["machine_learning"] = machine_learning
             __props__.__dict__["maria_db"] = maria_db
+            __props__.__dict__["monitor"] = monitor
             __props__.__dict__["mysql"] = mysql
             __props__.__dict__["mysql_flexible"] = mysql_flexible
             __props__.__dict__["postgresql"] = postgresql
@@ -1304,6 +1340,7 @@ class AzureIntegrations(pulumi.CustomResource):
             logic_apps: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']]] = None,
             machine_learning: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']]] = None,
             maria_db: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']]] = None,
+            monitor: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMonitorArgs']]] = None,
             mysql: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']]] = None,
             mysql_flexible: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlFlexibleArgs']]] = None,
             postgresql: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']]] = None,
@@ -1344,6 +1381,7 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']] machine_learning: Azure Machine Learning. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']] maria_db: Azure MariaDB. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMonitorArgs']] monitor: Azure Monitor. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']] mysql: Azure MySQL. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlFlexibleArgs']] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']] postgresql: Azure PostgreSQL. See Integration blocks below for details.
@@ -1382,6 +1420,7 @@ class AzureIntegrations(pulumi.CustomResource):
         __props__.__dict__["logic_apps"] = logic_apps
         __props__.__dict__["machine_learning"] = machine_learning
         __props__.__dict__["maria_db"] = maria_db
+        __props__.__dict__["monitor"] = monitor
         __props__.__dict__["mysql"] = mysql
         __props__.__dict__["mysql_flexible"] = mysql_flexible
         __props__.__dict__["postgresql"] = postgresql
@@ -1549,6 +1588,14 @@ class AzureIntegrations(pulumi.CustomResource):
         Azure MariaDB. See Integration blocks below for details.
         """
         return pulumi.get(self, "maria_db")
+
+    @property
+    @pulumi.getter
+    def monitor(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsMonitor']]:
+        """
+        Azure Monitor. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "monitor")
 
     @property
     @pulumi.getter

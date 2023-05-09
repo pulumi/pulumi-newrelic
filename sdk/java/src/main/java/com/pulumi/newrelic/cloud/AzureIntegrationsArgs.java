@@ -22,6 +22,7 @@ import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsLoadBalancerArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsLogicAppsArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsMachineLearningArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsMariaDbArgs;
+import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsMonitorArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsMysqlArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsMysqlFlexibleArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsPostgresqlArgs;
@@ -332,6 +333,21 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Azure Monitor. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="monitor")
+    private @Nullable Output<AzureIntegrationsMonitorArgs> monitor;
+
+    /**
+     * @return Azure Monitor. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AzureIntegrationsMonitorArgs>> monitor() {
+        return Optional.ofNullable(this.monitor);
+    }
+
+    /**
      * Azure MySQL. See Integration blocks below for details.
      * 
      */
@@ -563,6 +579,7 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
         this.logicApps = $.logicApps;
         this.machineLearning = $.machineLearning;
         this.mariaDb = $.mariaDb;
+        this.monitor = $.monitor;
         this.mysql = $.mysql;
         this.mysqlFlexible = $.mysqlFlexible;
         this.postgresql = $.postgresql;
@@ -994,6 +1011,27 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder mariaDb(AzureIntegrationsMariaDbArgs mariaDb) {
             return mariaDb(Output.of(mariaDb));
+        }
+
+        /**
+         * @param monitor Azure Monitor. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitor(@Nullable Output<AzureIntegrationsMonitorArgs> monitor) {
+            $.monitor = monitor;
+            return this;
+        }
+
+        /**
+         * @param monitor Azure Monitor. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitor(AzureIntegrationsMonitorArgs monitor) {
+            return monitor(Output.of(monitor));
         }
 
         /**

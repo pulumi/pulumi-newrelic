@@ -359,6 +359,20 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return this.period;
     }
     /**
+     * The interval in minutes at which Synthetic monitor should run.
+     * 
+     */
+    @Export(name="periodInMinutes", type=Integer.class, parameters={})
+    private Output<Integer> periodInMinutes;
+
+    /**
+     * @return The interval in minutes at which Synthetic monitor should run.
+     * 
+     */
+    public Output<Integer> periodInMinutes() {
+        return this.periodInMinutes;
+    }
+    /**
      * The runtime type that the monitor will run.
      * 
      */

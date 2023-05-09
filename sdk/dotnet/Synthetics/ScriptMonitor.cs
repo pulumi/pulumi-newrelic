@@ -18,6 +18,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -56,6 +57,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -104,6 +106,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -151,6 +154,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -214,6 +218,18 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
+        /// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        /// </summary>
+        [Output("deviceOrientation")]
+        public Output<string?> DeviceOrientation { get; private set; } = null!;
+
+        /// <summary>
+        /// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+        /// </summary>
+        [Output("deviceType")]
+        public Output<string?> DeviceType { get; private set; } = null!;
+
+        /// <summary>
         /// Capture a screenshot during job execution
         /// </summary>
         [Output("enableScreenshotOnFailureAndScript")]
@@ -248,6 +264,12 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Output("period")]
         public Output<string> Period { get; private set; } = null!;
+
+        /// <summary>
+        /// The interval in minutes at which Synthetic monitor should run.
+        /// </summary>
+        [Output("periodInMinutes")]
+        public Output<int> PeriodInMinutes { get; private set; } = null!;
 
         /// <summary>
         /// The runtime that the monitor will use to run jobs.
@@ -342,6 +364,18 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
+
+        /// <summary>
+        /// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        /// </summary>
+        [Input("deviceOrientation")]
+        public Input<string>? DeviceOrientation { get; set; }
+
+        /// <summary>
+        /// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+        /// </summary>
+        [Input("deviceType")]
+        public Input<string>? DeviceType { get; set; }
 
         /// <summary>
         /// Capture a screenshot during job execution
@@ -448,6 +482,18 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
+        /// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        /// </summary>
+        [Input("deviceOrientation")]
+        public Input<string>? DeviceOrientation { get; set; }
+
+        /// <summary>
+        /// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+        /// </summary>
+        [Input("deviceType")]
+        public Input<string>? DeviceType { get; set; }
+
+        /// <summary>
         /// Capture a screenshot during job execution
         /// </summary>
         [Input("enableScreenshotOnFailureAndScript")]
@@ -494,6 +540,12 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Input("period")]
         public Input<string>? Period { get; set; }
+
+        /// <summary>
+        /// The interval in minutes at which Synthetic monitor should run.
+        /// </summary>
+        [Input("periodInMinutes")]
+        public Input<int>? PeriodInMinutes { get; set; }
 
         /// <summary>
         /// The runtime that the monitor will use to run jobs.

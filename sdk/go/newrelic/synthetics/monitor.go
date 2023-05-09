@@ -262,6 +262,8 @@ type Monitor struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period pulumi.StringOutput `pulumi:"period"`
+	// The interval in minutes at which Synthetic monitor should run.
+	PeriodInMinutes pulumi.IntOutput `pulumi:"periodInMinutes"`
 	// The runtime type that the monitor will run.
 	RuntimeType pulumi.StringPtrOutput `pulumi:"runtimeType"`
 	// The runtime type that the monitor will run.
@@ -335,6 +337,8 @@ type monitorState struct {
 	Name *string `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period *string `pulumi:"period"`
+	// The interval in minutes at which Synthetic monitor should run.
+	PeriodInMinutes *int `pulumi:"periodInMinutes"`
 	// The runtime type that the monitor will run.
 	RuntimeType *string `pulumi:"runtimeType"`
 	// The runtime type that the monitor will run.
@@ -374,6 +378,8 @@ type MonitorState struct {
 	Name pulumi.StringPtrInput
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period pulumi.StringPtrInput
+	// The interval in minutes at which Synthetic monitor should run.
+	PeriodInMinutes pulumi.IntPtrInput
 	// The runtime type that the monitor will run.
 	RuntimeType pulumi.StringPtrInput
 	// The runtime type that the monitor will run.
@@ -604,6 +610,11 @@ func (o MonitorOutput) Name() pulumi.StringOutput {
 // The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 func (o MonitorOutput) Period() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Period }).(pulumi.StringOutput)
+}
+
+// The interval in minutes at which Synthetic monitor should run.
+func (o MonitorOutput) PeriodInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.PeriodInMinutes }).(pulumi.IntOutput)
 }
 
 // The runtime type that the monitor will run.

@@ -318,6 +318,7 @@ class _MonitorState:
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  period: Optional[pulumi.Input[str]] = None,
+                 period_in_minutes: Optional[pulumi.Input[int]] = None,
                  runtime_type: Optional[pulumi.Input[str]] = None,
                  runtime_type_version: Optional[pulumi.Input[str]] = None,
                  script_language: Optional[pulumi.Input[str]] = None,
@@ -338,6 +339,7 @@ class _MonitorState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The human-readable identifier for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
         :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run.
         :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
@@ -365,6 +367,8 @@ class _MonitorState:
             pulumi.set(__self__, "name", name)
         if period is not None:
             pulumi.set(__self__, "period", period)
+        if period_in_minutes is not None:
+            pulumi.set(__self__, "period_in_minutes", period_in_minutes)
         if runtime_type is not None:
             pulumi.set(__self__, "runtime_type", runtime_type)
         if runtime_type_version is not None:
@@ -481,6 +485,18 @@ class _MonitorState:
     @period.setter
     def period(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "period", value)
+
+    @property
+    @pulumi.getter(name="periodInMinutes")
+    def period_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The interval in minutes at which Synthetic monitor should run.
+        """
+        return pulumi.get(self, "period_in_minutes")
+
+    @period_in_minutes.setter
+    def period_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period_in_minutes", value)
 
     @property
     @pulumi.getter(name="runtimeType")
@@ -974,6 +990,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["uri"] = uri
             __props__.__dict__["validation_string"] = validation_string
             __props__.__dict__["verify_ssl"] = verify_ssl
+            __props__.__dict__["period_in_minutes"] = None
         super(Monitor, __self__).__init__(
             'newrelic:synthetics/monitor:Monitor',
             resource_name,
@@ -992,6 +1009,7 @@ class Monitor(pulumi.CustomResource):
             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             period: Optional[pulumi.Input[str]] = None,
+            period_in_minutes: Optional[pulumi.Input[int]] = None,
             runtime_type: Optional[pulumi.Input[str]] = None,
             runtime_type_version: Optional[pulumi.Input[str]] = None,
             script_language: Optional[pulumi.Input[str]] = None,
@@ -1017,6 +1035,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The human-readable identifier for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
         :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run.
         :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
@@ -1040,6 +1059,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["locations_publics"] = locations_publics
         __props__.__dict__["name"] = name
         __props__.__dict__["period"] = period
+        __props__.__dict__["period_in_minutes"] = period_in_minutes
         __props__.__dict__["runtime_type"] = runtime_type
         __props__.__dict__["runtime_type_version"] = runtime_type_version
         __props__.__dict__["script_language"] = script_language
@@ -1115,6 +1135,14 @@ class Monitor(pulumi.CustomResource):
         The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         """
         return pulumi.get(self, "period")
+
+    @property
+    @pulumi.getter(name="periodInMinutes")
+    def period_in_minutes(self) -> pulumi.Output[int]:
+        """
+        The interval in minutes at which Synthetic monitor should run.
+        """
+        return pulumi.get(self, "period_in_minutes")
 
     @property
     @pulumi.getter(name="runtimeType")

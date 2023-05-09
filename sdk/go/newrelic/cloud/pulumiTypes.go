@@ -8139,6 +8139,238 @@ func (o AzureIntegrationsMariaDbPtrOutput) ResourceGroups() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
+type AzureIntegrationsMonitor struct {
+	// A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
+	Enabled *bool `pulumi:"enabled"`
+	// A list of resource tags associated with the resources that need to be excluded from monitoring.
+	ExcludeTags []string `pulumi:"excludeTags"`
+	// A list of resource tags associated with the resources that need to be monitored, in a "key:value" format. If this is not specified, all resources will be monitored.
+	IncludeTags []string `pulumi:"includeTags"`
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+	// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+	ResourceGroups []string `pulumi:"resourceGroups"`
+	// A list of Azure resource types that need to be monitored.
+	ResourceTypes []string `pulumi:"resourceTypes"`
+}
+
+// AzureIntegrationsMonitorInput is an input type that accepts AzureIntegrationsMonitorArgs and AzureIntegrationsMonitorOutput values.
+// You can construct a concrete instance of `AzureIntegrationsMonitorInput` via:
+//
+//	AzureIntegrationsMonitorArgs{...}
+type AzureIntegrationsMonitorInput interface {
+	pulumi.Input
+
+	ToAzureIntegrationsMonitorOutput() AzureIntegrationsMonitorOutput
+	ToAzureIntegrationsMonitorOutputWithContext(context.Context) AzureIntegrationsMonitorOutput
+}
+
+type AzureIntegrationsMonitorArgs struct {
+	// A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// A list of resource tags associated with the resources that need to be excluded from monitoring.
+	ExcludeTags pulumi.StringArrayInput `pulumi:"excludeTags"`
+	// A list of resource tags associated with the resources that need to be monitored, in a "key:value" format. If this is not specified, all resources will be monitored.
+	IncludeTags pulumi.StringArrayInput `pulumi:"includeTags"`
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+	// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+	ResourceGroups pulumi.StringArrayInput `pulumi:"resourceGroups"`
+	// A list of Azure resource types that need to be monitored.
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+}
+
+func (AzureIntegrationsMonitorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIntegrationsMonitor)(nil)).Elem()
+}
+
+func (i AzureIntegrationsMonitorArgs) ToAzureIntegrationsMonitorOutput() AzureIntegrationsMonitorOutput {
+	return i.ToAzureIntegrationsMonitorOutputWithContext(context.Background())
+}
+
+func (i AzureIntegrationsMonitorArgs) ToAzureIntegrationsMonitorOutputWithContext(ctx context.Context) AzureIntegrationsMonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMonitorOutput)
+}
+
+func (i AzureIntegrationsMonitorArgs) ToAzureIntegrationsMonitorPtrOutput() AzureIntegrationsMonitorPtrOutput {
+	return i.ToAzureIntegrationsMonitorPtrOutputWithContext(context.Background())
+}
+
+func (i AzureIntegrationsMonitorArgs) ToAzureIntegrationsMonitorPtrOutputWithContext(ctx context.Context) AzureIntegrationsMonitorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMonitorOutput).ToAzureIntegrationsMonitorPtrOutputWithContext(ctx)
+}
+
+// AzureIntegrationsMonitorPtrInput is an input type that accepts AzureIntegrationsMonitorArgs, AzureIntegrationsMonitorPtr and AzureIntegrationsMonitorPtrOutput values.
+// You can construct a concrete instance of `AzureIntegrationsMonitorPtrInput` via:
+//
+//	        AzureIntegrationsMonitorArgs{...}
+//
+//	or:
+//
+//	        nil
+type AzureIntegrationsMonitorPtrInput interface {
+	pulumi.Input
+
+	ToAzureIntegrationsMonitorPtrOutput() AzureIntegrationsMonitorPtrOutput
+	ToAzureIntegrationsMonitorPtrOutputWithContext(context.Context) AzureIntegrationsMonitorPtrOutput
+}
+
+type azureIntegrationsMonitorPtrType AzureIntegrationsMonitorArgs
+
+func AzureIntegrationsMonitorPtr(v *AzureIntegrationsMonitorArgs) AzureIntegrationsMonitorPtrInput {
+	return (*azureIntegrationsMonitorPtrType)(v)
+}
+
+func (*azureIntegrationsMonitorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureIntegrationsMonitor)(nil)).Elem()
+}
+
+func (i *azureIntegrationsMonitorPtrType) ToAzureIntegrationsMonitorPtrOutput() AzureIntegrationsMonitorPtrOutput {
+	return i.ToAzureIntegrationsMonitorPtrOutputWithContext(context.Background())
+}
+
+func (i *azureIntegrationsMonitorPtrType) ToAzureIntegrationsMonitorPtrOutputWithContext(ctx context.Context) AzureIntegrationsMonitorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMonitorPtrOutput)
+}
+
+type AzureIntegrationsMonitorOutput struct{ *pulumi.OutputState }
+
+func (AzureIntegrationsMonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIntegrationsMonitor)(nil)).Elem()
+}
+
+func (o AzureIntegrationsMonitorOutput) ToAzureIntegrationsMonitorOutput() AzureIntegrationsMonitorOutput {
+	return o
+}
+
+func (o AzureIntegrationsMonitorOutput) ToAzureIntegrationsMonitorOutputWithContext(ctx context.Context) AzureIntegrationsMonitorOutput {
+	return o
+}
+
+func (o AzureIntegrationsMonitorOutput) ToAzureIntegrationsMonitorPtrOutput() AzureIntegrationsMonitorPtrOutput {
+	return o.ToAzureIntegrationsMonitorPtrOutputWithContext(context.Background())
+}
+
+func (o AzureIntegrationsMonitorOutput) ToAzureIntegrationsMonitorPtrOutputWithContext(ctx context.Context) AzureIntegrationsMonitorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsMonitor) *AzureIntegrationsMonitor {
+		return &v
+	}).(AzureIntegrationsMonitorPtrOutput)
+}
+
+// A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
+func (o AzureIntegrationsMonitorOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIntegrationsMonitor) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// A list of resource tags associated with the resources that need to be excluded from monitoring.
+func (o AzureIntegrationsMonitorOutput) ExcludeTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureIntegrationsMonitor) []string { return v.ExcludeTags }).(pulumi.StringArrayOutput)
+}
+
+// A list of resource tags associated with the resources that need to be monitored, in a "key:value" format. If this is not specified, all resources will be monitored.
+func (o AzureIntegrationsMonitorOutput) IncludeTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureIntegrationsMonitor) []string { return v.IncludeTags }).(pulumi.StringArrayOutput)
+}
+
+// The data polling interval in seconds.
+func (o AzureIntegrationsMonitorOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureIntegrationsMonitor) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+func (o AzureIntegrationsMonitorOutput) ResourceGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureIntegrationsMonitor) []string { return v.ResourceGroups }).(pulumi.StringArrayOutput)
+}
+
+// A list of Azure resource types that need to be monitored.
+func (o AzureIntegrationsMonitorOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureIntegrationsMonitor) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+type AzureIntegrationsMonitorPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureIntegrationsMonitorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureIntegrationsMonitor)(nil)).Elem()
+}
+
+func (o AzureIntegrationsMonitorPtrOutput) ToAzureIntegrationsMonitorPtrOutput() AzureIntegrationsMonitorPtrOutput {
+	return o
+}
+
+func (o AzureIntegrationsMonitorPtrOutput) ToAzureIntegrationsMonitorPtrOutputWithContext(ctx context.Context) AzureIntegrationsMonitorPtrOutput {
+	return o
+}
+
+func (o AzureIntegrationsMonitorPtrOutput) Elem() AzureIntegrationsMonitorOutput {
+	return o.ApplyT(func(v *AzureIntegrationsMonitor) AzureIntegrationsMonitor {
+		if v != nil {
+			return *v
+		}
+		var ret AzureIntegrationsMonitor
+		return ret
+	}).(AzureIntegrationsMonitorOutput)
+}
+
+// A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
+func (o AzureIntegrationsMonitorPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrationsMonitor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of resource tags associated with the resources that need to be excluded from monitoring.
+func (o AzureIntegrationsMonitorPtrOutput) ExcludeTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AzureIntegrationsMonitor) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeTags
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of resource tags associated with the resources that need to be monitored, in a "key:value" format. If this is not specified, all resources will be monitored.
+func (o AzureIntegrationsMonitorPtrOutput) IncludeTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AzureIntegrationsMonitor) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeTags
+	}).(pulumi.StringArrayOutput)
+}
+
+// The data polling interval in seconds.
+func (o AzureIntegrationsMonitorPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrationsMonitor) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+func (o AzureIntegrationsMonitorPtrOutput) ResourceGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AzureIntegrationsMonitor) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of Azure resource types that need to be monitored.
+func (o AzureIntegrationsMonitorPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AzureIntegrationsMonitor) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 type AzureIntegrationsMysql struct {
 	// The data polling interval in seconds.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
@@ -14052,6 +14284,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsMachineLearningPtrInput)(nil)).Elem(), AzureIntegrationsMachineLearningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsMariaDbInput)(nil)).Elem(), AzureIntegrationsMariaDbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsMariaDbPtrInput)(nil)).Elem(), AzureIntegrationsMariaDbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsMonitorInput)(nil)).Elem(), AzureIntegrationsMonitorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsMonitorPtrInput)(nil)).Elem(), AzureIntegrationsMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsMysqlInput)(nil)).Elem(), AzureIntegrationsMysqlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsMysqlPtrInput)(nil)).Elem(), AzureIntegrationsMysqlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsMysqlFlexibleInput)(nil)).Elem(), AzureIntegrationsMysqlFlexibleArgs{})
@@ -14222,6 +14456,8 @@ func init() {
 	pulumi.RegisterOutputType(AzureIntegrationsMachineLearningPtrOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsMariaDbOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsMariaDbPtrOutput{})
+	pulumi.RegisterOutputType(AzureIntegrationsMonitorOutput{})
+	pulumi.RegisterOutputType(AzureIntegrationsMonitorPtrOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsMysqlOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsMysqlPtrOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsMysqlFlexibleOutput{})

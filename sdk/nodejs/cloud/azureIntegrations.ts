@@ -120,6 +120,10 @@ export class AzureIntegrations extends pulumi.CustomResource {
      */
     public readonly mariaDb!: pulumi.Output<outputs.cloud.AzureIntegrationsMariaDb | undefined>;
     /**
+     * Azure Monitor. See Integration blocks below for details.
+     */
+    public readonly monitor!: pulumi.Output<outputs.cloud.AzureIntegrationsMonitor | undefined>;
+    /**
      * Azure MySQL. See Integration blocks below for details.
      */
     public readonly mysql!: pulumi.Output<outputs.cloud.AzureIntegrationsMysql | undefined>;
@@ -208,6 +212,7 @@ export class AzureIntegrations extends pulumi.CustomResource {
             resourceInputs["logicApps"] = state ? state.logicApps : undefined;
             resourceInputs["machineLearning"] = state ? state.machineLearning : undefined;
             resourceInputs["mariaDb"] = state ? state.mariaDb : undefined;
+            resourceInputs["monitor"] = state ? state.monitor : undefined;
             resourceInputs["mysql"] = state ? state.mysql : undefined;
             resourceInputs["mysqlFlexible"] = state ? state.mysqlFlexible : undefined;
             resourceInputs["postgresql"] = state ? state.postgresql : undefined;
@@ -246,6 +251,7 @@ export class AzureIntegrations extends pulumi.CustomResource {
             resourceInputs["logicApps"] = args ? args.logicApps : undefined;
             resourceInputs["machineLearning"] = args ? args.machineLearning : undefined;
             resourceInputs["mariaDb"] = args ? args.mariaDb : undefined;
+            resourceInputs["monitor"] = args ? args.monitor : undefined;
             resourceInputs["mysql"] = args ? args.mysql : undefined;
             resourceInputs["mysqlFlexible"] = args ? args.mysqlFlexible : undefined;
             resourceInputs["postgresql"] = args ? args.postgresql : undefined;
@@ -346,6 +352,10 @@ export interface AzureIntegrationsState {
      * Azure MariaDB. See Integration blocks below for details.
      */
     mariaDb?: pulumi.Input<inputs.cloud.AzureIntegrationsMariaDb>;
+    /**
+     * Azure Monitor. See Integration blocks below for details.
+     */
+    monitor?: pulumi.Input<inputs.cloud.AzureIntegrationsMonitor>;
     /**
      * Azure MySQL. See Integration blocks below for details.
      */
@@ -484,6 +494,10 @@ export interface AzureIntegrationsArgs {
      * Azure MariaDB. See Integration blocks below for details.
      */
     mariaDb?: pulumi.Input<inputs.cloud.AzureIntegrationsMariaDb>;
+    /**
+     * Azure Monitor. See Integration blocks below for details.
+     */
+    monitor?: pulumi.Input<inputs.cloud.AzureIntegrationsMonitor>;
     /**
      * Azure MySQL. See Integration blocks below for details.
      */

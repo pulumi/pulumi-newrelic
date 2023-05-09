@@ -24,7 +24,7 @@ import (
 //
 // ## Terms
 //
-// > **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed.
+// > **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed. At least one `critical` or `warning` term must be defined.
 //
 // NRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.
 //
@@ -113,7 +113,7 @@ import (
 // ## Upgrade from 1.x to 2.x
 //
 // There have been several deprecations in the `NrqlAlertCondition`
-// resource.  Users will need to make some updates in order to have a smooth
+// resource. Users will need to make some updates in order to have a smooth
 // upgrade.
 //
 // An example resource from 1.x might look like the following.
@@ -232,7 +232,7 @@ type NrqlAlertCondition struct {
 	BaselineDirection pulumi.StringPtrOutput `pulumi:"baselineDirection"`
 	// Whether to close all open incidents when the signal expires.
 	CloseViolationsOnExpiration pulumi.BoolPtrOutput `pulumi:"closeViolationsOnExpiration"`
-	// A list containing the `critical` threshold values. See Terms below for details.
+	// A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
 	Critical NrqlAlertConditionCriticalPtrOutput `pulumi:"critical"`
 	// The description of the NRQL alert condition.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -260,7 +260,7 @@ type NrqlAlertCondition struct {
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy pulumi.IntPtrOutput `pulumi:"slideBy"`
-	// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+	// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
 	Terms NrqlAlertConditionTermArrayOutput `pulumi:"terms"`
@@ -274,7 +274,7 @@ type NrqlAlertCondition struct {
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	ViolationTimeLimitSeconds pulumi.IntPtrOutput `pulumi:"violationTimeLimitSeconds"`
-	// A list containing the `warning` threshold values. See Terms below for details.
+	// A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
 	Warning NrqlAlertConditionWarningPtrOutput `pulumi:"warning"`
 }
 
@@ -327,7 +327,7 @@ type nrqlAlertConditionState struct {
 	BaselineDirection *string `pulumi:"baselineDirection"`
 	// Whether to close all open incidents when the signal expires.
 	CloseViolationsOnExpiration *bool `pulumi:"closeViolationsOnExpiration"`
-	// A list containing the `critical` threshold values. See Terms below for details.
+	// A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
 	Critical *NrqlAlertConditionCritical `pulumi:"critical"`
 	// The description of the NRQL alert condition.
 	Description *string `pulumi:"description"`
@@ -355,7 +355,7 @@ type nrqlAlertConditionState struct {
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy *int `pulumi:"slideBy"`
-	// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+	// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
@@ -369,7 +369,7 @@ type nrqlAlertConditionState struct {
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	ViolationTimeLimitSeconds *int `pulumi:"violationTimeLimitSeconds"`
-	// A list containing the `warning` threshold values. See Terms below for details.
+	// A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
 	Warning *NrqlAlertConditionWarning `pulumi:"warning"`
 }
 
@@ -388,7 +388,7 @@ type NrqlAlertConditionState struct {
 	BaselineDirection pulumi.StringPtrInput
 	// Whether to close all open incidents when the signal expires.
 	CloseViolationsOnExpiration pulumi.BoolPtrInput
-	// A list containing the `critical` threshold values. See Terms below for details.
+	// A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
 	Critical NrqlAlertConditionCriticalPtrInput
 	// The description of the NRQL alert condition.
 	Description pulumi.StringPtrInput
@@ -416,7 +416,7 @@ type NrqlAlertConditionState struct {
 	RunbookUrl pulumi.StringPtrInput
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy pulumi.IntPtrInput
-	// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+	// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
 	Terms NrqlAlertConditionTermArrayInput
@@ -430,7 +430,7 @@ type NrqlAlertConditionState struct {
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	ViolationTimeLimitSeconds pulumi.IntPtrInput
-	// A list containing the `warning` threshold values. See Terms below for details.
+	// A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
 	Warning NrqlAlertConditionWarningPtrInput
 }
 
@@ -453,7 +453,7 @@ type nrqlAlertConditionArgs struct {
 	BaselineDirection *string `pulumi:"baselineDirection"`
 	// Whether to close all open incidents when the signal expires.
 	CloseViolationsOnExpiration *bool `pulumi:"closeViolationsOnExpiration"`
-	// A list containing the `critical` threshold values. See Terms below for details.
+	// A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
 	Critical *NrqlAlertConditionCritical `pulumi:"critical"`
 	// The description of the NRQL alert condition.
 	Description *string `pulumi:"description"`
@@ -479,7 +479,7 @@ type nrqlAlertConditionArgs struct {
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy *int `pulumi:"slideBy"`
-	// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+	// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
@@ -493,7 +493,7 @@ type nrqlAlertConditionArgs struct {
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	ViolationTimeLimitSeconds *int `pulumi:"violationTimeLimitSeconds"`
-	// A list containing the `warning` threshold values. See Terms below for details.
+	// A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
 	Warning *NrqlAlertConditionWarning `pulumi:"warning"`
 }
 
@@ -513,7 +513,7 @@ type NrqlAlertConditionArgs struct {
 	BaselineDirection pulumi.StringPtrInput
 	// Whether to close all open incidents when the signal expires.
 	CloseViolationsOnExpiration pulumi.BoolPtrInput
-	// A list containing the `critical` threshold values. See Terms below for details.
+	// A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
 	Critical NrqlAlertConditionCriticalPtrInput
 	// The description of the NRQL alert condition.
 	Description pulumi.StringPtrInput
@@ -539,7 +539,7 @@ type NrqlAlertConditionArgs struct {
 	RunbookUrl pulumi.StringPtrInput
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy pulumi.IntPtrInput
-	// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+	// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
 	Terms NrqlAlertConditionTermArrayInput
@@ -553,7 +553,7 @@ type NrqlAlertConditionArgs struct {
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	ViolationTimeLimitSeconds pulumi.IntPtrInput
-	// A list containing the `warning` threshold values. See Terms below for details.
+	// A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
 	Warning NrqlAlertConditionWarningPtrInput
 }
 
@@ -679,7 +679,7 @@ func (o NrqlAlertConditionOutput) CloseViolationsOnExpiration() pulumi.BoolPtrOu
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.BoolPtrOutput { return v.CloseViolationsOnExpiration }).(pulumi.BoolPtrOutput)
 }
 
-// A list containing the `critical` threshold values. See Terms below for details.
+// A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
 func (o NrqlAlertConditionOutput) Critical() NrqlAlertConditionCriticalPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) NrqlAlertConditionCriticalPtrOutput { return v.Critical }).(NrqlAlertConditionCriticalPtrOutput)
 }
@@ -749,7 +749,7 @@ func (o NrqlAlertConditionOutput) SlideBy() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntPtrOutput { return v.SlideBy }).(pulumi.IntPtrOutput)
 }
 
-// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
 //
 // Deprecated: use `critical` and `warning` attributes instead
 func (o NrqlAlertConditionOutput) Terms() NrqlAlertConditionTermArrayOutput {
@@ -775,7 +775,7 @@ func (o NrqlAlertConditionOutput) ViolationTimeLimitSeconds() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntPtrOutput { return v.ViolationTimeLimitSeconds }).(pulumi.IntPtrOutput)
 }
 
-// A list containing the `warning` threshold values. See Terms below for details.
+// A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
 func (o NrqlAlertConditionOutput) Warning() NrqlAlertConditionWarningPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) NrqlAlertConditionWarningPtrOutput { return v.Warning }).(NrqlAlertConditionWarningPtrOutput)
 }

@@ -5763,7 +5763,8 @@ class OneDashboardPageWidgetLineArgs:
                  units: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineUnitArgs']]]] = None,
                  width: Optional[pulumi.Input[int]] = None,
                  y_axis_left_max: Optional[pulumi.Input[float]] = None,
-                 y_axis_left_min: Optional[pulumi.Input[float]] = None):
+                 y_axis_left_min: Optional[pulumi.Input[float]] = None,
+                 y_axis_left_zero: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
@@ -5778,6 +5779,7 @@ class OneDashboardPageWidgetLineArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineUnitArgs']]] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param pulumi.Input[float] y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        :param pulumi.Input[bool] y_axis_left_zero: (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
@@ -5805,6 +5807,8 @@ class OneDashboardPageWidgetLineArgs:
             pulumi.set(__self__, "y_axis_left_max", y_axis_left_max)
         if y_axis_left_min is not None:
             pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
+        if y_axis_left_zero is not None:
+            pulumi.set(__self__, "y_axis_left_zero", y_axis_left_zero)
 
     @property
     @pulumi.getter
@@ -5979,6 +5983,18 @@ class OneDashboardPageWidgetLineArgs:
     @y_axis_left_min.setter
     def y_axis_left_min(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "y_axis_left_min", value)
+
+    @property
+    @pulumi.getter(name="yAxisLeftZero")
+    def y_axis_left_zero(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
+        """
+        return pulumi.get(self, "y_axis_left_zero")
+
+    @y_axis_left_zero.setter
+    def y_axis_left_zero(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "y_axis_left_zero", value)
 
 
 @pulumi.input_type

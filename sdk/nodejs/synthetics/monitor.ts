@@ -201,6 +201,10 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly period!: pulumi.Output<string>;
     /**
+     * The interval in minutes at which Synthetic monitor should run.
+     */
+    public /*out*/ readonly periodInMinutes!: pulumi.Output<number>;
+    /**
      * The runtime type that the monitor will run.
      */
     public readonly runtimeType!: pulumi.Output<string | undefined>;
@@ -262,6 +266,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["locationsPublics"] = state ? state.locationsPublics : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["period"] = state ? state.period : undefined;
+            resourceInputs["periodInMinutes"] = state ? state.periodInMinutes : undefined;
             resourceInputs["runtimeType"] = state ? state.runtimeType : undefined;
             resourceInputs["runtimeTypeVersion"] = state ? state.runtimeTypeVersion : undefined;
             resourceInputs["scriptLanguage"] = state ? state.scriptLanguage : undefined;
@@ -298,6 +303,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["uri"] = args ? args.uri : undefined;
             resourceInputs["validationString"] = args ? args.validationString : undefined;
             resourceInputs["verifySsl"] = args ? args.verifySsl : undefined;
+            resourceInputs["periodInMinutes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
@@ -340,6 +346,10 @@ export interface MonitorState {
      * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
      */
     period?: pulumi.Input<string>;
+    /**
+     * The interval in minutes at which Synthetic monitor should run.
+     */
+    periodInMinutes?: pulumi.Input<number>;
     /**
      * The runtime type that the monitor will run.
      */

@@ -128,6 +128,8 @@ type BrokenLinksMonitor struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period pulumi.StringOutput `pulumi:"period"`
+	// The interval in minutes at which Synthetic monitor should run.
+	PeriodInMinutes pulumi.IntOutput `pulumi:"periodInMinutes"`
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -186,6 +188,8 @@ type brokenLinksMonitorState struct {
 	Name *string `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period *string `pulumi:"period"`
+	// The interval in minutes at which Synthetic monitor should run.
+	PeriodInMinutes *int `pulumi:"periodInMinutes"`
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 	Status *string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -207,6 +211,8 @@ type BrokenLinksMonitorState struct {
 	Name pulumi.StringPtrInput
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period pulumi.StringPtrInput
+	// The interval in minutes at which Synthetic monitor should run.
+	PeriodInMinutes pulumi.IntPtrInput
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 	Status pulumi.StringPtrInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -373,6 +379,11 @@ func (o BrokenLinksMonitorOutput) Name() pulumi.StringOutput {
 // The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 func (o BrokenLinksMonitorOutput) Period() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.StringOutput { return v.Period }).(pulumi.StringOutput)
+}
+
+// The interval in minutes at which Synthetic monitor should run.
+func (o BrokenLinksMonitorOutput) PeriodInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.IntOutput { return v.PeriodInMinutes }).(pulumi.IntOutput)
 }
 
 // The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).

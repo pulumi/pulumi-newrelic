@@ -20,6 +20,8 @@ class ScriptMonitorArgs:
                  status: pulumi.Input[str],
                  type: pulumi.Input[str],
                  account_id: Optional[pulumi.Input[int]] = None,
+                 device_orientation: Optional[pulumi.Input[str]] = None,
+                 device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
                  location_privates: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -35,6 +37,8 @@ class ScriptMonitorArgs:
         :param pulumi.Input[str] status: The run state of the monitor: `ENABLED` or `DISABLED`
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] device_orientation: The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        :param pulumi.Input[str] device_type: The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution
         :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
@@ -50,6 +54,10 @@ class ScriptMonitorArgs:
         pulumi.set(__self__, "type", type)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if device_orientation is not None:
+            pulumi.set(__self__, "device_orientation", device_orientation)
+        if device_type is not None:
+            pulumi.set(__self__, "device_type", device_type)
         if enable_screenshot_on_failure_and_script is not None:
             pulumi.set(__self__, "enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
         if location_privates is not None:
@@ -116,6 +124,30 @@ class ScriptMonitorArgs:
     @account_id.setter
     def account_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="deviceOrientation")
+    def device_orientation(self) -> Optional[pulumi.Input[str]]:
+        """
+        The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        """
+        return pulumi.get(self, "device_orientation")
+
+    @device_orientation.setter
+    def device_orientation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_orientation", value)
+
+    @property
+    @pulumi.getter(name="deviceType")
+    def device_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+        """
+        return pulumi.get(self, "device_type")
+
+    @device_type.setter
+    def device_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_type", value)
 
     @property
     @pulumi.getter(name="enableScreenshotOnFailureAndScript")
@@ -230,12 +262,15 @@ class ScriptMonitorArgs:
 class _ScriptMonitorState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[int]] = None,
+                 device_orientation: Optional[pulumi.Input[str]] = None,
+                 device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
                  guid: Optional[pulumi.Input[str]] = None,
                  location_privates: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  period: Optional[pulumi.Input[str]] = None,
+                 period_in_minutes: Optional[pulumi.Input[int]] = None,
                  runtime_type: Optional[pulumi.Input[str]] = None,
                  runtime_type_version: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None,
@@ -246,12 +281,15 @@ class _ScriptMonitorState:
         """
         Input properties used for looking up and filtering ScriptMonitor resources.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] device_orientation: The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        :param pulumi.Input[str] device_type: The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution
         :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
         :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
         :param pulumi.Input[str] script: The script that the monitor runs.
@@ -262,6 +300,10 @@ class _ScriptMonitorState:
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if device_orientation is not None:
+            pulumi.set(__self__, "device_orientation", device_orientation)
+        if device_type is not None:
+            pulumi.set(__self__, "device_type", device_type)
         if enable_screenshot_on_failure_and_script is not None:
             pulumi.set(__self__, "enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
         if guid is not None:
@@ -274,6 +316,8 @@ class _ScriptMonitorState:
             pulumi.set(__self__, "name", name)
         if period is not None:
             pulumi.set(__self__, "period", period)
+        if period_in_minutes is not None:
+            pulumi.set(__self__, "period_in_minutes", period_in_minutes)
         if runtime_type is not None:
             pulumi.set(__self__, "runtime_type", runtime_type)
         if runtime_type_version is not None:
@@ -300,6 +344,30 @@ class _ScriptMonitorState:
     @account_id.setter
     def account_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="deviceOrientation")
+    def device_orientation(self) -> Optional[pulumi.Input[str]]:
+        """
+        The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        """
+        return pulumi.get(self, "device_orientation")
+
+    @device_orientation.setter
+    def device_orientation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_orientation", value)
+
+    @property
+    @pulumi.getter(name="deviceType")
+    def device_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+        """
+        return pulumi.get(self, "device_type")
+
+    @device_type.setter
+    def device_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_type", value)
 
     @property
     @pulumi.getter(name="enableScreenshotOnFailureAndScript")
@@ -372,6 +440,18 @@ class _ScriptMonitorState:
     @period.setter
     def period(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "period", value)
+
+    @property
+    @pulumi.getter(name="periodInMinutes")
+    def period_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The interval in minutes at which Synthetic monitor should run.
+        """
+        return pulumi.get(self, "period_in_minutes")
+
+    @period_in_minutes.setter
+    def period_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period_in_minutes", value)
 
     @property
     @pulumi.getter(name="runtimeType")
@@ -464,6 +544,8 @@ class ScriptMonitor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[int]] = None,
+                 device_orientation: Optional[pulumi.Input[str]] = None,
+                 device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
                  location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -603,6 +685,8 @@ class ScriptMonitor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] device_orientation: The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        :param pulumi.Input[str] device_type: The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
@@ -761,6 +845,8 @@ class ScriptMonitor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[int]] = None,
+                 device_orientation: Optional[pulumi.Input[str]] = None,
+                 device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
                  location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -783,6 +869,8 @@ class ScriptMonitor(pulumi.CustomResource):
             __props__ = ScriptMonitorArgs.__new__(ScriptMonitorArgs)
 
             __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["device_orientation"] = device_orientation
+            __props__.__dict__["device_type"] = device_type
             __props__.__dict__["enable_screenshot_on_failure_and_script"] = enable_screenshot_on_failure_and_script
             __props__.__dict__["location_privates"] = location_privates
             __props__.__dict__["locations_publics"] = locations_publics
@@ -802,6 +890,7 @@ class ScriptMonitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["guid"] = None
+            __props__.__dict__["period_in_minutes"] = None
         super(ScriptMonitor, __self__).__init__(
             'newrelic:synthetics/scriptMonitor:ScriptMonitor',
             resource_name,
@@ -813,12 +902,15 @@ class ScriptMonitor(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[int]] = None,
+            device_orientation: Optional[pulumi.Input[str]] = None,
+            device_type: Optional[pulumi.Input[str]] = None,
             enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
             guid: Optional[pulumi.Input[str]] = None,
             location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]]] = None,
             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             period: Optional[pulumi.Input[str]] = None,
+            period_in_minutes: Optional[pulumi.Input[int]] = None,
             runtime_type: Optional[pulumi.Input[str]] = None,
             runtime_type_version: Optional[pulumi.Input[str]] = None,
             script: Optional[pulumi.Input[str]] = None,
@@ -834,12 +926,15 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] device_orientation: The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        :param pulumi.Input[str] device_type: The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution
         :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
         :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
         :param pulumi.Input[str] script: The script that the monitor runs.
@@ -853,12 +948,15 @@ class ScriptMonitor(pulumi.CustomResource):
         __props__ = _ScriptMonitorState.__new__(_ScriptMonitorState)
 
         __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["device_orientation"] = device_orientation
+        __props__.__dict__["device_type"] = device_type
         __props__.__dict__["enable_screenshot_on_failure_and_script"] = enable_screenshot_on_failure_and_script
         __props__.__dict__["guid"] = guid
         __props__.__dict__["location_privates"] = location_privates
         __props__.__dict__["locations_publics"] = locations_publics
         __props__.__dict__["name"] = name
         __props__.__dict__["period"] = period
+        __props__.__dict__["period_in_minutes"] = period_in_minutes
         __props__.__dict__["runtime_type"] = runtime_type
         __props__.__dict__["runtime_type_version"] = runtime_type_version
         __props__.__dict__["script"] = script
@@ -875,6 +973,22 @@ class ScriptMonitor(pulumi.CustomResource):
         The account in which the Synthetics monitor will be created.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="deviceOrientation")
+    def device_orientation(self) -> pulumi.Output[Optional[str]]:
+        """
+        The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        """
+        return pulumi.get(self, "device_orientation")
+
+    @property
+    @pulumi.getter(name="deviceType")
+    def device_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+        """
+        return pulumi.get(self, "device_type")
 
     @property
     @pulumi.getter(name="enableScreenshotOnFailureAndScript")
@@ -923,6 +1037,14 @@ class ScriptMonitor(pulumi.CustomResource):
         The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         """
         return pulumi.get(self, "period")
+
+    @property
+    @pulumi.getter(name="periodInMinutes")
+    def period_in_minutes(self) -> pulumi.Output[int]:
+        """
+        The interval in minutes at which Synthetic monitor should run.
+        """
+        return pulumi.get(self, "period_in_minutes")
 
     @property
     @pulumi.getter(name="runtimeType")

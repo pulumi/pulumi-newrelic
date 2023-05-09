@@ -46,8 +46,8 @@ import java.util.concurrent.CompletableFuture;
 public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific account in New Relic.
-     * Accounts can be located by ID or name.  Exactly one of the two attributes is
-     * required.
+     * Accounts can be located by ID or name.  At most one of the two attributes can
+     * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
      * 
      * ## Example Usage
      * ```java
@@ -85,8 +85,8 @@ public final class NewrelicFunctions {
     }
     /**
      * Use this data source to get information about a specific account in New Relic.
-     * Accounts can be located by ID or name.  Exactly one of the two attributes is
-     * required.
+     * Accounts can be located by ID or name.  At most one of the two attributes can
+     * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
      * 
      * ## Example Usage
      * ```java
@@ -124,8 +124,8 @@ public final class NewrelicFunctions {
     }
     /**
      * Use this data source to get information about a specific account in New Relic.
-     * Accounts can be located by ID or name.  Exactly one of the two attributes is
-     * required.
+     * Accounts can be located by ID or name.  At most one of the two attributes can
+     * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
      * 
      * ## Example Usage
      * ```java
@@ -163,8 +163,8 @@ public final class NewrelicFunctions {
     }
     /**
      * Use this data source to get information about a specific account in New Relic.
-     * Accounts can be located by ID or name.  Exactly one of the two attributes is
-     * required.
+     * Accounts can be located by ID or name.  At most one of the two attributes can
+     * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
      * 
      * ## Example Usage
      * ```java
@@ -202,8 +202,8 @@ public final class NewrelicFunctions {
     }
     /**
      * Use this data source to get information about a specific account in New Relic.
-     * Accounts can be located by ID or name.  Exactly one of the two attributes is
-     * required.
+     * Accounts can be located by ID or name.  At most one of the two attributes can
+     * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
      * 
      * ## Example Usage
      * ```java
@@ -241,8 +241,8 @@ public final class NewrelicFunctions {
     }
     /**
      * Use this data source to get information about a specific account in New Relic.
-     * Accounts can be located by ID or name.  Exactly one of the two attributes is
-     * required.
+     * Accounts can be located by ID or name.  At most one of the two attributes can
+     * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
      * 
      * ## Example Usage
      * ```java
@@ -2148,7 +2148,7 @@ public final class NewrelicFunctions {
      *                 .query(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.nrql()))
      *                 .build())
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
-     *                 .operator(&#34;above&#34;)
+     *                 .operator(&#34;above_or_equals&#34;)
      *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
      *                 .thresholdDuration(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
      *                 .thresholdOccurrences(&#34;at_least_once&#34;)
@@ -2278,7 +2278,7 @@ public final class NewrelicFunctions {
      *                 .query(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.nrql()))
      *                 .build())
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
-     *                 .operator(&#34;above&#34;)
+     *                 .operator(&#34;above_or_equals&#34;)
      *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
      *                 .thresholdDuration(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
      *                 .thresholdOccurrences(&#34;at_least_once&#34;)
@@ -2408,7 +2408,7 @@ public final class NewrelicFunctions {
      *                 .query(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.nrql()))
      *                 .build())
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
-     *                 .operator(&#34;above&#34;)
+     *                 .operator(&#34;above_or_equals&#34;)
      *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
      *                 .thresholdDuration(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
      *                 .thresholdOccurrences(&#34;at_least_once&#34;)
@@ -2538,7 +2538,7 @@ public final class NewrelicFunctions {
      *                 .query(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.nrql()))
      *                 .build())
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
-     *                 .operator(&#34;above&#34;)
+     *                 .operator(&#34;above_or_equals&#34;)
      *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
      *                 .thresholdDuration(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
      *                 .thresholdOccurrences(&#34;at_least_once&#34;)

@@ -265,9 +265,6 @@ class OneDashboard(pulumi.CustomResource):
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardVariableArgs']]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-        ## Additional Examples
-
         ## Import
 
         New Relic dashboards can be imported using their GUID, e.g. bash
@@ -275,8 +272,6 @@ class OneDashboard(pulumi.CustomResource):
         ```sh
          $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <dashboard GUID>
         ```
-
-         In addition you can use the [New Relic CLI](https://github.com/newrelic/newrelic-cli#readme) to convert existing dashboards to HCL. [Copy your dashboards as JSON using the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/), save it as a file (for example `terraform.json`), and use the following command to convert it to HCL`cat terraform.json | newrelic utils terraform dashboard --label my_dashboard_resource`.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -294,9 +289,6 @@ class OneDashboard(pulumi.CustomResource):
                  args: OneDashboardArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-        ## Additional Examples
-
         ## Import
 
         New Relic dashboards can be imported using their GUID, e.g. bash
@@ -304,8 +296,6 @@ class OneDashboard(pulumi.CustomResource):
         ```sh
          $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <dashboard GUID>
         ```
-
-         In addition you can use the [New Relic CLI](https://github.com/newrelic/newrelic-cli#readme) to convert existing dashboards to HCL. [Copy your dashboards as JSON using the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/), save it as a file (for example `terraform.json`), and use the following command to convert it to HCL`cat terraform.json | newrelic utils terraform dashboard --label my_dashboard_resource`.
 
         :param str resource_name: The name of the resource.
         :param OneDashboardArgs args: The arguments to use to populate this resource's properties.

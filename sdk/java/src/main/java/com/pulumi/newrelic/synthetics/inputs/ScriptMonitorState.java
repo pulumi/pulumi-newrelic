@@ -36,6 +36,36 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     * 
+     */
+    @Import(name="deviceOrientation")
+    private @Nullable Output<String> deviceOrientation;
+
+    /**
+     * @return The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     * 
+     */
+    public Optional<Output<String>> deviceOrientation() {
+        return Optional.ofNullable(this.deviceOrientation);
+    }
+
+    /**
+     * The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     * 
+     */
+    @Import(name="deviceType")
+    private @Nullable Output<String> deviceType;
+
+    /**
+     * @return The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     * 
+     */
+    public Optional<Output<String>> deviceType() {
+        return Optional.ofNullable(this.deviceType);
+    }
+
+    /**
      * Capture a screenshot during job execution
      * 
      */
@@ -123,6 +153,21 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<String>> period() {
         return Optional.ofNullable(this.period);
+    }
+
+    /**
+     * The interval in minutes at which Synthetic monitor should run.
+     * 
+     */
+    @Import(name="periodInMinutes")
+    private @Nullable Output<Integer> periodInMinutes;
+
+    /**
+     * @return The interval in minutes at which Synthetic monitor should run.
+     * 
+     */
+    public Optional<Output<Integer>> periodInMinutes() {
+        return Optional.ofNullable(this.periodInMinutes);
     }
 
     /**
@@ -234,12 +279,15 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
 
     private ScriptMonitorState(ScriptMonitorState $) {
         this.accountId = $.accountId;
+        this.deviceOrientation = $.deviceOrientation;
+        this.deviceType = $.deviceType;
         this.enableScreenshotOnFailureAndScript = $.enableScreenshotOnFailureAndScript;
         this.guid = $.guid;
         this.locationPrivates = $.locationPrivates;
         this.locationsPublics = $.locationsPublics;
         this.name = $.name;
         this.period = $.period;
+        this.periodInMinutes = $.periodInMinutes;
         this.runtimeType = $.runtimeType;
         this.runtimeTypeVersion = $.runtimeTypeVersion;
         this.script = $.script;
@@ -286,6 +334,48 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder accountId(Integer accountId) {
             return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param deviceOrientation The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deviceOrientation(@Nullable Output<String> deviceOrientation) {
+            $.deviceOrientation = deviceOrientation;
+            return this;
+        }
+
+        /**
+         * @param deviceOrientation The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deviceOrientation(String deviceOrientation) {
+            return deviceOrientation(Output.of(deviceOrientation));
+        }
+
+        /**
+         * @param deviceType The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deviceType(@Nullable Output<String> deviceType) {
+            $.deviceType = deviceType;
+            return this;
+        }
+
+        /**
+         * @param deviceType The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deviceType(String deviceType) {
+            return deviceType(Output.of(deviceType));
         }
 
         /**
@@ -432,6 +522,27 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder period(String period) {
             return period(Output.of(period));
+        }
+
+        /**
+         * @param periodInMinutes The interval in minutes at which Synthetic monitor should run.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder periodInMinutes(@Nullable Output<Integer> periodInMinutes) {
+            $.periodInMinutes = periodInMinutes;
+            return this;
+        }
+
+        /**
+         * @param periodInMinutes The interval in minutes at which Synthetic monitor should run.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder periodInMinutes(Integer periodInMinutes) {
+            return periodInMinutes(Output.of(periodInMinutes));
         }
 
         /**

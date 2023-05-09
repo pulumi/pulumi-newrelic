@@ -23,7 +23,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Terms
     /// 
-    /// &gt; **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed.
+    /// &gt; **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed. At least one `critical` or `warning` term must be defined.
     /// 
     /// NRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.
     /// 
@@ -49,6 +49,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -102,13 +103,14 @@ namespace Pulumi.NewRelic
     /// ## Upgrade from 1.x to 2.x
     /// 
     /// There have been several deprecations in the `newrelic.NrqlAlertCondition`
-    /// resource.  Users will need to make some updates in order to have a smooth
+    /// resource. Users will need to make some updates in order to have a smooth
     /// upgrade.
     /// 
     /// An example resource from 1.x might look like the following.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -142,6 +144,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -234,7 +237,7 @@ namespace Pulumi.NewRelic
         public Output<bool?> CloseViolationsOnExpiration { get; private set; } = null!;
 
         /// <summary>
-        /// A list containing the `critical` threshold values. See Terms below for details.
+        /// A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         /// </summary>
         [Output("critical")]
         public Output<Outputs.NrqlAlertConditionCritical?> Critical { get; private set; } = null!;
@@ -318,7 +321,7 @@ namespace Pulumi.NewRelic
         public Output<int?> SlideBy { get; private set; } = null!;
 
         /// <summary>
-        /// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+        /// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         /// </summary>
         [Output("terms")]
         public Output<ImmutableArray<Outputs.NrqlAlertConditionTerm>> Terms { get; private set; } = null!;
@@ -344,7 +347,7 @@ namespace Pulumi.NewRelic
         public Output<int?> ViolationTimeLimitSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// A list containing the `warning` threshold values. See Terms below for details.
+        /// A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         /// </summary>
         [Output("warning")]
         public Output<Outputs.NrqlAlertConditionWarning?> Warning { get; private set; } = null!;
@@ -438,7 +441,7 @@ namespace Pulumi.NewRelic
         public Input<bool>? CloseViolationsOnExpiration { get; set; }
 
         /// <summary>
-        /// A list containing the `critical` threshold values. See Terms below for details.
+        /// A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         /// </summary>
         [Input("critical")]
         public Input<Inputs.NrqlAlertConditionCriticalArgs>? Critical { get; set; }
@@ -519,7 +522,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NrqlAlertConditionTermArgs>? _terms;
 
         /// <summary>
-        /// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+        /// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         /// </summary>
         [Obsolete(@"use `critical` and `warning` attributes instead")]
         public InputList<Inputs.NrqlAlertConditionTermArgs> Terms
@@ -549,7 +552,7 @@ namespace Pulumi.NewRelic
         public Input<int>? ViolationTimeLimitSeconds { get; set; }
 
         /// <summary>
-        /// A list containing the `warning` threshold values. See Terms below for details.
+        /// A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         /// </summary>
         [Input("warning")]
         public Input<Inputs.NrqlAlertConditionWarningArgs>? Warning { get; set; }
@@ -605,7 +608,7 @@ namespace Pulumi.NewRelic
         public Input<bool>? CloseViolationsOnExpiration { get; set; }
 
         /// <summary>
-        /// A list containing the `critical` threshold values. See Terms below for details.
+        /// A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         /// </summary>
         [Input("critical")]
         public Input<Inputs.NrqlAlertConditionCriticalGetArgs>? Critical { get; set; }
@@ -692,7 +695,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NrqlAlertConditionTermGetArgs>? _terms;
 
         /// <summary>
-        /// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+        /// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         /// </summary>
         [Obsolete(@"use `critical` and `warning` attributes instead")]
         public InputList<Inputs.NrqlAlertConditionTermGetArgs> Terms
@@ -722,7 +725,7 @@ namespace Pulumi.NewRelic
         public Input<int>? ViolationTimeLimitSeconds { get; set; }
 
         /// <summary>
-        /// A list containing the `warning` threshold values. See Terms below for details.
+        /// A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         /// </summary>
         [Input("warning")]
         public Input<Inputs.NrqlAlertConditionWarningGetArgs>? Warning { get; set; }

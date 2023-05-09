@@ -19,6 +19,7 @@ namespace Pulumi.NewRelic
     /// ##### Create Account
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 

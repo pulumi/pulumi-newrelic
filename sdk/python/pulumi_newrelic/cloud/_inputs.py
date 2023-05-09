@@ -55,6 +55,7 @@ __all__ = [
     'AzureIntegrationsLogicAppsArgs',
     'AzureIntegrationsMachineLearningArgs',
     'AzureIntegrationsMariaDbArgs',
+    'AzureIntegrationsMonitorArgs',
     'AzureIntegrationsMysqlArgs',
     'AzureIntegrationsMysqlFlexibleArgs',
     'AzureIntegrationsPostgresqlArgs',
@@ -2684,6 +2685,109 @@ class AzureIntegrationsMariaDbArgs:
     @resource_groups.setter
     def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
+
+
+@pulumi.input_type
+class AzureIntegrationsMonitorArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 exclude_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 metrics_polling_interval: Optional[pulumi.Input[int]] = None,
+                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] enabled: A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_tags: A list of resource tags associated with the resources that need to be excluded from monitoring.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_tags: A list of resource tags associated with the resources that need to be monitored, in a "key:value" format. If this is not specified, all resources will be monitored.
+        :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: A list of Azure resource types that need to be monitored.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if exclude_tags is not None:
+            pulumi.set(__self__, "exclude_tags", exclude_tags)
+        if include_tags is not None:
+            pulumi.set(__self__, "include_tags", include_tags)
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="excludeTags")
+    def exclude_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of resource tags associated with the resources that need to be excluded from monitoring.
+        """
+        return pulumi.get(self, "exclude_tags")
+
+    @exclude_tags.setter
+    def exclude_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude_tags", value)
+
+    @property
+    @pulumi.getter(name="includeTags")
+    def include_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of resource tags associated with the resources that need to be monitored, in a "key:value" format. If this is not specified, all resources will be monitored.
+        """
+        return pulumi.get(self, "include_tags")
+
+    @include_tags.setter
+    def include_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include_tags", value)
+
+    @property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+    @property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+        return pulumi.get(self, "resource_groups")
+
+    @resource_groups.setter
+    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_groups", value)
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Azure resource types that need to be monitored.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_types", value)
 
 
 @pulumi.input_type
