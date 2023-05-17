@@ -220,6 +220,16 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// A condition term with the priority set to warning.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Output("warning")]
         public Output<Outputs.MultiLocationAlertConditionWarning?> Warning { get; private set; } = null!;
@@ -320,6 +330,16 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// A condition term with the priority set to warning.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("warning")]
         public Input<Inputs.MultiLocationAlertConditionWarningArgs>? Warning { get; set; }
@@ -388,6 +408,16 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// A condition term with the priority set to warning.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("warning")]
         public Input<Inputs.MultiLocationAlertConditionWarningGetArgs>? Warning { get; set; }

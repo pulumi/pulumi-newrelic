@@ -24,6 +24,10 @@ class AlertConditionArgs:
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] name: The title of this condition.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         """
@@ -65,6 +69,10 @@ class AlertConditionArgs:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Set whether to enable the alert condition. Defaults to `true`.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "enabled")
 
@@ -109,6 +117,10 @@ class _AlertConditionState:
         """
         Input properties used for looking up and filtering AlertCondition resources.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
@@ -133,6 +145,10 @@ class _AlertConditionState:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Set whether to enable the alert condition. Defaults to `true`.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "enabled")
 
@@ -287,6 +303,10 @@ class AlertCondition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
@@ -433,6 +453,10 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
@@ -456,6 +480,10 @@ class AlertCondition(pulumi.CustomResource):
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Set whether to enable the alert condition. Defaults to `true`.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "enabled")
 

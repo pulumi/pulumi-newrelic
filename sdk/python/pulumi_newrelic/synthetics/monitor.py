@@ -40,6 +40,8 @@ class MonitorArgs:
         :param pulumi.Input[str] type: The monitor type. Valid values are `SIMPLE` and `BROWSER`.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
+               
+               The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
@@ -50,6 +52,8 @@ class MonitorArgs:
         :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+               
+               The `SIMPLE` monitor type supports the following additional arguments:
         :param pulumi.Input[bool] treat_redirect_as_failure: Categorize redirects during a monitor job as a failure.
         :param pulumi.Input[str] uri: The URI the monitor runs against.
         :param pulumi.Input[str] validation_string: Validation text for monitor to search for at given URI.
@@ -131,6 +135,8 @@ class MonitorArgs:
     def bypass_head_request(self) -> Optional[pulumi.Input[bool]]:
         """
         Monitor should skip default HEAD request and instead use GET verb in check.
+
+        The `BROWSER` monitor type supports the following additional arguments:
         """
         return pulumi.get(self, "bypass_head_request")
 
@@ -251,6 +257,8 @@ class MonitorArgs:
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]]]:
         """
         The tags that will be associated with the monitor. See Nested tag blocks below for details.
+
+        The `SIMPLE` monitor type supports the following additional arguments:
         """
         return pulumi.get(self, "tags")
 
@@ -333,6 +341,8 @@ class _MonitorState:
         Input properties used for looking up and filtering Monitor resources.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
+               
+               The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
@@ -345,6 +355,8 @@ class _MonitorState:
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[str] status: The run state of the monitor.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+               
+               The `SIMPLE` monitor type supports the following additional arguments:
         :param pulumi.Input[bool] treat_redirect_as_failure: Categorize redirects during a monitor job as a failure.
         :param pulumi.Input[str] type: The monitor type. Valid values are `SIMPLE` and `BROWSER`.
         :param pulumi.Input[str] uri: The URI the monitor runs against.
@@ -407,6 +419,8 @@ class _MonitorState:
     def bypass_head_request(self) -> Optional[pulumi.Input[bool]]:
         """
         Monitor should skip default HEAD request and instead use GET verb in check.
+
+        The `BROWSER` monitor type supports the following additional arguments:
         """
         return pulumi.get(self, "bypass_head_request")
 
@@ -551,6 +565,8 @@ class _MonitorState:
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]]]:
         """
         The tags that will be associated with the monitor. See Nested tag blocks below for details.
+
+        The `SIMPLE` monitor type supports the following additional arguments:
         """
         return pulumi.get(self, "tags")
 
@@ -775,6 +791,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
+               
+               The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
@@ -786,6 +804,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[str] status: The run state of the monitor.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+               
+               The `SIMPLE` monitor type supports the following additional arguments:
         :param pulumi.Input[bool] treat_redirect_as_failure: Categorize redirects during a monitor job as a failure.
         :param pulumi.Input[str] type: The monitor type. Valid values are `SIMPLE` and `BROWSER`.
         :param pulumi.Input[str] uri: The URI the monitor runs against.
@@ -1029,6 +1049,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
+               
+               The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
@@ -1041,6 +1063,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[str] status: The run state of the monitor.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+               
+               The `SIMPLE` monitor type supports the following additional arguments:
         :param pulumi.Input[bool] treat_redirect_as_failure: Categorize redirects during a monitor job as a failure.
         :param pulumi.Input[str] type: The monitor type. Valid values are `SIMPLE` and `BROWSER`.
         :param pulumi.Input[str] uri: The URI the monitor runs against.
@@ -1085,6 +1109,8 @@ class Monitor(pulumi.CustomResource):
     def bypass_head_request(self) -> pulumi.Output[Optional[bool]]:
         """
         Monitor should skip default HEAD request and instead use GET verb in check.
+
+        The `BROWSER` monitor type supports the following additional arguments:
         """
         return pulumi.get(self, "bypass_head_request")
 
@@ -1181,6 +1207,8 @@ class Monitor(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MonitorTag']]]:
         """
         The tags that will be associated with the monitor. See Nested tag blocks below for details.
+
+        The `SIMPLE` monitor type supports the following additional arguments:
         """
         return pulumi.get(self, "tags")
 

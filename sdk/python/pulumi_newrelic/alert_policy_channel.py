@@ -131,6 +131,10 @@ class AlertPolicyChannel(pulumi.CustomResource):
                  policy_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
+        Use this resource to map alert policies to alert channels in New Relic.
+
+        > **WARNING:** The `AlertPolicyChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `NotificationChannel`.
+
         ## Example Usage
 
         The example below will apply multiple alert channels to an existing New Relic alert policy.
@@ -187,6 +191,10 @@ class AlertPolicyChannel(pulumi.CustomResource):
                  args: AlertPolicyChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Use this resource to map alert policies to alert channels in New Relic.
+
+        > **WARNING:** The `AlertPolicyChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `NotificationChannel`.
+
         ## Example Usage
 
         The example below will apply multiple alert channels to an existing New Relic alert policy.

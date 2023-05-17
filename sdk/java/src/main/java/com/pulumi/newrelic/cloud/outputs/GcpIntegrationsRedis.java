@@ -14,12 +14,16 @@ public final class GcpIntegrationsRedis {
     /**
      * @return The data polling interval in seconds.
      * 
+     * Other integration supports an additional argument:
+     * 
      */
     private @Nullable Integer metricsPollingInterval;
 
     private GcpIntegrationsRedis() {}
     /**
      * @return The data polling interval in seconds.
+     * 
+     * Other integration supports an additional argument:
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

@@ -15,6 +15,8 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     {
         /// <summary>
         /// The data polling interval in seconds.
+        /// 
+        /// Other integration supports an additional argument:
         /// </summary>
         public readonly int? MetricsPollingInterval;
 

@@ -43,6 +43,12 @@ class AlertConditionArgs:
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[str] user_defined_metric: A custom metric to be evaluated.
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+               
+               > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
         """
         pulumi.set(__self__, "entities", entities)
@@ -204,6 +210,12 @@ class AlertConditionArgs:
     def user_defined_value_function(self) -> Optional[pulumi.Input[str]]:
         """
         One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+
+        > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "user_defined_value_function")
 
@@ -256,6 +268,12 @@ class _AlertConditionState:
         :param pulumi.Input[str] type: The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         :param pulumi.Input[str] user_defined_metric: A custom metric to be evaluated.
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+               
+               > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
         """
         if condition_scope is not None:
@@ -436,6 +454,12 @@ class _AlertConditionState:
     def user_defined_value_function(self) -> Optional[pulumi.Input[str]]:
         """
         One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+
+        > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "user_defined_value_function")
 
@@ -578,6 +602,12 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         :param pulumi.Input[str] user_defined_metric: A custom metric to be evaluated.
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+               
+               > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
         """
         ...
@@ -780,6 +810,12 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         :param pulumi.Input[str] user_defined_metric: A custom metric to be evaluated.
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+               
+               > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -903,6 +939,12 @@ class AlertCondition(pulumi.CustomResource):
     def user_defined_value_function(self) -> pulumi.Output[Optional[str]]:
         """
         One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+
+        > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "user_defined_value_function")
 

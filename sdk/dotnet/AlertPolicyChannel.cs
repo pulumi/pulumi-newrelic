@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
+    /// Use this resource to map alert policies to alert channels in New Relic.
+    /// 
+    /// &gt; **WARNING:** The `newrelic.AlertPolicyChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `newrelic.NotificationChannel`.
+    /// 
     /// ## Example Usage
     /// 
     /// The example below will apply multiple alert channels to an existing New Relic alert policy.

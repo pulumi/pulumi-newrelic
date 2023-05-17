@@ -19,6 +19,8 @@ namespace Pulumi.NewRelic.Cloud.Outputs
         public readonly ImmutableArray<string> AwsRegions;
         /// <summary>
         /// The data polling interval in seconds.
+        /// 
+        /// Some integration types support an additional set of arguments:
         /// </summary>
         public readonly int? MetricsPollingInterval;
 

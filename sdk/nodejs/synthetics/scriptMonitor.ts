@@ -225,6 +225,8 @@ export class ScriptMonitor extends pulumi.CustomResource {
     public readonly status!: pulumi.Output<string>;
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
+     *
+     * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
      */
     public readonly tags!: pulumi.Output<outputs.synthetics.ScriptMonitorTag[] | undefined>;
     /**
@@ -362,6 +364,8 @@ export interface ScriptMonitorState {
     status?: pulumi.Input<string>;
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
+     *
+     * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
      */
     tags?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorTag>[]>;
     /**
@@ -428,6 +432,8 @@ export interface ScriptMonitorArgs {
     status: pulumi.Input<string>;
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
+     *
+     * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
      */
     tags?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorTag>[]>;
     /**

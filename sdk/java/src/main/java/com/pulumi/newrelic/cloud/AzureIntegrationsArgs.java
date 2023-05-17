@@ -515,12 +515,16 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
     /**
      * for Azure Virtual networks. See Integration blocks below for details.
      * 
+     * Below argument supports the minimum metric polling interval of 3600 seconds
+     * 
      */
     @Import(name="virtualNetworks")
     private @Nullable Output<AzureIntegrationsVirtualNetworksArgs> virtualNetworks;
 
     /**
      * @return for Azure Virtual networks. See Integration blocks below for details.
+     * 
+     * Below argument supports the minimum metric polling interval of 3600 seconds
      * 
      */
     public Optional<Output<AzureIntegrationsVirtualNetworksArgs>> virtualNetworks() {
@@ -545,12 +549,16 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
     /**
      * Azure VPN Gateway. See Integration blocks below for details.
      * 
+     * Below arguments supports the minimum metric polling interval of 900 seconds
+     * 
      */
     @Import(name="vpnGateway")
     private @Nullable Output<AzureIntegrationsVpnGatewayArgs> vpnGateway;
 
     /**
      * @return Azure VPN Gateway. See Integration blocks below for details.
+     * 
+     * Below arguments supports the minimum metric polling interval of 900 seconds
      * 
      */
     public Optional<Output<AzureIntegrationsVpnGatewayArgs>> vpnGateway() {
@@ -1268,6 +1276,8 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param virtualNetworks for Azure Virtual networks. See Integration blocks below for details.
          * 
+         * Below argument supports the minimum metric polling interval of 3600 seconds
+         * 
          * @return builder
          * 
          */
@@ -1278,6 +1288,8 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param virtualNetworks for Azure Virtual networks. See Integration blocks below for details.
+         * 
+         * Below argument supports the minimum metric polling interval of 3600 seconds
          * 
          * @return builder
          * 
@@ -1310,6 +1322,8 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param vpnGateway Azure VPN Gateway. See Integration blocks below for details.
          * 
+         * Below arguments supports the minimum metric polling interval of 900 seconds
+         * 
          * @return builder
          * 
          */
@@ -1320,6 +1334,8 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param vpnGateway Azure VPN Gateway. See Integration blocks below for details.
+         * 
+         * Below arguments supports the minimum metric polling interval of 900 seconds
          * 
          * @return builder
          * 

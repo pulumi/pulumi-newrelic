@@ -21,6 +21,8 @@ public final class AzureIntegrationsDataFactory {
     /**
      * @return Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
      * 
+     * Other integration type support an additional argument:
+     * 
      */
     private @Nullable List<String> resourceGroups;
 
@@ -34,6 +36,8 @@ public final class AzureIntegrationsDataFactory {
     }
     /**
      * @return Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+     * 
+     * Other integration type support an additional argument:
      * 
      */
     public List<String> resourceGroups() {

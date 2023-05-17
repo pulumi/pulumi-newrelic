@@ -167,6 +167,10 @@ class AlertChannel(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Use this resource to create and manage New Relic alert channels.
+
+        > **WARNING:** The `AlertChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `NotificationChannel`.
+
         ## Example Usage
         ### Email
         ```python
@@ -301,6 +305,10 @@ class AlertChannel(pulumi.CustomResource):
                  args: AlertChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Use this resource to create and manage New Relic alert channels.
+
+        > **WARNING:** The `AlertChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `NotificationChannel`.
+
         ## Example Usage
         ### Email
         ```python

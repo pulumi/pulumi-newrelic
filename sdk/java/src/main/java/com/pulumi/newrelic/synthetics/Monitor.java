@@ -263,12 +263,16 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     /**
      * Monitor should skip default HEAD request and instead use GET verb in check.
      * 
+     * The `BROWSER` monitor type supports the following additional arguments:
+     * 
      */
     @Export(name="bypassHeadRequest", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> bypassHeadRequest;
 
     /**
      * @return Monitor should skip default HEAD request and instead use GET verb in check.
+     * 
+     * The `BROWSER` monitor type supports the following additional arguments:
      * 
      */
     public Output<Optional<Boolean>> bypassHeadRequest() {
@@ -431,12 +435,16 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      * 
+     * The `SIMPLE` monitor type supports the following additional arguments:
+     * 
      */
     @Export(name="tags", type=List.class, parameters={MonitorTag.class})
     private Output</* @Nullable */ List<MonitorTag>> tags;
 
     /**
      * @return The tags that will be associated with the monitor. See Nested tag blocks below for details.
+     * 
+     * The `SIMPLE` monitor type supports the following additional arguments:
      * 
      */
     public Output<Optional<List<MonitorTag>>> tags() {

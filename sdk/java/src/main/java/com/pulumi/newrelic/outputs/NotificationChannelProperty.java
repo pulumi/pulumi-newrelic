@@ -14,6 +14,8 @@ public final class NotificationChannelProperty {
     /**
      * @return The notification property display value.
      * 
+     * Each notification channel type supports a specific set of arguments for the `property` block:
+     * 
      */
     private @Nullable String displayValue;
     /**
@@ -35,6 +37,8 @@ public final class NotificationChannelProperty {
     private NotificationChannelProperty() {}
     /**
      * @return The notification property display value.
+     * 
+     * Each notification channel type supports a specific set of arguments for the `property` block:
      * 
      */
     public Optional<String> displayValue() {

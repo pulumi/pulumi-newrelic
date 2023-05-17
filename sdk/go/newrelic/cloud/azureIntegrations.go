@@ -11,6 +11,258 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this resource to integrate Azure services with New Relic.
+//
+// ## Prerequisite
+//
+// To start receiving Azure data with New Relic Azure integrations, connect your Azure account to New Relic infrastructure monitoring. If you don't have one already, create a New Relic account. It's free, forever.
+//
+// Setup is required for this resource to work properly. This resource assumes you have linked an Azure account to New Relic.
+//
+// You can find instructions on how to set up Azure on [our documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/activate-azure-integrations/).
+//
+// ## Example Usage
+//
+// Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/cloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooAzureLinkAccount, err := cloud.NewAzureLinkAccount(ctx, "fooAzureLinkAccount", &cloud.AzureLinkAccountArgs{
+//				AccountId:      pulumi.Int("The New Relic account ID where you want to link the Azure account"),
+//				ApplicationId:  pulumi.String("ID of the application"),
+//				ClientSecret:   pulumi.String("Secret value of client's Azure account"),
+//				SubscriptionId: pulumi.String("Subscription ID of Azure"),
+//				TenantId:       pulumi.String("Tenant ID of the Azure"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloud.NewAzureIntegrations(ctx, "fooAzureIntegrations", &cloud.AzureIntegrationsArgs{
+//				LinkedAccountId: fooAzureLinkAccount.ID(),
+//				AccountId:       pulumi.Int("The New Relic account ID"),
+//				ApiManagement: &cloud.AzureIntegrationsApiManagementArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				AppGateway: &cloud.AzureIntegrationsAppGatewayArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				AppService: &cloud.AzureIntegrationsAppServiceArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				Containers: &cloud.AzureIntegrationsContainersArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				CosmosDb: &cloud.AzureIntegrationsCosmosDbArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				CostManagement: &cloud.AzureIntegrationsCostManagementArgs{
+//					MetricsPollingInterval: pulumi.Int(3600),
+//					TagKeys: pulumi.StringArray{
+//						pulumi.String("tag_keys"),
+//					},
+//				},
+//				DataFactory: &cloud.AzureIntegrationsDataFactoryArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				EventHub: &cloud.AzureIntegrationsEventHubArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				ExpressRoute: &cloud.AzureIntegrationsExpressRouteArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				Firewalls: &cloud.AzureIntegrationsFirewallsArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				FrontDoor: &cloud.AzureIntegrationsFrontDoorArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				Functions: &cloud.AzureIntegrationsFunctionsArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				KeyVault: &cloud.AzureIntegrationsKeyVaultArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				LoadBalancer: &cloud.AzureIntegrationsLoadBalancerArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				LogicApps: &cloud.AzureIntegrationsLogicAppsArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				MachineLearning: &cloud.AzureIntegrationsMachineLearningArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				MariaDb: &cloud.AzureIntegrationsMariaDbArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				Monitor: &cloud.AzureIntegrationsMonitorArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//					IncludeTags: pulumi.StringArray{
+//						pulumi.String("env:production"),
+//					},
+//					ExcludeTags: pulumi.StringArray{
+//						pulumi.String("env:staging"),
+//						pulumi.String("env:testing"),
+//					},
+//					Enabled: pulumi.Bool(true),
+//					ResourceTypes: pulumi.StringArray{
+//						pulumi.String("microsoft.datashare/accounts"),
+//					},
+//				},
+//				Mysql: &cloud.AzureIntegrationsMysqlArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				MysqlFlexible: &cloud.AzureIntegrationsMysqlFlexibleArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				Postgresql: &cloud.AzureIntegrationsPostgresqlArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				PostgresqlFlexible: &cloud.AzureIntegrationsPostgresqlFlexibleArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				PowerBiDedicated: &cloud.AzureIntegrationsPowerBiDedicatedArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				RedisCache: &cloud.AzureIntegrationsRedisCacheArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				ServiceBus: &cloud.AzureIntegrationsServiceBusArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				Sql: &cloud.AzureIntegrationsSqlArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				SqlManaged: &cloud.AzureIntegrationsSqlManagedArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				Storage: &cloud.AzureIntegrationsStorageArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				VirtualMachine: &cloud.AzureIntegrationsVirtualMachineArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				VirtualNetworks: &cloud.AzureIntegrationsVirtualNetworksArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				Vms: &cloud.AzureIntegrationsVmsArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//				VpnGateway: &cloud.AzureIntegrationsVpnGatewayArgs{
+//					MetricsPollingInterval: pulumi.Int(1200),
+//					ResourceGroups: pulumi.StringArray{
+//						pulumi.String("resource_groups"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic. bash
@@ -86,10 +338,14 @@ type AzureIntegrations struct {
 	// Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine AzureIntegrationsVirtualMachinePtrOutput `pulumi:"virtualMachine"`
 	// for Azure Virtual networks. See Integration blocks below for details.
+	//
+	// Below argument supports the minimum metric polling interval of 3600 seconds
 	VirtualNetworks AzureIntegrationsVirtualNetworksPtrOutput `pulumi:"virtualNetworks"`
 	// Azure VMs. See Integration blocks below for details.
 	Vms AzureIntegrationsVmsPtrOutput `pulumi:"vms"`
 	// Azure VPN Gateway. See Integration blocks below for details.
+	//
+	// Below arguments supports the minimum metric polling interval of 900 seconds
 	VpnGateway AzureIntegrationsVpnGatewayPtrOutput `pulumi:"vpnGateway"`
 }
 
@@ -188,10 +444,14 @@ type azureIntegrationsState struct {
 	// Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine *AzureIntegrationsVirtualMachine `pulumi:"virtualMachine"`
 	// for Azure Virtual networks. See Integration blocks below for details.
+	//
+	// Below argument supports the minimum metric polling interval of 3600 seconds
 	VirtualNetworks *AzureIntegrationsVirtualNetworks `pulumi:"virtualNetworks"`
 	// Azure VMs. See Integration blocks below for details.
 	Vms *AzureIntegrationsVms `pulumi:"vms"`
 	// Azure VPN Gateway. See Integration blocks below for details.
+	//
+	// Below arguments supports the minimum metric polling interval of 900 seconds
 	VpnGateway *AzureIntegrationsVpnGateway `pulumi:"vpnGateway"`
 }
 
@@ -259,10 +519,14 @@ type AzureIntegrationsState struct {
 	// Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine AzureIntegrationsVirtualMachinePtrInput
 	// for Azure Virtual networks. See Integration blocks below for details.
+	//
+	// Below argument supports the minimum metric polling interval of 3600 seconds
 	VirtualNetworks AzureIntegrationsVirtualNetworksPtrInput
 	// Azure VMs. See Integration blocks below for details.
 	Vms AzureIntegrationsVmsPtrInput
 	// Azure VPN Gateway. See Integration blocks below for details.
+	//
+	// Below arguments supports the minimum metric polling interval of 900 seconds
 	VpnGateway AzureIntegrationsVpnGatewayPtrInput
 }
 
@@ -334,10 +598,14 @@ type azureIntegrationsArgs struct {
 	// Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine *AzureIntegrationsVirtualMachine `pulumi:"virtualMachine"`
 	// for Azure Virtual networks. See Integration blocks below for details.
+	//
+	// Below argument supports the minimum metric polling interval of 3600 seconds
 	VirtualNetworks *AzureIntegrationsVirtualNetworks `pulumi:"virtualNetworks"`
 	// Azure VMs. See Integration blocks below for details.
 	Vms *AzureIntegrationsVms `pulumi:"vms"`
 	// Azure VPN Gateway. See Integration blocks below for details.
+	//
+	// Below arguments supports the minimum metric polling interval of 900 seconds
 	VpnGateway *AzureIntegrationsVpnGateway `pulumi:"vpnGateway"`
 }
 
@@ -406,10 +674,14 @@ type AzureIntegrationsArgs struct {
 	// Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine AzureIntegrationsVirtualMachinePtrInput
 	// for Azure Virtual networks. See Integration blocks below for details.
+	//
+	// Below argument supports the minimum metric polling interval of 3600 seconds
 	VirtualNetworks AzureIntegrationsVirtualNetworksPtrInput
 	// Azure VMs. See Integration blocks below for details.
 	Vms AzureIntegrationsVmsPtrInput
 	// Azure VPN Gateway. See Integration blocks below for details.
+	//
+	// Below arguments supports the minimum metric polling interval of 900 seconds
 	VpnGateway AzureIntegrationsVpnGatewayPtrInput
 }
 
@@ -656,6 +928,8 @@ func (o AzureIntegrationsOutput) VirtualMachine() AzureIntegrationsVirtualMachin
 }
 
 // for Azure Virtual networks. See Integration blocks below for details.
+//
+// Below argument supports the minimum metric polling interval of 3600 seconds
 func (o AzureIntegrationsOutput) VirtualNetworks() AzureIntegrationsVirtualNetworksPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsVirtualNetworksPtrOutput { return v.VirtualNetworks }).(AzureIntegrationsVirtualNetworksPtrOutput)
 }
@@ -666,6 +940,8 @@ func (o AzureIntegrationsOutput) Vms() AzureIntegrationsVmsPtrOutput {
 }
 
 // Azure VPN Gateway. See Integration blocks below for details.
+//
+// Below arguments supports the minimum metric polling interval of 900 seconds
 func (o AzureIntegrationsOutput) VpnGateway() AzureIntegrationsVpnGatewayPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsVpnGatewayPtrOutput { return v.VpnGateway }).(AzureIntegrationsVpnGatewayPtrOutput)
 }

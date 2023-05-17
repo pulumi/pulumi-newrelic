@@ -7,6 +7,126 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Use this resource to integrate AWS services with New Relic.
+ *
+ * ## Prerequisite
+ *
+ * Setup is required for this resource to work properly. This resource assumes you have linked an AWS account to New Relic and configured it to push metrics using CloudWatch Metric Streams.
+ *
+ * New Relic doesn't automatically receive metrics from AWS for some services so this resource can be used to configure integrations to those services.
+ *
+ * Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.
+ *
+ * ## Example Usage
+ *
+ * Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.cloud.AwsLinkAccount("foo", {
+ *     arn: aws_iam_role.newrelic_aws_role.arn,
+ *     metricCollectionMode: "PULL",
+ * });
+ * const bar = new newrelic.cloud.AwsIntegrations("bar", {
+ *     linkedAccountId: foo.id,
+ *     billing: {},
+ *     cloudtrail: {
+ *         metricsPollingInterval: 6000,
+ *         awsRegions: [
+ *             "region-1",
+ *             "region-2",
+ *         ],
+ *     },
+ *     health: {
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     trustedAdvisor: {
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     vpc: {
+ *         metricsPollingInterval: 6000,
+ *         awsRegions: [
+ *             "region-1",
+ *             "region-2",
+ *         ],
+ *         fetchNatGateway: true,
+ *         fetchVpn: false,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     xRay: {
+ *         metricsPollingInterval: 6000,
+ *         awsRegions: [
+ *             "region-1",
+ *             "region-2",
+ *         ],
+ *     },
+ *     s3: {
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     docDb: {
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     sqs: {
+ *         metricsPollingInterval: 6000,
+ *         awsRegions: ["us-east-1"],
+ *         tagKey: "test",
+ *         tagValue: "test",
+ *     },
+ *     ebs: {
+ *         metricsPollingInterval: 6000,
+ *         awsRegions: ["us-east-1"],
+ *         tagKey: "test",
+ *         tagValue: "test",
+ *     },
+ *     alb: {
+ *         metricsPollingInterval: 6000,
+ *         awsRegions: ["us-east-1"],
+ *     },
+ *     elasticache: {
+ *         metricsPollingInterval: 6000,
+ *         awsRegions: ["us-east-1"],
+ *     },
+ *     apiGateway: {
+ *         metricsPollingInterval: 6000,
+ *         awsRegions: ["us-east-1"],
+ *         stagePrefixes: [""],
+ *         tagKey: "test",
+ *         tagValue: "test",
+ *     },
+ *     autoScaling: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsAppSync: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsAthena: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsCognito: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsConnect: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsDirectConnect: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsFsx: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Linked AWS account integrations can be imported using the `id`, e.g. bash
@@ -48,6 +168,42 @@ export class AwsIntegrations extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
+     * ALB integration. See Integration blocks below for details.
+     */
+    public readonly alb!: pulumi.Output<outputs.cloud.AwsIntegrationsAlb | undefined>;
+    /**
+     * ApiGateway integration. See Integration blocks below for details.
+     */
+    public readonly apiGateway!: pulumi.Output<outputs.cloud.AwsIntegrationsApiGateway | undefined>;
+    /**
+     * AutoScaling integration. See Integration blocks below for details.
+     */
+    public readonly autoScaling!: pulumi.Output<outputs.cloud.AwsIntegrationsAutoScaling | undefined>;
+    /**
+     * AppSync integration. See Integration blocks below for details.
+     */
+    public readonly awsAppSync!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsAppSync | undefined>;
+    /**
+     * Athena integration. See Integration blocks below for details.
+     */
+    public readonly awsAthena!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsAthena | undefined>;
+    /**
+     * Cognito integration. See Integration blocks below for details.
+     */
+    public readonly awsCognito!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsCognito | undefined>;
+    /**
+     * Connect integration. See Integration blocks below for details.
+     */
+    public readonly awsConnect!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsConnect | undefined>;
+    /**
+     * DirectConnect integration. See Integration blocks below for details.
+     */
+    public readonly awsDirectConnect!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsDirectConnect | undefined>;
+    /**
+     * Fsx integration. See Integration blocks below for details.
+     */
+    public readonly awsFsx!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsFsx | undefined>;
+    /**
      * Billing integration. See Integration blocks below for details.
      */
     public readonly billing!: pulumi.Output<outputs.cloud.AwsIntegrationsBilling | undefined>;
@@ -56,9 +212,17 @@ export class AwsIntegrations extends pulumi.CustomResource {
      */
     public readonly cloudtrail!: pulumi.Output<outputs.cloud.AwsIntegrationsCloudtrail | undefined>;
     /**
-     * Billing integration
+     * Doc_DB integration. See Integration blocks below for details.
      */
     public readonly docDb!: pulumi.Output<outputs.cloud.AwsIntegrationsDocDb | undefined>;
+    /**
+     * EBS integration. See Integration blocks below for details.
+     */
+    public readonly ebs!: pulumi.Output<outputs.cloud.AwsIntegrationsEbs | undefined>;
+    /**
+     * Elasticache integration. See Integration blocks below for details.
+     */
+    public readonly elasticache!: pulumi.Output<outputs.cloud.AwsIntegrationsElasticache | undefined>;
     /**
      * Health integration. See Integration blocks below for details.
      */
@@ -68,9 +232,13 @@ export class AwsIntegrations extends pulumi.CustomResource {
      */
     public readonly linkedAccountId!: pulumi.Output<number>;
     /**
-     * S3 integration
+     * S3 integration. See Integration blocks below for details.
      */
     public readonly s3!: pulumi.Output<outputs.cloud.AwsIntegrationsS3 | undefined>;
+    /**
+     * SQS integration. See Integration blocks below for details.
+     */
+    public readonly sqs!: pulumi.Output<outputs.cloud.AwsIntegrationsSqs | undefined>;
     /**
      * Trusted Advisor integration. See Integration blocks below for details.
      */
@@ -98,12 +266,24 @@ export class AwsIntegrations extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AwsIntegrationsState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["alb"] = state ? state.alb : undefined;
+            resourceInputs["apiGateway"] = state ? state.apiGateway : undefined;
+            resourceInputs["autoScaling"] = state ? state.autoScaling : undefined;
+            resourceInputs["awsAppSync"] = state ? state.awsAppSync : undefined;
+            resourceInputs["awsAthena"] = state ? state.awsAthena : undefined;
+            resourceInputs["awsCognito"] = state ? state.awsCognito : undefined;
+            resourceInputs["awsConnect"] = state ? state.awsConnect : undefined;
+            resourceInputs["awsDirectConnect"] = state ? state.awsDirectConnect : undefined;
+            resourceInputs["awsFsx"] = state ? state.awsFsx : undefined;
             resourceInputs["billing"] = state ? state.billing : undefined;
             resourceInputs["cloudtrail"] = state ? state.cloudtrail : undefined;
             resourceInputs["docDb"] = state ? state.docDb : undefined;
+            resourceInputs["ebs"] = state ? state.ebs : undefined;
+            resourceInputs["elasticache"] = state ? state.elasticache : undefined;
             resourceInputs["health"] = state ? state.health : undefined;
             resourceInputs["linkedAccountId"] = state ? state.linkedAccountId : undefined;
             resourceInputs["s3"] = state ? state.s3 : undefined;
+            resourceInputs["sqs"] = state ? state.sqs : undefined;
             resourceInputs["trustedAdvisor"] = state ? state.trustedAdvisor : undefined;
             resourceInputs["vpc"] = state ? state.vpc : undefined;
             resourceInputs["xRay"] = state ? state.xRay : undefined;
@@ -113,12 +293,24 @@ export class AwsIntegrations extends pulumi.CustomResource {
                 throw new Error("Missing required property 'linkedAccountId'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["alb"] = args ? args.alb : undefined;
+            resourceInputs["apiGateway"] = args ? args.apiGateway : undefined;
+            resourceInputs["autoScaling"] = args ? args.autoScaling : undefined;
+            resourceInputs["awsAppSync"] = args ? args.awsAppSync : undefined;
+            resourceInputs["awsAthena"] = args ? args.awsAthena : undefined;
+            resourceInputs["awsCognito"] = args ? args.awsCognito : undefined;
+            resourceInputs["awsConnect"] = args ? args.awsConnect : undefined;
+            resourceInputs["awsDirectConnect"] = args ? args.awsDirectConnect : undefined;
+            resourceInputs["awsFsx"] = args ? args.awsFsx : undefined;
             resourceInputs["billing"] = args ? args.billing : undefined;
             resourceInputs["cloudtrail"] = args ? args.cloudtrail : undefined;
             resourceInputs["docDb"] = args ? args.docDb : undefined;
+            resourceInputs["ebs"] = args ? args.ebs : undefined;
+            resourceInputs["elasticache"] = args ? args.elasticache : undefined;
             resourceInputs["health"] = args ? args.health : undefined;
             resourceInputs["linkedAccountId"] = args ? args.linkedAccountId : undefined;
             resourceInputs["s3"] = args ? args.s3 : undefined;
+            resourceInputs["sqs"] = args ? args.sqs : undefined;
             resourceInputs["trustedAdvisor"] = args ? args.trustedAdvisor : undefined;
             resourceInputs["vpc"] = args ? args.vpc : undefined;
             resourceInputs["xRay"] = args ? args.xRay : undefined;
@@ -137,6 +329,42 @@ export interface AwsIntegrationsState {
      */
     accountId?: pulumi.Input<number>;
     /**
+     * ALB integration. See Integration blocks below for details.
+     */
+    alb?: pulumi.Input<inputs.cloud.AwsIntegrationsAlb>;
+    /**
+     * ApiGateway integration. See Integration blocks below for details.
+     */
+    apiGateway?: pulumi.Input<inputs.cloud.AwsIntegrationsApiGateway>;
+    /**
+     * AutoScaling integration. See Integration blocks below for details.
+     */
+    autoScaling?: pulumi.Input<inputs.cloud.AwsIntegrationsAutoScaling>;
+    /**
+     * AppSync integration. See Integration blocks below for details.
+     */
+    awsAppSync?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAppSync>;
+    /**
+     * Athena integration. See Integration blocks below for details.
+     */
+    awsAthena?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAthena>;
+    /**
+     * Cognito integration. See Integration blocks below for details.
+     */
+    awsCognito?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsCognito>;
+    /**
+     * Connect integration. See Integration blocks below for details.
+     */
+    awsConnect?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsConnect>;
+    /**
+     * DirectConnect integration. See Integration blocks below for details.
+     */
+    awsDirectConnect?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsDirectConnect>;
+    /**
+     * Fsx integration. See Integration blocks below for details.
+     */
+    awsFsx?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsFsx>;
+    /**
      * Billing integration. See Integration blocks below for details.
      */
     billing?: pulumi.Input<inputs.cloud.AwsIntegrationsBilling>;
@@ -145,9 +373,17 @@ export interface AwsIntegrationsState {
      */
     cloudtrail?: pulumi.Input<inputs.cloud.AwsIntegrationsCloudtrail>;
     /**
-     * Billing integration
+     * Doc_DB integration. See Integration blocks below for details.
      */
     docDb?: pulumi.Input<inputs.cloud.AwsIntegrationsDocDb>;
+    /**
+     * EBS integration. See Integration blocks below for details.
+     */
+    ebs?: pulumi.Input<inputs.cloud.AwsIntegrationsEbs>;
+    /**
+     * Elasticache integration. See Integration blocks below for details.
+     */
+    elasticache?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticache>;
     /**
      * Health integration. See Integration blocks below for details.
      */
@@ -157,9 +393,13 @@ export interface AwsIntegrationsState {
      */
     linkedAccountId?: pulumi.Input<number>;
     /**
-     * S3 integration
+     * S3 integration. See Integration blocks below for details.
      */
     s3?: pulumi.Input<inputs.cloud.AwsIntegrationsS3>;
+    /**
+     * SQS integration. See Integration blocks below for details.
+     */
+    sqs?: pulumi.Input<inputs.cloud.AwsIntegrationsSqs>;
     /**
      * Trusted Advisor integration. See Integration blocks below for details.
      */
@@ -183,6 +423,42 @@ export interface AwsIntegrationsArgs {
      */
     accountId?: pulumi.Input<number>;
     /**
+     * ALB integration. See Integration blocks below for details.
+     */
+    alb?: pulumi.Input<inputs.cloud.AwsIntegrationsAlb>;
+    /**
+     * ApiGateway integration. See Integration blocks below for details.
+     */
+    apiGateway?: pulumi.Input<inputs.cloud.AwsIntegrationsApiGateway>;
+    /**
+     * AutoScaling integration. See Integration blocks below for details.
+     */
+    autoScaling?: pulumi.Input<inputs.cloud.AwsIntegrationsAutoScaling>;
+    /**
+     * AppSync integration. See Integration blocks below for details.
+     */
+    awsAppSync?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAppSync>;
+    /**
+     * Athena integration. See Integration blocks below for details.
+     */
+    awsAthena?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAthena>;
+    /**
+     * Cognito integration. See Integration blocks below for details.
+     */
+    awsCognito?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsCognito>;
+    /**
+     * Connect integration. See Integration blocks below for details.
+     */
+    awsConnect?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsConnect>;
+    /**
+     * DirectConnect integration. See Integration blocks below for details.
+     */
+    awsDirectConnect?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsDirectConnect>;
+    /**
+     * Fsx integration. See Integration blocks below for details.
+     */
+    awsFsx?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsFsx>;
+    /**
      * Billing integration. See Integration blocks below for details.
      */
     billing?: pulumi.Input<inputs.cloud.AwsIntegrationsBilling>;
@@ -191,9 +467,17 @@ export interface AwsIntegrationsArgs {
      */
     cloudtrail?: pulumi.Input<inputs.cloud.AwsIntegrationsCloudtrail>;
     /**
-     * Billing integration
+     * Doc_DB integration. See Integration blocks below for details.
      */
     docDb?: pulumi.Input<inputs.cloud.AwsIntegrationsDocDb>;
+    /**
+     * EBS integration. See Integration blocks below for details.
+     */
+    ebs?: pulumi.Input<inputs.cloud.AwsIntegrationsEbs>;
+    /**
+     * Elasticache integration. See Integration blocks below for details.
+     */
+    elasticache?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticache>;
     /**
      * Health integration. See Integration blocks below for details.
      */
@@ -203,9 +487,13 @@ export interface AwsIntegrationsArgs {
      */
     linkedAccountId: pulumi.Input<number>;
     /**
-     * S3 integration
+     * S3 integration. See Integration blocks below for details.
      */
     s3?: pulumi.Input<inputs.cloud.AwsIntegrationsS3>;
+    /**
+     * SQS integration. See Integration blocks below for details.
+     */
+    sqs?: pulumi.Input<inputs.cloud.AwsIntegrationsSqs>;
     /**
      * Trusted Advisor integration. See Integration blocks below for details.
      */

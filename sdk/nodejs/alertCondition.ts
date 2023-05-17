@@ -180,6 +180,12 @@ export class AlertCondition extends pulumi.CustomResource {
     public readonly userDefinedMetric!: pulumi.Output<string | undefined>;
     /**
      * One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
+     *
+     * > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     public readonly userDefinedValueFunction!: pulumi.Output<string | undefined>;
     /**
@@ -305,6 +311,12 @@ export interface AlertConditionState {
     userDefinedMetric?: pulumi.Input<string>;
     /**
      * One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
+     *
+     * > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     userDefinedValueFunction?: pulumi.Input<string>;
     /**
@@ -363,6 +375,12 @@ export interface AlertConditionArgs {
     userDefinedMetric?: pulumi.Input<string>;
     /**
      * One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
+     *
+     * > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     userDefinedValueFunction?: pulumi.Input<string>;
     /**

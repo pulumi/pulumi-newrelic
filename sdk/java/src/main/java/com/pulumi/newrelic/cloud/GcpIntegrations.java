@@ -41,6 +41,156 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Use this resource to integrate GCP services with New Relic.
+ * 
+ * ## Prerequisite
+ * 
+ * Setup is required for this resource to work properly. This resource assumes you have linked a GCP account to New Relic and configured it to pull metrics from GCP.
+ * 
+ * New Relic doesn&#39;t automatically receive metrics from GCP services, so this resource can be used to configure integrations to those services.
+ * 
+ * ## Example Usage
+ * 
+ * Leave an integration block empty to use its default configuration. You can also use the full example, including the GCP set up, found in our guides.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.cloud.GcpLinkAccount;
+ * import com.pulumi.newrelic.cloud.GcpLinkAccountArgs;
+ * import com.pulumi.newrelic.cloud.GcpIntegrations;
+ * import com.pulumi.newrelic.cloud.GcpIntegrationsArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsAppEngineArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsBigQueryArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsBigTableArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsComposerArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsDataFlowArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsDataProcArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsDataStoreArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsFireBaseDatabaseArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsFireBaseHostingArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsFireBaseStorageArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsFireStoreArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsFunctionsArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsInterconnectArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsKubernetesArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsLoadBalancingArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsMemCacheArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsPubSubArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsRedisArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsRouterArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsRunArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsSpannerArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsSqlArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsStorageArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsVirtualMachinesArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsVpcAccessArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new GcpLinkAccount(&#34;foo&#34;, GcpLinkAccountArgs.builder()        
+ *             .projectId(&#34;&lt;Your GCP project ID&gt;&#34;)
+ *             .build());
+ * 
+ *         var foo1 = new GcpIntegrations(&#34;foo1&#34;, GcpIntegrationsArgs.builder()        
+ *             .linkedAccountId(foo.id())
+ *             .appEngine(GcpIntegrationsAppEngineArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .bigQuery(GcpIntegrationsBigQueryArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .fetchTags(true)
+ *                 .build())
+ *             .bigTable(GcpIntegrationsBigTableArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .composer(GcpIntegrationsComposerArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .dataFlow(GcpIntegrationsDataFlowArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .dataProc(GcpIntegrationsDataProcArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .dataStore(GcpIntegrationsDataStoreArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .fireBaseDatabase(GcpIntegrationsFireBaseDatabaseArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .fireBaseHosting(GcpIntegrationsFireBaseHostingArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .fireBaseStorage(GcpIntegrationsFireBaseStorageArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .fireStore(GcpIntegrationsFireStoreArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .functions(GcpIntegrationsFunctionsArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .interconnect(GcpIntegrationsInterconnectArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .kubernetes(GcpIntegrationsKubernetesArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .loadBalancing(GcpIntegrationsLoadBalancingArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .memCache(GcpIntegrationsMemCacheArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .pubSub(GcpIntegrationsPubSubArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .fetchTags(true)
+ *                 .build())
+ *             .redis(GcpIntegrationsRedisArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .router(GcpIntegrationsRouterArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .run(GcpIntegrationsRunArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .spanner(GcpIntegrationsSpannerArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .fetchTags(true)
+ *                 .build())
+ *             .sql(GcpIntegrationsSqlArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .storage(GcpIntegrationsStorageArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .fetchTags(true)
+ *                 .build())
+ *             .virtualMachines(GcpIntegrationsVirtualMachinesArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .vpcAccess(GcpIntegrationsVpcAccessArgs.builder()
+ *                 .metricsPollingInterval(400)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Linked GCP account integrations can be imported using the `id`, e.g. bash

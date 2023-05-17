@@ -850,6 +850,8 @@ class NotificationChannelProperty(dict):
         :param str key: The notification property key.
         :param str value: The notification property value.
         :param str display_value: The notification property display value.
+               
+               Each notification channel type supports a specific set of arguments for the `property` block:
         :param str label: The notification property label.
         """
         pulumi.set(__self__, "key", key)
@@ -880,6 +882,8 @@ class NotificationChannelProperty(dict):
     def display_value(self) -> Optional[str]:
         """
         The notification property display value.
+
+        Each notification channel type supports a specific set of arguments for the `property` block:
         """
         return pulumi.get(self, "display_value")
 
@@ -927,7 +931,6 @@ class NotificationDestinationAuthToken(dict):
                  token: str,
                  prefix: Optional[str] = None):
         """
-        :param str token: Specifies the token for integrating.
         :param str prefix: The prefix of the token auth.
         """
         pulumi.set(__self__, "token", token)
@@ -937,9 +940,6 @@ class NotificationDestinationAuthToken(dict):
     @property
     @pulumi.getter
     def token(self) -> str:
-        """
-        Specifies the token for integrating.
-        """
         return pulumi.get(self, "token")
 
     @property
@@ -979,6 +979,8 @@ class NotificationDestinationProperty(dict):
         :param str key: The notification property key.
         :param str value: The notification property value.
         :param str display_value: The notification property display value.
+               
+               Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
         :param str label: The notification property label.
         """
         pulumi.set(__self__, "key", key)
@@ -1009,6 +1011,8 @@ class NotificationDestinationProperty(dict):
     def display_value(self) -> Optional[str]:
         """
         The notification property display value.
+
+        Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
         """
         return pulumi.get(self, "display_value")
 

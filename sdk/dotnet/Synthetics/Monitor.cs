@@ -242,6 +242,8 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// Monitor should skip default HEAD request and instead use GET verb in check.
+        /// 
+        /// The `BROWSER` monitor type supports the following additional arguments:
         /// </summary>
         [Output("bypassHeadRequest")]
         public Output<bool?> BypassHeadRequest { get; private set; } = null!;
@@ -314,6 +316,8 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        /// 
+        /// The `SIMPLE` monitor type supports the following additional arguments:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.MonitorTag>> Tags { get; private set; } = null!;
@@ -402,6 +406,8 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// Monitor should skip default HEAD request and instead use GET verb in check.
+        /// 
+        /// The `BROWSER` monitor type supports the following additional arguments:
         /// </summary>
         [Input("bypassHeadRequest")]
         public Input<bool>? BypassHeadRequest { get; set; }
@@ -489,6 +495,8 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        /// 
+        /// The `SIMPLE` monitor type supports the following additional arguments:
         /// </summary>
         public InputList<Inputs.MonitorTagArgs> Tags
         {
@@ -542,6 +550,8 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// Monitor should skip default HEAD request and instead use GET verb in check.
+        /// 
+        /// The `BROWSER` monitor type supports the following additional arguments:
         /// </summary>
         [Input("bypassHeadRequest")]
         public Input<bool>? BypassHeadRequest { get; set; }
@@ -635,6 +645,8 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        /// 
+        /// The `SIMPLE` monitor type supports the following additional arguments:
         /// </summary>
         public InputList<Inputs.MonitorTagGetArgs> Tags
         {

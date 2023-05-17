@@ -959,6 +959,106 @@ class GcpIntegrations(pulumi.CustomResource):
                  vpc_access: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsVpcAccessArgs']]] = None,
                  __props__=None):
         """
+        Use this resource to integrate GCP services with New Relic.
+
+        ## Prerequisite
+
+        Setup is required for this resource to work properly. This resource assumes you have linked a GCP account to New Relic and configured it to pull metrics from GCP.
+
+        New Relic doesn't automatically receive metrics from GCP services, so this resource can be used to configure integrations to those services.
+
+        ## Example Usage
+
+        Leave an integration block empty to use its default configuration. You can also use the full example, including the GCP set up, found in our guides.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.cloud.GcpLinkAccount("foo", project_id="<Your GCP project ID>")
+        foo1 = newrelic.cloud.GcpIntegrations("foo1",
+            linked_account_id=foo.id,
+            app_engine=newrelic.cloud.GcpIntegrationsAppEngineArgs(
+                metrics_polling_interval=400,
+            ),
+            big_query=newrelic.cloud.GcpIntegrationsBigQueryArgs(
+                metrics_polling_interval=400,
+                fetch_tags=True,
+            ),
+            big_table=newrelic.cloud.GcpIntegrationsBigTableArgs(
+                metrics_polling_interval=400,
+            ),
+            composer=newrelic.cloud.GcpIntegrationsComposerArgs(
+                metrics_polling_interval=400,
+            ),
+            data_flow=newrelic.cloud.GcpIntegrationsDataFlowArgs(
+                metrics_polling_interval=400,
+            ),
+            data_proc=newrelic.cloud.GcpIntegrationsDataProcArgs(
+                metrics_polling_interval=400,
+            ),
+            data_store=newrelic.cloud.GcpIntegrationsDataStoreArgs(
+                metrics_polling_interval=400,
+            ),
+            fire_base_database=newrelic.cloud.GcpIntegrationsFireBaseDatabaseArgs(
+                metrics_polling_interval=400,
+            ),
+            fire_base_hosting=newrelic.cloud.GcpIntegrationsFireBaseHostingArgs(
+                metrics_polling_interval=400,
+            ),
+            fire_base_storage=newrelic.cloud.GcpIntegrationsFireBaseStorageArgs(
+                metrics_polling_interval=400,
+            ),
+            fire_store=newrelic.cloud.GcpIntegrationsFireStoreArgs(
+                metrics_polling_interval=400,
+            ),
+            functions=newrelic.cloud.GcpIntegrationsFunctionsArgs(
+                metrics_polling_interval=400,
+            ),
+            interconnect=newrelic.cloud.GcpIntegrationsInterconnectArgs(
+                metrics_polling_interval=400,
+            ),
+            kubernetes=newrelic.cloud.GcpIntegrationsKubernetesArgs(
+                metrics_polling_interval=400,
+            ),
+            load_balancing=newrelic.cloud.GcpIntegrationsLoadBalancingArgs(
+                metrics_polling_interval=400,
+            ),
+            mem_cache=newrelic.cloud.GcpIntegrationsMemCacheArgs(
+                metrics_polling_interval=400,
+            ),
+            pub_sub=newrelic.cloud.GcpIntegrationsPubSubArgs(
+                metrics_polling_interval=400,
+                fetch_tags=True,
+            ),
+            redis=newrelic.cloud.GcpIntegrationsRedisArgs(
+                metrics_polling_interval=400,
+            ),
+            router=newrelic.cloud.GcpIntegrationsRouterArgs(
+                metrics_polling_interval=400,
+            ),
+            run=newrelic.cloud.GcpIntegrationsRunArgs(
+                metrics_polling_interval=400,
+            ),
+            spanner=newrelic.cloud.GcpIntegrationsSpannerArgs(
+                metrics_polling_interval=400,
+                fetch_tags=True,
+            ),
+            sql=newrelic.cloud.GcpIntegrationsSqlArgs(
+                metrics_polling_interval=400,
+            ),
+            storage=newrelic.cloud.GcpIntegrationsStorageArgs(
+                metrics_polling_interval=400,
+                fetch_tags=True,
+            ),
+            virtual_machines=newrelic.cloud.GcpIntegrationsVirtualMachinesArgs(
+                metrics_polling_interval=400,
+            ),
+            vpc_access=newrelic.cloud.GcpIntegrationsVpcAccessArgs(
+                metrics_polling_interval=400,
+            ))
+        ```
+
         ## Import
 
         Linked GCP account integrations can be imported using the `id`, e.g. bash
@@ -1005,6 +1105,106 @@ class GcpIntegrations(pulumi.CustomResource):
                  args: GcpIntegrationsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Use this resource to integrate GCP services with New Relic.
+
+        ## Prerequisite
+
+        Setup is required for this resource to work properly. This resource assumes you have linked a GCP account to New Relic and configured it to pull metrics from GCP.
+
+        New Relic doesn't automatically receive metrics from GCP services, so this resource can be used to configure integrations to those services.
+
+        ## Example Usage
+
+        Leave an integration block empty to use its default configuration. You can also use the full example, including the GCP set up, found in our guides.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.cloud.GcpLinkAccount("foo", project_id="<Your GCP project ID>")
+        foo1 = newrelic.cloud.GcpIntegrations("foo1",
+            linked_account_id=foo.id,
+            app_engine=newrelic.cloud.GcpIntegrationsAppEngineArgs(
+                metrics_polling_interval=400,
+            ),
+            big_query=newrelic.cloud.GcpIntegrationsBigQueryArgs(
+                metrics_polling_interval=400,
+                fetch_tags=True,
+            ),
+            big_table=newrelic.cloud.GcpIntegrationsBigTableArgs(
+                metrics_polling_interval=400,
+            ),
+            composer=newrelic.cloud.GcpIntegrationsComposerArgs(
+                metrics_polling_interval=400,
+            ),
+            data_flow=newrelic.cloud.GcpIntegrationsDataFlowArgs(
+                metrics_polling_interval=400,
+            ),
+            data_proc=newrelic.cloud.GcpIntegrationsDataProcArgs(
+                metrics_polling_interval=400,
+            ),
+            data_store=newrelic.cloud.GcpIntegrationsDataStoreArgs(
+                metrics_polling_interval=400,
+            ),
+            fire_base_database=newrelic.cloud.GcpIntegrationsFireBaseDatabaseArgs(
+                metrics_polling_interval=400,
+            ),
+            fire_base_hosting=newrelic.cloud.GcpIntegrationsFireBaseHostingArgs(
+                metrics_polling_interval=400,
+            ),
+            fire_base_storage=newrelic.cloud.GcpIntegrationsFireBaseStorageArgs(
+                metrics_polling_interval=400,
+            ),
+            fire_store=newrelic.cloud.GcpIntegrationsFireStoreArgs(
+                metrics_polling_interval=400,
+            ),
+            functions=newrelic.cloud.GcpIntegrationsFunctionsArgs(
+                metrics_polling_interval=400,
+            ),
+            interconnect=newrelic.cloud.GcpIntegrationsInterconnectArgs(
+                metrics_polling_interval=400,
+            ),
+            kubernetes=newrelic.cloud.GcpIntegrationsKubernetesArgs(
+                metrics_polling_interval=400,
+            ),
+            load_balancing=newrelic.cloud.GcpIntegrationsLoadBalancingArgs(
+                metrics_polling_interval=400,
+            ),
+            mem_cache=newrelic.cloud.GcpIntegrationsMemCacheArgs(
+                metrics_polling_interval=400,
+            ),
+            pub_sub=newrelic.cloud.GcpIntegrationsPubSubArgs(
+                metrics_polling_interval=400,
+                fetch_tags=True,
+            ),
+            redis=newrelic.cloud.GcpIntegrationsRedisArgs(
+                metrics_polling_interval=400,
+            ),
+            router=newrelic.cloud.GcpIntegrationsRouterArgs(
+                metrics_polling_interval=400,
+            ),
+            run=newrelic.cloud.GcpIntegrationsRunArgs(
+                metrics_polling_interval=400,
+            ),
+            spanner=newrelic.cloud.GcpIntegrationsSpannerArgs(
+                metrics_polling_interval=400,
+                fetch_tags=True,
+            ),
+            sql=newrelic.cloud.GcpIntegrationsSqlArgs(
+                metrics_polling_interval=400,
+            ),
+            storage=newrelic.cloud.GcpIntegrationsStorageArgs(
+                metrics_polling_interval=400,
+                fetch_tags=True,
+            ),
+            virtual_machines=newrelic.cloud.GcpIntegrationsVirtualMachinesArgs(
+                metrics_polling_interval=400,
+            ),
+            vpc_access=newrelic.cloud.GcpIntegrationsVpcAccessArgs(
+                metrics_polling_interval=400,
+            ))
+        ```
+
         ## Import
 
         Linked GCP account integrations can be imported using the `id`, e.g. bash

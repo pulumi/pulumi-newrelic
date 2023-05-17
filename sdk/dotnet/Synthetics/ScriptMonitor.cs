@@ -303,6 +303,8 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        /// 
+        /// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ScriptMonitorTag>> Tags { get; private set; } = null!;
@@ -454,6 +456,8 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        /// 
+        /// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
         /// </summary>
         public InputList<Inputs.ScriptMonitorTagArgs> Tags
         {
@@ -582,6 +586,8 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        /// 
+        /// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
         /// </summary>
         public InputList<Inputs.ScriptMonitorTagGetArgs> Tags
         {

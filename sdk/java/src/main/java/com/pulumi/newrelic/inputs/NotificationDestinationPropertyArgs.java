@@ -18,12 +18,16 @@ public final class NotificationDestinationPropertyArgs extends com.pulumi.resour
     /**
      * The notification property display value.
      * 
+     * Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
+     * 
      */
     @Import(name="displayValue")
     private @Nullable Output<String> displayValue;
 
     /**
      * @return The notification property display value.
+     * 
+     * Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
      * 
      */
     public Optional<Output<String>> displayValue() {
@@ -105,6 +109,8 @@ public final class NotificationDestinationPropertyArgs extends com.pulumi.resour
         /**
          * @param displayValue The notification property display value.
          * 
+         * Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
+         * 
          * @return builder
          * 
          */
@@ -115,6 +121,8 @@ public final class NotificationDestinationPropertyArgs extends com.pulumi.resour
 
         /**
          * @param displayValue The notification property display value.
+         * 
+         * Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
          * 
          * @return builder
          * 

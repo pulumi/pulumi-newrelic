@@ -14,12 +14,16 @@ public final class GcpIntegrationsVpcAccess {
     /**
      * @return The data polling interval in seconds.
      * 
+     * Other integration supports an additional argument:
+     * 
      */
     private @Nullable Integer metricsPollingInterval;
 
     private GcpIntegrationsVpcAccess() {}
     /**
      * @return The data polling interval in seconds.
+     * 
+     * Other integration supports an additional argument:
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

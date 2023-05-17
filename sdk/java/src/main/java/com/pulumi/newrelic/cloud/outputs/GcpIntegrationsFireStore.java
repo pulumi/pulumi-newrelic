@@ -14,12 +14,16 @@ public final class GcpIntegrationsFireStore {
     /**
      * @return The data polling interval in seconds.
      * 
+     * Other integration supports an additional argument:
+     * 
      */
     private @Nullable Integer metricsPollingInterval;
 
     private GcpIntegrationsFireStore() {}
     /**
      * @return The data polling interval in seconds.
+     * 
+     * Other integration supports an additional argument:
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

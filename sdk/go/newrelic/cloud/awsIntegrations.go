@@ -11,6 +11,170 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this resource to integrate AWS services with New Relic.
+//
+// ## Prerequisite
+//
+// Setup is required for this resource to work properly. This resource assumes you have linked an AWS account to New Relic and configured it to push metrics using CloudWatch Metric Streams.
+//
+// New Relic doesn't automatically receive metrics from AWS for some services so this resource can be used to configure integrations to those services.
+//
+// Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.
+//
+// ## Example Usage
+//
+// Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/cloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := cloud.NewAwsLinkAccount(ctx, "foo", &cloud.AwsLinkAccountArgs{
+//				Arn:                  pulumi.Any(aws_iam_role.Newrelic_aws_role.Arn),
+//				MetricCollectionMode: pulumi.String("PULL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloud.NewAwsIntegrations(ctx, "bar", &cloud.AwsIntegrationsArgs{
+//				LinkedAccountId: foo.ID(),
+//				Billing:         nil,
+//				Cloudtrail: &cloud.AwsIntegrationsCloudtrailArgs{
+//					MetricsPollingInterval: pulumi.Int(6000),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("region-1"),
+//						pulumi.String("region-2"),
+//					},
+//				},
+//				Health: &cloud.AwsIntegrationsHealthArgs{
+//					MetricsPollingInterval: pulumi.Int(6000),
+//				},
+//				TrustedAdvisor: &cloud.AwsIntegrationsTrustedAdvisorArgs{
+//					MetricsPollingInterval: pulumi.Int(6000),
+//				},
+//				Vpc: &cloud.AwsIntegrationsVpcArgs{
+//					MetricsPollingInterval: pulumi.Int(6000),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("region-1"),
+//						pulumi.String("region-2"),
+//					},
+//					FetchNatGateway: pulumi.Bool(true),
+//					FetchVpn:        pulumi.Bool(false),
+//					TagKey:          pulumi.String("tag key"),
+//					TagValue:        pulumi.String("tag value"),
+//				},
+//				XRay: &cloud.AwsIntegrationsXRayArgs{
+//					MetricsPollingInterval: pulumi.Int(6000),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("region-1"),
+//						pulumi.String("region-2"),
+//					},
+//				},
+//				S3: &cloud.AwsIntegrationsS3Args{
+//					MetricsPollingInterval: pulumi.Int(6000),
+//				},
+//				DocDb: &cloud.AwsIntegrationsDocDbArgs{
+//					MetricsPollingInterval: pulumi.Int(6000),
+//				},
+//				Sqs: &cloud.AwsIntegrationsSqsArgs{
+//					MetricsPollingInterval: pulumi.Int(6000),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					TagKey:   pulumi.String("test"),
+//					TagValue: pulumi.String("test"),
+//				},
+//				Ebs: &cloud.AwsIntegrationsEbsArgs{
+//					MetricsPollingInterval: pulumi.Int(6000),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					TagKey:   pulumi.String("test"),
+//					TagValue: pulumi.String("test"),
+//				},
+//				Alb: &cloud.AwsIntegrationsAlbArgs{
+//					MetricsPollingInterval: pulumi.Int(6000),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//				},
+//				Elasticache: &cloud.AwsIntegrationsElasticacheArgs{
+//					MetricsPollingInterval: pulumi.Int(6000),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//				},
+//				ApiGateway: &cloud.AwsIntegrationsApiGatewayArgs{
+//					MetricsPollingInterval: pulumi.Int(6000),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					StagePrefixes: pulumi.StringArray{
+//						pulumi.String(""),
+//					},
+//					TagKey:   pulumi.String("test"),
+//					TagValue: pulumi.String("test"),
+//				},
+//				AutoScaling: &cloud.AwsIntegrationsAutoScalingArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(6000),
+//				},
+//				AwsAppSync: &cloud.AwsIntegrationsAwsAppSyncArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(6000),
+//				},
+//				AwsAthena: &cloud.AwsIntegrationsAwsAthenaArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(6000),
+//				},
+//				AwsCognito: &cloud.AwsIntegrationsAwsCognitoArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(6000),
+//				},
+//				AwsConnect: &cloud.AwsIntegrationsAwsConnectArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(6000),
+//				},
+//				AwsDirectConnect: &cloud.AwsIntegrationsAwsDirectConnectArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(6000),
+//				},
+//				AwsFsx: &cloud.AwsIntegrationsAwsFsxArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(6000),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Linked AWS account integrations can be imported using the `id`, e.g. bash
@@ -25,18 +189,42 @@ type AwsIntegrations struct {
 
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	// ALB integration. See Integration blocks below for details.
+	Alb AwsIntegrationsAlbPtrOutput `pulumi:"alb"`
+	// ApiGateway integration. See Integration blocks below for details.
+	ApiGateway AwsIntegrationsApiGatewayPtrOutput `pulumi:"apiGateway"`
+	// AutoScaling integration. See Integration blocks below for details.
+	AutoScaling AwsIntegrationsAutoScalingPtrOutput `pulumi:"autoScaling"`
+	// AppSync integration. See Integration blocks below for details.
+	AwsAppSync AwsIntegrationsAwsAppSyncPtrOutput `pulumi:"awsAppSync"`
+	// Athena integration. See Integration blocks below for details.
+	AwsAthena AwsIntegrationsAwsAthenaPtrOutput `pulumi:"awsAthena"`
+	// Cognito integration. See Integration blocks below for details.
+	AwsCognito AwsIntegrationsAwsCognitoPtrOutput `pulumi:"awsCognito"`
+	// Connect integration. See Integration blocks below for details.
+	AwsConnect AwsIntegrationsAwsConnectPtrOutput `pulumi:"awsConnect"`
+	// DirectConnect integration. See Integration blocks below for details.
+	AwsDirectConnect AwsIntegrationsAwsDirectConnectPtrOutput `pulumi:"awsDirectConnect"`
+	// Fsx integration. See Integration blocks below for details.
+	AwsFsx AwsIntegrationsAwsFsxPtrOutput `pulumi:"awsFsx"`
 	// Billing integration. See Integration blocks below for details.
 	Billing AwsIntegrationsBillingPtrOutput `pulumi:"billing"`
 	// Cloudtrail integration. See Integration blocks below for details.
 	Cloudtrail AwsIntegrationsCloudtrailPtrOutput `pulumi:"cloudtrail"`
-	// Billing integration
+	// Doc_DB integration. See Integration blocks below for details.
 	DocDb AwsIntegrationsDocDbPtrOutput `pulumi:"docDb"`
+	// EBS integration. See Integration blocks below for details.
+	Ebs AwsIntegrationsEbsPtrOutput `pulumi:"ebs"`
+	// Elasticache integration. See Integration blocks below for details.
+	Elasticache AwsIntegrationsElasticachePtrOutput `pulumi:"elasticache"`
 	// Health integration. See Integration blocks below for details.
 	Health AwsIntegrationsHealthPtrOutput `pulumi:"health"`
 	// The ID of the linked AWS account in New Relic.
 	LinkedAccountId pulumi.IntOutput `pulumi:"linkedAccountId"`
-	// S3 integration
+	// S3 integration. See Integration blocks below for details.
 	S3 AwsIntegrationsS3PtrOutput `pulumi:"s3"`
+	// SQS integration. See Integration blocks below for details.
+	Sqs AwsIntegrationsSqsPtrOutput `pulumi:"sqs"`
 	// Trusted Advisor integration. See Integration blocks below for details.
 	TrustedAdvisor AwsIntegrationsTrustedAdvisorPtrOutput `pulumi:"trustedAdvisor"`
 	// VPC integration. See Integration blocks below for details.
@@ -79,18 +267,42 @@ func GetAwsIntegrations(ctx *pulumi.Context,
 type awsIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *int `pulumi:"accountId"`
+	// ALB integration. See Integration blocks below for details.
+	Alb *AwsIntegrationsAlb `pulumi:"alb"`
+	// ApiGateway integration. See Integration blocks below for details.
+	ApiGateway *AwsIntegrationsApiGateway `pulumi:"apiGateway"`
+	// AutoScaling integration. See Integration blocks below for details.
+	AutoScaling *AwsIntegrationsAutoScaling `pulumi:"autoScaling"`
+	// AppSync integration. See Integration blocks below for details.
+	AwsAppSync *AwsIntegrationsAwsAppSync `pulumi:"awsAppSync"`
+	// Athena integration. See Integration blocks below for details.
+	AwsAthena *AwsIntegrationsAwsAthena `pulumi:"awsAthena"`
+	// Cognito integration. See Integration blocks below for details.
+	AwsCognito *AwsIntegrationsAwsCognito `pulumi:"awsCognito"`
+	// Connect integration. See Integration blocks below for details.
+	AwsConnect *AwsIntegrationsAwsConnect `pulumi:"awsConnect"`
+	// DirectConnect integration. See Integration blocks below for details.
+	AwsDirectConnect *AwsIntegrationsAwsDirectConnect `pulumi:"awsDirectConnect"`
+	// Fsx integration. See Integration blocks below for details.
+	AwsFsx *AwsIntegrationsAwsFsx `pulumi:"awsFsx"`
 	// Billing integration. See Integration blocks below for details.
 	Billing *AwsIntegrationsBilling `pulumi:"billing"`
 	// Cloudtrail integration. See Integration blocks below for details.
 	Cloudtrail *AwsIntegrationsCloudtrail `pulumi:"cloudtrail"`
-	// Billing integration
+	// Doc_DB integration. See Integration blocks below for details.
 	DocDb *AwsIntegrationsDocDb `pulumi:"docDb"`
+	// EBS integration. See Integration blocks below for details.
+	Ebs *AwsIntegrationsEbs `pulumi:"ebs"`
+	// Elasticache integration. See Integration blocks below for details.
+	Elasticache *AwsIntegrationsElasticache `pulumi:"elasticache"`
 	// Health integration. See Integration blocks below for details.
 	Health *AwsIntegrationsHealth `pulumi:"health"`
 	// The ID of the linked AWS account in New Relic.
 	LinkedAccountId *int `pulumi:"linkedAccountId"`
-	// S3 integration
+	// S3 integration. See Integration blocks below for details.
 	S3 *AwsIntegrationsS3 `pulumi:"s3"`
+	// SQS integration. See Integration blocks below for details.
+	Sqs *AwsIntegrationsSqs `pulumi:"sqs"`
 	// Trusted Advisor integration. See Integration blocks below for details.
 	TrustedAdvisor *AwsIntegrationsTrustedAdvisor `pulumi:"trustedAdvisor"`
 	// VPC integration. See Integration blocks below for details.
@@ -102,18 +314,42 @@ type awsIntegrationsState struct {
 type AwsIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntPtrInput
+	// ALB integration. See Integration blocks below for details.
+	Alb AwsIntegrationsAlbPtrInput
+	// ApiGateway integration. See Integration blocks below for details.
+	ApiGateway AwsIntegrationsApiGatewayPtrInput
+	// AutoScaling integration. See Integration blocks below for details.
+	AutoScaling AwsIntegrationsAutoScalingPtrInput
+	// AppSync integration. See Integration blocks below for details.
+	AwsAppSync AwsIntegrationsAwsAppSyncPtrInput
+	// Athena integration. See Integration blocks below for details.
+	AwsAthena AwsIntegrationsAwsAthenaPtrInput
+	// Cognito integration. See Integration blocks below for details.
+	AwsCognito AwsIntegrationsAwsCognitoPtrInput
+	// Connect integration. See Integration blocks below for details.
+	AwsConnect AwsIntegrationsAwsConnectPtrInput
+	// DirectConnect integration. See Integration blocks below for details.
+	AwsDirectConnect AwsIntegrationsAwsDirectConnectPtrInput
+	// Fsx integration. See Integration blocks below for details.
+	AwsFsx AwsIntegrationsAwsFsxPtrInput
 	// Billing integration. See Integration blocks below for details.
 	Billing AwsIntegrationsBillingPtrInput
 	// Cloudtrail integration. See Integration blocks below for details.
 	Cloudtrail AwsIntegrationsCloudtrailPtrInput
-	// Billing integration
+	// Doc_DB integration. See Integration blocks below for details.
 	DocDb AwsIntegrationsDocDbPtrInput
+	// EBS integration. See Integration blocks below for details.
+	Ebs AwsIntegrationsEbsPtrInput
+	// Elasticache integration. See Integration blocks below for details.
+	Elasticache AwsIntegrationsElasticachePtrInput
 	// Health integration. See Integration blocks below for details.
 	Health AwsIntegrationsHealthPtrInput
 	// The ID of the linked AWS account in New Relic.
 	LinkedAccountId pulumi.IntPtrInput
-	// S3 integration
+	// S3 integration. See Integration blocks below for details.
 	S3 AwsIntegrationsS3PtrInput
+	// SQS integration. See Integration blocks below for details.
+	Sqs AwsIntegrationsSqsPtrInput
 	// Trusted Advisor integration. See Integration blocks below for details.
 	TrustedAdvisor AwsIntegrationsTrustedAdvisorPtrInput
 	// VPC integration. See Integration blocks below for details.
@@ -129,18 +365,42 @@ func (AwsIntegrationsState) ElementType() reflect.Type {
 type awsIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *int `pulumi:"accountId"`
+	// ALB integration. See Integration blocks below for details.
+	Alb *AwsIntegrationsAlb `pulumi:"alb"`
+	// ApiGateway integration. See Integration blocks below for details.
+	ApiGateway *AwsIntegrationsApiGateway `pulumi:"apiGateway"`
+	// AutoScaling integration. See Integration blocks below for details.
+	AutoScaling *AwsIntegrationsAutoScaling `pulumi:"autoScaling"`
+	// AppSync integration. See Integration blocks below for details.
+	AwsAppSync *AwsIntegrationsAwsAppSync `pulumi:"awsAppSync"`
+	// Athena integration. See Integration blocks below for details.
+	AwsAthena *AwsIntegrationsAwsAthena `pulumi:"awsAthena"`
+	// Cognito integration. See Integration blocks below for details.
+	AwsCognito *AwsIntegrationsAwsCognito `pulumi:"awsCognito"`
+	// Connect integration. See Integration blocks below for details.
+	AwsConnect *AwsIntegrationsAwsConnect `pulumi:"awsConnect"`
+	// DirectConnect integration. See Integration blocks below for details.
+	AwsDirectConnect *AwsIntegrationsAwsDirectConnect `pulumi:"awsDirectConnect"`
+	// Fsx integration. See Integration blocks below for details.
+	AwsFsx *AwsIntegrationsAwsFsx `pulumi:"awsFsx"`
 	// Billing integration. See Integration blocks below for details.
 	Billing *AwsIntegrationsBilling `pulumi:"billing"`
 	// Cloudtrail integration. See Integration blocks below for details.
 	Cloudtrail *AwsIntegrationsCloudtrail `pulumi:"cloudtrail"`
-	// Billing integration
+	// Doc_DB integration. See Integration blocks below for details.
 	DocDb *AwsIntegrationsDocDb `pulumi:"docDb"`
+	// EBS integration. See Integration blocks below for details.
+	Ebs *AwsIntegrationsEbs `pulumi:"ebs"`
+	// Elasticache integration. See Integration blocks below for details.
+	Elasticache *AwsIntegrationsElasticache `pulumi:"elasticache"`
 	// Health integration. See Integration blocks below for details.
 	Health *AwsIntegrationsHealth `pulumi:"health"`
 	// The ID of the linked AWS account in New Relic.
 	LinkedAccountId int `pulumi:"linkedAccountId"`
-	// S3 integration
+	// S3 integration. See Integration blocks below for details.
 	S3 *AwsIntegrationsS3 `pulumi:"s3"`
+	// SQS integration. See Integration blocks below for details.
+	Sqs *AwsIntegrationsSqs `pulumi:"sqs"`
 	// Trusted Advisor integration. See Integration blocks below for details.
 	TrustedAdvisor *AwsIntegrationsTrustedAdvisor `pulumi:"trustedAdvisor"`
 	// VPC integration. See Integration blocks below for details.
@@ -153,18 +413,42 @@ type awsIntegrationsArgs struct {
 type AwsIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntPtrInput
+	// ALB integration. See Integration blocks below for details.
+	Alb AwsIntegrationsAlbPtrInput
+	// ApiGateway integration. See Integration blocks below for details.
+	ApiGateway AwsIntegrationsApiGatewayPtrInput
+	// AutoScaling integration. See Integration blocks below for details.
+	AutoScaling AwsIntegrationsAutoScalingPtrInput
+	// AppSync integration. See Integration blocks below for details.
+	AwsAppSync AwsIntegrationsAwsAppSyncPtrInput
+	// Athena integration. See Integration blocks below for details.
+	AwsAthena AwsIntegrationsAwsAthenaPtrInput
+	// Cognito integration. See Integration blocks below for details.
+	AwsCognito AwsIntegrationsAwsCognitoPtrInput
+	// Connect integration. See Integration blocks below for details.
+	AwsConnect AwsIntegrationsAwsConnectPtrInput
+	// DirectConnect integration. See Integration blocks below for details.
+	AwsDirectConnect AwsIntegrationsAwsDirectConnectPtrInput
+	// Fsx integration. See Integration blocks below for details.
+	AwsFsx AwsIntegrationsAwsFsxPtrInput
 	// Billing integration. See Integration blocks below for details.
 	Billing AwsIntegrationsBillingPtrInput
 	// Cloudtrail integration. See Integration blocks below for details.
 	Cloudtrail AwsIntegrationsCloudtrailPtrInput
-	// Billing integration
+	// Doc_DB integration. See Integration blocks below for details.
 	DocDb AwsIntegrationsDocDbPtrInput
+	// EBS integration. See Integration blocks below for details.
+	Ebs AwsIntegrationsEbsPtrInput
+	// Elasticache integration. See Integration blocks below for details.
+	Elasticache AwsIntegrationsElasticachePtrInput
 	// Health integration. See Integration blocks below for details.
 	Health AwsIntegrationsHealthPtrInput
 	// The ID of the linked AWS account in New Relic.
 	LinkedAccountId pulumi.IntInput
-	// S3 integration
+	// S3 integration. See Integration blocks below for details.
 	S3 AwsIntegrationsS3PtrInput
+	// SQS integration. See Integration blocks below for details.
+	Sqs AwsIntegrationsSqsPtrInput
 	// Trusted Advisor integration. See Integration blocks below for details.
 	TrustedAdvisor AwsIntegrationsTrustedAdvisorPtrInput
 	// VPC integration. See Integration blocks below for details.
@@ -265,6 +549,51 @@ func (o AwsIntegrationsOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *AwsIntegrations) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
 
+// ALB integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) Alb() AwsIntegrationsAlbPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAlbPtrOutput { return v.Alb }).(AwsIntegrationsAlbPtrOutput)
+}
+
+// ApiGateway integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) ApiGateway() AwsIntegrationsApiGatewayPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsApiGatewayPtrOutput { return v.ApiGateway }).(AwsIntegrationsApiGatewayPtrOutput)
+}
+
+// AutoScaling integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) AutoScaling() AwsIntegrationsAutoScalingPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAutoScalingPtrOutput { return v.AutoScaling }).(AwsIntegrationsAutoScalingPtrOutput)
+}
+
+// AppSync integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) AwsAppSync() AwsIntegrationsAwsAppSyncPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsAppSyncPtrOutput { return v.AwsAppSync }).(AwsIntegrationsAwsAppSyncPtrOutput)
+}
+
+// Athena integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) AwsAthena() AwsIntegrationsAwsAthenaPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsAthenaPtrOutput { return v.AwsAthena }).(AwsIntegrationsAwsAthenaPtrOutput)
+}
+
+// Cognito integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) AwsCognito() AwsIntegrationsAwsCognitoPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsCognitoPtrOutput { return v.AwsCognito }).(AwsIntegrationsAwsCognitoPtrOutput)
+}
+
+// Connect integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) AwsConnect() AwsIntegrationsAwsConnectPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsConnectPtrOutput { return v.AwsConnect }).(AwsIntegrationsAwsConnectPtrOutput)
+}
+
+// DirectConnect integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) AwsDirectConnect() AwsIntegrationsAwsDirectConnectPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsDirectConnectPtrOutput { return v.AwsDirectConnect }).(AwsIntegrationsAwsDirectConnectPtrOutput)
+}
+
+// Fsx integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) AwsFsx() AwsIntegrationsAwsFsxPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsFsxPtrOutput { return v.AwsFsx }).(AwsIntegrationsAwsFsxPtrOutput)
+}
+
 // Billing integration. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Billing() AwsIntegrationsBillingPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsBillingPtrOutput { return v.Billing }).(AwsIntegrationsBillingPtrOutput)
@@ -275,9 +604,19 @@ func (o AwsIntegrationsOutput) Cloudtrail() AwsIntegrationsCloudtrailPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsCloudtrailPtrOutput { return v.Cloudtrail }).(AwsIntegrationsCloudtrailPtrOutput)
 }
 
-// Billing integration
+// Doc_DB integration. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) DocDb() AwsIntegrationsDocDbPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsDocDbPtrOutput { return v.DocDb }).(AwsIntegrationsDocDbPtrOutput)
+}
+
+// EBS integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) Ebs() AwsIntegrationsEbsPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsEbsPtrOutput { return v.Ebs }).(AwsIntegrationsEbsPtrOutput)
+}
+
+// Elasticache integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) Elasticache() AwsIntegrationsElasticachePtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsElasticachePtrOutput { return v.Elasticache }).(AwsIntegrationsElasticachePtrOutput)
 }
 
 // Health integration. See Integration blocks below for details.
@@ -290,9 +629,14 @@ func (o AwsIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *AwsIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
 }
 
-// S3 integration
+// S3 integration. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) S3() AwsIntegrationsS3PtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsS3PtrOutput { return v.S3 }).(AwsIntegrationsS3PtrOutput)
+}
+
+// SQS integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) Sqs() AwsIntegrationsSqsPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsSqsPtrOutput { return v.Sqs }).(AwsIntegrationsSqsPtrOutput)
 }
 
 // Trusted Advisor integration. See Integration blocks below for details.

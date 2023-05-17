@@ -47,6 +47,225 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Use this resource to integrate Azure services with New Relic.
+ * 
+ * ## Prerequisite
+ * 
+ * To start receiving Azure data with New Relic Azure integrations, connect your Azure account to New Relic infrastructure monitoring. If you don&#39;t have one already, create a New Relic account. It&#39;s free, forever.
+ * 
+ * Setup is required for this resource to work properly. This resource assumes you have linked an Azure account to New Relic.
+ * 
+ * You can find instructions on how to set up Azure on [our documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/activate-azure-integrations/).
+ * 
+ * ## Example Usage
+ * 
+ * Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.cloud.AzureLinkAccount;
+ * import com.pulumi.newrelic.cloud.AzureLinkAccountArgs;
+ * import com.pulumi.newrelic.cloud.AzureIntegrations;
+ * import com.pulumi.newrelic.cloud.AzureIntegrationsArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsApiManagementArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsAppGatewayArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsAppServiceArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsContainersArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsCosmosDbArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsCostManagementArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsDataFactoryArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsEventHubArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsExpressRouteArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsFirewallsArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsFrontDoorArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsFunctionsArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsKeyVaultArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsLoadBalancerArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsLogicAppsArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsMachineLearningArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsMariaDbArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsMonitorArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsMysqlArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsMysqlFlexibleArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsPostgresqlArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsPostgresqlFlexibleArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsPowerBiDedicatedArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsRedisCacheArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsServiceBusArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsSqlArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsSqlManagedArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsStorageArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsVirtualMachineArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsVirtualNetworksArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsVmsArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsVpnGatewayArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var fooAzureLinkAccount = new AzureLinkAccount(&#34;fooAzureLinkAccount&#34;, AzureLinkAccountArgs.builder()        
+ *             .accountId(&#34;The New Relic account ID where you want to link the Azure account&#34;)
+ *             .applicationId(&#34;ID of the application&#34;)
+ *             .clientSecret(&#34;Secret value of client&#39;s Azure account&#34;)
+ *             .subscriptionId(&#34;Subscription ID of Azure&#34;)
+ *             .tenantId(&#34;Tenant ID of the Azure&#34;)
+ *             .build());
+ * 
+ *         var fooAzureIntegrations = new AzureIntegrations(&#34;fooAzureIntegrations&#34;, AzureIntegrationsArgs.builder()        
+ *             .linkedAccountId(fooAzureLinkAccount.id())
+ *             .accountId(&#34;The New Relic account ID&#34;)
+ *             .apiManagement(AzureIntegrationsApiManagementArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .appGateway(AzureIntegrationsAppGatewayArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .appService(AzureIntegrationsAppServiceArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .containers(AzureIntegrationsContainersArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .cosmosDb(AzureIntegrationsCosmosDbArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .costManagement(AzureIntegrationsCostManagementArgs.builder()
+ *                 .metricsPollingInterval(3600)
+ *                 .tagKeys(&#34;tag_keys&#34;)
+ *                 .build())
+ *             .dataFactory(AzureIntegrationsDataFactoryArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .eventHub(AzureIntegrationsEventHubArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .expressRoute(AzureIntegrationsExpressRouteArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .firewalls(AzureIntegrationsFirewallsArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .frontDoor(AzureIntegrationsFrontDoorArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .functions(AzureIntegrationsFunctionsArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .keyVault(AzureIntegrationsKeyVaultArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .loadBalancer(AzureIntegrationsLoadBalancerArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .logicApps(AzureIntegrationsLogicAppsArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .machineLearning(AzureIntegrationsMachineLearningArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .mariaDb(AzureIntegrationsMariaDbArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .monitor(AzureIntegrationsMonitorArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .includeTags(&#34;env:production&#34;)
+ *                 .excludeTags(                
+ *                     &#34;env:staging&#34;,
+ *                     &#34;env:testing&#34;)
+ *                 .enabled(true)
+ *                 .resourceTypes(&#34;microsoft.datashare/accounts&#34;)
+ *                 .build())
+ *             .mysql(AzureIntegrationsMysqlArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .mysqlFlexible(AzureIntegrationsMysqlFlexibleArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .postgresql(AzureIntegrationsPostgresqlArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .postgresqlFlexible(AzureIntegrationsPostgresqlFlexibleArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .powerBiDedicated(AzureIntegrationsPowerBiDedicatedArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .redisCache(AzureIntegrationsRedisCacheArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .serviceBus(AzureIntegrationsServiceBusArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .sql(AzureIntegrationsSqlArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .sqlManaged(AzureIntegrationsSqlManagedArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .storage(AzureIntegrationsStorageArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .virtualMachine(AzureIntegrationsVirtualMachineArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .virtualNetworks(AzureIntegrationsVirtualNetworksArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .vms(AzureIntegrationsVmsArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .vpnGateway(AzureIntegrationsVpnGatewayArgs.builder()
+ *                 .metricsPollingInterval(1200)
+ *                 .resourceGroups(&#34;resource_groups&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic. bash
@@ -495,12 +714,16 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * for Azure Virtual networks. See Integration blocks below for details.
      * 
+     * Below argument supports the minimum metric polling interval of 3600 seconds
+     * 
      */
     @Export(name="virtualNetworks", type=AzureIntegrationsVirtualNetworks.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsVirtualNetworks> virtualNetworks;
 
     /**
      * @return for Azure Virtual networks. See Integration blocks below for details.
+     * 
+     * Below argument supports the minimum metric polling interval of 3600 seconds
      * 
      */
     public Output<Optional<AzureIntegrationsVirtualNetworks>> virtualNetworks() {
@@ -523,12 +746,16 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * Azure VPN Gateway. See Integration blocks below for details.
      * 
+     * Below arguments supports the minimum metric polling interval of 900 seconds
+     * 
      */
     @Export(name="vpnGateway", type=AzureIntegrationsVpnGateway.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsVpnGateway> vpnGateway;
 
     /**
      * @return Azure VPN Gateway. See Integration blocks below for details.
+     * 
+     * Below arguments supports the minimum metric polling interval of 900 seconds
      * 
      */
     public Output<Optional<AzureIntegrationsVpnGateway>> vpnGateway() {

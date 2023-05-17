@@ -34,6 +34,10 @@ class MultiLocationAlertConditionArgs:
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input['MultiLocationAlertConditionWarningArgs'] warning: A condition term with the priority set to warning.
+               
+               ```python
+               import pulumi
+               ```
         """
         pulumi.set(__self__, "critical", critical)
         pulumi.set(__self__, "entities", entities)
@@ -137,6 +141,10 @@ class MultiLocationAlertConditionArgs:
     def warning(self) -> Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']]:
         """
         A condition term with the priority set to warning.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "warning")
 
@@ -168,6 +176,10 @@ class _MultiLocationAlertConditionState:
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
         :param pulumi.Input['MultiLocationAlertConditionWarningArgs'] warning: A condition term with the priority set to warning.
+               
+               ```python
+               import pulumi
+               ```
         """
         if critical is not None:
             pulumi.set(__self__, "critical", critical)
@@ -289,6 +301,10 @@ class _MultiLocationAlertConditionState:
     def warning(self) -> Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']]:
         """
         A condition term with the priority set to warning.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "warning")
 
@@ -418,6 +434,10 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
         :param pulumi.Input[pulumi.InputType['MultiLocationAlertConditionWarningArgs']] warning: A condition term with the priority set to warning.
+               
+               ```python
+               import pulumi
+               ```
         """
         ...
     @overload
@@ -606,6 +626,10 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
         :param pulumi.Input[pulumi.InputType['MultiLocationAlertConditionWarningArgs']] warning: A condition term with the priority set to warning.
+               
+               ```python
+               import pulumi
+               ```
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -691,6 +715,10 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
     def warning(self) -> pulumi.Output[Optional['outputs.MultiLocationAlertConditionWarning']]:
         """
         A condition term with the priority set to warning.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "warning")
 

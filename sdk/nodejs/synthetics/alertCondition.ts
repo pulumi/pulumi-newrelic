@@ -110,6 +110,10 @@ export class AlertCondition extends pulumi.CustomResource {
 
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -178,6 +182,10 @@ export class AlertCondition extends pulumi.CustomResource {
 export interface AlertConditionState {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -208,6 +216,10 @@ export interface AlertConditionState {
 export interface AlertConditionArgs {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     enabled?: pulumi.Input<boolean>;
     /**

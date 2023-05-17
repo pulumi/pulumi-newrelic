@@ -17,6 +17,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Use this resource to create and manage New Relic alert channels.
+ * 
+ * &gt; **WARNING:** The `newrelic.AlertChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `newrelic.NotificationChannel`.
+ * 
  * ## Example Usage
  * ### Email
  * ```java

@@ -450,12 +450,16 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      * 
+     * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+     * 
      */
     @Export(name="tags", type=List.class, parameters={ScriptMonitorTag.class})
     private Output</* @Nullable */ List<ScriptMonitorTag>> tags;
 
     /**
      * @return The tags that will be associated with the monitor. See Nested tag blocks below for details.
+     * 
+     * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
      * 
      */
     public Output<Optional<List<ScriptMonitorTag>>> tags() {

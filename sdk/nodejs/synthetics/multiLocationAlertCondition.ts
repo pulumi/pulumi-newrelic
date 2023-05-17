@@ -170,6 +170,10 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
     public readonly violationTimeLimitSeconds!: pulumi.Output<number>;
     /**
      * A condition term with the priority set to warning.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     public readonly warning!: pulumi.Output<outputs.synthetics.MultiLocationAlertConditionWarning | undefined>;
 
@@ -262,6 +266,10 @@ export interface MultiLocationAlertConditionState {
     violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
      * A condition term with the priority set to warning.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
 }
@@ -300,6 +308,10 @@ export interface MultiLocationAlertConditionArgs {
     violationTimeLimitSeconds: pulumi.Input<number>;
     /**
      * A condition term with the priority set to warning.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
 }

@@ -248,12 +248,16 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      * 
+     * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<List<ScriptMonitorTagArgs>> tags;
 
     /**
      * @return The tags that will be associated with the monitor. See Nested tag blocks below for details.
+     * 
+     * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
      * 
      */
     public Optional<Output<List<ScriptMonitorTagArgs>>> tags() {
@@ -653,6 +657,8 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param tags The tags that will be associated with the monitor. See Nested tag blocks below for details.
          * 
+         * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+         * 
          * @return builder
          * 
          */
@@ -664,6 +670,8 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param tags The tags that will be associated with the monitor. See Nested tag blocks below for details.
          * 
+         * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+         * 
          * @return builder
          * 
          */
@@ -673,6 +681,8 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param tags The tags that will be associated with the monitor. See Nested tag blocks below for details.
+         * 
+         * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
          * 
          * @return builder
          * 

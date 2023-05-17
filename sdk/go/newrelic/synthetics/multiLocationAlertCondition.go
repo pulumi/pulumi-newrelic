@@ -196,6 +196,20 @@ type MultiLocationAlertCondition struct {
 	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
 	ViolationTimeLimitSeconds pulumi.IntOutput `pulumi:"violationTimeLimitSeconds"`
 	// A condition term with the priority set to warning.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Warning MultiLocationAlertConditionWarningPtrOutput `pulumi:"warning"`
 }
 
@@ -257,6 +271,20 @@ type multiLocationAlertConditionState struct {
 	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
 	ViolationTimeLimitSeconds *int `pulumi:"violationTimeLimitSeconds"`
 	// A condition term with the priority set to warning.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Warning *MultiLocationAlertConditionWarning `pulumi:"warning"`
 }
 
@@ -278,6 +306,20 @@ type MultiLocationAlertConditionState struct {
 	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
 	ViolationTimeLimitSeconds pulumi.IntPtrInput
 	// A condition term with the priority set to warning.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Warning MultiLocationAlertConditionWarningPtrInput
 }
 
@@ -301,6 +343,20 @@ type multiLocationAlertConditionArgs struct {
 	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
 	ViolationTimeLimitSeconds int `pulumi:"violationTimeLimitSeconds"`
 	// A condition term with the priority set to warning.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Warning *MultiLocationAlertConditionWarning `pulumi:"warning"`
 }
 
@@ -321,6 +377,20 @@ type MultiLocationAlertConditionArgs struct {
 	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
 	ViolationTimeLimitSeconds pulumi.IntInput
 	// A condition term with the priority set to warning.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Warning MultiLocationAlertConditionWarningPtrInput
 }
 
@@ -452,6 +522,23 @@ func (o MultiLocationAlertConditionOutput) ViolationTimeLimitSeconds() pulumi.In
 }
 
 // A condition term with the priority set to warning.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o MultiLocationAlertConditionOutput) Warning() MultiLocationAlertConditionWarningPtrOutput {
 	return o.ApplyT(func(v *MultiLocationAlertCondition) MultiLocationAlertConditionWarningPtrOutput { return v.Warning }).(MultiLocationAlertConditionWarningPtrOutput)
 }

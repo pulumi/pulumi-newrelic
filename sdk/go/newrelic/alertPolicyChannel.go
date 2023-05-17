@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this resource to map alert policies to alert channels in New Relic.
+//
+// > **WARNING:** The `AlertPolicyChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `NotificationChannel`.
+//
 // ## Example Usage
 //
 // The example below will apply multiple alert channels to an existing New Relic alert policy.

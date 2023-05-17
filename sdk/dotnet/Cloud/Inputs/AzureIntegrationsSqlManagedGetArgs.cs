@@ -23,6 +23,8 @@ namespace Pulumi.NewRelic.Cloud.Inputs
 
         /// <summary>
         /// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        /// 
+        /// Other integration type support an additional argument:
         /// </summary>
         public InputList<string> ResourceGroups
         {
