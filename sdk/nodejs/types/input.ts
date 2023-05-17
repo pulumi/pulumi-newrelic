@@ -199,6 +199,8 @@ export interface InfraAlertConditionWarning {
 export interface NotificationChannelProperty {
     /**
      * The notification property display value.
+     *
+     * Each notification channel type supports a specific set of arguments for the `property` block:
      */
     displayValue?: pulumi.Input<string>;
     /**
@@ -231,15 +233,14 @@ export interface NotificationDestinationAuthToken {
      * The prefix of the token auth.
      */
     prefix?: pulumi.Input<string>;
-    /**
-     * Specifies the token for integrating.
-     */
     token: pulumi.Input<string>;
 }
 
 export interface NotificationDestinationProperty {
     /**
      * The notification property display value.
+     *
+     * Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
      */
     displayValue?: pulumi.Input<string>;
     /**
@@ -2504,6 +2505,8 @@ export namespace cloud {
         loadBalancerPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -2528,6 +2531,8 @@ export namespace cloud {
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -2556,6 +2561,8 @@ export namespace cloud {
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -2569,6 +2576,8 @@ export namespace cloud {
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -2582,6 +2591,8 @@ export namespace cloud {
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -2595,6 +2606,8 @@ export namespace cloud {
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -2616,6 +2629,8 @@ export namespace cloud {
         fetchTags?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -2644,6 +2659,8 @@ export namespace cloud {
         fetchExtendedInventory?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -2672,6 +2689,8 @@ export namespace cloud {
         fetchIpAddresses?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -2700,6 +2719,8 @@ export namespace cloud {
         fetchNodes?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -2732,6 +2753,8 @@ export namespace cloud {
         fetchTags?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -2749,6 +2772,8 @@ export namespace cloud {
         fetchTags?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -2767,6 +2792,8 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsIam {
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -2795,6 +2822,8 @@ export namespace cloud {
         fetchTags?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -2823,6 +2852,8 @@ export namespace cloud {
         fetchTags?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -2847,6 +2878,8 @@ export namespace cloud {
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -2869,6 +2902,8 @@ export namespace cloud {
         fetchExtendedInventory?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -2884,6 +2919,8 @@ export namespace cloud {
         fetchTags?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -2912,6 +2949,8 @@ export namespace cloud {
         fetchExtendedInventory?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -2933,6 +2972,8 @@ export namespace cloud {
         fetchTags?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -2952,9 +2993,160 @@ export namespace cloud {
         tagValue?: pulumi.Input<string>;
     }
 
+    export interface AwsIntegrationsAlb {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchExtendedInventory?: pulumi.Input<boolean>;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: pulumi.Input<boolean>;
+        /**
+         * Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
+         */
+        loadBalancerPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
+    }
+
+    export interface AwsIntegrationsApiGateway {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        stagePrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
+    }
+
+    export interface AwsIntegrationsAutoScaling {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsAppSync {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsAthena {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsCognito {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsConnect {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsDirectConnect {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsFsx {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
     export interface AwsIntegrationsBilling {
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -2966,34 +3158,147 @@ export namespace cloud {
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
 
     export interface AwsIntegrationsDocDb {
         /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsEbs {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchExtendedInventory?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
+    }
+
+    export interface AwsIntegrationsElasticache {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
     }
 
     export interface AwsIntegrationsHealth {
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
 
     export interface AwsIntegrationsS3 {
         /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchExtendedInventory?: pulumi.Input<boolean>;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: pulumi.Input<boolean>;
+        /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
+    }
+
+    export interface AwsIntegrationsSqs {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchExtendedInventory?: pulumi.Input<boolean>;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
+         */
+        queuePrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
     }
 
     export interface AwsIntegrationsTrustedAdvisor {
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3013,6 +3318,8 @@ export namespace cloud {
         fetchVpn?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -3032,6 +3339,8 @@ export namespace cloud {
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
+         *
+         * Some integration types support an additional set of arguments:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3043,6 +3352,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3054,6 +3365,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3065,6 +3378,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3076,6 +3391,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3087,6 +3404,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3109,6 +3428,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3120,6 +3441,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3131,6 +3454,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3142,6 +3467,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3153,6 +3480,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3164,6 +3493,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3175,6 +3506,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3186,6 +3519,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3197,6 +3532,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3208,6 +3545,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3219,6 +3558,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3242,6 +3583,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -3257,6 +3600,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3268,6 +3613,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3279,6 +3626,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3290,6 +3639,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3301,6 +3652,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3312,6 +3665,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3323,6 +3678,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3334,6 +3691,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3345,6 +3704,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3356,6 +3717,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3367,6 +3730,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3378,6 +3743,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3389,6 +3756,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3400,6 +3769,8 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         *
+         * Other integration type support an additional argument:
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3407,6 +3778,8 @@ export namespace cloud {
     export interface GcpIntegrationsAlloyDb {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3414,6 +3787,8 @@ export namespace cloud {
     export interface GcpIntegrationsAppEngine {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3425,6 +3800,8 @@ export namespace cloud {
         fetchTags?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3432,6 +3809,8 @@ export namespace cloud {
     export interface GcpIntegrationsBigTable {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3439,6 +3818,8 @@ export namespace cloud {
     export interface GcpIntegrationsComposer {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3446,6 +3827,8 @@ export namespace cloud {
     export interface GcpIntegrationsDataFlow {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3453,6 +3836,8 @@ export namespace cloud {
     export interface GcpIntegrationsDataProc {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3460,6 +3845,8 @@ export namespace cloud {
     export interface GcpIntegrationsDataStore {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3467,6 +3854,8 @@ export namespace cloud {
     export interface GcpIntegrationsFireBaseDatabase {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3474,6 +3863,8 @@ export namespace cloud {
     export interface GcpIntegrationsFireBaseHosting {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3481,6 +3872,8 @@ export namespace cloud {
     export interface GcpIntegrationsFireBaseStorage {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3488,6 +3881,8 @@ export namespace cloud {
     export interface GcpIntegrationsFireStore {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3495,6 +3890,8 @@ export namespace cloud {
     export interface GcpIntegrationsFunctions {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3502,6 +3899,8 @@ export namespace cloud {
     export interface GcpIntegrationsInterconnect {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3509,6 +3908,8 @@ export namespace cloud {
     export interface GcpIntegrationsKubernetes {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3516,6 +3917,8 @@ export namespace cloud {
     export interface GcpIntegrationsLoadBalancing {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3523,6 +3926,8 @@ export namespace cloud {
     export interface GcpIntegrationsMemCache {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3534,6 +3939,8 @@ export namespace cloud {
         fetchTags?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3541,6 +3948,8 @@ export namespace cloud {
     export interface GcpIntegrationsRedis {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3548,6 +3957,8 @@ export namespace cloud {
     export interface GcpIntegrationsRouter {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3555,6 +3966,8 @@ export namespace cloud {
     export interface GcpIntegrationsRun {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3566,6 +3979,8 @@ export namespace cloud {
         fetchTags?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3573,6 +3988,8 @@ export namespace cloud {
     export interface GcpIntegrationsSql {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3584,6 +4001,8 @@ export namespace cloud {
         fetchTags?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3591,6 +4010,8 @@ export namespace cloud {
     export interface GcpIntegrationsVirtualMachines {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3598,6 +4019,8 @@ export namespace cloud {
     export interface GcpIntegrationsVpcAccess {
         /**
          * The data polling interval in seconds.
+         *
+         * Other integration supports an additional argument:
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }

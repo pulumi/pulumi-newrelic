@@ -1593,6 +1593,8 @@ func (o InfraAlertConditionWarningPtrOutput) Value() pulumi.Float64PtrOutput {
 
 type NotificationChannelProperty struct {
 	// The notification property display value.
+	//
+	// Each notification channel type supports a specific set of arguments for the `property` block:
 	DisplayValue *string `pulumi:"displayValue"`
 	// The notification property key.
 	Key string `pulumi:"key"`
@@ -1615,6 +1617,8 @@ type NotificationChannelPropertyInput interface {
 
 type NotificationChannelPropertyArgs struct {
 	// The notification property display value.
+	//
+	// Each notification channel type supports a specific set of arguments for the `property` block:
 	DisplayValue pulumi.StringPtrInput `pulumi:"displayValue"`
 	// The notification property key.
 	Key pulumi.StringInput `pulumi:"key"`
@@ -1676,6 +1680,8 @@ func (o NotificationChannelPropertyOutput) ToNotificationChannelPropertyOutputWi
 }
 
 // The notification property display value.
+//
+// Each notification channel type supports a specific set of arguments for the `property` block:
 func (o NotificationChannelPropertyOutput) DisplayValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationChannelProperty) *string { return v.DisplayValue }).(pulumi.StringPtrOutput)
 }
@@ -1874,8 +1880,7 @@ func (o NotificationDestinationAuthBasicPtrOutput) User() pulumi.StringPtrOutput
 type NotificationDestinationAuthToken struct {
 	// The prefix of the token auth.
 	Prefix *string `pulumi:"prefix"`
-	// Specifies the token for integrating.
-	Token string `pulumi:"token"`
+	Token  string  `pulumi:"token"`
 }
 
 // NotificationDestinationAuthTokenInput is an input type that accepts NotificationDestinationAuthTokenArgs and NotificationDestinationAuthTokenOutput values.
@@ -1892,8 +1897,7 @@ type NotificationDestinationAuthTokenInput interface {
 type NotificationDestinationAuthTokenArgs struct {
 	// The prefix of the token auth.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// Specifies the token for integrating.
-	Token pulumi.StringInput `pulumi:"token"`
+	Token  pulumi.StringInput    `pulumi:"token"`
 }
 
 func (NotificationDestinationAuthTokenArgs) ElementType() reflect.Type {
@@ -1978,7 +1982,6 @@ func (o NotificationDestinationAuthTokenOutput) Prefix() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v NotificationDestinationAuthToken) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the token for integrating.
 func (o NotificationDestinationAuthTokenOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthToken) string { return v.Token }).(pulumi.StringOutput)
 }
@@ -2017,7 +2020,6 @@ func (o NotificationDestinationAuthTokenPtrOutput) Prefix() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the token for integrating.
 func (o NotificationDestinationAuthTokenPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationAuthToken) *string {
 		if v == nil {
@@ -2029,6 +2031,8 @@ func (o NotificationDestinationAuthTokenPtrOutput) Token() pulumi.StringPtrOutpu
 
 type NotificationDestinationProperty struct {
 	// The notification property display value.
+	//
+	// Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
 	DisplayValue *string `pulumi:"displayValue"`
 	// The notification property key.
 	Key string `pulumi:"key"`
@@ -2051,6 +2055,8 @@ type NotificationDestinationPropertyInput interface {
 
 type NotificationDestinationPropertyArgs struct {
 	// The notification property display value.
+	//
+	// Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
 	DisplayValue pulumi.StringPtrInput `pulumi:"displayValue"`
 	// The notification property key.
 	Key pulumi.StringInput `pulumi:"key"`
@@ -2112,6 +2118,8 @@ func (o NotificationDestinationPropertyOutput) ToNotificationDestinationProperty
 }
 
 // The notification property display value.
+//
+// Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
 func (o NotificationDestinationPropertyOutput) DisplayValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationDestinationProperty) *string { return v.DisplayValue }).(pulumi.StringPtrOutput)
 }

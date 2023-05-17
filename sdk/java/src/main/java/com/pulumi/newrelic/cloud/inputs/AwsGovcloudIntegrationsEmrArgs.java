@@ -54,12 +54,16 @@ public final class AwsGovcloudIntegrationsEmrArgs extends com.pulumi.resources.R
     /**
      * The data polling interval in seconds.
      * 
+     * Some integration types support an additional set of arguments:
+     * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
      * @return The data polling interval in seconds.
+     * 
+     * Some integration types support an additional set of arguments:
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -179,6 +183,8 @@ public final class AwsGovcloudIntegrationsEmrArgs extends com.pulumi.resources.R
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
+         * Some integration types support an additional set of arguments:
+         * 
          * @return builder
          * 
          */
@@ -189,6 +195,8 @@ public final class AwsGovcloudIntegrationsEmrArgs extends com.pulumi.resources.R
 
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
+         * 
+         * Some integration types support an additional set of arguments:
          * 
          * @return builder
          * 

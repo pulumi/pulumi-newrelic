@@ -225,6 +225,18 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+        /// 
+        /// &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Output("userDefinedValueFunction")]
         public Output<string?> UserDefinedValueFunction { get; private set; } = null!;
@@ -361,6 +373,18 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+        /// 
+        /// &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("userDefinedValueFunction")]
         public Input<string>? UserDefinedValueFunction { get; set; }
@@ -465,6 +489,18 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+        /// 
+        /// &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("userDefinedValueFunction")]
         public Input<string>? UserDefinedValueFunction { get; set; }

@@ -48,6 +48,8 @@ class ScriptMonitorArgs:
         :param pulumi.Input[str] script: The script that the monitor runs.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+               
+               The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
         """
         pulumi.set(__self__, "period", period)
         pulumi.set(__self__, "status", status)
@@ -250,6 +252,8 @@ class ScriptMonitorArgs:
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]]:
         """
         The tags that will be associated with the monitor. See Nested tag blocks below for details.
+
+        The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
         """
         return pulumi.get(self, "tags")
 
@@ -296,6 +300,8 @@ class _ScriptMonitorState:
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[str] status: The run state of the monitor: `ENABLED` or `DISABLED`
         :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+               
+               The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         """
         if account_id is not None:
@@ -518,6 +524,8 @@ class _ScriptMonitorState:
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]]:
         """
         The tags that will be associated with the monitor. See Nested tag blocks below for details.
+
+        The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
         """
         return pulumi.get(self, "tags")
 
@@ -698,6 +706,8 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[str] status: The run state of the monitor: `ENABLED` or `DISABLED`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+               
+               The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         """
         ...
@@ -941,6 +951,8 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[str] status: The run state of the monitor: `ENABLED` or `DISABLED`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+               
+               The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1091,6 +1103,8 @@ class ScriptMonitor(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ScriptMonitorTag']]]:
         """
         The tags that will be associated with the monitor. See Nested tag blocks below for details.
+
+        The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
         """
         return pulumi.get(self, "tags")
 

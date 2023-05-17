@@ -190,6 +190,22 @@ type AlertCondition struct {
 	// A custom metric to be evaluated.
 	UserDefinedMetric pulumi.StringPtrOutput `pulumi:"userDefinedMetric"`
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
+	//
+	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	UserDefinedValueFunction pulumi.StringPtrOutput `pulumi:"userDefinedValueFunction"`
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
 	ViolationCloseTimer pulumi.IntPtrOutput `pulumi:"violationCloseTimer"`
@@ -264,6 +280,22 @@ type alertConditionState struct {
 	// A custom metric to be evaluated.
 	UserDefinedMetric *string `pulumi:"userDefinedMetric"`
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
+	//
+	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	UserDefinedValueFunction *string `pulumi:"userDefinedValueFunction"`
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
 	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
@@ -295,6 +327,22 @@ type AlertConditionState struct {
 	// A custom metric to be evaluated.
 	UserDefinedMetric pulumi.StringPtrInput
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
+	//
+	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	UserDefinedValueFunction pulumi.StringPtrInput
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
 	ViolationCloseTimer pulumi.IntPtrInput
@@ -328,6 +376,22 @@ type alertConditionArgs struct {
 	// A custom metric to be evaluated.
 	UserDefinedMetric *string `pulumi:"userDefinedMetric"`
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
+	//
+	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	UserDefinedValueFunction *string `pulumi:"userDefinedValueFunction"`
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
 	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
@@ -358,6 +422,22 @@ type AlertConditionArgs struct {
 	// A custom metric to be evaluated.
 	UserDefinedMetric pulumi.StringPtrInput
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
+	//
+	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	UserDefinedValueFunction pulumi.StringPtrInput
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
 	ViolationCloseTimer pulumi.IntPtrInput
@@ -511,6 +591,25 @@ func (o AlertConditionOutput) UserDefinedMetric() pulumi.StringPtrOutput {
 }
 
 // One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
+//
+// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o AlertConditionOutput) UserDefinedValueFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.StringPtrOutput { return v.UserDefinedValueFunction }).(pulumi.StringPtrOutput)
 }

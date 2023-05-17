@@ -5,11 +5,23 @@ package com.pulumi.newrelic.cloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAlbArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsApiGatewayArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAutoScalingArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsAppSyncArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsAthenaArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsCognitoArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsConnectArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsDirectConnectArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsFsxArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsBillingArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsCloudtrailArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsDocDbArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsEbsArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsElasticacheArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsHealthArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsS3Args;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsSqsArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsTrustedAdvisorArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsVpcArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsXRayArgs;
@@ -36,6 +48,141 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<Integer>> accountId() {
         return Optional.ofNullable(this.accountId);
+    }
+
+    /**
+     * ALB integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="alb")
+    private @Nullable Output<AwsIntegrationsAlbArgs> alb;
+
+    /**
+     * @return ALB integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAlbArgs>> alb() {
+        return Optional.ofNullable(this.alb);
+    }
+
+    /**
+     * ApiGateway integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="apiGateway")
+    private @Nullable Output<AwsIntegrationsApiGatewayArgs> apiGateway;
+
+    /**
+     * @return ApiGateway integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsApiGatewayArgs>> apiGateway() {
+        return Optional.ofNullable(this.apiGateway);
+    }
+
+    /**
+     * AutoScaling integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="autoScaling")
+    private @Nullable Output<AwsIntegrationsAutoScalingArgs> autoScaling;
+
+    /**
+     * @return AutoScaling integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAutoScalingArgs>> autoScaling() {
+        return Optional.ofNullable(this.autoScaling);
+    }
+
+    /**
+     * AppSync integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsAppSync")
+    private @Nullable Output<AwsIntegrationsAwsAppSyncArgs> awsAppSync;
+
+    /**
+     * @return AppSync integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsAppSyncArgs>> awsAppSync() {
+        return Optional.ofNullable(this.awsAppSync);
+    }
+
+    /**
+     * Athena integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsAthena")
+    private @Nullable Output<AwsIntegrationsAwsAthenaArgs> awsAthena;
+
+    /**
+     * @return Athena integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsAthenaArgs>> awsAthena() {
+        return Optional.ofNullable(this.awsAthena);
+    }
+
+    /**
+     * Cognito integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsCognito")
+    private @Nullable Output<AwsIntegrationsAwsCognitoArgs> awsCognito;
+
+    /**
+     * @return Cognito integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsCognitoArgs>> awsCognito() {
+        return Optional.ofNullable(this.awsCognito);
+    }
+
+    /**
+     * Connect integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsConnect")
+    private @Nullable Output<AwsIntegrationsAwsConnectArgs> awsConnect;
+
+    /**
+     * @return Connect integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsConnectArgs>> awsConnect() {
+        return Optional.ofNullable(this.awsConnect);
+    }
+
+    /**
+     * DirectConnect integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsDirectConnect")
+    private @Nullable Output<AwsIntegrationsAwsDirectConnectArgs> awsDirectConnect;
+
+    /**
+     * @return DirectConnect integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsDirectConnectArgs>> awsDirectConnect() {
+        return Optional.ofNullable(this.awsDirectConnect);
+    }
+
+    /**
+     * Fsx integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsFsx")
+    private @Nullable Output<AwsIntegrationsAwsFsxArgs> awsFsx;
+
+    /**
+     * @return Fsx integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsFsxArgs>> awsFsx() {
+        return Optional.ofNullable(this.awsFsx);
     }
 
     /**
@@ -69,18 +216,48 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Billing integration
+     * Doc_DB integration. See Integration blocks below for details.
      * 
      */
     @Import(name="docDb")
     private @Nullable Output<AwsIntegrationsDocDbArgs> docDb;
 
     /**
-     * @return Billing integration
+     * @return Doc_DB integration. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AwsIntegrationsDocDbArgs>> docDb() {
         return Optional.ofNullable(this.docDb);
+    }
+
+    /**
+     * EBS integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="ebs")
+    private @Nullable Output<AwsIntegrationsEbsArgs> ebs;
+
+    /**
+     * @return EBS integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsEbsArgs>> ebs() {
+        return Optional.ofNullable(this.ebs);
+    }
+
+    /**
+     * Elasticache integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="elasticache")
+    private @Nullable Output<AwsIntegrationsElasticacheArgs> elasticache;
+
+    /**
+     * @return Elasticache integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsElasticacheArgs>> elasticache() {
+        return Optional.ofNullable(this.elasticache);
     }
 
     /**
@@ -114,18 +291,33 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * S3 integration
+     * S3 integration. See Integration blocks below for details.
      * 
      */
     @Import(name="s3")
     private @Nullable Output<AwsIntegrationsS3Args> s3;
 
     /**
-     * @return S3 integration
+     * @return S3 integration. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AwsIntegrationsS3Args>> s3() {
         return Optional.ofNullable(this.s3);
+    }
+
+    /**
+     * SQS integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="sqs")
+    private @Nullable Output<AwsIntegrationsSqsArgs> sqs;
+
+    /**
+     * @return SQS integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsSqsArgs>> sqs() {
+        return Optional.ofNullable(this.sqs);
     }
 
     /**
@@ -177,12 +369,24 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
 
     private AwsIntegrationsArgs(AwsIntegrationsArgs $) {
         this.accountId = $.accountId;
+        this.alb = $.alb;
+        this.apiGateway = $.apiGateway;
+        this.autoScaling = $.autoScaling;
+        this.awsAppSync = $.awsAppSync;
+        this.awsAthena = $.awsAthena;
+        this.awsCognito = $.awsCognito;
+        this.awsConnect = $.awsConnect;
+        this.awsDirectConnect = $.awsDirectConnect;
+        this.awsFsx = $.awsFsx;
         this.billing = $.billing;
         this.cloudtrail = $.cloudtrail;
         this.docDb = $.docDb;
+        this.ebs = $.ebs;
+        this.elasticache = $.elasticache;
         this.health = $.health;
         this.linkedAccountId = $.linkedAccountId;
         this.s3 = $.s3;
+        this.sqs = $.sqs;
         this.trustedAdvisor = $.trustedAdvisor;
         this.vpc = $.vpc;
         this.xRay = $.xRay;
@@ -228,6 +432,195 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param alb ALB integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alb(@Nullable Output<AwsIntegrationsAlbArgs> alb) {
+            $.alb = alb;
+            return this;
+        }
+
+        /**
+         * @param alb ALB integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alb(AwsIntegrationsAlbArgs alb) {
+            return alb(Output.of(alb));
+        }
+
+        /**
+         * @param apiGateway ApiGateway integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiGateway(@Nullable Output<AwsIntegrationsApiGatewayArgs> apiGateway) {
+            $.apiGateway = apiGateway;
+            return this;
+        }
+
+        /**
+         * @param apiGateway ApiGateway integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiGateway(AwsIntegrationsApiGatewayArgs apiGateway) {
+            return apiGateway(Output.of(apiGateway));
+        }
+
+        /**
+         * @param autoScaling AutoScaling integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoScaling(@Nullable Output<AwsIntegrationsAutoScalingArgs> autoScaling) {
+            $.autoScaling = autoScaling;
+            return this;
+        }
+
+        /**
+         * @param autoScaling AutoScaling integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoScaling(AwsIntegrationsAutoScalingArgs autoScaling) {
+            return autoScaling(Output.of(autoScaling));
+        }
+
+        /**
+         * @param awsAppSync AppSync integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsAppSync(@Nullable Output<AwsIntegrationsAwsAppSyncArgs> awsAppSync) {
+            $.awsAppSync = awsAppSync;
+            return this;
+        }
+
+        /**
+         * @param awsAppSync AppSync integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsAppSync(AwsIntegrationsAwsAppSyncArgs awsAppSync) {
+            return awsAppSync(Output.of(awsAppSync));
+        }
+
+        /**
+         * @param awsAthena Athena integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsAthena(@Nullable Output<AwsIntegrationsAwsAthenaArgs> awsAthena) {
+            $.awsAthena = awsAthena;
+            return this;
+        }
+
+        /**
+         * @param awsAthena Athena integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsAthena(AwsIntegrationsAwsAthenaArgs awsAthena) {
+            return awsAthena(Output.of(awsAthena));
+        }
+
+        /**
+         * @param awsCognito Cognito integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsCognito(@Nullable Output<AwsIntegrationsAwsCognitoArgs> awsCognito) {
+            $.awsCognito = awsCognito;
+            return this;
+        }
+
+        /**
+         * @param awsCognito Cognito integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsCognito(AwsIntegrationsAwsCognitoArgs awsCognito) {
+            return awsCognito(Output.of(awsCognito));
+        }
+
+        /**
+         * @param awsConnect Connect integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsConnect(@Nullable Output<AwsIntegrationsAwsConnectArgs> awsConnect) {
+            $.awsConnect = awsConnect;
+            return this;
+        }
+
+        /**
+         * @param awsConnect Connect integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsConnect(AwsIntegrationsAwsConnectArgs awsConnect) {
+            return awsConnect(Output.of(awsConnect));
+        }
+
+        /**
+         * @param awsDirectConnect DirectConnect integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsDirectConnect(@Nullable Output<AwsIntegrationsAwsDirectConnectArgs> awsDirectConnect) {
+            $.awsDirectConnect = awsDirectConnect;
+            return this;
+        }
+
+        /**
+         * @param awsDirectConnect DirectConnect integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsDirectConnect(AwsIntegrationsAwsDirectConnectArgs awsDirectConnect) {
+            return awsDirectConnect(Output.of(awsDirectConnect));
+        }
+
+        /**
+         * @param awsFsx Fsx integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsFsx(@Nullable Output<AwsIntegrationsAwsFsxArgs> awsFsx) {
+            $.awsFsx = awsFsx;
+            return this;
+        }
+
+        /**
+         * @param awsFsx Fsx integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsFsx(AwsIntegrationsAwsFsxArgs awsFsx) {
+            return awsFsx(Output.of(awsFsx));
+        }
+
+        /**
          * @param billing Billing integration. See Integration blocks below for details.
          * 
          * @return builder
@@ -270,7 +663,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param docDb Billing integration
+         * @param docDb Doc_DB integration. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -281,13 +674,55 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param docDb Billing integration
+         * @param docDb Doc_DB integration. See Integration blocks below for details.
          * 
          * @return builder
          * 
          */
         public Builder docDb(AwsIntegrationsDocDbArgs docDb) {
             return docDb(Output.of(docDb));
+        }
+
+        /**
+         * @param ebs EBS integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ebs(@Nullable Output<AwsIntegrationsEbsArgs> ebs) {
+            $.ebs = ebs;
+            return this;
+        }
+
+        /**
+         * @param ebs EBS integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ebs(AwsIntegrationsEbsArgs ebs) {
+            return ebs(Output.of(ebs));
+        }
+
+        /**
+         * @param elasticache Elasticache integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder elasticache(@Nullable Output<AwsIntegrationsElasticacheArgs> elasticache) {
+            $.elasticache = elasticache;
+            return this;
+        }
+
+        /**
+         * @param elasticache Elasticache integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder elasticache(AwsIntegrationsElasticacheArgs elasticache) {
+            return elasticache(Output.of(elasticache));
         }
 
         /**
@@ -333,7 +768,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param s3 S3 integration
+         * @param s3 S3 integration. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -344,13 +779,34 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param s3 S3 integration
+         * @param s3 S3 integration. See Integration blocks below for details.
          * 
          * @return builder
          * 
          */
         public Builder s3(AwsIntegrationsS3Args s3) {
             return s3(Output.of(s3));
+        }
+
+        /**
+         * @param sqs SQS integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sqs(@Nullable Output<AwsIntegrationsSqsArgs> sqs) {
+            $.sqs = sqs;
+            return this;
+        }
+
+        /**
+         * @param sqs SQS integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sqs(AwsIntegrationsSqsArgs sqs) {
+            return sqs(Output.of(sqs));
         }
 
         /**

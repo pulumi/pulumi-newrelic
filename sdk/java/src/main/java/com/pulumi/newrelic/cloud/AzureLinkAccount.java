@@ -16,6 +16,52 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Use this resource to link an Azure account to New Relic.
+ * 
+ * ## Prerequisite
+ * 
+ * Some configuration is required in Azure for the New Relic Azure cloud integrations to be able to pull data.
+ * 
+ * To start receiving Azure data with New Relic Azure integrations, connect your Azure account to New Relic infrastructure monitoring. If you don&#39;t have one already, create a New Relic account. It&#39;s free, forever.
+ * 
+ * Setup is required in Azure for this resource to work properly. You can find instructions on how to set up Azure on [our documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/activate-azure-integrations/).
+ * 
+ * ## Example Usage
+ * 
+ * You can also use the full example, including the Azure set up, found in our guides.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.cloud.AzureLinkAccount;
+ * import com.pulumi.newrelic.cloud.AzureLinkAccountArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new AzureLinkAccount(&#34;foo&#34;, AzureLinkAccountArgs.builder()        
+ *             .accountId(&#34;The New Relic account ID where you want to link the Azure account&#34;)
+ *             .applicationId(&#34;ID of the application&#34;)
+ *             .clientSecret(&#34;Secret value of client&#39;s Azure account&#34;)
+ *             .subscriptionId(&#34;Subscription ID of Azure&#34;)
+ *             .tenantId(&#34;Tenant ID of the Azure&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic bash

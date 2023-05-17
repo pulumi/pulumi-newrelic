@@ -7,6 +7,107 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Use this resource to integrate GCP services with New Relic.
+ *
+ * ## Prerequisite
+ *
+ * Setup is required for this resource to work properly. This resource assumes you have linked a GCP account to New Relic and configured it to pull metrics from GCP.
+ *
+ * New Relic doesn't automatically receive metrics from GCP services, so this resource can be used to configure integrations to those services.
+ *
+ * ## Example Usage
+ *
+ * Leave an integration block empty to use its default configuration. You can also use the full example, including the GCP set up, found in our guides.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.cloud.GcpLinkAccount("foo", {projectId: "<Your GCP project ID>"});
+ * const foo1 = new newrelic.cloud.GcpIntegrations("foo1", {
+ *     linkedAccountId: foo.id,
+ *     appEngine: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     bigQuery: {
+ *         metricsPollingInterval: 400,
+ *         fetchTags: true,
+ *     },
+ *     bigTable: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     composer: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     dataFlow: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     dataProc: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     dataStore: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     fireBaseDatabase: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     fireBaseHosting: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     fireBaseStorage: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     fireStore: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     functions: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     interconnect: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     kubernetes: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     loadBalancing: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     memCache: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     pubSub: {
+ *         metricsPollingInterval: 400,
+ *         fetchTags: true,
+ *     },
+ *     redis: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     router: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     run: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     spanner: {
+ *         metricsPollingInterval: 400,
+ *         fetchTags: true,
+ *     },
+ *     sql: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     storage: {
+ *         metricsPollingInterval: 400,
+ *         fetchTags: true,
+ *     },
+ *     virtualMachines: {
+ *         metricsPollingInterval: 400,
+ *     },
+ *     vpcAccess: {
+ *         metricsPollingInterval: 400,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Linked GCP account integrations can be imported using the `id`, e.g. bash

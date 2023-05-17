@@ -20,10 +20,6 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("token", required: true)]
         private Input<string>? _token;
-
-        /// <summary>
-        /// Specifies the token for integrating.
-        /// </summary>
         public Input<string>? Token
         {
             get => _token;

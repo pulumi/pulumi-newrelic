@@ -138,7 +138,7 @@ import (
 //
 // ```
 //
-//	Please note that channel IDs (`channel_ids`) _cannot_ be imported due channels being a separate resource. However, to add channels to an imported alert policy, you can import the policy, add the `channel_ids` attribute with the associated channel IDs, then run `terraform apply`. This will result in the original alert policy being destroyed and a new alert policy being created along with the channels being added to the policy.
+//	Please note that channel IDs (`channel_ids`) _cannot_ be imported due channels being a separate resource. However, to add channels to an imported alert policy, you can import the policy, add the `channel_ids` attribute with the associated channel IDs, then run `pulumi up`. This will result in the original alert policy being destroyed and a new alert policy being created along with the channels being added to the policy.
 type AlertPolicy struct {
 	pulumi.CustomResourceState
 

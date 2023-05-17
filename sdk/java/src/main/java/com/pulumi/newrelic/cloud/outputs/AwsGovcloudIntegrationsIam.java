@@ -15,6 +15,8 @@ public final class AwsGovcloudIntegrationsIam {
     /**
      * @return The data polling interval in seconds.
      * 
+     * Some integration types support an additional set of arguments:
+     * 
      */
     private @Nullable Integer metricsPollingInterval;
     /**
@@ -34,6 +36,8 @@ public final class AwsGovcloudIntegrationsIam {
     private AwsGovcloudIntegrationsIam() {}
     /**
      * @return The data polling interval in seconds.
+     * 
+     * Some integration types support an additional set of arguments:
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

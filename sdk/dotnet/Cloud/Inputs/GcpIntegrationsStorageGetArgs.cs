@@ -20,6 +20,8 @@ namespace Pulumi.NewRelic.Cloud.Inputs
 
         /// <summary>
         /// The data polling interval in seconds.
+        /// 
+        /// Other integration supports an additional argument:
         /// </summary>
         [Input("metricsPollingInterval")]
         public Input<int>? MetricsPollingInterval { get; set; }

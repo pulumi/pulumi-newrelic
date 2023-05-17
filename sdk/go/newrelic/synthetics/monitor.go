@@ -249,6 +249,8 @@ type Monitor struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// Monitor should skip default HEAD request and instead use GET verb in check.
+	//
+	// The `BROWSER` monitor type supports the following additional arguments:
 	BypassHeadRequest pulumi.BoolPtrOutput `pulumi:"bypassHeadRequest"`
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayOutput `pulumi:"customHeaders"`
@@ -273,6 +275,8 @@ type Monitor struct {
 	// The run state of the monitor.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+	//
+	// The `SIMPLE` monitor type supports the following additional arguments:
 	Tags MonitorTagArrayOutput `pulumi:"tags"`
 	// Categorize redirects during a monitor job as a failure.
 	TreatRedirectAsFailure pulumi.BoolPtrOutput `pulumi:"treatRedirectAsFailure"`
@@ -324,6 +328,8 @@ type monitorState struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId *int `pulumi:"accountId"`
 	// Monitor should skip default HEAD request and instead use GET verb in check.
+	//
+	// The `BROWSER` monitor type supports the following additional arguments:
 	BypassHeadRequest *bool `pulumi:"bypassHeadRequest"`
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
@@ -348,6 +354,8 @@ type monitorState struct {
 	// The run state of the monitor.
 	Status *string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+	//
+	// The `SIMPLE` monitor type supports the following additional arguments:
 	Tags []MonitorTag `pulumi:"tags"`
 	// Categorize redirects during a monitor job as a failure.
 	TreatRedirectAsFailure *bool `pulumi:"treatRedirectAsFailure"`
@@ -365,6 +373,8 @@ type MonitorState struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.IntPtrInput
 	// Monitor should skip default HEAD request and instead use GET verb in check.
+	//
+	// The `BROWSER` monitor type supports the following additional arguments:
 	BypassHeadRequest pulumi.BoolPtrInput
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayInput
@@ -389,6 +399,8 @@ type MonitorState struct {
 	// The run state of the monitor.
 	Status pulumi.StringPtrInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+	//
+	// The `SIMPLE` monitor type supports the following additional arguments:
 	Tags MonitorTagArrayInput
 	// Categorize redirects during a monitor job as a failure.
 	TreatRedirectAsFailure pulumi.BoolPtrInput
@@ -410,6 +422,8 @@ type monitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId *int `pulumi:"accountId"`
 	// Monitor should skip default HEAD request and instead use GET verb in check.
+	//
+	// The `BROWSER` monitor type supports the following additional arguments:
 	BypassHeadRequest *bool `pulumi:"bypassHeadRequest"`
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
@@ -432,6 +446,8 @@ type monitorArgs struct {
 	// The run state of the monitor.
 	Status string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+	//
+	// The `SIMPLE` monitor type supports the following additional arguments:
 	Tags []MonitorTag `pulumi:"tags"`
 	// Categorize redirects during a monitor job as a failure.
 	TreatRedirectAsFailure *bool `pulumi:"treatRedirectAsFailure"`
@@ -450,6 +466,8 @@ type MonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.IntPtrInput
 	// Monitor should skip default HEAD request and instead use GET verb in check.
+	//
+	// The `BROWSER` monitor type supports the following additional arguments:
 	BypassHeadRequest pulumi.BoolPtrInput
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayInput
@@ -472,6 +490,8 @@ type MonitorArgs struct {
 	// The run state of the monitor.
 	Status pulumi.StringInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+	//
+	// The `SIMPLE` monitor type supports the following additional arguments:
 	Tags MonitorTagArrayInput
 	// Categorize redirects during a monitor job as a failure.
 	TreatRedirectAsFailure pulumi.BoolPtrInput
@@ -578,6 +598,8 @@ func (o MonitorOutput) AccountId() pulumi.IntOutput {
 }
 
 // Monitor should skip default HEAD request and instead use GET verb in check.
+//
+// The `BROWSER` monitor type supports the following additional arguments:
 func (o MonitorOutput) BypassHeadRequest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.BypassHeadRequest }).(pulumi.BoolPtrOutput)
 }
@@ -638,6 +660,8 @@ func (o MonitorOutput) Status() pulumi.StringOutput {
 }
 
 // The tags that will be associated with the monitor. See Nested tag blocks below for details.
+//
+// The `SIMPLE` monitor type supports the following additional arguments:
 func (o MonitorOutput) Tags() MonitorTagArrayOutput {
 	return o.ApplyT(func(v *Monitor) MonitorTagArrayOutput { return v.Tags }).(MonitorTagArrayOutput)
 }

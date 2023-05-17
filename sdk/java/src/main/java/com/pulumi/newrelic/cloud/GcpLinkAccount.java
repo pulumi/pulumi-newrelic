@@ -15,6 +15,53 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Use this resource to link a GCP account to New Relic.
+ * 
+ * ## Prerequisite
+ * 
+ * To start receiving Google Cloud Platform (GCP) data with New Relic GCP integrations, connect your Google project to New Relic infrastructure monitoring. If you don&#39;t have one already, create a New Relic account. It&#39;s free, forever.
+ * 
+ * Setup is required in GCP for this resource to work properly. The New Relic GCP integration can be done by creating a user account or a service account.
+ * 
+ * A user with Project IAM Admin role is needed to add the service account ID as a member in your GCP project.
+ * 
+ * In the GCP project IAM &amp; admin, the service account must have the Project Viewer role and the Service Usage Consumer role or, alternatively, a custom role.
+ * 
+ * Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/google-cloud-platform-integrations/get-started/connect-google-cloud-platform-services-new-relic) to set up the integration.
+ * 
+ * ## Example Usage
+ * 
+ * You can also use the full example, including the GCP set up, found in our guides.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.cloud.GcpLinkAccount;
+ * import com.pulumi.newrelic.cloud.GcpLinkAccountArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new GcpLinkAccount(&#34;foo&#34;, GcpLinkAccountArgs.builder()        
+ *             .accountId(&#34;account id of newrelic account&#34;)
+ *             .projectId(&#34;id of the Project&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console. bash

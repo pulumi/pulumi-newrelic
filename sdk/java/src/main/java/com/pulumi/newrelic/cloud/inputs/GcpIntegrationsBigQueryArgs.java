@@ -34,12 +34,16 @@ public final class GcpIntegrationsBigQueryArgs extends com.pulumi.resources.Reso
     /**
      * The data polling interval in seconds.
      * 
+     * Other integration supports an additional argument:
+     * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
      * @return The data polling interval in seconds.
+     * 
+     * Other integration supports an additional argument:
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -95,6 +99,8 @@ public final class GcpIntegrationsBigQueryArgs extends com.pulumi.resources.Reso
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
+         * Other integration supports an additional argument:
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class GcpIntegrationsBigQueryArgs extends com.pulumi.resources.Reso
 
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
+         * 
+         * Other integration supports an additional argument:
          * 
          * @return builder
          * 

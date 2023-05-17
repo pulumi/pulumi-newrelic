@@ -20,6 +20,8 @@ public final class GcpIntegrationsBigQuery {
     /**
      * @return The data polling interval in seconds.
      * 
+     * Other integration supports an additional argument:
+     * 
      */
     private @Nullable Integer metricsPollingInterval;
 
@@ -33,6 +35,8 @@ public final class GcpIntegrationsBigQuery {
     }
     /**
      * @return The data polling interval in seconds.
+     * 
+     * Other integration supports an additional argument:
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

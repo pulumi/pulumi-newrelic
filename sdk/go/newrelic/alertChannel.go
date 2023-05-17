@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this resource to create and manage New Relic alert channels.
+//
+// > **WARNING:** The `AlertChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `NotificationChannel`.
+//
 // ## Example Usage
 // ### Email
 // ```go

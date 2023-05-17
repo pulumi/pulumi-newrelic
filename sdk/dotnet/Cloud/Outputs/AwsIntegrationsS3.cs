@@ -14,14 +14,45 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     public sealed class AwsIntegrationsS3
     {
         /// <summary>
+        /// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        /// </summary>
+        public readonly bool? FetchExtendedInventory;
+        /// <summary>
+        /// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        /// </summary>
+        public readonly bool? FetchTags;
+        /// <summary>
         /// The data polling interval in seconds.
+        /// 
+        /// Some integration types support an additional set of arguments:
         /// </summary>
         public readonly int? MetricsPollingInterval;
+        /// <summary>
+        /// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        /// </summary>
+        public readonly string? TagKey;
+        /// <summary>
+        /// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        /// </summary>
+        public readonly string? TagValue;
 
         [OutputConstructor]
-        private AwsIntegrationsS3(int? metricsPollingInterval)
+        private AwsIntegrationsS3(
+            bool? fetchExtendedInventory,
+
+            bool? fetchTags,
+
+            int? metricsPollingInterval,
+
+            string? tagKey,
+
+            string? tagValue)
         {
+            FetchExtendedInventory = fetchExtendedInventory;
+            FetchTags = fetchTags;
             MetricsPollingInterval = metricsPollingInterval;
+            TagKey = tagKey;
+            TagValue = tagValue;
         }
     }
 }

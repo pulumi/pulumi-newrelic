@@ -5,6 +5,34 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Use this resource to link a GCP account to New Relic.
+ *
+ * ## Prerequisite
+ *
+ * To start receiving Google Cloud Platform (GCP) data with New Relic GCP integrations, connect your Google project to New Relic infrastructure monitoring. If you don't have one already, create a New Relic account. It's free, forever.
+ *
+ * Setup is required in GCP for this resource to work properly. The New Relic GCP integration can be done by creating a user account or a service account.
+ *
+ * A user with Project IAM Admin role is needed to add the service account ID as a member in your GCP project.
+ *
+ * In the GCP project IAM & admin, the service account must have the Project Viewer role and the Service Usage Consumer role or, alternatively, a custom role.
+ *
+ * Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/google-cloud-platform-integrations/get-started/connect-google-cloud-platform-services-new-relic) to set up the integration.
+ *
+ * ## Example Usage
+ *
+ * You can also use the full example, including the GCP set up, found in our guides.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.cloud.GcpLinkAccount("foo", {
+ *     accountId: "account id of newrelic account",
+ *     projectId: "id of the Project",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console. bash

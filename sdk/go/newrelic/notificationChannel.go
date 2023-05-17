@@ -11,6 +11,445 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this resource to create and manage New Relic notification channels. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
+//
+// A channel is an entity that is used to configure notifications. It is also called a message template. It is a separate entity from workflows, but a channel is required in order to create a workflow.
+//
+// ## Example Usage
+//
+// ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
+//				AccountId:     pulumi.Int(12345678),
+//				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
+//				Product:       pulumi.String("IINT"),
+//				Properties: newrelic.NotificationChannelPropertyArray{
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("payload"),
+//						Label: pulumi.String("Payload Template"),
+//						Value: pulumi.String("name: {{ foo }}"),
+//					},
+//				},
+//				Type: pulumi.String("WEBHOOK"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// See additional examples.
+// ## Additional Examples
+//
+// > **NOTE:** We support all properties. The mentioned properties are just an example.
+//
+// ##### [ServiceNow](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenow)
+// To see the properties’ keys for your account, check ServiceNow incidents table.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
+//				AccountId:     pulumi.Int(12345678),
+//				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
+//				Product:       pulumi.String("IINT"),
+//				Properties: newrelic.NotificationChannelPropertyArray{
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("description"),
+//						Value: pulumi.String("General description"),
+//					},
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("short_description"),
+//						Value: pulumi.String("Short description"),
+//					},
+//				},
+//				Type: pulumi.String("SERVICENOW_INCIDENTS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
+//				AccountId:     pulumi.Int(12345678),
+//				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
+//				Product:       pulumi.String("IINT"),
+//				Properties: newrelic.NotificationChannelPropertyArray{
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("subject"),
+//						Value: pulumi.String("New Subject Title"),
+//					},
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("customDetailsEmail"),
+//						Value: pulumi.String("issue id - {{issueId}}"),
+//					},
+//				},
+//				Type: pulumi.String("EMAIL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ##### [Jira Classic](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#jira)
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
+//				AccountId:     pulumi.Int(12345678),
+//				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
+//				Product:       pulumi.String("ERROR_TRACKING"),
+//				Properties: newrelic.NotificationChannelPropertyArray{
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("project"),
+//						Value: pulumi.String("10000"),
+//					},
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("issuetype"),
+//						Value: pulumi.String("10004"),
+//					},
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("description"),
+//						Value: pulumi.String("Issue ID: {{ issueId }}"),
+//					},
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("summary"),
+//						Value: pulumi.String("{{ annotations.title.[0] }}"),
+//					},
+//				},
+//				Type: pulumi.String("JIRA_CLASSIC"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
+//				AccountId:     pulumi.Int(12345678),
+//				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
+//				Product:       pulumi.String("IINT"),
+//				Properties: newrelic.NotificationChannelPropertyArray{
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("summary"),
+//						Value: pulumi.String("General summary"),
+//					},
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("service"),
+//						Value: pulumi.String("PTQK3FM"),
+//					},
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("email"),
+//						Value: pulumi.String("example@email.com"),
+//					},
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("customDetails"),
+//						Value: pulumi.String("    {\n    \"id\":{{json issueId}},\n    \"IssueURL\":{{json issuePageUrl}},\n    \"NewRelic priority\":{{json priority}},\n    \"Total Incidents\":{{json totalIncidents}},\n    \"Impacted Entities\":\"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Runbook\":\"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Description\":\"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"isCorrelated\":{{json isCorrelated}},\n    \"Alert Policy Names\":\"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Alert Condition Names\":\"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Workflow Name\":{{json workflowName}}\n    }\n\n"),
+//					},
+//				},
+//				Type: pulumi.String("PAGERDUTY_ACCOUNT_INTEGRATION"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
+//				AccountId:     pulumi.Int(12345678),
+//				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
+//				Product:       pulumi.String("IINT"),
+//				Properties: newrelic.NotificationChannelPropertyArray{
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("summary"),
+//						Value: pulumi.String("General summary"),
+//					},
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("customDetails"),
+//						Value: pulumi.String("    {\n    \"id\":{{json issueId}},\n    \"IssueURL\":{{json issuePageUrl}},\n    \"NewRelic priority\":{{json priority}},\n    \"Total Incidents\":{{json totalIncidents}},\n    \"Impacted Entities\":\"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Runbook\":\"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Description\":\"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"isCorrelated\":{{json isCorrelated}},\n    \"Alert Policy Names\":\"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Alert Condition Names\":\"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Workflow Name\":{{json workflowName}}\n    }\n\n"),
+//					},
+//				},
+//				Type: pulumi.String("PAGERDUTY_SERVICE_INTEGRATION"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// #### Mobile Push
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
+//				AccountId:     pulumi.Int(12345678),
+//				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
+//				Product:       pulumi.String("IINT"),
+//				Type:          pulumi.String("MOBILE_PUSH"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// #### [AWS Event Bridge](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#eventBridge)
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
+//				AccountId:     pulumi.Int(12345678),
+//				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
+//				Product:       pulumi.String("IINT"),
+//				Properties: newrelic.NotificationChannelPropertyArray{
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("eventSource"),
+//						Value: pulumi.String("aws.partner/mydomain/myaccountid/name"),
+//					},
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("eventContent"),
+//						Value: pulumi.String("{ id: {{ json issueId }} }"),
+//					},
+//				},
+//				Type: pulumi.String("EVENT_BRIDGE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// #### [SLACK](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#slack)
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
+//				AccountId:     pulumi.Int(12345678),
+//				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
+//				Product:       pulumi.String("IINT"),
+//				Properties: newrelic.NotificationChannelPropertyArray{
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("channelId"),
+//						Value: pulumi.String("123456"),
+//					},
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("customDetailsSlack"),
+//						Value: pulumi.String("issue id - {{issueId}}"),
+//					},
+//				},
+//				Type: pulumi.String("SLACK"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
+//
+// ## Full Scenario Example
+//
+// Create a destination resource and reference that destination to the channel resource:
+//
+// ### Create a destination
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNotificationDestination(ctx, "webhook-destination", &newrelic.NotificationDestinationArgs{
+//				AccountId: pulumi.Int(12345678),
+//				AuthBasic: &newrelic.NotificationDestinationAuthBasicArgs{
+//					Password: pulumi.String("password"),
+//					User:     pulumi.String("username"),
+//				},
+//				Properties: newrelic.NotificationDestinationPropertyArray{
+//					&newrelic.NotificationDestinationPropertyArgs{
+//						Key:   pulumi.String("url"),
+//						Value: pulumi.String("https://webhook.mywebhook.com"),
+//					},
+//				},
+//				Type: pulumi.String("WEBHOOK"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Create a channel
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNotificationChannel(ctx, "webhook-channel", &newrelic.NotificationChannelArgs{
+//				AccountId:     pulumi.Int(12345678),
+//				Type:          pulumi.String("WEBHOOK"),
+//				DestinationId: pulumi.Any(newrelic_notification_destination.WebhookDestination.Id),
+//				Product:       pulumi.String("IINT"),
+//				Properties: newrelic.NotificationChannelPropertyArray{
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("payload"),
+//						Value: pulumi.String("{name: foo}"),
+//						Label: pulumi.String("Payload Template"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Additional Information
+//
+// More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
+//
+// > **NOTE:** `AlertChannel` are legacy resources.
 type NotificationChannel struct {
 	pulumi.CustomResourceState
 

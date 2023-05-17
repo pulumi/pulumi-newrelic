@@ -14,6 +14,8 @@ public final class NotificationDestinationProperty {
     /**
      * @return The notification property display value.
      * 
+     * Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
+     * 
      */
     private @Nullable String displayValue;
     /**
@@ -35,6 +37,8 @@ public final class NotificationDestinationProperty {
     private NotificationDestinationProperty() {}
     /**
      * @return The notification property display value.
+     * 
+     * Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
      * 
      */
     public Optional<String> displayValue() {

@@ -70,6 +70,10 @@ export class ApplicationSettings extends pulumi.CustomResource {
     public readonly appApdexThreshold!: pulumi.Output<number>;
     /**
      * Enable or disable real user monitoring for the New Relic application.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     public readonly enableRealUserMonitoring!: pulumi.Output<boolean>;
     /**
@@ -129,6 +133,10 @@ export interface ApplicationSettingsState {
     appApdexThreshold?: pulumi.Input<number>;
     /**
      * Enable or disable real user monitoring for the New Relic application.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     enableRealUserMonitoring?: pulumi.Input<boolean>;
     /**
@@ -151,6 +159,10 @@ export interface ApplicationSettingsArgs {
     appApdexThreshold: pulumi.Input<number>;
     /**
      * Enable or disable real user monitoring for the New Relic application.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     enableRealUserMonitoring: pulumi.Input<boolean>;
     /**

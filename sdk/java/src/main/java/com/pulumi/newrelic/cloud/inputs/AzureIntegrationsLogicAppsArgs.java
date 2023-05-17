@@ -35,12 +35,16 @@ public final class AzureIntegrationsLogicAppsArgs extends com.pulumi.resources.R
     /**
      * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
      * 
+     * Other integration type support an additional argument:
+     * 
      */
     @Import(name="resourceGroups")
     private @Nullable Output<List<String>> resourceGroups;
 
     /**
      * @return Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+     * 
+     * Other integration type support an additional argument:
      * 
      */
     public Optional<Output<List<String>>> resourceGroups() {
@@ -96,6 +100,8 @@ public final class AzureIntegrationsLogicAppsArgs extends com.pulumi.resources.R
         /**
          * @param resourceGroups Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          * 
+         * Other integration type support an additional argument:
+         * 
          * @return builder
          * 
          */
@@ -107,6 +113,8 @@ public final class AzureIntegrationsLogicAppsArgs extends com.pulumi.resources.R
         /**
          * @param resourceGroups Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          * 
+         * Other integration type support an additional argument:
+         * 
          * @return builder
          * 
          */
@@ -116,6 +124,8 @@ public final class AzureIntegrationsLogicAppsArgs extends com.pulumi.resources.R
 
         /**
          * @param resourceGroups Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         * 
+         * Other integration type support an additional argument:
          * 
          * @return builder
          * 

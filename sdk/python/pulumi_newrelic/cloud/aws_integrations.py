@@ -18,11 +18,23 @@ class AwsIntegrationsArgs:
     def __init__(__self__, *,
                  linked_account_id: pulumi.Input[int],
                  account_id: Optional[pulumi.Input[int]] = None,
+                 alb: Optional[pulumi.Input['AwsIntegrationsAlbArgs']] = None,
+                 api_gateway: Optional[pulumi.Input['AwsIntegrationsApiGatewayArgs']] = None,
+                 auto_scaling: Optional[pulumi.Input['AwsIntegrationsAutoScalingArgs']] = None,
+                 aws_app_sync: Optional[pulumi.Input['AwsIntegrationsAwsAppSyncArgs']] = None,
+                 aws_athena: Optional[pulumi.Input['AwsIntegrationsAwsAthenaArgs']] = None,
+                 aws_cognito: Optional[pulumi.Input['AwsIntegrationsAwsCognitoArgs']] = None,
+                 aws_connect: Optional[pulumi.Input['AwsIntegrationsAwsConnectArgs']] = None,
+                 aws_direct_connect: Optional[pulumi.Input['AwsIntegrationsAwsDirectConnectArgs']] = None,
+                 aws_fsx: Optional[pulumi.Input['AwsIntegrationsAwsFsxArgs']] = None,
                  billing: Optional[pulumi.Input['AwsIntegrationsBillingArgs']] = None,
                  cloudtrail: Optional[pulumi.Input['AwsIntegrationsCloudtrailArgs']] = None,
                  doc_db: Optional[pulumi.Input['AwsIntegrationsDocDbArgs']] = None,
+                 ebs: Optional[pulumi.Input['AwsIntegrationsEbsArgs']] = None,
+                 elasticache: Optional[pulumi.Input['AwsIntegrationsElasticacheArgs']] = None,
                  health: Optional[pulumi.Input['AwsIntegrationsHealthArgs']] = None,
                  s3: Optional[pulumi.Input['AwsIntegrationsS3Args']] = None,
+                 sqs: Optional[pulumi.Input['AwsIntegrationsSqsArgs']] = None,
                  trusted_advisor: Optional[pulumi.Input['AwsIntegrationsTrustedAdvisorArgs']] = None,
                  vpc: Optional[pulumi.Input['AwsIntegrationsVpcArgs']] = None,
                  x_ray: Optional[pulumi.Input['AwsIntegrationsXRayArgs']] = None):
@@ -30,11 +42,23 @@ class AwsIntegrationsArgs:
         The set of arguments for constructing a AwsIntegrations resource.
         :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input['AwsIntegrationsAlbArgs'] alb: ALB integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsApiGatewayArgs'] api_gateway: ApiGateway integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAutoScalingArgs'] auto_scaling: AutoScaling integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsAppSyncArgs'] aws_app_sync: AppSync integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsAthenaArgs'] aws_athena: Athena integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsCognitoArgs'] aws_cognito: Cognito integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsConnectArgs'] aws_connect: Connect integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsDirectConnectArgs'] aws_direct_connect: DirectConnect integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsFsxArgs'] aws_fsx: Fsx integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsBillingArgs'] billing: Billing integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsCloudtrailArgs'] cloudtrail: Cloudtrail integration. See Integration blocks below for details.
-        :param pulumi.Input['AwsIntegrationsDocDbArgs'] doc_db: Billing integration
+        :param pulumi.Input['AwsIntegrationsDocDbArgs'] doc_db: Doc_DB integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsEbsArgs'] ebs: EBS integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsElasticacheArgs'] elasticache: Elasticache integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsHealthArgs'] health: Health integration. See Integration blocks below for details.
-        :param pulumi.Input['AwsIntegrationsS3Args'] s3: S3 integration
+        :param pulumi.Input['AwsIntegrationsS3Args'] s3: S3 integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsSqsArgs'] sqs: SQS integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsTrustedAdvisorArgs'] trusted_advisor: Trusted Advisor integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsVpcArgs'] vpc: VPC integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsXRayArgs'] x_ray: X-Ray integration. See Integration blocks below for details.
@@ -42,16 +66,40 @@ class AwsIntegrationsArgs:
         pulumi.set(__self__, "linked_account_id", linked_account_id)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if alb is not None:
+            pulumi.set(__self__, "alb", alb)
+        if api_gateway is not None:
+            pulumi.set(__self__, "api_gateway", api_gateway)
+        if auto_scaling is not None:
+            pulumi.set(__self__, "auto_scaling", auto_scaling)
+        if aws_app_sync is not None:
+            pulumi.set(__self__, "aws_app_sync", aws_app_sync)
+        if aws_athena is not None:
+            pulumi.set(__self__, "aws_athena", aws_athena)
+        if aws_cognito is not None:
+            pulumi.set(__self__, "aws_cognito", aws_cognito)
+        if aws_connect is not None:
+            pulumi.set(__self__, "aws_connect", aws_connect)
+        if aws_direct_connect is not None:
+            pulumi.set(__self__, "aws_direct_connect", aws_direct_connect)
+        if aws_fsx is not None:
+            pulumi.set(__self__, "aws_fsx", aws_fsx)
         if billing is not None:
             pulumi.set(__self__, "billing", billing)
         if cloudtrail is not None:
             pulumi.set(__self__, "cloudtrail", cloudtrail)
         if doc_db is not None:
             pulumi.set(__self__, "doc_db", doc_db)
+        if ebs is not None:
+            pulumi.set(__self__, "ebs", ebs)
+        if elasticache is not None:
+            pulumi.set(__self__, "elasticache", elasticache)
         if health is not None:
             pulumi.set(__self__, "health", health)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
+        if sqs is not None:
+            pulumi.set(__self__, "sqs", sqs)
         if trusted_advisor is not None:
             pulumi.set(__self__, "trusted_advisor", trusted_advisor)
         if vpc is not None:
@@ -85,6 +133,114 @@ class AwsIntegrationsArgs:
 
     @property
     @pulumi.getter
+    def alb(self) -> Optional[pulumi.Input['AwsIntegrationsAlbArgs']]:
+        """
+        ALB integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "alb")
+
+    @alb.setter
+    def alb(self, value: Optional[pulumi.Input['AwsIntegrationsAlbArgs']]):
+        pulumi.set(self, "alb", value)
+
+    @property
+    @pulumi.getter(name="apiGateway")
+    def api_gateway(self) -> Optional[pulumi.Input['AwsIntegrationsApiGatewayArgs']]:
+        """
+        ApiGateway integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "api_gateway")
+
+    @api_gateway.setter
+    def api_gateway(self, value: Optional[pulumi.Input['AwsIntegrationsApiGatewayArgs']]):
+        pulumi.set(self, "api_gateway", value)
+
+    @property
+    @pulumi.getter(name="autoScaling")
+    def auto_scaling(self) -> Optional[pulumi.Input['AwsIntegrationsAutoScalingArgs']]:
+        """
+        AutoScaling integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "auto_scaling")
+
+    @auto_scaling.setter
+    def auto_scaling(self, value: Optional[pulumi.Input['AwsIntegrationsAutoScalingArgs']]):
+        pulumi.set(self, "auto_scaling", value)
+
+    @property
+    @pulumi.getter(name="awsAppSync")
+    def aws_app_sync(self) -> Optional[pulumi.Input['AwsIntegrationsAwsAppSyncArgs']]:
+        """
+        AppSync integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_app_sync")
+
+    @aws_app_sync.setter
+    def aws_app_sync(self, value: Optional[pulumi.Input['AwsIntegrationsAwsAppSyncArgs']]):
+        pulumi.set(self, "aws_app_sync", value)
+
+    @property
+    @pulumi.getter(name="awsAthena")
+    def aws_athena(self) -> Optional[pulumi.Input['AwsIntegrationsAwsAthenaArgs']]:
+        """
+        Athena integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_athena")
+
+    @aws_athena.setter
+    def aws_athena(self, value: Optional[pulumi.Input['AwsIntegrationsAwsAthenaArgs']]):
+        pulumi.set(self, "aws_athena", value)
+
+    @property
+    @pulumi.getter(name="awsCognito")
+    def aws_cognito(self) -> Optional[pulumi.Input['AwsIntegrationsAwsCognitoArgs']]:
+        """
+        Cognito integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_cognito")
+
+    @aws_cognito.setter
+    def aws_cognito(self, value: Optional[pulumi.Input['AwsIntegrationsAwsCognitoArgs']]):
+        pulumi.set(self, "aws_cognito", value)
+
+    @property
+    @pulumi.getter(name="awsConnect")
+    def aws_connect(self) -> Optional[pulumi.Input['AwsIntegrationsAwsConnectArgs']]:
+        """
+        Connect integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_connect")
+
+    @aws_connect.setter
+    def aws_connect(self, value: Optional[pulumi.Input['AwsIntegrationsAwsConnectArgs']]):
+        pulumi.set(self, "aws_connect", value)
+
+    @property
+    @pulumi.getter(name="awsDirectConnect")
+    def aws_direct_connect(self) -> Optional[pulumi.Input['AwsIntegrationsAwsDirectConnectArgs']]:
+        """
+        DirectConnect integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_direct_connect")
+
+    @aws_direct_connect.setter
+    def aws_direct_connect(self, value: Optional[pulumi.Input['AwsIntegrationsAwsDirectConnectArgs']]):
+        pulumi.set(self, "aws_direct_connect", value)
+
+    @property
+    @pulumi.getter(name="awsFsx")
+    def aws_fsx(self) -> Optional[pulumi.Input['AwsIntegrationsAwsFsxArgs']]:
+        """
+        Fsx integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_fsx")
+
+    @aws_fsx.setter
+    def aws_fsx(self, value: Optional[pulumi.Input['AwsIntegrationsAwsFsxArgs']]):
+        pulumi.set(self, "aws_fsx", value)
+
+    @property
+    @pulumi.getter
     def billing(self) -> Optional[pulumi.Input['AwsIntegrationsBillingArgs']]:
         """
         Billing integration. See Integration blocks below for details.
@@ -111,13 +267,37 @@ class AwsIntegrationsArgs:
     @pulumi.getter(name="docDb")
     def doc_db(self) -> Optional[pulumi.Input['AwsIntegrationsDocDbArgs']]:
         """
-        Billing integration
+        Doc_DB integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "doc_db")
 
     @doc_db.setter
     def doc_db(self, value: Optional[pulumi.Input['AwsIntegrationsDocDbArgs']]):
         pulumi.set(self, "doc_db", value)
+
+    @property
+    @pulumi.getter
+    def ebs(self) -> Optional[pulumi.Input['AwsIntegrationsEbsArgs']]:
+        """
+        EBS integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "ebs")
+
+    @ebs.setter
+    def ebs(self, value: Optional[pulumi.Input['AwsIntegrationsEbsArgs']]):
+        pulumi.set(self, "ebs", value)
+
+    @property
+    @pulumi.getter
+    def elasticache(self) -> Optional[pulumi.Input['AwsIntegrationsElasticacheArgs']]:
+        """
+        Elasticache integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "elasticache")
+
+    @elasticache.setter
+    def elasticache(self, value: Optional[pulumi.Input['AwsIntegrationsElasticacheArgs']]):
+        pulumi.set(self, "elasticache", value)
 
     @property
     @pulumi.getter
@@ -135,13 +315,25 @@ class AwsIntegrationsArgs:
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['AwsIntegrationsS3Args']]:
         """
-        S3 integration
+        S3 integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
     def s3(self, value: Optional[pulumi.Input['AwsIntegrationsS3Args']]):
         pulumi.set(self, "s3", value)
+
+    @property
+    @pulumi.getter
+    def sqs(self) -> Optional[pulumi.Input['AwsIntegrationsSqsArgs']]:
+        """
+        SQS integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "sqs")
+
+    @sqs.setter
+    def sqs(self, value: Optional[pulumi.Input['AwsIntegrationsSqsArgs']]):
+        pulumi.set(self, "sqs", value)
 
     @property
     @pulumi.getter(name="trustedAdvisor")
@@ -184,42 +376,90 @@ class AwsIntegrationsArgs:
 class _AwsIntegrationsState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[int]] = None,
+                 alb: Optional[pulumi.Input['AwsIntegrationsAlbArgs']] = None,
+                 api_gateway: Optional[pulumi.Input['AwsIntegrationsApiGatewayArgs']] = None,
+                 auto_scaling: Optional[pulumi.Input['AwsIntegrationsAutoScalingArgs']] = None,
+                 aws_app_sync: Optional[pulumi.Input['AwsIntegrationsAwsAppSyncArgs']] = None,
+                 aws_athena: Optional[pulumi.Input['AwsIntegrationsAwsAthenaArgs']] = None,
+                 aws_cognito: Optional[pulumi.Input['AwsIntegrationsAwsCognitoArgs']] = None,
+                 aws_connect: Optional[pulumi.Input['AwsIntegrationsAwsConnectArgs']] = None,
+                 aws_direct_connect: Optional[pulumi.Input['AwsIntegrationsAwsDirectConnectArgs']] = None,
+                 aws_fsx: Optional[pulumi.Input['AwsIntegrationsAwsFsxArgs']] = None,
                  billing: Optional[pulumi.Input['AwsIntegrationsBillingArgs']] = None,
                  cloudtrail: Optional[pulumi.Input['AwsIntegrationsCloudtrailArgs']] = None,
                  doc_db: Optional[pulumi.Input['AwsIntegrationsDocDbArgs']] = None,
+                 ebs: Optional[pulumi.Input['AwsIntegrationsEbsArgs']] = None,
+                 elasticache: Optional[pulumi.Input['AwsIntegrationsElasticacheArgs']] = None,
                  health: Optional[pulumi.Input['AwsIntegrationsHealthArgs']] = None,
                  linked_account_id: Optional[pulumi.Input[int]] = None,
                  s3: Optional[pulumi.Input['AwsIntegrationsS3Args']] = None,
+                 sqs: Optional[pulumi.Input['AwsIntegrationsSqsArgs']] = None,
                  trusted_advisor: Optional[pulumi.Input['AwsIntegrationsTrustedAdvisorArgs']] = None,
                  vpc: Optional[pulumi.Input['AwsIntegrationsVpcArgs']] = None,
                  x_ray: Optional[pulumi.Input['AwsIntegrationsXRayArgs']] = None):
         """
         Input properties used for looking up and filtering AwsIntegrations resources.
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input['AwsIntegrationsAlbArgs'] alb: ALB integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsApiGatewayArgs'] api_gateway: ApiGateway integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAutoScalingArgs'] auto_scaling: AutoScaling integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsAppSyncArgs'] aws_app_sync: AppSync integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsAthenaArgs'] aws_athena: Athena integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsCognitoArgs'] aws_cognito: Cognito integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsConnectArgs'] aws_connect: Connect integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsDirectConnectArgs'] aws_direct_connect: DirectConnect integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsFsxArgs'] aws_fsx: Fsx integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsBillingArgs'] billing: Billing integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsCloudtrailArgs'] cloudtrail: Cloudtrail integration. See Integration blocks below for details.
-        :param pulumi.Input['AwsIntegrationsDocDbArgs'] doc_db: Billing integration
+        :param pulumi.Input['AwsIntegrationsDocDbArgs'] doc_db: Doc_DB integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsEbsArgs'] ebs: EBS integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsElasticacheArgs'] elasticache: Elasticache integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsHealthArgs'] health: Health integration. See Integration blocks below for details.
         :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
-        :param pulumi.Input['AwsIntegrationsS3Args'] s3: S3 integration
+        :param pulumi.Input['AwsIntegrationsS3Args'] s3: S3 integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsSqsArgs'] sqs: SQS integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsTrustedAdvisorArgs'] trusted_advisor: Trusted Advisor integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsVpcArgs'] vpc: VPC integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsXRayArgs'] x_ray: X-Ray integration. See Integration blocks below for details.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if alb is not None:
+            pulumi.set(__self__, "alb", alb)
+        if api_gateway is not None:
+            pulumi.set(__self__, "api_gateway", api_gateway)
+        if auto_scaling is not None:
+            pulumi.set(__self__, "auto_scaling", auto_scaling)
+        if aws_app_sync is not None:
+            pulumi.set(__self__, "aws_app_sync", aws_app_sync)
+        if aws_athena is not None:
+            pulumi.set(__self__, "aws_athena", aws_athena)
+        if aws_cognito is not None:
+            pulumi.set(__self__, "aws_cognito", aws_cognito)
+        if aws_connect is not None:
+            pulumi.set(__self__, "aws_connect", aws_connect)
+        if aws_direct_connect is not None:
+            pulumi.set(__self__, "aws_direct_connect", aws_direct_connect)
+        if aws_fsx is not None:
+            pulumi.set(__self__, "aws_fsx", aws_fsx)
         if billing is not None:
             pulumi.set(__self__, "billing", billing)
         if cloudtrail is not None:
             pulumi.set(__self__, "cloudtrail", cloudtrail)
         if doc_db is not None:
             pulumi.set(__self__, "doc_db", doc_db)
+        if ebs is not None:
+            pulumi.set(__self__, "ebs", ebs)
+        if elasticache is not None:
+            pulumi.set(__self__, "elasticache", elasticache)
         if health is not None:
             pulumi.set(__self__, "health", health)
         if linked_account_id is not None:
             pulumi.set(__self__, "linked_account_id", linked_account_id)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
+        if sqs is not None:
+            pulumi.set(__self__, "sqs", sqs)
         if trusted_advisor is not None:
             pulumi.set(__self__, "trusted_advisor", trusted_advisor)
         if vpc is not None:
@@ -238,6 +478,114 @@ class _AwsIntegrationsState:
     @account_id.setter
     def account_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def alb(self) -> Optional[pulumi.Input['AwsIntegrationsAlbArgs']]:
+        """
+        ALB integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "alb")
+
+    @alb.setter
+    def alb(self, value: Optional[pulumi.Input['AwsIntegrationsAlbArgs']]):
+        pulumi.set(self, "alb", value)
+
+    @property
+    @pulumi.getter(name="apiGateway")
+    def api_gateway(self) -> Optional[pulumi.Input['AwsIntegrationsApiGatewayArgs']]:
+        """
+        ApiGateway integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "api_gateway")
+
+    @api_gateway.setter
+    def api_gateway(self, value: Optional[pulumi.Input['AwsIntegrationsApiGatewayArgs']]):
+        pulumi.set(self, "api_gateway", value)
+
+    @property
+    @pulumi.getter(name="autoScaling")
+    def auto_scaling(self) -> Optional[pulumi.Input['AwsIntegrationsAutoScalingArgs']]:
+        """
+        AutoScaling integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "auto_scaling")
+
+    @auto_scaling.setter
+    def auto_scaling(self, value: Optional[pulumi.Input['AwsIntegrationsAutoScalingArgs']]):
+        pulumi.set(self, "auto_scaling", value)
+
+    @property
+    @pulumi.getter(name="awsAppSync")
+    def aws_app_sync(self) -> Optional[pulumi.Input['AwsIntegrationsAwsAppSyncArgs']]:
+        """
+        AppSync integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_app_sync")
+
+    @aws_app_sync.setter
+    def aws_app_sync(self, value: Optional[pulumi.Input['AwsIntegrationsAwsAppSyncArgs']]):
+        pulumi.set(self, "aws_app_sync", value)
+
+    @property
+    @pulumi.getter(name="awsAthena")
+    def aws_athena(self) -> Optional[pulumi.Input['AwsIntegrationsAwsAthenaArgs']]:
+        """
+        Athena integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_athena")
+
+    @aws_athena.setter
+    def aws_athena(self, value: Optional[pulumi.Input['AwsIntegrationsAwsAthenaArgs']]):
+        pulumi.set(self, "aws_athena", value)
+
+    @property
+    @pulumi.getter(name="awsCognito")
+    def aws_cognito(self) -> Optional[pulumi.Input['AwsIntegrationsAwsCognitoArgs']]:
+        """
+        Cognito integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_cognito")
+
+    @aws_cognito.setter
+    def aws_cognito(self, value: Optional[pulumi.Input['AwsIntegrationsAwsCognitoArgs']]):
+        pulumi.set(self, "aws_cognito", value)
+
+    @property
+    @pulumi.getter(name="awsConnect")
+    def aws_connect(self) -> Optional[pulumi.Input['AwsIntegrationsAwsConnectArgs']]:
+        """
+        Connect integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_connect")
+
+    @aws_connect.setter
+    def aws_connect(self, value: Optional[pulumi.Input['AwsIntegrationsAwsConnectArgs']]):
+        pulumi.set(self, "aws_connect", value)
+
+    @property
+    @pulumi.getter(name="awsDirectConnect")
+    def aws_direct_connect(self) -> Optional[pulumi.Input['AwsIntegrationsAwsDirectConnectArgs']]:
+        """
+        DirectConnect integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_direct_connect")
+
+    @aws_direct_connect.setter
+    def aws_direct_connect(self, value: Optional[pulumi.Input['AwsIntegrationsAwsDirectConnectArgs']]):
+        pulumi.set(self, "aws_direct_connect", value)
+
+    @property
+    @pulumi.getter(name="awsFsx")
+    def aws_fsx(self) -> Optional[pulumi.Input['AwsIntegrationsAwsFsxArgs']]:
+        """
+        Fsx integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_fsx")
+
+    @aws_fsx.setter
+    def aws_fsx(self, value: Optional[pulumi.Input['AwsIntegrationsAwsFsxArgs']]):
+        pulumi.set(self, "aws_fsx", value)
 
     @property
     @pulumi.getter
@@ -267,13 +615,37 @@ class _AwsIntegrationsState:
     @pulumi.getter(name="docDb")
     def doc_db(self) -> Optional[pulumi.Input['AwsIntegrationsDocDbArgs']]:
         """
-        Billing integration
+        Doc_DB integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "doc_db")
 
     @doc_db.setter
     def doc_db(self, value: Optional[pulumi.Input['AwsIntegrationsDocDbArgs']]):
         pulumi.set(self, "doc_db", value)
+
+    @property
+    @pulumi.getter
+    def ebs(self) -> Optional[pulumi.Input['AwsIntegrationsEbsArgs']]:
+        """
+        EBS integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "ebs")
+
+    @ebs.setter
+    def ebs(self, value: Optional[pulumi.Input['AwsIntegrationsEbsArgs']]):
+        pulumi.set(self, "ebs", value)
+
+    @property
+    @pulumi.getter
+    def elasticache(self) -> Optional[pulumi.Input['AwsIntegrationsElasticacheArgs']]:
+        """
+        Elasticache integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "elasticache")
+
+    @elasticache.setter
+    def elasticache(self, value: Optional[pulumi.Input['AwsIntegrationsElasticacheArgs']]):
+        pulumi.set(self, "elasticache", value)
 
     @property
     @pulumi.getter
@@ -303,13 +675,25 @@ class _AwsIntegrationsState:
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['AwsIntegrationsS3Args']]:
         """
-        S3 integration
+        S3 integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
     def s3(self, value: Optional[pulumi.Input['AwsIntegrationsS3Args']]):
         pulumi.set(self, "s3", value)
+
+    @property
+    @pulumi.getter
+    def sqs(self) -> Optional[pulumi.Input['AwsIntegrationsSqsArgs']]:
+        """
+        SQS integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "sqs")
+
+    @sqs.setter
+    def sqs(self, value: Optional[pulumi.Input['AwsIntegrationsSqsArgs']]):
+        pulumi.set(self, "sqs", value)
 
     @property
     @pulumi.getter(name="trustedAdvisor")
@@ -354,17 +738,147 @@ class AwsIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[int]] = None,
+                 alb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']]] = None,
+                 api_gateway: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']]] = None,
+                 auto_scaling: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']]] = None,
+                 aws_app_sync: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAppSyncArgs']]] = None,
+                 aws_athena: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAthenaArgs']]] = None,
+                 aws_cognito: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsCognitoArgs']]] = None,
+                 aws_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsConnectArgs']]] = None,
+                 aws_direct_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsDirectConnectArgs']]] = None,
+                 aws_fsx: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsFsxArgs']]] = None,
                  billing: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']]] = None,
                  cloudtrail: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']]] = None,
                  doc_db: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']]] = None,
+                 ebs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEbsArgs']]] = None,
+                 elasticache: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticacheArgs']]] = None,
                  health: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']]] = None,
                  linked_account_id: Optional[pulumi.Input[int]] = None,
                  s3: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']]] = None,
+                 sqs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSqsArgs']]] = None,
                  trusted_advisor: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']]] = None,
                  vpc: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']]] = None,
                  x_ray: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']]] = None,
                  __props__=None):
         """
+        Use this resource to integrate AWS services with New Relic.
+
+        ## Prerequisite
+
+        Setup is required for this resource to work properly. This resource assumes you have linked an AWS account to New Relic and configured it to push metrics using CloudWatch Metric Streams.
+
+        New Relic doesn't automatically receive metrics from AWS for some services so this resource can be used to configure integrations to those services.
+
+        Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.
+
+        ## Example Usage
+
+        Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.cloud.AwsLinkAccount("foo",
+            arn=aws_iam_role["newrelic_aws_role"]["arn"],
+            metric_collection_mode="PULL")
+        bar = newrelic.cloud.AwsIntegrations("bar",
+            linked_account_id=foo.id,
+            billing=newrelic.cloud.AwsIntegrationsBillingArgs(),
+            cloudtrail=newrelic.cloud.AwsIntegrationsCloudtrailArgs(
+                metrics_polling_interval=6000,
+                aws_regions=[
+                    "region-1",
+                    "region-2",
+                ],
+            ),
+            health=newrelic.cloud.AwsIntegrationsHealthArgs(
+                metrics_polling_interval=6000,
+            ),
+            trusted_advisor=newrelic.cloud.AwsIntegrationsTrustedAdvisorArgs(
+                metrics_polling_interval=6000,
+            ),
+            vpc=newrelic.cloud.AwsIntegrationsVpcArgs(
+                metrics_polling_interval=6000,
+                aws_regions=[
+                    "region-1",
+                    "region-2",
+                ],
+                fetch_nat_gateway=True,
+                fetch_vpn=False,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            x_ray=newrelic.cloud.AwsIntegrationsXRayArgs(
+                metrics_polling_interval=6000,
+                aws_regions=[
+                    "region-1",
+                    "region-2",
+                ],
+            ),
+            s3=newrelic.cloud.AwsIntegrationsS3Args(
+                metrics_polling_interval=6000,
+            ),
+            doc_db=newrelic.cloud.AwsIntegrationsDocDbArgs(
+                metrics_polling_interval=6000,
+            ),
+            sqs=newrelic.cloud.AwsIntegrationsSqsArgs(
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+                tag_key="test",
+                tag_value="test",
+            ),
+            ebs=newrelic.cloud.AwsIntegrationsEbsArgs(
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+                tag_key="test",
+                tag_value="test",
+            ),
+            alb=newrelic.cloud.AwsIntegrationsAlbArgs(
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+            ),
+            elasticache=newrelic.cloud.AwsIntegrationsElasticacheArgs(
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+            ),
+            api_gateway=newrelic.cloud.AwsIntegrationsApiGatewayArgs(
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+                stage_prefixes=[""],
+                tag_key="test",
+                tag_value="test",
+            ),
+            auto_scaling=newrelic.cloud.AwsIntegrationsAutoScalingArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_app_sync=newrelic.cloud.AwsIntegrationsAwsAppSyncArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_athena=newrelic.cloud.AwsIntegrationsAwsAthenaArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_cognito=newrelic.cloud.AwsIntegrationsAwsCognitoArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_connect=newrelic.cloud.AwsIntegrationsAwsConnectArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_direct_connect=newrelic.cloud.AwsIntegrationsAwsDirectConnectArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_fsx=newrelic.cloud.AwsIntegrationsAwsFsxArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ))
+        ```
+
         ## Import
 
         Linked AWS account integrations can be imported using the `id`, e.g. bash
@@ -376,12 +890,24 @@ class AwsIntegrations(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']] alb: ALB integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']] api_gateway: ApiGateway integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']] auto_scaling: AutoScaling integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAppSyncArgs']] aws_app_sync: AppSync integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAthenaArgs']] aws_athena: Athena integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsCognitoArgs']] aws_cognito: Cognito integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsConnectArgs']] aws_connect: Connect integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsDirectConnectArgs']] aws_direct_connect: DirectConnect integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsFsxArgs']] aws_fsx: Fsx integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']] billing: Billing integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']] cloudtrail: Cloudtrail integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']] doc_db: Billing integration
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']] doc_db: Doc_DB integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEbsArgs']] ebs: EBS integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElasticacheArgs']] elasticache: Elasticache integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']] health: Health integration. See Integration blocks below for details.
         :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']] s3: S3 integration
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']] s3: S3 integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsSqsArgs']] sqs: SQS integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']] trusted_advisor: Trusted Advisor integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']] vpc: VPC integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']] x_ray: X-Ray integration. See Integration blocks below for details.
@@ -393,6 +919,124 @@ class AwsIntegrations(pulumi.CustomResource):
                  args: AwsIntegrationsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Use this resource to integrate AWS services with New Relic.
+
+        ## Prerequisite
+
+        Setup is required for this resource to work properly. This resource assumes you have linked an AWS account to New Relic and configured it to push metrics using CloudWatch Metric Streams.
+
+        New Relic doesn't automatically receive metrics from AWS for some services so this resource can be used to configure integrations to those services.
+
+        Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.
+
+        ## Example Usage
+
+        Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.cloud.AwsLinkAccount("foo",
+            arn=aws_iam_role["newrelic_aws_role"]["arn"],
+            metric_collection_mode="PULL")
+        bar = newrelic.cloud.AwsIntegrations("bar",
+            linked_account_id=foo.id,
+            billing=newrelic.cloud.AwsIntegrationsBillingArgs(),
+            cloudtrail=newrelic.cloud.AwsIntegrationsCloudtrailArgs(
+                metrics_polling_interval=6000,
+                aws_regions=[
+                    "region-1",
+                    "region-2",
+                ],
+            ),
+            health=newrelic.cloud.AwsIntegrationsHealthArgs(
+                metrics_polling_interval=6000,
+            ),
+            trusted_advisor=newrelic.cloud.AwsIntegrationsTrustedAdvisorArgs(
+                metrics_polling_interval=6000,
+            ),
+            vpc=newrelic.cloud.AwsIntegrationsVpcArgs(
+                metrics_polling_interval=6000,
+                aws_regions=[
+                    "region-1",
+                    "region-2",
+                ],
+                fetch_nat_gateway=True,
+                fetch_vpn=False,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            x_ray=newrelic.cloud.AwsIntegrationsXRayArgs(
+                metrics_polling_interval=6000,
+                aws_regions=[
+                    "region-1",
+                    "region-2",
+                ],
+            ),
+            s3=newrelic.cloud.AwsIntegrationsS3Args(
+                metrics_polling_interval=6000,
+            ),
+            doc_db=newrelic.cloud.AwsIntegrationsDocDbArgs(
+                metrics_polling_interval=6000,
+            ),
+            sqs=newrelic.cloud.AwsIntegrationsSqsArgs(
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+                tag_key="test",
+                tag_value="test",
+            ),
+            ebs=newrelic.cloud.AwsIntegrationsEbsArgs(
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+                tag_key="test",
+                tag_value="test",
+            ),
+            alb=newrelic.cloud.AwsIntegrationsAlbArgs(
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+            ),
+            elasticache=newrelic.cloud.AwsIntegrationsElasticacheArgs(
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+            ),
+            api_gateway=newrelic.cloud.AwsIntegrationsApiGatewayArgs(
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+                stage_prefixes=[""],
+                tag_key="test",
+                tag_value="test",
+            ),
+            auto_scaling=newrelic.cloud.AwsIntegrationsAutoScalingArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_app_sync=newrelic.cloud.AwsIntegrationsAwsAppSyncArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_athena=newrelic.cloud.AwsIntegrationsAwsAthenaArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_cognito=newrelic.cloud.AwsIntegrationsAwsCognitoArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_connect=newrelic.cloud.AwsIntegrationsAwsConnectArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_direct_connect=newrelic.cloud.AwsIntegrationsAwsDirectConnectArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_fsx=newrelic.cloud.AwsIntegrationsAwsFsxArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ))
+        ```
+
         ## Import
 
         Linked AWS account integrations can be imported using the `id`, e.g. bash
@@ -417,12 +1061,24 @@ class AwsIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[int]] = None,
+                 alb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']]] = None,
+                 api_gateway: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']]] = None,
+                 auto_scaling: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']]] = None,
+                 aws_app_sync: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAppSyncArgs']]] = None,
+                 aws_athena: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAthenaArgs']]] = None,
+                 aws_cognito: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsCognitoArgs']]] = None,
+                 aws_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsConnectArgs']]] = None,
+                 aws_direct_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsDirectConnectArgs']]] = None,
+                 aws_fsx: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsFsxArgs']]] = None,
                  billing: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']]] = None,
                  cloudtrail: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']]] = None,
                  doc_db: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']]] = None,
+                 ebs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEbsArgs']]] = None,
+                 elasticache: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticacheArgs']]] = None,
                  health: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']]] = None,
                  linked_account_id: Optional[pulumi.Input[int]] = None,
                  s3: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']]] = None,
+                 sqs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSqsArgs']]] = None,
                  trusted_advisor: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']]] = None,
                  vpc: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']]] = None,
                  x_ray: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']]] = None,
@@ -436,14 +1092,26 @@ class AwsIntegrations(pulumi.CustomResource):
             __props__ = AwsIntegrationsArgs.__new__(AwsIntegrationsArgs)
 
             __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["alb"] = alb
+            __props__.__dict__["api_gateway"] = api_gateway
+            __props__.__dict__["auto_scaling"] = auto_scaling
+            __props__.__dict__["aws_app_sync"] = aws_app_sync
+            __props__.__dict__["aws_athena"] = aws_athena
+            __props__.__dict__["aws_cognito"] = aws_cognito
+            __props__.__dict__["aws_connect"] = aws_connect
+            __props__.__dict__["aws_direct_connect"] = aws_direct_connect
+            __props__.__dict__["aws_fsx"] = aws_fsx
             __props__.__dict__["billing"] = billing
             __props__.__dict__["cloudtrail"] = cloudtrail
             __props__.__dict__["doc_db"] = doc_db
+            __props__.__dict__["ebs"] = ebs
+            __props__.__dict__["elasticache"] = elasticache
             __props__.__dict__["health"] = health
             if linked_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_account_id'")
             __props__.__dict__["linked_account_id"] = linked_account_id
             __props__.__dict__["s3"] = s3
+            __props__.__dict__["sqs"] = sqs
             __props__.__dict__["trusted_advisor"] = trusted_advisor
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["x_ray"] = x_ray
@@ -458,12 +1126,24 @@ class AwsIntegrations(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[int]] = None,
+            alb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']]] = None,
+            api_gateway: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']]] = None,
+            auto_scaling: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']]] = None,
+            aws_app_sync: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAppSyncArgs']]] = None,
+            aws_athena: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAthenaArgs']]] = None,
+            aws_cognito: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsCognitoArgs']]] = None,
+            aws_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsConnectArgs']]] = None,
+            aws_direct_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsDirectConnectArgs']]] = None,
+            aws_fsx: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsFsxArgs']]] = None,
             billing: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']]] = None,
             cloudtrail: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']]] = None,
             doc_db: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']]] = None,
+            ebs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEbsArgs']]] = None,
+            elasticache: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticacheArgs']]] = None,
             health: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']]] = None,
             linked_account_id: Optional[pulumi.Input[int]] = None,
             s3: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']]] = None,
+            sqs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSqsArgs']]] = None,
             trusted_advisor: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']]] = None,
             vpc: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']]] = None,
             x_ray: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']]] = None) -> 'AwsIntegrations':
@@ -475,12 +1155,24 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']] alb: ALB integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']] api_gateway: ApiGateway integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']] auto_scaling: AutoScaling integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAppSyncArgs']] aws_app_sync: AppSync integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAthenaArgs']] aws_athena: Athena integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsCognitoArgs']] aws_cognito: Cognito integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsConnectArgs']] aws_connect: Connect integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsDirectConnectArgs']] aws_direct_connect: DirectConnect integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsFsxArgs']] aws_fsx: Fsx integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']] billing: Billing integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']] cloudtrail: Cloudtrail integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']] doc_db: Billing integration
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']] doc_db: Doc_DB integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEbsArgs']] ebs: EBS integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElasticacheArgs']] elasticache: Elasticache integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']] health: Health integration. See Integration blocks below for details.
         :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']] s3: S3 integration
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']] s3: S3 integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsSqsArgs']] sqs: SQS integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']] trusted_advisor: Trusted Advisor integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']] vpc: VPC integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']] x_ray: X-Ray integration. See Integration blocks below for details.
@@ -490,12 +1182,24 @@ class AwsIntegrations(pulumi.CustomResource):
         __props__ = _AwsIntegrationsState.__new__(_AwsIntegrationsState)
 
         __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["alb"] = alb
+        __props__.__dict__["api_gateway"] = api_gateway
+        __props__.__dict__["auto_scaling"] = auto_scaling
+        __props__.__dict__["aws_app_sync"] = aws_app_sync
+        __props__.__dict__["aws_athena"] = aws_athena
+        __props__.__dict__["aws_cognito"] = aws_cognito
+        __props__.__dict__["aws_connect"] = aws_connect
+        __props__.__dict__["aws_direct_connect"] = aws_direct_connect
+        __props__.__dict__["aws_fsx"] = aws_fsx
         __props__.__dict__["billing"] = billing
         __props__.__dict__["cloudtrail"] = cloudtrail
         __props__.__dict__["doc_db"] = doc_db
+        __props__.__dict__["ebs"] = ebs
+        __props__.__dict__["elasticache"] = elasticache
         __props__.__dict__["health"] = health
         __props__.__dict__["linked_account_id"] = linked_account_id
         __props__.__dict__["s3"] = s3
+        __props__.__dict__["sqs"] = sqs
         __props__.__dict__["trusted_advisor"] = trusted_advisor
         __props__.__dict__["vpc"] = vpc
         __props__.__dict__["x_ray"] = x_ray
@@ -508,6 +1212,78 @@ class AwsIntegrations(pulumi.CustomResource):
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def alb(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAlb']]:
+        """
+        ALB integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "alb")
+
+    @property
+    @pulumi.getter(name="apiGateway")
+    def api_gateway(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsApiGateway']]:
+        """
+        ApiGateway integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "api_gateway")
+
+    @property
+    @pulumi.getter(name="autoScaling")
+    def auto_scaling(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAutoScaling']]:
+        """
+        AutoScaling integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "auto_scaling")
+
+    @property
+    @pulumi.getter(name="awsAppSync")
+    def aws_app_sync(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsAppSync']]:
+        """
+        AppSync integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_app_sync")
+
+    @property
+    @pulumi.getter(name="awsAthena")
+    def aws_athena(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsAthena']]:
+        """
+        Athena integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_athena")
+
+    @property
+    @pulumi.getter(name="awsCognito")
+    def aws_cognito(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsCognito']]:
+        """
+        Cognito integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_cognito")
+
+    @property
+    @pulumi.getter(name="awsConnect")
+    def aws_connect(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsConnect']]:
+        """
+        Connect integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_connect")
+
+    @property
+    @pulumi.getter(name="awsDirectConnect")
+    def aws_direct_connect(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsDirectConnect']]:
+        """
+        DirectConnect integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_direct_connect")
+
+    @property
+    @pulumi.getter(name="awsFsx")
+    def aws_fsx(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsFsx']]:
+        """
+        Fsx integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_fsx")
 
     @property
     @pulumi.getter
@@ -529,9 +1305,25 @@ class AwsIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="docDb")
     def doc_db(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsDocDb']]:
         """
-        Billing integration
+        Doc_DB integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "doc_db")
+
+    @property
+    @pulumi.getter
+    def ebs(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsEbs']]:
+        """
+        EBS integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "ebs")
+
+    @property
+    @pulumi.getter
+    def elasticache(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsElasticache']]:
+        """
+        Elasticache integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "elasticache")
 
     @property
     @pulumi.getter
@@ -553,9 +1345,17 @@ class AwsIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def s3(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsS3']]:
         """
-        S3 integration
+        S3 integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "s3")
+
+    @property
+    @pulumi.getter
+    def sqs(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsSqs']]:
+        """
+        SQS integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "sqs")
 
     @property
     @pulumi.getter(name="trustedAdvisor")

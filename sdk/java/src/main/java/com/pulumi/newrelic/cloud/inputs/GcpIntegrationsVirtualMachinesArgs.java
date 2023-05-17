@@ -18,12 +18,16 @@ public final class GcpIntegrationsVirtualMachinesArgs extends com.pulumi.resourc
     /**
      * The data polling interval in seconds.
      * 
+     * Other integration supports an additional argument:
+     * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
      * @return The data polling interval in seconds.
+     * 
+     * Other integration supports an additional argument:
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -57,6 +61,8 @@ public final class GcpIntegrationsVirtualMachinesArgs extends com.pulumi.resourc
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
+         * Other integration supports an additional argument:
+         * 
          * @return builder
          * 
          */
@@ -67,6 +73,8 @@ public final class GcpIntegrationsVirtualMachinesArgs extends com.pulumi.resourc
 
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
+         * 
+         * Other integration supports an additional argument:
          * 
          * @return builder
          * 

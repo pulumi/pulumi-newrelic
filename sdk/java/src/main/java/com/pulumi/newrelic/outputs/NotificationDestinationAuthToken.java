@@ -16,10 +16,6 @@ public final class NotificationDestinationAuthToken {
      * 
      */
     private @Nullable String prefix;
-    /**
-     * @return Specifies the token for integrating.
-     * 
-     */
     private String token;
 
     private NotificationDestinationAuthToken() {}
@@ -30,10 +26,6 @@ public final class NotificationDestinationAuthToken {
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return Specifies the token for integrating.
-     * 
-     */
     public String token() {
         return this.token;
     }

@@ -130,6 +130,16 @@ namespace Pulumi.NewRelic.Synthetics
     {
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -212,6 +222,16 @@ namespace Pulumi.NewRelic.Synthetics
     {
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -250,6 +270,16 @@ namespace Pulumi.NewRelic.Synthetics
     {
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

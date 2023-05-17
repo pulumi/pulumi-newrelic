@@ -64,6 +64,20 @@ type ApplicationSettings struct {
 	// The appex threshold for the New Relic application.
 	AppApdexThreshold pulumi.Float64Output `pulumi:"appApdexThreshold"`
 	// Enable or disable real user monitoring for the New Relic application.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	EnableRealUserMonitoring pulumi.BoolOutput `pulumi:"enableRealUserMonitoring"`
 	// The user's apdex threshold for the New Relic application.
 	EndUserApdexThreshold pulumi.Float64Output `pulumi:"endUserApdexThreshold"`
@@ -112,6 +126,20 @@ type applicationSettingsState struct {
 	// The appex threshold for the New Relic application.
 	AppApdexThreshold *float64 `pulumi:"appApdexThreshold"`
 	// Enable or disable real user monitoring for the New Relic application.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	EnableRealUserMonitoring *bool `pulumi:"enableRealUserMonitoring"`
 	// The user's apdex threshold for the New Relic application.
 	EndUserApdexThreshold *float64 `pulumi:"endUserApdexThreshold"`
@@ -123,6 +151,20 @@ type ApplicationSettingsState struct {
 	// The appex threshold for the New Relic application.
 	AppApdexThreshold pulumi.Float64PtrInput
 	// Enable or disable real user monitoring for the New Relic application.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	EnableRealUserMonitoring pulumi.BoolPtrInput
 	// The user's apdex threshold for the New Relic application.
 	EndUserApdexThreshold pulumi.Float64PtrInput
@@ -138,6 +180,20 @@ type applicationSettingsArgs struct {
 	// The appex threshold for the New Relic application.
 	AppApdexThreshold float64 `pulumi:"appApdexThreshold"`
 	// Enable or disable real user monitoring for the New Relic application.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	EnableRealUserMonitoring bool `pulumi:"enableRealUserMonitoring"`
 	// The user's apdex threshold for the New Relic application.
 	EndUserApdexThreshold float64 `pulumi:"endUserApdexThreshold"`
@@ -150,6 +206,20 @@ type ApplicationSettingsArgs struct {
 	// The appex threshold for the New Relic application.
 	AppApdexThreshold pulumi.Float64Input
 	// Enable or disable real user monitoring for the New Relic application.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	EnableRealUserMonitoring pulumi.BoolInput
 	// The user's apdex threshold for the New Relic application.
 	EndUserApdexThreshold pulumi.Float64Input
@@ -250,6 +320,23 @@ func (o ApplicationSettingsOutput) AppApdexThreshold() pulumi.Float64Output {
 }
 
 // Enable or disable real user monitoring for the New Relic application.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o ApplicationSettingsOutput) EnableRealUserMonitoring() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ApplicationSettings) pulumi.BoolOutput { return v.EnableRealUserMonitoring }).(pulumi.BoolOutput)
 }

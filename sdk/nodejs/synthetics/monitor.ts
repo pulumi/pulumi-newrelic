@@ -174,6 +174,8 @@ export class Monitor extends pulumi.CustomResource {
     public readonly accountId!: pulumi.Output<number>;
     /**
      * Monitor should skip default HEAD request and instead use GET verb in check.
+     *
+     * The `BROWSER` monitor type supports the following additional arguments:
      */
     public readonly bypassHeadRequest!: pulumi.Output<boolean | undefined>;
     /**
@@ -222,6 +224,8 @@ export class Monitor extends pulumi.CustomResource {
     public readonly status!: pulumi.Output<string>;
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
+     *
+     * The `SIMPLE` monitor type supports the following additional arguments:
      */
     public readonly tags!: pulumi.Output<outputs.synthetics.MonitorTag[] | undefined>;
     /**
@@ -320,6 +324,8 @@ export interface MonitorState {
     accountId?: pulumi.Input<number>;
     /**
      * Monitor should skip default HEAD request and instead use GET verb in check.
+     *
+     * The `BROWSER` monitor type supports the following additional arguments:
      */
     bypassHeadRequest?: pulumi.Input<boolean>;
     /**
@@ -368,6 +374,8 @@ export interface MonitorState {
     status?: pulumi.Input<string>;
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
+     *
+     * The `SIMPLE` monitor type supports the following additional arguments:
      */
     tags?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorTag>[]>;
     /**
@@ -402,6 +410,8 @@ export interface MonitorArgs {
     accountId?: pulumi.Input<number>;
     /**
      * Monitor should skip default HEAD request and instead use GET verb in check.
+     *
+     * The `BROWSER` monitor type supports the following additional arguments:
      */
     bypassHeadRequest?: pulumi.Input<boolean>;
     /**
@@ -446,6 +456,8 @@ export interface MonitorArgs {
     status: pulumi.Input<string>;
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
+     *
+     * The `SIMPLE` monitor type supports the following additional arguments:
      */
     tags?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorTag>[]>;
     /**

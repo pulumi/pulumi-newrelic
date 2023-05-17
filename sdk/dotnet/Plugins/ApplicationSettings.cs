@@ -59,6 +59,16 @@ namespace Pulumi.NewRelic.Plugins
 
         /// <summary>
         /// Enable or disable real user monitoring for the New Relic application.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Output("enableRealUserMonitoring")]
         public Output<bool> EnableRealUserMonitoring { get; private set; } = null!;
@@ -129,6 +139,16 @@ namespace Pulumi.NewRelic.Plugins
 
         /// <summary>
         /// Enable or disable real user monitoring for the New Relic application.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("enableRealUserMonitoring", required: true)]
         public Input<bool> EnableRealUserMonitoring { get; set; } = null!;
@@ -161,6 +181,16 @@ namespace Pulumi.NewRelic.Plugins
 
         /// <summary>
         /// Enable or disable real user monitoring for the New Relic application.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("enableRealUserMonitoring")]
         public Input<bool>? EnableRealUserMonitoring { get; set; }

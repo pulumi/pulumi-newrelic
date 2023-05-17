@@ -6,6 +6,304 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this resource to create and manage New Relic notification channels. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
+ *
+ * A channel is an entity that is used to configure notifications. It is also called a message template. It is a separate entity from workflows, but a channel is required in order to create a workflow.
+ *
+ * ## Example Usage
+ *
+ * ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     accountId: 12345678,
+ *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+ *     product: "IINT",
+ *     properties: [{
+ *         key: "payload",
+ *         label: "Payload Template",
+ *         value: "name: {{ foo }}",
+ *     }],
+ *     type: "WEBHOOK",
+ * });
+ * ```
+ * See additional examples.
+ * ## Additional Examples
+ *
+ * > **NOTE:** We support all properties. The mentioned properties are just an example.
+ *
+ * ##### [ServiceNow](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenow)
+ * To see the properties’ keys for your account, check ServiceNow incidents table.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     accountId: 12345678,
+ *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+ *     product: "IINT",
+ *     properties: [
+ *         {
+ *             key: "description",
+ *             value: "General description",
+ *         },
+ *         {
+ *             key: "short_description",
+ *             value: "Short description",
+ *         },
+ *     ],
+ *     type: "SERVICENOW_INCIDENTS",
+ * });
+ * ```
+ *
+ * ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     accountId: 12345678,
+ *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+ *     product: "IINT",
+ *     properties: [
+ *         {
+ *             key: "subject",
+ *             value: "New Subject Title",
+ *         },
+ *         {
+ *             key: "customDetailsEmail",
+ *             value: "issue id - {{issueId}}",
+ *         },
+ *     ],
+ *     type: "EMAIL",
+ * });
+ * ```
+ *
+ * ##### [Jira Classic](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#jira)
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     accountId: 12345678,
+ *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+ *     product: "ERROR_TRACKING",
+ *     properties: [
+ *         {
+ *             key: "project",
+ *             value: "10000",
+ *         },
+ *         {
+ *             key: "issuetype",
+ *             value: "10004",
+ *         },
+ *         {
+ *             key: "description",
+ *             value: "Issue ID: {{ issueId }}",
+ *         },
+ *         {
+ *             key: "summary",
+ *             value: "{{ annotations.title.[0] }}",
+ *         },
+ *     ],
+ *     type: "JIRA_CLASSIC",
+ * });
+ * ```
+ *
+ * ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     accountId: 12345678,
+ *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+ *     product: "IINT",
+ *     properties: [
+ *         {
+ *             key: "summary",
+ *             value: "General summary",
+ *         },
+ *         {
+ *             key: "service",
+ *             value: "PTQK3FM",
+ *         },
+ *         {
+ *             key: "email",
+ *             value: "example@email.com",
+ *         },
+ *         {
+ *             key: "customDetails",
+ *             value: `    {
+ *     "id":{{json issueId}},
+ *     "IssueURL":{{json issuePageUrl}},
+ *     "NewRelic priority":{{json priority}},
+ *     "Total Incidents":{{json totalIncidents}},
+ *     "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "isCorrelated":{{json isCorrelated}},
+ *     "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Workflow Name":{{json workflowName}}
+ *     }
+ *
+ * `,
+ *         },
+ *     ],
+ *     type: "PAGERDUTY_ACCOUNT_INTEGRATION",
+ * });
+ * ```
+ *
+ * ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     accountId: 12345678,
+ *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+ *     product: "IINT",
+ *     properties: [
+ *         {
+ *             key: "summary",
+ *             value: "General summary",
+ *         },
+ *         {
+ *             key: "customDetails",
+ *             value: `    {
+ *     "id":{{json issueId}},
+ *     "IssueURL":{{json issuePageUrl}},
+ *     "NewRelic priority":{{json priority}},
+ *     "Total Incidents":{{json totalIncidents}},
+ *     "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "isCorrelated":{{json isCorrelated}},
+ *     "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Workflow Name":{{json workflowName}}
+ *     }
+ *
+ * `,
+ *         },
+ *     ],
+ *     type: "PAGERDUTY_SERVICE_INTEGRATION",
+ * });
+ * ```
+ *
+ * #### Mobile Push
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     accountId: 12345678,
+ *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+ *     product: "IINT",
+ *     type: "MOBILE_PUSH",
+ * });
+ * ```
+ *
+ * #### [AWS Event Bridge](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#eventBridge)
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     accountId: 12345678,
+ *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+ *     product: "IINT",
+ *     properties: [
+ *         {
+ *             key: "eventSource",
+ *             value: "aws.partner/mydomain/myaccountid/name",
+ *         },
+ *         {
+ *             key: "eventContent",
+ *             value: "{ id: {{ json issueId }} }",
+ *         },
+ *     ],
+ *     type: "EVENT_BRIDGE",
+ * });
+ * ```
+ *
+ * #### [SLACK](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#slack)
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     accountId: 12345678,
+ *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+ *     product: "IINT",
+ *     properties: [
+ *         {
+ *             key: "channelId",
+ *             value: "123456",
+ *         },
+ *         {
+ *             key: "customDetailsSlack",
+ *             value: "issue id - {{issueId}}",
+ *         },
+ *     ],
+ *     type: "SLACK",
+ * });
+ * ```
+ *
+ * > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
+ *
+ * ## Full Scenario Example
+ *
+ * Create a destination resource and reference that destination to the channel resource:
+ *
+ * ### Create a destination
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const webhook_destination = new newrelic.NotificationDestination("webhook-destination", {
+ *     accountId: 12345678,
+ *     authBasic: {
+ *         password: "password",
+ *         user: "username",
+ *     },
+ *     properties: [{
+ *         key: "url",
+ *         value: "https://webhook.mywebhook.com",
+ *     }],
+ *     type: "WEBHOOK",
+ * });
+ * ```
+ *
+ * ### Create a channel
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const webhook_channel = new newrelic.NotificationChannel("webhook-channel", {
+ *     accountId: 12345678,
+ *     type: "WEBHOOK",
+ *     destinationId: newrelic_notification_destination["webhook-destination"].id,
+ *     product: "IINT",
+ *     properties: [{
+ *         key: "payload",
+ *         value: "{name: foo}",
+ *         label: "Payload Template",
+ *     }],
+ * });
+ * ```
+ *
+ * ## Additional Information
+ *
+ * More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
+ *
+ * > **NOTE:** `newrelic.AlertChannel` are legacy resources.
+ */
 export class NotificationChannel extends pulumi.CustomResource {
     /**
      * Get an existing NotificationChannel resource's state with the given name, ID, and optional extra

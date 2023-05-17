@@ -10,11 +10,23 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.cloud.AwsIntegrationsArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsState;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsAlb;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsApiGateway;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsAutoScaling;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsAwsAppSync;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsAwsAthena;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsAwsCognito;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsAwsConnect;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsAwsDirectConnect;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsAwsFsx;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsBilling;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsCloudtrail;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsDocDb;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsEbs;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsElasticache;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsHealth;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsS3;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsSqs;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsTrustedAdvisor;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsVpc;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsXRay;
@@ -23,6 +35,165 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Use this resource to integrate AWS services with New Relic.
+ * 
+ * ## Prerequisite
+ * 
+ * Setup is required for this resource to work properly. This resource assumes you have linked an AWS account to New Relic and configured it to push metrics using CloudWatch Metric Streams.
+ * 
+ * New Relic doesn&#39;t automatically receive metrics from AWS for some services so this resource can be used to configure integrations to those services.
+ * 
+ * Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that&#39;s not available through AWS metric stream.
+ * 
+ * ## Example Usage
+ * 
+ * Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.cloud.AwsLinkAccount;
+ * import com.pulumi.newrelic.cloud.AwsLinkAccountArgs;
+ * import com.pulumi.newrelic.cloud.AwsIntegrations;
+ * import com.pulumi.newrelic.cloud.AwsIntegrationsArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsBillingArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsCloudtrailArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsHealthArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsTrustedAdvisorArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsVpcArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsXRayArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsS3Args;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsDocDbArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsSqsArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsEbsArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAlbArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsElasticacheArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsApiGatewayArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAutoScalingArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsAppSyncArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsAthenaArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsCognitoArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsConnectArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsDirectConnectArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsFsxArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new AwsLinkAccount(&#34;foo&#34;, AwsLinkAccountArgs.builder()        
+ *             .arn(aws_iam_role.newrelic_aws_role().arn())
+ *             .metricCollectionMode(&#34;PULL&#34;)
+ *             .build());
+ * 
+ *         var bar = new AwsIntegrations(&#34;bar&#34;, AwsIntegrationsArgs.builder()        
+ *             .linkedAccountId(foo.id())
+ *             .billing()
+ *             .cloudtrail(AwsIntegrationsCloudtrailArgs.builder()
+ *                 .metricsPollingInterval(6000)
+ *                 .awsRegions(                
+ *                     &#34;region-1&#34;,
+ *                     &#34;region-2&#34;)
+ *                 .build())
+ *             .health(AwsIntegrationsHealthArgs.builder()
+ *                 .metricsPollingInterval(6000)
+ *                 .build())
+ *             .trustedAdvisor(AwsIntegrationsTrustedAdvisorArgs.builder()
+ *                 .metricsPollingInterval(6000)
+ *                 .build())
+ *             .vpc(AwsIntegrationsVpcArgs.builder()
+ *                 .metricsPollingInterval(6000)
+ *                 .awsRegions(                
+ *                     &#34;region-1&#34;,
+ *                     &#34;region-2&#34;)
+ *                 .fetchNatGateway(true)
+ *                 .fetchVpn(false)
+ *                 .tagKey(&#34;tag key&#34;)
+ *                 .tagValue(&#34;tag value&#34;)
+ *                 .build())
+ *             .xRay(AwsIntegrationsXRayArgs.builder()
+ *                 .metricsPollingInterval(6000)
+ *                 .awsRegions(                
+ *                     &#34;region-1&#34;,
+ *                     &#34;region-2&#34;)
+ *                 .build())
+ *             .s3(AwsIntegrationsS3Args.builder()
+ *                 .metricsPollingInterval(6000)
+ *                 .build())
+ *             .docDb(AwsIntegrationsDocDbArgs.builder()
+ *                 .metricsPollingInterval(6000)
+ *                 .build())
+ *             .sqs(AwsIntegrationsSqsArgs.builder()
+ *                 .metricsPollingInterval(6000)
+ *                 .awsRegions(&#34;us-east-1&#34;)
+ *                 .tagKey(&#34;test&#34;)
+ *                 .tagValue(&#34;test&#34;)
+ *                 .build())
+ *             .ebs(AwsIntegrationsEbsArgs.builder()
+ *                 .metricsPollingInterval(6000)
+ *                 .awsRegions(&#34;us-east-1&#34;)
+ *                 .tagKey(&#34;test&#34;)
+ *                 .tagValue(&#34;test&#34;)
+ *                 .build())
+ *             .alb(AwsIntegrationsAlbArgs.builder()
+ *                 .metricsPollingInterval(6000)
+ *                 .awsRegions(&#34;us-east-1&#34;)
+ *                 .build())
+ *             .elasticache(AwsIntegrationsElasticacheArgs.builder()
+ *                 .metricsPollingInterval(6000)
+ *                 .awsRegions(&#34;us-east-1&#34;)
+ *                 .build())
+ *             .apiGateway(AwsIntegrationsApiGatewayArgs.builder()
+ *                 .metricsPollingInterval(6000)
+ *                 .awsRegions(&#34;us-east-1&#34;)
+ *                 .stagePrefixes(&#34;&#34;)
+ *                 .tagKey(&#34;test&#34;)
+ *                 .tagValue(&#34;test&#34;)
+ *                 .build())
+ *             .autoScaling(AwsIntegrationsAutoScalingArgs.builder()
+ *                 .awsRegions(&#34;us-east-1&#34;)
+ *                 .metricsPollingInterval(6000)
+ *                 .build())
+ *             .awsAppSync(AwsIntegrationsAwsAppSyncArgs.builder()
+ *                 .awsRegions(&#34;us-east-1&#34;)
+ *                 .metricsPollingInterval(6000)
+ *                 .build())
+ *             .awsAthena(AwsIntegrationsAwsAthenaArgs.builder()
+ *                 .awsRegions(&#34;us-east-1&#34;)
+ *                 .metricsPollingInterval(6000)
+ *                 .build())
+ *             .awsCognito(AwsIntegrationsAwsCognitoArgs.builder()
+ *                 .awsRegions(&#34;us-east-1&#34;)
+ *                 .metricsPollingInterval(6000)
+ *                 .build())
+ *             .awsConnect(AwsIntegrationsAwsConnectArgs.builder()
+ *                 .awsRegions(&#34;us-east-1&#34;)
+ *                 .metricsPollingInterval(6000)
+ *                 .build())
+ *             .awsDirectConnect(AwsIntegrationsAwsDirectConnectArgs.builder()
+ *                 .awsRegions(&#34;us-east-1&#34;)
+ *                 .metricsPollingInterval(6000)
+ *                 .build())
+ *             .awsFsx(AwsIntegrationsAwsFsxArgs.builder()
+ *                 .awsRegions(&#34;us-east-1&#34;)
+ *                 .metricsPollingInterval(6000)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Linked AWS account integrations can be imported using the `id`, e.g. bash
@@ -47,6 +218,132 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> accountId() {
         return this.accountId;
+    }
+    /**
+     * ALB integration. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="alb", type=AwsIntegrationsAlb.class, parameters={})
+    private Output</* @Nullable */ AwsIntegrationsAlb> alb;
+
+    /**
+     * @return ALB integration. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<AwsIntegrationsAlb>> alb() {
+        return Codegen.optional(this.alb);
+    }
+    /**
+     * ApiGateway integration. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="apiGateway", type=AwsIntegrationsApiGateway.class, parameters={})
+    private Output</* @Nullable */ AwsIntegrationsApiGateway> apiGateway;
+
+    /**
+     * @return ApiGateway integration. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<AwsIntegrationsApiGateway>> apiGateway() {
+        return Codegen.optional(this.apiGateway);
+    }
+    /**
+     * AutoScaling integration. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="autoScaling", type=AwsIntegrationsAutoScaling.class, parameters={})
+    private Output</* @Nullable */ AwsIntegrationsAutoScaling> autoScaling;
+
+    /**
+     * @return AutoScaling integration. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<AwsIntegrationsAutoScaling>> autoScaling() {
+        return Codegen.optional(this.autoScaling);
+    }
+    /**
+     * AppSync integration. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="awsAppSync", type=AwsIntegrationsAwsAppSync.class, parameters={})
+    private Output</* @Nullable */ AwsIntegrationsAwsAppSync> awsAppSync;
+
+    /**
+     * @return AppSync integration. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<AwsIntegrationsAwsAppSync>> awsAppSync() {
+        return Codegen.optional(this.awsAppSync);
+    }
+    /**
+     * Athena integration. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="awsAthena", type=AwsIntegrationsAwsAthena.class, parameters={})
+    private Output</* @Nullable */ AwsIntegrationsAwsAthena> awsAthena;
+
+    /**
+     * @return Athena integration. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<AwsIntegrationsAwsAthena>> awsAthena() {
+        return Codegen.optional(this.awsAthena);
+    }
+    /**
+     * Cognito integration. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="awsCognito", type=AwsIntegrationsAwsCognito.class, parameters={})
+    private Output</* @Nullable */ AwsIntegrationsAwsCognito> awsCognito;
+
+    /**
+     * @return Cognito integration. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<AwsIntegrationsAwsCognito>> awsCognito() {
+        return Codegen.optional(this.awsCognito);
+    }
+    /**
+     * Connect integration. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="awsConnect", type=AwsIntegrationsAwsConnect.class, parameters={})
+    private Output</* @Nullable */ AwsIntegrationsAwsConnect> awsConnect;
+
+    /**
+     * @return Connect integration. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<AwsIntegrationsAwsConnect>> awsConnect() {
+        return Codegen.optional(this.awsConnect);
+    }
+    /**
+     * DirectConnect integration. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="awsDirectConnect", type=AwsIntegrationsAwsDirectConnect.class, parameters={})
+    private Output</* @Nullable */ AwsIntegrationsAwsDirectConnect> awsDirectConnect;
+
+    /**
+     * @return DirectConnect integration. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<AwsIntegrationsAwsDirectConnect>> awsDirectConnect() {
+        return Codegen.optional(this.awsDirectConnect);
+    }
+    /**
+     * Fsx integration. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="awsFsx", type=AwsIntegrationsAwsFsx.class, parameters={})
+    private Output</* @Nullable */ AwsIntegrationsAwsFsx> awsFsx;
+
+    /**
+     * @return Fsx integration. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<AwsIntegrationsAwsFsx>> awsFsx() {
+        return Codegen.optional(this.awsFsx);
     }
     /**
      * Billing integration. See Integration blocks below for details.
@@ -77,18 +374,46 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cloudtrail);
     }
     /**
-     * Billing integration
+     * Doc_DB integration. See Integration blocks below for details.
      * 
      */
     @Export(name="docDb", type=AwsIntegrationsDocDb.class, parameters={})
     private Output</* @Nullable */ AwsIntegrationsDocDb> docDb;
 
     /**
-     * @return Billing integration
+     * @return Doc_DB integration. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AwsIntegrationsDocDb>> docDb() {
         return Codegen.optional(this.docDb);
+    }
+    /**
+     * EBS integration. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="ebs", type=AwsIntegrationsEbs.class, parameters={})
+    private Output</* @Nullable */ AwsIntegrationsEbs> ebs;
+
+    /**
+     * @return EBS integration. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<AwsIntegrationsEbs>> ebs() {
+        return Codegen.optional(this.ebs);
+    }
+    /**
+     * Elasticache integration. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="elasticache", type=AwsIntegrationsElasticache.class, parameters={})
+    private Output</* @Nullable */ AwsIntegrationsElasticache> elasticache;
+
+    /**
+     * @return Elasticache integration. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<AwsIntegrationsElasticache>> elasticache() {
+        return Codegen.optional(this.elasticache);
     }
     /**
      * Health integration. See Integration blocks below for details.
@@ -119,18 +444,32 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
         return this.linkedAccountId;
     }
     /**
-     * S3 integration
+     * S3 integration. See Integration blocks below for details.
      * 
      */
     @Export(name="s3", type=AwsIntegrationsS3.class, parameters={})
     private Output</* @Nullable */ AwsIntegrationsS3> s3;
 
     /**
-     * @return S3 integration
+     * @return S3 integration. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AwsIntegrationsS3>> s3() {
         return Codegen.optional(this.s3);
+    }
+    /**
+     * SQS integration. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="sqs", type=AwsIntegrationsSqs.class, parameters={})
+    private Output</* @Nullable */ AwsIntegrationsSqs> sqs;
+
+    /**
+     * @return SQS integration. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<AwsIntegrationsSqs>> sqs() {
+        return Codegen.optional(this.sqs);
     }
     /**
      * Trusted Advisor integration. See Integration blocks below for details.

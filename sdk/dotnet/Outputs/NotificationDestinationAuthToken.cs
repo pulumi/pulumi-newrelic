@@ -17,9 +17,6 @@ namespace Pulumi.NewRelic.Outputs
         /// The prefix of the token auth.
         /// </summary>
         public readonly string? Prefix;
-        /// <summary>
-        /// Specifies the token for integrating.
-        /// </summary>
         public readonly string Token;
 
         [OutputConstructor]

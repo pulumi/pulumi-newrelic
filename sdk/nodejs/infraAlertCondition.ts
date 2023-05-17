@@ -226,6 +226,10 @@ export class InfraAlertCondition extends pulumi.CustomResource {
     public /*out*/ readonly updatedAt!: pulumi.Output<number>;
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     public readonly violationCloseTimer!: pulumi.Output<number | undefined>;
     /**
@@ -366,6 +370,10 @@ export interface InfraAlertConditionState {
     updatedAt?: pulumi.Input<number>;
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     violationCloseTimer?: pulumi.Input<number>;
     /**
@@ -432,6 +440,10 @@ export interface InfraAlertConditionArgs {
     type: pulumi.Input<string>;
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     violationCloseTimer?: pulumi.Input<number>;
     /**

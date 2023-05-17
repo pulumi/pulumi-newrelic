@@ -10,6 +10,196 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud
 {
     /// <summary>
+    /// Use this resource to integrate AWS services with New Relic.
+    /// 
+    /// ## Prerequisite
+    /// 
+    /// Setup is required for this resource to work properly. This resource assumes you have linked an AWS account to New Relic and configured it to push metrics using CloudWatch Metric Streams.
+    /// 
+    /// New Relic doesn't automatically receive metrics from AWS for some services so this resource can be used to configure integrations to those services.
+    /// 
+    /// Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.Cloud.AwsLinkAccount("foo", new()
+    ///     {
+    ///         Arn = aws_iam_role.Newrelic_aws_role.Arn,
+    ///         MetricCollectionMode = "PULL",
+    ///     });
+    /// 
+    ///     var bar = new NewRelic.Cloud.AwsIntegrations("bar", new()
+    ///     {
+    ///         LinkedAccountId = foo.Id,
+    ///         Billing = null,
+    ///         Cloudtrail = new NewRelic.Cloud.Inputs.AwsIntegrationsCloudtrailArgs
+    ///         {
+    ///             MetricsPollingInterval = 6000,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "region-1",
+    ///                 "region-2",
+    ///             },
+    ///         },
+    ///         Health = new NewRelic.Cloud.Inputs.AwsIntegrationsHealthArgs
+    ///         {
+    ///             MetricsPollingInterval = 6000,
+    ///         },
+    ///         TrustedAdvisor = new NewRelic.Cloud.Inputs.AwsIntegrationsTrustedAdvisorArgs
+    ///         {
+    ///             MetricsPollingInterval = 6000,
+    ///         },
+    ///         Vpc = new NewRelic.Cloud.Inputs.AwsIntegrationsVpcArgs
+    ///         {
+    ///             MetricsPollingInterval = 6000,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "region-1",
+    ///                 "region-2",
+    ///             },
+    ///             FetchNatGateway = true,
+    ///             FetchVpn = false,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         XRay = new NewRelic.Cloud.Inputs.AwsIntegrationsXRayArgs
+    ///         {
+    ///             MetricsPollingInterval = 6000,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "region-1",
+    ///                 "region-2",
+    ///             },
+    ///         },
+    ///         S3 = new NewRelic.Cloud.Inputs.AwsIntegrationsS3Args
+    ///         {
+    ///             MetricsPollingInterval = 6000,
+    ///         },
+    ///         DocDb = new NewRelic.Cloud.Inputs.AwsIntegrationsDocDbArgs
+    ///         {
+    ///             MetricsPollingInterval = 6000,
+    ///         },
+    ///         Sqs = new NewRelic.Cloud.Inputs.AwsIntegrationsSqsArgs
+    ///         {
+    ///             MetricsPollingInterval = 6000,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             TagKey = "test",
+    ///             TagValue = "test",
+    ///         },
+    ///         Ebs = new NewRelic.Cloud.Inputs.AwsIntegrationsEbsArgs
+    ///         {
+    ///             MetricsPollingInterval = 6000,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             TagKey = "test",
+    ///             TagValue = "test",
+    ///         },
+    ///         Alb = new NewRelic.Cloud.Inputs.AwsIntegrationsAlbArgs
+    ///         {
+    ///             MetricsPollingInterval = 6000,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///         },
+    ///         Elasticache = new NewRelic.Cloud.Inputs.AwsIntegrationsElasticacheArgs
+    ///         {
+    ///             MetricsPollingInterval = 6000,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///         },
+    ///         ApiGateway = new NewRelic.Cloud.Inputs.AwsIntegrationsApiGatewayArgs
+    ///         {
+    ///             MetricsPollingInterval = 6000,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             StagePrefixes = new[]
+    ///             {
+    ///                 "",
+    ///             },
+    ///             TagKey = "test",
+    ///             TagValue = "test",
+    ///         },
+    ///         AutoScaling = new NewRelic.Cloud.Inputs.AwsIntegrationsAutoScalingArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 6000,
+    ///         },
+    ///         AwsAppSync = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsAppSyncArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 6000,
+    ///         },
+    ///         AwsAthena = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsAthenaArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 6000,
+    ///         },
+    ///         AwsCognito = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsCognitoArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 6000,
+    ///         },
+    ///         AwsConnect = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsConnectArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 6000,
+    ///         },
+    ///         AwsDirectConnect = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsDirectConnectArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 6000,
+    ///         },
+    ///         AwsFsx = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsFsxArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 6000,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Linked AWS account integrations can be imported using the `id`, e.g. bash
@@ -28,6 +218,60 @@ namespace Pulumi.NewRelic.Cloud
         public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
+        /// ALB integration. See Integration blocks below for details.
+        /// </summary>
+        [Output("alb")]
+        public Output<Outputs.AwsIntegrationsAlb?> Alb { get; private set; } = null!;
+
+        /// <summary>
+        /// ApiGateway integration. See Integration blocks below for details.
+        /// </summary>
+        [Output("apiGateway")]
+        public Output<Outputs.AwsIntegrationsApiGateway?> ApiGateway { get; private set; } = null!;
+
+        /// <summary>
+        /// AutoScaling integration. See Integration blocks below for details.
+        /// </summary>
+        [Output("autoScaling")]
+        public Output<Outputs.AwsIntegrationsAutoScaling?> AutoScaling { get; private set; } = null!;
+
+        /// <summary>
+        /// AppSync integration. See Integration blocks below for details.
+        /// </summary>
+        [Output("awsAppSync")]
+        public Output<Outputs.AwsIntegrationsAwsAppSync?> AwsAppSync { get; private set; } = null!;
+
+        /// <summary>
+        /// Athena integration. See Integration blocks below for details.
+        /// </summary>
+        [Output("awsAthena")]
+        public Output<Outputs.AwsIntegrationsAwsAthena?> AwsAthena { get; private set; } = null!;
+
+        /// <summary>
+        /// Cognito integration. See Integration blocks below for details.
+        /// </summary>
+        [Output("awsCognito")]
+        public Output<Outputs.AwsIntegrationsAwsCognito?> AwsCognito { get; private set; } = null!;
+
+        /// <summary>
+        /// Connect integration. See Integration blocks below for details.
+        /// </summary>
+        [Output("awsConnect")]
+        public Output<Outputs.AwsIntegrationsAwsConnect?> AwsConnect { get; private set; } = null!;
+
+        /// <summary>
+        /// DirectConnect integration. See Integration blocks below for details.
+        /// </summary>
+        [Output("awsDirectConnect")]
+        public Output<Outputs.AwsIntegrationsAwsDirectConnect?> AwsDirectConnect { get; private set; } = null!;
+
+        /// <summary>
+        /// Fsx integration. See Integration blocks below for details.
+        /// </summary>
+        [Output("awsFsx")]
+        public Output<Outputs.AwsIntegrationsAwsFsx?> AwsFsx { get; private set; } = null!;
+
+        /// <summary>
         /// Billing integration. See Integration blocks below for details.
         /// </summary>
         [Output("billing")]
@@ -40,10 +284,22 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AwsIntegrationsCloudtrail?> Cloudtrail { get; private set; } = null!;
 
         /// <summary>
-        /// Billing integration
+        /// Doc_DB integration. See Integration blocks below for details.
         /// </summary>
         [Output("docDb")]
         public Output<Outputs.AwsIntegrationsDocDb?> DocDb { get; private set; } = null!;
+
+        /// <summary>
+        /// EBS integration. See Integration blocks below for details.
+        /// </summary>
+        [Output("ebs")]
+        public Output<Outputs.AwsIntegrationsEbs?> Ebs { get; private set; } = null!;
+
+        /// <summary>
+        /// Elasticache integration. See Integration blocks below for details.
+        /// </summary>
+        [Output("elasticache")]
+        public Output<Outputs.AwsIntegrationsElasticache?> Elasticache { get; private set; } = null!;
 
         /// <summary>
         /// Health integration. See Integration blocks below for details.
@@ -58,10 +314,16 @@ namespace Pulumi.NewRelic.Cloud
         public Output<int> LinkedAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// S3 integration
+        /// S3 integration. See Integration blocks below for details.
         /// </summary>
         [Output("s3")]
         public Output<Outputs.AwsIntegrationsS3?> S3 { get; private set; } = null!;
+
+        /// <summary>
+        /// SQS integration. See Integration blocks below for details.
+        /// </summary>
+        [Output("sqs")]
+        public Output<Outputs.AwsIntegrationsSqs?> Sqs { get; private set; } = null!;
 
         /// <summary>
         /// Trusted Advisor integration. See Integration blocks below for details.
@@ -134,6 +396,60 @@ namespace Pulumi.NewRelic.Cloud
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
+        /// ALB integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("alb")]
+        public Input<Inputs.AwsIntegrationsAlbArgs>? Alb { get; set; }
+
+        /// <summary>
+        /// ApiGateway integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("apiGateway")]
+        public Input<Inputs.AwsIntegrationsApiGatewayArgs>? ApiGateway { get; set; }
+
+        /// <summary>
+        /// AutoScaling integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("autoScaling")]
+        public Input<Inputs.AwsIntegrationsAutoScalingArgs>? AutoScaling { get; set; }
+
+        /// <summary>
+        /// AppSync integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("awsAppSync")]
+        public Input<Inputs.AwsIntegrationsAwsAppSyncArgs>? AwsAppSync { get; set; }
+
+        /// <summary>
+        /// Athena integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("awsAthena")]
+        public Input<Inputs.AwsIntegrationsAwsAthenaArgs>? AwsAthena { get; set; }
+
+        /// <summary>
+        /// Cognito integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("awsCognito")]
+        public Input<Inputs.AwsIntegrationsAwsCognitoArgs>? AwsCognito { get; set; }
+
+        /// <summary>
+        /// Connect integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("awsConnect")]
+        public Input<Inputs.AwsIntegrationsAwsConnectArgs>? AwsConnect { get; set; }
+
+        /// <summary>
+        /// DirectConnect integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("awsDirectConnect")]
+        public Input<Inputs.AwsIntegrationsAwsDirectConnectArgs>? AwsDirectConnect { get; set; }
+
+        /// <summary>
+        /// Fsx integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("awsFsx")]
+        public Input<Inputs.AwsIntegrationsAwsFsxArgs>? AwsFsx { get; set; }
+
+        /// <summary>
         /// Billing integration. See Integration blocks below for details.
         /// </summary>
         [Input("billing")]
@@ -146,10 +462,22 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsIntegrationsCloudtrailArgs>? Cloudtrail { get; set; }
 
         /// <summary>
-        /// Billing integration
+        /// Doc_DB integration. See Integration blocks below for details.
         /// </summary>
         [Input("docDb")]
         public Input<Inputs.AwsIntegrationsDocDbArgs>? DocDb { get; set; }
+
+        /// <summary>
+        /// EBS integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("ebs")]
+        public Input<Inputs.AwsIntegrationsEbsArgs>? Ebs { get; set; }
+
+        /// <summary>
+        /// Elasticache integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("elasticache")]
+        public Input<Inputs.AwsIntegrationsElasticacheArgs>? Elasticache { get; set; }
 
         /// <summary>
         /// Health integration. See Integration blocks below for details.
@@ -164,10 +492,16 @@ namespace Pulumi.NewRelic.Cloud
         public Input<int> LinkedAccountId { get; set; } = null!;
 
         /// <summary>
-        /// S3 integration
+        /// S3 integration. See Integration blocks below for details.
         /// </summary>
         [Input("s3")]
         public Input<Inputs.AwsIntegrationsS3Args>? S3 { get; set; }
+
+        /// <summary>
+        /// SQS integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("sqs")]
+        public Input<Inputs.AwsIntegrationsSqsArgs>? Sqs { get; set; }
 
         /// <summary>
         /// Trusted Advisor integration. See Integration blocks below for details.
@@ -202,6 +536,60 @@ namespace Pulumi.NewRelic.Cloud
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
+        /// ALB integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("alb")]
+        public Input<Inputs.AwsIntegrationsAlbGetArgs>? Alb { get; set; }
+
+        /// <summary>
+        /// ApiGateway integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("apiGateway")]
+        public Input<Inputs.AwsIntegrationsApiGatewayGetArgs>? ApiGateway { get; set; }
+
+        /// <summary>
+        /// AutoScaling integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("autoScaling")]
+        public Input<Inputs.AwsIntegrationsAutoScalingGetArgs>? AutoScaling { get; set; }
+
+        /// <summary>
+        /// AppSync integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("awsAppSync")]
+        public Input<Inputs.AwsIntegrationsAwsAppSyncGetArgs>? AwsAppSync { get; set; }
+
+        /// <summary>
+        /// Athena integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("awsAthena")]
+        public Input<Inputs.AwsIntegrationsAwsAthenaGetArgs>? AwsAthena { get; set; }
+
+        /// <summary>
+        /// Cognito integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("awsCognito")]
+        public Input<Inputs.AwsIntegrationsAwsCognitoGetArgs>? AwsCognito { get; set; }
+
+        /// <summary>
+        /// Connect integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("awsConnect")]
+        public Input<Inputs.AwsIntegrationsAwsConnectGetArgs>? AwsConnect { get; set; }
+
+        /// <summary>
+        /// DirectConnect integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("awsDirectConnect")]
+        public Input<Inputs.AwsIntegrationsAwsDirectConnectGetArgs>? AwsDirectConnect { get; set; }
+
+        /// <summary>
+        /// Fsx integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("awsFsx")]
+        public Input<Inputs.AwsIntegrationsAwsFsxGetArgs>? AwsFsx { get; set; }
+
+        /// <summary>
         /// Billing integration. See Integration blocks below for details.
         /// </summary>
         [Input("billing")]
@@ -214,10 +602,22 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsIntegrationsCloudtrailGetArgs>? Cloudtrail { get; set; }
 
         /// <summary>
-        /// Billing integration
+        /// Doc_DB integration. See Integration blocks below for details.
         /// </summary>
         [Input("docDb")]
         public Input<Inputs.AwsIntegrationsDocDbGetArgs>? DocDb { get; set; }
+
+        /// <summary>
+        /// EBS integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("ebs")]
+        public Input<Inputs.AwsIntegrationsEbsGetArgs>? Ebs { get; set; }
+
+        /// <summary>
+        /// Elasticache integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("elasticache")]
+        public Input<Inputs.AwsIntegrationsElasticacheGetArgs>? Elasticache { get; set; }
 
         /// <summary>
         /// Health integration. See Integration blocks below for details.
@@ -232,10 +632,16 @@ namespace Pulumi.NewRelic.Cloud
         public Input<int>? LinkedAccountId { get; set; }
 
         /// <summary>
-        /// S3 integration
+        /// S3 integration. See Integration blocks below for details.
         /// </summary>
         [Input("s3")]
         public Input<Inputs.AwsIntegrationsS3GetArgs>? S3 { get; set; }
+
+        /// <summary>
+        /// SQS integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("sqs")]
+        public Input<Inputs.AwsIntegrationsSqsGetArgs>? Sqs { get; set; }
 
         /// <summary>
         /// Trusted Advisor integration. See Integration blocks below for details.

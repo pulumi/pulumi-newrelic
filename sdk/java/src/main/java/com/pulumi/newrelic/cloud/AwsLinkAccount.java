@@ -16,6 +16,49 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Use this resource to link an AWS account to New Relic.
+ * 
+ * ## Prerequisite
+ * 
+ * Setup is required in AWS for this resource to work properly. The New Relic AWS integration can be set up to pull metrics from AWS services or AWS can push metrics to New Relic using CloudWatch Metric Streams.
+ * 
+ * Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream.
+ * 
+ * To pull data from AWS instead, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-new-relic-infrastructure-monitoring#connect).
+ * 
+ * ## Example Usage
+ * 
+ * You can also use the full example, including the AWS set up, found in our guides.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.cloud.AwsLinkAccount;
+ * import com.pulumi.newrelic.cloud.AwsLinkAccountArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new AwsLinkAccount(&#34;foo&#34;, AwsLinkAccountArgs.builder()        
+ *             .arn(&#34;arn:aws:service:region:account-id:resource-id&#34;)
+ *             .metricCollectionMode(&#34;PUSH&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Linked AWS accounts can be imported using the `id`, e.g. bash

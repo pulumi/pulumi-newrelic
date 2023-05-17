@@ -38,12 +38,16 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     /**
      * Monitor should skip default HEAD request and instead use GET verb in check.
      * 
+     * The `BROWSER` monitor type supports the following additional arguments:
+     * 
      */
     @Import(name="bypassHeadRequest")
     private @Nullable Output<Boolean> bypassHeadRequest;
 
     /**
      * @return Monitor should skip default HEAD request and instead use GET verb in check.
+     * 
+     * The `BROWSER` monitor type supports the following additional arguments:
      * 
      */
     public Optional<Output<Boolean>> bypassHeadRequest() {
@@ -218,12 +222,16 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      * 
+     * The `SIMPLE` monitor type supports the following additional arguments:
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<List<MonitorTagArgs>> tags;
 
     /**
      * @return The tags that will be associated with the monitor. See Nested tag blocks below for details.
+     * 
+     * The `SIMPLE` monitor type supports the following additional arguments:
      * 
      */
     public Optional<Output<List<MonitorTagArgs>>> tags() {
@@ -371,6 +379,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param bypassHeadRequest Monitor should skip default HEAD request and instead use GET verb in check.
          * 
+         * The `BROWSER` monitor type supports the following additional arguments:
+         * 
          * @return builder
          * 
          */
@@ -381,6 +391,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param bypassHeadRequest Monitor should skip default HEAD request and instead use GET verb in check.
+         * 
+         * The `BROWSER` monitor type supports the following additional arguments:
          * 
          * @return builder
          * 
@@ -653,6 +665,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags The tags that will be associated with the monitor. See Nested tag blocks below for details.
          * 
+         * The `SIMPLE` monitor type supports the following additional arguments:
+         * 
          * @return builder
          * 
          */
@@ -664,6 +678,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags The tags that will be associated with the monitor. See Nested tag blocks below for details.
          * 
+         * The `SIMPLE` monitor type supports the following additional arguments:
+         * 
          * @return builder
          * 
          */
@@ -673,6 +689,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags The tags that will be associated with the monitor. See Nested tag blocks below for details.
+         * 
+         * The `SIMPLE` monitor type supports the following additional arguments:
          * 
          * @return builder
          * 

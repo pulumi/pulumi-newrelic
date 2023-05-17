@@ -14,6 +14,8 @@ namespace Pulumi.NewRelic.Inputs
     {
         /// <summary>
         /// The notification property display value.
+        /// 
+        /// Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
         /// </summary>
         [Input("displayValue")]
         public Input<string>? DisplayValue { get; set; }

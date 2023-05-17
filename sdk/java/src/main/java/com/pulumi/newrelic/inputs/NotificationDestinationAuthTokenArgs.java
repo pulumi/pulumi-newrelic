@@ -30,17 +30,9 @@ public final class NotificationDestinationAuthTokenArgs extends com.pulumi.resou
         return Optional.ofNullable(this.prefix);
     }
 
-    /**
-     * Specifies the token for integrating.
-     * 
-     */
     @Import(name="token", required=true)
     private Output<String> token;
 
-    /**
-     * @return Specifies the token for integrating.
-     * 
-     */
     public Output<String> token() {
         return this.token;
     }
@@ -91,23 +83,11 @@ public final class NotificationDestinationAuthTokenArgs extends com.pulumi.resou
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param token Specifies the token for integrating.
-         * 
-         * @return builder
-         * 
-         */
         public Builder token(Output<String> token) {
             $.token = token;
             return this;
         }
 
-        /**
-         * @param token Specifies the token for integrating.
-         * 
-         * @return builder
-         * 
-         */
         public Builder token(String token) {
             return token(Output.of(token));
         }

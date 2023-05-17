@@ -34,12 +34,16 @@ public final class GcpIntegrationsStorageArgs extends com.pulumi.resources.Resou
     /**
      * The data polling interval in seconds.
      * 
+     * Other integration supports an additional argument:
+     * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
      * @return The data polling interval in seconds.
+     * 
+     * Other integration supports an additional argument:
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -95,6 +99,8 @@ public final class GcpIntegrationsStorageArgs extends com.pulumi.resources.Resou
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
+         * Other integration supports an additional argument:
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class GcpIntegrationsStorageArgs extends com.pulumi.resources.Resou
 
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
+         * 
+         * Other integration supports an additional argument:
          * 
          * @return builder
          * 

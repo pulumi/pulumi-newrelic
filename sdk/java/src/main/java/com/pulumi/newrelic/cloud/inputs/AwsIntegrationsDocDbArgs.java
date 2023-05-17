@@ -6,6 +6,8 @@ package com.pulumi.newrelic.cloud.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
+import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,7 +18,24 @@ public final class AwsIntegrationsDocDbArgs extends com.pulumi.resources.Resourc
     public static final AwsIntegrationsDocDbArgs Empty = new AwsIntegrationsDocDbArgs();
 
     /**
+     * Specify each AWS region that includes the resources that you want to monitor.
+     * 
+     */
+    @Import(name="awsRegions")
+    private @Nullable Output<List<String>> awsRegions;
+
+    /**
+     * @return Specify each AWS region that includes the resources that you want to monitor.
+     * 
+     */
+    public Optional<Output<List<String>>> awsRegions() {
+        return Optional.ofNullable(this.awsRegions);
+    }
+
+    /**
      * The data polling interval in seconds.
+     * 
+     * Some integration types support an additional set of arguments:
      * 
      */
     @Import(name="metricsPollingInterval")
@@ -24,6 +43,8 @@ public final class AwsIntegrationsDocDbArgs extends com.pulumi.resources.Resourc
 
     /**
      * @return The data polling interval in seconds.
+     * 
+     * Some integration types support an additional set of arguments:
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -33,6 +54,7 @@ public final class AwsIntegrationsDocDbArgs extends com.pulumi.resources.Resourc
     private AwsIntegrationsDocDbArgs() {}
 
     private AwsIntegrationsDocDbArgs(AwsIntegrationsDocDbArgs $) {
+        this.awsRegions = $.awsRegions;
         this.metricsPollingInterval = $.metricsPollingInterval;
     }
 
@@ -55,7 +77,40 @@ public final class AwsIntegrationsDocDbArgs extends com.pulumi.resources.Resourc
         }
 
         /**
+         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsRegions(@Nullable Output<List<String>> awsRegions) {
+            $.awsRegions = awsRegions;
+            return this;
+        }
+
+        /**
+         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsRegions(List<String> awsRegions) {
+            return awsRegions(Output.of(awsRegions));
+        }
+
+        /**
+         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsRegions(String... awsRegions) {
+            return awsRegions(List.of(awsRegions));
+        }
+
+        /**
          * @param metricsPollingInterval The data polling interval in seconds.
+         * 
+         * Some integration types support an additional set of arguments:
          * 
          * @return builder
          * 
@@ -67,6 +122,8 @@ public final class AwsIntegrationsDocDbArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
+         * 
+         * Some integration types support an additional set of arguments:
          * 
          * @return builder
          * 
