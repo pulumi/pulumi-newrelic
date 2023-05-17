@@ -4,8 +4,8 @@ go 1.19
 
 require (
 	github.com/newrelic/terraform-provider-newrelic/v2 v2.2.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.46.1
-	github.com/pulumi/pulumi/sdk/v3 v3.66.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.47.2
+	github.com/pulumi/pulumi/sdk/v3 v3.67.1
 )
 
 replace (
@@ -71,7 +71,7 @@ require (
 	github.com/blang/semver v3.5.1+incompatible // indirect
 	github.com/cenkalti/backoff/v3 v3.2.2 // indirect
 	github.com/cheggaaa/pb v1.0.29 // indirect
-	github.com/cloudflare/circl v1.1.0 // indirect
+	github.com/cloudflare/circl v1.3.3 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/djherbis/times v1.5.0 // indirect
 	github.com/dustin/go-humanize v1.0.0 // indirect
@@ -163,7 +163,7 @@ require (
 	github.com/muesli/cancelreader v0.2.2 // indirect
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/newrelic/go-insights v1.0.3 // indirect
-	github.com/newrelic/newrelic-client-go/v2 v2.19.0 // indirect
+	github.com/newrelic/newrelic-client-go/v2 v2.19.1 // indirect
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
@@ -178,7 +178,7 @@ require (
 	github.com/pulumi/pulumi-java/pkg v0.9.2 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.3 // indirect
 	github.com/pulumi/pulumi-yaml v1.1.1 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.66.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.67.1 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
