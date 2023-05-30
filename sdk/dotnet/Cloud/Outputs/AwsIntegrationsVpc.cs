@@ -15,6 +15,7 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     {
         /// <summary>
         /// Specify each AWS region that includes the resources that you want to monitor.
+        /// &lt;/details&gt;
         /// </summary>
         public readonly ImmutableArray<string> AwsRegions;
         /// <summary>
@@ -28,7 +29,8 @@ namespace Pulumi.NewRelic.Cloud.Outputs
         /// <summary>
         /// The data polling interval in seconds.
         /// 
-        /// Some integration types support an additional set of arguments:
+        /// &lt;details&gt;
+        /// &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
         /// </summary>
         public readonly int? MetricsPollingInterval;
         /// <summary>

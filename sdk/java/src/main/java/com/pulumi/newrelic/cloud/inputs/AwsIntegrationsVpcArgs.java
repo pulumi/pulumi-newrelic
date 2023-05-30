@@ -20,6 +20,7 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Specify each AWS region that includes the resources that you want to monitor.
+     * &lt;/details&gt;
      * 
      */
     @Import(name="awsRegions")
@@ -27,6 +28,7 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
+     * &lt;/details&gt;
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
@@ -66,7 +68,8 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
     /**
      * The data polling interval in seconds.
      * 
-     * Some integration types support an additional set of arguments:
+     * &lt;details&gt;
+     * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
      * 
      */
     @Import(name="metricsPollingInterval")
@@ -75,7 +78,8 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The data polling interval in seconds.
      * 
-     * Some integration types support an additional set of arguments:
+     * &lt;details&gt;
+     * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -143,6 +147,7 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
+         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -154,6 +159,7 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
+         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -164,6 +170,7 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
+         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -217,7 +224,8 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
-         * Some integration types support an additional set of arguments:
+         * &lt;details&gt;
+         * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
          * 
          * @return builder
          * 
@@ -230,7 +238,8 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
-         * Some integration types support an additional set of arguments:
+         * &lt;details&gt;
+         * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
          * 
          * @return builder
          * 

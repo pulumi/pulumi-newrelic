@@ -14,13 +14,45 @@ import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsCognitoArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsConnectArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsDirectConnectArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsFsxArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsGlueArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsKinesisAnalyticsArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsMediaConvertArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsMediaPackageVodArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsMqArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsMskArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsNeptuneArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsQldbArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsRoute53resolverArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsStatesArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsTransitGatewayArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsWafArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsWafv2Args;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsBillingArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsCloudfrontArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsCloudtrailArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsDocDbArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsDynamodbArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsEbsArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsEc2Args;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsEcsArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsEfsArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsElasticacheArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsElasticbeanstalkArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsElasticsearchArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsElbArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsEmrArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsHealthArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsIamArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsIotArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsKinesisArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsKinesisFirehoseArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsLambdaArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsRdsArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsRedshiftArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsRoute53Args;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsS3Args;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsSesArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsSnsArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsSqsArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsTrustedAdvisorArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsVpcArgs;
@@ -186,6 +218,201 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Glue integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsGlue")
+    private @Nullable Output<AwsIntegrationsAwsGlueArgs> awsGlue;
+
+    /**
+     * @return Glue integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsGlueArgs>> awsGlue() {
+        return Optional.ofNullable(this.awsGlue);
+    }
+
+    /**
+     * Kinesis Analytics integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsKinesisAnalytics")
+    private @Nullable Output<AwsIntegrationsAwsKinesisAnalyticsArgs> awsKinesisAnalytics;
+
+    /**
+     * @return Kinesis Analytics integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsKinesisAnalyticsArgs>> awsKinesisAnalytics() {
+        return Optional.ofNullable(this.awsKinesisAnalytics);
+    }
+
+    /**
+     * Media Convert integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsMediaConvert")
+    private @Nullable Output<AwsIntegrationsAwsMediaConvertArgs> awsMediaConvert;
+
+    /**
+     * @return Media Convert integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsMediaConvertArgs>> awsMediaConvert() {
+        return Optional.ofNullable(this.awsMediaConvert);
+    }
+
+    /**
+     * Media Package vod integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsMediaPackageVod")
+    private @Nullable Output<AwsIntegrationsAwsMediaPackageVodArgs> awsMediaPackageVod;
+
+    /**
+     * @return Media Package vod integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsMediaPackageVodArgs>> awsMediaPackageVod() {
+        return Optional.ofNullable(this.awsMediaPackageVod);
+    }
+
+    /**
+     * Mq integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsMq")
+    private @Nullable Output<AwsIntegrationsAwsMqArgs> awsMq;
+
+    /**
+     * @return Mq integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsMqArgs>> awsMq() {
+        return Optional.ofNullable(this.awsMq);
+    }
+
+    /**
+     * Msk integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsMsk")
+    private @Nullable Output<AwsIntegrationsAwsMskArgs> awsMsk;
+
+    /**
+     * @return Msk integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsMskArgs>> awsMsk() {
+        return Optional.ofNullable(this.awsMsk);
+    }
+
+    /**
+     * Neptune integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsNeptune")
+    private @Nullable Output<AwsIntegrationsAwsNeptuneArgs> awsNeptune;
+
+    /**
+     * @return Neptune integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsNeptuneArgs>> awsNeptune() {
+        return Optional.ofNullable(this.awsNeptune);
+    }
+
+    /**
+     * Qldb integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsQldb")
+    private @Nullable Output<AwsIntegrationsAwsQldbArgs> awsQldb;
+
+    /**
+     * @return Qldb integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsQldbArgs>> awsQldb() {
+        return Optional.ofNullable(this.awsQldb);
+    }
+
+    /**
+     * Route53resolver integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsRoute53resolver")
+    private @Nullable Output<AwsIntegrationsAwsRoute53resolverArgs> awsRoute53resolver;
+
+    /**
+     * @return Route53resolver integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsRoute53resolverArgs>> awsRoute53resolver() {
+        return Optional.ofNullable(this.awsRoute53resolver);
+    }
+
+    /**
+     * States integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsStates")
+    private @Nullable Output<AwsIntegrationsAwsStatesArgs> awsStates;
+
+    /**
+     * @return States integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsStatesArgs>> awsStates() {
+        return Optional.ofNullable(this.awsStates);
+    }
+
+    /**
+     * TransitGateway integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsTransitGateway")
+    private @Nullable Output<AwsIntegrationsAwsTransitGatewayArgs> awsTransitGateway;
+
+    /**
+     * @return TransitGateway integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsTransitGatewayArgs>> awsTransitGateway() {
+        return Optional.ofNullable(this.awsTransitGateway);
+    }
+
+    /**
+     * Waf integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsWaf")
+    private @Nullable Output<AwsIntegrationsAwsWafArgs> awsWaf;
+
+    /**
+     * @return Waf integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsWafArgs>> awsWaf() {
+        return Optional.ofNullable(this.awsWaf);
+    }
+
+    /**
+     * Wafv2 integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="awsWafv2")
+    private @Nullable Output<AwsIntegrationsAwsWafv2Args> awsWafv2;
+
+    /**
+     * @return Wafv2 integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsWafv2Args>> awsWafv2() {
+        return Optional.ofNullable(this.awsWafv2);
+    }
+
+    /**
      * Billing integration. See Integration blocks below for details.
      * 
      */
@@ -198,6 +425,21 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<AwsIntegrationsBillingArgs>> billing() {
         return Optional.ofNullable(this.billing);
+    }
+
+    /**
+     * Cloudfront integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="cloudfront")
+    private @Nullable Output<AwsIntegrationsCloudfrontArgs> cloudfront;
+
+    /**
+     * @return Cloudfront integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsCloudfrontArgs>> cloudfront() {
+        return Optional.ofNullable(this.cloudfront);
     }
 
     /**
@@ -231,6 +473,21 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * DynamoDB integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="dynamodb")
+    private @Nullable Output<AwsIntegrationsDynamodbArgs> dynamodb;
+
+    /**
+     * @return DynamoDB integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsDynamodbArgs>> dynamodb() {
+        return Optional.ofNullable(this.dynamodb);
+    }
+
+    /**
      * EBS integration. See Integration blocks below for details.
      * 
      */
@@ -243,6 +500,51 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<AwsIntegrationsEbsArgs>> ebs() {
         return Optional.ofNullable(this.ebs);
+    }
+
+    /**
+     * Ec2 integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="ec2")
+    private @Nullable Output<AwsIntegrationsEc2Args> ec2;
+
+    /**
+     * @return Ec2 integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsEc2Args>> ec2() {
+        return Optional.ofNullable(this.ec2);
+    }
+
+    /**
+     * Ecs integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="ecs")
+    private @Nullable Output<AwsIntegrationsEcsArgs> ecs;
+
+    /**
+     * @return Ecs integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsEcsArgs>> ecs() {
+        return Optional.ofNullable(this.ecs);
+    }
+
+    /**
+     * Efs integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="efs")
+    private @Nullable Output<AwsIntegrationsEfsArgs> efs;
+
+    /**
+     * @return Efs integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsEfsArgs>> efs() {
+        return Optional.ofNullable(this.efs);
     }
 
     /**
@@ -261,6 +563,66 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Elasticbeanstalk integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="elasticbeanstalk")
+    private @Nullable Output<AwsIntegrationsElasticbeanstalkArgs> elasticbeanstalk;
+
+    /**
+     * @return Elasticbeanstalk integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsElasticbeanstalkArgs>> elasticbeanstalk() {
+        return Optional.ofNullable(this.elasticbeanstalk);
+    }
+
+    /**
+     * Elasticsearch integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="elasticsearch")
+    private @Nullable Output<AwsIntegrationsElasticsearchArgs> elasticsearch;
+
+    /**
+     * @return Elasticsearch integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsElasticsearchArgs>> elasticsearch() {
+        return Optional.ofNullable(this.elasticsearch);
+    }
+
+    /**
+     * Elb integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="elb")
+    private @Nullable Output<AwsIntegrationsElbArgs> elb;
+
+    /**
+     * @return Elb integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsElbArgs>> elb() {
+        return Optional.ofNullable(this.elb);
+    }
+
+    /**
+     * Emr integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="emr")
+    private @Nullable Output<AwsIntegrationsEmrArgs> emr;
+
+    /**
+     * @return Emr integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsEmrArgs>> emr() {
+        return Optional.ofNullable(this.emr);
+    }
+
+    /**
      * Health integration. See Integration blocks below for details.
      * 
      */
@@ -273,6 +635,81 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<AwsIntegrationsHealthArgs>> health() {
         return Optional.ofNullable(this.health);
+    }
+
+    /**
+     * Iam integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="iam")
+    private @Nullable Output<AwsIntegrationsIamArgs> iam;
+
+    /**
+     * @return Iam integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsIamArgs>> iam() {
+        return Optional.ofNullable(this.iam);
+    }
+
+    /**
+     * Iot integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="iot")
+    private @Nullable Output<AwsIntegrationsIotArgs> iot;
+
+    /**
+     * @return Iot integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsIotArgs>> iot() {
+        return Optional.ofNullable(this.iot);
+    }
+
+    /**
+     * Kinesis integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="kinesis")
+    private @Nullable Output<AwsIntegrationsKinesisArgs> kinesis;
+
+    /**
+     * @return Kinesis integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsKinesisArgs>> kinesis() {
+        return Optional.ofNullable(this.kinesis);
+    }
+
+    /**
+     * Kinesis firehose integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="kinesisFirehose")
+    private @Nullable Output<AwsIntegrationsKinesisFirehoseArgs> kinesisFirehose;
+
+    /**
+     * @return Kinesis firehose integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsKinesisFirehoseArgs>> kinesisFirehose() {
+        return Optional.ofNullable(this.kinesisFirehose);
+    }
+
+    /**
+     * Lambda integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="lambda")
+    private @Nullable Output<AwsIntegrationsLambdaArgs> lambda;
+
+    /**
+     * @return Lambda integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsLambdaArgs>> lambda() {
+        return Optional.ofNullable(this.lambda);
     }
 
     /**
@@ -291,6 +728,51 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Rds integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="rds")
+    private @Nullable Output<AwsIntegrationsRdsArgs> rds;
+
+    /**
+     * @return Rds integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsRdsArgs>> rds() {
+        return Optional.ofNullable(this.rds);
+    }
+
+    /**
+     * Redshift integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="redshift")
+    private @Nullable Output<AwsIntegrationsRedshiftArgs> redshift;
+
+    /**
+     * @return Redshift integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsRedshiftArgs>> redshift() {
+        return Optional.ofNullable(this.redshift);
+    }
+
+    /**
+     * Route53 integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="route53")
+    private @Nullable Output<AwsIntegrationsRoute53Args> route53;
+
+    /**
+     * @return Route53 integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsRoute53Args>> route53() {
+        return Optional.ofNullable(this.route53);
+    }
+
+    /**
      * S3 integration. See Integration blocks below for details.
      * 
      */
@@ -303,6 +785,38 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<AwsIntegrationsS3Args>> s3() {
         return Optional.ofNullable(this.s3);
+    }
+
+    /**
+     * Ses integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="ses")
+    private @Nullable Output<AwsIntegrationsSesArgs> ses;
+
+    /**
+     * @return Ses integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AwsIntegrationsSesArgs>> ses() {
+        return Optional.ofNullable(this.ses);
+    }
+
+    /**
+     * Sns integration. See Integration blocks below for details.
+     * &lt;/details&gt;
+     * 
+     */
+    @Import(name="sns")
+    private @Nullable Output<AwsIntegrationsSnsArgs> sns;
+
+    /**
+     * @return Sns integration. See Integration blocks below for details.
+     * &lt;/details&gt;
+     * 
+     */
+    public Optional<Output<AwsIntegrationsSnsArgs>> sns() {
+        return Optional.ofNullable(this.sns);
     }
 
     /**
@@ -378,14 +892,46 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
         this.awsConnect = $.awsConnect;
         this.awsDirectConnect = $.awsDirectConnect;
         this.awsFsx = $.awsFsx;
+        this.awsGlue = $.awsGlue;
+        this.awsKinesisAnalytics = $.awsKinesisAnalytics;
+        this.awsMediaConvert = $.awsMediaConvert;
+        this.awsMediaPackageVod = $.awsMediaPackageVod;
+        this.awsMq = $.awsMq;
+        this.awsMsk = $.awsMsk;
+        this.awsNeptune = $.awsNeptune;
+        this.awsQldb = $.awsQldb;
+        this.awsRoute53resolver = $.awsRoute53resolver;
+        this.awsStates = $.awsStates;
+        this.awsTransitGateway = $.awsTransitGateway;
+        this.awsWaf = $.awsWaf;
+        this.awsWafv2 = $.awsWafv2;
         this.billing = $.billing;
+        this.cloudfront = $.cloudfront;
         this.cloudtrail = $.cloudtrail;
         this.docDb = $.docDb;
+        this.dynamodb = $.dynamodb;
         this.ebs = $.ebs;
+        this.ec2 = $.ec2;
+        this.ecs = $.ecs;
+        this.efs = $.efs;
         this.elasticache = $.elasticache;
+        this.elasticbeanstalk = $.elasticbeanstalk;
+        this.elasticsearch = $.elasticsearch;
+        this.elb = $.elb;
+        this.emr = $.emr;
         this.health = $.health;
+        this.iam = $.iam;
+        this.iot = $.iot;
+        this.kinesis = $.kinesis;
+        this.kinesisFirehose = $.kinesisFirehose;
+        this.lambda = $.lambda;
         this.linkedAccountId = $.linkedAccountId;
+        this.rds = $.rds;
+        this.redshift = $.redshift;
+        this.route53 = $.route53;
         this.s3 = $.s3;
+        this.ses = $.ses;
+        this.sns = $.sns;
         this.sqs = $.sqs;
         this.trustedAdvisor = $.trustedAdvisor;
         this.vpc = $.vpc;
@@ -621,6 +1167,279 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param awsGlue Glue integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsGlue(@Nullable Output<AwsIntegrationsAwsGlueArgs> awsGlue) {
+            $.awsGlue = awsGlue;
+            return this;
+        }
+
+        /**
+         * @param awsGlue Glue integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsGlue(AwsIntegrationsAwsGlueArgs awsGlue) {
+            return awsGlue(Output.of(awsGlue));
+        }
+
+        /**
+         * @param awsKinesisAnalytics Kinesis Analytics integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsKinesisAnalytics(@Nullable Output<AwsIntegrationsAwsKinesisAnalyticsArgs> awsKinesisAnalytics) {
+            $.awsKinesisAnalytics = awsKinesisAnalytics;
+            return this;
+        }
+
+        /**
+         * @param awsKinesisAnalytics Kinesis Analytics integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsKinesisAnalytics(AwsIntegrationsAwsKinesisAnalyticsArgs awsKinesisAnalytics) {
+            return awsKinesisAnalytics(Output.of(awsKinesisAnalytics));
+        }
+
+        /**
+         * @param awsMediaConvert Media Convert integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsMediaConvert(@Nullable Output<AwsIntegrationsAwsMediaConvertArgs> awsMediaConvert) {
+            $.awsMediaConvert = awsMediaConvert;
+            return this;
+        }
+
+        /**
+         * @param awsMediaConvert Media Convert integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsMediaConvert(AwsIntegrationsAwsMediaConvertArgs awsMediaConvert) {
+            return awsMediaConvert(Output.of(awsMediaConvert));
+        }
+
+        /**
+         * @param awsMediaPackageVod Media Package vod integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsMediaPackageVod(@Nullable Output<AwsIntegrationsAwsMediaPackageVodArgs> awsMediaPackageVod) {
+            $.awsMediaPackageVod = awsMediaPackageVod;
+            return this;
+        }
+
+        /**
+         * @param awsMediaPackageVod Media Package vod integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsMediaPackageVod(AwsIntegrationsAwsMediaPackageVodArgs awsMediaPackageVod) {
+            return awsMediaPackageVod(Output.of(awsMediaPackageVod));
+        }
+
+        /**
+         * @param awsMq Mq integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsMq(@Nullable Output<AwsIntegrationsAwsMqArgs> awsMq) {
+            $.awsMq = awsMq;
+            return this;
+        }
+
+        /**
+         * @param awsMq Mq integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsMq(AwsIntegrationsAwsMqArgs awsMq) {
+            return awsMq(Output.of(awsMq));
+        }
+
+        /**
+         * @param awsMsk Msk integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsMsk(@Nullable Output<AwsIntegrationsAwsMskArgs> awsMsk) {
+            $.awsMsk = awsMsk;
+            return this;
+        }
+
+        /**
+         * @param awsMsk Msk integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsMsk(AwsIntegrationsAwsMskArgs awsMsk) {
+            return awsMsk(Output.of(awsMsk));
+        }
+
+        /**
+         * @param awsNeptune Neptune integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsNeptune(@Nullable Output<AwsIntegrationsAwsNeptuneArgs> awsNeptune) {
+            $.awsNeptune = awsNeptune;
+            return this;
+        }
+
+        /**
+         * @param awsNeptune Neptune integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsNeptune(AwsIntegrationsAwsNeptuneArgs awsNeptune) {
+            return awsNeptune(Output.of(awsNeptune));
+        }
+
+        /**
+         * @param awsQldb Qldb integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsQldb(@Nullable Output<AwsIntegrationsAwsQldbArgs> awsQldb) {
+            $.awsQldb = awsQldb;
+            return this;
+        }
+
+        /**
+         * @param awsQldb Qldb integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsQldb(AwsIntegrationsAwsQldbArgs awsQldb) {
+            return awsQldb(Output.of(awsQldb));
+        }
+
+        /**
+         * @param awsRoute53resolver Route53resolver integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsRoute53resolver(@Nullable Output<AwsIntegrationsAwsRoute53resolverArgs> awsRoute53resolver) {
+            $.awsRoute53resolver = awsRoute53resolver;
+            return this;
+        }
+
+        /**
+         * @param awsRoute53resolver Route53resolver integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsRoute53resolver(AwsIntegrationsAwsRoute53resolverArgs awsRoute53resolver) {
+            return awsRoute53resolver(Output.of(awsRoute53resolver));
+        }
+
+        /**
+         * @param awsStates States integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsStates(@Nullable Output<AwsIntegrationsAwsStatesArgs> awsStates) {
+            $.awsStates = awsStates;
+            return this;
+        }
+
+        /**
+         * @param awsStates States integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsStates(AwsIntegrationsAwsStatesArgs awsStates) {
+            return awsStates(Output.of(awsStates));
+        }
+
+        /**
+         * @param awsTransitGateway TransitGateway integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsTransitGateway(@Nullable Output<AwsIntegrationsAwsTransitGatewayArgs> awsTransitGateway) {
+            $.awsTransitGateway = awsTransitGateway;
+            return this;
+        }
+
+        /**
+         * @param awsTransitGateway TransitGateway integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsTransitGateway(AwsIntegrationsAwsTransitGatewayArgs awsTransitGateway) {
+            return awsTransitGateway(Output.of(awsTransitGateway));
+        }
+
+        /**
+         * @param awsWaf Waf integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsWaf(@Nullable Output<AwsIntegrationsAwsWafArgs> awsWaf) {
+            $.awsWaf = awsWaf;
+            return this;
+        }
+
+        /**
+         * @param awsWaf Waf integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsWaf(AwsIntegrationsAwsWafArgs awsWaf) {
+            return awsWaf(Output.of(awsWaf));
+        }
+
+        /**
+         * @param awsWafv2 Wafv2 integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsWafv2(@Nullable Output<AwsIntegrationsAwsWafv2Args> awsWafv2) {
+            $.awsWafv2 = awsWafv2;
+            return this;
+        }
+
+        /**
+         * @param awsWafv2 Wafv2 integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsWafv2(AwsIntegrationsAwsWafv2Args awsWafv2) {
+            return awsWafv2(Output.of(awsWafv2));
+        }
+
+        /**
          * @param billing Billing integration. See Integration blocks below for details.
          * 
          * @return builder
@@ -639,6 +1458,27 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
          */
         public Builder billing(AwsIntegrationsBillingArgs billing) {
             return billing(Output.of(billing));
+        }
+
+        /**
+         * @param cloudfront Cloudfront integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudfront(@Nullable Output<AwsIntegrationsCloudfrontArgs> cloudfront) {
+            $.cloudfront = cloudfront;
+            return this;
+        }
+
+        /**
+         * @param cloudfront Cloudfront integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudfront(AwsIntegrationsCloudfrontArgs cloudfront) {
+            return cloudfront(Output.of(cloudfront));
         }
 
         /**
@@ -684,6 +1524,27 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param dynamodb DynamoDB integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamodb(@Nullable Output<AwsIntegrationsDynamodbArgs> dynamodb) {
+            $.dynamodb = dynamodb;
+            return this;
+        }
+
+        /**
+         * @param dynamodb DynamoDB integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamodb(AwsIntegrationsDynamodbArgs dynamodb) {
+            return dynamodb(Output.of(dynamodb));
+        }
+
+        /**
          * @param ebs EBS integration. See Integration blocks below for details.
          * 
          * @return builder
@@ -702,6 +1563,69 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
          */
         public Builder ebs(AwsIntegrationsEbsArgs ebs) {
             return ebs(Output.of(ebs));
+        }
+
+        /**
+         * @param ec2 Ec2 integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ec2(@Nullable Output<AwsIntegrationsEc2Args> ec2) {
+            $.ec2 = ec2;
+            return this;
+        }
+
+        /**
+         * @param ec2 Ec2 integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ec2(AwsIntegrationsEc2Args ec2) {
+            return ec2(Output.of(ec2));
+        }
+
+        /**
+         * @param ecs Ecs integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ecs(@Nullable Output<AwsIntegrationsEcsArgs> ecs) {
+            $.ecs = ecs;
+            return this;
+        }
+
+        /**
+         * @param ecs Ecs integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ecs(AwsIntegrationsEcsArgs ecs) {
+            return ecs(Output.of(ecs));
+        }
+
+        /**
+         * @param efs Efs integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder efs(@Nullable Output<AwsIntegrationsEfsArgs> efs) {
+            $.efs = efs;
+            return this;
+        }
+
+        /**
+         * @param efs Efs integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder efs(AwsIntegrationsEfsArgs efs) {
+            return efs(Output.of(efs));
         }
 
         /**
@@ -726,6 +1650,90 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param elasticbeanstalk Elasticbeanstalk integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder elasticbeanstalk(@Nullable Output<AwsIntegrationsElasticbeanstalkArgs> elasticbeanstalk) {
+            $.elasticbeanstalk = elasticbeanstalk;
+            return this;
+        }
+
+        /**
+         * @param elasticbeanstalk Elasticbeanstalk integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder elasticbeanstalk(AwsIntegrationsElasticbeanstalkArgs elasticbeanstalk) {
+            return elasticbeanstalk(Output.of(elasticbeanstalk));
+        }
+
+        /**
+         * @param elasticsearch Elasticsearch integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder elasticsearch(@Nullable Output<AwsIntegrationsElasticsearchArgs> elasticsearch) {
+            $.elasticsearch = elasticsearch;
+            return this;
+        }
+
+        /**
+         * @param elasticsearch Elasticsearch integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder elasticsearch(AwsIntegrationsElasticsearchArgs elasticsearch) {
+            return elasticsearch(Output.of(elasticsearch));
+        }
+
+        /**
+         * @param elb Elb integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder elb(@Nullable Output<AwsIntegrationsElbArgs> elb) {
+            $.elb = elb;
+            return this;
+        }
+
+        /**
+         * @param elb Elb integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder elb(AwsIntegrationsElbArgs elb) {
+            return elb(Output.of(elb));
+        }
+
+        /**
+         * @param emr Emr integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emr(@Nullable Output<AwsIntegrationsEmrArgs> emr) {
+            $.emr = emr;
+            return this;
+        }
+
+        /**
+         * @param emr Emr integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emr(AwsIntegrationsEmrArgs emr) {
+            return emr(Output.of(emr));
+        }
+
+        /**
          * @param health Health integration. See Integration blocks below for details.
          * 
          * @return builder
@@ -744,6 +1752,111 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
          */
         public Builder health(AwsIntegrationsHealthArgs health) {
             return health(Output.of(health));
+        }
+
+        /**
+         * @param iam Iam integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iam(@Nullable Output<AwsIntegrationsIamArgs> iam) {
+            $.iam = iam;
+            return this;
+        }
+
+        /**
+         * @param iam Iam integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iam(AwsIntegrationsIamArgs iam) {
+            return iam(Output.of(iam));
+        }
+
+        /**
+         * @param iot Iot integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iot(@Nullable Output<AwsIntegrationsIotArgs> iot) {
+            $.iot = iot;
+            return this;
+        }
+
+        /**
+         * @param iot Iot integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iot(AwsIntegrationsIotArgs iot) {
+            return iot(Output.of(iot));
+        }
+
+        /**
+         * @param kinesis Kinesis integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kinesis(@Nullable Output<AwsIntegrationsKinesisArgs> kinesis) {
+            $.kinesis = kinesis;
+            return this;
+        }
+
+        /**
+         * @param kinesis Kinesis integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kinesis(AwsIntegrationsKinesisArgs kinesis) {
+            return kinesis(Output.of(kinesis));
+        }
+
+        /**
+         * @param kinesisFirehose Kinesis firehose integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kinesisFirehose(@Nullable Output<AwsIntegrationsKinesisFirehoseArgs> kinesisFirehose) {
+            $.kinesisFirehose = kinesisFirehose;
+            return this;
+        }
+
+        /**
+         * @param kinesisFirehose Kinesis firehose integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kinesisFirehose(AwsIntegrationsKinesisFirehoseArgs kinesisFirehose) {
+            return kinesisFirehose(Output.of(kinesisFirehose));
+        }
+
+        /**
+         * @param lambda Lambda integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambda(@Nullable Output<AwsIntegrationsLambdaArgs> lambda) {
+            $.lambda = lambda;
+            return this;
+        }
+
+        /**
+         * @param lambda Lambda integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambda(AwsIntegrationsLambdaArgs lambda) {
+            return lambda(Output.of(lambda));
         }
 
         /**
@@ -768,6 +1881,69 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param rds Rds integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rds(@Nullable Output<AwsIntegrationsRdsArgs> rds) {
+            $.rds = rds;
+            return this;
+        }
+
+        /**
+         * @param rds Rds integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rds(AwsIntegrationsRdsArgs rds) {
+            return rds(Output.of(rds));
+        }
+
+        /**
+         * @param redshift Redshift integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder redshift(@Nullable Output<AwsIntegrationsRedshiftArgs> redshift) {
+            $.redshift = redshift;
+            return this;
+        }
+
+        /**
+         * @param redshift Redshift integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder redshift(AwsIntegrationsRedshiftArgs redshift) {
+            return redshift(Output.of(redshift));
+        }
+
+        /**
+         * @param route53 Route53 integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder route53(@Nullable Output<AwsIntegrationsRoute53Args> route53) {
+            $.route53 = route53;
+            return this;
+        }
+
+        /**
+         * @param route53 Route53 integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder route53(AwsIntegrationsRoute53Args route53) {
+            return route53(Output.of(route53));
+        }
+
+        /**
          * @param s3 S3 integration. See Integration blocks below for details.
          * 
          * @return builder
@@ -786,6 +1962,50 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
          */
         public Builder s3(AwsIntegrationsS3Args s3) {
             return s3(Output.of(s3));
+        }
+
+        /**
+         * @param ses Ses integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ses(@Nullable Output<AwsIntegrationsSesArgs> ses) {
+            $.ses = ses;
+            return this;
+        }
+
+        /**
+         * @param ses Ses integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ses(AwsIntegrationsSesArgs ses) {
+            return ses(Output.of(ses));
+        }
+
+        /**
+         * @param sns Sns integration. See Integration blocks below for details.
+         * &lt;/details&gt;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sns(@Nullable Output<AwsIntegrationsSnsArgs> sns) {
+            $.sns = sns;
+            return this;
+        }
+
+        /**
+         * @param sns Sns integration. See Integration blocks below for details.
+         * &lt;/details&gt;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sns(AwsIntegrationsSnsArgs sns) {
+            return sns(Output.of(sns));
         }
 
         /**

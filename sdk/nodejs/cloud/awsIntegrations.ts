@@ -35,8 +35,8 @@ import * as utilities from "../utilities";
  *     cloudtrail: {
  *         metricsPollingInterval: 6000,
  *         awsRegions: [
- *             "region-1",
- *             "region-2",
+ *             "us-east-1",
+ *             "us-east-2",
  *         ],
  *     },
  *     health: {
@@ -48,8 +48,8 @@ import * as utilities from "../utilities";
  *     vpc: {
  *         metricsPollingInterval: 6000,
  *         awsRegions: [
- *             "region-1",
- *             "region-2",
+ *             "us-east-1",
+ *             "us-east-2",
  *         ],
  *         fetchNatGateway: true,
  *         fetchVpn: false,
@@ -59,8 +59,8 @@ import * as utilities from "../utilities";
  *     xRay: {
  *         metricsPollingInterval: 6000,
  *         awsRegions: [
- *             "region-1",
- *             "region-2",
+ *             "us-east-1",
+ *             "us-east-2",
  *         ],
  *     },
  *     s3: {
@@ -70,31 +70,43 @@ import * as utilities from "../utilities";
  *         metricsPollingInterval: 6000,
  *     },
  *     sqs: {
+ *         fetchExtendedInventory: true,
+ *         fetchTags: true,
+ *         queuePrefixes: ["queue prefix"],
  *         metricsPollingInterval: 6000,
  *         awsRegions: ["us-east-1"],
- *         tagKey: "test",
- *         tagValue: "test",
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
  *     },
  *     ebs: {
  *         metricsPollingInterval: 6000,
+ *         fetchExtendedInventory: true,
  *         awsRegions: ["us-east-1"],
- *         tagKey: "test",
- *         tagValue: "test",
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
  *     },
  *     alb: {
+ *         fetchExtendedInventory: true,
+ *         fetchTags: true,
+ *         loadBalancerPrefixes: ["load balancer prefix"],
  *         metricsPollingInterval: 6000,
  *         awsRegions: ["us-east-1"],
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
  *     },
  *     elasticache: {
- *         metricsPollingInterval: 6000,
  *         awsRegions: ["us-east-1"],
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
  *     },
  *     apiGateway: {
  *         metricsPollingInterval: 6000,
  *         awsRegions: ["us-east-1"],
- *         stagePrefixes: [""],
- *         tagKey: "test",
- *         tagValue: "test",
+ *         stagePrefixes: ["stage prefix"],
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
  *     },
  *     autoScaling: {
  *         awsRegions: ["us-east-1"],
@@ -122,6 +134,177 @@ import * as utilities from "../utilities";
  *     },
  *     awsFsx: {
  *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsGlue: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsKinesisAnalytics: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsMediaConvert: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsMediaPackageVod: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsMq: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsMsk: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsNeptune: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsQldb: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsRoute53resolver: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsStates: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsTransitGateway: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsWaf: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsWafv2: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     cloudfront: {
+ *         fetchLambdasAtEdge: true,
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     dynamodb: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchExtendedInventory: true,
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     ec2: {
+ *         awsRegions: ["us-east-1"],
+ *         duplicateEc2Tags: true,
+ *         fetchIpAddresses: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     ecs: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     efs: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     elasticbeanstalk: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchExtendedInventory: true,
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     elasticsearch: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchNodes: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     elb: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchExtendedInventory: true,
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     emr: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     iam: {
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     iot: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     kinesis: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchShards: true,
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     kinesisFirehose: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     lambda: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     rds: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     redshift: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     route53: {
+ *         fetchExtendedInventory: true,
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     ses: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     sns: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchExtendedInventory: true,
  *         metricsPollingInterval: 6000,
  *     },
  * });
@@ -204,9 +387,65 @@ export class AwsIntegrations extends pulumi.CustomResource {
      */
     public readonly awsFsx!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsFsx | undefined>;
     /**
+     * Glue integration. See Integration blocks below for details.
+     */
+    public readonly awsGlue!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsGlue | undefined>;
+    /**
+     * Kinesis Analytics integration. See Integration blocks below for details.
+     */
+    public readonly awsKinesisAnalytics!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsKinesisAnalytics | undefined>;
+    /**
+     * Media Convert integration. See Integration blocks below for details.
+     */
+    public readonly awsMediaConvert!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsMediaConvert | undefined>;
+    /**
+     * Media Package vod integration. See Integration blocks below for details.
+     */
+    public readonly awsMediaPackageVod!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsMediaPackageVod | undefined>;
+    /**
+     * Mq integration. See Integration blocks below for details.
+     */
+    public readonly awsMq!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsMq | undefined>;
+    /**
+     * Msk integration. See Integration blocks below for details.
+     */
+    public readonly awsMsk!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsMsk | undefined>;
+    /**
+     * Neptune integration. See Integration blocks below for details.
+     */
+    public readonly awsNeptune!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsNeptune | undefined>;
+    /**
+     * Qldb integration. See Integration blocks below for details.
+     */
+    public readonly awsQldb!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsQldb | undefined>;
+    /**
+     * Route53resolver integration. See Integration blocks below for details.
+     */
+    public readonly awsRoute53resolver!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsRoute53resolver | undefined>;
+    /**
+     * States integration. See Integration blocks below for details.
+     */
+    public readonly awsStates!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsStates | undefined>;
+    /**
+     * TransitGateway integration. See Integration blocks below for details.
+     */
+    public readonly awsTransitGateway!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsTransitGateway | undefined>;
+    /**
+     * Waf integration. See Integration blocks below for details.
+     */
+    public readonly awsWaf!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsWaf | undefined>;
+    /**
+     * Wafv2 integration. See Integration blocks below for details.
+     */
+    public readonly awsWafv2!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsWafv2 | undefined>;
+    /**
      * Billing integration. See Integration blocks below for details.
      */
     public readonly billing!: pulumi.Output<outputs.cloud.AwsIntegrationsBilling | undefined>;
+    /**
+     * Cloudfront integration. See Integration blocks below for details.
+     */
+    public readonly cloudfront!: pulumi.Output<outputs.cloud.AwsIntegrationsCloudfront | undefined>;
     /**
      * Cloudtrail integration. See Integration blocks below for details.
      */
@@ -216,25 +455,98 @@ export class AwsIntegrations extends pulumi.CustomResource {
      */
     public readonly docDb!: pulumi.Output<outputs.cloud.AwsIntegrationsDocDb | undefined>;
     /**
+     * DynamoDB integration. See Integration blocks below for details.
+     */
+    public readonly dynamodb!: pulumi.Output<outputs.cloud.AwsIntegrationsDynamodb | undefined>;
+    /**
      * EBS integration. See Integration blocks below for details.
      */
     public readonly ebs!: pulumi.Output<outputs.cloud.AwsIntegrationsEbs | undefined>;
+    /**
+     * Ec2 integration. See Integration blocks below for details.
+     */
+    public readonly ec2!: pulumi.Output<outputs.cloud.AwsIntegrationsEc2 | undefined>;
+    /**
+     * Ecs integration. See Integration blocks below for details.
+     */
+    public readonly ecs!: pulumi.Output<outputs.cloud.AwsIntegrationsEcs | undefined>;
+    /**
+     * Efs integration. See Integration blocks below for details.
+     */
+    public readonly efs!: pulumi.Output<outputs.cloud.AwsIntegrationsEfs | undefined>;
     /**
      * Elasticache integration. See Integration blocks below for details.
      */
     public readonly elasticache!: pulumi.Output<outputs.cloud.AwsIntegrationsElasticache | undefined>;
     /**
+     * Elasticbeanstalk integration. See Integration blocks below for details.
+     */
+    public readonly elasticbeanstalk!: pulumi.Output<outputs.cloud.AwsIntegrationsElasticbeanstalk | undefined>;
+    /**
+     * Elasticsearch integration. See Integration blocks below for details.
+     */
+    public readonly elasticsearch!: pulumi.Output<outputs.cloud.AwsIntegrationsElasticsearch | undefined>;
+    /**
+     * Elb integration. See Integration blocks below for details.
+     */
+    public readonly elb!: pulumi.Output<outputs.cloud.AwsIntegrationsElb | undefined>;
+    /**
+     * Emr integration. See Integration blocks below for details.
+     */
+    public readonly emr!: pulumi.Output<outputs.cloud.AwsIntegrationsEmr | undefined>;
+    /**
      * Health integration. See Integration blocks below for details.
      */
     public readonly health!: pulumi.Output<outputs.cloud.AwsIntegrationsHealth | undefined>;
+    /**
+     * Iam integration. See Integration blocks below for details.
+     */
+    public readonly iam!: pulumi.Output<outputs.cloud.AwsIntegrationsIam | undefined>;
+    /**
+     * Iot integration. See Integration blocks below for details.
+     */
+    public readonly iot!: pulumi.Output<outputs.cloud.AwsIntegrationsIot | undefined>;
+    /**
+     * Kinesis integration. See Integration blocks below for details.
+     */
+    public readonly kinesis!: pulumi.Output<outputs.cloud.AwsIntegrationsKinesis | undefined>;
+    /**
+     * Kinesis firehose integration. See Integration blocks below for details.
+     */
+    public readonly kinesisFirehose!: pulumi.Output<outputs.cloud.AwsIntegrationsKinesisFirehose | undefined>;
+    /**
+     * Lambda integration. See Integration blocks below for details.
+     */
+    public readonly lambda!: pulumi.Output<outputs.cloud.AwsIntegrationsLambda | undefined>;
     /**
      * The ID of the linked AWS account in New Relic.
      */
     public readonly linkedAccountId!: pulumi.Output<number>;
     /**
+     * Rds integration. See Integration blocks below for details.
+     */
+    public readonly rds!: pulumi.Output<outputs.cloud.AwsIntegrationsRds | undefined>;
+    /**
+     * Redshift integration. See Integration blocks below for details.
+     */
+    public readonly redshift!: pulumi.Output<outputs.cloud.AwsIntegrationsRedshift | undefined>;
+    /**
+     * Route53 integration. See Integration blocks below for details.
+     */
+    public readonly route53!: pulumi.Output<outputs.cloud.AwsIntegrationsRoute53 | undefined>;
+    /**
      * S3 integration. See Integration blocks below for details.
      */
     public readonly s3!: pulumi.Output<outputs.cloud.AwsIntegrationsS3 | undefined>;
+    /**
+     * Ses integration. See Integration blocks below for details.
+     */
+    public readonly ses!: pulumi.Output<outputs.cloud.AwsIntegrationsSes | undefined>;
+    /**
+     * Sns integration. See Integration blocks below for details.
+     * </details>
+     */
+    public readonly sns!: pulumi.Output<outputs.cloud.AwsIntegrationsSns | undefined>;
     /**
      * SQS integration. See Integration blocks below for details.
      */
@@ -275,14 +587,46 @@ export class AwsIntegrations extends pulumi.CustomResource {
             resourceInputs["awsConnect"] = state ? state.awsConnect : undefined;
             resourceInputs["awsDirectConnect"] = state ? state.awsDirectConnect : undefined;
             resourceInputs["awsFsx"] = state ? state.awsFsx : undefined;
+            resourceInputs["awsGlue"] = state ? state.awsGlue : undefined;
+            resourceInputs["awsKinesisAnalytics"] = state ? state.awsKinesisAnalytics : undefined;
+            resourceInputs["awsMediaConvert"] = state ? state.awsMediaConvert : undefined;
+            resourceInputs["awsMediaPackageVod"] = state ? state.awsMediaPackageVod : undefined;
+            resourceInputs["awsMq"] = state ? state.awsMq : undefined;
+            resourceInputs["awsMsk"] = state ? state.awsMsk : undefined;
+            resourceInputs["awsNeptune"] = state ? state.awsNeptune : undefined;
+            resourceInputs["awsQldb"] = state ? state.awsQldb : undefined;
+            resourceInputs["awsRoute53resolver"] = state ? state.awsRoute53resolver : undefined;
+            resourceInputs["awsStates"] = state ? state.awsStates : undefined;
+            resourceInputs["awsTransitGateway"] = state ? state.awsTransitGateway : undefined;
+            resourceInputs["awsWaf"] = state ? state.awsWaf : undefined;
+            resourceInputs["awsWafv2"] = state ? state.awsWafv2 : undefined;
             resourceInputs["billing"] = state ? state.billing : undefined;
+            resourceInputs["cloudfront"] = state ? state.cloudfront : undefined;
             resourceInputs["cloudtrail"] = state ? state.cloudtrail : undefined;
             resourceInputs["docDb"] = state ? state.docDb : undefined;
+            resourceInputs["dynamodb"] = state ? state.dynamodb : undefined;
             resourceInputs["ebs"] = state ? state.ebs : undefined;
+            resourceInputs["ec2"] = state ? state.ec2 : undefined;
+            resourceInputs["ecs"] = state ? state.ecs : undefined;
+            resourceInputs["efs"] = state ? state.efs : undefined;
             resourceInputs["elasticache"] = state ? state.elasticache : undefined;
+            resourceInputs["elasticbeanstalk"] = state ? state.elasticbeanstalk : undefined;
+            resourceInputs["elasticsearch"] = state ? state.elasticsearch : undefined;
+            resourceInputs["elb"] = state ? state.elb : undefined;
+            resourceInputs["emr"] = state ? state.emr : undefined;
             resourceInputs["health"] = state ? state.health : undefined;
+            resourceInputs["iam"] = state ? state.iam : undefined;
+            resourceInputs["iot"] = state ? state.iot : undefined;
+            resourceInputs["kinesis"] = state ? state.kinesis : undefined;
+            resourceInputs["kinesisFirehose"] = state ? state.kinesisFirehose : undefined;
+            resourceInputs["lambda"] = state ? state.lambda : undefined;
             resourceInputs["linkedAccountId"] = state ? state.linkedAccountId : undefined;
+            resourceInputs["rds"] = state ? state.rds : undefined;
+            resourceInputs["redshift"] = state ? state.redshift : undefined;
+            resourceInputs["route53"] = state ? state.route53 : undefined;
             resourceInputs["s3"] = state ? state.s3 : undefined;
+            resourceInputs["ses"] = state ? state.ses : undefined;
+            resourceInputs["sns"] = state ? state.sns : undefined;
             resourceInputs["sqs"] = state ? state.sqs : undefined;
             resourceInputs["trustedAdvisor"] = state ? state.trustedAdvisor : undefined;
             resourceInputs["vpc"] = state ? state.vpc : undefined;
@@ -302,14 +646,46 @@ export class AwsIntegrations extends pulumi.CustomResource {
             resourceInputs["awsConnect"] = args ? args.awsConnect : undefined;
             resourceInputs["awsDirectConnect"] = args ? args.awsDirectConnect : undefined;
             resourceInputs["awsFsx"] = args ? args.awsFsx : undefined;
+            resourceInputs["awsGlue"] = args ? args.awsGlue : undefined;
+            resourceInputs["awsKinesisAnalytics"] = args ? args.awsKinesisAnalytics : undefined;
+            resourceInputs["awsMediaConvert"] = args ? args.awsMediaConvert : undefined;
+            resourceInputs["awsMediaPackageVod"] = args ? args.awsMediaPackageVod : undefined;
+            resourceInputs["awsMq"] = args ? args.awsMq : undefined;
+            resourceInputs["awsMsk"] = args ? args.awsMsk : undefined;
+            resourceInputs["awsNeptune"] = args ? args.awsNeptune : undefined;
+            resourceInputs["awsQldb"] = args ? args.awsQldb : undefined;
+            resourceInputs["awsRoute53resolver"] = args ? args.awsRoute53resolver : undefined;
+            resourceInputs["awsStates"] = args ? args.awsStates : undefined;
+            resourceInputs["awsTransitGateway"] = args ? args.awsTransitGateway : undefined;
+            resourceInputs["awsWaf"] = args ? args.awsWaf : undefined;
+            resourceInputs["awsWafv2"] = args ? args.awsWafv2 : undefined;
             resourceInputs["billing"] = args ? args.billing : undefined;
+            resourceInputs["cloudfront"] = args ? args.cloudfront : undefined;
             resourceInputs["cloudtrail"] = args ? args.cloudtrail : undefined;
             resourceInputs["docDb"] = args ? args.docDb : undefined;
+            resourceInputs["dynamodb"] = args ? args.dynamodb : undefined;
             resourceInputs["ebs"] = args ? args.ebs : undefined;
+            resourceInputs["ec2"] = args ? args.ec2 : undefined;
+            resourceInputs["ecs"] = args ? args.ecs : undefined;
+            resourceInputs["efs"] = args ? args.efs : undefined;
             resourceInputs["elasticache"] = args ? args.elasticache : undefined;
+            resourceInputs["elasticbeanstalk"] = args ? args.elasticbeanstalk : undefined;
+            resourceInputs["elasticsearch"] = args ? args.elasticsearch : undefined;
+            resourceInputs["elb"] = args ? args.elb : undefined;
+            resourceInputs["emr"] = args ? args.emr : undefined;
             resourceInputs["health"] = args ? args.health : undefined;
+            resourceInputs["iam"] = args ? args.iam : undefined;
+            resourceInputs["iot"] = args ? args.iot : undefined;
+            resourceInputs["kinesis"] = args ? args.kinesis : undefined;
+            resourceInputs["kinesisFirehose"] = args ? args.kinesisFirehose : undefined;
+            resourceInputs["lambda"] = args ? args.lambda : undefined;
             resourceInputs["linkedAccountId"] = args ? args.linkedAccountId : undefined;
+            resourceInputs["rds"] = args ? args.rds : undefined;
+            resourceInputs["redshift"] = args ? args.redshift : undefined;
+            resourceInputs["route53"] = args ? args.route53 : undefined;
             resourceInputs["s3"] = args ? args.s3 : undefined;
+            resourceInputs["ses"] = args ? args.ses : undefined;
+            resourceInputs["sns"] = args ? args.sns : undefined;
             resourceInputs["sqs"] = args ? args.sqs : undefined;
             resourceInputs["trustedAdvisor"] = args ? args.trustedAdvisor : undefined;
             resourceInputs["vpc"] = args ? args.vpc : undefined;
@@ -365,9 +741,65 @@ export interface AwsIntegrationsState {
      */
     awsFsx?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsFsx>;
     /**
+     * Glue integration. See Integration blocks below for details.
+     */
+    awsGlue?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsGlue>;
+    /**
+     * Kinesis Analytics integration. See Integration blocks below for details.
+     */
+    awsKinesisAnalytics?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsKinesisAnalytics>;
+    /**
+     * Media Convert integration. See Integration blocks below for details.
+     */
+    awsMediaConvert?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMediaConvert>;
+    /**
+     * Media Package vod integration. See Integration blocks below for details.
+     */
+    awsMediaPackageVod?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMediaPackageVod>;
+    /**
+     * Mq integration. See Integration blocks below for details.
+     */
+    awsMq?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMq>;
+    /**
+     * Msk integration. See Integration blocks below for details.
+     */
+    awsMsk?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMsk>;
+    /**
+     * Neptune integration. See Integration blocks below for details.
+     */
+    awsNeptune?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsNeptune>;
+    /**
+     * Qldb integration. See Integration blocks below for details.
+     */
+    awsQldb?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsQldb>;
+    /**
+     * Route53resolver integration. See Integration blocks below for details.
+     */
+    awsRoute53resolver?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsRoute53resolver>;
+    /**
+     * States integration. See Integration blocks below for details.
+     */
+    awsStates?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsStates>;
+    /**
+     * TransitGateway integration. See Integration blocks below for details.
+     */
+    awsTransitGateway?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsTransitGateway>;
+    /**
+     * Waf integration. See Integration blocks below for details.
+     */
+    awsWaf?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsWaf>;
+    /**
+     * Wafv2 integration. See Integration blocks below for details.
+     */
+    awsWafv2?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsWafv2>;
+    /**
      * Billing integration. See Integration blocks below for details.
      */
     billing?: pulumi.Input<inputs.cloud.AwsIntegrationsBilling>;
+    /**
+     * Cloudfront integration. See Integration blocks below for details.
+     */
+    cloudfront?: pulumi.Input<inputs.cloud.AwsIntegrationsCloudfront>;
     /**
      * Cloudtrail integration. See Integration blocks below for details.
      */
@@ -377,25 +809,98 @@ export interface AwsIntegrationsState {
      */
     docDb?: pulumi.Input<inputs.cloud.AwsIntegrationsDocDb>;
     /**
+     * DynamoDB integration. See Integration blocks below for details.
+     */
+    dynamodb?: pulumi.Input<inputs.cloud.AwsIntegrationsDynamodb>;
+    /**
      * EBS integration. See Integration blocks below for details.
      */
     ebs?: pulumi.Input<inputs.cloud.AwsIntegrationsEbs>;
+    /**
+     * Ec2 integration. See Integration blocks below for details.
+     */
+    ec2?: pulumi.Input<inputs.cloud.AwsIntegrationsEc2>;
+    /**
+     * Ecs integration. See Integration blocks below for details.
+     */
+    ecs?: pulumi.Input<inputs.cloud.AwsIntegrationsEcs>;
+    /**
+     * Efs integration. See Integration blocks below for details.
+     */
+    efs?: pulumi.Input<inputs.cloud.AwsIntegrationsEfs>;
     /**
      * Elasticache integration. See Integration blocks below for details.
      */
     elasticache?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticache>;
     /**
+     * Elasticbeanstalk integration. See Integration blocks below for details.
+     */
+    elasticbeanstalk?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticbeanstalk>;
+    /**
+     * Elasticsearch integration. See Integration blocks below for details.
+     */
+    elasticsearch?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticsearch>;
+    /**
+     * Elb integration. See Integration blocks below for details.
+     */
+    elb?: pulumi.Input<inputs.cloud.AwsIntegrationsElb>;
+    /**
+     * Emr integration. See Integration blocks below for details.
+     */
+    emr?: pulumi.Input<inputs.cloud.AwsIntegrationsEmr>;
+    /**
      * Health integration. See Integration blocks below for details.
      */
     health?: pulumi.Input<inputs.cloud.AwsIntegrationsHealth>;
+    /**
+     * Iam integration. See Integration blocks below for details.
+     */
+    iam?: pulumi.Input<inputs.cloud.AwsIntegrationsIam>;
+    /**
+     * Iot integration. See Integration blocks below for details.
+     */
+    iot?: pulumi.Input<inputs.cloud.AwsIntegrationsIot>;
+    /**
+     * Kinesis integration. See Integration blocks below for details.
+     */
+    kinesis?: pulumi.Input<inputs.cloud.AwsIntegrationsKinesis>;
+    /**
+     * Kinesis firehose integration. See Integration blocks below for details.
+     */
+    kinesisFirehose?: pulumi.Input<inputs.cloud.AwsIntegrationsKinesisFirehose>;
+    /**
+     * Lambda integration. See Integration blocks below for details.
+     */
+    lambda?: pulumi.Input<inputs.cloud.AwsIntegrationsLambda>;
     /**
      * The ID of the linked AWS account in New Relic.
      */
     linkedAccountId?: pulumi.Input<number>;
     /**
+     * Rds integration. See Integration blocks below for details.
+     */
+    rds?: pulumi.Input<inputs.cloud.AwsIntegrationsRds>;
+    /**
+     * Redshift integration. See Integration blocks below for details.
+     */
+    redshift?: pulumi.Input<inputs.cloud.AwsIntegrationsRedshift>;
+    /**
+     * Route53 integration. See Integration blocks below for details.
+     */
+    route53?: pulumi.Input<inputs.cloud.AwsIntegrationsRoute53>;
+    /**
      * S3 integration. See Integration blocks below for details.
      */
     s3?: pulumi.Input<inputs.cloud.AwsIntegrationsS3>;
+    /**
+     * Ses integration. See Integration blocks below for details.
+     */
+    ses?: pulumi.Input<inputs.cloud.AwsIntegrationsSes>;
+    /**
+     * Sns integration. See Integration blocks below for details.
+     * </details>
+     */
+    sns?: pulumi.Input<inputs.cloud.AwsIntegrationsSns>;
     /**
      * SQS integration. See Integration blocks below for details.
      */
@@ -459,9 +964,65 @@ export interface AwsIntegrationsArgs {
      */
     awsFsx?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsFsx>;
     /**
+     * Glue integration. See Integration blocks below for details.
+     */
+    awsGlue?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsGlue>;
+    /**
+     * Kinesis Analytics integration. See Integration blocks below for details.
+     */
+    awsKinesisAnalytics?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsKinesisAnalytics>;
+    /**
+     * Media Convert integration. See Integration blocks below for details.
+     */
+    awsMediaConvert?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMediaConvert>;
+    /**
+     * Media Package vod integration. See Integration blocks below for details.
+     */
+    awsMediaPackageVod?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMediaPackageVod>;
+    /**
+     * Mq integration. See Integration blocks below for details.
+     */
+    awsMq?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMq>;
+    /**
+     * Msk integration. See Integration blocks below for details.
+     */
+    awsMsk?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMsk>;
+    /**
+     * Neptune integration. See Integration blocks below for details.
+     */
+    awsNeptune?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsNeptune>;
+    /**
+     * Qldb integration. See Integration blocks below for details.
+     */
+    awsQldb?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsQldb>;
+    /**
+     * Route53resolver integration. See Integration blocks below for details.
+     */
+    awsRoute53resolver?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsRoute53resolver>;
+    /**
+     * States integration. See Integration blocks below for details.
+     */
+    awsStates?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsStates>;
+    /**
+     * TransitGateway integration. See Integration blocks below for details.
+     */
+    awsTransitGateway?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsTransitGateway>;
+    /**
+     * Waf integration. See Integration blocks below for details.
+     */
+    awsWaf?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsWaf>;
+    /**
+     * Wafv2 integration. See Integration blocks below for details.
+     */
+    awsWafv2?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsWafv2>;
+    /**
      * Billing integration. See Integration blocks below for details.
      */
     billing?: pulumi.Input<inputs.cloud.AwsIntegrationsBilling>;
+    /**
+     * Cloudfront integration. See Integration blocks below for details.
+     */
+    cloudfront?: pulumi.Input<inputs.cloud.AwsIntegrationsCloudfront>;
     /**
      * Cloudtrail integration. See Integration blocks below for details.
      */
@@ -471,25 +1032,98 @@ export interface AwsIntegrationsArgs {
      */
     docDb?: pulumi.Input<inputs.cloud.AwsIntegrationsDocDb>;
     /**
+     * DynamoDB integration. See Integration blocks below for details.
+     */
+    dynamodb?: pulumi.Input<inputs.cloud.AwsIntegrationsDynamodb>;
+    /**
      * EBS integration. See Integration blocks below for details.
      */
     ebs?: pulumi.Input<inputs.cloud.AwsIntegrationsEbs>;
+    /**
+     * Ec2 integration. See Integration blocks below for details.
+     */
+    ec2?: pulumi.Input<inputs.cloud.AwsIntegrationsEc2>;
+    /**
+     * Ecs integration. See Integration blocks below for details.
+     */
+    ecs?: pulumi.Input<inputs.cloud.AwsIntegrationsEcs>;
+    /**
+     * Efs integration. See Integration blocks below for details.
+     */
+    efs?: pulumi.Input<inputs.cloud.AwsIntegrationsEfs>;
     /**
      * Elasticache integration. See Integration blocks below for details.
      */
     elasticache?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticache>;
     /**
+     * Elasticbeanstalk integration. See Integration blocks below for details.
+     */
+    elasticbeanstalk?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticbeanstalk>;
+    /**
+     * Elasticsearch integration. See Integration blocks below for details.
+     */
+    elasticsearch?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticsearch>;
+    /**
+     * Elb integration. See Integration blocks below for details.
+     */
+    elb?: pulumi.Input<inputs.cloud.AwsIntegrationsElb>;
+    /**
+     * Emr integration. See Integration blocks below for details.
+     */
+    emr?: pulumi.Input<inputs.cloud.AwsIntegrationsEmr>;
+    /**
      * Health integration. See Integration blocks below for details.
      */
     health?: pulumi.Input<inputs.cloud.AwsIntegrationsHealth>;
+    /**
+     * Iam integration. See Integration blocks below for details.
+     */
+    iam?: pulumi.Input<inputs.cloud.AwsIntegrationsIam>;
+    /**
+     * Iot integration. See Integration blocks below for details.
+     */
+    iot?: pulumi.Input<inputs.cloud.AwsIntegrationsIot>;
+    /**
+     * Kinesis integration. See Integration blocks below for details.
+     */
+    kinesis?: pulumi.Input<inputs.cloud.AwsIntegrationsKinesis>;
+    /**
+     * Kinesis firehose integration. See Integration blocks below for details.
+     */
+    kinesisFirehose?: pulumi.Input<inputs.cloud.AwsIntegrationsKinesisFirehose>;
+    /**
+     * Lambda integration. See Integration blocks below for details.
+     */
+    lambda?: pulumi.Input<inputs.cloud.AwsIntegrationsLambda>;
     /**
      * The ID of the linked AWS account in New Relic.
      */
     linkedAccountId: pulumi.Input<number>;
     /**
+     * Rds integration. See Integration blocks below for details.
+     */
+    rds?: pulumi.Input<inputs.cloud.AwsIntegrationsRds>;
+    /**
+     * Redshift integration. See Integration blocks below for details.
+     */
+    redshift?: pulumi.Input<inputs.cloud.AwsIntegrationsRedshift>;
+    /**
+     * Route53 integration. See Integration blocks below for details.
+     */
+    route53?: pulumi.Input<inputs.cloud.AwsIntegrationsRoute53>;
+    /**
      * S3 integration. See Integration blocks below for details.
      */
     s3?: pulumi.Input<inputs.cloud.AwsIntegrationsS3>;
+    /**
+     * Ses integration. See Integration blocks below for details.
+     */
+    ses?: pulumi.Input<inputs.cloud.AwsIntegrationsSes>;
+    /**
+     * Sns integration. See Integration blocks below for details.
+     * </details>
+     */
+    sns?: pulumi.Input<inputs.cloud.AwsIntegrationsSns>;
     /**
      * SQS integration. See Integration blocks below for details.
      */

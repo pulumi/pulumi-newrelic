@@ -184,11 +184,11 @@ export class ScriptMonitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly guid!: pulumi.Output<string>;
     /**
-     * The location the monitor will run from. See Nested locationPrivate blocks below for details. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      */
     public readonly locationPrivates!: pulumi.Output<outputs.synthetics.ScriptMonitorLocationPrivate[] | undefined>;
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      */
     public readonly locationsPublics!: pulumi.Output<string[] | undefined>;
     /**
@@ -323,11 +323,11 @@ export interface ScriptMonitorState {
      */
     guid?: pulumi.Input<string>;
     /**
-     * The location the monitor will run from. See Nested locationPrivate blocks below for details. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      */
     locationPrivates?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorLocationPrivate>[]>;
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      */
     locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -395,11 +395,11 @@ export interface ScriptMonitorArgs {
      */
     enableScreenshotOnFailureAndScript?: pulumi.Input<boolean>;
     /**
-     * The location the monitor will run from. See Nested locationPrivate blocks below for details. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      */
     locationPrivates?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorLocationPrivate>[]>;
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      */
     locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
     /**

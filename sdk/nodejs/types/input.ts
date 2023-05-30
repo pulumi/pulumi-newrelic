@@ -2996,10 +2996,13 @@ export namespace cloud {
     export interface AwsIntegrationsAlb {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         *
+         * Furthermore, below integration types supports the following common arguments.
          */
         fetchExtendedInventory?: pulumi.Input<boolean>;
         /**
@@ -3013,7 +3016,8 @@ export namespace cloud {
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -3029,12 +3033,14 @@ export namespace cloud {
     export interface AwsIntegrationsApiGateway {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -3054,12 +3060,14 @@ export namespace cloud {
     export interface AwsIntegrationsAutoScaling {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3067,12 +3075,14 @@ export namespace cloud {
     export interface AwsIntegrationsAwsAppSync {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3080,12 +3090,14 @@ export namespace cloud {
     export interface AwsIntegrationsAwsAthena {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3093,12 +3105,14 @@ export namespace cloud {
     export interface AwsIntegrationsAwsCognito {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3106,12 +3120,14 @@ export namespace cloud {
     export interface AwsIntegrationsAwsConnect {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3119,12 +3135,14 @@ export namespace cloud {
     export interface AwsIntegrationsAwsDirectConnect {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3132,12 +3150,209 @@ export namespace cloud {
     export interface AwsIntegrationsAwsFsx {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsGlue {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsKinesisAnalytics {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsMediaConvert {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsMediaPackageVod {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsMq {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsMsk {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsNeptune {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsQldb {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsRoute53resolver {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsStates {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsTransitGateway {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsWaf {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsAwsWafv2 {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3146,20 +3361,49 @@ export namespace cloud {
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsCloudfront {
+        /**
+         * Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchLambdasAtEdge?: pulumi.Input<boolean>;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
     }
 
     export interface AwsIntegrationsCloudtrail {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3167,29 +3411,153 @@ export namespace cloud {
     export interface AwsIntegrationsDocDb {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsDynamodb {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         *
+         * Furthermore, below integration types supports the following common arguments.
+         */
+        fetchExtendedInventory?: pulumi.Input<boolean>;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
     }
 
     export interface AwsIntegrationsEbs {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         *
+         * Furthermore, below integration types supports the following common arguments.
          */
         fetchExtendedInventory?: pulumi.Input<boolean>;
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
+    }
+
+    export interface AwsIntegrationsEc2 {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
+         */
+        duplicateEc2Tags?: pulumi.Input<boolean>;
+        /**
+         * Specify if IP addresses of ec2 instance should be collected.
+         */
+        fetchIpAddresses?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
+    }
+
+    export interface AwsIntegrationsEcs {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
+    }
+
+    export interface AwsIntegrationsEfs {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -3205,6 +3573,7 @@ export namespace cloud {
     export interface AwsIntegrationsElasticache {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -3214,7 +3583,120 @@ export namespace cloud {
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
+    }
+
+    export interface AwsIntegrationsElasticbeanstalk {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         *
+         * Furthermore, below integration types supports the following common arguments.
+         */
+        fetchExtendedInventory?: pulumi.Input<boolean>;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
+    }
+
+    export interface AwsIntegrationsElasticsearch {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
+         */
+        fetchNodes?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
+    }
+
+    export interface AwsIntegrationsElb {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         *
+         * Furthermore, below integration types supports the following common arguments.
+         */
+        fetchExtendedInventory?: pulumi.Input<boolean>;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsEmr {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -3231,24 +3713,18 @@ export namespace cloud {
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
 
-    export interface AwsIntegrationsS3 {
-        /**
-         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
-        /**
-         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
-        fetchTags?: pulumi.Input<boolean>;
+    export interface AwsIntegrationsIam {
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -3261,13 +3737,165 @@ export namespace cloud {
         tagValue?: pulumi.Input<string>;
     }
 
-    export interface AwsIntegrationsSqs {
+    export interface AwsIntegrationsIot {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsKinesis {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify if Shards should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchShards?: pulumi.Input<boolean>;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
+    }
+
+    export interface AwsIntegrationsKinesisFirehose {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsLambda {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
+    }
+
+    export interface AwsIntegrationsRds {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
+    }
+
+    export interface AwsIntegrationsRedshift {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
+    }
+
+    export interface AwsIntegrationsRoute53 {
+        /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         *
+         * Furthermore, below integration types supports the following common arguments.
+         */
+        fetchExtendedInventory?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsS3 {
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         *
+         * Furthermore, below integration types supports the following common arguments.
          */
         fetchExtendedInventory?: pulumi.Input<boolean>;
         /**
@@ -3277,7 +3905,77 @@ export namespace cloud {
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: pulumi.Input<string>;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagValue?: pulumi.Input<string>;
+    }
+
+    export interface AwsIntegrationsSes {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsSns {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         *
+         * Furthermore, below integration types supports the following common arguments.
+         */
+        fetchExtendedInventory?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsSqs {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         *
+         * Furthermore, below integration types supports the following common arguments.
+         */
+        fetchExtendedInventory?: pulumi.Input<boolean>;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: pulumi.Input<boolean>;
+        /**
+         * The data polling interval in seconds.
+         *
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -3298,7 +3996,8 @@ export namespace cloud {
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
@@ -3306,6 +4005,7 @@ export namespace cloud {
     export interface AwsIntegrationsVpc {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -3319,7 +4019,8 @@ export namespace cloud {
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
         /**
@@ -3335,12 +4036,14 @@ export namespace cloud {
     export interface AwsIntegrationsXRay {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
+         * </details>
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The data polling interval in seconds.
          *
-         * Some integration types support an additional set of arguments:
+         * <details>
+         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
