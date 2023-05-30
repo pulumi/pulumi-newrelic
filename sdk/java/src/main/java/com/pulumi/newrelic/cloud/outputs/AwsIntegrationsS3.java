@@ -16,6 +16,8 @@ public final class AwsIntegrationsS3 {
     /**
      * @return Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
      * 
+     * Furthermore, below integration types supports the following common arguments.
+     * 
      */
     private @Nullable Boolean fetchExtendedInventory;
     /**
@@ -26,7 +28,8 @@ public final class AwsIntegrationsS3 {
     /**
      * @return The data polling interval in seconds.
      * 
-     * Some integration types support an additional set of arguments:
+     * &lt;details&gt;
+     * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
      * 
      */
     private @Nullable Integer metricsPollingInterval;
@@ -45,6 +48,8 @@ public final class AwsIntegrationsS3 {
     /**
      * @return Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
      * 
+     * Furthermore, below integration types supports the following common arguments.
+     * 
      */
     public Optional<Boolean> fetchExtendedInventory() {
         return Optional.ofNullable(this.fetchExtendedInventory);
@@ -59,7 +64,8 @@ public final class AwsIntegrationsS3 {
     /**
      * @return The data polling interval in seconds.
      * 
-     * Some integration types support an additional set of arguments:
+     * &lt;details&gt;
+     * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

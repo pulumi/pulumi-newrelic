@@ -27,13 +27,45 @@ class AwsIntegrationsArgs:
                  aws_connect: Optional[pulumi.Input['AwsIntegrationsAwsConnectArgs']] = None,
                  aws_direct_connect: Optional[pulumi.Input['AwsIntegrationsAwsDirectConnectArgs']] = None,
                  aws_fsx: Optional[pulumi.Input['AwsIntegrationsAwsFsxArgs']] = None,
+                 aws_glue: Optional[pulumi.Input['AwsIntegrationsAwsGlueArgs']] = None,
+                 aws_kinesis_analytics: Optional[pulumi.Input['AwsIntegrationsAwsKinesisAnalyticsArgs']] = None,
+                 aws_media_convert: Optional[pulumi.Input['AwsIntegrationsAwsMediaConvertArgs']] = None,
+                 aws_media_package_vod: Optional[pulumi.Input['AwsIntegrationsAwsMediaPackageVodArgs']] = None,
+                 aws_mq: Optional[pulumi.Input['AwsIntegrationsAwsMqArgs']] = None,
+                 aws_msk: Optional[pulumi.Input['AwsIntegrationsAwsMskArgs']] = None,
+                 aws_neptune: Optional[pulumi.Input['AwsIntegrationsAwsNeptuneArgs']] = None,
+                 aws_qldb: Optional[pulumi.Input['AwsIntegrationsAwsQldbArgs']] = None,
+                 aws_route53resolver: Optional[pulumi.Input['AwsIntegrationsAwsRoute53resolverArgs']] = None,
+                 aws_states: Optional[pulumi.Input['AwsIntegrationsAwsStatesArgs']] = None,
+                 aws_transit_gateway: Optional[pulumi.Input['AwsIntegrationsAwsTransitGatewayArgs']] = None,
+                 aws_waf: Optional[pulumi.Input['AwsIntegrationsAwsWafArgs']] = None,
+                 aws_wafv2: Optional[pulumi.Input['AwsIntegrationsAwsWafv2Args']] = None,
                  billing: Optional[pulumi.Input['AwsIntegrationsBillingArgs']] = None,
+                 cloudfront: Optional[pulumi.Input['AwsIntegrationsCloudfrontArgs']] = None,
                  cloudtrail: Optional[pulumi.Input['AwsIntegrationsCloudtrailArgs']] = None,
                  doc_db: Optional[pulumi.Input['AwsIntegrationsDocDbArgs']] = None,
+                 dynamodb: Optional[pulumi.Input['AwsIntegrationsDynamodbArgs']] = None,
                  ebs: Optional[pulumi.Input['AwsIntegrationsEbsArgs']] = None,
+                 ec2: Optional[pulumi.Input['AwsIntegrationsEc2Args']] = None,
+                 ecs: Optional[pulumi.Input['AwsIntegrationsEcsArgs']] = None,
+                 efs: Optional[pulumi.Input['AwsIntegrationsEfsArgs']] = None,
                  elasticache: Optional[pulumi.Input['AwsIntegrationsElasticacheArgs']] = None,
+                 elasticbeanstalk: Optional[pulumi.Input['AwsIntegrationsElasticbeanstalkArgs']] = None,
+                 elasticsearch: Optional[pulumi.Input['AwsIntegrationsElasticsearchArgs']] = None,
+                 elb: Optional[pulumi.Input['AwsIntegrationsElbArgs']] = None,
+                 emr: Optional[pulumi.Input['AwsIntegrationsEmrArgs']] = None,
                  health: Optional[pulumi.Input['AwsIntegrationsHealthArgs']] = None,
+                 iam: Optional[pulumi.Input['AwsIntegrationsIamArgs']] = None,
+                 iot: Optional[pulumi.Input['AwsIntegrationsIotArgs']] = None,
+                 kinesis: Optional[pulumi.Input['AwsIntegrationsKinesisArgs']] = None,
+                 kinesis_firehose: Optional[pulumi.Input['AwsIntegrationsKinesisFirehoseArgs']] = None,
+                 lambda_: Optional[pulumi.Input['AwsIntegrationsLambdaArgs']] = None,
+                 rds: Optional[pulumi.Input['AwsIntegrationsRdsArgs']] = None,
+                 redshift: Optional[pulumi.Input['AwsIntegrationsRedshiftArgs']] = None,
+                 route53: Optional[pulumi.Input['AwsIntegrationsRoute53Args']] = None,
                  s3: Optional[pulumi.Input['AwsIntegrationsS3Args']] = None,
+                 ses: Optional[pulumi.Input['AwsIntegrationsSesArgs']] = None,
+                 sns: Optional[pulumi.Input['AwsIntegrationsSnsArgs']] = None,
                  sqs: Optional[pulumi.Input['AwsIntegrationsSqsArgs']] = None,
                  trusted_advisor: Optional[pulumi.Input['AwsIntegrationsTrustedAdvisorArgs']] = None,
                  vpc: Optional[pulumi.Input['AwsIntegrationsVpcArgs']] = None,
@@ -51,13 +83,46 @@ class AwsIntegrationsArgs:
         :param pulumi.Input['AwsIntegrationsAwsConnectArgs'] aws_connect: Connect integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsAwsDirectConnectArgs'] aws_direct_connect: DirectConnect integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsAwsFsxArgs'] aws_fsx: Fsx integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsGlueArgs'] aws_glue: Glue integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsKinesisAnalyticsArgs'] aws_kinesis_analytics: Kinesis Analytics integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsMediaConvertArgs'] aws_media_convert: Media Convert integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsMediaPackageVodArgs'] aws_media_package_vod: Media Package vod integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsMqArgs'] aws_mq: Mq integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsMskArgs'] aws_msk: Msk integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsNeptuneArgs'] aws_neptune: Neptune integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsQldbArgs'] aws_qldb: Qldb integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsRoute53resolverArgs'] aws_route53resolver: Route53resolver integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsStatesArgs'] aws_states: States integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsTransitGatewayArgs'] aws_transit_gateway: TransitGateway integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsWafArgs'] aws_waf: Waf integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsWafv2Args'] aws_wafv2: Wafv2 integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsBillingArgs'] billing: Billing integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsCloudfrontArgs'] cloudfront: Cloudfront integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsCloudtrailArgs'] cloudtrail: Cloudtrail integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsDocDbArgs'] doc_db: Doc_DB integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsDynamodbArgs'] dynamodb: DynamoDB integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsEbsArgs'] ebs: EBS integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsEc2Args'] ec2: Ec2 integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsEcsArgs'] ecs: Ecs integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsEfsArgs'] efs: Efs integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsElasticacheArgs'] elasticache: Elasticache integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsElasticbeanstalkArgs'] elasticbeanstalk: Elasticbeanstalk integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsElasticsearchArgs'] elasticsearch: Elasticsearch integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsElbArgs'] elb: Elb integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsEmrArgs'] emr: Emr integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsHealthArgs'] health: Health integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsIamArgs'] iam: Iam integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsIotArgs'] iot: Iot integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsKinesisArgs'] kinesis: Kinesis integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsKinesisFirehoseArgs'] kinesis_firehose: Kinesis firehose integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsLambdaArgs'] lambda_: Lambda integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsRdsArgs'] rds: Rds integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsRedshiftArgs'] redshift: Redshift integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsRoute53Args'] route53: Route53 integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsS3Args'] s3: S3 integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsSesArgs'] ses: Ses integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsSnsArgs'] sns: Sns integration. See Integration blocks below for details.
+               </details>
         :param pulumi.Input['AwsIntegrationsSqsArgs'] sqs: SQS integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsTrustedAdvisorArgs'] trusted_advisor: Trusted Advisor integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsVpcArgs'] vpc: VPC integration. See Integration blocks below for details.
@@ -84,20 +149,84 @@ class AwsIntegrationsArgs:
             pulumi.set(__self__, "aws_direct_connect", aws_direct_connect)
         if aws_fsx is not None:
             pulumi.set(__self__, "aws_fsx", aws_fsx)
+        if aws_glue is not None:
+            pulumi.set(__self__, "aws_glue", aws_glue)
+        if aws_kinesis_analytics is not None:
+            pulumi.set(__self__, "aws_kinesis_analytics", aws_kinesis_analytics)
+        if aws_media_convert is not None:
+            pulumi.set(__self__, "aws_media_convert", aws_media_convert)
+        if aws_media_package_vod is not None:
+            pulumi.set(__self__, "aws_media_package_vod", aws_media_package_vod)
+        if aws_mq is not None:
+            pulumi.set(__self__, "aws_mq", aws_mq)
+        if aws_msk is not None:
+            pulumi.set(__self__, "aws_msk", aws_msk)
+        if aws_neptune is not None:
+            pulumi.set(__self__, "aws_neptune", aws_neptune)
+        if aws_qldb is not None:
+            pulumi.set(__self__, "aws_qldb", aws_qldb)
+        if aws_route53resolver is not None:
+            pulumi.set(__self__, "aws_route53resolver", aws_route53resolver)
+        if aws_states is not None:
+            pulumi.set(__self__, "aws_states", aws_states)
+        if aws_transit_gateway is not None:
+            pulumi.set(__self__, "aws_transit_gateway", aws_transit_gateway)
+        if aws_waf is not None:
+            pulumi.set(__self__, "aws_waf", aws_waf)
+        if aws_wafv2 is not None:
+            pulumi.set(__self__, "aws_wafv2", aws_wafv2)
         if billing is not None:
             pulumi.set(__self__, "billing", billing)
+        if cloudfront is not None:
+            pulumi.set(__self__, "cloudfront", cloudfront)
         if cloudtrail is not None:
             pulumi.set(__self__, "cloudtrail", cloudtrail)
         if doc_db is not None:
             pulumi.set(__self__, "doc_db", doc_db)
+        if dynamodb is not None:
+            pulumi.set(__self__, "dynamodb", dynamodb)
         if ebs is not None:
             pulumi.set(__self__, "ebs", ebs)
+        if ec2 is not None:
+            pulumi.set(__self__, "ec2", ec2)
+        if ecs is not None:
+            pulumi.set(__self__, "ecs", ecs)
+        if efs is not None:
+            pulumi.set(__self__, "efs", efs)
         if elasticache is not None:
             pulumi.set(__self__, "elasticache", elasticache)
+        if elasticbeanstalk is not None:
+            pulumi.set(__self__, "elasticbeanstalk", elasticbeanstalk)
+        if elasticsearch is not None:
+            pulumi.set(__self__, "elasticsearch", elasticsearch)
+        if elb is not None:
+            pulumi.set(__self__, "elb", elb)
+        if emr is not None:
+            pulumi.set(__self__, "emr", emr)
         if health is not None:
             pulumi.set(__self__, "health", health)
+        if iam is not None:
+            pulumi.set(__self__, "iam", iam)
+        if iot is not None:
+            pulumi.set(__self__, "iot", iot)
+        if kinesis is not None:
+            pulumi.set(__self__, "kinesis", kinesis)
+        if kinesis_firehose is not None:
+            pulumi.set(__self__, "kinesis_firehose", kinesis_firehose)
+        if lambda_ is not None:
+            pulumi.set(__self__, "lambda_", lambda_)
+        if rds is not None:
+            pulumi.set(__self__, "rds", rds)
+        if redshift is not None:
+            pulumi.set(__self__, "redshift", redshift)
+        if route53 is not None:
+            pulumi.set(__self__, "route53", route53)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
+        if ses is not None:
+            pulumi.set(__self__, "ses", ses)
+        if sns is not None:
+            pulumi.set(__self__, "sns", sns)
         if sqs is not None:
             pulumi.set(__self__, "sqs", sqs)
         if trusted_advisor is not None:
@@ -240,6 +369,162 @@ class AwsIntegrationsArgs:
         pulumi.set(self, "aws_fsx", value)
 
     @property
+    @pulumi.getter(name="awsGlue")
+    def aws_glue(self) -> Optional[pulumi.Input['AwsIntegrationsAwsGlueArgs']]:
+        """
+        Glue integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_glue")
+
+    @aws_glue.setter
+    def aws_glue(self, value: Optional[pulumi.Input['AwsIntegrationsAwsGlueArgs']]):
+        pulumi.set(self, "aws_glue", value)
+
+    @property
+    @pulumi.getter(name="awsKinesisAnalytics")
+    def aws_kinesis_analytics(self) -> Optional[pulumi.Input['AwsIntegrationsAwsKinesisAnalyticsArgs']]:
+        """
+        Kinesis Analytics integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_kinesis_analytics")
+
+    @aws_kinesis_analytics.setter
+    def aws_kinesis_analytics(self, value: Optional[pulumi.Input['AwsIntegrationsAwsKinesisAnalyticsArgs']]):
+        pulumi.set(self, "aws_kinesis_analytics", value)
+
+    @property
+    @pulumi.getter(name="awsMediaConvert")
+    def aws_media_convert(self) -> Optional[pulumi.Input['AwsIntegrationsAwsMediaConvertArgs']]:
+        """
+        Media Convert integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_media_convert")
+
+    @aws_media_convert.setter
+    def aws_media_convert(self, value: Optional[pulumi.Input['AwsIntegrationsAwsMediaConvertArgs']]):
+        pulumi.set(self, "aws_media_convert", value)
+
+    @property
+    @pulumi.getter(name="awsMediaPackageVod")
+    def aws_media_package_vod(self) -> Optional[pulumi.Input['AwsIntegrationsAwsMediaPackageVodArgs']]:
+        """
+        Media Package vod integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_media_package_vod")
+
+    @aws_media_package_vod.setter
+    def aws_media_package_vod(self, value: Optional[pulumi.Input['AwsIntegrationsAwsMediaPackageVodArgs']]):
+        pulumi.set(self, "aws_media_package_vod", value)
+
+    @property
+    @pulumi.getter(name="awsMq")
+    def aws_mq(self) -> Optional[pulumi.Input['AwsIntegrationsAwsMqArgs']]:
+        """
+        Mq integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_mq")
+
+    @aws_mq.setter
+    def aws_mq(self, value: Optional[pulumi.Input['AwsIntegrationsAwsMqArgs']]):
+        pulumi.set(self, "aws_mq", value)
+
+    @property
+    @pulumi.getter(name="awsMsk")
+    def aws_msk(self) -> Optional[pulumi.Input['AwsIntegrationsAwsMskArgs']]:
+        """
+        Msk integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_msk")
+
+    @aws_msk.setter
+    def aws_msk(self, value: Optional[pulumi.Input['AwsIntegrationsAwsMskArgs']]):
+        pulumi.set(self, "aws_msk", value)
+
+    @property
+    @pulumi.getter(name="awsNeptune")
+    def aws_neptune(self) -> Optional[pulumi.Input['AwsIntegrationsAwsNeptuneArgs']]:
+        """
+        Neptune integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_neptune")
+
+    @aws_neptune.setter
+    def aws_neptune(self, value: Optional[pulumi.Input['AwsIntegrationsAwsNeptuneArgs']]):
+        pulumi.set(self, "aws_neptune", value)
+
+    @property
+    @pulumi.getter(name="awsQldb")
+    def aws_qldb(self) -> Optional[pulumi.Input['AwsIntegrationsAwsQldbArgs']]:
+        """
+        Qldb integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_qldb")
+
+    @aws_qldb.setter
+    def aws_qldb(self, value: Optional[pulumi.Input['AwsIntegrationsAwsQldbArgs']]):
+        pulumi.set(self, "aws_qldb", value)
+
+    @property
+    @pulumi.getter(name="awsRoute53resolver")
+    def aws_route53resolver(self) -> Optional[pulumi.Input['AwsIntegrationsAwsRoute53resolverArgs']]:
+        """
+        Route53resolver integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_route53resolver")
+
+    @aws_route53resolver.setter
+    def aws_route53resolver(self, value: Optional[pulumi.Input['AwsIntegrationsAwsRoute53resolverArgs']]):
+        pulumi.set(self, "aws_route53resolver", value)
+
+    @property
+    @pulumi.getter(name="awsStates")
+    def aws_states(self) -> Optional[pulumi.Input['AwsIntegrationsAwsStatesArgs']]:
+        """
+        States integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_states")
+
+    @aws_states.setter
+    def aws_states(self, value: Optional[pulumi.Input['AwsIntegrationsAwsStatesArgs']]):
+        pulumi.set(self, "aws_states", value)
+
+    @property
+    @pulumi.getter(name="awsTransitGateway")
+    def aws_transit_gateway(self) -> Optional[pulumi.Input['AwsIntegrationsAwsTransitGatewayArgs']]:
+        """
+        TransitGateway integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_transit_gateway")
+
+    @aws_transit_gateway.setter
+    def aws_transit_gateway(self, value: Optional[pulumi.Input['AwsIntegrationsAwsTransitGatewayArgs']]):
+        pulumi.set(self, "aws_transit_gateway", value)
+
+    @property
+    @pulumi.getter(name="awsWaf")
+    def aws_waf(self) -> Optional[pulumi.Input['AwsIntegrationsAwsWafArgs']]:
+        """
+        Waf integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_waf")
+
+    @aws_waf.setter
+    def aws_waf(self, value: Optional[pulumi.Input['AwsIntegrationsAwsWafArgs']]):
+        pulumi.set(self, "aws_waf", value)
+
+    @property
+    @pulumi.getter(name="awsWafv2")
+    def aws_wafv2(self) -> Optional[pulumi.Input['AwsIntegrationsAwsWafv2Args']]:
+        """
+        Wafv2 integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_wafv2")
+
+    @aws_wafv2.setter
+    def aws_wafv2(self, value: Optional[pulumi.Input['AwsIntegrationsAwsWafv2Args']]):
+        pulumi.set(self, "aws_wafv2", value)
+
+    @property
     @pulumi.getter
     def billing(self) -> Optional[pulumi.Input['AwsIntegrationsBillingArgs']]:
         """
@@ -250,6 +535,18 @@ class AwsIntegrationsArgs:
     @billing.setter
     def billing(self, value: Optional[pulumi.Input['AwsIntegrationsBillingArgs']]):
         pulumi.set(self, "billing", value)
+
+    @property
+    @pulumi.getter
+    def cloudfront(self) -> Optional[pulumi.Input['AwsIntegrationsCloudfrontArgs']]:
+        """
+        Cloudfront integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "cloudfront")
+
+    @cloudfront.setter
+    def cloudfront(self, value: Optional[pulumi.Input['AwsIntegrationsCloudfrontArgs']]):
+        pulumi.set(self, "cloudfront", value)
 
     @property
     @pulumi.getter
@@ -277,6 +574,18 @@ class AwsIntegrationsArgs:
 
     @property
     @pulumi.getter
+    def dynamodb(self) -> Optional[pulumi.Input['AwsIntegrationsDynamodbArgs']]:
+        """
+        DynamoDB integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "dynamodb")
+
+    @dynamodb.setter
+    def dynamodb(self, value: Optional[pulumi.Input['AwsIntegrationsDynamodbArgs']]):
+        pulumi.set(self, "dynamodb", value)
+
+    @property
+    @pulumi.getter
     def ebs(self) -> Optional[pulumi.Input['AwsIntegrationsEbsArgs']]:
         """
         EBS integration. See Integration blocks below for details.
@@ -286,6 +595,42 @@ class AwsIntegrationsArgs:
     @ebs.setter
     def ebs(self, value: Optional[pulumi.Input['AwsIntegrationsEbsArgs']]):
         pulumi.set(self, "ebs", value)
+
+    @property
+    @pulumi.getter
+    def ec2(self) -> Optional[pulumi.Input['AwsIntegrationsEc2Args']]:
+        """
+        Ec2 integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "ec2")
+
+    @ec2.setter
+    def ec2(self, value: Optional[pulumi.Input['AwsIntegrationsEc2Args']]):
+        pulumi.set(self, "ec2", value)
+
+    @property
+    @pulumi.getter
+    def ecs(self) -> Optional[pulumi.Input['AwsIntegrationsEcsArgs']]:
+        """
+        Ecs integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "ecs")
+
+    @ecs.setter
+    def ecs(self, value: Optional[pulumi.Input['AwsIntegrationsEcsArgs']]):
+        pulumi.set(self, "ecs", value)
+
+    @property
+    @pulumi.getter
+    def efs(self) -> Optional[pulumi.Input['AwsIntegrationsEfsArgs']]:
+        """
+        Efs integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "efs")
+
+    @efs.setter
+    def efs(self, value: Optional[pulumi.Input['AwsIntegrationsEfsArgs']]):
+        pulumi.set(self, "efs", value)
 
     @property
     @pulumi.getter
@@ -301,6 +646,54 @@ class AwsIntegrationsArgs:
 
     @property
     @pulumi.getter
+    def elasticbeanstalk(self) -> Optional[pulumi.Input['AwsIntegrationsElasticbeanstalkArgs']]:
+        """
+        Elasticbeanstalk integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "elasticbeanstalk")
+
+    @elasticbeanstalk.setter
+    def elasticbeanstalk(self, value: Optional[pulumi.Input['AwsIntegrationsElasticbeanstalkArgs']]):
+        pulumi.set(self, "elasticbeanstalk", value)
+
+    @property
+    @pulumi.getter
+    def elasticsearch(self) -> Optional[pulumi.Input['AwsIntegrationsElasticsearchArgs']]:
+        """
+        Elasticsearch integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "elasticsearch")
+
+    @elasticsearch.setter
+    def elasticsearch(self, value: Optional[pulumi.Input['AwsIntegrationsElasticsearchArgs']]):
+        pulumi.set(self, "elasticsearch", value)
+
+    @property
+    @pulumi.getter
+    def elb(self) -> Optional[pulumi.Input['AwsIntegrationsElbArgs']]:
+        """
+        Elb integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "elb")
+
+    @elb.setter
+    def elb(self, value: Optional[pulumi.Input['AwsIntegrationsElbArgs']]):
+        pulumi.set(self, "elb", value)
+
+    @property
+    @pulumi.getter
+    def emr(self) -> Optional[pulumi.Input['AwsIntegrationsEmrArgs']]:
+        """
+        Emr integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "emr")
+
+    @emr.setter
+    def emr(self, value: Optional[pulumi.Input['AwsIntegrationsEmrArgs']]):
+        pulumi.set(self, "emr", value)
+
+    @property
+    @pulumi.getter
     def health(self) -> Optional[pulumi.Input['AwsIntegrationsHealthArgs']]:
         """
         Health integration. See Integration blocks below for details.
@@ -313,6 +706,102 @@ class AwsIntegrationsArgs:
 
     @property
     @pulumi.getter
+    def iam(self) -> Optional[pulumi.Input['AwsIntegrationsIamArgs']]:
+        """
+        Iam integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "iam")
+
+    @iam.setter
+    def iam(self, value: Optional[pulumi.Input['AwsIntegrationsIamArgs']]):
+        pulumi.set(self, "iam", value)
+
+    @property
+    @pulumi.getter
+    def iot(self) -> Optional[pulumi.Input['AwsIntegrationsIotArgs']]:
+        """
+        Iot integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "iot")
+
+    @iot.setter
+    def iot(self, value: Optional[pulumi.Input['AwsIntegrationsIotArgs']]):
+        pulumi.set(self, "iot", value)
+
+    @property
+    @pulumi.getter
+    def kinesis(self) -> Optional[pulumi.Input['AwsIntegrationsKinesisArgs']]:
+        """
+        Kinesis integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "kinesis")
+
+    @kinesis.setter
+    def kinesis(self, value: Optional[pulumi.Input['AwsIntegrationsKinesisArgs']]):
+        pulumi.set(self, "kinesis", value)
+
+    @property
+    @pulumi.getter(name="kinesisFirehose")
+    def kinesis_firehose(self) -> Optional[pulumi.Input['AwsIntegrationsKinesisFirehoseArgs']]:
+        """
+        Kinesis firehose integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "kinesis_firehose")
+
+    @kinesis_firehose.setter
+    def kinesis_firehose(self, value: Optional[pulumi.Input['AwsIntegrationsKinesisFirehoseArgs']]):
+        pulumi.set(self, "kinesis_firehose", value)
+
+    @property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> Optional[pulumi.Input['AwsIntegrationsLambdaArgs']]:
+        """
+        Lambda integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "lambda_")
+
+    @lambda_.setter
+    def lambda_(self, value: Optional[pulumi.Input['AwsIntegrationsLambdaArgs']]):
+        pulumi.set(self, "lambda_", value)
+
+    @property
+    @pulumi.getter
+    def rds(self) -> Optional[pulumi.Input['AwsIntegrationsRdsArgs']]:
+        """
+        Rds integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "rds")
+
+    @rds.setter
+    def rds(self, value: Optional[pulumi.Input['AwsIntegrationsRdsArgs']]):
+        pulumi.set(self, "rds", value)
+
+    @property
+    @pulumi.getter
+    def redshift(self) -> Optional[pulumi.Input['AwsIntegrationsRedshiftArgs']]:
+        """
+        Redshift integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "redshift")
+
+    @redshift.setter
+    def redshift(self, value: Optional[pulumi.Input['AwsIntegrationsRedshiftArgs']]):
+        pulumi.set(self, "redshift", value)
+
+    @property
+    @pulumi.getter
+    def route53(self) -> Optional[pulumi.Input['AwsIntegrationsRoute53Args']]:
+        """
+        Route53 integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "route53")
+
+    @route53.setter
+    def route53(self, value: Optional[pulumi.Input['AwsIntegrationsRoute53Args']]):
+        pulumi.set(self, "route53", value)
+
+    @property
+    @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['AwsIntegrationsS3Args']]:
         """
         S3 integration. See Integration blocks below for details.
@@ -322,6 +811,31 @@ class AwsIntegrationsArgs:
     @s3.setter
     def s3(self, value: Optional[pulumi.Input['AwsIntegrationsS3Args']]):
         pulumi.set(self, "s3", value)
+
+    @property
+    @pulumi.getter
+    def ses(self) -> Optional[pulumi.Input['AwsIntegrationsSesArgs']]:
+        """
+        Ses integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "ses")
+
+    @ses.setter
+    def ses(self, value: Optional[pulumi.Input['AwsIntegrationsSesArgs']]):
+        pulumi.set(self, "ses", value)
+
+    @property
+    @pulumi.getter
+    def sns(self) -> Optional[pulumi.Input['AwsIntegrationsSnsArgs']]:
+        """
+        Sns integration. See Integration blocks below for details.
+        </details>
+        """
+        return pulumi.get(self, "sns")
+
+    @sns.setter
+    def sns(self, value: Optional[pulumi.Input['AwsIntegrationsSnsArgs']]):
+        pulumi.set(self, "sns", value)
 
     @property
     @pulumi.getter
@@ -385,14 +899,46 @@ class _AwsIntegrationsState:
                  aws_connect: Optional[pulumi.Input['AwsIntegrationsAwsConnectArgs']] = None,
                  aws_direct_connect: Optional[pulumi.Input['AwsIntegrationsAwsDirectConnectArgs']] = None,
                  aws_fsx: Optional[pulumi.Input['AwsIntegrationsAwsFsxArgs']] = None,
+                 aws_glue: Optional[pulumi.Input['AwsIntegrationsAwsGlueArgs']] = None,
+                 aws_kinesis_analytics: Optional[pulumi.Input['AwsIntegrationsAwsKinesisAnalyticsArgs']] = None,
+                 aws_media_convert: Optional[pulumi.Input['AwsIntegrationsAwsMediaConvertArgs']] = None,
+                 aws_media_package_vod: Optional[pulumi.Input['AwsIntegrationsAwsMediaPackageVodArgs']] = None,
+                 aws_mq: Optional[pulumi.Input['AwsIntegrationsAwsMqArgs']] = None,
+                 aws_msk: Optional[pulumi.Input['AwsIntegrationsAwsMskArgs']] = None,
+                 aws_neptune: Optional[pulumi.Input['AwsIntegrationsAwsNeptuneArgs']] = None,
+                 aws_qldb: Optional[pulumi.Input['AwsIntegrationsAwsQldbArgs']] = None,
+                 aws_route53resolver: Optional[pulumi.Input['AwsIntegrationsAwsRoute53resolverArgs']] = None,
+                 aws_states: Optional[pulumi.Input['AwsIntegrationsAwsStatesArgs']] = None,
+                 aws_transit_gateway: Optional[pulumi.Input['AwsIntegrationsAwsTransitGatewayArgs']] = None,
+                 aws_waf: Optional[pulumi.Input['AwsIntegrationsAwsWafArgs']] = None,
+                 aws_wafv2: Optional[pulumi.Input['AwsIntegrationsAwsWafv2Args']] = None,
                  billing: Optional[pulumi.Input['AwsIntegrationsBillingArgs']] = None,
+                 cloudfront: Optional[pulumi.Input['AwsIntegrationsCloudfrontArgs']] = None,
                  cloudtrail: Optional[pulumi.Input['AwsIntegrationsCloudtrailArgs']] = None,
                  doc_db: Optional[pulumi.Input['AwsIntegrationsDocDbArgs']] = None,
+                 dynamodb: Optional[pulumi.Input['AwsIntegrationsDynamodbArgs']] = None,
                  ebs: Optional[pulumi.Input['AwsIntegrationsEbsArgs']] = None,
+                 ec2: Optional[pulumi.Input['AwsIntegrationsEc2Args']] = None,
+                 ecs: Optional[pulumi.Input['AwsIntegrationsEcsArgs']] = None,
+                 efs: Optional[pulumi.Input['AwsIntegrationsEfsArgs']] = None,
                  elasticache: Optional[pulumi.Input['AwsIntegrationsElasticacheArgs']] = None,
+                 elasticbeanstalk: Optional[pulumi.Input['AwsIntegrationsElasticbeanstalkArgs']] = None,
+                 elasticsearch: Optional[pulumi.Input['AwsIntegrationsElasticsearchArgs']] = None,
+                 elb: Optional[pulumi.Input['AwsIntegrationsElbArgs']] = None,
+                 emr: Optional[pulumi.Input['AwsIntegrationsEmrArgs']] = None,
                  health: Optional[pulumi.Input['AwsIntegrationsHealthArgs']] = None,
+                 iam: Optional[pulumi.Input['AwsIntegrationsIamArgs']] = None,
+                 iot: Optional[pulumi.Input['AwsIntegrationsIotArgs']] = None,
+                 kinesis: Optional[pulumi.Input['AwsIntegrationsKinesisArgs']] = None,
+                 kinesis_firehose: Optional[pulumi.Input['AwsIntegrationsKinesisFirehoseArgs']] = None,
+                 lambda_: Optional[pulumi.Input['AwsIntegrationsLambdaArgs']] = None,
                  linked_account_id: Optional[pulumi.Input[int]] = None,
+                 rds: Optional[pulumi.Input['AwsIntegrationsRdsArgs']] = None,
+                 redshift: Optional[pulumi.Input['AwsIntegrationsRedshiftArgs']] = None,
+                 route53: Optional[pulumi.Input['AwsIntegrationsRoute53Args']] = None,
                  s3: Optional[pulumi.Input['AwsIntegrationsS3Args']] = None,
+                 ses: Optional[pulumi.Input['AwsIntegrationsSesArgs']] = None,
+                 sns: Optional[pulumi.Input['AwsIntegrationsSnsArgs']] = None,
                  sqs: Optional[pulumi.Input['AwsIntegrationsSqsArgs']] = None,
                  trusted_advisor: Optional[pulumi.Input['AwsIntegrationsTrustedAdvisorArgs']] = None,
                  vpc: Optional[pulumi.Input['AwsIntegrationsVpcArgs']] = None,
@@ -409,14 +955,47 @@ class _AwsIntegrationsState:
         :param pulumi.Input['AwsIntegrationsAwsConnectArgs'] aws_connect: Connect integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsAwsDirectConnectArgs'] aws_direct_connect: DirectConnect integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsAwsFsxArgs'] aws_fsx: Fsx integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsGlueArgs'] aws_glue: Glue integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsKinesisAnalyticsArgs'] aws_kinesis_analytics: Kinesis Analytics integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsMediaConvertArgs'] aws_media_convert: Media Convert integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsMediaPackageVodArgs'] aws_media_package_vod: Media Package vod integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsMqArgs'] aws_mq: Mq integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsMskArgs'] aws_msk: Msk integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsNeptuneArgs'] aws_neptune: Neptune integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsQldbArgs'] aws_qldb: Qldb integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsRoute53resolverArgs'] aws_route53resolver: Route53resolver integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsStatesArgs'] aws_states: States integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsTransitGatewayArgs'] aws_transit_gateway: TransitGateway integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsWafArgs'] aws_waf: Waf integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsAwsWafv2Args'] aws_wafv2: Wafv2 integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsBillingArgs'] billing: Billing integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsCloudfrontArgs'] cloudfront: Cloudfront integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsCloudtrailArgs'] cloudtrail: Cloudtrail integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsDocDbArgs'] doc_db: Doc_DB integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsDynamodbArgs'] dynamodb: DynamoDB integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsEbsArgs'] ebs: EBS integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsEc2Args'] ec2: Ec2 integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsEcsArgs'] ecs: Ecs integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsEfsArgs'] efs: Efs integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsElasticacheArgs'] elasticache: Elasticache integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsElasticbeanstalkArgs'] elasticbeanstalk: Elasticbeanstalk integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsElasticsearchArgs'] elasticsearch: Elasticsearch integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsElbArgs'] elb: Elb integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsEmrArgs'] emr: Emr integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsHealthArgs'] health: Health integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsIamArgs'] iam: Iam integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsIotArgs'] iot: Iot integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsKinesisArgs'] kinesis: Kinesis integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsKinesisFirehoseArgs'] kinesis_firehose: Kinesis firehose integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsLambdaArgs'] lambda_: Lambda integration. See Integration blocks below for details.
         :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
+        :param pulumi.Input['AwsIntegrationsRdsArgs'] rds: Rds integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsRedshiftArgs'] redshift: Redshift integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsRoute53Args'] route53: Route53 integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsS3Args'] s3: S3 integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsSesArgs'] ses: Ses integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsSnsArgs'] sns: Sns integration. See Integration blocks below for details.
+               </details>
         :param pulumi.Input['AwsIntegrationsSqsArgs'] sqs: SQS integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsTrustedAdvisorArgs'] trusted_advisor: Trusted Advisor integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsVpcArgs'] vpc: VPC integration. See Integration blocks below for details.
@@ -442,22 +1021,86 @@ class _AwsIntegrationsState:
             pulumi.set(__self__, "aws_direct_connect", aws_direct_connect)
         if aws_fsx is not None:
             pulumi.set(__self__, "aws_fsx", aws_fsx)
+        if aws_glue is not None:
+            pulumi.set(__self__, "aws_glue", aws_glue)
+        if aws_kinesis_analytics is not None:
+            pulumi.set(__self__, "aws_kinesis_analytics", aws_kinesis_analytics)
+        if aws_media_convert is not None:
+            pulumi.set(__self__, "aws_media_convert", aws_media_convert)
+        if aws_media_package_vod is not None:
+            pulumi.set(__self__, "aws_media_package_vod", aws_media_package_vod)
+        if aws_mq is not None:
+            pulumi.set(__self__, "aws_mq", aws_mq)
+        if aws_msk is not None:
+            pulumi.set(__self__, "aws_msk", aws_msk)
+        if aws_neptune is not None:
+            pulumi.set(__self__, "aws_neptune", aws_neptune)
+        if aws_qldb is not None:
+            pulumi.set(__self__, "aws_qldb", aws_qldb)
+        if aws_route53resolver is not None:
+            pulumi.set(__self__, "aws_route53resolver", aws_route53resolver)
+        if aws_states is not None:
+            pulumi.set(__self__, "aws_states", aws_states)
+        if aws_transit_gateway is not None:
+            pulumi.set(__self__, "aws_transit_gateway", aws_transit_gateway)
+        if aws_waf is not None:
+            pulumi.set(__self__, "aws_waf", aws_waf)
+        if aws_wafv2 is not None:
+            pulumi.set(__self__, "aws_wafv2", aws_wafv2)
         if billing is not None:
             pulumi.set(__self__, "billing", billing)
+        if cloudfront is not None:
+            pulumi.set(__self__, "cloudfront", cloudfront)
         if cloudtrail is not None:
             pulumi.set(__self__, "cloudtrail", cloudtrail)
         if doc_db is not None:
             pulumi.set(__self__, "doc_db", doc_db)
+        if dynamodb is not None:
+            pulumi.set(__self__, "dynamodb", dynamodb)
         if ebs is not None:
             pulumi.set(__self__, "ebs", ebs)
+        if ec2 is not None:
+            pulumi.set(__self__, "ec2", ec2)
+        if ecs is not None:
+            pulumi.set(__self__, "ecs", ecs)
+        if efs is not None:
+            pulumi.set(__self__, "efs", efs)
         if elasticache is not None:
             pulumi.set(__self__, "elasticache", elasticache)
+        if elasticbeanstalk is not None:
+            pulumi.set(__self__, "elasticbeanstalk", elasticbeanstalk)
+        if elasticsearch is not None:
+            pulumi.set(__self__, "elasticsearch", elasticsearch)
+        if elb is not None:
+            pulumi.set(__self__, "elb", elb)
+        if emr is not None:
+            pulumi.set(__self__, "emr", emr)
         if health is not None:
             pulumi.set(__self__, "health", health)
+        if iam is not None:
+            pulumi.set(__self__, "iam", iam)
+        if iot is not None:
+            pulumi.set(__self__, "iot", iot)
+        if kinesis is not None:
+            pulumi.set(__self__, "kinesis", kinesis)
+        if kinesis_firehose is not None:
+            pulumi.set(__self__, "kinesis_firehose", kinesis_firehose)
+        if lambda_ is not None:
+            pulumi.set(__self__, "lambda_", lambda_)
         if linked_account_id is not None:
             pulumi.set(__self__, "linked_account_id", linked_account_id)
+        if rds is not None:
+            pulumi.set(__self__, "rds", rds)
+        if redshift is not None:
+            pulumi.set(__self__, "redshift", redshift)
+        if route53 is not None:
+            pulumi.set(__self__, "route53", route53)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
+        if ses is not None:
+            pulumi.set(__self__, "ses", ses)
+        if sns is not None:
+            pulumi.set(__self__, "sns", sns)
         if sqs is not None:
             pulumi.set(__self__, "sqs", sqs)
         if trusted_advisor is not None:
@@ -588,6 +1231,162 @@ class _AwsIntegrationsState:
         pulumi.set(self, "aws_fsx", value)
 
     @property
+    @pulumi.getter(name="awsGlue")
+    def aws_glue(self) -> Optional[pulumi.Input['AwsIntegrationsAwsGlueArgs']]:
+        """
+        Glue integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_glue")
+
+    @aws_glue.setter
+    def aws_glue(self, value: Optional[pulumi.Input['AwsIntegrationsAwsGlueArgs']]):
+        pulumi.set(self, "aws_glue", value)
+
+    @property
+    @pulumi.getter(name="awsKinesisAnalytics")
+    def aws_kinesis_analytics(self) -> Optional[pulumi.Input['AwsIntegrationsAwsKinesisAnalyticsArgs']]:
+        """
+        Kinesis Analytics integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_kinesis_analytics")
+
+    @aws_kinesis_analytics.setter
+    def aws_kinesis_analytics(self, value: Optional[pulumi.Input['AwsIntegrationsAwsKinesisAnalyticsArgs']]):
+        pulumi.set(self, "aws_kinesis_analytics", value)
+
+    @property
+    @pulumi.getter(name="awsMediaConvert")
+    def aws_media_convert(self) -> Optional[pulumi.Input['AwsIntegrationsAwsMediaConvertArgs']]:
+        """
+        Media Convert integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_media_convert")
+
+    @aws_media_convert.setter
+    def aws_media_convert(self, value: Optional[pulumi.Input['AwsIntegrationsAwsMediaConvertArgs']]):
+        pulumi.set(self, "aws_media_convert", value)
+
+    @property
+    @pulumi.getter(name="awsMediaPackageVod")
+    def aws_media_package_vod(self) -> Optional[pulumi.Input['AwsIntegrationsAwsMediaPackageVodArgs']]:
+        """
+        Media Package vod integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_media_package_vod")
+
+    @aws_media_package_vod.setter
+    def aws_media_package_vod(self, value: Optional[pulumi.Input['AwsIntegrationsAwsMediaPackageVodArgs']]):
+        pulumi.set(self, "aws_media_package_vod", value)
+
+    @property
+    @pulumi.getter(name="awsMq")
+    def aws_mq(self) -> Optional[pulumi.Input['AwsIntegrationsAwsMqArgs']]:
+        """
+        Mq integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_mq")
+
+    @aws_mq.setter
+    def aws_mq(self, value: Optional[pulumi.Input['AwsIntegrationsAwsMqArgs']]):
+        pulumi.set(self, "aws_mq", value)
+
+    @property
+    @pulumi.getter(name="awsMsk")
+    def aws_msk(self) -> Optional[pulumi.Input['AwsIntegrationsAwsMskArgs']]:
+        """
+        Msk integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_msk")
+
+    @aws_msk.setter
+    def aws_msk(self, value: Optional[pulumi.Input['AwsIntegrationsAwsMskArgs']]):
+        pulumi.set(self, "aws_msk", value)
+
+    @property
+    @pulumi.getter(name="awsNeptune")
+    def aws_neptune(self) -> Optional[pulumi.Input['AwsIntegrationsAwsNeptuneArgs']]:
+        """
+        Neptune integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_neptune")
+
+    @aws_neptune.setter
+    def aws_neptune(self, value: Optional[pulumi.Input['AwsIntegrationsAwsNeptuneArgs']]):
+        pulumi.set(self, "aws_neptune", value)
+
+    @property
+    @pulumi.getter(name="awsQldb")
+    def aws_qldb(self) -> Optional[pulumi.Input['AwsIntegrationsAwsQldbArgs']]:
+        """
+        Qldb integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_qldb")
+
+    @aws_qldb.setter
+    def aws_qldb(self, value: Optional[pulumi.Input['AwsIntegrationsAwsQldbArgs']]):
+        pulumi.set(self, "aws_qldb", value)
+
+    @property
+    @pulumi.getter(name="awsRoute53resolver")
+    def aws_route53resolver(self) -> Optional[pulumi.Input['AwsIntegrationsAwsRoute53resolverArgs']]:
+        """
+        Route53resolver integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_route53resolver")
+
+    @aws_route53resolver.setter
+    def aws_route53resolver(self, value: Optional[pulumi.Input['AwsIntegrationsAwsRoute53resolverArgs']]):
+        pulumi.set(self, "aws_route53resolver", value)
+
+    @property
+    @pulumi.getter(name="awsStates")
+    def aws_states(self) -> Optional[pulumi.Input['AwsIntegrationsAwsStatesArgs']]:
+        """
+        States integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_states")
+
+    @aws_states.setter
+    def aws_states(self, value: Optional[pulumi.Input['AwsIntegrationsAwsStatesArgs']]):
+        pulumi.set(self, "aws_states", value)
+
+    @property
+    @pulumi.getter(name="awsTransitGateway")
+    def aws_transit_gateway(self) -> Optional[pulumi.Input['AwsIntegrationsAwsTransitGatewayArgs']]:
+        """
+        TransitGateway integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_transit_gateway")
+
+    @aws_transit_gateway.setter
+    def aws_transit_gateway(self, value: Optional[pulumi.Input['AwsIntegrationsAwsTransitGatewayArgs']]):
+        pulumi.set(self, "aws_transit_gateway", value)
+
+    @property
+    @pulumi.getter(name="awsWaf")
+    def aws_waf(self) -> Optional[pulumi.Input['AwsIntegrationsAwsWafArgs']]:
+        """
+        Waf integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_waf")
+
+    @aws_waf.setter
+    def aws_waf(self, value: Optional[pulumi.Input['AwsIntegrationsAwsWafArgs']]):
+        pulumi.set(self, "aws_waf", value)
+
+    @property
+    @pulumi.getter(name="awsWafv2")
+    def aws_wafv2(self) -> Optional[pulumi.Input['AwsIntegrationsAwsWafv2Args']]:
+        """
+        Wafv2 integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_wafv2")
+
+    @aws_wafv2.setter
+    def aws_wafv2(self, value: Optional[pulumi.Input['AwsIntegrationsAwsWafv2Args']]):
+        pulumi.set(self, "aws_wafv2", value)
+
+    @property
     @pulumi.getter
     def billing(self) -> Optional[pulumi.Input['AwsIntegrationsBillingArgs']]:
         """
@@ -598,6 +1397,18 @@ class _AwsIntegrationsState:
     @billing.setter
     def billing(self, value: Optional[pulumi.Input['AwsIntegrationsBillingArgs']]):
         pulumi.set(self, "billing", value)
+
+    @property
+    @pulumi.getter
+    def cloudfront(self) -> Optional[pulumi.Input['AwsIntegrationsCloudfrontArgs']]:
+        """
+        Cloudfront integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "cloudfront")
+
+    @cloudfront.setter
+    def cloudfront(self, value: Optional[pulumi.Input['AwsIntegrationsCloudfrontArgs']]):
+        pulumi.set(self, "cloudfront", value)
 
     @property
     @pulumi.getter
@@ -625,6 +1436,18 @@ class _AwsIntegrationsState:
 
     @property
     @pulumi.getter
+    def dynamodb(self) -> Optional[pulumi.Input['AwsIntegrationsDynamodbArgs']]:
+        """
+        DynamoDB integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "dynamodb")
+
+    @dynamodb.setter
+    def dynamodb(self, value: Optional[pulumi.Input['AwsIntegrationsDynamodbArgs']]):
+        pulumi.set(self, "dynamodb", value)
+
+    @property
+    @pulumi.getter
     def ebs(self) -> Optional[pulumi.Input['AwsIntegrationsEbsArgs']]:
         """
         EBS integration. See Integration blocks below for details.
@@ -634,6 +1457,42 @@ class _AwsIntegrationsState:
     @ebs.setter
     def ebs(self, value: Optional[pulumi.Input['AwsIntegrationsEbsArgs']]):
         pulumi.set(self, "ebs", value)
+
+    @property
+    @pulumi.getter
+    def ec2(self) -> Optional[pulumi.Input['AwsIntegrationsEc2Args']]:
+        """
+        Ec2 integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "ec2")
+
+    @ec2.setter
+    def ec2(self, value: Optional[pulumi.Input['AwsIntegrationsEc2Args']]):
+        pulumi.set(self, "ec2", value)
+
+    @property
+    @pulumi.getter
+    def ecs(self) -> Optional[pulumi.Input['AwsIntegrationsEcsArgs']]:
+        """
+        Ecs integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "ecs")
+
+    @ecs.setter
+    def ecs(self, value: Optional[pulumi.Input['AwsIntegrationsEcsArgs']]):
+        pulumi.set(self, "ecs", value)
+
+    @property
+    @pulumi.getter
+    def efs(self) -> Optional[pulumi.Input['AwsIntegrationsEfsArgs']]:
+        """
+        Efs integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "efs")
+
+    @efs.setter
+    def efs(self, value: Optional[pulumi.Input['AwsIntegrationsEfsArgs']]):
+        pulumi.set(self, "efs", value)
 
     @property
     @pulumi.getter
@@ -649,6 +1508,54 @@ class _AwsIntegrationsState:
 
     @property
     @pulumi.getter
+    def elasticbeanstalk(self) -> Optional[pulumi.Input['AwsIntegrationsElasticbeanstalkArgs']]:
+        """
+        Elasticbeanstalk integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "elasticbeanstalk")
+
+    @elasticbeanstalk.setter
+    def elasticbeanstalk(self, value: Optional[pulumi.Input['AwsIntegrationsElasticbeanstalkArgs']]):
+        pulumi.set(self, "elasticbeanstalk", value)
+
+    @property
+    @pulumi.getter
+    def elasticsearch(self) -> Optional[pulumi.Input['AwsIntegrationsElasticsearchArgs']]:
+        """
+        Elasticsearch integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "elasticsearch")
+
+    @elasticsearch.setter
+    def elasticsearch(self, value: Optional[pulumi.Input['AwsIntegrationsElasticsearchArgs']]):
+        pulumi.set(self, "elasticsearch", value)
+
+    @property
+    @pulumi.getter
+    def elb(self) -> Optional[pulumi.Input['AwsIntegrationsElbArgs']]:
+        """
+        Elb integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "elb")
+
+    @elb.setter
+    def elb(self, value: Optional[pulumi.Input['AwsIntegrationsElbArgs']]):
+        pulumi.set(self, "elb", value)
+
+    @property
+    @pulumi.getter
+    def emr(self) -> Optional[pulumi.Input['AwsIntegrationsEmrArgs']]:
+        """
+        Emr integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "emr")
+
+    @emr.setter
+    def emr(self, value: Optional[pulumi.Input['AwsIntegrationsEmrArgs']]):
+        pulumi.set(self, "emr", value)
+
+    @property
+    @pulumi.getter
     def health(self) -> Optional[pulumi.Input['AwsIntegrationsHealthArgs']]:
         """
         Health integration. See Integration blocks below for details.
@@ -658,6 +1565,66 @@ class _AwsIntegrationsState:
     @health.setter
     def health(self, value: Optional[pulumi.Input['AwsIntegrationsHealthArgs']]):
         pulumi.set(self, "health", value)
+
+    @property
+    @pulumi.getter
+    def iam(self) -> Optional[pulumi.Input['AwsIntegrationsIamArgs']]:
+        """
+        Iam integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "iam")
+
+    @iam.setter
+    def iam(self, value: Optional[pulumi.Input['AwsIntegrationsIamArgs']]):
+        pulumi.set(self, "iam", value)
+
+    @property
+    @pulumi.getter
+    def iot(self) -> Optional[pulumi.Input['AwsIntegrationsIotArgs']]:
+        """
+        Iot integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "iot")
+
+    @iot.setter
+    def iot(self, value: Optional[pulumi.Input['AwsIntegrationsIotArgs']]):
+        pulumi.set(self, "iot", value)
+
+    @property
+    @pulumi.getter
+    def kinesis(self) -> Optional[pulumi.Input['AwsIntegrationsKinesisArgs']]:
+        """
+        Kinesis integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "kinesis")
+
+    @kinesis.setter
+    def kinesis(self, value: Optional[pulumi.Input['AwsIntegrationsKinesisArgs']]):
+        pulumi.set(self, "kinesis", value)
+
+    @property
+    @pulumi.getter(name="kinesisFirehose")
+    def kinesis_firehose(self) -> Optional[pulumi.Input['AwsIntegrationsKinesisFirehoseArgs']]:
+        """
+        Kinesis firehose integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "kinesis_firehose")
+
+    @kinesis_firehose.setter
+    def kinesis_firehose(self, value: Optional[pulumi.Input['AwsIntegrationsKinesisFirehoseArgs']]):
+        pulumi.set(self, "kinesis_firehose", value)
+
+    @property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> Optional[pulumi.Input['AwsIntegrationsLambdaArgs']]:
+        """
+        Lambda integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "lambda_")
+
+    @lambda_.setter
+    def lambda_(self, value: Optional[pulumi.Input['AwsIntegrationsLambdaArgs']]):
+        pulumi.set(self, "lambda_", value)
 
     @property
     @pulumi.getter(name="linkedAccountId")
@@ -673,6 +1640,42 @@ class _AwsIntegrationsState:
 
     @property
     @pulumi.getter
+    def rds(self) -> Optional[pulumi.Input['AwsIntegrationsRdsArgs']]:
+        """
+        Rds integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "rds")
+
+    @rds.setter
+    def rds(self, value: Optional[pulumi.Input['AwsIntegrationsRdsArgs']]):
+        pulumi.set(self, "rds", value)
+
+    @property
+    @pulumi.getter
+    def redshift(self) -> Optional[pulumi.Input['AwsIntegrationsRedshiftArgs']]:
+        """
+        Redshift integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "redshift")
+
+    @redshift.setter
+    def redshift(self, value: Optional[pulumi.Input['AwsIntegrationsRedshiftArgs']]):
+        pulumi.set(self, "redshift", value)
+
+    @property
+    @pulumi.getter
+    def route53(self) -> Optional[pulumi.Input['AwsIntegrationsRoute53Args']]:
+        """
+        Route53 integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "route53")
+
+    @route53.setter
+    def route53(self, value: Optional[pulumi.Input['AwsIntegrationsRoute53Args']]):
+        pulumi.set(self, "route53", value)
+
+    @property
+    @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['AwsIntegrationsS3Args']]:
         """
         S3 integration. See Integration blocks below for details.
@@ -682,6 +1685,31 @@ class _AwsIntegrationsState:
     @s3.setter
     def s3(self, value: Optional[pulumi.Input['AwsIntegrationsS3Args']]):
         pulumi.set(self, "s3", value)
+
+    @property
+    @pulumi.getter
+    def ses(self) -> Optional[pulumi.Input['AwsIntegrationsSesArgs']]:
+        """
+        Ses integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "ses")
+
+    @ses.setter
+    def ses(self, value: Optional[pulumi.Input['AwsIntegrationsSesArgs']]):
+        pulumi.set(self, "ses", value)
+
+    @property
+    @pulumi.getter
+    def sns(self) -> Optional[pulumi.Input['AwsIntegrationsSnsArgs']]:
+        """
+        Sns integration. See Integration blocks below for details.
+        </details>
+        """
+        return pulumi.get(self, "sns")
+
+    @sns.setter
+    def sns(self, value: Optional[pulumi.Input['AwsIntegrationsSnsArgs']]):
+        pulumi.set(self, "sns", value)
 
     @property
     @pulumi.getter
@@ -747,14 +1775,46 @@ class AwsIntegrations(pulumi.CustomResource):
                  aws_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsConnectArgs']]] = None,
                  aws_direct_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsDirectConnectArgs']]] = None,
                  aws_fsx: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsFsxArgs']]] = None,
+                 aws_glue: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsGlueArgs']]] = None,
+                 aws_kinesis_analytics: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsKinesisAnalyticsArgs']]] = None,
+                 aws_media_convert: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaConvertArgs']]] = None,
+                 aws_media_package_vod: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaPackageVodArgs']]] = None,
+                 aws_mq: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMqArgs']]] = None,
+                 aws_msk: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMskArgs']]] = None,
+                 aws_neptune: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsNeptuneArgs']]] = None,
+                 aws_qldb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsQldbArgs']]] = None,
+                 aws_route53resolver: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsRoute53resolverArgs']]] = None,
+                 aws_states: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsStatesArgs']]] = None,
+                 aws_transit_gateway: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsTransitGatewayArgs']]] = None,
+                 aws_waf: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafArgs']]] = None,
+                 aws_wafv2: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafv2Args']]] = None,
                  billing: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']]] = None,
+                 cloudfront: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudfrontArgs']]] = None,
                  cloudtrail: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']]] = None,
                  doc_db: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']]] = None,
+                 dynamodb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDynamodbArgs']]] = None,
                  ebs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEbsArgs']]] = None,
+                 ec2: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEc2Args']]] = None,
+                 ecs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEcsArgs']]] = None,
+                 efs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEfsArgs']]] = None,
                  elasticache: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticacheArgs']]] = None,
+                 elasticbeanstalk: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticbeanstalkArgs']]] = None,
+                 elasticsearch: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticsearchArgs']]] = None,
+                 elb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElbArgs']]] = None,
+                 emr: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEmrArgs']]] = None,
                  health: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']]] = None,
+                 iam: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsIamArgs']]] = None,
+                 iot: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsIotArgs']]] = None,
+                 kinesis: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisArgs']]] = None,
+                 kinesis_firehose: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisFirehoseArgs']]] = None,
+                 lambda_: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsLambdaArgs']]] = None,
                  linked_account_id: Optional[pulumi.Input[int]] = None,
+                 rds: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRdsArgs']]] = None,
+                 redshift: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRedshiftArgs']]] = None,
+                 route53: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRoute53Args']]] = None,
                  s3: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']]] = None,
+                 ses: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSesArgs']]] = None,
+                 sns: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSnsArgs']]] = None,
                  sqs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSqsArgs']]] = None,
                  trusted_advisor: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']]] = None,
                  vpc: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']]] = None,
@@ -788,8 +1848,8 @@ class AwsIntegrations(pulumi.CustomResource):
             cloudtrail=newrelic.cloud.AwsIntegrationsCloudtrailArgs(
                 metrics_polling_interval=6000,
                 aws_regions=[
-                    "region-1",
-                    "region-2",
+                    "us-east-1",
+                    "us-east-2",
                 ],
             ),
             health=newrelic.cloud.AwsIntegrationsHealthArgs(
@@ -801,8 +1861,8 @@ class AwsIntegrations(pulumi.CustomResource):
             vpc=newrelic.cloud.AwsIntegrationsVpcArgs(
                 metrics_polling_interval=6000,
                 aws_regions=[
-                    "region-1",
-                    "region-2",
+                    "us-east-1",
+                    "us-east-2",
                 ],
                 fetch_nat_gateway=True,
                 fetch_vpn=False,
@@ -812,8 +1872,8 @@ class AwsIntegrations(pulumi.CustomResource):
             x_ray=newrelic.cloud.AwsIntegrationsXRayArgs(
                 metrics_polling_interval=6000,
                 aws_regions=[
-                    "region-1",
-                    "region-2",
+                    "us-east-1",
+                    "us-east-2",
                 ],
             ),
             s3=newrelic.cloud.AwsIntegrationsS3Args(
@@ -823,31 +1883,43 @@ class AwsIntegrations(pulumi.CustomResource):
                 metrics_polling_interval=6000,
             ),
             sqs=newrelic.cloud.AwsIntegrationsSqsArgs(
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                queue_prefixes=["queue prefix"],
                 metrics_polling_interval=6000,
                 aws_regions=["us-east-1"],
-                tag_key="test",
-                tag_value="test",
+                tag_key="tag key",
+                tag_value="tag value",
             ),
             ebs=newrelic.cloud.AwsIntegrationsEbsArgs(
                 metrics_polling_interval=6000,
+                fetch_extended_inventory=True,
                 aws_regions=["us-east-1"],
-                tag_key="test",
-                tag_value="test",
+                tag_key="tag key",
+                tag_value="tag value",
             ),
             alb=newrelic.cloud.AwsIntegrationsAlbArgs(
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                load_balancer_prefixes=["load balancer prefix"],
                 metrics_polling_interval=6000,
                 aws_regions=["us-east-1"],
+                tag_key="tag key",
+                tag_value="tag value",
             ),
             elasticache=newrelic.cloud.AwsIntegrationsElasticacheArgs(
-                metrics_polling_interval=6000,
                 aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
             ),
             api_gateway=newrelic.cloud.AwsIntegrationsApiGatewayArgs(
                 metrics_polling_interval=6000,
                 aws_regions=["us-east-1"],
-                stage_prefixes=[""],
-                tag_key="test",
-                tag_value="test",
+                stage_prefixes=["stage prefix"],
+                tag_key="tag key",
+                tag_value="tag value",
             ),
             auto_scaling=newrelic.cloud.AwsIntegrationsAutoScalingArgs(
                 aws_regions=["us-east-1"],
@@ -876,6 +1948,177 @@ class AwsIntegrations(pulumi.CustomResource):
             aws_fsx=newrelic.cloud.AwsIntegrationsAwsFsxArgs(
                 aws_regions=["us-east-1"],
                 metrics_polling_interval=6000,
+            ),
+            aws_glue=newrelic.cloud.AwsIntegrationsAwsGlueArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_kinesis_analytics=newrelic.cloud.AwsIntegrationsAwsKinesisAnalyticsArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_media_convert=newrelic.cloud.AwsIntegrationsAwsMediaConvertArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_media_package_vod=newrelic.cloud.AwsIntegrationsAwsMediaPackageVodArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_mq=newrelic.cloud.AwsIntegrationsAwsMqArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_msk=newrelic.cloud.AwsIntegrationsAwsMskArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_neptune=newrelic.cloud.AwsIntegrationsAwsNeptuneArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_qldb=newrelic.cloud.AwsIntegrationsAwsQldbArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_route53resolver=newrelic.cloud.AwsIntegrationsAwsRoute53resolverArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_states=newrelic.cloud.AwsIntegrationsAwsStatesArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_transit_gateway=newrelic.cloud.AwsIntegrationsAwsTransitGatewayArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_waf=newrelic.cloud.AwsIntegrationsAwsWafArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_wafv2=newrelic.cloud.AwsIntegrationsAwsWafv2Args(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            cloudfront=newrelic.cloud.AwsIntegrationsCloudfrontArgs(
+                fetch_lambdas_at_edge=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            dynamodb=newrelic.cloud.AwsIntegrationsDynamodbArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            ec2=newrelic.cloud.AwsIntegrationsEc2Args(
+                aws_regions=["us-east-1"],
+                duplicate_ec2_tags=True,
+                fetch_ip_addresses=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            ecs=newrelic.cloud.AwsIntegrationsEcsArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            efs=newrelic.cloud.AwsIntegrationsEfsArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            elasticbeanstalk=newrelic.cloud.AwsIntegrationsElasticbeanstalkArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            elasticsearch=newrelic.cloud.AwsIntegrationsElasticsearchArgs(
+                aws_regions=["us-east-1"],
+                fetch_nodes=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            elb=newrelic.cloud.AwsIntegrationsElbArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+            ),
+            emr=newrelic.cloud.AwsIntegrationsEmrArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            iam=newrelic.cloud.AwsIntegrationsIamArgs(
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            iot=newrelic.cloud.AwsIntegrationsIotArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            kinesis=newrelic.cloud.AwsIntegrationsKinesisArgs(
+                aws_regions=["us-east-1"],
+                fetch_shards=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            kinesis_firehose=newrelic.cloud.AwsIntegrationsKinesisFirehoseArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            lambda_=newrelic.cloud.AwsIntegrationsLambdaArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            rds=newrelic.cloud.AwsIntegrationsRdsArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            redshift=newrelic.cloud.AwsIntegrationsRedshiftArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            route53=newrelic.cloud.AwsIntegrationsRoute53Args(
+                fetch_extended_inventory=True,
+                metrics_polling_interval=6000,
+            ),
+            ses=newrelic.cloud.AwsIntegrationsSesArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            sns=newrelic.cloud.AwsIntegrationsSnsArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
+                metrics_polling_interval=6000,
             ))
         ```
 
@@ -899,14 +2142,47 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsConnectArgs']] aws_connect: Connect integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsDirectConnectArgs']] aws_direct_connect: DirectConnect integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsFsxArgs']] aws_fsx: Fsx integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsGlueArgs']] aws_glue: Glue integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsKinesisAnalyticsArgs']] aws_kinesis_analytics: Kinesis Analytics integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaConvertArgs']] aws_media_convert: Media Convert integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaPackageVodArgs']] aws_media_package_vod: Media Package vod integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMqArgs']] aws_mq: Mq integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMskArgs']] aws_msk: Msk integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsNeptuneArgs']] aws_neptune: Neptune integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsQldbArgs']] aws_qldb: Qldb integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsRoute53resolverArgs']] aws_route53resolver: Route53resolver integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsStatesArgs']] aws_states: States integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsTransitGatewayArgs']] aws_transit_gateway: TransitGateway integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafArgs']] aws_waf: Waf integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafv2Args']] aws_wafv2: Wafv2 integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']] billing: Billing integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsCloudfrontArgs']] cloudfront: Cloudfront integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']] cloudtrail: Cloudtrail integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']] doc_db: Doc_DB integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsDynamodbArgs']] dynamodb: DynamoDB integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsEbsArgs']] ebs: EBS integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEc2Args']] ec2: Ec2 integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEcsArgs']] ecs: Ecs integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEfsArgs']] efs: Efs integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsElasticacheArgs']] elasticache: Elasticache integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElasticbeanstalkArgs']] elasticbeanstalk: Elasticbeanstalk integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElasticsearchArgs']] elasticsearch: Elasticsearch integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElbArgs']] elb: Elb integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEmrArgs']] emr: Emr integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']] health: Health integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsIamArgs']] iam: Iam integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsIotArgs']] iot: Iot integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisArgs']] kinesis: Kinesis integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisFirehoseArgs']] kinesis_firehose: Kinesis firehose integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsLambdaArgs']] lambda_: Lambda integration. See Integration blocks below for details.
         :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsRdsArgs']] rds: Rds integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsRedshiftArgs']] redshift: Redshift integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsRoute53Args']] route53: Route53 integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']] s3: S3 integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsSesArgs']] ses: Ses integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsSnsArgs']] sns: Sns integration. See Integration blocks below for details.
+               </details>
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsSqsArgs']] sqs: SQS integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']] trusted_advisor: Trusted Advisor integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']] vpc: VPC integration. See Integration blocks below for details.
@@ -946,8 +2222,8 @@ class AwsIntegrations(pulumi.CustomResource):
             cloudtrail=newrelic.cloud.AwsIntegrationsCloudtrailArgs(
                 metrics_polling_interval=6000,
                 aws_regions=[
-                    "region-1",
-                    "region-2",
+                    "us-east-1",
+                    "us-east-2",
                 ],
             ),
             health=newrelic.cloud.AwsIntegrationsHealthArgs(
@@ -959,8 +2235,8 @@ class AwsIntegrations(pulumi.CustomResource):
             vpc=newrelic.cloud.AwsIntegrationsVpcArgs(
                 metrics_polling_interval=6000,
                 aws_regions=[
-                    "region-1",
-                    "region-2",
+                    "us-east-1",
+                    "us-east-2",
                 ],
                 fetch_nat_gateway=True,
                 fetch_vpn=False,
@@ -970,8 +2246,8 @@ class AwsIntegrations(pulumi.CustomResource):
             x_ray=newrelic.cloud.AwsIntegrationsXRayArgs(
                 metrics_polling_interval=6000,
                 aws_regions=[
-                    "region-1",
-                    "region-2",
+                    "us-east-1",
+                    "us-east-2",
                 ],
             ),
             s3=newrelic.cloud.AwsIntegrationsS3Args(
@@ -981,31 +2257,43 @@ class AwsIntegrations(pulumi.CustomResource):
                 metrics_polling_interval=6000,
             ),
             sqs=newrelic.cloud.AwsIntegrationsSqsArgs(
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                queue_prefixes=["queue prefix"],
                 metrics_polling_interval=6000,
                 aws_regions=["us-east-1"],
-                tag_key="test",
-                tag_value="test",
+                tag_key="tag key",
+                tag_value="tag value",
             ),
             ebs=newrelic.cloud.AwsIntegrationsEbsArgs(
                 metrics_polling_interval=6000,
+                fetch_extended_inventory=True,
                 aws_regions=["us-east-1"],
-                tag_key="test",
-                tag_value="test",
+                tag_key="tag key",
+                tag_value="tag value",
             ),
             alb=newrelic.cloud.AwsIntegrationsAlbArgs(
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                load_balancer_prefixes=["load balancer prefix"],
                 metrics_polling_interval=6000,
                 aws_regions=["us-east-1"],
+                tag_key="tag key",
+                tag_value="tag value",
             ),
             elasticache=newrelic.cloud.AwsIntegrationsElasticacheArgs(
-                metrics_polling_interval=6000,
                 aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
             ),
             api_gateway=newrelic.cloud.AwsIntegrationsApiGatewayArgs(
                 metrics_polling_interval=6000,
                 aws_regions=["us-east-1"],
-                stage_prefixes=[""],
-                tag_key="test",
-                tag_value="test",
+                stage_prefixes=["stage prefix"],
+                tag_key="tag key",
+                tag_value="tag value",
             ),
             auto_scaling=newrelic.cloud.AwsIntegrationsAutoScalingArgs(
                 aws_regions=["us-east-1"],
@@ -1033,6 +2321,177 @@ class AwsIntegrations(pulumi.CustomResource):
             ),
             aws_fsx=newrelic.cloud.AwsIntegrationsAwsFsxArgs(
                 aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_glue=newrelic.cloud.AwsIntegrationsAwsGlueArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_kinesis_analytics=newrelic.cloud.AwsIntegrationsAwsKinesisAnalyticsArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_media_convert=newrelic.cloud.AwsIntegrationsAwsMediaConvertArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_media_package_vod=newrelic.cloud.AwsIntegrationsAwsMediaPackageVodArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_mq=newrelic.cloud.AwsIntegrationsAwsMqArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_msk=newrelic.cloud.AwsIntegrationsAwsMskArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_neptune=newrelic.cloud.AwsIntegrationsAwsNeptuneArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_qldb=newrelic.cloud.AwsIntegrationsAwsQldbArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_route53resolver=newrelic.cloud.AwsIntegrationsAwsRoute53resolverArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_states=newrelic.cloud.AwsIntegrationsAwsStatesArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_transit_gateway=newrelic.cloud.AwsIntegrationsAwsTransitGatewayArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_waf=newrelic.cloud.AwsIntegrationsAwsWafArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_wafv2=newrelic.cloud.AwsIntegrationsAwsWafv2Args(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            cloudfront=newrelic.cloud.AwsIntegrationsCloudfrontArgs(
+                fetch_lambdas_at_edge=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            dynamodb=newrelic.cloud.AwsIntegrationsDynamodbArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            ec2=newrelic.cloud.AwsIntegrationsEc2Args(
+                aws_regions=["us-east-1"],
+                duplicate_ec2_tags=True,
+                fetch_ip_addresses=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            ecs=newrelic.cloud.AwsIntegrationsEcsArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            efs=newrelic.cloud.AwsIntegrationsEfsArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            elasticbeanstalk=newrelic.cloud.AwsIntegrationsElasticbeanstalkArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            elasticsearch=newrelic.cloud.AwsIntegrationsElasticsearchArgs(
+                aws_regions=["us-east-1"],
+                fetch_nodes=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            elb=newrelic.cloud.AwsIntegrationsElbArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+            ),
+            emr=newrelic.cloud.AwsIntegrationsEmrArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            iam=newrelic.cloud.AwsIntegrationsIamArgs(
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            iot=newrelic.cloud.AwsIntegrationsIotArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            kinesis=newrelic.cloud.AwsIntegrationsKinesisArgs(
+                aws_regions=["us-east-1"],
+                fetch_shards=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            kinesis_firehose=newrelic.cloud.AwsIntegrationsKinesisFirehoseArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            lambda_=newrelic.cloud.AwsIntegrationsLambdaArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            rds=newrelic.cloud.AwsIntegrationsRdsArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            redshift=newrelic.cloud.AwsIntegrationsRedshiftArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            route53=newrelic.cloud.AwsIntegrationsRoute53Args(
+                fetch_extended_inventory=True,
+                metrics_polling_interval=6000,
+            ),
+            ses=newrelic.cloud.AwsIntegrationsSesArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            sns=newrelic.cloud.AwsIntegrationsSnsArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
                 metrics_polling_interval=6000,
             ))
         ```
@@ -1070,14 +2529,46 @@ class AwsIntegrations(pulumi.CustomResource):
                  aws_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsConnectArgs']]] = None,
                  aws_direct_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsDirectConnectArgs']]] = None,
                  aws_fsx: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsFsxArgs']]] = None,
+                 aws_glue: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsGlueArgs']]] = None,
+                 aws_kinesis_analytics: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsKinesisAnalyticsArgs']]] = None,
+                 aws_media_convert: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaConvertArgs']]] = None,
+                 aws_media_package_vod: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaPackageVodArgs']]] = None,
+                 aws_mq: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMqArgs']]] = None,
+                 aws_msk: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMskArgs']]] = None,
+                 aws_neptune: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsNeptuneArgs']]] = None,
+                 aws_qldb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsQldbArgs']]] = None,
+                 aws_route53resolver: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsRoute53resolverArgs']]] = None,
+                 aws_states: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsStatesArgs']]] = None,
+                 aws_transit_gateway: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsTransitGatewayArgs']]] = None,
+                 aws_waf: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafArgs']]] = None,
+                 aws_wafv2: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafv2Args']]] = None,
                  billing: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']]] = None,
+                 cloudfront: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudfrontArgs']]] = None,
                  cloudtrail: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']]] = None,
                  doc_db: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']]] = None,
+                 dynamodb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDynamodbArgs']]] = None,
                  ebs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEbsArgs']]] = None,
+                 ec2: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEc2Args']]] = None,
+                 ecs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEcsArgs']]] = None,
+                 efs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEfsArgs']]] = None,
                  elasticache: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticacheArgs']]] = None,
+                 elasticbeanstalk: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticbeanstalkArgs']]] = None,
+                 elasticsearch: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticsearchArgs']]] = None,
+                 elb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElbArgs']]] = None,
+                 emr: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEmrArgs']]] = None,
                  health: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']]] = None,
+                 iam: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsIamArgs']]] = None,
+                 iot: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsIotArgs']]] = None,
+                 kinesis: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisArgs']]] = None,
+                 kinesis_firehose: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisFirehoseArgs']]] = None,
+                 lambda_: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsLambdaArgs']]] = None,
                  linked_account_id: Optional[pulumi.Input[int]] = None,
+                 rds: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRdsArgs']]] = None,
+                 redshift: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRedshiftArgs']]] = None,
+                 route53: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRoute53Args']]] = None,
                  s3: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']]] = None,
+                 ses: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSesArgs']]] = None,
+                 sns: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSnsArgs']]] = None,
                  sqs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSqsArgs']]] = None,
                  trusted_advisor: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']]] = None,
                  vpc: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']]] = None,
@@ -1101,16 +2592,48 @@ class AwsIntegrations(pulumi.CustomResource):
             __props__.__dict__["aws_connect"] = aws_connect
             __props__.__dict__["aws_direct_connect"] = aws_direct_connect
             __props__.__dict__["aws_fsx"] = aws_fsx
+            __props__.__dict__["aws_glue"] = aws_glue
+            __props__.__dict__["aws_kinesis_analytics"] = aws_kinesis_analytics
+            __props__.__dict__["aws_media_convert"] = aws_media_convert
+            __props__.__dict__["aws_media_package_vod"] = aws_media_package_vod
+            __props__.__dict__["aws_mq"] = aws_mq
+            __props__.__dict__["aws_msk"] = aws_msk
+            __props__.__dict__["aws_neptune"] = aws_neptune
+            __props__.__dict__["aws_qldb"] = aws_qldb
+            __props__.__dict__["aws_route53resolver"] = aws_route53resolver
+            __props__.__dict__["aws_states"] = aws_states
+            __props__.__dict__["aws_transit_gateway"] = aws_transit_gateway
+            __props__.__dict__["aws_waf"] = aws_waf
+            __props__.__dict__["aws_wafv2"] = aws_wafv2
             __props__.__dict__["billing"] = billing
+            __props__.__dict__["cloudfront"] = cloudfront
             __props__.__dict__["cloudtrail"] = cloudtrail
             __props__.__dict__["doc_db"] = doc_db
+            __props__.__dict__["dynamodb"] = dynamodb
             __props__.__dict__["ebs"] = ebs
+            __props__.__dict__["ec2"] = ec2
+            __props__.__dict__["ecs"] = ecs
+            __props__.__dict__["efs"] = efs
             __props__.__dict__["elasticache"] = elasticache
+            __props__.__dict__["elasticbeanstalk"] = elasticbeanstalk
+            __props__.__dict__["elasticsearch"] = elasticsearch
+            __props__.__dict__["elb"] = elb
+            __props__.__dict__["emr"] = emr
             __props__.__dict__["health"] = health
+            __props__.__dict__["iam"] = iam
+            __props__.__dict__["iot"] = iot
+            __props__.__dict__["kinesis"] = kinesis
+            __props__.__dict__["kinesis_firehose"] = kinesis_firehose
+            __props__.__dict__["lambda_"] = lambda_
             if linked_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_account_id'")
             __props__.__dict__["linked_account_id"] = linked_account_id
+            __props__.__dict__["rds"] = rds
+            __props__.__dict__["redshift"] = redshift
+            __props__.__dict__["route53"] = route53
             __props__.__dict__["s3"] = s3
+            __props__.__dict__["ses"] = ses
+            __props__.__dict__["sns"] = sns
             __props__.__dict__["sqs"] = sqs
             __props__.__dict__["trusted_advisor"] = trusted_advisor
             __props__.__dict__["vpc"] = vpc
@@ -1135,14 +2658,46 @@ class AwsIntegrations(pulumi.CustomResource):
             aws_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsConnectArgs']]] = None,
             aws_direct_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsDirectConnectArgs']]] = None,
             aws_fsx: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsFsxArgs']]] = None,
+            aws_glue: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsGlueArgs']]] = None,
+            aws_kinesis_analytics: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsKinesisAnalyticsArgs']]] = None,
+            aws_media_convert: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaConvertArgs']]] = None,
+            aws_media_package_vod: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaPackageVodArgs']]] = None,
+            aws_mq: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMqArgs']]] = None,
+            aws_msk: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMskArgs']]] = None,
+            aws_neptune: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsNeptuneArgs']]] = None,
+            aws_qldb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsQldbArgs']]] = None,
+            aws_route53resolver: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsRoute53resolverArgs']]] = None,
+            aws_states: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsStatesArgs']]] = None,
+            aws_transit_gateway: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsTransitGatewayArgs']]] = None,
+            aws_waf: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafArgs']]] = None,
+            aws_wafv2: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafv2Args']]] = None,
             billing: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']]] = None,
+            cloudfront: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudfrontArgs']]] = None,
             cloudtrail: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']]] = None,
             doc_db: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']]] = None,
+            dynamodb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDynamodbArgs']]] = None,
             ebs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEbsArgs']]] = None,
+            ec2: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEc2Args']]] = None,
+            ecs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEcsArgs']]] = None,
+            efs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEfsArgs']]] = None,
             elasticache: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticacheArgs']]] = None,
+            elasticbeanstalk: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticbeanstalkArgs']]] = None,
+            elasticsearch: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticsearchArgs']]] = None,
+            elb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElbArgs']]] = None,
+            emr: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEmrArgs']]] = None,
             health: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']]] = None,
+            iam: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsIamArgs']]] = None,
+            iot: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsIotArgs']]] = None,
+            kinesis: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisArgs']]] = None,
+            kinesis_firehose: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisFirehoseArgs']]] = None,
+            lambda_: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsLambdaArgs']]] = None,
             linked_account_id: Optional[pulumi.Input[int]] = None,
+            rds: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRdsArgs']]] = None,
+            redshift: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRedshiftArgs']]] = None,
+            route53: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRoute53Args']]] = None,
             s3: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']]] = None,
+            ses: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSesArgs']]] = None,
+            sns: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSnsArgs']]] = None,
             sqs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSqsArgs']]] = None,
             trusted_advisor: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']]] = None,
             vpc: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']]] = None,
@@ -1164,14 +2719,47 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsConnectArgs']] aws_connect: Connect integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsDirectConnectArgs']] aws_direct_connect: DirectConnect integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsFsxArgs']] aws_fsx: Fsx integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsGlueArgs']] aws_glue: Glue integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsKinesisAnalyticsArgs']] aws_kinesis_analytics: Kinesis Analytics integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaConvertArgs']] aws_media_convert: Media Convert integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaPackageVodArgs']] aws_media_package_vod: Media Package vod integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMqArgs']] aws_mq: Mq integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMskArgs']] aws_msk: Msk integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsNeptuneArgs']] aws_neptune: Neptune integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsQldbArgs']] aws_qldb: Qldb integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsRoute53resolverArgs']] aws_route53resolver: Route53resolver integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsStatesArgs']] aws_states: States integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsTransitGatewayArgs']] aws_transit_gateway: TransitGateway integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafArgs']] aws_waf: Waf integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafv2Args']] aws_wafv2: Wafv2 integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']] billing: Billing integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsCloudfrontArgs']] cloudfront: Cloudfront integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']] cloudtrail: Cloudtrail integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']] doc_db: Doc_DB integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsDynamodbArgs']] dynamodb: DynamoDB integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsEbsArgs']] ebs: EBS integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEc2Args']] ec2: Ec2 integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEcsArgs']] ecs: Ecs integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEfsArgs']] efs: Efs integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsElasticacheArgs']] elasticache: Elasticache integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElasticbeanstalkArgs']] elasticbeanstalk: Elasticbeanstalk integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElasticsearchArgs']] elasticsearch: Elasticsearch integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElbArgs']] elb: Elb integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEmrArgs']] emr: Emr integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']] health: Health integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsIamArgs']] iam: Iam integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsIotArgs']] iot: Iot integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisArgs']] kinesis: Kinesis integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisFirehoseArgs']] kinesis_firehose: Kinesis firehose integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsLambdaArgs']] lambda_: Lambda integration. See Integration blocks below for details.
         :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsRdsArgs']] rds: Rds integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsRedshiftArgs']] redshift: Redshift integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsRoute53Args']] route53: Route53 integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']] s3: S3 integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsSesArgs']] ses: Ses integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsSnsArgs']] sns: Sns integration. See Integration blocks below for details.
+               </details>
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsSqsArgs']] sqs: SQS integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']] trusted_advisor: Trusted Advisor integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']] vpc: VPC integration. See Integration blocks below for details.
@@ -1191,14 +2779,46 @@ class AwsIntegrations(pulumi.CustomResource):
         __props__.__dict__["aws_connect"] = aws_connect
         __props__.__dict__["aws_direct_connect"] = aws_direct_connect
         __props__.__dict__["aws_fsx"] = aws_fsx
+        __props__.__dict__["aws_glue"] = aws_glue
+        __props__.__dict__["aws_kinesis_analytics"] = aws_kinesis_analytics
+        __props__.__dict__["aws_media_convert"] = aws_media_convert
+        __props__.__dict__["aws_media_package_vod"] = aws_media_package_vod
+        __props__.__dict__["aws_mq"] = aws_mq
+        __props__.__dict__["aws_msk"] = aws_msk
+        __props__.__dict__["aws_neptune"] = aws_neptune
+        __props__.__dict__["aws_qldb"] = aws_qldb
+        __props__.__dict__["aws_route53resolver"] = aws_route53resolver
+        __props__.__dict__["aws_states"] = aws_states
+        __props__.__dict__["aws_transit_gateway"] = aws_transit_gateway
+        __props__.__dict__["aws_waf"] = aws_waf
+        __props__.__dict__["aws_wafv2"] = aws_wafv2
         __props__.__dict__["billing"] = billing
+        __props__.__dict__["cloudfront"] = cloudfront
         __props__.__dict__["cloudtrail"] = cloudtrail
         __props__.__dict__["doc_db"] = doc_db
+        __props__.__dict__["dynamodb"] = dynamodb
         __props__.__dict__["ebs"] = ebs
+        __props__.__dict__["ec2"] = ec2
+        __props__.__dict__["ecs"] = ecs
+        __props__.__dict__["efs"] = efs
         __props__.__dict__["elasticache"] = elasticache
+        __props__.__dict__["elasticbeanstalk"] = elasticbeanstalk
+        __props__.__dict__["elasticsearch"] = elasticsearch
+        __props__.__dict__["elb"] = elb
+        __props__.__dict__["emr"] = emr
         __props__.__dict__["health"] = health
+        __props__.__dict__["iam"] = iam
+        __props__.__dict__["iot"] = iot
+        __props__.__dict__["kinesis"] = kinesis
+        __props__.__dict__["kinesis_firehose"] = kinesis_firehose
+        __props__.__dict__["lambda_"] = lambda_
         __props__.__dict__["linked_account_id"] = linked_account_id
+        __props__.__dict__["rds"] = rds
+        __props__.__dict__["redshift"] = redshift
+        __props__.__dict__["route53"] = route53
         __props__.__dict__["s3"] = s3
+        __props__.__dict__["ses"] = ses
+        __props__.__dict__["sns"] = sns
         __props__.__dict__["sqs"] = sqs
         __props__.__dict__["trusted_advisor"] = trusted_advisor
         __props__.__dict__["vpc"] = vpc
@@ -1286,12 +2906,124 @@ class AwsIntegrations(pulumi.CustomResource):
         return pulumi.get(self, "aws_fsx")
 
     @property
+    @pulumi.getter(name="awsGlue")
+    def aws_glue(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsGlue']]:
+        """
+        Glue integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_glue")
+
+    @property
+    @pulumi.getter(name="awsKinesisAnalytics")
+    def aws_kinesis_analytics(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsKinesisAnalytics']]:
+        """
+        Kinesis Analytics integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_kinesis_analytics")
+
+    @property
+    @pulumi.getter(name="awsMediaConvert")
+    def aws_media_convert(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsMediaConvert']]:
+        """
+        Media Convert integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_media_convert")
+
+    @property
+    @pulumi.getter(name="awsMediaPackageVod")
+    def aws_media_package_vod(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsMediaPackageVod']]:
+        """
+        Media Package vod integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_media_package_vod")
+
+    @property
+    @pulumi.getter(name="awsMq")
+    def aws_mq(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsMq']]:
+        """
+        Mq integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_mq")
+
+    @property
+    @pulumi.getter(name="awsMsk")
+    def aws_msk(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsMsk']]:
+        """
+        Msk integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_msk")
+
+    @property
+    @pulumi.getter(name="awsNeptune")
+    def aws_neptune(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsNeptune']]:
+        """
+        Neptune integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_neptune")
+
+    @property
+    @pulumi.getter(name="awsQldb")
+    def aws_qldb(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsQldb']]:
+        """
+        Qldb integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_qldb")
+
+    @property
+    @pulumi.getter(name="awsRoute53resolver")
+    def aws_route53resolver(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsRoute53resolver']]:
+        """
+        Route53resolver integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_route53resolver")
+
+    @property
+    @pulumi.getter(name="awsStates")
+    def aws_states(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsStates']]:
+        """
+        States integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_states")
+
+    @property
+    @pulumi.getter(name="awsTransitGateway")
+    def aws_transit_gateway(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsTransitGateway']]:
+        """
+        TransitGateway integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_transit_gateway")
+
+    @property
+    @pulumi.getter(name="awsWaf")
+    def aws_waf(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsWaf']]:
+        """
+        Waf integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_waf")
+
+    @property
+    @pulumi.getter(name="awsWafv2")
+    def aws_wafv2(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsWafv2']]:
+        """
+        Wafv2 integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "aws_wafv2")
+
+    @property
     @pulumi.getter
     def billing(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsBilling']]:
         """
         Billing integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "billing")
+
+    @property
+    @pulumi.getter
+    def cloudfront(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsCloudfront']]:
+        """
+        Cloudfront integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "cloudfront")
 
     @property
     @pulumi.getter
@@ -1311,11 +3043,43 @@ class AwsIntegrations(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def dynamodb(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsDynamodb']]:
+        """
+        DynamoDB integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "dynamodb")
+
+    @property
+    @pulumi.getter
     def ebs(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsEbs']]:
         """
         EBS integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "ebs")
+
+    @property
+    @pulumi.getter
+    def ec2(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsEc2']]:
+        """
+        Ec2 integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "ec2")
+
+    @property
+    @pulumi.getter
+    def ecs(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsEcs']]:
+        """
+        Ecs integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "ecs")
+
+    @property
+    @pulumi.getter
+    def efs(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsEfs']]:
+        """
+        Efs integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "efs")
 
     @property
     @pulumi.getter
@@ -1327,11 +3091,83 @@ class AwsIntegrations(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def elasticbeanstalk(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsElasticbeanstalk']]:
+        """
+        Elasticbeanstalk integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "elasticbeanstalk")
+
+    @property
+    @pulumi.getter
+    def elasticsearch(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsElasticsearch']]:
+        """
+        Elasticsearch integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "elasticsearch")
+
+    @property
+    @pulumi.getter
+    def elb(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsElb']]:
+        """
+        Elb integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "elb")
+
+    @property
+    @pulumi.getter
+    def emr(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsEmr']]:
+        """
+        Emr integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "emr")
+
+    @property
+    @pulumi.getter
     def health(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsHealth']]:
         """
         Health integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "health")
+
+    @property
+    @pulumi.getter
+    def iam(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsIam']]:
+        """
+        Iam integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "iam")
+
+    @property
+    @pulumi.getter
+    def iot(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsIot']]:
+        """
+        Iot integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "iot")
+
+    @property
+    @pulumi.getter
+    def kinesis(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsKinesis']]:
+        """
+        Kinesis integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "kinesis")
+
+    @property
+    @pulumi.getter(name="kinesisFirehose")
+    def kinesis_firehose(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsKinesisFirehose']]:
+        """
+        Kinesis firehose integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "kinesis_firehose")
+
+    @property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsLambda']]:
+        """
+        Lambda integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "lambda_")
 
     @property
     @pulumi.getter(name="linkedAccountId")
@@ -1343,11 +3179,52 @@ class AwsIntegrations(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def rds(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsRds']]:
+        """
+        Rds integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "rds")
+
+    @property
+    @pulumi.getter
+    def redshift(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsRedshift']]:
+        """
+        Redshift integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "redshift")
+
+    @property
+    @pulumi.getter
+    def route53(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsRoute53']]:
+        """
+        Route53 integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "route53")
+
+    @property
+    @pulumi.getter
     def s3(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsS3']]:
         """
         S3 integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "s3")
+
+    @property
+    @pulumi.getter
+    def ses(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsSes']]:
+        """
+        Ses integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "ses")
+
+    @property
+    @pulumi.getter
+    def sns(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsSns']]:
+        """
+        Sns integration. See Integration blocks below for details.
+        </details>
+        """
+        return pulumi.get(self, "sns")
 
     @property
     @pulumi.getter

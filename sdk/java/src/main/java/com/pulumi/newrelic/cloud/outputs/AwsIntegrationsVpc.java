@@ -16,6 +16,7 @@ import javax.annotation.Nullable;
 public final class AwsIntegrationsVpc {
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
+     * &lt;/details&gt;
      * 
      */
     private @Nullable List<String> awsRegions;
@@ -32,7 +33,8 @@ public final class AwsIntegrationsVpc {
     /**
      * @return The data polling interval in seconds.
      * 
-     * Some integration types support an additional set of arguments:
+     * &lt;details&gt;
+     * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
      * 
      */
     private @Nullable Integer metricsPollingInterval;
@@ -50,6 +52,7 @@ public final class AwsIntegrationsVpc {
     private AwsIntegrationsVpc() {}
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
+     * &lt;/details&gt;
      * 
      */
     public List<String> awsRegions() {
@@ -72,7 +75,8 @@ public final class AwsIntegrationsVpc {
     /**
      * @return The data polling interval in seconds.
      * 
-     * Some integration types support an additional set of arguments:
+     * &lt;details&gt;
+     * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

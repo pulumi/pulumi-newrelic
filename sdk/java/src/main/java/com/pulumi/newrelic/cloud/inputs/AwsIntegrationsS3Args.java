@@ -20,12 +20,16 @@ public final class AwsIntegrationsS3Args extends com.pulumi.resources.ResourceAr
     /**
      * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
      * 
+     * Furthermore, below integration types supports the following common arguments.
+     * 
      */
     @Import(name="fetchExtendedInventory")
     private @Nullable Output<Boolean> fetchExtendedInventory;
 
     /**
      * @return Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+     * 
+     * Furthermore, below integration types supports the following common arguments.
      * 
      */
     public Optional<Output<Boolean>> fetchExtendedInventory() {
@@ -50,7 +54,8 @@ public final class AwsIntegrationsS3Args extends com.pulumi.resources.ResourceAr
     /**
      * The data polling interval in seconds.
      * 
-     * Some integration types support an additional set of arguments:
+     * &lt;details&gt;
+     * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
      * 
      */
     @Import(name="metricsPollingInterval")
@@ -59,7 +64,8 @@ public final class AwsIntegrationsS3Args extends com.pulumi.resources.ResourceAr
     /**
      * @return The data polling interval in seconds.
      * 
-     * Some integration types support an additional set of arguments:
+     * &lt;details&gt;
+     * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -127,6 +133,8 @@ public final class AwsIntegrationsS3Args extends com.pulumi.resources.ResourceAr
         /**
          * @param fetchExtendedInventory Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          * 
+         * Furthermore, below integration types supports the following common arguments.
+         * 
          * @return builder
          * 
          */
@@ -137,6 +145,8 @@ public final class AwsIntegrationsS3Args extends com.pulumi.resources.ResourceAr
 
         /**
          * @param fetchExtendedInventory Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * 
+         * Furthermore, below integration types supports the following common arguments.
          * 
          * @return builder
          * 
@@ -169,7 +179,8 @@ public final class AwsIntegrationsS3Args extends com.pulumi.resources.ResourceAr
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
-         * Some integration types support an additional set of arguments:
+         * &lt;details&gt;
+         * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
          * 
          * @return builder
          * 
@@ -182,7 +193,8 @@ public final class AwsIntegrationsS3Args extends com.pulumi.resources.ResourceAr
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
-         * Some integration types support an additional set of arguments:
+         * &lt;details&gt;
+         * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
          * 
          * @return builder
          * 

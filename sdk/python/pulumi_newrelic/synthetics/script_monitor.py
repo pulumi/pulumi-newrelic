@@ -40,8 +40,8 @@ class ScriptMonitorArgs:
         :param pulumi.Input[str] device_orientation: The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
         :param pulumi.Input[str] device_type: The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution
-        :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
@@ -167,7 +167,7 @@ class ScriptMonitorArgs:
     @pulumi.getter(name="locationPrivates")
     def location_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]]:
         """
-        The location the monitor will run from. See Nested location_private blocks below for details. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
         """
         return pulumi.get(self, "location_privates")
 
@@ -179,7 +179,7 @@ class ScriptMonitorArgs:
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -289,8 +289,8 @@ class _ScriptMonitorState:
         :param pulumi.Input[str] device_type: The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution
         :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
-        :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
@@ -403,7 +403,7 @@ class _ScriptMonitorState:
     @pulumi.getter(name="locationPrivates")
     def location_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]]:
         """
-        The location the monitor will run from. See Nested location_private blocks below for details. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
         """
         return pulumi.get(self, "location_privates")
 
@@ -415,7 +415,7 @@ class _ScriptMonitorState:
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -696,8 +696,8 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] device_orientation: The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
         :param pulumi.Input[str] device_type: The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
@@ -940,8 +940,8 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] device_type: The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution
         :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
@@ -1022,7 +1022,7 @@ class ScriptMonitor(pulumi.CustomResource):
     @pulumi.getter(name="locationPrivates")
     def location_privates(self) -> pulumi.Output[Optional[Sequence['outputs.ScriptMonitorLocationPrivate']]]:
         """
-        The location the monitor will run from. See Nested location_private blocks below for details. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
         """
         return pulumi.get(self, "location_privates")
 
@@ -1030,7 +1030,7 @@ class ScriptMonitor(pulumi.CustomResource):
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         """
         return pulumi.get(self, "locations_publics")
 

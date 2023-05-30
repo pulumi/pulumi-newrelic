@@ -14,6 +14,8 @@ namespace Pulumi.NewRelic.Cloud.Inputs
     {
         /// <summary>
         /// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        /// 
+        /// Furthermore, below integration types supports the following common arguments.
         /// </summary>
         [Input("fetchExtendedInventory")]
         public Input<bool>? FetchExtendedInventory { get; set; }
@@ -27,7 +29,8 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         /// <summary>
         /// The data polling interval in seconds.
         /// 
-        /// Some integration types support an additional set of arguments:
+        /// &lt;details&gt;
+        /// &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
         /// </summary>
         [Input("metricsPollingInterval")]
         public Input<int>? MetricsPollingInterval { get; set; }

@@ -17,6 +17,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
 
         /// <summary>
         /// Specify each AWS region that includes the resources that you want to monitor.
+        /// &lt;/details&gt;
         /// </summary>
         public InputList<string> AwsRegions
         {
@@ -27,7 +28,8 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         /// <summary>
         /// The data polling interval in seconds.
         /// 
-        /// Some integration types support an additional set of arguments:
+        /// &lt;details&gt;
+        /// &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
         /// </summary>
         [Input("metricsPollingInterval")]
         public Input<int>? MetricsPollingInterval { get; set; }
