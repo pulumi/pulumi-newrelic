@@ -47,10 +47,14 @@ func NewProvider(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ApiKey'")
 	}
 	if args.AccountId == nil {
-		args.AccountId = pulumi.IntPtr(getEnvOrDefault(0, parseEnvInt, "NEW_RELIC_ACCOUNT_ID").(int))
+		if d := getEnvOrDefault(nil, parseEnvInt, "NEW_RELIC_ACCOUNT_ID"); d != nil {
+			args.AccountId = pulumi.IntPtr(d.(int))
+		}
 	}
 	if args.Region == nil {
-		args.Region = pulumi.StringPtr(getEnvOrDefault("US", nil, "NEW_RELIC_REGION").(string))
+		if d := getEnvOrDefault("US", nil, "NEW_RELIC_REGION"); d != nil {
+			args.Region = pulumi.StringPtr(d.(string))
+		}
 	}
 	if args.AccountId != nil {
 		args.AccountId = pulumi.ToSecret(args.AccountId).(pulumi.IntPtrInput)

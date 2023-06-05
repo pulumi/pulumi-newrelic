@@ -13,7 +13,11 @@ func GetAccountId(ctx *pulumi.Context) int {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault(0, parseEnvInt, "NEW_RELIC_ACCOUNT_ID").(int)
+	var value int
+	if d := getEnvOrDefault(nil, parseEnvInt, "NEW_RELIC_ACCOUNT_ID"); d != nil {
+		value = d.(int)
+	}
+	return value
 }
 func GetAdminApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "newrelic:adminApiKey")
@@ -58,7 +62,11 @@ func GetRegion(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("US", nil, "NEW_RELIC_REGION").(string)
+	var value string
+	if d := getEnvOrDefault("US", nil, "NEW_RELIC_REGION"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
