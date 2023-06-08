@@ -22,7 +22,7 @@ namespace Pulumi.NewRelic
     public partial class OneDashboardJson : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The New Relic account ID where you want to create the dashboard.
+        /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Output("accountId")]
         public Output<int> AccountId { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.NewRelic
     public sealed class OneDashboardJsonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID where you want to create the dashboard.
+        /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
@@ -118,7 +118,7 @@ namespace Pulumi.NewRelic
     public sealed class OneDashboardJsonState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID where you want to create the dashboard.
+        /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }

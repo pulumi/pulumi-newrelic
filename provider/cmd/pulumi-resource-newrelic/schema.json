@@ -11685,7 +11685,7 @@
             "properties": {
                 "accountId": {
                     "type": "integer",
-                    "description": "The New Relic account ID where you want to create the dashboard.\n"
+                    "description": "Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.\n"
                 },
                 "guid": {
                     "type": "string",
@@ -11714,7 +11714,7 @@
             "inputProperties": {
                 "accountId": {
                     "type": "integer",
-                    "description": "The New Relic account ID where you want to create the dashboard.\n"
+                    "description": "Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.\n"
                 },
                 "json": {
                     "type": "string",
@@ -11729,7 +11729,7 @@
                 "properties": {
                     "accountId": {
                         "type": "integer",
-                        "description": "The New Relic account ID where you want to create the dashboard.\n"
+                        "description": "Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.\n"
                     },
                     "guid": {
                         "type": "string",

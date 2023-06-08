@@ -17,14 +17,14 @@ public final class OneDashboardJsonArgs extends com.pulumi.resources.ResourceArg
     public static final OneDashboardJsonArgs Empty = new OneDashboardJsonArgs();
 
     /**
-     * The New Relic account ID where you want to create the dashboard.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<Integer> accountId;
 
     /**
-     * @return The New Relic account ID where you want to create the dashboard.
+     * @return Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      * 
      */
     public Optional<Output<Integer>> accountId() {
@@ -72,7 +72,7 @@ public final class OneDashboardJsonArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accountId The New Relic account ID where you want to create the dashboard.
+         * @param accountId Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class OneDashboardJsonArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accountId The New Relic account ID where you want to create the dashboard.
+         * @param accountId Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
          * 
          * @return builder
          * 
