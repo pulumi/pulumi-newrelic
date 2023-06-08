@@ -27,14 +27,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/oneDashboardJson:OneDashboardJson")
 public class OneDashboardJson extends com.pulumi.resources.CustomResource {
     /**
-     * The New Relic account ID where you want to create the dashboard.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      * 
      */
     @Export(name="accountId", type=Integer.class, parameters={})
     private Output<Integer> accountId;
 
     /**
-     * @return The New Relic account ID where you want to create the dashboard.
+     * @return Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      * 
      */
     public Output<Integer> accountId() {
