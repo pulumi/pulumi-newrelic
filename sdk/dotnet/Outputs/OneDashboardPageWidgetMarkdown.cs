@@ -49,7 +49,7 @@ namespace Pulumi.NewRelic.Outputs
         /// <summary>
         /// (Required) The markdown source to be rendered in the widget.
         /// </summary>
-        public readonly string? Text;
+        public readonly string Text;
         /// <summary>
         /// (Optional) A human-friendly display string for this value.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.NewRelic.Outputs
 
             int row,
 
-            string? text,
+            string text,
 
             string title,
 

@@ -7000,6 +7000,7 @@ class OneDashboardPageWidgetMarkdown(dict):
     def __init__(__self__, *,
                  column: int,
                  row: int,
+                 text: str,
                  title: str,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownColor']] = None,
                  facet_show_other_series: Optional[bool] = None,
@@ -7008,7 +7009,6 @@ class OneDashboardPageWidgetMarkdown(dict):
                  ignore_time_range: Optional[bool] = None,
                  legend_enabled: Optional[bool] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownNullValue']] = None,
-                 text: Optional[str] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownUnit']] = None,
                  width: Optional[int] = None,
                  y_axis_left_max: Optional[float] = None,
@@ -7016,6 +7016,7 @@ class OneDashboardPageWidgetMarkdown(dict):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
+        :param str text: (Required) The markdown source to be rendered in the widget.
         :param str title: (Optional) A human-friendly display string for this value.
         :param Sequence['OneDashboardPageWidgetMarkdownColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -7023,13 +7024,13 @@ class OneDashboardPageWidgetMarkdown(dict):
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetMarkdownNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
-        :param str text: (Required) The markdown source to be rendered in the widget.
         :param Sequence['OneDashboardPageWidgetMarkdownUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "row", row)
+        pulumi.set(__self__, "text", text)
         pulumi.set(__self__, "title", title)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
@@ -7045,8 +7046,6 @@ class OneDashboardPageWidgetMarkdown(dict):
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
-        if text is not None:
-            pulumi.set(__self__, "text", text)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -7071,6 +7070,14 @@ class OneDashboardPageWidgetMarkdown(dict):
         (Required) Row position of widget from top left, starting at `1`.
         """
         return pulumi.get(self, "row")
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        """
+        (Required) The markdown source to be rendered in the widget.
+        """
+        return pulumi.get(self, "text")
 
     @property
     @pulumi.getter
@@ -7132,14 +7139,6 @@ class OneDashboardPageWidgetMarkdown(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
-
-    @property
-    @pulumi.getter
-    def text(self) -> Optional[str]:
-        """
-        (Required) The markdown source to be rendered in the widget.
-        """
-        return pulumi.get(self, "text")
 
     @property
     @pulumi.getter

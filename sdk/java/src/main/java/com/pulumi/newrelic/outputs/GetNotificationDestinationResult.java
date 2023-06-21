@@ -10,6 +10,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNotificationDestinationResult {
@@ -19,12 +21,12 @@ public final class GetNotificationDestinationResult {
      * 
      */
     private Boolean active;
-    private String id;
+    private @Nullable String id;
     /**
      * @return The name of the notification destination.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return A nested block that describes a notification destination property.
      * 
@@ -52,15 +54,15 @@ public final class GetNotificationDestinationResult {
     public Boolean active() {
         return this.active;
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The name of the notification destination.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return A nested block that describes a notification destination property.
@@ -95,8 +97,8 @@ public final class GetNotificationDestinationResult {
     public static final class Builder {
         private Integer accountId;
         private Boolean active;
-        private String id;
-        private String name;
+        private @Nullable String id;
+        private @Nullable String name;
         private List<GetNotificationDestinationProperty> properties;
         private String status;
         private String type;
@@ -123,13 +125,13 @@ public final class GetNotificationDestinationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter

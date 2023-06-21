@@ -63,7 +63,7 @@ public final class OneDashboardPageWidgetMarkdown {
      * @return (Required) The markdown source to be rendered in the widget.
      * 
      */
-    private @Nullable String text;
+    private String text;
     /**
      * @return (Optional) A human-friendly display string for this value.
      * 
@@ -150,8 +150,8 @@ public final class OneDashboardPageWidgetMarkdown {
      * @return (Required) The markdown source to be rendered in the widget.
      * 
      */
-    public Optional<String> text() {
-        return Optional.ofNullable(this.text);
+    public String text() {
+        return this.text;
     }
     /**
      * @return (Optional) A human-friendly display string for this value.
@@ -203,7 +203,7 @@ public final class OneDashboardPageWidgetMarkdown {
         private @Nullable Boolean legendEnabled;
         private @Nullable List<OneDashboardPageWidgetMarkdownNullValue> nullValues;
         private Integer row;
-        private @Nullable String text;
+        private String text;
         private String title;
         private @Nullable List<OneDashboardPageWidgetMarkdownUnit> units;
         private @Nullable Integer width;
@@ -281,8 +281,8 @@ public final class OneDashboardPageWidgetMarkdown {
             return this;
         }
         @CustomType.Setter
-        public Builder text(@Nullable String text) {
-            this.text = text;
+        public Builder text(String text) {
+            this.text = Objects.requireNonNull(text);
             return this;
         }
         @CustomType.Setter

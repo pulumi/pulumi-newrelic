@@ -12871,7 +12871,7 @@ type OneDashboardPageWidgetMarkdown struct {
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Required) The markdown source to be rendered in the widget.
-	Text *string `pulumi:"text"`
+	Text string `pulumi:"text"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -12913,7 +12913,7 @@ type OneDashboardPageWidgetMarkdownArgs struct {
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Required) The markdown source to be rendered in the widget.
-	Text pulumi.StringPtrInput `pulumi:"text"`
+	Text pulumi.StringInput `pulumi:"text"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -13021,8 +13021,8 @@ func (o OneDashboardPageWidgetMarkdownOutput) Row() pulumi.IntOutput {
 }
 
 // (Required) The markdown source to be rendered in the widget.
-func (o OneDashboardPageWidgetMarkdownOutput) Text() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *string { return v.Text }).(pulumi.StringPtrOutput)
+func (o OneDashboardPageWidgetMarkdownOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) string { return v.Text }).(pulumi.StringOutput)
 }
 
 // (Optional) A human-friendly display string for this value.

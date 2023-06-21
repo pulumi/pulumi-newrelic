@@ -409,7 +409,7 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                channel_id=newrelic_notification_channel["some_channel"]["id"],
             )])
         ```
         ## Policy-Based Workflow Example
@@ -486,7 +486,7 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
             )])
         ```
 
@@ -508,7 +508,7 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
                 notification_triggers=["ACTIVATED"],
             )])
         ```
@@ -577,7 +577,7 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                channel_id=newrelic_notification_channel["some_channel"]["id"],
             )])
         ```
         ## Policy-Based Workflow Example
@@ -654,7 +654,7 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
             )])
         ```
 
@@ -676,7 +676,7 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
                 notification_triggers=["ACTIVATED"],
             )])
         ```

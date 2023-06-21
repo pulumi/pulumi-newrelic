@@ -261,7 +261,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<int> LinkedAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// GCP big table service
+        /// Load Balancing integration. See Integration blocks below for details.
         /// </summary>
         [Output("loadBalancing")]
         public Output<Outputs.GcpIntegrationsLoadBalancing?> LoadBalancing { get; private set; } = null!;
@@ -475,7 +475,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<int> LinkedAccountId { get; set; } = null!;
 
         /// <summary>
-        /// GCP big table service
+        /// Load Balancing integration. See Integration blocks below for details.
         /// </summary>
         [Input("loadBalancing")]
         public Input<Inputs.GcpIntegrationsLoadBalancingArgs>? LoadBalancing { get; set; }
@@ -651,7 +651,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<int>? LinkedAccountId { get; set; }
 
         /// <summary>
-        /// GCP big table service
+        /// Load Balancing integration. See Integration blocks below for details.
         /// </summary>
         [Input("loadBalancing")]
         public Input<Inputs.GcpIntegrationsLoadBalancingGetArgs>? LoadBalancing { get; set; }

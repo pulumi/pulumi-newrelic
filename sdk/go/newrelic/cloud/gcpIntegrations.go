@@ -178,7 +178,7 @@ type GcpIntegrations struct {
 	Kubernetes GcpIntegrationsKubernetesPtrOutput `pulumi:"kubernetes"`
 	// The ID of the linked GCP account in New Relic.
 	LinkedAccountId pulumi.IntOutput `pulumi:"linkedAccountId"`
-	// GCP big table service
+	// Load Balancing integration. See Integration blocks below for details.
 	LoadBalancing GcpIntegrationsLoadBalancingPtrOutput `pulumi:"loadBalancing"`
 	// Mem cache integration. See Integration blocks below for details.
 	MemCache GcpIntegrationsMemCachePtrOutput `pulumi:"memCache"`
@@ -268,7 +268,7 @@ type gcpIntegrationsState struct {
 	Kubernetes *GcpIntegrationsKubernetes `pulumi:"kubernetes"`
 	// The ID of the linked GCP account in New Relic.
 	LinkedAccountId *int `pulumi:"linkedAccountId"`
-	// GCP big table service
+	// Load Balancing integration. See Integration blocks below for details.
 	LoadBalancing *GcpIntegrationsLoadBalancing `pulumi:"loadBalancing"`
 	// Mem cache integration. See Integration blocks below for details.
 	MemCache *GcpIntegrationsMemCache `pulumi:"memCache"`
@@ -327,7 +327,7 @@ type GcpIntegrationsState struct {
 	Kubernetes GcpIntegrationsKubernetesPtrInput
 	// The ID of the linked GCP account in New Relic.
 	LinkedAccountId pulumi.IntPtrInput
-	// GCP big table service
+	// Load Balancing integration. See Integration blocks below for details.
 	LoadBalancing GcpIntegrationsLoadBalancingPtrInput
 	// Mem cache integration. See Integration blocks below for details.
 	MemCache GcpIntegrationsMemCachePtrInput
@@ -390,7 +390,7 @@ type gcpIntegrationsArgs struct {
 	Kubernetes *GcpIntegrationsKubernetes `pulumi:"kubernetes"`
 	// The ID of the linked GCP account in New Relic.
 	LinkedAccountId int `pulumi:"linkedAccountId"`
-	// GCP big table service
+	// Load Balancing integration. See Integration blocks below for details.
 	LoadBalancing *GcpIntegrationsLoadBalancing `pulumi:"loadBalancing"`
 	// Mem cache integration. See Integration blocks below for details.
 	MemCache *GcpIntegrationsMemCache `pulumi:"memCache"`
@@ -450,7 +450,7 @@ type GcpIntegrationsArgs struct {
 	Kubernetes GcpIntegrationsKubernetesPtrInput
 	// The ID of the linked GCP account in New Relic.
 	LinkedAccountId pulumi.IntInput
-	// GCP big table service
+	// Load Balancing integration. See Integration blocks below for details.
 	LoadBalancing GcpIntegrationsLoadBalancingPtrInput
 	// Mem cache integration. See Integration blocks below for details.
 	MemCache GcpIntegrationsMemCachePtrInput
@@ -646,7 +646,7 @@ func (o GcpIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *GcpIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
 }
 
-// GCP big table service
+// Load Balancing integration. See Integration blocks below for details.
 func (o GcpIntegrationsOutput) LoadBalancing() GcpIntegrationsLoadBalancingPtrOutput {
 	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsLoadBalancingPtrOutput { return v.LoadBalancing }).(GcpIntegrationsLoadBalancingPtrOutput)
 }

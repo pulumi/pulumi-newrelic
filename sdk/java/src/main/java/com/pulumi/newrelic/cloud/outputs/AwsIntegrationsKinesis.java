@@ -34,7 +34,7 @@ public final class AwsIntegrationsKinesis {
      * @return The data polling interval in seconds.
      * 
      * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
+     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
      * 
      */
     private @Nullable Integer metricsPollingInterval;
@@ -76,7 +76,7 @@ public final class AwsIntegrationsKinesis {
      * @return The data polling interval in seconds.
      * 
      * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
+     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

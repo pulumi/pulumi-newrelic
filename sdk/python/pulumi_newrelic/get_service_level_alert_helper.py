@@ -197,9 +197,9 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
     import pulumi_newrelic as newrelic
 
     foo_custom = newrelic.get_service_level_alert_helper(alert_type="custom",
-        sli_guid=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        slo_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        slo_period=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        sli_guid=newrelic_service_level["foo"]["sli_guid"],
+        slo_target=local["foo_target"],
+        slo_period=local["foo_period"],
         custom_tolerated_budget_consumption=5,
         custom_evaluation_period=90)
     your_condition = newrelic.NrqlAlertCondition("yourCondition",
@@ -308,9 +308,9 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
     import pulumi_newrelic as newrelic
 
     foo_custom = newrelic.get_service_level_alert_helper(alert_type="custom",
-        sli_guid=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        slo_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        slo_period=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        sli_guid=newrelic_service_level["foo"]["sli_guid"],
+        slo_target=local["foo_target"],
+        slo_period=local["foo_period"],
         custom_tolerated_budget_consumption=5,
         custom_evaluation_period=90)
     your_condition = newrelic.NrqlAlertCondition("yourCondition",

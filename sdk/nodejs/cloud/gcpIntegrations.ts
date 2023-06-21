@@ -213,7 +213,7 @@ export class GcpIntegrations extends pulumi.CustomResource {
      */
     public readonly linkedAccountId!: pulumi.Output<number>;
     /**
-     * GCP big table service
+     * Load Balancing integration. See Integration blocks below for details.
      */
     public readonly loadBalancing!: pulumi.Output<outputs.cloud.GcpIntegrationsLoadBalancing | undefined>;
     /**
@@ -410,7 +410,7 @@ export interface GcpIntegrationsState {
      */
     linkedAccountId?: pulumi.Input<number>;
     /**
-     * GCP big table service
+     * Load Balancing integration. See Integration blocks below for details.
      */
     loadBalancing?: pulumi.Input<inputs.cloud.GcpIntegrationsLoadBalancing>;
     /**
@@ -528,7 +528,7 @@ export interface GcpIntegrationsArgs {
      */
     linkedAccountId: pulumi.Input<number>;
     /**
-     * GCP big table service
+     * Load Balancing integration. See Integration blocks below for details.
      */
     loadBalancing?: pulumi.Input<inputs.cloud.GcpIntegrationsLoadBalancing>;
     /**

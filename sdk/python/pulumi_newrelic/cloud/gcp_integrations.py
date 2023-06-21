@@ -63,7 +63,7 @@ class GcpIntegrationsArgs:
         :param pulumi.Input['GcpIntegrationsFunctionsArgs'] functions: Functions integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsInterconnectArgs'] interconnect: Interconnect integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsKubernetesArgs'] kubernetes: Kubernetes integration. See Integration blocks below for details.
-        :param pulumi.Input['GcpIntegrationsLoadBalancingArgs'] load_balancing: GCP big table service
+        :param pulumi.Input['GcpIntegrationsLoadBalancingArgs'] load_balancing: Load Balancing integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsMemCacheArgs'] mem_cache: Mem cache integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsPubSubArgs'] pub_sub: Pub/Sub integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsRedisArgs'] redis: Redis integration. See Integration blocks below for details.
@@ -339,7 +339,7 @@ class GcpIntegrationsArgs:
     @pulumi.getter(name="loadBalancing")
     def load_balancing(self) -> Optional[pulumi.Input['GcpIntegrationsLoadBalancingArgs']]:
         """
-        GCP big table service
+        Load Balancing integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "load_balancing")
 
@@ -518,7 +518,7 @@ class _GcpIntegrationsState:
         :param pulumi.Input['GcpIntegrationsInterconnectArgs'] interconnect: Interconnect integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsKubernetesArgs'] kubernetes: Kubernetes integration. See Integration blocks below for details.
         :param pulumi.Input[int] linked_account_id: The ID of the linked GCP account in New Relic.
-        :param pulumi.Input['GcpIntegrationsLoadBalancingArgs'] load_balancing: GCP big table service
+        :param pulumi.Input['GcpIntegrationsLoadBalancingArgs'] load_balancing: Load Balancing integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsMemCacheArgs'] mem_cache: Mem cache integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsPubSubArgs'] pub_sub: Pub/Sub integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsRedisArgs'] redis: Redis integration. See Integration blocks below for details.
@@ -795,7 +795,7 @@ class _GcpIntegrationsState:
     @pulumi.getter(name="loadBalancing")
     def load_balancing(self) -> Optional[pulumi.Input['GcpIntegrationsLoadBalancingArgs']]:
         """
-        GCP big table service
+        Load Balancing integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "load_balancing")
 
@@ -1086,7 +1086,7 @@ class GcpIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']] interconnect: Interconnect integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']] kubernetes: Kubernetes integration. See Integration blocks below for details.
         :param pulumi.Input[int] linked_account_id: The ID of the linked GCP account in New Relic.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']] load_balancing: GCP big table service
+        :param pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']] load_balancing: Load Balancing integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']] mem_cache: Mem cache integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsRedisArgs']] redis: Redis integration. See Integration blocks below for details.
@@ -1357,7 +1357,7 @@ class GcpIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']] interconnect: Interconnect integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']] kubernetes: Kubernetes integration. See Integration blocks below for details.
         :param pulumi.Input[int] linked_account_id: The ID of the linked GCP account in New Relic.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']] load_balancing: GCP big table service
+        :param pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']] load_balancing: Load Balancing integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']] mem_cache: Mem cache integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsRedisArgs']] redis: Redis integration. See Integration blocks below for details.
@@ -1543,7 +1543,7 @@ class GcpIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="loadBalancing")
     def load_balancing(self) -> pulumi.Output[Optional['outputs.GcpIntegrationsLoadBalancing']]:
         """
-        GCP big table service
+        Load Balancing integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "load_balancing")
 

@@ -441,14 +441,14 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
         return this.linkedAccountId;
     }
     /**
-     * GCP big table service
+     * Load Balancing integration. See Integration blocks below for details.
      * 
      */
     @Export(name="loadBalancing", type=GcpIntegrationsLoadBalancing.class, parameters={})
     private Output</* @Nullable */ GcpIntegrationsLoadBalancing> loadBalancing;
 
     /**
-     * @return GCP big table service
+     * @return Load Balancing integration. See Integration blocks below for details.
      * 
      */
     public Output<Optional<GcpIntegrationsLoadBalancing>> loadBalancing() {

@@ -153,15 +153,15 @@ public final class OneDashboardPageWidgetMarkdownArgs extends com.pulumi.resourc
      * (Required) The markdown source to be rendered in the widget.
      * 
      */
-    @Import(name="text")
-    private @Nullable Output<String> text;
+    @Import(name="text", required=true)
+    private Output<String> text;
 
     /**
      * @return (Required) The markdown source to be rendered in the widget.
      * 
      */
-    public Optional<Output<String>> text() {
-        return Optional.ofNullable(this.text);
+    public Output<String> text() {
+        return this.text;
     }
 
     /**
@@ -472,7 +472,7 @@ public final class OneDashboardPageWidgetMarkdownArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder text(@Nullable Output<String> text) {
+        public Builder text(Output<String> text) {
             $.text = text;
             return this;
         }
@@ -593,6 +593,7 @@ public final class OneDashboardPageWidgetMarkdownArgs extends com.pulumi.resourc
         public OneDashboardPageWidgetMarkdownArgs build() {
             $.column = Objects.requireNonNull($.column, "expected parameter 'column' to be non-null");
             $.row = Objects.requireNonNull($.row, "expected parameter 'row' to be non-null");
+            $.text = Objects.requireNonNull($.text, "expected parameter 'text' to be non-null");
             $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
             return $;
         }
