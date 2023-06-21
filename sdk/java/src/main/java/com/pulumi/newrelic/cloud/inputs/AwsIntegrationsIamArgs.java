@@ -20,7 +20,7 @@ public final class AwsIntegrationsIamArgs extends com.pulumi.resources.ResourceA
      * The data polling interval in seconds.
      * 
      * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
+     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
      * 
      */
     @Import(name="metricsPollingInterval")
@@ -30,7 +30,7 @@ public final class AwsIntegrationsIamArgs extends com.pulumi.resources.ResourceA
      * @return The data polling interval in seconds.
      * 
      * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
+     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -97,7 +97,7 @@ public final class AwsIntegrationsIamArgs extends com.pulumi.resources.ResourceA
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
          * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
+         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class AwsIntegrationsIamArgs extends com.pulumi.resources.ResourceA
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
          * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. &lt;/summary&gt;
+         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
          * 
          * @return builder
          * 

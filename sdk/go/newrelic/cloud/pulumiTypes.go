@@ -4433,7 +4433,7 @@ type AwsIntegrationsAlb struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -4467,7 +4467,7 @@ type AwsIntegrationsAlbArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -4578,7 +4578,7 @@ func (o AwsIntegrationsAlbOutput) LoadBalancerPrefixes() pulumi.StringArrayOutpu
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAlbOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAlb) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -4663,7 +4663,7 @@ func (o AwsIntegrationsAlbPtrOutput) LoadBalancerPrefixes() pulumi.StringArrayOu
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAlbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAlb) *int {
 		if v == nil {
@@ -4700,7 +4700,7 @@ type AwsIntegrationsApiGateway struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	StagePrefixes []string `pulumi:"stagePrefixes"`
@@ -4728,7 +4728,7 @@ type AwsIntegrationsApiGatewayArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	StagePrefixes pulumi.StringArrayInput `pulumi:"stagePrefixes"`
@@ -4824,7 +4824,7 @@ func (o AwsIntegrationsApiGatewayOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsApiGatewayOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsApiGateway) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -4882,7 +4882,7 @@ func (o AwsIntegrationsApiGatewayPtrOutput) AwsRegions() pulumi.StringArrayOutpu
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsApiGatewayPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsApiGateway) *int {
 		if v == nil {
@@ -4929,7 +4929,7 @@ type AwsIntegrationsAutoScaling struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -4951,7 +4951,7 @@ type AwsIntegrationsAutoScalingArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -5041,7 +5041,7 @@ func (o AwsIntegrationsAutoScalingOutput) AwsRegions() pulumi.StringArrayOutput 
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAutoScalingOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAutoScaling) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -5084,7 +5084,7 @@ func (o AwsIntegrationsAutoScalingPtrOutput) AwsRegions() pulumi.StringArrayOutp
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAutoScalingPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAutoScaling) *int {
 		if v == nil {
@@ -5101,7 +5101,7 @@ type AwsIntegrationsAwsAppSync struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -5123,7 +5123,7 @@ type AwsIntegrationsAwsAppSyncArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -5213,7 +5213,7 @@ func (o AwsIntegrationsAwsAppSyncOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsAppSyncOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsAppSync) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -5256,7 +5256,7 @@ func (o AwsIntegrationsAwsAppSyncPtrOutput) AwsRegions() pulumi.StringArrayOutpu
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsAppSyncPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsAppSync) *int {
 		if v == nil {
@@ -5273,7 +5273,7 @@ type AwsIntegrationsAwsAthena struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -5295,7 +5295,7 @@ type AwsIntegrationsAwsAthenaArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -5385,7 +5385,7 @@ func (o AwsIntegrationsAwsAthenaOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsAthenaOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsAthena) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -5428,7 +5428,7 @@ func (o AwsIntegrationsAwsAthenaPtrOutput) AwsRegions() pulumi.StringArrayOutput
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsAthenaPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsAthena) *int {
 		if v == nil {
@@ -5445,7 +5445,7 @@ type AwsIntegrationsAwsCognito struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -5467,7 +5467,7 @@ type AwsIntegrationsAwsCognitoArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -5557,7 +5557,7 @@ func (o AwsIntegrationsAwsCognitoOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsCognitoOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsCognito) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -5600,7 +5600,7 @@ func (o AwsIntegrationsAwsCognitoPtrOutput) AwsRegions() pulumi.StringArrayOutpu
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsCognitoPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsCognito) *int {
 		if v == nil {
@@ -5617,7 +5617,7 @@ type AwsIntegrationsAwsConnect struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -5639,7 +5639,7 @@ type AwsIntegrationsAwsConnectArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -5729,7 +5729,7 @@ func (o AwsIntegrationsAwsConnectOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsConnectOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsConnect) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -5772,7 +5772,7 @@ func (o AwsIntegrationsAwsConnectPtrOutput) AwsRegions() pulumi.StringArrayOutpu
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsConnectPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsConnect) *int {
 		if v == nil {
@@ -5789,7 +5789,7 @@ type AwsIntegrationsAwsDirectConnect struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -5811,7 +5811,7 @@ type AwsIntegrationsAwsDirectConnectArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -5901,7 +5901,7 @@ func (o AwsIntegrationsAwsDirectConnectOutput) AwsRegions() pulumi.StringArrayOu
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsDirectConnectOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsDirectConnect) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -5944,7 +5944,7 @@ func (o AwsIntegrationsAwsDirectConnectPtrOutput) AwsRegions() pulumi.StringArra
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsDirectConnectPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsDirectConnect) *int {
 		if v == nil {
@@ -5961,7 +5961,7 @@ type AwsIntegrationsAwsFsx struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -5983,7 +5983,7 @@ type AwsIntegrationsAwsFsxArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -6073,7 +6073,7 @@ func (o AwsIntegrationsAwsFsxOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsFsxOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsFsx) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -6116,7 +6116,7 @@ func (o AwsIntegrationsAwsFsxPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsFsxPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsFsx) *int {
 		if v == nil {
@@ -6133,7 +6133,7 @@ type AwsIntegrationsAwsGlue struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -6155,7 +6155,7 @@ type AwsIntegrationsAwsGlueArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -6245,7 +6245,7 @@ func (o AwsIntegrationsAwsGlueOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsGlueOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsGlue) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -6288,7 +6288,7 @@ func (o AwsIntegrationsAwsGluePtrOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsGluePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsGlue) *int {
 		if v == nil {
@@ -6305,7 +6305,7 @@ type AwsIntegrationsAwsKinesisAnalytics struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -6327,7 +6327,7 @@ type AwsIntegrationsAwsKinesisAnalyticsArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -6417,7 +6417,7 @@ func (o AwsIntegrationsAwsKinesisAnalyticsOutput) AwsRegions() pulumi.StringArra
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsKinesisAnalyticsOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsKinesisAnalytics) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -6460,7 +6460,7 @@ func (o AwsIntegrationsAwsKinesisAnalyticsPtrOutput) AwsRegions() pulumi.StringA
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsKinesisAnalyticsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsKinesisAnalytics) *int {
 		if v == nil {
@@ -6477,7 +6477,7 @@ type AwsIntegrationsAwsMediaConvert struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -6499,7 +6499,7 @@ type AwsIntegrationsAwsMediaConvertArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -6589,7 +6589,7 @@ func (o AwsIntegrationsAwsMediaConvertOutput) AwsRegions() pulumi.StringArrayOut
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsMediaConvertOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsMediaConvert) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -6632,7 +6632,7 @@ func (o AwsIntegrationsAwsMediaConvertPtrOutput) AwsRegions() pulumi.StringArray
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsMediaConvertPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsMediaConvert) *int {
 		if v == nil {
@@ -6649,7 +6649,7 @@ type AwsIntegrationsAwsMediaPackageVod struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -6671,7 +6671,7 @@ type AwsIntegrationsAwsMediaPackageVodArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -6761,7 +6761,7 @@ func (o AwsIntegrationsAwsMediaPackageVodOutput) AwsRegions() pulumi.StringArray
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsMediaPackageVodOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsMediaPackageVod) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -6804,7 +6804,7 @@ func (o AwsIntegrationsAwsMediaPackageVodPtrOutput) AwsRegions() pulumi.StringAr
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsMediaPackageVodPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsMediaPackageVod) *int {
 		if v == nil {
@@ -6821,7 +6821,7 @@ type AwsIntegrationsAwsMq struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -6843,7 +6843,7 @@ type AwsIntegrationsAwsMqArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -6933,7 +6933,7 @@ func (o AwsIntegrationsAwsMqOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsMqOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsMq) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -6976,7 +6976,7 @@ func (o AwsIntegrationsAwsMqPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsMqPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsMq) *int {
 		if v == nil {
@@ -6993,7 +6993,7 @@ type AwsIntegrationsAwsMsk struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -7015,7 +7015,7 @@ type AwsIntegrationsAwsMskArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -7105,7 +7105,7 @@ func (o AwsIntegrationsAwsMskOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsMskOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsMsk) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -7148,7 +7148,7 @@ func (o AwsIntegrationsAwsMskPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsMskPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsMsk) *int {
 		if v == nil {
@@ -7165,7 +7165,7 @@ type AwsIntegrationsAwsNeptune struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -7187,7 +7187,7 @@ type AwsIntegrationsAwsNeptuneArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -7277,7 +7277,7 @@ func (o AwsIntegrationsAwsNeptuneOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsNeptuneOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsNeptune) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -7320,7 +7320,7 @@ func (o AwsIntegrationsAwsNeptunePtrOutput) AwsRegions() pulumi.StringArrayOutpu
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsNeptunePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsNeptune) *int {
 		if v == nil {
@@ -7337,7 +7337,7 @@ type AwsIntegrationsAwsQldb struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -7359,7 +7359,7 @@ type AwsIntegrationsAwsQldbArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -7449,7 +7449,7 @@ func (o AwsIntegrationsAwsQldbOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsQldbOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsQldb) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -7492,7 +7492,7 @@ func (o AwsIntegrationsAwsQldbPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsQldbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsQldb) *int {
 		if v == nil {
@@ -7509,7 +7509,7 @@ type AwsIntegrationsAwsRoute53resolver struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -7531,7 +7531,7 @@ type AwsIntegrationsAwsRoute53resolverArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -7621,7 +7621,7 @@ func (o AwsIntegrationsAwsRoute53resolverOutput) AwsRegions() pulumi.StringArray
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsRoute53resolverOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsRoute53resolver) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -7664,7 +7664,7 @@ func (o AwsIntegrationsAwsRoute53resolverPtrOutput) AwsRegions() pulumi.StringAr
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsRoute53resolverPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsRoute53resolver) *int {
 		if v == nil {
@@ -7681,7 +7681,7 @@ type AwsIntegrationsAwsStates struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -7703,7 +7703,7 @@ type AwsIntegrationsAwsStatesArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -7793,7 +7793,7 @@ func (o AwsIntegrationsAwsStatesOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsStatesOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsStates) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -7836,7 +7836,7 @@ func (o AwsIntegrationsAwsStatesPtrOutput) AwsRegions() pulumi.StringArrayOutput
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsStatesPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsStates) *int {
 		if v == nil {
@@ -7853,7 +7853,7 @@ type AwsIntegrationsAwsTransitGateway struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -7875,7 +7875,7 @@ type AwsIntegrationsAwsTransitGatewayArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -7965,7 +7965,7 @@ func (o AwsIntegrationsAwsTransitGatewayOutput) AwsRegions() pulumi.StringArrayO
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsTransitGatewayOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsTransitGateway) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -8008,7 +8008,7 @@ func (o AwsIntegrationsAwsTransitGatewayPtrOutput) AwsRegions() pulumi.StringArr
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsTransitGatewayPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsTransitGateway) *int {
 		if v == nil {
@@ -8025,7 +8025,7 @@ type AwsIntegrationsAwsWaf struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -8047,7 +8047,7 @@ type AwsIntegrationsAwsWafArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -8137,7 +8137,7 @@ func (o AwsIntegrationsAwsWafOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsWafOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsWaf) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -8180,7 +8180,7 @@ func (o AwsIntegrationsAwsWafPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsWafPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsWaf) *int {
 		if v == nil {
@@ -8197,7 +8197,7 @@ type AwsIntegrationsAwsWafv2 struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -8219,7 +8219,7 @@ type AwsIntegrationsAwsWafv2Args struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -8309,7 +8309,7 @@ func (o AwsIntegrationsAwsWafv2Output) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsWafv2Output) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsWafv2) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -8352,7 +8352,7 @@ func (o AwsIntegrationsAwsWafv2PtrOutput) AwsRegions() pulumi.StringArrayOutput 
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsAwsWafv2PtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsWafv2) *int {
 		if v == nil {
@@ -8366,7 +8366,7 @@ type AwsIntegrationsBilling struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -8385,7 +8385,7 @@ type AwsIntegrationsBillingArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -8469,7 +8469,7 @@ func (o AwsIntegrationsBillingOutput) ToAwsIntegrationsBillingPtrOutputWithConte
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsBillingOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsBilling) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -8501,7 +8501,7 @@ func (o AwsIntegrationsBillingPtrOutput) Elem() AwsIntegrationsBillingOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsBillingPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsBilling) *int {
 		if v == nil {
@@ -8519,7 +8519,7 @@ type AwsIntegrationsCloudfront struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -8546,7 +8546,7 @@ type AwsIntegrationsCloudfrontArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -8644,7 +8644,7 @@ func (o AwsIntegrationsCloudfrontOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsCloudfrontOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsCloudfront) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -8706,7 +8706,7 @@ func (o AwsIntegrationsCloudfrontPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsCloudfrontPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsCloudfront) *int {
 		if v == nil {
@@ -8743,7 +8743,7 @@ type AwsIntegrationsCloudtrail struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -8765,7 +8765,7 @@ type AwsIntegrationsCloudtrailArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -8855,7 +8855,7 @@ func (o AwsIntegrationsCloudtrailOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsCloudtrailOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsCloudtrail) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -8898,7 +8898,7 @@ func (o AwsIntegrationsCloudtrailPtrOutput) AwsRegions() pulumi.StringArrayOutpu
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsCloudtrailPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsCloudtrail) *int {
 		if v == nil {
@@ -8915,7 +8915,7 @@ type AwsIntegrationsDocDb struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -8937,7 +8937,7 @@ type AwsIntegrationsDocDbArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -9027,7 +9027,7 @@ func (o AwsIntegrationsDocDbOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsDocDbOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsDocDb) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -9070,7 +9070,7 @@ func (o AwsIntegrationsDocDbPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsDocDbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsDocDb) *int {
 		if v == nil {
@@ -9093,7 +9093,7 @@ type AwsIntegrationsDynamodb struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -9125,7 +9125,7 @@ type AwsIntegrationsDynamodbArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -9231,7 +9231,7 @@ func (o AwsIntegrationsDynamodbOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsDynamodbOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsDynamodb) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -9306,7 +9306,7 @@ func (o AwsIntegrationsDynamodbPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsDynamodbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsDynamodb) *int {
 		if v == nil {
@@ -9347,7 +9347,7 @@ type AwsIntegrationsEbs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -9377,7 +9377,7 @@ type AwsIntegrationsEbsArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -9478,7 +9478,7 @@ func (o AwsIntegrationsEbsOutput) FetchExtendedInventory() pulumi.BoolPtrOutput 
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsEbsOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEbs) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -9543,7 +9543,7 @@ func (o AwsIntegrationsEbsPtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutp
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsEbsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEbs) *int {
 		if v == nil {
@@ -9584,7 +9584,7 @@ type AwsIntegrationsEc2 struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -9614,7 +9614,7 @@ type AwsIntegrationsEc2Args struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -9718,7 +9718,7 @@ func (o AwsIntegrationsEc2Output) FetchIpAddresses() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsEc2Output) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEc2) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -9791,7 +9791,7 @@ func (o AwsIntegrationsEc2PtrOutput) FetchIpAddresses() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsEc2PtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEc2) *int {
 		if v == nil {
@@ -9830,7 +9830,7 @@ type AwsIntegrationsEcs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -9858,7 +9858,7 @@ type AwsIntegrationsEcsArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -9957,7 +9957,7 @@ func (o AwsIntegrationsEcsOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsEcsOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEcs) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -10020,7 +10020,7 @@ func (o AwsIntegrationsEcsPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsEcsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEcs) *int {
 		if v == nil {
@@ -10059,7 +10059,7 @@ type AwsIntegrationsEfs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -10087,7 +10087,7 @@ type AwsIntegrationsEfsArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -10186,7 +10186,7 @@ func (o AwsIntegrationsEfsOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsEfsOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEfs) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -10249,7 +10249,7 @@ func (o AwsIntegrationsEfsPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsEfsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEfs) *int {
 		if v == nil {
@@ -10288,7 +10288,7 @@ type AwsIntegrationsElasticache struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -10316,7 +10316,7 @@ type AwsIntegrationsElasticacheArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -10415,7 +10415,7 @@ func (o AwsIntegrationsElasticacheOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsElasticacheOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticache) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -10478,7 +10478,7 @@ func (o AwsIntegrationsElasticachePtrOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsElasticachePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticache) *int {
 		if v == nil {
@@ -10521,7 +10521,7 @@ type AwsIntegrationsElasticbeanstalk struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -10553,7 +10553,7 @@ type AwsIntegrationsElasticbeanstalkArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -10659,7 +10659,7 @@ func (o AwsIntegrationsElasticbeanstalkOutput) FetchTags() pulumi.BoolPtrOutput 
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsElasticbeanstalkOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticbeanstalk) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -10734,7 +10734,7 @@ func (o AwsIntegrationsElasticbeanstalkPtrOutput) FetchTags() pulumi.BoolPtrOutp
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsElasticbeanstalkPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticbeanstalk) *int {
 		if v == nil {
@@ -10773,7 +10773,7 @@ type AwsIntegrationsElasticsearch struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -10801,7 +10801,7 @@ type AwsIntegrationsElasticsearchArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -10900,7 +10900,7 @@ func (o AwsIntegrationsElasticsearchOutput) FetchNodes() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsElasticsearchOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticsearch) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -10963,7 +10963,7 @@ func (o AwsIntegrationsElasticsearchPtrOutput) FetchNodes() pulumi.BoolPtrOutput
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsElasticsearchPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticsearch) *int {
 		if v == nil {
@@ -11006,7 +11006,7 @@ type AwsIntegrationsElb struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -11034,7 +11034,7 @@ type AwsIntegrationsElbArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -11136,7 +11136,7 @@ func (o AwsIntegrationsElbOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsElbOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElb) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -11201,7 +11201,7 @@ func (o AwsIntegrationsElbPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsElbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElb) *int {
 		if v == nil {
@@ -11220,7 +11220,7 @@ type AwsIntegrationsEmr struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -11248,7 +11248,7 @@ type AwsIntegrationsEmrArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -11347,7 +11347,7 @@ func (o AwsIntegrationsEmrOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsEmrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEmr) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -11410,7 +11410,7 @@ func (o AwsIntegrationsEmrPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsEmrPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEmr) *int {
 		if v == nil {
@@ -11444,7 +11444,7 @@ type AwsIntegrationsHealth struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -11463,7 +11463,7 @@ type AwsIntegrationsHealthArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -11547,7 +11547,7 @@ func (o AwsIntegrationsHealthOutput) ToAwsIntegrationsHealthPtrOutputWithContext
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsHealthOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsHealth) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -11579,7 +11579,7 @@ func (o AwsIntegrationsHealthPtrOutput) Elem() AwsIntegrationsHealthOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsHealthPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsHealth) *int {
 		if v == nil {
@@ -11593,7 +11593,7 @@ type AwsIntegrationsIam struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -11616,7 +11616,7 @@ type AwsIntegrationsIamArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -11704,7 +11704,7 @@ func (o AwsIntegrationsIamOutput) ToAwsIntegrationsIamPtrOutputWithContext(ctx c
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsIamOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsIam) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -11746,7 +11746,7 @@ func (o AwsIntegrationsIamPtrOutput) Elem() AwsIntegrationsIamOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsIamPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsIam) *int {
 		if v == nil {
@@ -11783,7 +11783,7 @@ type AwsIntegrationsIot struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -11805,7 +11805,7 @@ type AwsIntegrationsIotArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -11895,7 +11895,7 @@ func (o AwsIntegrationsIotOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsIotOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsIot) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -11938,7 +11938,7 @@ func (o AwsIntegrationsIotPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsIotPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsIot) *int {
 		if v == nil {
@@ -11959,7 +11959,7 @@ type AwsIntegrationsKinesis struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -11989,7 +11989,7 @@ type AwsIntegrationsKinesisArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -12093,7 +12093,7 @@ func (o AwsIntegrationsKinesisOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsKinesisOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsKinesis) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -12166,7 +12166,7 @@ func (o AwsIntegrationsKinesisPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsKinesisPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsKinesis) *int {
 		if v == nil {
@@ -12203,7 +12203,7 @@ type AwsIntegrationsKinesisFirehose struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -12225,7 +12225,7 @@ type AwsIntegrationsKinesisFirehoseArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -12315,7 +12315,7 @@ func (o AwsIntegrationsKinesisFirehoseOutput) AwsRegions() pulumi.StringArrayOut
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsKinesisFirehoseOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsKinesisFirehose) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -12358,7 +12358,7 @@ func (o AwsIntegrationsKinesisFirehosePtrOutput) AwsRegions() pulumi.StringArray
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsKinesisFirehosePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsKinesisFirehose) *int {
 		if v == nil {
@@ -12377,7 +12377,7 @@ type AwsIntegrationsLambda struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -12405,7 +12405,7 @@ type AwsIntegrationsLambdaArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -12504,7 +12504,7 @@ func (o AwsIntegrationsLambdaOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsLambdaOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsLambda) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -12567,7 +12567,7 @@ func (o AwsIntegrationsLambdaPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsLambdaPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsLambda) *int {
 		if v == nil {
@@ -12606,7 +12606,7 @@ type AwsIntegrationsRds struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -12634,7 +12634,7 @@ type AwsIntegrationsRdsArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -12733,7 +12733,7 @@ func (o AwsIntegrationsRdsOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsRdsOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsRds) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -12796,7 +12796,7 @@ func (o AwsIntegrationsRdsPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsRdsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsRds) *int {
 		if v == nil {
@@ -12833,7 +12833,7 @@ type AwsIntegrationsRedshift struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -12859,7 +12859,7 @@ type AwsIntegrationsRedshiftArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -12953,7 +12953,7 @@ func (o AwsIntegrationsRedshiftOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsRedshiftOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsRedshift) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -13006,7 +13006,7 @@ func (o AwsIntegrationsRedshiftPtrOutput) AwsRegions() pulumi.StringArrayOutput 
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsRedshiftPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsRedshift) *int {
 		if v == nil {
@@ -13044,7 +13044,7 @@ type AwsIntegrationsRoute53 struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -13067,7 +13067,7 @@ type AwsIntegrationsRoute53Args struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -13158,7 +13158,7 @@ func (o AwsIntegrationsRoute53Output) FetchExtendedInventory() pulumi.BoolPtrOut
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsRoute53Output) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsRoute53) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -13202,7 +13202,7 @@ func (o AwsIntegrationsRoute53PtrOutput) FetchExtendedInventory() pulumi.BoolPtr
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsRoute53PtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsRoute53) *int {
 		if v == nil {
@@ -13222,7 +13222,7 @@ type AwsIntegrationsS3 struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -13251,7 +13251,7 @@ type AwsIntegrationsS3Args struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -13351,7 +13351,7 @@ func (o AwsIntegrationsS3Output) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsS3Output) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsS3) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -13415,7 +13415,7 @@ func (o AwsIntegrationsS3PtrOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsS3PtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsS3) *int {
 		if v == nil {
@@ -13452,7 +13452,7 @@ type AwsIntegrationsSes struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -13474,7 +13474,7 @@ type AwsIntegrationsSesArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -13564,7 +13564,7 @@ func (o AwsIntegrationsSesOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsSesOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsSes) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -13607,7 +13607,7 @@ func (o AwsIntegrationsSesPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsSesPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsSes) *int {
 		if v == nil {
@@ -13628,7 +13628,7 @@ type AwsIntegrationsSns struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -13654,7 +13654,7 @@ type AwsIntegrationsSnsArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -13751,7 +13751,7 @@ func (o AwsIntegrationsSnsOutput) FetchExtendedInventory() pulumi.BoolPtrOutput 
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsSnsOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsSns) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -13806,7 +13806,7 @@ func (o AwsIntegrationsSnsPtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutp
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsSnsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsSns) *int {
 		if v == nil {
@@ -13829,7 +13829,7 @@ type AwsIntegrationsSqs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
 	QueuePrefixes []string `pulumi:"queuePrefixes"`
@@ -13863,7 +13863,7 @@ type AwsIntegrationsSqsArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
 	QueuePrefixes pulumi.StringArrayInput `pulumi:"queuePrefixes"`
@@ -13971,7 +13971,7 @@ func (o AwsIntegrationsSqsOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsSqsOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsSqs) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -14051,7 +14051,7 @@ func (o AwsIntegrationsSqsPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsSqsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsSqs) *int {
 		if v == nil {
@@ -14095,7 +14095,7 @@ type AwsIntegrationsTrustedAdvisor struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -14114,7 +14114,7 @@ type AwsIntegrationsTrustedAdvisorArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -14198,7 +14198,7 @@ func (o AwsIntegrationsTrustedAdvisorOutput) ToAwsIntegrationsTrustedAdvisorPtrO
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsTrustedAdvisorOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsTrustedAdvisor) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -14230,7 +14230,7 @@ func (o AwsIntegrationsTrustedAdvisorPtrOutput) Elem() AwsIntegrationsTrustedAdv
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsTrustedAdvisorPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsTrustedAdvisor) *int {
 		if v == nil {
@@ -14251,7 +14251,7 @@ type AwsIntegrationsVpc struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
@@ -14281,7 +14281,7 @@ type AwsIntegrationsVpcArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -14385,7 +14385,7 @@ func (o AwsIntegrationsVpcOutput) FetchVpn() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsVpcOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsVpc) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -14458,7 +14458,7 @@ func (o AwsIntegrationsVpcPtrOutput) FetchVpn() pulumi.BoolPtrOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsVpcPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsVpc) *int {
 		if v == nil {
@@ -14495,7 +14495,7 @@ type AwsIntegrationsXRay struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -14517,7 +14517,7 @@ type AwsIntegrationsXRayArgs struct {
 	// The data polling interval in seconds.
 	//
 	// <details>
-	// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -14607,7 +14607,7 @@ func (o AwsIntegrationsXRayOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsXRayOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsXRay) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -14650,7 +14650,7 @@ func (o AwsIntegrationsXRayPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 // The data polling interval in seconds.
 //
 // <details>
-// <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
 func (o AwsIntegrationsXRayPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsXRay) *int {
 		if v == nil {

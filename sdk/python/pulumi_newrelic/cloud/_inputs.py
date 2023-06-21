@@ -1873,7 +1873,7 @@ class AwsIntegrationsAlbArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -1950,7 +1950,7 @@ class AwsIntegrationsAlbArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -1997,7 +1997,7 @@ class AwsIntegrationsApiGatewayArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] stage_prefixes: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
@@ -2033,7 +2033,7 @@ class AwsIntegrationsApiGatewayArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2089,7 +2089,7 @@ class AwsIntegrationsAutoScalingArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2116,7 +2116,7 @@ class AwsIntegrationsAutoScalingArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2136,7 +2136,7 @@ class AwsIntegrationsAwsAppSyncArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2163,7 +2163,7 @@ class AwsIntegrationsAwsAppSyncArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2183,7 +2183,7 @@ class AwsIntegrationsAwsAthenaArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2210,7 +2210,7 @@ class AwsIntegrationsAwsAthenaArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2230,7 +2230,7 @@ class AwsIntegrationsAwsCognitoArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2257,7 +2257,7 @@ class AwsIntegrationsAwsCognitoArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2277,7 +2277,7 @@ class AwsIntegrationsAwsConnectArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2304,7 +2304,7 @@ class AwsIntegrationsAwsConnectArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2324,7 +2324,7 @@ class AwsIntegrationsAwsDirectConnectArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2351,7 +2351,7 @@ class AwsIntegrationsAwsDirectConnectArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2371,7 +2371,7 @@ class AwsIntegrationsAwsFsxArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2398,7 +2398,7 @@ class AwsIntegrationsAwsFsxArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2418,7 +2418,7 @@ class AwsIntegrationsAwsGlueArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2445,7 +2445,7 @@ class AwsIntegrationsAwsGlueArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2465,7 +2465,7 @@ class AwsIntegrationsAwsKinesisAnalyticsArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2492,7 +2492,7 @@ class AwsIntegrationsAwsKinesisAnalyticsArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2512,7 +2512,7 @@ class AwsIntegrationsAwsMediaConvertArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2539,7 +2539,7 @@ class AwsIntegrationsAwsMediaConvertArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2559,7 +2559,7 @@ class AwsIntegrationsAwsMediaPackageVodArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2586,7 +2586,7 @@ class AwsIntegrationsAwsMediaPackageVodArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2606,7 +2606,7 @@ class AwsIntegrationsAwsMqArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2633,7 +2633,7 @@ class AwsIntegrationsAwsMqArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2653,7 +2653,7 @@ class AwsIntegrationsAwsMskArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2680,7 +2680,7 @@ class AwsIntegrationsAwsMskArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2700,7 +2700,7 @@ class AwsIntegrationsAwsNeptuneArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2727,7 +2727,7 @@ class AwsIntegrationsAwsNeptuneArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2747,7 +2747,7 @@ class AwsIntegrationsAwsQldbArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2774,7 +2774,7 @@ class AwsIntegrationsAwsQldbArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2794,7 +2794,7 @@ class AwsIntegrationsAwsRoute53resolverArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2821,7 +2821,7 @@ class AwsIntegrationsAwsRoute53resolverArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2841,7 +2841,7 @@ class AwsIntegrationsAwsStatesArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2868,7 +2868,7 @@ class AwsIntegrationsAwsStatesArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2888,7 +2888,7 @@ class AwsIntegrationsAwsTransitGatewayArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2915,7 +2915,7 @@ class AwsIntegrationsAwsTransitGatewayArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2935,7 +2935,7 @@ class AwsIntegrationsAwsWafArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2962,7 +2962,7 @@ class AwsIntegrationsAwsWafArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2982,7 +2982,7 @@ class AwsIntegrationsAwsWafv2Args:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -3009,7 +3009,7 @@ class AwsIntegrationsAwsWafv2Args:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3026,7 +3026,7 @@ class AwsIntegrationsBillingArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if metrics_polling_interval is not None:
             pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
@@ -3038,7 +3038,7 @@ class AwsIntegrationsBillingArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3061,7 +3061,7 @@ class AwsIntegrationsCloudfrontArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -3107,7 +3107,7 @@ class AwsIntegrationsCloudfrontArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3151,7 +3151,7 @@ class AwsIntegrationsCloudtrailArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -3178,7 +3178,7 @@ class AwsIntegrationsCloudtrailArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3198,7 +3198,7 @@ class AwsIntegrationsDocDbArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -3225,7 +3225,7 @@ class AwsIntegrationsDocDbArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3253,7 +3253,7 @@ class AwsIntegrationsDynamodbArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -3316,7 +3316,7 @@ class AwsIntegrationsDynamodbArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3366,7 +3366,7 @@ class AwsIntegrationsEbsArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -3415,7 +3415,7 @@ class AwsIntegrationsEbsArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3465,7 +3465,7 @@ class AwsIntegrationsEc2Args:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -3526,7 +3526,7 @@ class AwsIntegrationsEc2Args:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3574,7 +3574,7 @@ class AwsIntegrationsEcsArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -3621,7 +3621,7 @@ class AwsIntegrationsEcsArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3669,7 +3669,7 @@ class AwsIntegrationsEfsArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -3716,7 +3716,7 @@ class AwsIntegrationsEfsArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3764,7 +3764,7 @@ class AwsIntegrationsElasticacheArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -3811,7 +3811,7 @@ class AwsIntegrationsElasticacheArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3863,7 +3863,7 @@ class AwsIntegrationsElasticbeanstalkArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -3926,7 +3926,7 @@ class AwsIntegrationsElasticbeanstalkArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3974,7 +3974,7 @@ class AwsIntegrationsElasticsearchArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -4021,7 +4021,7 @@ class AwsIntegrationsElasticsearchArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4071,7 +4071,7 @@ class AwsIntegrationsElbArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -4128,7 +4128,7 @@ class AwsIntegrationsElbArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4152,7 +4152,7 @@ class AwsIntegrationsEmrArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -4199,7 +4199,7 @@ class AwsIntegrationsEmrArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4240,7 +4240,7 @@ class AwsIntegrationsHealthArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if metrics_polling_interval is not None:
             pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
@@ -4252,7 +4252,7 @@ class AwsIntegrationsHealthArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4271,7 +4271,7 @@ class AwsIntegrationsIamArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -4289,7 +4289,7 @@ class AwsIntegrationsIamArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4333,7 +4333,7 @@ class AwsIntegrationsIotArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -4360,7 +4360,7 @@ class AwsIntegrationsIotArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4386,7 +4386,7 @@ class AwsIntegrationsKinesisArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -4447,7 +4447,7 @@ class AwsIntegrationsKinesisArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4491,7 +4491,7 @@ class AwsIntegrationsKinesisFirehoseArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -4518,7 +4518,7 @@ class AwsIntegrationsKinesisFirehoseArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4542,7 +4542,7 @@ class AwsIntegrationsLambdaArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -4589,7 +4589,7 @@ class AwsIntegrationsLambdaArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4637,7 +4637,7 @@ class AwsIntegrationsRdsArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -4684,7 +4684,7 @@ class AwsIntegrationsRdsArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4730,7 +4730,7 @@ class AwsIntegrationsRedshiftArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -4763,7 +4763,7 @@ class AwsIntegrationsRedshiftArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4808,7 +4808,7 @@ class AwsIntegrationsRoute53Args:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if fetch_extended_inventory is not None:
             pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
@@ -4836,7 +4836,7 @@ class AwsIntegrationsRoute53Args:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4861,7 +4861,7 @@ class AwsIntegrationsS3Args:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -4909,7 +4909,7 @@ class AwsIntegrationsS3Args:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4953,7 +4953,7 @@ class AwsIntegrationsSesArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -4980,7 +4980,7 @@ class AwsIntegrationsSesArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -5004,7 +5004,7 @@ class AwsIntegrationsSnsArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -5047,7 +5047,7 @@ class AwsIntegrationsSnsArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -5076,7 +5076,7 @@ class AwsIntegrationsSqsArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] queue_prefixes: Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
@@ -5142,7 +5142,7 @@ class AwsIntegrationsSqsArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -5195,7 +5195,7 @@ class AwsIntegrationsTrustedAdvisorArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if metrics_polling_interval is not None:
             pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
@@ -5207,7 +5207,7 @@ class AwsIntegrationsTrustedAdvisorArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -5233,7 +5233,7 @@ class AwsIntegrationsVpcArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
@@ -5294,7 +5294,7 @@ class AwsIntegrationsVpcArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -5338,7 +5338,7 @@ class AwsIntegrationsXRayArgs:
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
                <details>
-               <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -5365,7 +5365,7 @@ class AwsIntegrationsXRayArgs:
         The data polling interval in seconds.
 
         <details>
-        <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
         return pulumi.get(self, "metrics_polling_interval")
 

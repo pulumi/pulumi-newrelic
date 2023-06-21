@@ -34,15 +34,34 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
      * The id of the notification destination in New Relic.
      * 
      */
-    @Import(name="id", required=true)
-    private String id;
+    @Import(name="id")
+    private @Nullable String id;
 
     /**
      * @return The id of the notification destination in New Relic.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+
+    /**
+     * The name of the notification destination.
+     * 
+     * Optional:
+     * 
+     */
+    @Import(name="name")
+    private @Nullable String name;
+
+    /**
+     * @return The name of the notification destination.
+     * 
+     * Optional:
+     * 
+     */
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     private GetNotificationDestinationPlainArgs() {}
@@ -50,6 +69,7 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
     private GetNotificationDestinationPlainArgs(GetNotificationDestinationPlainArgs $) {
         this.accountId = $.accountId;
         this.id = $.id;
+        this.name = $.name;
     }
 
     public static Builder builder() {
@@ -87,13 +107,25 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder id(String id) {
+        public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param name The name of the notification destination.
+         * 
+         * Optional:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable String name) {
+            $.name = name;
+            return this;
+        }
+
         public GetNotificationDestinationPlainArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
             return $;
         }
     }

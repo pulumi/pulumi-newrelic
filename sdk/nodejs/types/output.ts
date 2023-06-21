@@ -1723,7 +1723,7 @@ export interface OneDashboardPageWidgetMarkdown {
     /**
      * (Required) The markdown source to be rendered in the widget.
      */
-    text?: string;
+    text: string;
     /**
      * (Optional) A human-friendly display string for this value.
      */
@@ -3063,7 +3063,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3086,7 +3086,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3113,7 +3113,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3128,7 +3128,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3143,7 +3143,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3158,7 +3158,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3173,7 +3173,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3188,7 +3188,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3203,7 +3203,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3218,7 +3218,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3233,7 +3233,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3248,7 +3248,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3263,7 +3263,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3278,7 +3278,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3293,7 +3293,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3308,7 +3308,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3323,7 +3323,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3338,7 +3338,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3353,7 +3353,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3368,7 +3368,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3383,7 +3383,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3398,7 +3398,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3408,7 +3408,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3426,7 +3426,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3449,7 +3449,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3464,7 +3464,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3489,7 +3489,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3518,7 +3518,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3549,7 +3549,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3576,7 +3576,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3603,7 +3603,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3630,7 +3630,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3663,7 +3663,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3690,7 +3690,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3723,7 +3723,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3742,7 +3742,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3760,7 +3760,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3770,7 +3770,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3793,7 +3793,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3816,7 +3816,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3839,7 +3839,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3858,7 +3858,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3885,7 +3885,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3908,7 +3908,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3932,7 +3932,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3952,7 +3952,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -3975,7 +3975,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -3996,7 +3996,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -4021,7 +4021,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -4043,7 +4043,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }
@@ -4066,7 +4066,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
         /**
@@ -4089,7 +4089,7 @@ export namespace cloud {
          * The data polling interval in seconds.
          *
          * <details>
-         * <summary> Some integration types support an additional set of arguments. To delve deeper into the list of arguments, click here. </summary>
+         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
          */
         metricsPollingInterval?: number;
     }

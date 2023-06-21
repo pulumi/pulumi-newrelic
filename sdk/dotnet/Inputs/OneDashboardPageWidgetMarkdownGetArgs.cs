@@ -78,8 +78,8 @@ namespace Pulumi.NewRelic.Inputs
         /// <summary>
         /// (Required) The markdown source to be rendered in the widget.
         /// </summary>
-        [Input("text")]
-        public Input<string>? Text { get; set; }
+        [Input("text", required: true)]
+        public Input<string> Text { get; set; } = null!;
 
         /// <summary>
         /// (Optional) A human-friendly display string for this value.

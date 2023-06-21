@@ -6,37 +6,14 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = newrelic.getNotificationDestination({
- *     id: "1e543419-0c25-456a-9057-fb0eb310e60b",
- * });
- * // Resource
- * const foo_channel = new newrelic.NotificationChannel("foo-channel", {
- *     type: "WEBHOOK",
- *     destinationId: foo.then(foo => foo.id),
- *     product: "IINT",
- *     properties: [{
- *         key: "payload",
- *         value: `{
- * 	"name": "foo"
- * }`,
- *         label: "Payload Template",
- *     }],
- * });
- * ```
- */
-export function getNotificationDestination(args: GetNotificationDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationDestinationResult> {
+export function getNotificationDestination(args?: GetNotificationDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationDestinationResult> {
+    args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getNotificationDestination:getNotificationDestination", {
         "accountId": args.accountId,
         "id": args.id,
+        "name": args.name,
     }, opts);
 }
 
@@ -51,7 +28,13 @@ export interface GetNotificationDestinationArgs {
     /**
      * The id of the notification destination in New Relic.
      */
-    id: string;
+    id?: string;
+    /**
+     * The name of the notification destination.
+     *
+     * Optional:
+     */
+    name?: string;
 }
 
 /**
@@ -63,11 +46,11 @@ export interface GetNotificationDestinationResult {
      * An indication whether the notification destination is active or not.
      */
     readonly active: boolean;
-    readonly id: string;
+    readonly id?: string;
     /**
      * The name of the notification destination.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * A nested block that describes a notification destination property.
      */
@@ -81,32 +64,7 @@ export interface GetNotificationDestinationResult {
      */
     readonly type: string;
 }
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = newrelic.getNotificationDestination({
- *     id: "1e543419-0c25-456a-9057-fb0eb310e60b",
- * });
- * // Resource
- * const foo_channel = new newrelic.NotificationChannel("foo-channel", {
- *     type: "WEBHOOK",
- *     destinationId: foo.then(foo => foo.id),
- *     product: "IINT",
- *     properties: [{
- *         key: "payload",
- *         value: `{
- * 	"name": "foo"
- * }`,
- *         label: "Payload Template",
- *     }],
- * });
- * ```
- */
-export function getNotificationDestinationOutput(args: GetNotificationDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationDestinationResult> {
+export function getNotificationDestinationOutput(args?: GetNotificationDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationDestinationResult> {
     return pulumi.output(args).apply((a: any) => getNotificationDestination(a, opts))
 }
 
@@ -121,5 +79,11 @@ export interface GetNotificationDestinationOutputArgs {
     /**
      * The id of the notification destination in New Relic.
      */
-    id: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
+    /**
+     * The name of the notification destination.
+     *
+     * Optional:
+     */
+    name?: pulumi.Input<string>;
 }

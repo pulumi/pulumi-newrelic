@@ -60,12 +60,12 @@ class GetNotificationDestinationResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the notification destination.
         """
@@ -113,36 +113,21 @@ class AwaitableGetNotificationDestinationResult(GetNotificationDestinationResult
 
 def get_notification_destination(account_id: Optional[int] = None,
                                  id: Optional[str] = None,
+                                 name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationDestinationResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    foo = newrelic.get_notification_destination(id="1e543419-0c25-456a-9057-fb0eb310e60b")
-    # Resource
-    foo_channel = newrelic.NotificationChannel("foo-channel",
-        type="WEBHOOK",
-        destination_id=foo.id,
-        product="IINT",
-        properties=[newrelic.NotificationChannelPropertyArgs(
-            key="payload",
-            value=\"\"\"{
-    	"name": "foo"
-    }\"\"\",
-            label="Payload Template",
-        )])
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str id: The id of the notification destination in New Relic.
+    :param str name: The name of the notification destination.
+           
+           Optional:
     """
     __args__ = dict()
     __args__['accountId'] = account_id
     __args__['id'] = id
+    __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('newrelic:index/getNotificationDestination:getNotificationDestination', __args__, opts=opts, typ=GetNotificationDestinationResult).value
 
@@ -158,32 +143,16 @@ def get_notification_destination(account_id: Optional[int] = None,
 
 @_utilities.lift_output_func(get_notification_destination)
 def get_notification_destination_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
-                                        id: Optional[pulumi.Input[str]] = None,
+                                        id: Optional[pulumi.Input[Optional[str]]] = None,
+                                        name: Optional[pulumi.Input[Optional[str]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationDestinationResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    foo = newrelic.get_notification_destination(id="1e543419-0c25-456a-9057-fb0eb310e60b")
-    # Resource
-    foo_channel = newrelic.NotificationChannel("foo-channel",
-        type="WEBHOOK",
-        destination_id=foo.id,
-        product="IINT",
-        properties=[newrelic.NotificationChannelPropertyArgs(
-            key="payload",
-            value=\"\"\"{
-    	"name": "foo"
-    }\"\"\",
-            label="Payload Template",
-        )])
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str id: The id of the notification destination in New Relic.
+    :param str name: The name of the notification destination.
+           
+           Optional:
     """
     ...

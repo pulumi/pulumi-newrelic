@@ -11,94 +11,10 @@ namespace Pulumi.NewRelic
 {
     public static class GetNotificationDestination
     {
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
-        ///     {
-        ///         Id = "1e543419-0c25-456a-9057-fb0eb310e60b",
-        ///     });
-        /// 
-        ///     // Resource
-        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
-        ///     {
-        ///         Type = "WEBHOOK",
-        ///         DestinationId = foo.Apply(getNotificationDestinationResult =&gt; getNotificationDestinationResult.Id),
-        ///         Product = "IINT",
-        ///         Properties = new[]
-        ///         {
-        ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
-        ///             {
-        ///                 Key = "payload",
-        ///                 Value = @"{
-        /// 	""name"": ""foo""
-        /// }",
-        ///                 Label = "Payload Template",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
-        public static Task<GetNotificationDestinationResult> InvokeAsync(GetNotificationDestinationArgs args, InvokeOptions? options = null)
+        public static Task<GetNotificationDestinationResult> InvokeAsync(GetNotificationDestinationArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationDestinationResult>("newrelic:index/getNotificationDestination:getNotificationDestination", args ?? new GetNotificationDestinationArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
-        ///     {
-        ///         Id = "1e543419-0c25-456a-9057-fb0eb310e60b",
-        ///     });
-        /// 
-        ///     // Resource
-        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
-        ///     {
-        ///         Type = "WEBHOOK",
-        ///         DestinationId = foo.Apply(getNotificationDestinationResult =&gt; getNotificationDestinationResult.Id),
-        ///         Product = "IINT",
-        ///         Properties = new[]
-        ///         {
-        ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
-        ///             {
-        ///                 Key = "payload",
-        ///                 Value = @"{
-        /// 	""name"": ""foo""
-        /// }",
-        ///                 Label = "Payload Template",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
-        public static Output<GetNotificationDestinationResult> Invoke(GetNotificationDestinationInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetNotificationDestinationResult> Invoke(GetNotificationDestinationInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationDestinationResult>("newrelic:index/getNotificationDestination:getNotificationDestination", args ?? new GetNotificationDestinationInvokeArgs(), options.WithDefaults());
     }
 
@@ -114,8 +30,16 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// The id of the notification destination in New Relic.
         /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
+        /// The name of the notification destination.
+        /// 
+        /// Optional:
+        /// </summary>
+        [Input("name")]
+        public string? Name { get; set; }
 
         public GetNotificationDestinationArgs()
         {
@@ -134,8 +58,16 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// The id of the notification destination in New Relic.
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The name of the notification destination.
+        /// 
+        /// Optional:
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public GetNotificationDestinationInvokeArgs()
         {
@@ -152,11 +84,11 @@ namespace Pulumi.NewRelic
         /// An indication whether the notification destination is active or not.
         /// </summary>
         public readonly bool Active;
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// The name of the notification destination.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// A nested block that describes a notification destination property.
         /// </summary>
@@ -176,9 +108,9 @@ namespace Pulumi.NewRelic
 
             bool active,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
             ImmutableArray<Outputs.GetNotificationDestinationPropertyResult> properties,
 

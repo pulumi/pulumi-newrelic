@@ -35,15 +35,34 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
      * The id of the notification destination in New Relic.
      * 
      */
-    @Import(name="id", required=true)
-    private Output<String> id;
+    @Import(name="id")
+    private @Nullable Output<String> id;
 
     /**
      * @return The id of the notification destination in New Relic.
      * 
      */
-    public Output<String> id() {
-        return this.id;
+    public Optional<Output<String>> id() {
+        return Optional.ofNullable(this.id);
+    }
+
+    /**
+     * The name of the notification destination.
+     * 
+     * Optional:
+     * 
+     */
+    @Import(name="name")
+    private @Nullable Output<String> name;
+
+    /**
+     * @return The name of the notification destination.
+     * 
+     * Optional:
+     * 
+     */
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     private GetNotificationDestinationArgs() {}
@@ -51,6 +70,7 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
     private GetNotificationDestinationArgs(GetNotificationDestinationArgs $) {
         this.accountId = $.accountId;
         this.id = $.id;
+        this.name = $.name;
     }
 
     public static Builder builder() {
@@ -98,7 +118,7 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
          * @return builder
          * 
          */
-        public Builder id(Output<String> id) {
+        public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
@@ -113,8 +133,32 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
             return id(Output.of(id));
         }
 
+        /**
+         * @param name The name of the notification destination.
+         * 
+         * Optional:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name The name of the notification destination.
+         * 
+         * Optional:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
+        }
+
         public GetNotificationDestinationArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
             return $;
         }
     }

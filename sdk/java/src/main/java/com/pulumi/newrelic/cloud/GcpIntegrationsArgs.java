@@ -297,14 +297,14 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * GCP big table service
+     * Load Balancing integration. See Integration blocks below for details.
      * 
      */
     @Import(name="loadBalancing")
     private @Nullable Output<GcpIntegrationsLoadBalancingArgs> loadBalancing;
 
     /**
-     * @return GCP big table service
+     * @return Load Balancing integration. See Integration blocks below for details.
      * 
      */
     public Optional<Output<GcpIntegrationsLoadBalancingArgs>> loadBalancing() {
@@ -870,7 +870,7 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param loadBalancing GCP big table service
+         * @param loadBalancing Load Balancing integration. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -881,7 +881,7 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param loadBalancing GCP big table service
+         * @param loadBalancing Load Balancing integration. See Integration blocks below for details.
          * 
          * @return builder
          * 
