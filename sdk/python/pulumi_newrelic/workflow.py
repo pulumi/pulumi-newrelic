@@ -112,6 +112,9 @@ class WorkflowArgs:
         **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
         these two are different flags, but they are functionally identical. Defaults to true.
         """
+        warnings.warn("""Please use 'enabled' instead""", DeprecationWarning)
+        pulumi.log.warn("""destinations_enabled is deprecated: Please use 'enabled' instead""")
+
         return pulumi.get(self, "destinations_enabled")
 
     @destinations_enabled.setter
@@ -257,6 +260,9 @@ class _WorkflowState:
         **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
         these two are different flags, but they are functionally identical. Defaults to true.
         """
+        warnings.warn("""Please use 'enabled' instead""", DeprecationWarning)
+        pulumi.log.warn("""destinations_enabled is deprecated: Please use 'enabled' instead""")
+
         return pulumi.get(self, "destinations_enabled")
 
     @destinations_enabled.setter
@@ -842,6 +848,9 @@ class Workflow(pulumi.CustomResource):
         **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
         these two are different flags, but they are functionally identical. Defaults to true.
         """
+        warnings.warn("""Please use 'enabled' instead""", DeprecationWarning)
+        pulumi.log.warn("""destinations_enabled is deprecated: Please use 'enabled' instead""")
+
         return pulumi.get(self, "destinations_enabled")
 
     @property

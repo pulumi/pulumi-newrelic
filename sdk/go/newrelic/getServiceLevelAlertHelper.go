@@ -14,7 +14,7 @@ import (
 //
 // ## Example Usage
 //
-// Firstly set up your service level objective, we recommend to use local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+// Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
 //
 // ```go
 // package main
@@ -39,9 +39,9 @@ import (
 //						From:  pulumi.String("Transaction"),
 //						Where: pulumi.String("appName = 'Example application' AND (transactionType='Web')"),
 //					},
-//					GoodEvents: &newrelic.ServiceLevelEventsGoodEventsArgs{
+//					BadEvents: &newrelic.ServiceLevelEventsBadEventsArgs{
 //						From:  pulumi.String("Transaction"),
-//						Where: pulumi.String("appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1"),
+//						Where: pulumi.String("appName = 'Example application' AND (transactionType= 'Web') AND duration > 0.1"),
 //					},
 //				},
 //				Objective: &newrelic.ServiceLevelObjectiveArgs{
@@ -63,6 +63,8 @@ import (
 //
 // ```
 // Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+// Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
+// If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
 //
 // ```go
 // package main
@@ -83,6 +85,7 @@ import (
 //				SloPeriod:                        local.Foo_period,
 //				CustomToleratedBudgetConsumption: pulumi.Float64Ref(5),
 //				CustomEvaluationPeriod:           pulumi.IntRef(90),
+//				IsBadEvents:                      pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -133,6 +136,8 @@ type GetServiceLevelAlertHelperArgs struct {
 	CustomEvaluationPeriod *int `pulumi:"customEvaluationPeriod"`
 	// How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
 	CustomToleratedBudgetConsumption *float64 `pulumi:"customToleratedBudgetConsumption"`
+	// If the SLI is defined using bad events. Defaults to `false`
+	IsBadEvents *bool `pulumi:"isBadEvents"`
 	// The guid of the sli we want to set the alert on.
 	SliGuid string `pulumi:"sliGuid"`
 	// The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
@@ -149,7 +154,8 @@ type GetServiceLevelAlertHelperResult struct {
 	// (Computed) For non `custom` alert_type, this is the recommended for that type of alert. For `custom` alertType it has the same value as `customEvaluationPeriod`.
 	EvaluationPeriod int `pulumi:"evaluationPeriod"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id          string `pulumi:"id"`
+	IsBadEvents *bool  `pulumi:"isBadEvents"`
 	// (Computed) The nrql query for the selected type of alert.
 	Nrql      string  `pulumi:"nrql"`
 	SliGuid   string  `pulumi:"sliGuid"`
@@ -182,6 +188,8 @@ type GetServiceLevelAlertHelperOutputArgs struct {
 	CustomEvaluationPeriod pulumi.IntPtrInput `pulumi:"customEvaluationPeriod"`
 	// How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
 	CustomToleratedBudgetConsumption pulumi.Float64PtrInput `pulumi:"customToleratedBudgetConsumption"`
+	// If the SLI is defined using bad events. Defaults to `false`
+	IsBadEvents pulumi.BoolPtrInput `pulumi:"isBadEvents"`
 	// The guid of the sli we want to set the alert on.
 	SliGuid pulumi.StringInput `pulumi:"sliGuid"`
 	// The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
@@ -229,6 +237,10 @@ func (o GetServiceLevelAlertHelperResultOutput) EvaluationPeriod() pulumi.IntOut
 // The provider-assigned unique ID for this managed resource.
 func (o GetServiceLevelAlertHelperResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceLevelAlertHelperResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetServiceLevelAlertHelperResultOutput) IsBadEvents() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetServiceLevelAlertHelperResult) *bool { return v.IsBadEvents }).(pulumi.BoolPtrOutput)
 }
 
 // (Computed) The nrql query for the selected type of alert.

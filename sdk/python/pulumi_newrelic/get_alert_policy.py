@@ -118,12 +118,12 @@ def get_alert_policy(account_id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('newrelic:index/getAlertPolicy:getAlertPolicy', __args__, opts=opts, typ=GetAlertPolicyResult).value
 
     return AwaitableGetAlertPolicyResult(
-        account_id=__ret__.account_id,
-        created_at=__ret__.created_at,
-        id=__ret__.id,
-        incident_preference=__ret__.incident_preference,
-        name=__ret__.name,
-        updated_at=__ret__.updated_at)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        id=pulumi.get(__ret__, 'id'),
+        incident_preference=pulumi.get(__ret__, 'incident_preference'),
+        name=pulumi.get(__ret__, 'name'),
+        updated_at=pulumi.get(__ret__, 'updated_at'))
 
 
 @_utilities.lift_output_func(get_alert_policy)

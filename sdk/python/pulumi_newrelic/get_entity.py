@@ -194,16 +194,16 @@ def get_entity(domain: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('newrelic:index/getEntity:getEntity', __args__, opts=opts, typ=GetEntityResult).value
 
     return AwaitableGetEntityResult(
-        account_id=__ret__.account_id,
-        application_id=__ret__.application_id,
-        domain=__ret__.domain,
-        guid=__ret__.guid,
-        id=__ret__.id,
-        ignore_case=__ret__.ignore_case,
-        name=__ret__.name,
-        serving_apm_application_id=__ret__.serving_apm_application_id,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        application_id=pulumi.get(__ret__, 'application_id'),
+        domain=pulumi.get(__ret__, 'domain'),
+        guid=pulumi.get(__ret__, 'guid'),
+        id=pulumi.get(__ret__, 'id'),
+        ignore_case=pulumi.get(__ret__, 'ignore_case'),
+        name=pulumi.get(__ret__, 'name'),
+        serving_apm_application_id=pulumi.get(__ret__, 'serving_apm_application_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_entity)

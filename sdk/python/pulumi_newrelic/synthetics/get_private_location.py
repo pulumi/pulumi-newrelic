@@ -101,9 +101,9 @@ def get_private_location(account_id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('newrelic:synthetics/getPrivateLocation:getPrivateLocation', __args__, opts=opts, typ=GetPrivateLocationResult).value
 
     return AwaitableGetPrivateLocationResult(
-        account_id=__ret__.account_id,
-        id=__ret__.id,
-        name=__ret__.name)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_private_location)

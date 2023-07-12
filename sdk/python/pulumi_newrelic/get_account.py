@@ -102,10 +102,10 @@ def get_account(account_id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('newrelic:index/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        account_id=__ret__.account_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        scope=__ret__.scope)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        scope=pulumi.get(__ret__, 'scope'))
 
 
 @_utilities.lift_output_func(get_account)

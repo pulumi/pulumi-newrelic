@@ -116,10 +116,10 @@ def get_application(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('newrelic:index/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        host_ids=__ret__.host_ids,
-        id=__ret__.id,
-        instance_ids=__ret__.instance_ids,
-        name=__ret__.name)
+        host_ids=pulumi.get(__ret__, 'host_ids'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_ids=pulumi.get(__ret__, 'instance_ids'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_application)

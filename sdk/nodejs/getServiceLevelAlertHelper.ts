@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * Firstly set up your service level objective, we recommend to use local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+ * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -26,9 +26,9 @@ import * as utilities from "./utilities";
  *             from: "Transaction",
  *             where: "appName = 'Example application' AND (transactionType='Web')",
  *         },
- *         goodEvents: {
+ *         badEvents: {
  *             from: "Transaction",
- *             where: "appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
+ *             where: "appName = 'Example application' AND (transactionType= 'Web') AND duration > 0.1",
  *         },
  *     },
  *     objective: {
@@ -43,6 +43,8 @@ import * as utilities from "./utilities";
  * });
  * ```
  * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+ * Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
+ * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -55,6 +57,7 @@ import * as utilities from "./utilities";
  *     sloPeriod: local.foo_period,
  *     customToleratedBudgetConsumption: 5,
  *     customEvaluationPeriod: 90,
+ *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
  *     accountId: 12345678,
@@ -86,6 +89,7 @@ export function getServiceLevelAlertHelper(args: GetServiceLevelAlertHelperArgs,
         "alertType": args.alertType,
         "customEvaluationPeriod": args.customEvaluationPeriod,
         "customToleratedBudgetConsumption": args.customToleratedBudgetConsumption,
+        "isBadEvents": args.isBadEvents,
         "sliGuid": args.sliGuid,
         "sloPeriod": args.sloPeriod,
         "sloTarget": args.sloTarget,
@@ -108,6 +112,10 @@ export interface GetServiceLevelAlertHelperArgs {
      * How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
      */
     customToleratedBudgetConsumption?: number;
+    /**
+     * If the SLI is defined using bad events. Defaults to `false`
+     */
+    isBadEvents?: boolean;
     /**
      * The guid of the sli we want to set the alert on.
      */
@@ -137,6 +145,7 @@ export interface GetServiceLevelAlertHelperResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly isBadEvents?: boolean;
     /**
      * (Computed) The nrql query for the selected type of alert.
      */
@@ -158,7 +167,7 @@ export interface GetServiceLevelAlertHelperResult {
  *
  * ## Example Usage
  *
- * Firstly set up your service level objective, we recommend to use local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+ * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -175,9 +184,9 @@ export interface GetServiceLevelAlertHelperResult {
  *             from: "Transaction",
  *             where: "appName = 'Example application' AND (transactionType='Web')",
  *         },
- *         goodEvents: {
+ *         badEvents: {
  *             from: "Transaction",
- *             where: "appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
+ *             where: "appName = 'Example application' AND (transactionType= 'Web') AND duration > 0.1",
  *         },
  *     },
  *     objective: {
@@ -192,6 +201,8 @@ export interface GetServiceLevelAlertHelperResult {
  * });
  * ```
  * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+ * Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
+ * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -204,6 +215,7 @@ export interface GetServiceLevelAlertHelperResult {
  *     sloPeriod: local.foo_period,
  *     customToleratedBudgetConsumption: 5,
  *     customEvaluationPeriod: 90,
+ *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
  *     accountId: 12345678,
@@ -248,6 +260,10 @@ export interface GetServiceLevelAlertHelperOutputArgs {
      * How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
      */
     customToleratedBudgetConsumption?: pulumi.Input<number>;
+    /**
+     * If the SLI is defined using bad events. Defaults to `false`
+     */
+    isBadEvents?: pulumi.Input<boolean>;
     /**
      * The guid of the sli we want to set the alert on.
      */

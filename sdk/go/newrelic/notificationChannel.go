@@ -211,8 +211,23 @@ import (
 //						Value: pulumi.String("example@email.com"),
 //					},
 //					&newrelic.NotificationChannelPropertyArgs{
-//						Key:   pulumi.String("customDetails"),
-//						Value: pulumi.String("    {\n    \"id\":{{json issueId}},\n    \"IssueURL\":{{json issuePageUrl}},\n    \"NewRelic priority\":{{json priority}},\n    \"Total Incidents\":{{json totalIncidents}},\n    \"Impacted Entities\":\"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Runbook\":\"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Description\":\"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"isCorrelated\":{{json isCorrelated}},\n    \"Alert Policy Names\":\"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Alert Condition Names\":\"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Workflow Name\":{{json workflowName}}\n    }\n\n"),
+//						Key: pulumi.String("customDetails"),
+//						Value: pulumi.String(`    {
+//	    "id":{{json issueId}},
+//	    "IssueURL":{{json issuePageUrl}},
+//	    "NewRelic priority":{{json priority}},
+//	    "Total Incidents":{{json totalIncidents}},
+//	    "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "isCorrelated":{{json isCorrelated}},
+//	    "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Workflow Name":{{json workflowName}}
+//	    }
+//
+// `),
+//
 //					},
 //				},
 //				Type: pulumi.String("PAGERDUTY_ACCOUNT_INTEGRATION"),
@@ -249,8 +264,23 @@ import (
 //						Value: pulumi.String("General summary"),
 //					},
 //					&newrelic.NotificationChannelPropertyArgs{
-//						Key:   pulumi.String("customDetails"),
-//						Value: pulumi.String("    {\n    \"id\":{{json issueId}},\n    \"IssueURL\":{{json issuePageUrl}},\n    \"NewRelic priority\":{{json priority}},\n    \"Total Incidents\":{{json totalIncidents}},\n    \"Impacted Entities\":\"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Runbook\":\"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Description\":\"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"isCorrelated\":{{json isCorrelated}},\n    \"Alert Policy Names\":\"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Alert Condition Names\":\"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\",\n    \"Workflow Name\":{{json workflowName}}\n    }\n\n"),
+//						Key: pulumi.String("customDetails"),
+//						Value: pulumi.String(`    {
+//	    "id":{{json issueId}},
+//	    "IssueURL":{{json issuePageUrl}},
+//	    "NewRelic priority":{{json priority}},
+//	    "Total Incidents":{{json totalIncidents}},
+//	    "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "isCorrelated":{{json isCorrelated}},
+//	    "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Workflow Name":{{json workflowName}}
+//	    }
+//
+// `),
+//
 //					},
 //				},
 //				Type: pulumi.String("PAGERDUTY_SERVICE_INTEGRATION"),

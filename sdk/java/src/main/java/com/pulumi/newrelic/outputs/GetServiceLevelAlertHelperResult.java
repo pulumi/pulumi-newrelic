@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -26,6 +27,7 @@ public final class GetServiceLevelAlertHelperResult {
      * 
      */
     private String id;
+    private @Nullable Boolean isBadEvents;
     /**
      * @return (Computed) The nrql query for the selected type of alert.
      * 
@@ -68,6 +70,9 @@ public final class GetServiceLevelAlertHelperResult {
      */
     public String id() {
         return this.id;
+    }
+    public Optional<Boolean> isBadEvents() {
+        return Optional.ofNullable(this.isBadEvents);
     }
     /**
      * @return (Computed) The nrql query for the selected type of alert.
@@ -114,6 +119,7 @@ public final class GetServiceLevelAlertHelperResult {
         private @Nullable Double customToleratedBudgetConsumption;
         private Integer evaluationPeriod;
         private String id;
+        private @Nullable Boolean isBadEvents;
         private String nrql;
         private String sliGuid;
         private Integer sloPeriod;
@@ -128,6 +134,7 @@ public final class GetServiceLevelAlertHelperResult {
     	      this.customToleratedBudgetConsumption = defaults.customToleratedBudgetConsumption;
     	      this.evaluationPeriod = defaults.evaluationPeriod;
     	      this.id = defaults.id;
+    	      this.isBadEvents = defaults.isBadEvents;
     	      this.nrql = defaults.nrql;
     	      this.sliGuid = defaults.sliGuid;
     	      this.sloPeriod = defaults.sloPeriod;
@@ -159,6 +166,11 @@ public final class GetServiceLevelAlertHelperResult {
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder isBadEvents(@Nullable Boolean isBadEvents) {
+            this.isBadEvents = isBadEvents;
             return this;
         }
         @CustomType.Setter
@@ -198,6 +210,7 @@ public final class GetServiceLevelAlertHelperResult {
             o.customToleratedBudgetConsumption = customToleratedBudgetConsumption;
             o.evaluationPeriod = evaluationPeriod;
             o.id = id;
+            o.isBadEvents = isBadEvents;
             o.nrql = nrql;
             o.sliGuid = sliGuid;
             o.sloPeriod = sloPeriod;

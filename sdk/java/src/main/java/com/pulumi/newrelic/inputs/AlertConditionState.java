@@ -263,14 +263,18 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+     * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+     * * when `type` = `apm_jvm_metric`
      * 
      */
     @Import(name="violationCloseTimer")
     private @Nullable Output<Integer> violationCloseTimer;
 
     /**
-     * @return Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+     * @return Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+     * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+     * * when `type` = `apm_jvm_metric`
      * 
      */
     public Optional<Output<Integer>> violationCloseTimer() {
@@ -656,7 +660,9 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param violationCloseTimer Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+         * @param violationCloseTimer Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+         * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+         * * when `type` = `apm_jvm_metric`
          * 
          * @return builder
          * 
@@ -667,7 +673,9 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param violationCloseTimer Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+         * @param violationCloseTimer Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+         * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+         * * when `type` = `apm_jvm_metric`
          * 
          * @return builder
          * 

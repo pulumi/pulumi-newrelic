@@ -1853,7 +1853,7 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
-     * Firstly set up your service level objective, we recommend to use local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+     * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
      * ```java
      * package generated_program;
      * 
@@ -1864,7 +1864,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.ServiceLevelArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelEventsArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
-     * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsBadEventsArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
@@ -1894,9 +1894,9 @@ public final class NewrelicFunctions {
      *                     .from(&#34;Transaction&#34;)
      *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType=&#39;Web&#39;)&#34;)
      *                     .build())
-     *                 .goodEvents(ServiceLevelEventsGoodEventsArgs.builder()
+     *                 .badEvents(ServiceLevelEventsBadEventsArgs.builder()
      *                     .from(&#34;Transaction&#34;)
-     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType= &#39;Web&#39;) AND duration &lt; 0.1&#34;)
+     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType= &#39;Web&#39;) AND duration &gt; 0.1&#34;)
      *                     .build())
      *                 .build())
      *             .objective(ServiceLevelObjectiveArgs.builder()
@@ -1914,6 +1914,8 @@ public final class NewrelicFunctions {
      * }
      * ```
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+     * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
+     * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
      * ```java
      * package generated_program;
      * 
@@ -1946,6 +1948,7 @@ public final class NewrelicFunctions {
      *             .sloPeriod(local.foo_period())
      *             .customToleratedBudgetConsumption(5)
      *             .customEvaluationPeriod(90)
+     *             .isBadEvents(true)
      *             .build());
      * 
      *         var yourCondition = new NrqlAlertCondition(&#34;yourCondition&#34;, NrqlAlertConditionArgs.builder()        
@@ -1983,7 +1986,7 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
-     * Firstly set up your service level objective, we recommend to use local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+     * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
      * ```java
      * package generated_program;
      * 
@@ -1994,7 +1997,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.ServiceLevelArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelEventsArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
-     * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsBadEventsArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
@@ -2024,9 +2027,9 @@ public final class NewrelicFunctions {
      *                     .from(&#34;Transaction&#34;)
      *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType=&#39;Web&#39;)&#34;)
      *                     .build())
-     *                 .goodEvents(ServiceLevelEventsGoodEventsArgs.builder()
+     *                 .badEvents(ServiceLevelEventsBadEventsArgs.builder()
      *                     .from(&#34;Transaction&#34;)
-     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType= &#39;Web&#39;) AND duration &lt; 0.1&#34;)
+     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType= &#39;Web&#39;) AND duration &gt; 0.1&#34;)
      *                     .build())
      *                 .build())
      *             .objective(ServiceLevelObjectiveArgs.builder()
@@ -2044,6 +2047,8 @@ public final class NewrelicFunctions {
      * }
      * ```
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+     * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
+     * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
      * ```java
      * package generated_program;
      * 
@@ -2076,6 +2081,7 @@ public final class NewrelicFunctions {
      *             .sloPeriod(local.foo_period())
      *             .customToleratedBudgetConsumption(5)
      *             .customEvaluationPeriod(90)
+     *             .isBadEvents(true)
      *             .build());
      * 
      *         var yourCondition = new NrqlAlertCondition(&#34;yourCondition&#34;, NrqlAlertConditionArgs.builder()        
@@ -2113,7 +2119,7 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
-     * Firstly set up your service level objective, we recommend to use local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+     * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
      * ```java
      * package generated_program;
      * 
@@ -2124,7 +2130,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.ServiceLevelArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelEventsArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
-     * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsBadEventsArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
@@ -2154,9 +2160,9 @@ public final class NewrelicFunctions {
      *                     .from(&#34;Transaction&#34;)
      *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType=&#39;Web&#39;)&#34;)
      *                     .build())
-     *                 .goodEvents(ServiceLevelEventsGoodEventsArgs.builder()
+     *                 .badEvents(ServiceLevelEventsBadEventsArgs.builder()
      *                     .from(&#34;Transaction&#34;)
-     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType= &#39;Web&#39;) AND duration &lt; 0.1&#34;)
+     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType= &#39;Web&#39;) AND duration &gt; 0.1&#34;)
      *                     .build())
      *                 .build())
      *             .objective(ServiceLevelObjectiveArgs.builder()
@@ -2174,6 +2180,8 @@ public final class NewrelicFunctions {
      * }
      * ```
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+     * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
+     * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
      * ```java
      * package generated_program;
      * 
@@ -2206,6 +2214,7 @@ public final class NewrelicFunctions {
      *             .sloPeriod(local.foo_period())
      *             .customToleratedBudgetConsumption(5)
      *             .customEvaluationPeriod(90)
+     *             .isBadEvents(true)
      *             .build());
      * 
      *         var yourCondition = new NrqlAlertCondition(&#34;yourCondition&#34;, NrqlAlertConditionArgs.builder()        
@@ -2243,7 +2252,7 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
-     * Firstly set up your service level objective, we recommend to use local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+     * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
      * ```java
      * package generated_program;
      * 
@@ -2254,7 +2263,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.ServiceLevelArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelEventsArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
-     * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsBadEventsArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
@@ -2284,9 +2293,9 @@ public final class NewrelicFunctions {
      *                     .from(&#34;Transaction&#34;)
      *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType=&#39;Web&#39;)&#34;)
      *                     .build())
-     *                 .goodEvents(ServiceLevelEventsGoodEventsArgs.builder()
+     *                 .badEvents(ServiceLevelEventsBadEventsArgs.builder()
      *                     .from(&#34;Transaction&#34;)
-     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType= &#39;Web&#39;) AND duration &lt; 0.1&#34;)
+     *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType= &#39;Web&#39;) AND duration &gt; 0.1&#34;)
      *                     .build())
      *                 .build())
      *             .objective(ServiceLevelObjectiveArgs.builder()
@@ -2304,6 +2313,8 @@ public final class NewrelicFunctions {
      * }
      * ```
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+     * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
+     * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
      * ```java
      * package generated_program;
      * 
@@ -2336,6 +2347,7 @@ public final class NewrelicFunctions {
      *             .sloPeriod(local.foo_period())
      *             .customToleratedBudgetConsumption(5)
      *             .customEvaluationPeriod(90)
+     *             .isBadEvents(true)
      *             .build());
      * 
      *         var yourCondition = new NrqlAlertCondition(&#34;yourCondition&#34;, NrqlAlertConditionArgs.builder()        

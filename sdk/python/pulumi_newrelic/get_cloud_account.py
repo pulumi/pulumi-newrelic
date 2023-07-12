@@ -103,10 +103,10 @@ def get_cloud_account(account_id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('newrelic:index/getCloudAccount:getCloudAccount', __args__, opts=opts, typ=GetCloudAccountResult).value
 
     return AwaitableGetCloudAccountResult(
-        account_id=__ret__.account_id,
-        cloud_provider=__ret__.cloud_provider,
-        id=__ret__.id,
-        name=__ret__.name)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        cloud_provider=pulumi.get(__ret__, 'cloud_provider'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_cloud_account)

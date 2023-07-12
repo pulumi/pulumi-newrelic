@@ -114,11 +114,11 @@ def get_secure_credential(account_id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('newrelic:synthetics/getSecureCredential:getSecureCredential', __args__, opts=opts, typ=GetSecureCredentialResult).value
 
     return AwaitableGetSecureCredentialResult(
-        account_id=__ret__.account_id,
-        description=__ret__.description,
-        id=__ret__.id,
-        key=__ret__.key,
-        last_updated=__ret__.last_updated)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        key=pulumi.get(__ret__, 'key'),
+        last_updated=pulumi.get(__ret__, 'last_updated'))
 
 
 @_utilities.lift_output_func(get_secure_credential)

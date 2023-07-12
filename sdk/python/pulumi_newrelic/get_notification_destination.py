@@ -132,13 +132,13 @@ def get_notification_destination(account_id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('newrelic:index/getNotificationDestination:getNotificationDestination', __args__, opts=opts, typ=GetNotificationDestinationResult).value
 
     return AwaitableGetNotificationDestinationResult(
-        account_id=__ret__.account_id,
-        active=__ret__.active,
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        status=__ret__.status,
-        type=__ret__.type)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        active=pulumi.get(__ret__, 'active'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_notification_destination)

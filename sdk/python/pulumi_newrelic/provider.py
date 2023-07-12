@@ -103,6 +103,9 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="apiUrl")
     def api_url(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""New Relic internal use only. API URLs are now configured based on the configured region.""", DeprecationWarning)
+        pulumi.log.warn("""api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
+
         return pulumi.get(self, "api_url")
 
     @api_url.setter
@@ -121,6 +124,9 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="infrastructureApiUrl")
     def infrastructure_api_url(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""New Relic internal use only. API URLs are now configured based on the configured region.""", DeprecationWarning)
+        pulumi.log.warn("""infrastructure_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
+
         return pulumi.get(self, "infrastructure_api_url")
 
     @infrastructure_api_url.setter
@@ -166,6 +172,9 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="nerdgraphApiUrl")
     def nerdgraph_api_url(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""New Relic internal use only. API URLs are now configured based on the configured region.""", DeprecationWarning)
+        pulumi.log.warn("""nerdgraph_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
+
         return pulumi.get(self, "nerdgraph_api_url")
 
     @nerdgraph_api_url.setter
@@ -187,6 +196,9 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="syntheticsApiUrl")
     def synthetics_api_url(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""New Relic internal use only. API URLs are now configured based on the configured region.""", DeprecationWarning)
+        pulumi.log.warn("""synthetics_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
+
         return pulumi.get(self, "synthetics_api_url")
 
     @synthetics_api_url.setter
@@ -324,6 +336,9 @@ class Provider(pulumi.ProviderResource):
     @property
     @pulumi.getter(name="apiUrl")
     def api_url(self) -> pulumi.Output[Optional[str]]:
+        warnings.warn("""New Relic internal use only. API URLs are now configured based on the configured region.""", DeprecationWarning)
+        pulumi.log.warn("""api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
+
         return pulumi.get(self, "api_url")
 
     @property
@@ -334,6 +349,9 @@ class Provider(pulumi.ProviderResource):
     @property
     @pulumi.getter(name="infrastructureApiUrl")
     def infrastructure_api_url(self) -> pulumi.Output[Optional[str]]:
+        warnings.warn("""New Relic internal use only. API URLs are now configured based on the configured region.""", DeprecationWarning)
+        pulumi.log.warn("""infrastructure_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
+
         return pulumi.get(self, "infrastructure_api_url")
 
     @property
@@ -354,6 +372,9 @@ class Provider(pulumi.ProviderResource):
     @property
     @pulumi.getter(name="nerdgraphApiUrl")
     def nerdgraph_api_url(self) -> pulumi.Output[Optional[str]]:
+        warnings.warn("""New Relic internal use only. API URLs are now configured based on the configured region.""", DeprecationWarning)
+        pulumi.log.warn("""nerdgraph_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
+
         return pulumi.get(self, "nerdgraph_api_url")
 
     @property
@@ -367,5 +388,8 @@ class Provider(pulumi.ProviderResource):
     @property
     @pulumi.getter(name="syntheticsApiUrl")
     def synthetics_api_url(self) -> pulumi.Output[Optional[str]]:
+        warnings.warn("""New Relic internal use only. API URLs are now configured based on the configured region.""", DeprecationWarning)
+        pulumi.log.warn("""synthetics_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
+
         return pulumi.get(self, "synthetics_api_url")
 

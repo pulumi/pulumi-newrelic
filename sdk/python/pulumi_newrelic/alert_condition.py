@@ -49,7 +49,9 @@ class AlertConditionArgs:
                ```python
                import pulumi
                ```
-        :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+               * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+               * when `type` = `apm_jvm_metric`
         """
         pulumi.set(__self__, "entities", entities)
         pulumi.set(__self__, "metric", metric)
@@ -227,7 +229,9 @@ class AlertConditionArgs:
     @pulumi.getter(name="violationCloseTimer")
     def violation_close_timer(self) -> Optional[pulumi.Input[int]]:
         """
-        Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+        * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+        * when `type` = `apm_jvm_metric`
         """
         return pulumi.get(self, "violation_close_timer")
 
@@ -274,7 +278,9 @@ class _AlertConditionState:
                ```python
                import pulumi
                ```
-        :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+               * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+               * when `type` = `apm_jvm_metric`
         """
         if condition_scope is not None:
             pulumi.set(__self__, "condition_scope", condition_scope)
@@ -471,7 +477,9 @@ class _AlertConditionState:
     @pulumi.getter(name="violationCloseTimer")
     def violation_close_timer(self) -> Optional[pulumi.Input[int]]:
         """
-        Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+        * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+        * when `type` = `apm_jvm_metric`
         """
         return pulumi.get(self, "violation_close_timer")
 
@@ -608,7 +616,9 @@ class AlertCondition(pulumi.CustomResource):
                ```python
                import pulumi
                ```
-        :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+               * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+               * when `type` = `apm_jvm_metric`
         """
         ...
     @overload
@@ -816,7 +826,9 @@ class AlertCondition(pulumi.CustomResource):
                ```python
                import pulumi
                ```
-        :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+               * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+               * when `type` = `apm_jvm_metric`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -952,7 +964,9 @@ class AlertCondition(pulumi.CustomResource):
     @pulumi.getter(name="violationCloseTimer")
     def violation_close_timer(self) -> pulumi.Output[Optional[int]]:
         """
-        Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+        * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+        * when `type` = `apm_jvm_metric`
         """
         return pulumi.get(self, "violation_close_timer")
 

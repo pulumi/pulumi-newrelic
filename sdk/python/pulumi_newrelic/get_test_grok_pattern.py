@@ -115,11 +115,11 @@ def get_test_grok_pattern(account_id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('newrelic:index/getTestGrokPattern:getTestGrokPattern', __args__, opts=opts, typ=GetTestGrokPatternResult).value
 
     return AwaitableGetTestGrokPatternResult(
-        account_id=__ret__.account_id,
-        grok=__ret__.grok,
-        id=__ret__.id,
-        log_lines=__ret__.log_lines,
-        test_groks=__ret__.test_groks)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        grok=pulumi.get(__ret__, 'grok'),
+        id=pulumi.get(__ret__, 'id'),
+        log_lines=pulumi.get(__ret__, 'log_lines'),
+        test_groks=pulumi.get(__ret__, 'test_groks'))
 
 
 @_utilities.lift_output_func(get_test_grok_pattern)

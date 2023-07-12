@@ -18,7 +18,7 @@ namespace Pulumi.NewRelic
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// Firstly set up your service level objective, we recommend to use local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+        /// Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -44,10 +44,10 @@ namespace Pulumi.NewRelic
         ///                 From = "Transaction",
         ///                 Where = "appName = 'Example application' AND (transactionType='Web')",
         ///             },
-        ///             GoodEvents = new NewRelic.Inputs.ServiceLevelEventsGoodEventsArgs
+        ///             BadEvents = new NewRelic.Inputs.ServiceLevelEventsBadEventsArgs
         ///             {
         ///                 From = "Transaction",
-        ///                 Where = "appName = 'Example application' AND (transactionType= 'Web') AND duration &lt; 0.1",
+        ///                 Where = "appName = 'Example application' AND (transactionType= 'Web') AND duration &gt; 0.1",
         ///             },
         ///         },
         ///         Objective = new NewRelic.Inputs.ServiceLevelObjectiveArgs
@@ -67,6 +67,8 @@ namespace Pulumi.NewRelic
         /// });
         /// ```
         /// Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+        /// Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
+        /// If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -84,6 +86,7 @@ namespace Pulumi.NewRelic
         ///         SloPeriod = local.Foo_period,
         ///         CustomToleratedBudgetConsumption = 5,
         ///         CustomEvaluationPeriod = 90,
+        ///         IsBadEvents = true,
         ///     });
         /// 
         ///     var yourCondition = new NewRelic.NrqlAlertCondition("yourCondition", new()
@@ -126,7 +129,7 @@ namespace Pulumi.NewRelic
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// Firstly set up your service level objective, we recommend to use local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+        /// Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -152,10 +155,10 @@ namespace Pulumi.NewRelic
         ///                 From = "Transaction",
         ///                 Where = "appName = 'Example application' AND (transactionType='Web')",
         ///             },
-        ///             GoodEvents = new NewRelic.Inputs.ServiceLevelEventsGoodEventsArgs
+        ///             BadEvents = new NewRelic.Inputs.ServiceLevelEventsBadEventsArgs
         ///             {
         ///                 From = "Transaction",
-        ///                 Where = "appName = 'Example application' AND (transactionType= 'Web') AND duration &lt; 0.1",
+        ///                 Where = "appName = 'Example application' AND (transactionType= 'Web') AND duration &gt; 0.1",
         ///             },
         ///         },
         ///         Objective = new NewRelic.Inputs.ServiceLevelObjectiveArgs
@@ -175,6 +178,8 @@ namespace Pulumi.NewRelic
         /// });
         /// ```
         /// Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+        /// Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
+        /// If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -192,6 +197,7 @@ namespace Pulumi.NewRelic
         ///         SloPeriod = local.Foo_period,
         ///         CustomToleratedBudgetConsumption = 5,
         ///         CustomEvaluationPeriod = 90,
+        ///         IsBadEvents = true,
         ///     });
         /// 
         ///     var yourCondition = new NewRelic.NrqlAlertCondition("yourCondition", new()
@@ -250,6 +256,12 @@ namespace Pulumi.NewRelic
         public double? CustomToleratedBudgetConsumption { get; set; }
 
         /// <summary>
+        /// If the SLI is defined using bad events. Defaults to `false`
+        /// </summary>
+        [Input("isBadEvents")]
+        public bool? IsBadEvents { get; set; }
+
+        /// <summary>
         /// The guid of the sli we want to set the alert on.
         /// </summary>
         [Input("sliGuid", required: true)]
@@ -294,6 +306,12 @@ namespace Pulumi.NewRelic
         public Input<double>? CustomToleratedBudgetConsumption { get; set; }
 
         /// <summary>
+        /// If the SLI is defined using bad events. Defaults to `false`
+        /// </summary>
+        [Input("isBadEvents")]
+        public Input<bool>? IsBadEvents { get; set; }
+
+        /// <summary>
         /// The guid of the sli we want to set the alert on.
         /// </summary>
         [Input("sliGuid", required: true)]
@@ -332,6 +350,7 @@ namespace Pulumi.NewRelic
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly bool? IsBadEvents;
         /// <summary>
         /// (Computed) The nrql query for the selected type of alert.
         /// </summary>
@@ -360,6 +379,8 @@ namespace Pulumi.NewRelic
 
             string id,
 
+            bool? isBadEvents,
+
             string nrql,
 
             string sliGuid,
@@ -377,6 +398,7 @@ namespace Pulumi.NewRelic
             CustomToleratedBudgetConsumption = customToleratedBudgetConsumption;
             EvaluationPeriod = evaluationPeriod;
             Id = id;
+            IsBadEvents = isBadEvents;
             Nrql = nrql;
             SliGuid = sliGuid;
             SloPeriod = sloPeriod;
