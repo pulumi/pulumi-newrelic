@@ -20,6 +20,9 @@ import (
 	"strings"
 	"unicode"
 
+	// embed is used to store bridge-metadata.json in the compiled binary
+	_ "embed"
+
 	"github.com/newrelic/terraform-provider-newrelic/v2/newrelic"
 	"github.com/pulumi/pulumi-newrelic/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
@@ -97,6 +100,8 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:                "https://pulumi.io",
 		Repository:              "https://github.com/pulumi/pulumi-newrelic",
 		UpstreamRepoPath:        "./upstream",
+		MetadataInfo:            tfbridge.NewProviderMetadata(metadata),
+		Version:                 version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
 			"account_id": {
 				Default: &tfbridge.DefaultInfo{
@@ -245,8 +250,12 @@ func Provider() tfbridge.ProviderInfo {
 		"insights_",
 		"plugins_",
 	}, tfbridgetokens.MakeStandard(mainPkg)))
+	prov.MustApplyAutoAliases()
 
 	prov.SetAutonaming(255, "-")
 
 	return prov
 }
+
+//go:embed cmd/pulumi-resource-newrelic/bridge-metadata.json
+var metadata []byte
