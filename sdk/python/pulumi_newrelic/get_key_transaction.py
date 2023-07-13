@@ -90,8 +90,8 @@ def get_key_transaction(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('newrelic:index/getKeyTransaction:getKeyTransaction', __args__, opts=opts, typ=GetKeyTransactionResult).value
 
     return AwaitableGetKeyTransactionResult(
-        id=__ret__.id,
-        name=__ret__.name)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_key_transaction)

@@ -118,12 +118,12 @@ def get_alert_channel(account_id: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('newrelic:index/getAlertChannel:getAlertChannel', __args__, opts=opts, typ=GetAlertChannelResult).value
 
     return AwaitableGetAlertChannelResult(
-        account_id=__ret__.account_id,
-        config=__ret__.config,
-        id=__ret__.id,
-        name=__ret__.name,
-        policy_ids=__ret__.policy_ids,
-        type=__ret__.type)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        config=pulumi.get(__ret__, 'config'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        policy_ids=pulumi.get(__ret__, 'policy_ids'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_alert_channel)

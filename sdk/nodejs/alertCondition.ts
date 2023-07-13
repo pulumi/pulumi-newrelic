@@ -189,7 +189,9 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public readonly userDefinedValueFunction!: pulumi.Output<string | undefined>;
     /**
-     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+     * * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+     * * when `type` = `apmJvmMetric`
      */
     public readonly violationCloseTimer!: pulumi.Output<number | undefined>;
 
@@ -320,7 +322,9 @@ export interface AlertConditionState {
      */
     userDefinedValueFunction?: pulumi.Input<string>;
     /**
-     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+     * * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+     * * when `type` = `apmJvmMetric`
      */
     violationCloseTimer?: pulumi.Input<number>;
 }
@@ -384,7 +388,9 @@ export interface AlertConditionArgs {
      */
     userDefinedValueFunction?: pulumi.Input<string>;
     /**
-     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+     * * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+     * * when `type` = `apmJvmMetric`
      */
     violationCloseTimer?: pulumi.Input<number>;
 }

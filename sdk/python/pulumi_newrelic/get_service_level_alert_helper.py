@@ -21,7 +21,7 @@ class GetServiceLevelAlertHelperResult:
     """
     A collection of values returned by getServiceLevelAlertHelper.
     """
-    def __init__(__self__, alert_type=None, custom_evaluation_period=None, custom_tolerated_budget_consumption=None, evaluation_period=None, id=None, nrql=None, sli_guid=None, slo_period=None, slo_target=None, threshold=None, tolerated_budget_consumption=None):
+    def __init__(__self__, alert_type=None, custom_evaluation_period=None, custom_tolerated_budget_consumption=None, evaluation_period=None, id=None, is_bad_events=None, nrql=None, sli_guid=None, slo_period=None, slo_target=None, threshold=None, tolerated_budget_consumption=None):
         if alert_type and not isinstance(alert_type, str):
             raise TypeError("Expected argument 'alert_type' to be a str")
         pulumi.set(__self__, "alert_type", alert_type)
@@ -37,6 +37,9 @@ class GetServiceLevelAlertHelperResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if is_bad_events and not isinstance(is_bad_events, bool):
+            raise TypeError("Expected argument 'is_bad_events' to be a bool")
+        pulumi.set(__self__, "is_bad_events", is_bad_events)
         if nrql and not isinstance(nrql, str):
             raise TypeError("Expected argument 'nrql' to be a str")
         pulumi.set(__self__, "nrql", nrql)
@@ -86,6 +89,11 @@ class GetServiceLevelAlertHelperResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isBadEvents")
+    def is_bad_events(self) -> Optional[bool]:
+        return pulumi.get(self, "is_bad_events")
 
     @property
     @pulumi.getter
@@ -138,6 +146,7 @@ class AwaitableGetServiceLevelAlertHelperResult(GetServiceLevelAlertHelperResult
             custom_tolerated_budget_consumption=self.custom_tolerated_budget_consumption,
             evaluation_period=self.evaluation_period,
             id=self.id,
+            is_bad_events=self.is_bad_events,
             nrql=self.nrql,
             sli_guid=self.sli_guid,
             slo_period=self.slo_period,
@@ -149,6 +158,7 @@ class AwaitableGetServiceLevelAlertHelperResult(GetServiceLevelAlertHelperResult
 def get_service_level_alert_helper(alert_type: Optional[str] = None,
                                    custom_evaluation_period: Optional[int] = None,
                                    custom_tolerated_budget_consumption: Optional[float] = None,
+                                   is_bad_events: Optional[bool] = None,
                                    sli_guid: Optional[str] = None,
                                    slo_period: Optional[int] = None,
                                    slo_target: Optional[float] = None,
@@ -158,7 +168,7 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
 
     ## Example Usage
 
-    Firstly set up your service level objective, we recommend to use local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+    Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
 
     ```python
     import pulumi
@@ -175,9 +185,9 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
                 from_="Transaction",
                 where="appName = 'Example application' AND (transactionType='Web')",
             ),
-            good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+            bad_events=newrelic.ServiceLevelEventsBadEventsArgs(
                 from_="Transaction",
-                where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
+                where="appName = 'Example application' AND (transactionType= 'Web') AND duration > 0.1",
             ),
         ),
         objective=newrelic.ServiceLevelObjectiveArgs(
@@ -191,6 +201,8 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
         ))
     ```
     Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+    Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
+    If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
 
     ```python
     import pulumi
@@ -201,7 +213,8 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
         slo_target=local["foo_target"],
         slo_period=local["foo_period"],
         custom_tolerated_budget_consumption=5,
-        custom_evaluation_period=90)
+        custom_evaluation_period=90,
+        is_bad_events=True)
     your_condition = newrelic.NrqlAlertCondition("yourCondition",
         account_id=12345678,
         policy_id=67890,
@@ -228,6 +241,7 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
     :param str alert_type: The type of alert we want to set. Valid values are:
     :param int custom_evaluation_period: Aggregation window taken into consideration in minutes. Mandatory if `alert_type` is `custom`.
     :param float custom_tolerated_budget_consumption: How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
+    :param bool is_bad_events: If the SLI is defined using bad events. Defaults to `false`
     :param str sli_guid: The guid of the sli we want to set the alert on.
     :param int slo_period: The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
     :param float slo_target: The target of the Service Level Objective, valid values between `0` and `100`.
@@ -236,6 +250,7 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
     __args__['alertType'] = alert_type
     __args__['customEvaluationPeriod'] = custom_evaluation_period
     __args__['customToleratedBudgetConsumption'] = custom_tolerated_budget_consumption
+    __args__['isBadEvents'] = is_bad_events
     __args__['sliGuid'] = sli_guid
     __args__['sloPeriod'] = slo_period
     __args__['sloTarget'] = slo_target
@@ -243,23 +258,25 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper', __args__, opts=opts, typ=GetServiceLevelAlertHelperResult).value
 
     return AwaitableGetServiceLevelAlertHelperResult(
-        alert_type=__ret__.alert_type,
-        custom_evaluation_period=__ret__.custom_evaluation_period,
-        custom_tolerated_budget_consumption=__ret__.custom_tolerated_budget_consumption,
-        evaluation_period=__ret__.evaluation_period,
-        id=__ret__.id,
-        nrql=__ret__.nrql,
-        sli_guid=__ret__.sli_guid,
-        slo_period=__ret__.slo_period,
-        slo_target=__ret__.slo_target,
-        threshold=__ret__.threshold,
-        tolerated_budget_consumption=__ret__.tolerated_budget_consumption)
+        alert_type=pulumi.get(__ret__, 'alert_type'),
+        custom_evaluation_period=pulumi.get(__ret__, 'custom_evaluation_period'),
+        custom_tolerated_budget_consumption=pulumi.get(__ret__, 'custom_tolerated_budget_consumption'),
+        evaluation_period=pulumi.get(__ret__, 'evaluation_period'),
+        id=pulumi.get(__ret__, 'id'),
+        is_bad_events=pulumi.get(__ret__, 'is_bad_events'),
+        nrql=pulumi.get(__ret__, 'nrql'),
+        sli_guid=pulumi.get(__ret__, 'sli_guid'),
+        slo_period=pulumi.get(__ret__, 'slo_period'),
+        slo_target=pulumi.get(__ret__, 'slo_target'),
+        threshold=pulumi.get(__ret__, 'threshold'),
+        tolerated_budget_consumption=pulumi.get(__ret__, 'tolerated_budget_consumption'))
 
 
 @_utilities.lift_output_func(get_service_level_alert_helper)
 def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]] = None,
                                           custom_evaluation_period: Optional[pulumi.Input[Optional[int]]] = None,
                                           custom_tolerated_budget_consumption: Optional[pulumi.Input[Optional[float]]] = None,
+                                          is_bad_events: Optional[pulumi.Input[Optional[bool]]] = None,
                                           sli_guid: Optional[pulumi.Input[str]] = None,
                                           slo_period: Optional[pulumi.Input[int]] = None,
                                           slo_target: Optional[pulumi.Input[float]] = None,
@@ -269,7 +286,7 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
 
     ## Example Usage
 
-    Firstly set up your service level objective, we recommend to use local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+    Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
 
     ```python
     import pulumi
@@ -286,9 +303,9 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
                 from_="Transaction",
                 where="appName = 'Example application' AND (transactionType='Web')",
             ),
-            good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+            bad_events=newrelic.ServiceLevelEventsBadEventsArgs(
                 from_="Transaction",
-                where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
+                where="appName = 'Example application' AND (transactionType= 'Web') AND duration > 0.1",
             ),
         ),
         objective=newrelic.ServiceLevelObjectiveArgs(
@@ -302,6 +319,8 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
         ))
     ```
     Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+    Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
+    If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
 
     ```python
     import pulumi
@@ -312,7 +331,8 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
         slo_target=local["foo_target"],
         slo_period=local["foo_period"],
         custom_tolerated_budget_consumption=5,
-        custom_evaluation_period=90)
+        custom_evaluation_period=90,
+        is_bad_events=True)
     your_condition = newrelic.NrqlAlertCondition("yourCondition",
         account_id=12345678,
         policy_id=67890,
@@ -339,6 +359,7 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
     :param str alert_type: The type of alert we want to set. Valid values are:
     :param int custom_evaluation_period: Aggregation window taken into consideration in minutes. Mandatory if `alert_type` is `custom`.
     :param float custom_tolerated_budget_consumption: How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
+    :param bool is_bad_events: If the SLI is defined using bad events. Defaults to `false`
     :param str sli_guid: The guid of the sli we want to set the alert on.
     :param int slo_period: The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
     :param float slo_target: The target of the Service Level Objective, valid values between `0` and `100`.

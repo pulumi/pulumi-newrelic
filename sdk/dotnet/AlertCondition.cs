@@ -242,7 +242,9 @@ namespace Pulumi.NewRelic
         public Output<string?> UserDefinedValueFunction { get; private set; } = null!;
 
         /// <summary>
-        /// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        /// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+        /// * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+        /// * when `type` = `apm_jvm_metric`
         /// </summary>
         [Output("violationCloseTimer")]
         public Output<int?> ViolationCloseTimer { get; private set; } = null!;
@@ -390,7 +392,9 @@ namespace Pulumi.NewRelic
         public Input<string>? UserDefinedValueFunction { get; set; }
 
         /// <summary>
-        /// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        /// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+        /// * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+        /// * when `type` = `apm_jvm_metric`
         /// </summary>
         [Input("violationCloseTimer")]
         public Input<int>? ViolationCloseTimer { get; set; }
@@ -506,7 +510,9 @@ namespace Pulumi.NewRelic
         public Input<string>? UserDefinedValueFunction { get; set; }
 
         /// <summary>
-        /// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        /// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+        /// * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+        /// * when `type` = `apm_jvm_metric`
         /// </summary>
         [Input("violationCloseTimer")]
         public Input<int>? ViolationCloseTimer { get; set; }

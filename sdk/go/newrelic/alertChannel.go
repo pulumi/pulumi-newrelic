@@ -217,9 +217,17 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
 //				Config: &newrelic.AlertChannelConfigArgs{
-//					BaseUrl:       pulumi.String("http://www.test.com"),
-//					PayloadString: pulumi.String("{\n  \"my_custom_values\": {\n    \"condition_name\": \"$CONDITION_NAME\",\n    \"policy_name\": \"$POLICY_NAME\"\n  }\n}\n\n"),
-//					PayloadType:   pulumi.String("application/json"),
+//					BaseUrl: pulumi.String("http://www.test.com"),
+//					PayloadString: pulumi.String(`{
+//	  "my_custom_values": {
+//	    "condition_name": "$CONDITION_NAME",
+//	    "policy_name": "$POLICY_NAME"
+//	  }
+//	}
+//
+// `),
+//
+//					PayloadType: pulumi.String("application/json"),
 //				},
 //				Type: pulumi.String("webhook"),
 //			})

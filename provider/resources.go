@@ -20,15 +20,17 @@ import (
 	"strings"
 	"unicode"
 
+	// embed is used to store bridge-metadata.json in the compiled binary
+	_ "embed"
+
 	"github.com/newrelic/terraform-provider-newrelic/v2/newrelic"
 	"github.com/pulumi/pulumi-newrelic/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
+	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // all of the token components used below.
@@ -98,6 +100,8 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:                "https://pulumi.io",
 		Repository:              "https://github.com/pulumi/pulumi-newrelic",
 		UpstreamRepoPath:        "./upstream",
+		MetadataInfo:            tfbridge.NewProviderMetadata(metadata),
+		Version:                 version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
 			"account_id": {
 				Default: &tfbridge.DefaultInfo{
@@ -240,15 +244,18 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	err := x.ComputeDefaults(&prov, x.TokensKnownModules("newrelic_", mainMod, []string{
+	prov.MustComputeTokens(tfbridgetokens.KnownModules("newrelic_", mainMod, []string{
 		"cloud_",
 		"synthetics_",
 		"insights_",
 		"plugins_",
-	}, x.MakeStandardToken(mainPkg)))
-	contract.AssertNoErrorf(err, "auto token mapping failed")
+	}, tfbridgetokens.MakeStandard(mainPkg)))
+	prov.MustApplyAutoAliases()
 
 	prov.SetAutonaming(255, "-")
 
 	return prov
 }
+
+//go:embed cmd/pulumi-resource-newrelic/bridge-metadata.json
+var metadata []byte

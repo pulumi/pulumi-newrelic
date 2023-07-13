@@ -1075,6 +1075,9 @@ class NrqlAlertConditionCritical(dict):
     @property
     @pulumi.getter
     def duration(self) -> Optional[int]:
+        warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""duration is deprecated: use `threshold_duration` attribute instead""")
+
         return pulumi.get(self, "duration")
 
     @property
@@ -1095,6 +1098,9 @@ class NrqlAlertConditionCritical(dict):
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> Optional[str]:
+        warnings.warn("""use `threshold_occurrences` attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""time_function is deprecated: use `threshold_occurrences` attribute instead""")
+
         return pulumi.get(self, "time_function")
 
 
@@ -1137,11 +1143,17 @@ class NrqlAlertConditionNrql(dict):
     @property
     @pulumi.getter(name="evaluationOffset")
     def evaluation_offset(self) -> Optional[int]:
+        warnings.warn("""use `aggregation_method` attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""evaluation_offset is deprecated: use `aggregation_method` attribute instead""")
+
         return pulumi.get(self, "evaluation_offset")
 
     @property
     @pulumi.getter(name="sinceValue")
     def since_value(self) -> Optional[str]:
+        warnings.warn("""use `aggregation_method` attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""since_value is deprecated: use `aggregation_method` attribute instead""")
+
         return pulumi.get(self, "since_value")
 
 
@@ -1198,6 +1210,9 @@ class NrqlAlertConditionTerm(dict):
     @property
     @pulumi.getter
     def duration(self) -> Optional[int]:
+        warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""duration is deprecated: use `threshold_duration` attribute instead""")
+
         return pulumi.get(self, "duration")
 
     @property
@@ -1223,6 +1238,9 @@ class NrqlAlertConditionTerm(dict):
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> Optional[str]:
+        warnings.warn("""use `threshold_occurrences` attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""time_function is deprecated: use `threshold_occurrences` attribute instead""")
+
         return pulumi.get(self, "time_function")
 
 
@@ -1276,6 +1294,9 @@ class NrqlAlertConditionWarning(dict):
     @property
     @pulumi.getter
     def duration(self) -> Optional[int]:
+        warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""duration is deprecated: use `threshold_duration` attribute instead""")
+
         return pulumi.get(self, "duration")
 
     @property
@@ -1296,6 +1317,9 @@ class NrqlAlertConditionWarning(dict):
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> Optional[str]:
+        warnings.warn("""use `threshold_occurrences` attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""time_function is deprecated: use `threshold_occurrences` attribute instead""")
+
         return pulumi.get(self, "time_function")
 
 

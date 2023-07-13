@@ -55,6 +55,9 @@ class AlertPolicyArgs:
         """
         An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         """
+        warnings.warn("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""channel_ids is deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
+
         return pulumi.get(self, "channel_ids")
 
     @channel_ids.setter
@@ -130,6 +133,9 @@ class _AlertPolicyState:
         """
         An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         """
+        warnings.warn("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""channel_ids is deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
+
         return pulumi.get(self, "channel_ids")
 
     @channel_ids.setter
@@ -401,6 +407,9 @@ class AlertPolicy(pulumi.CustomResource):
         """
         An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         """
+        warnings.warn("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""channel_ids is deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
+
         return pulumi.get(self, "channel_ids")
 
     @property

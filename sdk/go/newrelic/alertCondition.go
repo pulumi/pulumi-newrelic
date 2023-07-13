@@ -207,7 +207,9 @@ type AlertCondition struct {
 	// }
 	// ```
 	UserDefinedValueFunction pulumi.StringPtrOutput `pulumi:"userDefinedValueFunction"`
-	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+	// * when `type` = `apmJvmMetric`
 	ViolationCloseTimer pulumi.IntPtrOutput `pulumi:"violationCloseTimer"`
 }
 
@@ -297,7 +299,9 @@ type alertConditionState struct {
 	// }
 	// ```
 	UserDefinedValueFunction *string `pulumi:"userDefinedValueFunction"`
-	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+	// * when `type` = `apmJvmMetric`
 	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
 }
 
@@ -344,7 +348,9 @@ type AlertConditionState struct {
 	// }
 	// ```
 	UserDefinedValueFunction pulumi.StringPtrInput
-	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+	// * when `type` = `apmJvmMetric`
 	ViolationCloseTimer pulumi.IntPtrInput
 }
 
@@ -393,7 +399,9 @@ type alertConditionArgs struct {
 	// }
 	// ```
 	UserDefinedValueFunction *string `pulumi:"userDefinedValueFunction"`
-	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+	// * when `type` = `apmJvmMetric`
 	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
 }
 
@@ -439,7 +447,9 @@ type AlertConditionArgs struct {
 	// }
 	// ```
 	UserDefinedValueFunction pulumi.StringPtrInput
-	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+	// * when `type` = `apmJvmMetric`
 	ViolationCloseTimer pulumi.IntPtrInput
 }
 
@@ -614,7 +624,9 @@ func (o AlertConditionOutput) UserDefinedValueFunction() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *AlertCondition) pulumi.StringPtrOutput { return v.UserDefinedValueFunction }).(pulumi.StringPtrOutput)
 }
 
-// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+// * when `type` = `apmJvmMetric`
 func (o AlertConditionOutput) ViolationCloseTimer() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.IntPtrOutput { return v.ViolationCloseTimer }).(pulumi.IntPtrOutput)
 }

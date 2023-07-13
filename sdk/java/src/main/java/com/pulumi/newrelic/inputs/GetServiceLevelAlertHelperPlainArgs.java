@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -62,6 +63,21 @@ public final class GetServiceLevelAlertHelperPlainArgs extends com.pulumi.resour
     }
 
     /**
+     * If the SLI is defined using bad events. Defaults to `false`
+     * 
+     */
+    @Import(name="isBadEvents")
+    private @Nullable Boolean isBadEvents;
+
+    /**
+     * @return If the SLI is defined using bad events. Defaults to `false`
+     * 
+     */
+    public Optional<Boolean> isBadEvents() {
+        return Optional.ofNullable(this.isBadEvents);
+    }
+
+    /**
      * The guid of the sli we want to set the alert on.
      * 
      */
@@ -112,6 +128,7 @@ public final class GetServiceLevelAlertHelperPlainArgs extends com.pulumi.resour
         this.alertType = $.alertType;
         this.customEvaluationPeriod = $.customEvaluationPeriod;
         this.customToleratedBudgetConsumption = $.customToleratedBudgetConsumption;
+        this.isBadEvents = $.isBadEvents;
         this.sliGuid = $.sliGuid;
         this.sloPeriod = $.sloPeriod;
         this.sloTarget = $.sloTarget;
@@ -165,6 +182,17 @@ public final class GetServiceLevelAlertHelperPlainArgs extends com.pulumi.resour
          */
         public Builder customToleratedBudgetConsumption(@Nullable Double customToleratedBudgetConsumption) {
             $.customToleratedBudgetConsumption = customToleratedBudgetConsumption;
+            return this;
+        }
+
+        /**
+         * @param isBadEvents If the SLI is defined using bad events. Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isBadEvents(@Nullable Boolean isBadEvents) {
+            $.isBadEvents = isBadEvents;
             return this;
         }
 
