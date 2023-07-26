@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -108,6 +109,7 @@ func NewAlertMutingRule(ctx *pulumi.Context,
 	if args.Enabled == nil {
 		return nil, errors.New("invalid value for required argument 'Enabled'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AlertMutingRule
 	err := ctx.RegisterResource("newrelic:index/alertMutingRule:AlertMutingRule", name, args, &resource, opts...)
 	if err != nil {

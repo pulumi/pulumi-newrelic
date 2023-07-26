@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -101,6 +102,7 @@ func NewApplicationSettings(ctx *pulumi.Context,
 	if args.EndUserApdexThreshold == nil {
 		return nil, errors.New("invalid value for required argument 'EndUserApdexThreshold'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationSettings
 	err := ctx.RegisterResource("newrelic:plugins/applicationSettings:ApplicationSettings", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -74,6 +75,7 @@ func NewBrowserApplication(ctx *pulumi.Context,
 		args = &BrowserApplicationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BrowserApplication
 	err := ctx.RegisterResource("newrelic:index/browserApplication:BrowserApplication", name, args, &resource, opts...)
 	if err != nil {

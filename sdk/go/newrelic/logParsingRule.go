@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -136,6 +137,7 @@ func NewLogParsingRule(ctx *pulumi.Context,
 	if args.Nrql == nil {
 		return nil, errors.New("invalid value for required argument 'Nrql'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogParsingRule
 	err := ctx.RegisterResource("newrelic:index/logParsingRule:LogParsingRule", name, args, &resource, opts...)
 	if err != nil {

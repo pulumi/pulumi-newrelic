@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.inputs.GetEntityTagArgs;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetEntityArgs Empty = new GetEntityArgs();
+
+    /**
+     * The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+     * 
+     */
+    @Import(name="accountId")
+    private @Nullable Output<Integer> accountId;
+
+    /**
+     * @return The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+     * 
+     */
+    public Optional<Output<Integer>> accountId() {
+        return Optional.ofNullable(this.accountId);
+    }
 
     /**
      * The entity&#39;s domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
@@ -96,6 +112,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
     private GetEntityArgs() {}
 
     private GetEntityArgs(GetEntityArgs $) {
+        this.accountId = $.accountId;
         this.domain = $.domain;
         this.ignoreCase = $.ignoreCase;
         this.name = $.name;
@@ -119,6 +136,27 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetEntityArgs defaults) {
             $ = new GetEntityArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accountId The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountId(@Nullable Output<Integer> accountId) {
+            $.accountId = accountId;
+            return this;
+        }
+
+        /**
+         * @param accountId The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountId(Integer accountId) {
+            return accountId(Output.of(accountId));
         }
 
         /**

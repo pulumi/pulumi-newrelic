@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -259,6 +260,7 @@ func NewInfraAlertCondition(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InfraAlertCondition
 	err := ctx.RegisterResource("newrelic:index/infraAlertCondition:InfraAlertCondition", name, args, &resource, opts...)
 	if err != nil {

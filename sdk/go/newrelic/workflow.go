@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -313,6 +314,7 @@ func NewWorkflow(ctx *pulumi.Context,
 	if args.MutingRulesHandling == nil {
 		return nil, errors.New("invalid value for required argument 'MutingRulesHandling'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workflow
 	err := ctx.RegisterResource("newrelic:index/workflow:Workflow", name, args, &resource, opts...)
 	if err != nil {

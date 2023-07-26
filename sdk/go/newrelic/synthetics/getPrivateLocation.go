@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -82,6 +83,7 @@ import (
 //
 // ```
 func LookupPrivateLocation(ctx *pulumi.Context, args *LookupPrivateLocationArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLocationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPrivateLocationResult
 	err := ctx.Invoke("newrelic:synthetics/getPrivateLocation:getPrivateLocation", args, &rv, opts...)
 	if err != nil {

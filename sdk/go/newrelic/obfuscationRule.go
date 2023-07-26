@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -99,6 +100,7 @@ func NewObfuscationRule(ctx *pulumi.Context,
 	if args.Filter == nil {
 		return nil, errors.New("invalid value for required argument 'Filter'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ObfuscationRule
 	err := ctx.RegisterResource("newrelic:index/obfuscationRule:ObfuscationRule", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,6 +57,7 @@ import (
 //
 // ```
 func LookupObfuscationExpression(ctx *pulumi.Context, args *LookupObfuscationExpressionArgs, opts ...pulumi.InvokeOption) (*LookupObfuscationExpressionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupObfuscationExpressionResult
 	err := ctx.Invoke("newrelic:index/getObfuscationExpression:getObfuscationExpression", args, &rv, opts...)
 	if err != nil {

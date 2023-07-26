@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -94,6 +95,7 @@ func NewAwsGovcloudLinkAccount(ctx *pulumi.Context,
 		"secretAccessKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AwsGovcloudLinkAccount
 	err := ctx.RegisterResource("newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func GetCloudAccount(ctx *pulumi.Context, args *GetCloudAccountArgs, opts ...pulumi.InvokeOption) (*GetCloudAccountResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCloudAccountResult
 	err := ctx.Invoke("newrelic:index/getCloudAccount:getCloudAccount", args, &rv, opts...)
 	if err != nil {

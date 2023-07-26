@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -93,6 +94,7 @@ func NewDataPartitionRule(ctx *pulumi.Context,
 	if args.TargetDataPartition == nil {
 		return nil, errors.New("invalid value for required argument 'TargetDataPartition'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataPartitionRule
 	err := ctx.RegisterResource("newrelic:index/dataPartitionRule:DataPartitionRule", name, args, &resource, opts...)
 	if err != nil {

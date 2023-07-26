@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,6 +74,7 @@ func NewObfuscationExpression(ctx *pulumi.Context,
 	if args.Regex == nil {
 		return nil, errors.New("invalid value for required argument 'Regex'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ObfuscationExpression
 	err := ctx.RegisterResource("newrelic:index/obfuscationExpression:ObfuscationExpression", name, args, &resource, opts...)
 	if err != nil {

@@ -130,6 +130,12 @@ namespace Pulumi.NewRelic
     public sealed class GetEntityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+        /// </summary>
+        [Input("accountId")]
+        public int? AccountId { get; set; }
+
+        /// <summary>
         /// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
         /// </summary>
         [Input("domain")]
@@ -173,6 +179,12 @@ namespace Pulumi.NewRelic
 
     public sealed class GetEntityInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
         /// <summary>
         /// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
         /// </summary>
@@ -219,9 +231,6 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetEntityResult
     {
-        /// <summary>
-        /// The New Relic account ID associated with this entity.
-        /// </summary>
         public readonly int AccountId;
         /// <summary>
         /// The domain-specific application ID of the entity. Only returned for APM and Browser applications.

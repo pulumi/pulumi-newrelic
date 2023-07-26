@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -91,6 +92,7 @@ func NewEvent(ctx *pulumi.Context,
 	if args.Events == nil {
 		return nil, errors.New("invalid value for required argument 'Events'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Event
 	err := ctx.RegisterResource("newrelic:insights/event:Event", name, args, &resource, opts...)
 	if err != nil {

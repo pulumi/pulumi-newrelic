@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -77,6 +78,7 @@ import (
 //
 // ```
 func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOption) (*GetEntityResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEntityResult
 	err := ctx.Invoke("newrelic:index/getEntity:getEntity", args, &rv, opts...)
 	if err != nil {
@@ -87,6 +89,8 @@ func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getEntity.
 type GetEntityArgs struct {
+	// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `accountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+	AccountId *int `pulumi:"accountId"`
 	// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
 	Domain *string `pulumi:"domain"`
 	// Ignore case of the `name` when searching for the entity. Defaults to false.
@@ -101,7 +105,6 @@ type GetEntityArgs struct {
 
 // A collection of values returned by getEntity.
 type GetEntityResult struct {
-	// The New Relic account ID associated with this entity.
 	AccountId int `pulumi:"accountId"`
 	// The domain-specific application ID of the entity. Only returned for APM and Browser applications.
 	ApplicationId int    `pulumi:"applicationId"`
@@ -133,6 +136,8 @@ func GetEntityOutput(ctx *pulumi.Context, args GetEntityOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getEntity.
 type GetEntityOutputArgs struct {
+	// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `accountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
 	// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
 	// Ignore case of the `name` when searching for the entity. Defaults to false.
@@ -164,7 +169,6 @@ func (o GetEntityResultOutput) ToGetEntityResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// The New Relic account ID associated with this entity.
 func (o GetEntityResultOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v GetEntityResult) int { return v.AccountId }).(pulumi.IntOutput)
 }
