@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 func GetAccountId(ctx *pulumi.Context) int {
 	v, err := config.TryInt(ctx, "newrelic:accountId")
@@ -14,7 +17,7 @@ func GetAccountId(ctx *pulumi.Context) int {
 		return v
 	}
 	var value int
-	if d := getEnvOrDefault(nil, parseEnvInt, "NEW_RELIC_ACCOUNT_ID"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, internal.ParseEnvInt, "NEW_RELIC_ACCOUNT_ID"); d != nil {
 		value = d.(int)
 	}
 	return value
@@ -63,7 +66,7 @@ func GetRegion(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault("US", nil, "NEW_RELIC_REGION"); d != nil {
+	if d := internal.GetEnvOrDefault("US", nil, "NEW_RELIC_REGION"); d != nil {
 		value = d.(string)
 	}
 	return value

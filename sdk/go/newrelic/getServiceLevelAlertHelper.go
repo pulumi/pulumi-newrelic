@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -120,6 +121,7 @@ import (
 //
 // ```
 func GetServiceLevelAlertHelper(ctx *pulumi.Context, args *GetServiceLevelAlertHelperArgs, opts ...pulumi.InvokeOption) (*GetServiceLevelAlertHelperResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceLevelAlertHelperResult
 	err := ctx.Invoke("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", args, &rv, opts...)
 	if err != nil {

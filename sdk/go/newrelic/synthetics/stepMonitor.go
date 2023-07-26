@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -116,6 +117,7 @@ func NewStepMonitor(ctx *pulumi.Context,
 	if args.Steps == nil {
 		return nil, errors.New("invalid value for required argument 'Steps'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StepMonitor
 	err := ctx.RegisterResource("newrelic:synthetics/stepMonitor:StepMonitor", name, args, &resource, opts...)
 	if err != nil {

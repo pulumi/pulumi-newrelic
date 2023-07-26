@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -291,6 +292,7 @@ func NewNrqlAlertCondition(ctx *pulumi.Context,
 	if args.PolicyId == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NrqlAlertCondition
 	err := ctx.RegisterResource("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", name, args, &resource, opts...)
 	if err != nil {

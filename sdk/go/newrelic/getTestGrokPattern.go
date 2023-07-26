@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetTestGrokPattern(ctx *pulumi.Context, args *GetTestGrokPatternArgs, opts ...pulumi.InvokeOption) (*GetTestGrokPatternResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTestGrokPatternResult
 	err := ctx.Invoke("newrelic:index/getTestGrokPattern:getTestGrokPattern", args, &rv, opts...)
 	if err != nil {

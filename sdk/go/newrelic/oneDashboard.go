@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,6 +52,7 @@ func NewOneDashboard(ctx *pulumi.Context,
 	if args.Pages == nil {
 		return nil, errors.New("invalid value for required argument 'Pages'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OneDashboard
 	err := ctx.RegisterResource("newrelic:index/oneDashboard:OneDashboard", name, args, &resource, opts...)
 	if err != nil {

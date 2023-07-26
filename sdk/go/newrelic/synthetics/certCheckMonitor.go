@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -158,6 +159,7 @@ func NewCertCheckMonitor(ctx *pulumi.Context,
 	if args.Status == nil {
 		return nil, errors.New("invalid value for required argument 'Status'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CertCheckMonitor
 	err := ctx.RegisterResource("newrelic:synthetics/certCheckMonitor:CertCheckMonitor", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -232,6 +233,7 @@ func NewMultiLocationAlertCondition(ctx *pulumi.Context,
 	if args.ViolationTimeLimitSeconds == nil {
 		return nil, errors.New("invalid value for required argument 'ViolationTimeLimitSeconds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MultiLocationAlertCondition
 	err := ctx.RegisterResource("newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition", name, args, &resource, opts...)
 	if err != nil {

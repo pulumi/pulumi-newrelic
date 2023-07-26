@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -161,6 +162,7 @@ func NewAlertPolicy(ctx *pulumi.Context,
 		args = &AlertPolicyArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AlertPolicy
 	err := ctx.RegisterResource("newrelic:index/alertPolicy:AlertPolicy", name, args, &resource, opts...)
 	if err != nil {

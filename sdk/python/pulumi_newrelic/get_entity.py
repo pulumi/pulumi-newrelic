@@ -58,9 +58,6 @@ class GetEntityResult:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> int:
-        """
-        The New Relic account ID associated with this entity.
-        """
         return pulumi.get(self, "account_id")
 
     @property
@@ -139,7 +136,8 @@ class AwaitableGetEntityResult(GetEntityResult):
             type=self.type)
 
 
-def get_entity(domain: Optional[str] = None,
+def get_entity(account_id: Optional[int] = None,
+               domain: Optional[str] = None,
                ignore_case: Optional[bool] = None,
                name: Optional[str] = None,
                tags: Optional[Sequence[pulumi.InputType['GetEntityTagArgs']]] = None,
@@ -178,6 +176,7 @@ def get_entity(domain: Optional[str] = None,
     ```
 
 
+    :param int account_id: The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
     :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
     :param bool ignore_case: Ignore case of the `name` when searching for the entity. Defaults to false.
     :param str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
@@ -185,6 +184,7 @@ def get_entity(domain: Optional[str] = None,
     :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
     """
     __args__ = dict()
+    __args__['accountId'] = account_id
     __args__['domain'] = domain
     __args__['ignoreCase'] = ignore_case
     __args__['name'] = name
@@ -207,7 +207,8 @@ def get_entity(domain: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_entity)
-def get_entity_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
+def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
+                      domain: Optional[pulumi.Input[Optional[str]]] = None,
                       ignore_case: Optional[pulumi.Input[Optional[bool]]] = None,
                       name: Optional[pulumi.Input[str]] = None,
                       tags: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEntityTagArgs']]]]] = None,
@@ -246,6 +247,7 @@ def get_entity_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
+    :param int account_id: The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
     :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
     :param bool ignore_case: Ignore case of the `name` when searching for the entity. Defaults to false.
     :param str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.

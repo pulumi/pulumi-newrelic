@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,12 +48,12 @@ func NewProvider(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ApiKey'")
 	}
 	if args.AccountId == nil {
-		if d := getEnvOrDefault(nil, parseEnvInt, "NEW_RELIC_ACCOUNT_ID"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, internal.ParseEnvInt, "NEW_RELIC_ACCOUNT_ID"); d != nil {
 			args.AccountId = pulumi.IntPtr(d.(int))
 		}
 	}
 	if args.Region == nil {
-		if d := getEnvOrDefault("US", nil, "NEW_RELIC_REGION"); d != nil {
+		if d := internal.GetEnvOrDefault("US", nil, "NEW_RELIC_REGION"); d != nil {
 			args.Region = pulumi.StringPtr(d.(string))
 		}
 	}
@@ -74,6 +75,7 @@ func NewProvider(ctx *pulumi.Context,
 		"insightsInsertKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:newrelic", name, args, &resource, opts...)
 	if err != nil {

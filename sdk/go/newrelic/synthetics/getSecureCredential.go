@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupSecureCredential(ctx *pulumi.Context, args *LookupSecureCredentialArgs, opts ...pulumi.InvokeOption) (*LookupSecureCredentialResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecureCredentialResult
 	err := ctx.Invoke("newrelic:synthetics/getSecureCredential:getSecureCredential", args, &rv, opts...)
 	if err != nil {

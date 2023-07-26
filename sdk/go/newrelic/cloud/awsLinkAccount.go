@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -82,6 +83,7 @@ func NewAwsLinkAccount(ctx *pulumi.Context,
 	if args.Arn == nil {
 		return nil, errors.New("invalid value for required argument 'Arn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AwsLinkAccount
 	err := ctx.RegisterResource("newrelic:cloud/awsLinkAccount:AwsLinkAccount", name, args, &resource, opts...)
 	if err != nil {

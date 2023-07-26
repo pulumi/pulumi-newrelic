@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,6 +46,7 @@ func NewOneDashboardJson(ctx *pulumi.Context,
 	if args.Json == nil {
 		return nil, errors.New("invalid value for required argument 'Json'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OneDashboardJson
 	err := ctx.RegisterResource("newrelic:index/oneDashboardJson:OneDashboardJson", name, args, &resource, opts...)
 	if err != nil {

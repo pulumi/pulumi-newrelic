@@ -15,10 +15,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEntityResult {
-    /**
-     * @return The New Relic account ID associated with this entity.
-     * 
-     */
     private Integer accountId;
     /**
      * @return The domain-specific application ID of the entity. Only returned for APM and Browser applications.
@@ -47,10 +43,6 @@ public final class GetEntityResult {
     private String type;
 
     private GetEntityResult() {}
-    /**
-     * @return The New Relic account ID associated with this entity.
-     * 
-     */
     public Integer accountId() {
         return this.accountId;
     }

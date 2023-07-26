@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -283,6 +284,7 @@ func NewScriptMonitor(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScriptMonitor
 	err := ctx.RegisterResource("newrelic:synthetics/scriptMonitor:ScriptMonitor", name, args, &resource, opts...)
 	if err != nil {

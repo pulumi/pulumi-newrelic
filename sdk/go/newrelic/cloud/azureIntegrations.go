@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -359,6 +360,7 @@ func NewAzureIntegrations(ctx *pulumi.Context,
 	if args.LinkedAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedAccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AzureIntegrations
 	err := ctx.RegisterResource("newrelic:cloud/azureIntegrations:AzureIntegrations", name, args, &resource, opts...)
 	if err != nil {

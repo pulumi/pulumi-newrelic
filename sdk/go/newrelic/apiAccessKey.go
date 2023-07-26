@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -101,6 +102,7 @@ func NewApiAccessKey(ctx *pulumi.Context,
 		"key",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiAccessKey
 	err := ctx.RegisterResource("newrelic:index/apiAccessKey:ApiAccessKey", name, args, &resource, opts...)
 	if err != nil {

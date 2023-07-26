@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -154,6 +155,7 @@ func NewBrokenLinksMonitor(ctx *pulumi.Context,
 	if args.Uri == nil {
 		return nil, errors.New("invalid value for required argument 'Uri'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BrokenLinksMonitor
 	err := ctx.RegisterResource("newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor", name, args, &resource, opts...)
 	if err != nil {

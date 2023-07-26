@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -14,6 +15,7 @@ import (
 //
 // > **WARNING:** The `AlertChannel` data source is deprecated and will be removed in the next major release.
 func LookupAlertChannel(ctx *pulumi.Context, args *LookupAlertChannelArgs, opts ...pulumi.InvokeOption) (*LookupAlertChannelResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAlertChannelResult
 	err := ctx.Invoke("newrelic:index/getAlertChannel:getAlertChannel", args, &rv, opts...)
 	if err != nil {
