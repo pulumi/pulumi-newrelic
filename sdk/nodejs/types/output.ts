@@ -2343,9 +2343,12 @@ export interface ServiceLevelEventsBadEventsSelect {
      */
     attribute?: string;
     /**
-     * The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+     * The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
      */
     function: string;
+    /**
+     * Limit for values to be counter by `GET_CDF_COUNT` function.
+     */
     threshold?: number;
 }
 
@@ -2372,9 +2375,12 @@ export interface ServiceLevelEventsGoodEventsSelect {
      */
     attribute?: string;
     /**
-     * The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+     * The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
      */
     function: string;
+    /**
+     * Limit for values to be counter by `GET_CDF_COUNT` function.
+     */
     threshold?: number;
 }
 
@@ -2401,9 +2407,12 @@ export interface ServiceLevelEventsValidEventsSelect {
      */
     attribute?: string;
     /**
-     * The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+     * The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
      */
     function: string;
+    /**
+     * Limit for values to be counter by `GET_CDF_COUNT` function.
+     */
     threshold?: number;
 }
 

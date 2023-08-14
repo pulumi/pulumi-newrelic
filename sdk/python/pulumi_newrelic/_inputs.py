@@ -9337,8 +9337,9 @@ class ServiceLevelEventsBadEventsSelectArgs:
                  attribute: Optional[pulumi.Input[str]] = None,
                  threshold: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[str] function: The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+        :param pulumi.Input[str] function: The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
         :param pulumi.Input[str] attribute: The event attribute to use in the SELECT clause.
+        :param pulumi.Input[float] threshold: Limit for values to be counter by `GET_CDF_COUNT` function.
         """
         pulumi.set(__self__, "function", function)
         if attribute is not None:
@@ -9350,7 +9351,7 @@ class ServiceLevelEventsBadEventsSelectArgs:
     @pulumi.getter
     def function(self) -> pulumi.Input[str]:
         """
-        The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+        The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
         """
         return pulumi.get(self, "function")
 
@@ -9373,6 +9374,9 @@ class ServiceLevelEventsBadEventsSelectArgs:
     @property
     @pulumi.getter
     def threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        Limit for values to be counter by `GET_CDF_COUNT` function.
+        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -9445,8 +9449,9 @@ class ServiceLevelEventsGoodEventsSelectArgs:
                  attribute: Optional[pulumi.Input[str]] = None,
                  threshold: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[str] function: The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+        :param pulumi.Input[str] function: The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
         :param pulumi.Input[str] attribute: The event attribute to use in the SELECT clause.
+        :param pulumi.Input[float] threshold: Limit for values to be counter by `GET_CDF_COUNT` function.
         """
         pulumi.set(__self__, "function", function)
         if attribute is not None:
@@ -9458,7 +9463,7 @@ class ServiceLevelEventsGoodEventsSelectArgs:
     @pulumi.getter
     def function(self) -> pulumi.Input[str]:
         """
-        The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+        The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
         """
         return pulumi.get(self, "function")
 
@@ -9481,6 +9486,9 @@ class ServiceLevelEventsGoodEventsSelectArgs:
     @property
     @pulumi.getter
     def threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        Limit for values to be counter by `GET_CDF_COUNT` function.
+        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -9553,8 +9561,9 @@ class ServiceLevelEventsValidEventsSelectArgs:
                  attribute: Optional[pulumi.Input[str]] = None,
                  threshold: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[str] function: The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+        :param pulumi.Input[str] function: The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
         :param pulumi.Input[str] attribute: The event attribute to use in the SELECT clause.
+        :param pulumi.Input[float] threshold: Limit for values to be counter by `GET_CDF_COUNT` function.
         """
         pulumi.set(__self__, "function", function)
         if attribute is not None:
@@ -9566,7 +9575,7 @@ class ServiceLevelEventsValidEventsSelectArgs:
     @pulumi.getter
     def function(self) -> pulumi.Input[str]:
         """
-        The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+        The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
         """
         return pulumi.get(self, "function")
 
@@ -9589,6 +9598,9 @@ class ServiceLevelEventsValidEventsSelectArgs:
     @property
     @pulumi.getter
     def threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        Limit for values to be counter by `GET_CDF_COUNT` function.
+        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter

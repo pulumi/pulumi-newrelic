@@ -18,10 +18,14 @@ public final class ServiceLevelEventsValidEventsSelect {
      */
     private @Nullable String attribute;
     /**
-     * @return The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+     * @return The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
      * 
      */
     private String function;
+    /**
+     * @return Limit for values to be counter by `GET_CDF_COUNT` function.
+     * 
+     */
     private @Nullable Double threshold;
 
     private ServiceLevelEventsValidEventsSelect() {}
@@ -33,12 +37,16 @@ public final class ServiceLevelEventsValidEventsSelect {
         return Optional.ofNullable(this.attribute);
     }
     /**
-     * @return The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+     * @return The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
      * 
      */
     public String function() {
         return this.function;
     }
+    /**
+     * @return Limit for values to be counter by `GET_CDF_COUNT` function.
+     * 
+     */
     public Optional<Double> threshold() {
         return Optional.ofNullable(this.threshold);
     }

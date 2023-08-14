@@ -137,7 +137,64 @@ import (
 //	}
 //
 // ```
-// For up-to-date documentation about the tagging resource, please check EntityTags
+//
+// # Using `select` for events
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewServiceLevel(ctx, "mySyntheticMonitorDurationServiceLevel", &newrelic.ServiceLevelArgs{
+//				Description: pulumi.String("Monitor created to test concurrent request from terraform"),
+//				Events: &newrelic.ServiceLevelEventsArgs{
+//					AccountId: pulumi.Int(313870),
+//					GoodEvents: &newrelic.ServiceLevelEventsGoodEventsArgs{
+//						From: pulumi.String("Metric"),
+//						Select: &newrelic.ServiceLevelEventsGoodEventsSelectArgs{
+//							Attribute: pulumi.String("`query.wallClockTime.negative.distribution`"),
+//							Function:  pulumi.String("GET_CDF_COUNT"),
+//							Threshold: pulumi.Float64(7),
+//						},
+//						Where: pulumi.String("metricName = 'query.wallClockTime.negative.distribution'"),
+//					},
+//					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
+//						From: pulumi.String("Metric"),
+//						Select: &newrelic.ServiceLevelEventsValidEventsSelectArgs{
+//							Attribute: pulumi.String("`query.wallClockTime.negative.distribution`"),
+//							Function:  pulumi.String("GET_FIELD"),
+//						},
+//						Where: pulumi.String("metricName = 'query.wallClockTime.negative.distribution'"),
+//					},
+//				},
+//				Guid: pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
+//				Objective: &newrelic.ServiceLevelObjectiveArgs{
+//					Target: pulumi.Float64(49),
+//					TimeWindow: &newrelic.ServiceLevelObjectiveTimeWindowArgs{
+//						Rolling: &newrelic.ServiceLevelObjectiveTimeWindowRollingArgs{
+//							Count: pulumi.Int(7),
+//							Unit:  pulumi.String("DAY"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// # For up-to-date documentation about the tagging resource, please check EntityTags
 //
 // ## Import
 //

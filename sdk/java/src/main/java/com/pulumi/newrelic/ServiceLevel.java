@@ -159,6 +159,75 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * 
+ * Using `select` for events
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.ServiceLevel;
+ * import com.pulumi.newrelic.ServiceLevelArgs;
+ * import com.pulumi.newrelic.inputs.ServiceLevelEventsArgs;
+ * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
+ * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsSelectArgs;
+ * import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
+ * import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsSelectArgs;
+ * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
+ * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
+ * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var mySyntheticMonitorDurationServiceLevel = new ServiceLevel(&#34;mySyntheticMonitorDurationServiceLevel&#34;, ServiceLevelArgs.builder()        
+ *             .description(&#34;Monitor created to test concurrent request from terraform&#34;)
+ *             .events(ServiceLevelEventsArgs.builder()
+ *                 .accountId(313870)
+ *                 .goodEvents(ServiceLevelEventsGoodEventsArgs.builder()
+ *                     .from(&#34;Metric&#34;)
+ *                     .select(ServiceLevelEventsGoodEventsSelectArgs.builder()
+ *                         .attribute(&#34;`query.wallClockTime.negative.distribution`&#34;)
+ *                         .function(&#34;GET_CDF_COUNT&#34;)
+ *                         .threshold(7)
+ *                         .build())
+ *                     .where(&#34;metricName = &#39;query.wallClockTime.negative.distribution&#39;&#34;)
+ *                     .build())
+ *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
+ *                     .from(&#34;Metric&#34;)
+ *                     .select(ServiceLevelEventsValidEventsSelectArgs.builder()
+ *                         .attribute(&#34;`query.wallClockTime.negative.distribution`&#34;)
+ *                         .function(&#34;GET_FIELD&#34;)
+ *                         .build())
+ *                     .where(&#34;metricName = &#39;query.wallClockTime.negative.distribution&#39;&#34;)
+ *                     .build())
+ *                 .build())
+ *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
+ *             .objective(ServiceLevelObjectiveArgs.builder()
+ *                 .target(49)
+ *                 .timeWindow(ServiceLevelObjectiveTimeWindowArgs.builder()
+ *                     .rolling(ServiceLevelObjectiveTimeWindowRollingArgs.builder()
+ *                         .count(7)
+ *                         .unit(&#34;DAY&#34;)
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  * 
  * ## Import

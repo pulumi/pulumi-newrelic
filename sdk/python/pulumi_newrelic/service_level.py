@@ -325,6 +325,47 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ])
         ```
+
+        Using `select` for events
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        my_synthetic_monitor_duration_service_level = newrelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel",
+            description="Monitor created to test concurrent request from terraform",
+            events=newrelic.ServiceLevelEventsArgs(
+                account_id=313870,
+                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+                    from_="Metric",
+                    select=newrelic.ServiceLevelEventsGoodEventsSelectArgs(
+                        attribute="`query.wallClockTime.negative.distribution`",
+                        function="GET_CDF_COUNT",
+                        threshold=7,
+                    ),
+                    where="metricName = 'query.wallClockTime.negative.distribution'",
+                ),
+                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
+                    from_="Metric",
+                    select=newrelic.ServiceLevelEventsValidEventsSelectArgs(
+                        attribute="`query.wallClockTime.negative.distribution`",
+                        function="GET_FIELD",
+                    ),
+                    where="metricName = 'query.wallClockTime.negative.distribution'",
+                ),
+            ),
+            guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            objective=newrelic.ServiceLevelObjectiveArgs(
+                target=49,
+                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
+                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
+                        count=7,
+                        unit="DAY",
+                    ),
+                ),
+            ))
+        ```
+
         For up-to-date documentation about the tagging resource, please check EntityTags
 
         ## Import
@@ -441,6 +482,47 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ])
         ```
+
+        Using `select` for events
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        my_synthetic_monitor_duration_service_level = newrelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel",
+            description="Monitor created to test concurrent request from terraform",
+            events=newrelic.ServiceLevelEventsArgs(
+                account_id=313870,
+                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+                    from_="Metric",
+                    select=newrelic.ServiceLevelEventsGoodEventsSelectArgs(
+                        attribute="`query.wallClockTime.negative.distribution`",
+                        function="GET_CDF_COUNT",
+                        threshold=7,
+                    ),
+                    where="metricName = 'query.wallClockTime.negative.distribution'",
+                ),
+                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
+                    from_="Metric",
+                    select=newrelic.ServiceLevelEventsValidEventsSelectArgs(
+                        attribute="`query.wallClockTime.negative.distribution`",
+                        function="GET_FIELD",
+                    ),
+                    where="metricName = 'query.wallClockTime.negative.distribution'",
+                ),
+            ),
+            guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            objective=newrelic.ServiceLevelObjectiveArgs(
+                target=49,
+                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
+                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
+                        count=7,
+                        unit="DAY",
+                    ),
+                ),
+            ))
+        ```
+
         For up-to-date documentation about the tagging resource, please check EntityTags
 
         ## Import

@@ -32,23 +32,31 @@ public final class ServiceLevelEventsBadEventsSelectArgs extends com.pulumi.reso
     }
 
     /**
-     * The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+     * The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
      * 
      */
     @Import(name="function", required=true)
     private Output<String> function;
 
     /**
-     * @return The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+     * @return The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
      * 
      */
     public Output<String> function() {
         return this.function;
     }
 
+    /**
+     * Limit for values to be counter by `GET_CDF_COUNT` function.
+     * 
+     */
     @Import(name="threshold")
     private @Nullable Output<Double> threshold;
 
+    /**
+     * @return Limit for values to be counter by `GET_CDF_COUNT` function.
+     * 
+     */
     public Optional<Output<Double>> threshold() {
         return Optional.ofNullable(this.threshold);
     }
@@ -101,7 +109,7 @@ public final class ServiceLevelEventsBadEventsSelectArgs extends com.pulumi.reso
         }
 
         /**
-         * @param function The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+         * @param function The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
          * 
          * @return builder
          * 
@@ -112,7 +120,7 @@ public final class ServiceLevelEventsBadEventsSelectArgs extends com.pulumi.reso
         }
 
         /**
-         * @param function The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+         * @param function The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
          * 
          * @return builder
          * 
@@ -121,11 +129,23 @@ public final class ServiceLevelEventsBadEventsSelectArgs extends com.pulumi.reso
             return function(Output.of(function));
         }
 
+        /**
+         * @param threshold Limit for values to be counter by `GET_CDF_COUNT` function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder threshold(@Nullable Output<Double> threshold) {
             $.threshold = threshold;
             return this;
         }
 
+        /**
+         * @param threshold Limit for values to be counter by `GET_CDF_COUNT` function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder threshold(Double threshold) {
             return threshold(Output.of(threshold));
         }

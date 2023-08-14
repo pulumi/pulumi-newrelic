@@ -135,6 +135,63 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// 
+    /// Using `select` for events
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mySyntheticMonitorDurationServiceLevel = new NewRelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel", new()
+    ///     {
+    ///         Description = "Monitor created to test concurrent request from terraform",
+    ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
+    ///         {
+    ///             AccountId = 313870,
+    ///             GoodEvents = new NewRelic.Inputs.ServiceLevelEventsGoodEventsArgs
+    ///             {
+    ///                 From = "Metric",
+    ///                 Select = new NewRelic.Inputs.ServiceLevelEventsGoodEventsSelectArgs
+    ///                 {
+    ///                     Attribute = "`query.wallClockTime.negative.distribution`",
+    ///                     Function = "GET_CDF_COUNT",
+    ///                     Threshold = 7,
+    ///                 },
+    ///                 Where = "metricName = 'query.wallClockTime.negative.distribution'",
+    ///             },
+    ///             ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
+    ///             {
+    ///                 From = "Metric",
+    ///                 Select = new NewRelic.Inputs.ServiceLevelEventsValidEventsSelectArgs
+    ///                 {
+    ///                     Attribute = "`query.wallClockTime.negative.distribution`",
+    ///                     Function = "GET_FIELD",
+    ///                 },
+    ///                 Where = "metricName = 'query.wallClockTime.negative.distribution'",
+    ///             },
+    ///         },
+    ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
+    ///         Objective = new NewRelic.Inputs.ServiceLevelObjectiveArgs
+    ///         {
+    ///             Target = 49,
+    ///             TimeWindow = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowArgs
+    ///             {
+    ///                 Rolling = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowRollingArgs
+    ///                 {
+    ///                     Count = 7,
+    ///                     Unit = "DAY",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
     /// 
     /// ## Import
