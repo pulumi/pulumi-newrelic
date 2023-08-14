@@ -97,6 +97,48 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ *
+ * Using `select` for events
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const mySyntheticMonitorDurationServiceLevel = new newrelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel", {
+ *     description: "Monitor created to test concurrent request from terraform",
+ *     events: {
+ *         accountId: 313870,
+ *         goodEvents: {
+ *             from: "Metric",
+ *             select: {
+ *                 attribute: "`query.wallClockTime.negative.distribution`",
+ *                 "function": "GET_CDF_COUNT",
+ *                 threshold: 7,
+ *             },
+ *             where: "metricName = 'query.wallClockTime.negative.distribution'",
+ *         },
+ *         validEvents: {
+ *             from: "Metric",
+ *             select: {
+ *                 attribute: "`query.wallClockTime.negative.distribution`",
+ *                 "function": "GET_FIELD",
+ *             },
+ *             where: "metricName = 'query.wallClockTime.negative.distribution'",
+ *         },
+ *     },
+ *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
+ *     objective: {
+ *         target: 49,
+ *         timeWindow: {
+ *             rolling: {
+ *                 count: 7,
+ *                 unit: "DAY",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  *
  * ## Import

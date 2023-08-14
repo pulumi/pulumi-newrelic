@@ -2298,9 +2298,12 @@ export interface ServiceLevelEventsBadEventsSelect {
      */
     attribute?: pulumi.Input<string>;
     /**
-     * The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+     * The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
      */
     function: pulumi.Input<string>;
+    /**
+     * Limit for values to be counter by `GET_CDF_COUNT` function.
+     */
     threshold?: pulumi.Input<number>;
 }
 
@@ -2327,9 +2330,12 @@ export interface ServiceLevelEventsGoodEventsSelect {
      */
     attribute?: pulumi.Input<string>;
     /**
-     * The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+     * The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
      */
     function: pulumi.Input<string>;
+    /**
+     * Limit for values to be counter by `GET_CDF_COUNT` function.
+     */
     threshold?: pulumi.Input<number>;
 }
 
@@ -2356,9 +2362,12 @@ export interface ServiceLevelEventsValidEventsSelect {
      */
     attribute?: pulumi.Input<string>;
     /**
-     * The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+     * The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
      */
     function: pulumi.Input<string>;
+    /**
+     * Limit for values to be counter by `GET_CDF_COUNT` function.
+     */
     threshold?: pulumi.Input<number>;
 }
 
