@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create, update, and delete New Relic Events to Metrics rules.
@@ -186,6 +187,12 @@ func (i *EventsToMetricsRule) ToEventsToMetricsRuleOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(EventsToMetricsRuleOutput)
 }
 
+func (i *EventsToMetricsRule) ToOutput(ctx context.Context) pulumix.Output[*EventsToMetricsRule] {
+	return pulumix.Output[*EventsToMetricsRule]{
+		OutputState: i.ToEventsToMetricsRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventsToMetricsRuleArrayInput is an input type that accepts EventsToMetricsRuleArray and EventsToMetricsRuleArrayOutput values.
 // You can construct a concrete instance of `EventsToMetricsRuleArrayInput` via:
 //
@@ -209,6 +216,12 @@ func (i EventsToMetricsRuleArray) ToEventsToMetricsRuleArrayOutput() EventsToMet
 
 func (i EventsToMetricsRuleArray) ToEventsToMetricsRuleArrayOutputWithContext(ctx context.Context) EventsToMetricsRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventsToMetricsRuleArrayOutput)
+}
+
+func (i EventsToMetricsRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventsToMetricsRule] {
+	return pulumix.Output[[]*EventsToMetricsRule]{
+		OutputState: i.ToEventsToMetricsRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventsToMetricsRuleMapInput is an input type that accepts EventsToMetricsRuleMap and EventsToMetricsRuleMapOutput values.
@@ -236,6 +249,12 @@ func (i EventsToMetricsRuleMap) ToEventsToMetricsRuleMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EventsToMetricsRuleMapOutput)
 }
 
+func (i EventsToMetricsRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventsToMetricsRule] {
+	return pulumix.Output[map[string]*EventsToMetricsRule]{
+		OutputState: i.ToEventsToMetricsRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventsToMetricsRuleOutput struct{ *pulumi.OutputState }
 
 func (EventsToMetricsRuleOutput) ElementType() reflect.Type {
@@ -248,6 +267,12 @@ func (o EventsToMetricsRuleOutput) ToEventsToMetricsRuleOutput() EventsToMetrics
 
 func (o EventsToMetricsRuleOutput) ToEventsToMetricsRuleOutputWithContext(ctx context.Context) EventsToMetricsRuleOutput {
 	return o
+}
+
+func (o EventsToMetricsRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*EventsToMetricsRule] {
+	return pulumix.Output[*EventsToMetricsRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Account with the event and where the metrics will be put.
@@ -294,6 +319,12 @@ func (o EventsToMetricsRuleArrayOutput) ToEventsToMetricsRuleArrayOutputWithCont
 	return o
 }
 
+func (o EventsToMetricsRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventsToMetricsRule] {
+	return pulumix.Output[[]*EventsToMetricsRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventsToMetricsRuleArrayOutput) Index(i pulumi.IntInput) EventsToMetricsRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventsToMetricsRule {
 		return vs[0].([]*EventsToMetricsRule)[vs[1].(int)]
@@ -312,6 +343,12 @@ func (o EventsToMetricsRuleMapOutput) ToEventsToMetricsRuleMapOutput() EventsToM
 
 func (o EventsToMetricsRuleMapOutput) ToEventsToMetricsRuleMapOutputWithContext(ctx context.Context) EventsToMetricsRuleMapOutput {
 	return o
+}
+
+func (o EventsToMetricsRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventsToMetricsRule] {
+	return pulumix.Output[map[string]*EventsToMetricsRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventsToMetricsRuleMapOutput) MapIndex(k pulumi.StringInput) EventsToMetricsRuleOutput {

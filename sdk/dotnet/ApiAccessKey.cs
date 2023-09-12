@@ -49,7 +49,9 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Import
     /// 
-    /// Existing API access keys can be imported using a composite ID of `&lt;api_access_key_id&gt;:&lt;key_type&gt;`. `&lt;key_type&gt;` will be either `INGEST` or `USER`. For example
+    /// Existing API access keys can be imported using a composite ID of `&lt;api_access_key_id&gt;:&lt;key_type&gt;`. `&lt;key_type&gt;` will be either `INGEST` or `USER`.
+    /// 
+    /// For example:
     /// 
     /// ```sh
     ///  $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar "1234567:INGEST"

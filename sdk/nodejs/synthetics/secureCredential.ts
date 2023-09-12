@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * A Synthetics secure credential can be imported using its `key`
+ * A Synthetics secure credential can be imported using its `key`:
  *
  * ```sh
  *  $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY

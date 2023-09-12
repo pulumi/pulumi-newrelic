@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
@@ -255,6 +256,10 @@ type Monitor struct {
 	BypassHeadRequest pulumi.BoolPtrOutput `pulumi:"bypassHeadRequest"`
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayOutput `pulumi:"customHeaders"`
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	DeviceOrientation pulumi.StringPtrOutput `pulumi:"deviceOrientation"`
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	DeviceType pulumi.StringPtrOutput `pulumi:"deviceType"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrOutput `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -335,6 +340,10 @@ type monitorState struct {
 	BypassHeadRequest *bool `pulumi:"bypassHeadRequest"`
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	DeviceOrientation *string `pulumi:"deviceOrientation"`
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	DeviceType *string `pulumi:"deviceType"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -380,6 +389,10 @@ type MonitorState struct {
 	BypassHeadRequest pulumi.BoolPtrInput
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayInput
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	DeviceOrientation pulumi.StringPtrInput
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	DeviceType pulumi.StringPtrInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -429,6 +442,10 @@ type monitorArgs struct {
 	BypassHeadRequest *bool `pulumi:"bypassHeadRequest"`
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	DeviceOrientation *string `pulumi:"deviceOrientation"`
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	DeviceType *string `pulumi:"deviceType"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -473,6 +490,10 @@ type MonitorArgs struct {
 	BypassHeadRequest pulumi.BoolPtrInput
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayInput
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	DeviceOrientation pulumi.StringPtrInput
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	DeviceType pulumi.StringPtrInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -530,6 +551,12 @@ func (i *Monitor) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorOutput)
 }
 
+func (i *Monitor) ToOutput(ctx context.Context) pulumix.Output[*Monitor] {
+	return pulumix.Output[*Monitor]{
+		OutputState: i.ToMonitorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MonitorArrayInput is an input type that accepts MonitorArray and MonitorArrayOutput values.
 // You can construct a concrete instance of `MonitorArrayInput` via:
 //
@@ -553,6 +580,12 @@ func (i MonitorArray) ToMonitorArrayOutput() MonitorArrayOutput {
 
 func (i MonitorArray) ToMonitorArrayOutputWithContext(ctx context.Context) MonitorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorArrayOutput)
+}
+
+func (i MonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]*Monitor] {
+	return pulumix.Output[[]*Monitor]{
+		OutputState: i.ToMonitorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MonitorMapInput is an input type that accepts MonitorMap and MonitorMapOutput values.
@@ -580,6 +613,12 @@ func (i MonitorMap) ToMonitorMapOutputWithContext(ctx context.Context) MonitorMa
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorMapOutput)
 }
 
+func (i MonitorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Monitor] {
+	return pulumix.Output[map[string]*Monitor]{
+		OutputState: i.ToMonitorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MonitorOutput struct{ *pulumi.OutputState }
 
 func (MonitorOutput) ElementType() reflect.Type {
@@ -592,6 +631,12 @@ func (o MonitorOutput) ToMonitorOutput() MonitorOutput {
 
 func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput {
 	return o
+}
+
+func (o MonitorOutput) ToOutput(ctx context.Context) pulumix.Output[*Monitor] {
+	return pulumix.Output[*Monitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The account in which the Synthetics monitor will be created.
@@ -609,6 +654,16 @@ func (o MonitorOutput) BypassHeadRequest() pulumi.BoolPtrOutput {
 // Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 func (o MonitorOutput) CustomHeaders() MonitorCustomHeaderArrayOutput {
 	return o.ApplyT(func(v *Monitor) MonitorCustomHeaderArrayOutput { return v.CustomHeaders }).(MonitorCustomHeaderArrayOutput)
+}
+
+// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+func (o MonitorOutput) DeviceOrientation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.DeviceOrientation }).(pulumi.StringPtrOutput)
+}
+
+// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+func (o MonitorOutput) DeviceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.DeviceType }).(pulumi.StringPtrOutput)
 }
 
 // Capture a screenshot during job execution.
@@ -707,6 +762,12 @@ func (o MonitorArrayOutput) ToMonitorArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o MonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Monitor] {
+	return pulumix.Output[[]*Monitor]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MonitorArrayOutput) Index(i pulumi.IntInput) MonitorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Monitor {
 		return vs[0].([]*Monitor)[vs[1].(int)]
@@ -725,6 +786,12 @@ func (o MonitorMapOutput) ToMonitorMapOutput() MonitorMapOutput {
 
 func (o MonitorMapOutput) ToMonitorMapOutputWithContext(ctx context.Context) MonitorMapOutput {
 	return o
+}
+
+func (o MonitorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Monitor] {
+	return pulumix.Output[map[string]*Monitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MonitorMapOutput) MapIndex(k pulumi.StringInput) MonitorOutput {

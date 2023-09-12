@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -205,6 +206,12 @@ func (i *AwsGovcloudLinkAccount) ToAwsGovcloudLinkAccountOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudLinkAccountOutput)
 }
 
+func (i *AwsGovcloudLinkAccount) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudLinkAccount] {
+	return pulumix.Output[*AwsGovcloudLinkAccount]{
+		OutputState: i.ToAwsGovcloudLinkAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AwsGovcloudLinkAccountArrayInput is an input type that accepts AwsGovcloudLinkAccountArray and AwsGovcloudLinkAccountArrayOutput values.
 // You can construct a concrete instance of `AwsGovcloudLinkAccountArrayInput` via:
 //
@@ -228,6 +235,12 @@ func (i AwsGovcloudLinkAccountArray) ToAwsGovcloudLinkAccountArrayOutput() AwsGo
 
 func (i AwsGovcloudLinkAccountArray) ToAwsGovcloudLinkAccountArrayOutputWithContext(ctx context.Context) AwsGovcloudLinkAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudLinkAccountArrayOutput)
+}
+
+func (i AwsGovcloudLinkAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*AwsGovcloudLinkAccount] {
+	return pulumix.Output[[]*AwsGovcloudLinkAccount]{
+		OutputState: i.ToAwsGovcloudLinkAccountArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AwsGovcloudLinkAccountMapInput is an input type that accepts AwsGovcloudLinkAccountMap and AwsGovcloudLinkAccountMapOutput values.
@@ -255,6 +268,12 @@ func (i AwsGovcloudLinkAccountMap) ToAwsGovcloudLinkAccountMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudLinkAccountMapOutput)
 }
 
+func (i AwsGovcloudLinkAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AwsGovcloudLinkAccount] {
+	return pulumix.Output[map[string]*AwsGovcloudLinkAccount]{
+		OutputState: i.ToAwsGovcloudLinkAccountMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudLinkAccountOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudLinkAccountOutput) ElementType() reflect.Type {
@@ -267,6 +286,12 @@ func (o AwsGovcloudLinkAccountOutput) ToAwsGovcloudLinkAccountOutput() AwsGovclo
 
 func (o AwsGovcloudLinkAccountOutput) ToAwsGovcloudLinkAccountOutputWithContext(ctx context.Context) AwsGovcloudLinkAccountOutput {
 	return o
+}
+
+func (o AwsGovcloudLinkAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudLinkAccount] {
+	return pulumix.Output[*AwsGovcloudLinkAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The access key of the AwsGovCloud.
@@ -313,6 +338,12 @@ func (o AwsGovcloudLinkAccountArrayOutput) ToAwsGovcloudLinkAccountArrayOutputWi
 	return o
 }
 
+func (o AwsGovcloudLinkAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AwsGovcloudLinkAccount] {
+	return pulumix.Output[[]*AwsGovcloudLinkAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AwsGovcloudLinkAccountArrayOutput) Index(i pulumi.IntInput) AwsGovcloudLinkAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AwsGovcloudLinkAccount {
 		return vs[0].([]*AwsGovcloudLinkAccount)[vs[1].(int)]
@@ -331,6 +362,12 @@ func (o AwsGovcloudLinkAccountMapOutput) ToAwsGovcloudLinkAccountMapOutput() Aws
 
 func (o AwsGovcloudLinkAccountMapOutput) ToAwsGovcloudLinkAccountMapOutputWithContext(ctx context.Context) AwsGovcloudLinkAccountMapOutput {
 	return o
+}
+
+func (o AwsGovcloudLinkAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AwsGovcloudLinkAccount] {
+	return pulumix.Output[map[string]*AwsGovcloudLinkAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudLinkAccountMapOutput) MapIndex(k pulumi.StringInput) AwsGovcloudLinkAccountOutput {

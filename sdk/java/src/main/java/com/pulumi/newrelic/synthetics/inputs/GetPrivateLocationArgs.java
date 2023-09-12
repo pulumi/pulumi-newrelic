@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -32,6 +33,21 @@ public final class GetPrivateLocationArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
+     * The key of the private location.
+     * 
+     */
+    @Import(name="keys")
+    private @Nullable Output<List<String>> keys;
+
+    /**
+     * @return The key of the private location.
+     * 
+     */
+    public Optional<Output<List<String>>> keys() {
+        return Optional.ofNullable(this.keys);
+    }
+
+    /**
      * The name of the Synthetics monitor private location.
      * 
      */
@@ -50,6 +66,7 @@ public final class GetPrivateLocationArgs extends com.pulumi.resources.InvokeArg
 
     private GetPrivateLocationArgs(GetPrivateLocationArgs $) {
         this.accountId = $.accountId;
+        this.keys = $.keys;
         this.name = $.name;
     }
 
@@ -90,6 +107,37 @@ public final class GetPrivateLocationArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder accountId(Integer accountId) {
             return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param keys The key of the private location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keys(@Nullable Output<List<String>> keys) {
+            $.keys = keys;
+            return this;
+        }
+
+        /**
+         * @param keys The key of the private location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keys(List<String> keys) {
+            return keys(Output.of(keys));
+        }
+
+        /**
+         * @param keys The key of the private location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keys(String... keys) {
+            return keys(List.of(keys));
         }
 
         /**

@@ -168,15 +168,15 @@ export class ScriptMonitor extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
-     * The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
      */
     public readonly deviceOrientation!: pulumi.Output<string | undefined>;
     /**
-     * The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
      */
     public readonly deviceType!: pulumi.Output<string | undefined>;
     /**
-     * Capture a screenshot during job execution
+     * Capture a screenshot during job execution.
      */
     public readonly enableScreenshotOnFailureAndScript!: pulumi.Output<boolean | undefined>;
     /**
@@ -307,15 +307,15 @@ export interface ScriptMonitorState {
      */
     accountId?: pulumi.Input<number>;
     /**
-     * The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
      */
     deviceOrientation?: pulumi.Input<string>;
     /**
-     * The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
      */
     deviceType?: pulumi.Input<string>;
     /**
-     * Capture a screenshot during job execution
+     * Capture a screenshot during job execution.
      */
     enableScreenshotOnFailureAndScript?: pulumi.Input<boolean>;
     /**
@@ -383,15 +383,15 @@ export interface ScriptMonitorArgs {
      */
     accountId?: pulumi.Input<number>;
     /**
-     * The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
      */
     deviceOrientation?: pulumi.Input<string>;
     /**
-     * The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
      */
     deviceType?: pulumi.Input<string>;
     /**
-     * Capture a screenshot during job execution
+     * Capture a screenshot during job execution.
      */
     enableScreenshotOnFailureAndScript?: pulumi.Input<boolean>;
     /**

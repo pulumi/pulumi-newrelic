@@ -38,6 +38,7 @@ export function getPrivateLocation(args: GetPrivateLocationArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:synthetics/getPrivateLocation:getPrivateLocation", {
         "accountId": args.accountId,
+        "keys": args.keys,
         "name": args.name,
     }, opts);
 }
@@ -50,6 +51,10 @@ export interface GetPrivateLocationArgs {
      * The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
      */
     accountId?: number;
+    /**
+     * The key of the private location.
+     */
+    keys?: string[];
     /**
      * The name of the Synthetics monitor private location.
      */
@@ -65,6 +70,10 @@ export interface GetPrivateLocationResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The key of the private location.
+     */
+    readonly keys: string[];
     readonly name: string;
 }
 /**
@@ -108,6 +117,10 @@ export interface GetPrivateLocationOutputArgs {
      * The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
      */
     accountId?: pulumi.Input<number>;
+    /**
+     * The key of the private location.
+     */
+    keys?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Synthetics monitor private location.
      */

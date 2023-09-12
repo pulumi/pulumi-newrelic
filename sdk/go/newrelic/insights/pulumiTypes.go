@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i EventEventArgs) ToEventEventOutputWithContext(ctx context.Context) Event
 	return pulumi.ToOutputWithContext(ctx, i).(EventEventOutput)
 }
 
+func (i EventEventArgs) ToOutput(ctx context.Context) pulumix.Output[EventEvent] {
+	return pulumix.Output[EventEvent]{
+		OutputState: i.ToEventEventOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventEventArrayInput is an input type that accepts EventEventArray and EventEventArrayOutput values.
 // You can construct a concrete instance of `EventEventArrayInput` via:
 //
@@ -73,6 +80,12 @@ func (i EventEventArray) ToEventEventArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(EventEventArrayOutput)
 }
 
+func (i EventEventArray) ToOutput(ctx context.Context) pulumix.Output[[]EventEvent] {
+	return pulumix.Output[[]EventEvent]{
+		OutputState: i.ToEventEventArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventEventOutput struct{ *pulumi.OutputState }
 
 func (EventEventOutput) ElementType() reflect.Type {
@@ -85,6 +98,12 @@ func (o EventEventOutput) ToEventEventOutput() EventEventOutput {
 
 func (o EventEventOutput) ToEventEventOutputWithContext(ctx context.Context) EventEventOutput {
 	return o
+}
+
+func (o EventEventOutput) ToOutput(ctx context.Context) pulumix.Output[EventEvent] {
+	return pulumix.Output[EventEvent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventEventOutput) Attributes() EventEventAttributeArrayOutput {
@@ -111,6 +130,12 @@ func (o EventEventArrayOutput) ToEventEventArrayOutput() EventEventArrayOutput {
 
 func (o EventEventArrayOutput) ToEventEventArrayOutputWithContext(ctx context.Context) EventEventArrayOutput {
 	return o
+}
+
+func (o EventEventArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventEvent] {
+	return pulumix.Output[[]EventEvent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventEventArrayOutput) Index(i pulumi.IntInput) EventEventOutput {
@@ -154,6 +179,12 @@ func (i EventEventAttributeArgs) ToEventEventAttributeOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EventEventAttributeOutput)
 }
 
+func (i EventEventAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[EventEventAttribute] {
+	return pulumix.Output[EventEventAttribute]{
+		OutputState: i.ToEventEventAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventEventAttributeArrayInput is an input type that accepts EventEventAttributeArray and EventEventAttributeArrayOutput values.
 // You can construct a concrete instance of `EventEventAttributeArrayInput` via:
 //
@@ -179,6 +210,12 @@ func (i EventEventAttributeArray) ToEventEventAttributeArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EventEventAttributeArrayOutput)
 }
 
+func (i EventEventAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]EventEventAttribute] {
+	return pulumix.Output[[]EventEventAttribute]{
+		OutputState: i.ToEventEventAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventEventAttributeOutput struct{ *pulumi.OutputState }
 
 func (EventEventAttributeOutput) ElementType() reflect.Type {
@@ -191,6 +228,12 @@ func (o EventEventAttributeOutput) ToEventEventAttributeOutput() EventEventAttri
 
 func (o EventEventAttributeOutput) ToEventEventAttributeOutputWithContext(ctx context.Context) EventEventAttributeOutput {
 	return o
+}
+
+func (o EventEventAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[EventEventAttribute] {
+	return pulumix.Output[EventEventAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventEventAttributeOutput) Key() pulumi.StringOutput {
@@ -217,6 +260,12 @@ func (o EventEventAttributeArrayOutput) ToEventEventAttributeArrayOutput() Event
 
 func (o EventEventAttributeArrayOutput) ToEventEventAttributeArrayOutputWithContext(ctx context.Context) EventEventAttributeArrayOutput {
 	return o
+}
+
+func (o EventEventAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventEventAttribute] {
+	return pulumix.Output[[]EventEventAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventEventAttributeArrayOutput) Index(i pulumi.IntInput) EventEventAttributeOutput {

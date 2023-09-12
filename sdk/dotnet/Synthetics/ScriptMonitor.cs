@@ -218,19 +218,19 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         /// </summary>
         [Output("deviceOrientation")]
         public Output<string?> DeviceOrientation { get; private set; } = null!;
 
         /// <summary>
-        /// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         /// </summary>
         [Output("deviceType")]
         public Output<string?> DeviceType { get; private set; } = null!;
 
         /// <summary>
-        /// Capture a screenshot during job execution
+        /// Capture a screenshot during job execution.
         /// </summary>
         [Output("enableScreenshotOnFailureAndScript")]
         public Output<bool?> EnableScreenshotOnFailureAndScript { get; private set; } = null!;
@@ -368,19 +368,19 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         /// </summary>
         [Input("deviceOrientation")]
         public Input<string>? DeviceOrientation { get; set; }
 
         /// <summary>
-        /// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         /// </summary>
         [Input("deviceType")]
         public Input<string>? DeviceType { get; set; }
 
         /// <summary>
-        /// Capture a screenshot during job execution
+        /// Capture a screenshot during job execution.
         /// </summary>
         [Input("enableScreenshotOnFailureAndScript")]
         public Input<bool>? EnableScreenshotOnFailureAndScript { get; set; }
@@ -486,19 +486,19 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         /// </summary>
         [Input("deviceOrientation")]
         public Input<string>? DeviceOrientation { get; set; }
 
         /// <summary>
-        /// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         /// </summary>
         [Input("deviceType")]
         public Input<string>? DeviceType { get; set; }
 
         /// <summary>
-        /// Capture a screenshot during job execution
+        /// Capture a screenshot during job execution.
         /// </summary>
         [Input("enableScreenshotOnFailureAndScript")]
         public Input<bool>? EnableScreenshotOnFailureAndScript { get; set; }

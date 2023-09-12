@@ -255,6 +255,18 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<ImmutableArray<Outputs.MonitorCustomHeader>> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
+        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        /// </summary>
+        [Output("deviceOrientation")]
+        public Output<string?> DeviceOrientation { get; private set; } = null!;
+
+        /// <summary>
+        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+        /// </summary>
+        [Output("deviceType")]
+        public Output<string?> DeviceType { get; private set; } = null!;
+
+        /// <summary>
         /// Capture a screenshot during job execution.
         /// </summary>
         [Output("enableScreenshotOnFailureAndScript")]
@@ -425,6 +437,18 @@ namespace Pulumi.NewRelic.Synthetics
         }
 
         /// <summary>
+        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        /// </summary>
+        [Input("deviceOrientation")]
+        public Input<string>? DeviceOrientation { get; set; }
+
+        /// <summary>
+        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+        /// </summary>
+        [Input("deviceType")]
+        public Input<string>? DeviceType { get; set; }
+
+        /// <summary>
         /// Capture a screenshot during job execution.
         /// </summary>
         [Input("enableScreenshotOnFailureAndScript")]
@@ -567,6 +591,18 @@ namespace Pulumi.NewRelic.Synthetics
             get => _customHeaders ?? (_customHeaders = new InputList<Inputs.MonitorCustomHeaderGetArgs>());
             set => _customHeaders = value;
         }
+
+        /// <summary>
+        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        /// </summary>
+        [Input("deviceOrientation")]
+        public Input<string>? DeviceOrientation { get; set; }
+
+        /// <summary>
+        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+        /// </summary>
+        [Input("deviceType")]
+        public Input<string>? DeviceType { get; set; }
 
         /// <summary>
         /// Capture a screenshot during job execution.

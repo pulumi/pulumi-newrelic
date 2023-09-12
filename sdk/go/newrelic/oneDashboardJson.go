@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -136,6 +137,12 @@ func (i *OneDashboardJson) ToOneDashboardJsonOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardJsonOutput)
 }
 
+func (i *OneDashboardJson) ToOutput(ctx context.Context) pulumix.Output[*OneDashboardJson] {
+	return pulumix.Output[*OneDashboardJson]{
+		OutputState: i.ToOneDashboardJsonOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardJsonArrayInput is an input type that accepts OneDashboardJsonArray and OneDashboardJsonArrayOutput values.
 // You can construct a concrete instance of `OneDashboardJsonArrayInput` via:
 //
@@ -159,6 +166,12 @@ func (i OneDashboardJsonArray) ToOneDashboardJsonArrayOutput() OneDashboardJsonA
 
 func (i OneDashboardJsonArray) ToOneDashboardJsonArrayOutputWithContext(ctx context.Context) OneDashboardJsonArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardJsonArrayOutput)
+}
+
+func (i OneDashboardJsonArray) ToOutput(ctx context.Context) pulumix.Output[[]*OneDashboardJson] {
+	return pulumix.Output[[]*OneDashboardJson]{
+		OutputState: i.ToOneDashboardJsonArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OneDashboardJsonMapInput is an input type that accepts OneDashboardJsonMap and OneDashboardJsonMapOutput values.
@@ -186,6 +199,12 @@ func (i OneDashboardJsonMap) ToOneDashboardJsonMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardJsonMapOutput)
 }
 
+func (i OneDashboardJsonMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OneDashboardJson] {
+	return pulumix.Output[map[string]*OneDashboardJson]{
+		OutputState: i.ToOneDashboardJsonMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardJsonOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardJsonOutput) ElementType() reflect.Type {
@@ -198,6 +217,12 @@ func (o OneDashboardJsonOutput) ToOneDashboardJsonOutput() OneDashboardJsonOutpu
 
 func (o OneDashboardJsonOutput) ToOneDashboardJsonOutputWithContext(ctx context.Context) OneDashboardJsonOutput {
 	return o
+}
+
+func (o OneDashboardJsonOutput) ToOutput(ctx context.Context) pulumix.Output[*OneDashboardJson] {
+	return pulumix.Output[*OneDashboardJson]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -239,6 +264,12 @@ func (o OneDashboardJsonArrayOutput) ToOneDashboardJsonArrayOutputWithContext(ct
 	return o
 }
 
+func (o OneDashboardJsonArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OneDashboardJson] {
+	return pulumix.Output[[]*OneDashboardJson]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardJsonArrayOutput) Index(i pulumi.IntInput) OneDashboardJsonOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OneDashboardJson {
 		return vs[0].([]*OneDashboardJson)[vs[1].(int)]
@@ -257,6 +288,12 @@ func (o OneDashboardJsonMapOutput) ToOneDashboardJsonMapOutput() OneDashboardJso
 
 func (o OneDashboardJsonMapOutput) ToOneDashboardJsonMapOutputWithContext(ctx context.Context) OneDashboardJsonMapOutput {
 	return o
+}
+
+func (o OneDashboardJsonMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OneDashboardJson] {
+	return pulumix.Output[map[string]*OneDashboardJson]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardJsonMapOutput) MapIndex(k pulumi.StringInput) OneDashboardJsonOutput {

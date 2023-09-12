@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alertType in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fastBurn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
@@ -217,6 +218,12 @@ func (o GetServiceLevelAlertHelperResultOutput) ToGetServiceLevelAlertHelperResu
 
 func (o GetServiceLevelAlertHelperResultOutput) ToGetServiceLevelAlertHelperResultOutputWithContext(ctx context.Context) GetServiceLevelAlertHelperResultOutput {
 	return o
+}
+
+func (o GetServiceLevelAlertHelperResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceLevelAlertHelperResult] {
+	return pulumix.Output[GetServiceLevelAlertHelperResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceLevelAlertHelperResultOutput) AlertType() pulumi.StringOutput {

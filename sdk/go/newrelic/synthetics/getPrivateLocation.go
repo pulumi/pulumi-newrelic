@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
@@ -96,6 +97,8 @@ func LookupPrivateLocation(ctx *pulumi.Context, args *LookupPrivateLocationArgs,
 type LookupPrivateLocationArgs struct {
 	// The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
 	AccountId *int `pulumi:"accountId"`
+	// The key of the private location.
+	Keys []string `pulumi:"keys"`
 	// The name of the Synthetics monitor private location.
 	Name string `pulumi:"name"`
 }
@@ -104,8 +107,10 @@ type LookupPrivateLocationArgs struct {
 type LookupPrivateLocationResult struct {
 	AccountId *int `pulumi:"accountId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// The key of the private location.
+	Keys []string `pulumi:"keys"`
+	Name string   `pulumi:"name"`
 }
 
 func LookupPrivateLocationOutput(ctx *pulumi.Context, args LookupPrivateLocationOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateLocationResultOutput {
@@ -125,6 +130,8 @@ func LookupPrivateLocationOutput(ctx *pulumi.Context, args LookupPrivateLocation
 type LookupPrivateLocationOutputArgs struct {
 	// The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
 	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	// The key of the private location.
+	Keys pulumi.StringArrayInput `pulumi:"keys"`
 	// The name of the Synthetics monitor private location.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -148,6 +155,12 @@ func (o LookupPrivateLocationResultOutput) ToLookupPrivateLocationResultOutputWi
 	return o
 }
 
+func (o LookupPrivateLocationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPrivateLocationResult] {
+	return pulumix.Output[LookupPrivateLocationResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LookupPrivateLocationResultOutput) AccountId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupPrivateLocationResult) *int { return v.AccountId }).(pulumi.IntPtrOutput)
 }
@@ -155,6 +168,11 @@ func (o LookupPrivateLocationResultOutput) AccountId() pulumi.IntPtrOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupPrivateLocationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateLocationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The key of the private location.
+func (o LookupPrivateLocationResultOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupPrivateLocationResult) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupPrivateLocationResultOutput) Name() pulumi.StringOutput {

@@ -70,6 +70,36 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     * 
+     */
+    @Import(name="deviceOrientation")
+    private @Nullable Output<String> deviceOrientation;
+
+    /**
+     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     * 
+     */
+    public Optional<Output<String>> deviceOrientation() {
+        return Optional.ofNullable(this.deviceOrientation);
+    }
+
+    /**
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     * 
+     */
+    @Import(name="deviceType")
+    private @Nullable Output<String> deviceType;
+
+    /**
+     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     * 
+     */
+    public Optional<Output<String>> deviceType() {
+        return Optional.ofNullable(this.deviceType);
+    }
+
+    /**
      * Capture a screenshot during job execution.
      * 
      */
@@ -319,6 +349,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         this.accountId = $.accountId;
         this.bypassHeadRequest = $.bypassHeadRequest;
         this.customHeaders = $.customHeaders;
+        this.deviceOrientation = $.deviceOrientation;
+        this.deviceType = $.deviceType;
         this.enableScreenshotOnFailureAndScript = $.enableScreenshotOnFailureAndScript;
         this.locationsPrivates = $.locationsPrivates;
         this.locationsPublics = $.locationsPublics;
@@ -430,6 +462,48 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder customHeaders(MonitorCustomHeaderArgs... customHeaders) {
             return customHeaders(List.of(customHeaders));
+        }
+
+        /**
+         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deviceOrientation(@Nullable Output<String> deviceOrientation) {
+            $.deviceOrientation = deviceOrientation;
+            return this;
+        }
+
+        /**
+         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deviceOrientation(String deviceOrientation) {
+            return deviceOrientation(Output.of(deviceOrientation));
+        }
+
+        /**
+         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deviceType(@Nullable Output<String> deviceType) {
+            $.deviceType = deviceType;
+            return this;
+        }
+
+        /**
+         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deviceType(String deviceType) {
+            return deviceType(Output.of(deviceType));
         }
 
         /**
