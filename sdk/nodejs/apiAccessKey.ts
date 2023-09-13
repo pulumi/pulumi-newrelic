@@ -37,7 +37,9 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Existing API access keys can be imported using a composite ID of `<api_access_key_id>:<key_type>`. `<key_type>` will be either `INGEST` or `USER`. For example
+ * Existing API access keys can be imported using a composite ID of `<api_access_key_id>:<key_type>`. `<key_type>` will be either `INGEST` or `USER`.
+ *
+ * For example:
  *
  * ```sh
  *  $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar "1234567:INGEST"

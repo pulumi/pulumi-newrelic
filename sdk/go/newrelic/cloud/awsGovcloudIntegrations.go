@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -318,6 +319,12 @@ func (i *AwsGovcloudIntegrations) ToAwsGovcloudIntegrationsOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsOutput)
 }
 
+func (i *AwsGovcloudIntegrations) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrations] {
+	return pulumix.Output[*AwsGovcloudIntegrations]{
+		OutputState: i.ToAwsGovcloudIntegrationsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AwsGovcloudIntegrationsArrayInput is an input type that accepts AwsGovcloudIntegrationsArray and AwsGovcloudIntegrationsArrayOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsArrayInput` via:
 //
@@ -341,6 +348,12 @@ func (i AwsGovcloudIntegrationsArray) ToAwsGovcloudIntegrationsArrayOutput() Aws
 
 func (i AwsGovcloudIntegrationsArray) ToAwsGovcloudIntegrationsArrayOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsArrayOutput)
+}
+
+func (i AwsGovcloudIntegrationsArray) ToOutput(ctx context.Context) pulumix.Output[[]*AwsGovcloudIntegrations] {
+	return pulumix.Output[[]*AwsGovcloudIntegrations]{
+		OutputState: i.ToAwsGovcloudIntegrationsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AwsGovcloudIntegrationsMapInput is an input type that accepts AwsGovcloudIntegrationsMap and AwsGovcloudIntegrationsMapOutput values.
@@ -368,6 +381,12 @@ func (i AwsGovcloudIntegrationsMap) ToAwsGovcloudIntegrationsMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsMapOutput)
 }
 
+func (i AwsGovcloudIntegrationsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AwsGovcloudIntegrations] {
+	return pulumix.Output[map[string]*AwsGovcloudIntegrations]{
+		OutputState: i.ToAwsGovcloudIntegrationsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsOutput) ElementType() reflect.Type {
@@ -380,6 +399,12 @@ func (o AwsGovcloudIntegrationsOutput) ToAwsGovcloudIntegrationsOutput() AwsGovc
 
 func (o AwsGovcloudIntegrationsOutput) ToAwsGovcloudIntegrationsOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrations] {
+	return pulumix.Output[*AwsGovcloudIntegrations]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -508,6 +533,12 @@ func (o AwsGovcloudIntegrationsArrayOutput) ToAwsGovcloudIntegrationsArrayOutput
 	return o
 }
 
+func (o AwsGovcloudIntegrationsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AwsGovcloudIntegrations] {
+	return pulumix.Output[[]*AwsGovcloudIntegrations]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AwsGovcloudIntegrationsArrayOutput) Index(i pulumi.IntInput) AwsGovcloudIntegrationsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AwsGovcloudIntegrations {
 		return vs[0].([]*AwsGovcloudIntegrations)[vs[1].(int)]
@@ -526,6 +557,12 @@ func (o AwsGovcloudIntegrationsMapOutput) ToAwsGovcloudIntegrationsMapOutput() A
 
 func (o AwsGovcloudIntegrationsMapOutput) ToAwsGovcloudIntegrationsMapOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsMapOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AwsGovcloudIntegrations] {
+	return pulumix.Output[map[string]*AwsGovcloudIntegrations]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsMapOutput) MapIndex(k pulumi.StringInput) AwsGovcloudIntegrationsOutput {

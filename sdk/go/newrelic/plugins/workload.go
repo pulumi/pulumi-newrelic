@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create, update, and delete a New Relic One workload.
@@ -206,6 +207,12 @@ func (i *Workload) ToWorkloadOutputWithContext(ctx context.Context) WorkloadOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadOutput)
 }
 
+func (i *Workload) ToOutput(ctx context.Context) pulumix.Output[*Workload] {
+	return pulumix.Output[*Workload]{
+		OutputState: i.ToWorkloadOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkloadArrayInput is an input type that accepts WorkloadArray and WorkloadArrayOutput values.
 // You can construct a concrete instance of `WorkloadArrayInput` via:
 //
@@ -229,6 +236,12 @@ func (i WorkloadArray) ToWorkloadArrayOutput() WorkloadArrayOutput {
 
 func (i WorkloadArray) ToWorkloadArrayOutputWithContext(ctx context.Context) WorkloadArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadArrayOutput)
+}
+
+func (i WorkloadArray) ToOutput(ctx context.Context) pulumix.Output[[]*Workload] {
+	return pulumix.Output[[]*Workload]{
+		OutputState: i.ToWorkloadArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkloadMapInput is an input type that accepts WorkloadMap and WorkloadMapOutput values.
@@ -256,6 +269,12 @@ func (i WorkloadMap) ToWorkloadMapOutputWithContext(ctx context.Context) Workloa
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadMapOutput)
 }
 
+func (i WorkloadMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workload] {
+	return pulumix.Output[map[string]*Workload]{
+		OutputState: i.ToWorkloadMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkloadOutput struct{ *pulumi.OutputState }
 
 func (WorkloadOutput) ElementType() reflect.Type {
@@ -268,6 +287,12 @@ func (o WorkloadOutput) ToWorkloadOutput() WorkloadOutput {
 
 func (o WorkloadOutput) ToWorkloadOutputWithContext(ctx context.Context) WorkloadOutput {
 	return o
+}
+
+func (o WorkloadOutput) ToOutput(ctx context.Context) pulumix.Output[*Workload] {
+	return pulumix.Output[*Workload]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The New Relic account ID where you want to create the workload.
@@ -344,6 +369,12 @@ func (o WorkloadArrayOutput) ToWorkloadArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o WorkloadArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Workload] {
+	return pulumix.Output[[]*Workload]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkloadArrayOutput) Index(i pulumi.IntInput) WorkloadOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Workload {
 		return vs[0].([]*Workload)[vs[1].(int)]
@@ -362,6 +393,12 @@ func (o WorkloadMapOutput) ToWorkloadMapOutput() WorkloadMapOutput {
 
 func (o WorkloadMapOutput) ToWorkloadMapOutputWithContext(ctx context.Context) WorkloadMapOutput {
 	return o
+}
+
+func (o WorkloadMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workload] {
+	return pulumix.Output[map[string]*Workload]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkloadMapOutput) MapIndex(k pulumi.StringInput) WorkloadOutput {

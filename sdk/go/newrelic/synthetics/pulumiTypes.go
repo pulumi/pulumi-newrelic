@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -50,6 +51,12 @@ func (i BrokenLinksMonitorTagArgs) ToBrokenLinksMonitorTagOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BrokenLinksMonitorTagOutput)
 }
 
+func (i BrokenLinksMonitorTagArgs) ToOutput(ctx context.Context) pulumix.Output[BrokenLinksMonitorTag] {
+	return pulumix.Output[BrokenLinksMonitorTag]{
+		OutputState: i.ToBrokenLinksMonitorTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BrokenLinksMonitorTagArrayInput is an input type that accepts BrokenLinksMonitorTagArray and BrokenLinksMonitorTagArrayOutput values.
 // You can construct a concrete instance of `BrokenLinksMonitorTagArrayInput` via:
 //
@@ -75,6 +82,12 @@ func (i BrokenLinksMonitorTagArray) ToBrokenLinksMonitorTagArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BrokenLinksMonitorTagArrayOutput)
 }
 
+func (i BrokenLinksMonitorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]BrokenLinksMonitorTag] {
+	return pulumix.Output[[]BrokenLinksMonitorTag]{
+		OutputState: i.ToBrokenLinksMonitorTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BrokenLinksMonitorTagOutput struct{ *pulumi.OutputState }
 
 func (BrokenLinksMonitorTagOutput) ElementType() reflect.Type {
@@ -87,6 +100,12 @@ func (o BrokenLinksMonitorTagOutput) ToBrokenLinksMonitorTagOutput() BrokenLinks
 
 func (o BrokenLinksMonitorTagOutput) ToBrokenLinksMonitorTagOutputWithContext(ctx context.Context) BrokenLinksMonitorTagOutput {
 	return o
+}
+
+func (o BrokenLinksMonitorTagOutput) ToOutput(ctx context.Context) pulumix.Output[BrokenLinksMonitorTag] {
+	return pulumix.Output[BrokenLinksMonitorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the tag key.
@@ -111,6 +130,12 @@ func (o BrokenLinksMonitorTagArrayOutput) ToBrokenLinksMonitorTagArrayOutput() B
 
 func (o BrokenLinksMonitorTagArrayOutput) ToBrokenLinksMonitorTagArrayOutputWithContext(ctx context.Context) BrokenLinksMonitorTagArrayOutput {
 	return o
+}
+
+func (o BrokenLinksMonitorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BrokenLinksMonitorTag] {
+	return pulumix.Output[[]BrokenLinksMonitorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BrokenLinksMonitorTagArrayOutput) Index(i pulumi.IntInput) BrokenLinksMonitorTagOutput {
@@ -156,6 +181,12 @@ func (i CertCheckMonitorTagArgs) ToCertCheckMonitorTagOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CertCheckMonitorTagOutput)
 }
 
+func (i CertCheckMonitorTagArgs) ToOutput(ctx context.Context) pulumix.Output[CertCheckMonitorTag] {
+	return pulumix.Output[CertCheckMonitorTag]{
+		OutputState: i.ToCertCheckMonitorTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CertCheckMonitorTagArrayInput is an input type that accepts CertCheckMonitorTagArray and CertCheckMonitorTagArrayOutput values.
 // You can construct a concrete instance of `CertCheckMonitorTagArrayInput` via:
 //
@@ -181,6 +212,12 @@ func (i CertCheckMonitorTagArray) ToCertCheckMonitorTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CertCheckMonitorTagArrayOutput)
 }
 
+func (i CertCheckMonitorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CertCheckMonitorTag] {
+	return pulumix.Output[[]CertCheckMonitorTag]{
+		OutputState: i.ToCertCheckMonitorTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CertCheckMonitorTagOutput struct{ *pulumi.OutputState }
 
 func (CertCheckMonitorTagOutput) ElementType() reflect.Type {
@@ -193,6 +230,12 @@ func (o CertCheckMonitorTagOutput) ToCertCheckMonitorTagOutput() CertCheckMonito
 
 func (o CertCheckMonitorTagOutput) ToCertCheckMonitorTagOutputWithContext(ctx context.Context) CertCheckMonitorTagOutput {
 	return o
+}
+
+func (o CertCheckMonitorTagOutput) ToOutput(ctx context.Context) pulumix.Output[CertCheckMonitorTag] {
+	return pulumix.Output[CertCheckMonitorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the tag key.
@@ -217,6 +260,12 @@ func (o CertCheckMonitorTagArrayOutput) ToCertCheckMonitorTagArrayOutput() CertC
 
 func (o CertCheckMonitorTagArrayOutput) ToCertCheckMonitorTagArrayOutputWithContext(ctx context.Context) CertCheckMonitorTagArrayOutput {
 	return o
+}
+
+func (o CertCheckMonitorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertCheckMonitorTag] {
+	return pulumix.Output[[]CertCheckMonitorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CertCheckMonitorTagArrayOutput) Index(i pulumi.IntInput) CertCheckMonitorTagOutput {
@@ -262,6 +311,12 @@ func (i MonitorCustomHeaderArgs) ToMonitorCustomHeaderOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorCustomHeaderOutput)
 }
 
+func (i MonitorCustomHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[MonitorCustomHeader] {
+	return pulumix.Output[MonitorCustomHeader]{
+		OutputState: i.ToMonitorCustomHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MonitorCustomHeaderArrayInput is an input type that accepts MonitorCustomHeaderArray and MonitorCustomHeaderArrayOutput values.
 // You can construct a concrete instance of `MonitorCustomHeaderArrayInput` via:
 //
@@ -287,6 +342,12 @@ func (i MonitorCustomHeaderArray) ToMonitorCustomHeaderArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorCustomHeaderArrayOutput)
 }
 
+func (i MonitorCustomHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]MonitorCustomHeader] {
+	return pulumix.Output[[]MonitorCustomHeader]{
+		OutputState: i.ToMonitorCustomHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MonitorCustomHeaderOutput struct{ *pulumi.OutputState }
 
 func (MonitorCustomHeaderOutput) ElementType() reflect.Type {
@@ -299,6 +360,12 @@ func (o MonitorCustomHeaderOutput) ToMonitorCustomHeaderOutput() MonitorCustomHe
 
 func (o MonitorCustomHeaderOutput) ToMonitorCustomHeaderOutputWithContext(ctx context.Context) MonitorCustomHeaderOutput {
 	return o
+}
+
+func (o MonitorCustomHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorCustomHeader] {
+	return pulumix.Output[MonitorCustomHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Header name.
@@ -323,6 +390,12 @@ func (o MonitorCustomHeaderArrayOutput) ToMonitorCustomHeaderArrayOutput() Monit
 
 func (o MonitorCustomHeaderArrayOutput) ToMonitorCustomHeaderArrayOutputWithContext(ctx context.Context) MonitorCustomHeaderArrayOutput {
 	return o
+}
+
+func (o MonitorCustomHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MonitorCustomHeader] {
+	return pulumix.Output[[]MonitorCustomHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MonitorCustomHeaderArrayOutput) Index(i pulumi.IntInput) MonitorCustomHeaderOutput {
@@ -368,6 +441,12 @@ func (i MonitorTagArgs) ToMonitorTagOutputWithContext(ctx context.Context) Monit
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagOutput)
 }
 
+func (i MonitorTagArgs) ToOutput(ctx context.Context) pulumix.Output[MonitorTag] {
+	return pulumix.Output[MonitorTag]{
+		OutputState: i.ToMonitorTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MonitorTagArrayInput is an input type that accepts MonitorTagArray and MonitorTagArrayOutput values.
 // You can construct a concrete instance of `MonitorTagArrayInput` via:
 //
@@ -393,6 +472,12 @@ func (i MonitorTagArray) ToMonitorTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagArrayOutput)
 }
 
+func (i MonitorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]MonitorTag] {
+	return pulumix.Output[[]MonitorTag]{
+		OutputState: i.ToMonitorTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MonitorTagOutput struct{ *pulumi.OutputState }
 
 func (MonitorTagOutput) ElementType() reflect.Type {
@@ -405,6 +490,12 @@ func (o MonitorTagOutput) ToMonitorTagOutput() MonitorTagOutput {
 
 func (o MonitorTagOutput) ToMonitorTagOutputWithContext(ctx context.Context) MonitorTagOutput {
 	return o
+}
+
+func (o MonitorTagOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorTag] {
+	return pulumix.Output[MonitorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the tag key.
@@ -429,6 +520,12 @@ func (o MonitorTagArrayOutput) ToMonitorTagArrayOutput() MonitorTagArrayOutput {
 
 func (o MonitorTagArrayOutput) ToMonitorTagArrayOutputWithContext(ctx context.Context) MonitorTagArrayOutput {
 	return o
+}
+
+func (o MonitorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MonitorTag] {
+	return pulumix.Output[[]MonitorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MonitorTagArrayOutput) Index(i pulumi.IntInput) MonitorTagOutput {
@@ -466,6 +563,12 @@ func (i MultiLocationAlertConditionCriticalArgs) ToMultiLocationAlertConditionCr
 
 func (i MultiLocationAlertConditionCriticalArgs) ToMultiLocationAlertConditionCriticalOutputWithContext(ctx context.Context) MultiLocationAlertConditionCriticalOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MultiLocationAlertConditionCriticalOutput)
+}
+
+func (i MultiLocationAlertConditionCriticalArgs) ToOutput(ctx context.Context) pulumix.Output[MultiLocationAlertConditionCritical] {
+	return pulumix.Output[MultiLocationAlertConditionCritical]{
+		OutputState: i.ToMultiLocationAlertConditionCriticalOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i MultiLocationAlertConditionCriticalArgs) ToMultiLocationAlertConditionCriticalPtrOutput() MultiLocationAlertConditionCriticalPtrOutput {
@@ -509,6 +612,12 @@ func (i *multiLocationAlertConditionCriticalPtrType) ToMultiLocationAlertConditi
 	return pulumi.ToOutputWithContext(ctx, i).(MultiLocationAlertConditionCriticalPtrOutput)
 }
 
+func (i *multiLocationAlertConditionCriticalPtrType) ToOutput(ctx context.Context) pulumix.Output[*MultiLocationAlertConditionCritical] {
+	return pulumix.Output[*MultiLocationAlertConditionCritical]{
+		OutputState: i.ToMultiLocationAlertConditionCriticalPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MultiLocationAlertConditionCriticalOutput struct{ *pulumi.OutputState }
 
 func (MultiLocationAlertConditionCriticalOutput) ElementType() reflect.Type {
@@ -533,6 +642,12 @@ func (o MultiLocationAlertConditionCriticalOutput) ToMultiLocationAlertCondition
 	}).(MultiLocationAlertConditionCriticalPtrOutput)
 }
 
+func (o MultiLocationAlertConditionCriticalOutput) ToOutput(ctx context.Context) pulumix.Output[MultiLocationAlertConditionCritical] {
+	return pulumix.Output[MultiLocationAlertConditionCritical]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MultiLocationAlertConditionCriticalOutput) Threshold() pulumi.IntOutput {
 	return o.ApplyT(func(v MultiLocationAlertConditionCritical) int { return v.Threshold }).(pulumi.IntOutput)
 }
@@ -549,6 +664,12 @@ func (o MultiLocationAlertConditionCriticalPtrOutput) ToMultiLocationAlertCondit
 
 func (o MultiLocationAlertConditionCriticalPtrOutput) ToMultiLocationAlertConditionCriticalPtrOutputWithContext(ctx context.Context) MultiLocationAlertConditionCriticalPtrOutput {
 	return o
+}
+
+func (o MultiLocationAlertConditionCriticalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiLocationAlertConditionCritical] {
+	return pulumix.Output[*MultiLocationAlertConditionCritical]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MultiLocationAlertConditionCriticalPtrOutput) Elem() MultiLocationAlertConditionCriticalOutput {
@@ -601,6 +722,12 @@ func (i MultiLocationAlertConditionWarningArgs) ToMultiLocationAlertConditionWar
 	return pulumi.ToOutputWithContext(ctx, i).(MultiLocationAlertConditionWarningOutput)
 }
 
+func (i MultiLocationAlertConditionWarningArgs) ToOutput(ctx context.Context) pulumix.Output[MultiLocationAlertConditionWarning] {
+	return pulumix.Output[MultiLocationAlertConditionWarning]{
+		OutputState: i.ToMultiLocationAlertConditionWarningOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MultiLocationAlertConditionWarningArgs) ToMultiLocationAlertConditionWarningPtrOutput() MultiLocationAlertConditionWarningPtrOutput {
 	return i.ToMultiLocationAlertConditionWarningPtrOutputWithContext(context.Background())
 }
@@ -642,6 +769,12 @@ func (i *multiLocationAlertConditionWarningPtrType) ToMultiLocationAlertConditio
 	return pulumi.ToOutputWithContext(ctx, i).(MultiLocationAlertConditionWarningPtrOutput)
 }
 
+func (i *multiLocationAlertConditionWarningPtrType) ToOutput(ctx context.Context) pulumix.Output[*MultiLocationAlertConditionWarning] {
+	return pulumix.Output[*MultiLocationAlertConditionWarning]{
+		OutputState: i.ToMultiLocationAlertConditionWarningPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MultiLocationAlertConditionWarningOutput struct{ *pulumi.OutputState }
 
 func (MultiLocationAlertConditionWarningOutput) ElementType() reflect.Type {
@@ -666,6 +799,12 @@ func (o MultiLocationAlertConditionWarningOutput) ToMultiLocationAlertConditionW
 	}).(MultiLocationAlertConditionWarningPtrOutput)
 }
 
+func (o MultiLocationAlertConditionWarningOutput) ToOutput(ctx context.Context) pulumix.Output[MultiLocationAlertConditionWarning] {
+	return pulumix.Output[MultiLocationAlertConditionWarning]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MultiLocationAlertConditionWarningOutput) Threshold() pulumi.IntOutput {
 	return o.ApplyT(func(v MultiLocationAlertConditionWarning) int { return v.Threshold }).(pulumi.IntOutput)
 }
@@ -682,6 +821,12 @@ func (o MultiLocationAlertConditionWarningPtrOutput) ToMultiLocationAlertConditi
 
 func (o MultiLocationAlertConditionWarningPtrOutput) ToMultiLocationAlertConditionWarningPtrOutputWithContext(ctx context.Context) MultiLocationAlertConditionWarningPtrOutput {
 	return o
+}
+
+func (o MultiLocationAlertConditionWarningPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiLocationAlertConditionWarning] {
+	return pulumix.Output[*MultiLocationAlertConditionWarning]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MultiLocationAlertConditionWarningPtrOutput) Elem() MultiLocationAlertConditionWarningOutput {
@@ -740,6 +885,12 @@ func (i ScriptMonitorLocationPrivateArgs) ToScriptMonitorLocationPrivateOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptMonitorLocationPrivateOutput)
 }
 
+func (i ScriptMonitorLocationPrivateArgs) ToOutput(ctx context.Context) pulumix.Output[ScriptMonitorLocationPrivate] {
+	return pulumix.Output[ScriptMonitorLocationPrivate]{
+		OutputState: i.ToScriptMonitorLocationPrivateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScriptMonitorLocationPrivateArrayInput is an input type that accepts ScriptMonitorLocationPrivateArray and ScriptMonitorLocationPrivateArrayOutput values.
 // You can construct a concrete instance of `ScriptMonitorLocationPrivateArrayInput` via:
 //
@@ -765,6 +916,12 @@ func (i ScriptMonitorLocationPrivateArray) ToScriptMonitorLocationPrivateArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptMonitorLocationPrivateArrayOutput)
 }
 
+func (i ScriptMonitorLocationPrivateArray) ToOutput(ctx context.Context) pulumix.Output[[]ScriptMonitorLocationPrivate] {
+	return pulumix.Output[[]ScriptMonitorLocationPrivate]{
+		OutputState: i.ToScriptMonitorLocationPrivateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScriptMonitorLocationPrivateOutput struct{ *pulumi.OutputState }
 
 func (ScriptMonitorLocationPrivateOutput) ElementType() reflect.Type {
@@ -777,6 +934,12 @@ func (o ScriptMonitorLocationPrivateOutput) ToScriptMonitorLocationPrivateOutput
 
 func (o ScriptMonitorLocationPrivateOutput) ToScriptMonitorLocationPrivateOutputWithContext(ctx context.Context) ScriptMonitorLocationPrivateOutput {
 	return o
+}
+
+func (o ScriptMonitorLocationPrivateOutput) ToOutput(ctx context.Context) pulumix.Output[ScriptMonitorLocationPrivate] {
+	return pulumix.Output[ScriptMonitorLocationPrivate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The unique identifier for the Synthetics private location in New Relic.
@@ -801,6 +964,12 @@ func (o ScriptMonitorLocationPrivateArrayOutput) ToScriptMonitorLocationPrivateA
 
 func (o ScriptMonitorLocationPrivateArrayOutput) ToScriptMonitorLocationPrivateArrayOutputWithContext(ctx context.Context) ScriptMonitorLocationPrivateArrayOutput {
 	return o
+}
+
+func (o ScriptMonitorLocationPrivateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScriptMonitorLocationPrivate] {
+	return pulumix.Output[[]ScriptMonitorLocationPrivate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScriptMonitorLocationPrivateArrayOutput) Index(i pulumi.IntInput) ScriptMonitorLocationPrivateOutput {
@@ -846,6 +1015,12 @@ func (i ScriptMonitorTagArgs) ToScriptMonitorTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptMonitorTagOutput)
 }
 
+func (i ScriptMonitorTagArgs) ToOutput(ctx context.Context) pulumix.Output[ScriptMonitorTag] {
+	return pulumix.Output[ScriptMonitorTag]{
+		OutputState: i.ToScriptMonitorTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScriptMonitorTagArrayInput is an input type that accepts ScriptMonitorTagArray and ScriptMonitorTagArrayOutput values.
 // You can construct a concrete instance of `ScriptMonitorTagArrayInput` via:
 //
@@ -871,6 +1046,12 @@ func (i ScriptMonitorTagArray) ToScriptMonitorTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptMonitorTagArrayOutput)
 }
 
+func (i ScriptMonitorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ScriptMonitorTag] {
+	return pulumix.Output[[]ScriptMonitorTag]{
+		OutputState: i.ToScriptMonitorTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScriptMonitorTagOutput struct{ *pulumi.OutputState }
 
 func (ScriptMonitorTagOutput) ElementType() reflect.Type {
@@ -883,6 +1064,12 @@ func (o ScriptMonitorTagOutput) ToScriptMonitorTagOutput() ScriptMonitorTagOutpu
 
 func (o ScriptMonitorTagOutput) ToScriptMonitorTagOutputWithContext(ctx context.Context) ScriptMonitorTagOutput {
 	return o
+}
+
+func (o ScriptMonitorTagOutput) ToOutput(ctx context.Context) pulumix.Output[ScriptMonitorTag] {
+	return pulumix.Output[ScriptMonitorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the tag key.
@@ -907,6 +1094,12 @@ func (o ScriptMonitorTagArrayOutput) ToScriptMonitorTagArrayOutput() ScriptMonit
 
 func (o ScriptMonitorTagArrayOutput) ToScriptMonitorTagArrayOutputWithContext(ctx context.Context) ScriptMonitorTagArrayOutput {
 	return o
+}
+
+func (o ScriptMonitorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScriptMonitorTag] {
+	return pulumix.Output[[]ScriptMonitorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScriptMonitorTagArrayOutput) Index(i pulumi.IntInput) ScriptMonitorTagOutput {
@@ -952,6 +1145,12 @@ func (i StepMonitorLocationPrivateArgs) ToStepMonitorLocationPrivateOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(StepMonitorLocationPrivateOutput)
 }
 
+func (i StepMonitorLocationPrivateArgs) ToOutput(ctx context.Context) pulumix.Output[StepMonitorLocationPrivate] {
+	return pulumix.Output[StepMonitorLocationPrivate]{
+		OutputState: i.ToStepMonitorLocationPrivateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StepMonitorLocationPrivateArrayInput is an input type that accepts StepMonitorLocationPrivateArray and StepMonitorLocationPrivateArrayOutput values.
 // You can construct a concrete instance of `StepMonitorLocationPrivateArrayInput` via:
 //
@@ -977,6 +1176,12 @@ func (i StepMonitorLocationPrivateArray) ToStepMonitorLocationPrivateArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(StepMonitorLocationPrivateArrayOutput)
 }
 
+func (i StepMonitorLocationPrivateArray) ToOutput(ctx context.Context) pulumix.Output[[]StepMonitorLocationPrivate] {
+	return pulumix.Output[[]StepMonitorLocationPrivate]{
+		OutputState: i.ToStepMonitorLocationPrivateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StepMonitorLocationPrivateOutput struct{ *pulumi.OutputState }
 
 func (StepMonitorLocationPrivateOutput) ElementType() reflect.Type {
@@ -989,6 +1194,12 @@ func (o StepMonitorLocationPrivateOutput) ToStepMonitorLocationPrivateOutput() S
 
 func (o StepMonitorLocationPrivateOutput) ToStepMonitorLocationPrivateOutputWithContext(ctx context.Context) StepMonitorLocationPrivateOutput {
 	return o
+}
+
+func (o StepMonitorLocationPrivateOutput) ToOutput(ctx context.Context) pulumix.Output[StepMonitorLocationPrivate] {
+	return pulumix.Output[StepMonitorLocationPrivate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The unique identifier for the Synthetics private location in New Relic.
@@ -1013,6 +1224,12 @@ func (o StepMonitorLocationPrivateArrayOutput) ToStepMonitorLocationPrivateArray
 
 func (o StepMonitorLocationPrivateArrayOutput) ToStepMonitorLocationPrivateArrayOutputWithContext(ctx context.Context) StepMonitorLocationPrivateArrayOutput {
 	return o
+}
+
+func (o StepMonitorLocationPrivateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StepMonitorLocationPrivate] {
+	return pulumix.Output[[]StepMonitorLocationPrivate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StepMonitorLocationPrivateArrayOutput) Index(i pulumi.IntInput) StepMonitorLocationPrivateOutput {
@@ -1062,6 +1279,12 @@ func (i StepMonitorStepArgs) ToStepMonitorStepOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(StepMonitorStepOutput)
 }
 
+func (i StepMonitorStepArgs) ToOutput(ctx context.Context) pulumix.Output[StepMonitorStep] {
+	return pulumix.Output[StepMonitorStep]{
+		OutputState: i.ToStepMonitorStepOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StepMonitorStepArrayInput is an input type that accepts StepMonitorStepArray and StepMonitorStepArrayOutput values.
 // You can construct a concrete instance of `StepMonitorStepArrayInput` via:
 //
@@ -1087,6 +1310,12 @@ func (i StepMonitorStepArray) ToStepMonitorStepArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(StepMonitorStepArrayOutput)
 }
 
+func (i StepMonitorStepArray) ToOutput(ctx context.Context) pulumix.Output[[]StepMonitorStep] {
+	return pulumix.Output[[]StepMonitorStep]{
+		OutputState: i.ToStepMonitorStepArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StepMonitorStepOutput struct{ *pulumi.OutputState }
 
 func (StepMonitorStepOutput) ElementType() reflect.Type {
@@ -1099,6 +1328,12 @@ func (o StepMonitorStepOutput) ToStepMonitorStepOutput() StepMonitorStepOutput {
 
 func (o StepMonitorStepOutput) ToStepMonitorStepOutputWithContext(ctx context.Context) StepMonitorStepOutput {
 	return o
+}
+
+func (o StepMonitorStepOutput) ToOutput(ctx context.Context) pulumix.Output[StepMonitorStep] {
+	return pulumix.Output[StepMonitorStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The position of the step within the script ranging from 0-100.
@@ -1128,6 +1363,12 @@ func (o StepMonitorStepArrayOutput) ToStepMonitorStepArrayOutput() StepMonitorSt
 
 func (o StepMonitorStepArrayOutput) ToStepMonitorStepArrayOutputWithContext(ctx context.Context) StepMonitorStepArrayOutput {
 	return o
+}
+
+func (o StepMonitorStepArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StepMonitorStep] {
+	return pulumix.Output[[]StepMonitorStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StepMonitorStepArrayOutput) Index(i pulumi.IntInput) StepMonitorStepOutput {
@@ -1173,6 +1414,12 @@ func (i StepMonitorTagArgs) ToStepMonitorTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(StepMonitorTagOutput)
 }
 
+func (i StepMonitorTagArgs) ToOutput(ctx context.Context) pulumix.Output[StepMonitorTag] {
+	return pulumix.Output[StepMonitorTag]{
+		OutputState: i.ToStepMonitorTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StepMonitorTagArrayInput is an input type that accepts StepMonitorTagArray and StepMonitorTagArrayOutput values.
 // You can construct a concrete instance of `StepMonitorTagArrayInput` via:
 //
@@ -1198,6 +1445,12 @@ func (i StepMonitorTagArray) ToStepMonitorTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StepMonitorTagArrayOutput)
 }
 
+func (i StepMonitorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StepMonitorTag] {
+	return pulumix.Output[[]StepMonitorTag]{
+		OutputState: i.ToStepMonitorTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StepMonitorTagOutput struct{ *pulumi.OutputState }
 
 func (StepMonitorTagOutput) ElementType() reflect.Type {
@@ -1210,6 +1463,12 @@ func (o StepMonitorTagOutput) ToStepMonitorTagOutput() StepMonitorTagOutput {
 
 func (o StepMonitorTagOutput) ToStepMonitorTagOutputWithContext(ctx context.Context) StepMonitorTagOutput {
 	return o
+}
+
+func (o StepMonitorTagOutput) ToOutput(ctx context.Context) pulumix.Output[StepMonitorTag] {
+	return pulumix.Output[StepMonitorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the tag key.
@@ -1234,6 +1493,12 @@ func (o StepMonitorTagArrayOutput) ToStepMonitorTagArrayOutput() StepMonitorTagA
 
 func (o StepMonitorTagArrayOutput) ToStepMonitorTagArrayOutputWithContext(ctx context.Context) StepMonitorTagArrayOutput {
 	return o
+}
+
+func (o StepMonitorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StepMonitorTag] {
+	return pulumix.Output[[]StepMonitorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StepMonitorTagArrayOutput) Index(i pulumi.IntInput) StepMonitorTagOutput {

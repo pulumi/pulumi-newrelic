@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -84,6 +85,12 @@ func (i AwsGovcloudIntegrationsAlbArgs) ToAwsGovcloudIntegrationsAlbOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsAlbOutput)
 }
 
+func (i AwsGovcloudIntegrationsAlbArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsAlb] {
+	return pulumix.Output[AwsGovcloudIntegrationsAlb]{
+		OutputState: i.ToAwsGovcloudIntegrationsAlbOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsAlbArgs) ToAwsGovcloudIntegrationsAlbPtrOutput() AwsGovcloudIntegrationsAlbPtrOutput {
 	return i.ToAwsGovcloudIntegrationsAlbPtrOutputWithContext(context.Background())
 }
@@ -125,6 +132,12 @@ func (i *awsGovcloudIntegrationsAlbPtrType) ToAwsGovcloudIntegrationsAlbPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsAlbPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsAlbPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsAlb] {
+	return pulumix.Output[*AwsGovcloudIntegrationsAlb]{
+		OutputState: i.ToAwsGovcloudIntegrationsAlbPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsAlbOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsAlbOutput) ElementType() reflect.Type {
@@ -147,6 +160,12 @@ func (o AwsGovcloudIntegrationsAlbOutput) ToAwsGovcloudIntegrationsAlbPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsAlb) *AwsGovcloudIntegrationsAlb {
 		return &v
 	}).(AwsGovcloudIntegrationsAlbPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsAlbOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsAlb] {
+	return pulumix.Output[AwsGovcloudIntegrationsAlb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -203,6 +222,12 @@ func (o AwsGovcloudIntegrationsAlbPtrOutput) ToAwsGovcloudIntegrationsAlbPtrOutp
 
 func (o AwsGovcloudIntegrationsAlbPtrOutput) ToAwsGovcloudIntegrationsAlbPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsAlbPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsAlbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsAlb] {
+	return pulumix.Output[*AwsGovcloudIntegrationsAlb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsAlbPtrOutput) Elem() AwsGovcloudIntegrationsAlbOutput {
@@ -355,6 +380,12 @@ func (i AwsGovcloudIntegrationsApiGatewayArgs) ToAwsGovcloudIntegrationsApiGatew
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsApiGatewayOutput)
 }
 
+func (i AwsGovcloudIntegrationsApiGatewayArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsApiGateway] {
+	return pulumix.Output[AwsGovcloudIntegrationsApiGateway]{
+		OutputState: i.ToAwsGovcloudIntegrationsApiGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsApiGatewayArgs) ToAwsGovcloudIntegrationsApiGatewayPtrOutput() AwsGovcloudIntegrationsApiGatewayPtrOutput {
 	return i.ToAwsGovcloudIntegrationsApiGatewayPtrOutputWithContext(context.Background())
 }
@@ -396,6 +427,12 @@ func (i *awsGovcloudIntegrationsApiGatewayPtrType) ToAwsGovcloudIntegrationsApiG
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsApiGatewayPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsApiGatewayPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsApiGateway] {
+	return pulumix.Output[*AwsGovcloudIntegrationsApiGateway]{
+		OutputState: i.ToAwsGovcloudIntegrationsApiGatewayPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsApiGatewayOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsApiGatewayOutput) ElementType() reflect.Type {
@@ -418,6 +455,12 @@ func (o AwsGovcloudIntegrationsApiGatewayOutput) ToAwsGovcloudIntegrationsApiGat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsApiGateway) *AwsGovcloudIntegrationsApiGateway {
 		return &v
 	}).(AwsGovcloudIntegrationsApiGatewayPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsApiGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsApiGateway] {
+	return pulumix.Output[AwsGovcloudIntegrationsApiGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -464,6 +507,12 @@ func (o AwsGovcloudIntegrationsApiGatewayPtrOutput) ToAwsGovcloudIntegrationsApi
 
 func (o AwsGovcloudIntegrationsApiGatewayPtrOutput) ToAwsGovcloudIntegrationsApiGatewayPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsApiGatewayPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsApiGatewayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsApiGateway] {
+	return pulumix.Output[*AwsGovcloudIntegrationsApiGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsApiGatewayPtrOutput) Elem() AwsGovcloudIntegrationsApiGatewayOutput {
@@ -578,6 +627,12 @@ func (i AwsGovcloudIntegrationsAutoScalingArgs) ToAwsGovcloudIntegrationsAutoSca
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsAutoScalingOutput)
 }
 
+func (i AwsGovcloudIntegrationsAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsAutoScaling] {
+	return pulumix.Output[AwsGovcloudIntegrationsAutoScaling]{
+		OutputState: i.ToAwsGovcloudIntegrationsAutoScalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsAutoScalingArgs) ToAwsGovcloudIntegrationsAutoScalingPtrOutput() AwsGovcloudIntegrationsAutoScalingPtrOutput {
 	return i.ToAwsGovcloudIntegrationsAutoScalingPtrOutputWithContext(context.Background())
 }
@@ -619,6 +674,12 @@ func (i *awsGovcloudIntegrationsAutoScalingPtrType) ToAwsGovcloudIntegrationsAut
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsAutoScalingPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsAutoScaling] {
+	return pulumix.Output[*AwsGovcloudIntegrationsAutoScaling]{
+		OutputState: i.ToAwsGovcloudIntegrationsAutoScalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsAutoScalingOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsAutoScalingOutput) ElementType() reflect.Type {
@@ -641,6 +702,12 @@ func (o AwsGovcloudIntegrationsAutoScalingOutput) ToAwsGovcloudIntegrationsAutoS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsAutoScaling) *AwsGovcloudIntegrationsAutoScaling {
 		return &v
 	}).(AwsGovcloudIntegrationsAutoScalingPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsAutoScaling] {
+	return pulumix.Output[AwsGovcloudIntegrationsAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -669,6 +736,12 @@ func (o AwsGovcloudIntegrationsAutoScalingPtrOutput) ToAwsGovcloudIntegrationsAu
 
 func (o AwsGovcloudIntegrationsAutoScalingPtrOutput) ToAwsGovcloudIntegrationsAutoScalingPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsAutoScalingPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsAutoScaling] {
+	return pulumix.Output[*AwsGovcloudIntegrationsAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsAutoScalingPtrOutput) Elem() AwsGovcloudIntegrationsAutoScalingOutput {
@@ -750,6 +823,12 @@ func (i AwsGovcloudIntegrationsAwsDirectConnectArgs) ToAwsGovcloudIntegrationsAw
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsAwsDirectConnectOutput)
 }
 
+func (i AwsGovcloudIntegrationsAwsDirectConnectArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsAwsDirectConnect] {
+	return pulumix.Output[AwsGovcloudIntegrationsAwsDirectConnect]{
+		OutputState: i.ToAwsGovcloudIntegrationsAwsDirectConnectOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsAwsDirectConnectArgs) ToAwsGovcloudIntegrationsAwsDirectConnectPtrOutput() AwsGovcloudIntegrationsAwsDirectConnectPtrOutput {
 	return i.ToAwsGovcloudIntegrationsAwsDirectConnectPtrOutputWithContext(context.Background())
 }
@@ -791,6 +870,12 @@ func (i *awsGovcloudIntegrationsAwsDirectConnectPtrType) ToAwsGovcloudIntegratio
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsAwsDirectConnectPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsAwsDirectConnectPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsAwsDirectConnect] {
+	return pulumix.Output[*AwsGovcloudIntegrationsAwsDirectConnect]{
+		OutputState: i.ToAwsGovcloudIntegrationsAwsDirectConnectPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsAwsDirectConnectOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsAwsDirectConnectOutput) ElementType() reflect.Type {
@@ -813,6 +898,12 @@ func (o AwsGovcloudIntegrationsAwsDirectConnectOutput) ToAwsGovcloudIntegrations
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsAwsDirectConnect) *AwsGovcloudIntegrationsAwsDirectConnect {
 		return &v
 	}).(AwsGovcloudIntegrationsAwsDirectConnectPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsAwsDirectConnectOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsAwsDirectConnect] {
+	return pulumix.Output[AwsGovcloudIntegrationsAwsDirectConnect]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -841,6 +932,12 @@ func (o AwsGovcloudIntegrationsAwsDirectConnectPtrOutput) ToAwsGovcloudIntegrati
 
 func (o AwsGovcloudIntegrationsAwsDirectConnectPtrOutput) ToAwsGovcloudIntegrationsAwsDirectConnectPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsAwsDirectConnectPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsAwsDirectConnectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsAwsDirectConnect] {
+	return pulumix.Output[*AwsGovcloudIntegrationsAwsDirectConnect]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsAwsDirectConnectPtrOutput) Elem() AwsGovcloudIntegrationsAwsDirectConnectOutput {
@@ -922,6 +1019,12 @@ func (i AwsGovcloudIntegrationsAwsStatesArgs) ToAwsGovcloudIntegrationsAwsStates
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsAwsStatesOutput)
 }
 
+func (i AwsGovcloudIntegrationsAwsStatesArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsAwsStates] {
+	return pulumix.Output[AwsGovcloudIntegrationsAwsStates]{
+		OutputState: i.ToAwsGovcloudIntegrationsAwsStatesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsAwsStatesArgs) ToAwsGovcloudIntegrationsAwsStatesPtrOutput() AwsGovcloudIntegrationsAwsStatesPtrOutput {
 	return i.ToAwsGovcloudIntegrationsAwsStatesPtrOutputWithContext(context.Background())
 }
@@ -963,6 +1066,12 @@ func (i *awsGovcloudIntegrationsAwsStatesPtrType) ToAwsGovcloudIntegrationsAwsSt
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsAwsStatesPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsAwsStatesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsAwsStates] {
+	return pulumix.Output[*AwsGovcloudIntegrationsAwsStates]{
+		OutputState: i.ToAwsGovcloudIntegrationsAwsStatesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsAwsStatesOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsAwsStatesOutput) ElementType() reflect.Type {
@@ -985,6 +1094,12 @@ func (o AwsGovcloudIntegrationsAwsStatesOutput) ToAwsGovcloudIntegrationsAwsStat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsAwsStates) *AwsGovcloudIntegrationsAwsStates {
 		return &v
 	}).(AwsGovcloudIntegrationsAwsStatesPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsAwsStatesOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsAwsStates] {
+	return pulumix.Output[AwsGovcloudIntegrationsAwsStates]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -1013,6 +1128,12 @@ func (o AwsGovcloudIntegrationsAwsStatesPtrOutput) ToAwsGovcloudIntegrationsAwsS
 
 func (o AwsGovcloudIntegrationsAwsStatesPtrOutput) ToAwsGovcloudIntegrationsAwsStatesPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsAwsStatesPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsAwsStatesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsAwsStates] {
+	return pulumix.Output[*AwsGovcloudIntegrationsAwsStates]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsAwsStatesPtrOutput) Elem() AwsGovcloudIntegrationsAwsStatesOutput {
@@ -1094,6 +1215,12 @@ func (i AwsGovcloudIntegrationsCloudtrailArgs) ToAwsGovcloudIntegrationsCloudtra
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsCloudtrailOutput)
 }
 
+func (i AwsGovcloudIntegrationsCloudtrailArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsCloudtrail] {
+	return pulumix.Output[AwsGovcloudIntegrationsCloudtrail]{
+		OutputState: i.ToAwsGovcloudIntegrationsCloudtrailOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsCloudtrailArgs) ToAwsGovcloudIntegrationsCloudtrailPtrOutput() AwsGovcloudIntegrationsCloudtrailPtrOutput {
 	return i.ToAwsGovcloudIntegrationsCloudtrailPtrOutputWithContext(context.Background())
 }
@@ -1135,6 +1262,12 @@ func (i *awsGovcloudIntegrationsCloudtrailPtrType) ToAwsGovcloudIntegrationsClou
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsCloudtrailPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsCloudtrailPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsCloudtrail] {
+	return pulumix.Output[*AwsGovcloudIntegrationsCloudtrail]{
+		OutputState: i.ToAwsGovcloudIntegrationsCloudtrailPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsCloudtrailOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsCloudtrailOutput) ElementType() reflect.Type {
@@ -1157,6 +1290,12 @@ func (o AwsGovcloudIntegrationsCloudtrailOutput) ToAwsGovcloudIntegrationsCloudt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsCloudtrail) *AwsGovcloudIntegrationsCloudtrail {
 		return &v
 	}).(AwsGovcloudIntegrationsCloudtrailPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsCloudtrailOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsCloudtrail] {
+	return pulumix.Output[AwsGovcloudIntegrationsCloudtrail]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -1185,6 +1324,12 @@ func (o AwsGovcloudIntegrationsCloudtrailPtrOutput) ToAwsGovcloudIntegrationsClo
 
 func (o AwsGovcloudIntegrationsCloudtrailPtrOutput) ToAwsGovcloudIntegrationsCloudtrailPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsCloudtrailPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsCloudtrailPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsCloudtrail] {
+	return pulumix.Output[*AwsGovcloudIntegrationsCloudtrail]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsCloudtrailPtrOutput) Elem() AwsGovcloudIntegrationsCloudtrailOutput {
@@ -1288,6 +1433,12 @@ func (i AwsGovcloudIntegrationsDynamoDbArgs) ToAwsGovcloudIntegrationsDynamoDbOu
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsDynamoDbOutput)
 }
 
+func (i AwsGovcloudIntegrationsDynamoDbArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsDynamoDb] {
+	return pulumix.Output[AwsGovcloudIntegrationsDynamoDb]{
+		OutputState: i.ToAwsGovcloudIntegrationsDynamoDbOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsDynamoDbArgs) ToAwsGovcloudIntegrationsDynamoDbPtrOutput() AwsGovcloudIntegrationsDynamoDbPtrOutput {
 	return i.ToAwsGovcloudIntegrationsDynamoDbPtrOutputWithContext(context.Background())
 }
@@ -1329,6 +1480,12 @@ func (i *awsGovcloudIntegrationsDynamoDbPtrType) ToAwsGovcloudIntegrationsDynamo
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsDynamoDbPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsDynamoDbPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsDynamoDb] {
+	return pulumix.Output[*AwsGovcloudIntegrationsDynamoDb]{
+		OutputState: i.ToAwsGovcloudIntegrationsDynamoDbPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsDynamoDbOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsDynamoDbOutput) ElementType() reflect.Type {
@@ -1351,6 +1508,12 @@ func (o AwsGovcloudIntegrationsDynamoDbOutput) ToAwsGovcloudIntegrationsDynamoDb
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsDynamoDb) *AwsGovcloudIntegrationsDynamoDb {
 		return &v
 	}).(AwsGovcloudIntegrationsDynamoDbPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsDynamoDbOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsDynamoDb] {
+	return pulumix.Output[AwsGovcloudIntegrationsDynamoDb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -1402,6 +1565,12 @@ func (o AwsGovcloudIntegrationsDynamoDbPtrOutput) ToAwsGovcloudIntegrationsDynam
 
 func (o AwsGovcloudIntegrationsDynamoDbPtrOutput) ToAwsGovcloudIntegrationsDynamoDbPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsDynamoDbPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsDynamoDbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsDynamoDb] {
+	return pulumix.Output[*AwsGovcloudIntegrationsDynamoDb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsDynamoDbPtrOutput) Elem() AwsGovcloudIntegrationsDynamoDbOutput {
@@ -1544,6 +1713,12 @@ func (i AwsGovcloudIntegrationsEbsArgs) ToAwsGovcloudIntegrationsEbsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsEbsOutput)
 }
 
+func (i AwsGovcloudIntegrationsEbsArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsEbs] {
+	return pulumix.Output[AwsGovcloudIntegrationsEbs]{
+		OutputState: i.ToAwsGovcloudIntegrationsEbsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsEbsArgs) ToAwsGovcloudIntegrationsEbsPtrOutput() AwsGovcloudIntegrationsEbsPtrOutput {
 	return i.ToAwsGovcloudIntegrationsEbsPtrOutputWithContext(context.Background())
 }
@@ -1585,6 +1760,12 @@ func (i *awsGovcloudIntegrationsEbsPtrType) ToAwsGovcloudIntegrationsEbsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsEbsPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsEbsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsEbs] {
+	return pulumix.Output[*AwsGovcloudIntegrationsEbs]{
+		OutputState: i.ToAwsGovcloudIntegrationsEbsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsEbsOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsEbsOutput) ElementType() reflect.Type {
@@ -1607,6 +1788,12 @@ func (o AwsGovcloudIntegrationsEbsOutput) ToAwsGovcloudIntegrationsEbsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsEbs) *AwsGovcloudIntegrationsEbs {
 		return &v
 	}).(AwsGovcloudIntegrationsEbsPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsEbsOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsEbs] {
+	return pulumix.Output[AwsGovcloudIntegrationsEbs]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -1653,6 +1840,12 @@ func (o AwsGovcloudIntegrationsEbsPtrOutput) ToAwsGovcloudIntegrationsEbsPtrOutp
 
 func (o AwsGovcloudIntegrationsEbsPtrOutput) ToAwsGovcloudIntegrationsEbsPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsEbsPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsEbsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsEbs] {
+	return pulumix.Output[*AwsGovcloudIntegrationsEbs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsEbsPtrOutput) Elem() AwsGovcloudIntegrationsEbsOutput {
@@ -1785,6 +1978,12 @@ func (i AwsGovcloudIntegrationsEc2Args) ToAwsGovcloudIntegrationsEc2OutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsEc2Output)
 }
 
+func (i AwsGovcloudIntegrationsEc2Args) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsEc2] {
+	return pulumix.Output[AwsGovcloudIntegrationsEc2]{
+		OutputState: i.ToAwsGovcloudIntegrationsEc2OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsEc2Args) ToAwsGovcloudIntegrationsEc2PtrOutput() AwsGovcloudIntegrationsEc2PtrOutput {
 	return i.ToAwsGovcloudIntegrationsEc2PtrOutputWithContext(context.Background())
 }
@@ -1826,6 +2025,12 @@ func (i *awsGovcloudIntegrationsEc2PtrType) ToAwsGovcloudIntegrationsEc2PtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsEc2PtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsEc2PtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsEc2] {
+	return pulumix.Output[*AwsGovcloudIntegrationsEc2]{
+		OutputState: i.ToAwsGovcloudIntegrationsEc2PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsEc2Output struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsEc2Output) ElementType() reflect.Type {
@@ -1848,6 +2053,12 @@ func (o AwsGovcloudIntegrationsEc2Output) ToAwsGovcloudIntegrationsEc2PtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsEc2) *AwsGovcloudIntegrationsEc2 {
 		return &v
 	}).(AwsGovcloudIntegrationsEc2PtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsEc2Output) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsEc2] {
+	return pulumix.Output[AwsGovcloudIntegrationsEc2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -1894,6 +2105,12 @@ func (o AwsGovcloudIntegrationsEc2PtrOutput) ToAwsGovcloudIntegrationsEc2PtrOutp
 
 func (o AwsGovcloudIntegrationsEc2PtrOutput) ToAwsGovcloudIntegrationsEc2PtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsEc2PtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsEc2PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsEc2] {
+	return pulumix.Output[*AwsGovcloudIntegrationsEc2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsEc2PtrOutput) Elem() AwsGovcloudIntegrationsEc2Output {
@@ -2026,6 +2243,12 @@ func (i AwsGovcloudIntegrationsElasticSearchArgs) ToAwsGovcloudIntegrationsElast
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsElasticSearchOutput)
 }
 
+func (i AwsGovcloudIntegrationsElasticSearchArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsElasticSearch] {
+	return pulumix.Output[AwsGovcloudIntegrationsElasticSearch]{
+		OutputState: i.ToAwsGovcloudIntegrationsElasticSearchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsElasticSearchArgs) ToAwsGovcloudIntegrationsElasticSearchPtrOutput() AwsGovcloudIntegrationsElasticSearchPtrOutput {
 	return i.ToAwsGovcloudIntegrationsElasticSearchPtrOutputWithContext(context.Background())
 }
@@ -2067,6 +2290,12 @@ func (i *awsGovcloudIntegrationsElasticSearchPtrType) ToAwsGovcloudIntegrationsE
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsElasticSearchPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsElasticSearchPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsElasticSearch] {
+	return pulumix.Output[*AwsGovcloudIntegrationsElasticSearch]{
+		OutputState: i.ToAwsGovcloudIntegrationsElasticSearchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsElasticSearchOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsElasticSearchOutput) ElementType() reflect.Type {
@@ -2089,6 +2318,12 @@ func (o AwsGovcloudIntegrationsElasticSearchOutput) ToAwsGovcloudIntegrationsEla
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsElasticSearch) *AwsGovcloudIntegrationsElasticSearch {
 		return &v
 	}).(AwsGovcloudIntegrationsElasticSearchPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsElasticSearchOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsElasticSearch] {
+	return pulumix.Output[AwsGovcloudIntegrationsElasticSearch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -2135,6 +2370,12 @@ func (o AwsGovcloudIntegrationsElasticSearchPtrOutput) ToAwsGovcloudIntegrations
 
 func (o AwsGovcloudIntegrationsElasticSearchPtrOutput) ToAwsGovcloudIntegrationsElasticSearchPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsElasticSearchPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsElasticSearchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsElasticSearch] {
+	return pulumix.Output[*AwsGovcloudIntegrationsElasticSearch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsElasticSearchPtrOutput) Elem() AwsGovcloudIntegrationsElasticSearchOutput {
@@ -2257,6 +2498,12 @@ func (i AwsGovcloudIntegrationsElbArgs) ToAwsGovcloudIntegrationsElbOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsElbOutput)
 }
 
+func (i AwsGovcloudIntegrationsElbArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsElb] {
+	return pulumix.Output[AwsGovcloudIntegrationsElb]{
+		OutputState: i.ToAwsGovcloudIntegrationsElbOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsElbArgs) ToAwsGovcloudIntegrationsElbPtrOutput() AwsGovcloudIntegrationsElbPtrOutput {
 	return i.ToAwsGovcloudIntegrationsElbPtrOutputWithContext(context.Background())
 }
@@ -2298,6 +2545,12 @@ func (i *awsGovcloudIntegrationsElbPtrType) ToAwsGovcloudIntegrationsElbPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsElbPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsElbPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsElb] {
+	return pulumix.Output[*AwsGovcloudIntegrationsElb]{
+		OutputState: i.ToAwsGovcloudIntegrationsElbPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsElbOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsElbOutput) ElementType() reflect.Type {
@@ -2320,6 +2573,12 @@ func (o AwsGovcloudIntegrationsElbOutput) ToAwsGovcloudIntegrationsElbPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsElb) *AwsGovcloudIntegrationsElb {
 		return &v
 	}).(AwsGovcloudIntegrationsElbPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsElbOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsElb] {
+	return pulumix.Output[AwsGovcloudIntegrationsElb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -2358,6 +2617,12 @@ func (o AwsGovcloudIntegrationsElbPtrOutput) ToAwsGovcloudIntegrationsElbPtrOutp
 
 func (o AwsGovcloudIntegrationsElbPtrOutput) ToAwsGovcloudIntegrationsElbPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsElbPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsElbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsElb] {
+	return pulumix.Output[*AwsGovcloudIntegrationsElb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsElbPtrOutput) Elem() AwsGovcloudIntegrationsElbOutput {
@@ -2477,6 +2742,12 @@ func (i AwsGovcloudIntegrationsEmrArgs) ToAwsGovcloudIntegrationsEmrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsEmrOutput)
 }
 
+func (i AwsGovcloudIntegrationsEmrArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsEmr] {
+	return pulumix.Output[AwsGovcloudIntegrationsEmr]{
+		OutputState: i.ToAwsGovcloudIntegrationsEmrOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsEmrArgs) ToAwsGovcloudIntegrationsEmrPtrOutput() AwsGovcloudIntegrationsEmrPtrOutput {
 	return i.ToAwsGovcloudIntegrationsEmrPtrOutputWithContext(context.Background())
 }
@@ -2518,6 +2789,12 @@ func (i *awsGovcloudIntegrationsEmrPtrType) ToAwsGovcloudIntegrationsEmrPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsEmrPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsEmrPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsEmr] {
+	return pulumix.Output[*AwsGovcloudIntegrationsEmr]{
+		OutputState: i.ToAwsGovcloudIntegrationsEmrPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsEmrOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsEmrOutput) ElementType() reflect.Type {
@@ -2540,6 +2817,12 @@ func (o AwsGovcloudIntegrationsEmrOutput) ToAwsGovcloudIntegrationsEmrPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsEmr) *AwsGovcloudIntegrationsEmr {
 		return &v
 	}).(AwsGovcloudIntegrationsEmrPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsEmrOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsEmr] {
+	return pulumix.Output[AwsGovcloudIntegrationsEmr]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -2586,6 +2869,12 @@ func (o AwsGovcloudIntegrationsEmrPtrOutput) ToAwsGovcloudIntegrationsEmrPtrOutp
 
 func (o AwsGovcloudIntegrationsEmrPtrOutput) ToAwsGovcloudIntegrationsEmrPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsEmrPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsEmrPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsEmr] {
+	return pulumix.Output[*AwsGovcloudIntegrationsEmr]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsEmrPtrOutput) Elem() AwsGovcloudIntegrationsEmrOutput {
@@ -2706,6 +2995,12 @@ func (i AwsGovcloudIntegrationsIamArgs) ToAwsGovcloudIntegrationsIamOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsIamOutput)
 }
 
+func (i AwsGovcloudIntegrationsIamArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsIam] {
+	return pulumix.Output[AwsGovcloudIntegrationsIam]{
+		OutputState: i.ToAwsGovcloudIntegrationsIamOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsIamArgs) ToAwsGovcloudIntegrationsIamPtrOutput() AwsGovcloudIntegrationsIamPtrOutput {
 	return i.ToAwsGovcloudIntegrationsIamPtrOutputWithContext(context.Background())
 }
@@ -2747,6 +3042,12 @@ func (i *awsGovcloudIntegrationsIamPtrType) ToAwsGovcloudIntegrationsIamPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsIamPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsIamPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsIam] {
+	return pulumix.Output[*AwsGovcloudIntegrationsIam]{
+		OutputState: i.ToAwsGovcloudIntegrationsIamPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsIamOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsIamOutput) ElementType() reflect.Type {
@@ -2769,6 +3070,12 @@ func (o AwsGovcloudIntegrationsIamOutput) ToAwsGovcloudIntegrationsIamPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsIam) *AwsGovcloudIntegrationsIam {
 		return &v
 	}).(AwsGovcloudIntegrationsIamPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsIamOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsIam] {
+	return pulumix.Output[AwsGovcloudIntegrationsIam]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -2803,6 +3110,12 @@ func (o AwsGovcloudIntegrationsIamPtrOutput) ToAwsGovcloudIntegrationsIamPtrOutp
 
 func (o AwsGovcloudIntegrationsIamPtrOutput) ToAwsGovcloudIntegrationsIamPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsIamPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsIamPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsIam] {
+	return pulumix.Output[*AwsGovcloudIntegrationsIam]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsIamPtrOutput) Elem() AwsGovcloudIntegrationsIamOutput {
@@ -2913,6 +3226,12 @@ func (i AwsGovcloudIntegrationsLambdaArgs) ToAwsGovcloudIntegrationsLambdaOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsLambdaOutput)
 }
 
+func (i AwsGovcloudIntegrationsLambdaArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsLambda] {
+	return pulumix.Output[AwsGovcloudIntegrationsLambda]{
+		OutputState: i.ToAwsGovcloudIntegrationsLambdaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsLambdaArgs) ToAwsGovcloudIntegrationsLambdaPtrOutput() AwsGovcloudIntegrationsLambdaPtrOutput {
 	return i.ToAwsGovcloudIntegrationsLambdaPtrOutputWithContext(context.Background())
 }
@@ -2954,6 +3273,12 @@ func (i *awsGovcloudIntegrationsLambdaPtrType) ToAwsGovcloudIntegrationsLambdaPt
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsLambdaPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsLambdaPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsLambda] {
+	return pulumix.Output[*AwsGovcloudIntegrationsLambda]{
+		OutputState: i.ToAwsGovcloudIntegrationsLambdaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsLambdaOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsLambdaOutput) ElementType() reflect.Type {
@@ -2976,6 +3301,12 @@ func (o AwsGovcloudIntegrationsLambdaOutput) ToAwsGovcloudIntegrationsLambdaPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsLambda) *AwsGovcloudIntegrationsLambda {
 		return &v
 	}).(AwsGovcloudIntegrationsLambdaPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsLambdaOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsLambda] {
+	return pulumix.Output[AwsGovcloudIntegrationsLambda]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -3022,6 +3353,12 @@ func (o AwsGovcloudIntegrationsLambdaPtrOutput) ToAwsGovcloudIntegrationsLambdaP
 
 func (o AwsGovcloudIntegrationsLambdaPtrOutput) ToAwsGovcloudIntegrationsLambdaPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsLambdaPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsLambdaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsLambda] {
+	return pulumix.Output[*AwsGovcloudIntegrationsLambda]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsLambdaPtrOutput) Elem() AwsGovcloudIntegrationsLambdaOutput {
@@ -3154,6 +3491,12 @@ func (i AwsGovcloudIntegrationsRdsArgs) ToAwsGovcloudIntegrationsRdsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsRdsOutput)
 }
 
+func (i AwsGovcloudIntegrationsRdsArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsRds] {
+	return pulumix.Output[AwsGovcloudIntegrationsRds]{
+		OutputState: i.ToAwsGovcloudIntegrationsRdsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsRdsArgs) ToAwsGovcloudIntegrationsRdsPtrOutput() AwsGovcloudIntegrationsRdsPtrOutput {
 	return i.ToAwsGovcloudIntegrationsRdsPtrOutputWithContext(context.Background())
 }
@@ -3195,6 +3538,12 @@ func (i *awsGovcloudIntegrationsRdsPtrType) ToAwsGovcloudIntegrationsRdsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsRdsPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsRdsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsRds] {
+	return pulumix.Output[*AwsGovcloudIntegrationsRds]{
+		OutputState: i.ToAwsGovcloudIntegrationsRdsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsRdsOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsRdsOutput) ElementType() reflect.Type {
@@ -3217,6 +3566,12 @@ func (o AwsGovcloudIntegrationsRdsOutput) ToAwsGovcloudIntegrationsRdsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsRds) *AwsGovcloudIntegrationsRds {
 		return &v
 	}).(AwsGovcloudIntegrationsRdsPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsRdsOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsRds] {
+	return pulumix.Output[AwsGovcloudIntegrationsRds]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -3263,6 +3618,12 @@ func (o AwsGovcloudIntegrationsRdsPtrOutput) ToAwsGovcloudIntegrationsRdsPtrOutp
 
 func (o AwsGovcloudIntegrationsRdsPtrOutput) ToAwsGovcloudIntegrationsRdsPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsRdsPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsRdsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsRds] {
+	return pulumix.Output[*AwsGovcloudIntegrationsRds]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsRdsPtrOutput) Elem() AwsGovcloudIntegrationsRdsOutput {
@@ -3391,6 +3752,12 @@ func (i AwsGovcloudIntegrationsRedShiftArgs) ToAwsGovcloudIntegrationsRedShiftOu
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsRedShiftOutput)
 }
 
+func (i AwsGovcloudIntegrationsRedShiftArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsRedShift] {
+	return pulumix.Output[AwsGovcloudIntegrationsRedShift]{
+		OutputState: i.ToAwsGovcloudIntegrationsRedShiftOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsRedShiftArgs) ToAwsGovcloudIntegrationsRedShiftPtrOutput() AwsGovcloudIntegrationsRedShiftPtrOutput {
 	return i.ToAwsGovcloudIntegrationsRedShiftPtrOutputWithContext(context.Background())
 }
@@ -3432,6 +3799,12 @@ func (i *awsGovcloudIntegrationsRedShiftPtrType) ToAwsGovcloudIntegrationsRedShi
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsRedShiftPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsRedShiftPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsRedShift] {
+	return pulumix.Output[*AwsGovcloudIntegrationsRedShift]{
+		OutputState: i.ToAwsGovcloudIntegrationsRedShiftPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsRedShiftOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsRedShiftOutput) ElementType() reflect.Type {
@@ -3454,6 +3827,12 @@ func (o AwsGovcloudIntegrationsRedShiftOutput) ToAwsGovcloudIntegrationsRedShift
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsRedShift) *AwsGovcloudIntegrationsRedShift {
 		return &v
 	}).(AwsGovcloudIntegrationsRedShiftPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsRedShiftOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsRedShift] {
+	return pulumix.Output[AwsGovcloudIntegrationsRedShift]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -3495,6 +3874,12 @@ func (o AwsGovcloudIntegrationsRedShiftPtrOutput) ToAwsGovcloudIntegrationsRedSh
 
 func (o AwsGovcloudIntegrationsRedShiftPtrOutput) ToAwsGovcloudIntegrationsRedShiftPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsRedShiftPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsRedShiftPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsRedShift] {
+	return pulumix.Output[*AwsGovcloudIntegrationsRedShift]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsRedShiftPtrOutput) Elem() AwsGovcloudIntegrationsRedShiftOutput {
@@ -3595,6 +3980,12 @@ func (i AwsGovcloudIntegrationsRoute53Args) ToAwsGovcloudIntegrationsRoute53Outp
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsRoute53Output)
 }
 
+func (i AwsGovcloudIntegrationsRoute53Args) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsRoute53] {
+	return pulumix.Output[AwsGovcloudIntegrationsRoute53]{
+		OutputState: i.ToAwsGovcloudIntegrationsRoute53OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsRoute53Args) ToAwsGovcloudIntegrationsRoute53PtrOutput() AwsGovcloudIntegrationsRoute53PtrOutput {
 	return i.ToAwsGovcloudIntegrationsRoute53PtrOutputWithContext(context.Background())
 }
@@ -3636,6 +4027,12 @@ func (i *awsGovcloudIntegrationsRoute53PtrType) ToAwsGovcloudIntegrationsRoute53
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsRoute53PtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsRoute53PtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsRoute53] {
+	return pulumix.Output[*AwsGovcloudIntegrationsRoute53]{
+		OutputState: i.ToAwsGovcloudIntegrationsRoute53PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsRoute53Output struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsRoute53Output) ElementType() reflect.Type {
@@ -3658,6 +4055,12 @@ func (o AwsGovcloudIntegrationsRoute53Output) ToAwsGovcloudIntegrationsRoute53Pt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsRoute53) *AwsGovcloudIntegrationsRoute53 {
 		return &v
 	}).(AwsGovcloudIntegrationsRoute53PtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsRoute53Output) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsRoute53] {
+	return pulumix.Output[AwsGovcloudIntegrationsRoute53]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -3684,6 +4087,12 @@ func (o AwsGovcloudIntegrationsRoute53PtrOutput) ToAwsGovcloudIntegrationsRoute5
 
 func (o AwsGovcloudIntegrationsRoute53PtrOutput) ToAwsGovcloudIntegrationsRoute53PtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsRoute53PtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsRoute53PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsRoute53] {
+	return pulumix.Output[*AwsGovcloudIntegrationsRoute53]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsRoute53PtrOutput) Elem() AwsGovcloudIntegrationsRoute53Output {
@@ -3777,6 +4186,12 @@ func (i AwsGovcloudIntegrationsS3Args) ToAwsGovcloudIntegrationsS3OutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsS3Output)
 }
 
+func (i AwsGovcloudIntegrationsS3Args) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsS3] {
+	return pulumix.Output[AwsGovcloudIntegrationsS3]{
+		OutputState: i.ToAwsGovcloudIntegrationsS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsS3Args) ToAwsGovcloudIntegrationsS3PtrOutput() AwsGovcloudIntegrationsS3PtrOutput {
 	return i.ToAwsGovcloudIntegrationsS3PtrOutputWithContext(context.Background())
 }
@@ -3818,6 +4233,12 @@ func (i *awsGovcloudIntegrationsS3PtrType) ToAwsGovcloudIntegrationsS3PtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsS3PtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsS3] {
+	return pulumix.Output[*AwsGovcloudIntegrationsS3]{
+		OutputState: i.ToAwsGovcloudIntegrationsS3PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsS3Output struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsS3Output) ElementType() reflect.Type {
@@ -3840,6 +4261,12 @@ func (o AwsGovcloudIntegrationsS3Output) ToAwsGovcloudIntegrationsS3PtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsS3) *AwsGovcloudIntegrationsS3 {
 		return &v
 	}).(AwsGovcloudIntegrationsS3PtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsS3Output) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsS3] {
+	return pulumix.Output[AwsGovcloudIntegrationsS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -3884,6 +4311,12 @@ func (o AwsGovcloudIntegrationsS3PtrOutput) ToAwsGovcloudIntegrationsS3PtrOutput
 
 func (o AwsGovcloudIntegrationsS3PtrOutput) ToAwsGovcloudIntegrationsS3PtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsS3PtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsS3] {
+	return pulumix.Output[*AwsGovcloudIntegrationsS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsS3PtrOutput) Elem() AwsGovcloudIntegrationsS3Output {
@@ -4000,6 +4433,12 @@ func (i AwsGovcloudIntegrationsSnsArgs) ToAwsGovcloudIntegrationsSnsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsSnsOutput)
 }
 
+func (i AwsGovcloudIntegrationsSnsArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsSns] {
+	return pulumix.Output[AwsGovcloudIntegrationsSns]{
+		OutputState: i.ToAwsGovcloudIntegrationsSnsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsSnsArgs) ToAwsGovcloudIntegrationsSnsPtrOutput() AwsGovcloudIntegrationsSnsPtrOutput {
 	return i.ToAwsGovcloudIntegrationsSnsPtrOutputWithContext(context.Background())
 }
@@ -4041,6 +4480,12 @@ func (i *awsGovcloudIntegrationsSnsPtrType) ToAwsGovcloudIntegrationsSnsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsSnsPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsSnsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsSns] {
+	return pulumix.Output[*AwsGovcloudIntegrationsSns]{
+		OutputState: i.ToAwsGovcloudIntegrationsSnsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsSnsOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsSnsOutput) ElementType() reflect.Type {
@@ -4063,6 +4508,12 @@ func (o AwsGovcloudIntegrationsSnsOutput) ToAwsGovcloudIntegrationsSnsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsSns) *AwsGovcloudIntegrationsSns {
 		return &v
 	}).(AwsGovcloudIntegrationsSnsPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsSnsOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsSns] {
+	return pulumix.Output[AwsGovcloudIntegrationsSns]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -4096,6 +4547,12 @@ func (o AwsGovcloudIntegrationsSnsPtrOutput) ToAwsGovcloudIntegrationsSnsPtrOutp
 
 func (o AwsGovcloudIntegrationsSnsPtrOutput) ToAwsGovcloudIntegrationsSnsPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsSnsPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsSnsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsSns] {
+	return pulumix.Output[*AwsGovcloudIntegrationsSns]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsSnsPtrOutput) Elem() AwsGovcloudIntegrationsSnsOutput {
@@ -4213,6 +4670,12 @@ func (i AwsGovcloudIntegrationsSqsArgs) ToAwsGovcloudIntegrationsSqsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsSqsOutput)
 }
 
+func (i AwsGovcloudIntegrationsSqsArgs) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsSqs] {
+	return pulumix.Output[AwsGovcloudIntegrationsSqs]{
+		OutputState: i.ToAwsGovcloudIntegrationsSqsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsGovcloudIntegrationsSqsArgs) ToAwsGovcloudIntegrationsSqsPtrOutput() AwsGovcloudIntegrationsSqsPtrOutput {
 	return i.ToAwsGovcloudIntegrationsSqsPtrOutputWithContext(context.Background())
 }
@@ -4254,6 +4717,12 @@ func (i *awsGovcloudIntegrationsSqsPtrType) ToAwsGovcloudIntegrationsSqsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AwsGovcloudIntegrationsSqsPtrOutput)
 }
 
+func (i *awsGovcloudIntegrationsSqsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsSqs] {
+	return pulumix.Output[*AwsGovcloudIntegrationsSqs]{
+		OutputState: i.ToAwsGovcloudIntegrationsSqsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsGovcloudIntegrationsSqsOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsSqsOutput) ElementType() reflect.Type {
@@ -4276,6 +4745,12 @@ func (o AwsGovcloudIntegrationsSqsOutput) ToAwsGovcloudIntegrationsSqsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsGovcloudIntegrationsSqs) *AwsGovcloudIntegrationsSqs {
 		return &v
 	}).(AwsGovcloudIntegrationsSqsPtrOutput)
+}
+
+func (o AwsGovcloudIntegrationsSqsOutput) ToOutput(ctx context.Context) pulumix.Output[AwsGovcloudIntegrationsSqs] {
+	return pulumix.Output[AwsGovcloudIntegrationsSqs]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -4332,6 +4807,12 @@ func (o AwsGovcloudIntegrationsSqsPtrOutput) ToAwsGovcloudIntegrationsSqsPtrOutp
 
 func (o AwsGovcloudIntegrationsSqsPtrOutput) ToAwsGovcloudIntegrationsSqsPtrOutputWithContext(ctx context.Context) AwsGovcloudIntegrationsSqsPtrOutput {
 	return o
+}
+
+func (o AwsGovcloudIntegrationsSqsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsGovcloudIntegrationsSqs] {
+	return pulumix.Output[*AwsGovcloudIntegrationsSqs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsGovcloudIntegrationsSqsPtrOutput) Elem() AwsGovcloudIntegrationsSqsOutput {
@@ -4490,6 +4971,12 @@ func (i AwsIntegrationsAlbArgs) ToAwsIntegrationsAlbOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAlbOutput)
 }
 
+func (i AwsIntegrationsAlbArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAlb] {
+	return pulumix.Output[AwsIntegrationsAlb]{
+		OutputState: i.ToAwsIntegrationsAlbOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAlbArgs) ToAwsIntegrationsAlbPtrOutput() AwsIntegrationsAlbPtrOutput {
 	return i.ToAwsIntegrationsAlbPtrOutputWithContext(context.Background())
 }
@@ -4531,6 +5018,12 @@ func (i *awsIntegrationsAlbPtrType) ToAwsIntegrationsAlbPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAlbPtrOutput)
 }
 
+func (i *awsIntegrationsAlbPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAlb] {
+	return pulumix.Output[*AwsIntegrationsAlb]{
+		OutputState: i.ToAwsIntegrationsAlbPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAlbOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAlbOutput) ElementType() reflect.Type {
@@ -4553,6 +5046,12 @@ func (o AwsIntegrationsAlbOutput) ToAwsIntegrationsAlbPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAlb) *AwsIntegrationsAlb {
 		return &v
 	}).(AwsIntegrationsAlbPtrOutput)
+}
+
+func (o AwsIntegrationsAlbOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAlb] {
+	return pulumix.Output[AwsIntegrationsAlb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -4608,6 +5107,12 @@ func (o AwsIntegrationsAlbPtrOutput) ToAwsIntegrationsAlbPtrOutput() AwsIntegrat
 
 func (o AwsIntegrationsAlbPtrOutput) ToAwsIntegrationsAlbPtrOutputWithContext(ctx context.Context) AwsIntegrationsAlbPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAlbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAlb] {
+	return pulumix.Output[*AwsIntegrationsAlb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAlbPtrOutput) Elem() AwsIntegrationsAlbOutput {
@@ -4753,6 +5258,12 @@ func (i AwsIntegrationsApiGatewayArgs) ToAwsIntegrationsApiGatewayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsApiGatewayOutput)
 }
 
+func (i AwsIntegrationsApiGatewayArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsApiGateway] {
+	return pulumix.Output[AwsIntegrationsApiGateway]{
+		OutputState: i.ToAwsIntegrationsApiGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsApiGatewayArgs) ToAwsIntegrationsApiGatewayPtrOutput() AwsIntegrationsApiGatewayPtrOutput {
 	return i.ToAwsIntegrationsApiGatewayPtrOutputWithContext(context.Background())
 }
@@ -4794,6 +5305,12 @@ func (i *awsIntegrationsApiGatewayPtrType) ToAwsIntegrationsApiGatewayPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsApiGatewayPtrOutput)
 }
 
+func (i *awsIntegrationsApiGatewayPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsApiGateway] {
+	return pulumix.Output[*AwsIntegrationsApiGateway]{
+		OutputState: i.ToAwsIntegrationsApiGatewayPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsApiGatewayOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsApiGatewayOutput) ElementType() reflect.Type {
@@ -4816,6 +5333,12 @@ func (o AwsIntegrationsApiGatewayOutput) ToAwsIntegrationsApiGatewayPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsApiGateway) *AwsIntegrationsApiGateway {
 		return &v
 	}).(AwsIntegrationsApiGatewayPtrOutput)
+}
+
+func (o AwsIntegrationsApiGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsApiGateway] {
+	return pulumix.Output[AwsIntegrationsApiGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -4859,6 +5382,12 @@ func (o AwsIntegrationsApiGatewayPtrOutput) ToAwsIntegrationsApiGatewayPtrOutput
 
 func (o AwsIntegrationsApiGatewayPtrOutput) ToAwsIntegrationsApiGatewayPtrOutputWithContext(ctx context.Context) AwsIntegrationsApiGatewayPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsApiGatewayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsApiGateway] {
+	return pulumix.Output[*AwsIntegrationsApiGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsApiGatewayPtrOutput) Elem() AwsIntegrationsApiGatewayOutput {
@@ -4970,6 +5499,12 @@ func (i AwsIntegrationsAutoScalingArgs) ToAwsIntegrationsAutoScalingOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAutoScalingOutput)
 }
 
+func (i AwsIntegrationsAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAutoScaling] {
+	return pulumix.Output[AwsIntegrationsAutoScaling]{
+		OutputState: i.ToAwsIntegrationsAutoScalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAutoScalingArgs) ToAwsIntegrationsAutoScalingPtrOutput() AwsIntegrationsAutoScalingPtrOutput {
 	return i.ToAwsIntegrationsAutoScalingPtrOutputWithContext(context.Background())
 }
@@ -5011,6 +5546,12 @@ func (i *awsIntegrationsAutoScalingPtrType) ToAwsIntegrationsAutoScalingPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAutoScalingPtrOutput)
 }
 
+func (i *awsIntegrationsAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAutoScaling] {
+	return pulumix.Output[*AwsIntegrationsAutoScaling]{
+		OutputState: i.ToAwsIntegrationsAutoScalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAutoScalingOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAutoScalingOutput) ElementType() reflect.Type {
@@ -5033,6 +5574,12 @@ func (o AwsIntegrationsAutoScalingOutput) ToAwsIntegrationsAutoScalingPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAutoScaling) *AwsIntegrationsAutoScaling {
 		return &v
 	}).(AwsIntegrationsAutoScalingPtrOutput)
+}
+
+func (o AwsIntegrationsAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAutoScaling] {
+	return pulumix.Output[AwsIntegrationsAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -5061,6 +5608,12 @@ func (o AwsIntegrationsAutoScalingPtrOutput) ToAwsIntegrationsAutoScalingPtrOutp
 
 func (o AwsIntegrationsAutoScalingPtrOutput) ToAwsIntegrationsAutoScalingPtrOutputWithContext(ctx context.Context) AwsIntegrationsAutoScalingPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAutoScaling] {
+	return pulumix.Output[*AwsIntegrationsAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAutoScalingPtrOutput) Elem() AwsIntegrationsAutoScalingOutput {
@@ -5142,6 +5695,12 @@ func (i AwsIntegrationsAwsAppSyncArgs) ToAwsIntegrationsAwsAppSyncOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsAppSyncOutput)
 }
 
+func (i AwsIntegrationsAwsAppSyncArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsAppSync] {
+	return pulumix.Output[AwsIntegrationsAwsAppSync]{
+		OutputState: i.ToAwsIntegrationsAwsAppSyncOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsAppSyncArgs) ToAwsIntegrationsAwsAppSyncPtrOutput() AwsIntegrationsAwsAppSyncPtrOutput {
 	return i.ToAwsIntegrationsAwsAppSyncPtrOutputWithContext(context.Background())
 }
@@ -5183,6 +5742,12 @@ func (i *awsIntegrationsAwsAppSyncPtrType) ToAwsIntegrationsAwsAppSyncPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsAppSyncPtrOutput)
 }
 
+func (i *awsIntegrationsAwsAppSyncPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsAppSync] {
+	return pulumix.Output[*AwsIntegrationsAwsAppSync]{
+		OutputState: i.ToAwsIntegrationsAwsAppSyncPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsAppSyncOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsAppSyncOutput) ElementType() reflect.Type {
@@ -5205,6 +5770,12 @@ func (o AwsIntegrationsAwsAppSyncOutput) ToAwsIntegrationsAwsAppSyncPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsAppSync) *AwsIntegrationsAwsAppSync {
 		return &v
 	}).(AwsIntegrationsAwsAppSyncPtrOutput)
+}
+
+func (o AwsIntegrationsAwsAppSyncOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsAppSync] {
+	return pulumix.Output[AwsIntegrationsAwsAppSync]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -5233,6 +5804,12 @@ func (o AwsIntegrationsAwsAppSyncPtrOutput) ToAwsIntegrationsAwsAppSyncPtrOutput
 
 func (o AwsIntegrationsAwsAppSyncPtrOutput) ToAwsIntegrationsAwsAppSyncPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsAppSyncPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsAppSyncPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsAppSync] {
+	return pulumix.Output[*AwsIntegrationsAwsAppSync]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsAppSyncPtrOutput) Elem() AwsIntegrationsAwsAppSyncOutput {
@@ -5314,6 +5891,12 @@ func (i AwsIntegrationsAwsAthenaArgs) ToAwsIntegrationsAwsAthenaOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsAthenaOutput)
 }
 
+func (i AwsIntegrationsAwsAthenaArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsAthena] {
+	return pulumix.Output[AwsIntegrationsAwsAthena]{
+		OutputState: i.ToAwsIntegrationsAwsAthenaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsAthenaArgs) ToAwsIntegrationsAwsAthenaPtrOutput() AwsIntegrationsAwsAthenaPtrOutput {
 	return i.ToAwsIntegrationsAwsAthenaPtrOutputWithContext(context.Background())
 }
@@ -5355,6 +5938,12 @@ func (i *awsIntegrationsAwsAthenaPtrType) ToAwsIntegrationsAwsAthenaPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsAthenaPtrOutput)
 }
 
+func (i *awsIntegrationsAwsAthenaPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsAthena] {
+	return pulumix.Output[*AwsIntegrationsAwsAthena]{
+		OutputState: i.ToAwsIntegrationsAwsAthenaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsAthenaOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsAthenaOutput) ElementType() reflect.Type {
@@ -5377,6 +5966,12 @@ func (o AwsIntegrationsAwsAthenaOutput) ToAwsIntegrationsAwsAthenaPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsAthena) *AwsIntegrationsAwsAthena {
 		return &v
 	}).(AwsIntegrationsAwsAthenaPtrOutput)
+}
+
+func (o AwsIntegrationsAwsAthenaOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsAthena] {
+	return pulumix.Output[AwsIntegrationsAwsAthena]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -5405,6 +6000,12 @@ func (o AwsIntegrationsAwsAthenaPtrOutput) ToAwsIntegrationsAwsAthenaPtrOutput()
 
 func (o AwsIntegrationsAwsAthenaPtrOutput) ToAwsIntegrationsAwsAthenaPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsAthenaPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsAthenaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsAthena] {
+	return pulumix.Output[*AwsIntegrationsAwsAthena]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsAthenaPtrOutput) Elem() AwsIntegrationsAwsAthenaOutput {
@@ -5486,6 +6087,12 @@ func (i AwsIntegrationsAwsCognitoArgs) ToAwsIntegrationsAwsCognitoOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsCognitoOutput)
 }
 
+func (i AwsIntegrationsAwsCognitoArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsCognito] {
+	return pulumix.Output[AwsIntegrationsAwsCognito]{
+		OutputState: i.ToAwsIntegrationsAwsCognitoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsCognitoArgs) ToAwsIntegrationsAwsCognitoPtrOutput() AwsIntegrationsAwsCognitoPtrOutput {
 	return i.ToAwsIntegrationsAwsCognitoPtrOutputWithContext(context.Background())
 }
@@ -5527,6 +6134,12 @@ func (i *awsIntegrationsAwsCognitoPtrType) ToAwsIntegrationsAwsCognitoPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsCognitoPtrOutput)
 }
 
+func (i *awsIntegrationsAwsCognitoPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsCognito] {
+	return pulumix.Output[*AwsIntegrationsAwsCognito]{
+		OutputState: i.ToAwsIntegrationsAwsCognitoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsCognitoOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsCognitoOutput) ElementType() reflect.Type {
@@ -5549,6 +6162,12 @@ func (o AwsIntegrationsAwsCognitoOutput) ToAwsIntegrationsAwsCognitoPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsCognito) *AwsIntegrationsAwsCognito {
 		return &v
 	}).(AwsIntegrationsAwsCognitoPtrOutput)
+}
+
+func (o AwsIntegrationsAwsCognitoOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsCognito] {
+	return pulumix.Output[AwsIntegrationsAwsCognito]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -5577,6 +6196,12 @@ func (o AwsIntegrationsAwsCognitoPtrOutput) ToAwsIntegrationsAwsCognitoPtrOutput
 
 func (o AwsIntegrationsAwsCognitoPtrOutput) ToAwsIntegrationsAwsCognitoPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsCognitoPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsCognitoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsCognito] {
+	return pulumix.Output[*AwsIntegrationsAwsCognito]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsCognitoPtrOutput) Elem() AwsIntegrationsAwsCognitoOutput {
@@ -5658,6 +6283,12 @@ func (i AwsIntegrationsAwsConnectArgs) ToAwsIntegrationsAwsConnectOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsConnectOutput)
 }
 
+func (i AwsIntegrationsAwsConnectArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsConnect] {
+	return pulumix.Output[AwsIntegrationsAwsConnect]{
+		OutputState: i.ToAwsIntegrationsAwsConnectOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsConnectArgs) ToAwsIntegrationsAwsConnectPtrOutput() AwsIntegrationsAwsConnectPtrOutput {
 	return i.ToAwsIntegrationsAwsConnectPtrOutputWithContext(context.Background())
 }
@@ -5699,6 +6330,12 @@ func (i *awsIntegrationsAwsConnectPtrType) ToAwsIntegrationsAwsConnectPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsConnectPtrOutput)
 }
 
+func (i *awsIntegrationsAwsConnectPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsConnect] {
+	return pulumix.Output[*AwsIntegrationsAwsConnect]{
+		OutputState: i.ToAwsIntegrationsAwsConnectPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsConnectOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsConnectOutput) ElementType() reflect.Type {
@@ -5721,6 +6358,12 @@ func (o AwsIntegrationsAwsConnectOutput) ToAwsIntegrationsAwsConnectPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsConnect) *AwsIntegrationsAwsConnect {
 		return &v
 	}).(AwsIntegrationsAwsConnectPtrOutput)
+}
+
+func (o AwsIntegrationsAwsConnectOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsConnect] {
+	return pulumix.Output[AwsIntegrationsAwsConnect]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -5749,6 +6392,12 @@ func (o AwsIntegrationsAwsConnectPtrOutput) ToAwsIntegrationsAwsConnectPtrOutput
 
 func (o AwsIntegrationsAwsConnectPtrOutput) ToAwsIntegrationsAwsConnectPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsConnectPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsConnectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsConnect] {
+	return pulumix.Output[*AwsIntegrationsAwsConnect]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsConnectPtrOutput) Elem() AwsIntegrationsAwsConnectOutput {
@@ -5830,6 +6479,12 @@ func (i AwsIntegrationsAwsDirectConnectArgs) ToAwsIntegrationsAwsDirectConnectOu
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsDirectConnectOutput)
 }
 
+func (i AwsIntegrationsAwsDirectConnectArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsDirectConnect] {
+	return pulumix.Output[AwsIntegrationsAwsDirectConnect]{
+		OutputState: i.ToAwsIntegrationsAwsDirectConnectOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsDirectConnectArgs) ToAwsIntegrationsAwsDirectConnectPtrOutput() AwsIntegrationsAwsDirectConnectPtrOutput {
 	return i.ToAwsIntegrationsAwsDirectConnectPtrOutputWithContext(context.Background())
 }
@@ -5871,6 +6526,12 @@ func (i *awsIntegrationsAwsDirectConnectPtrType) ToAwsIntegrationsAwsDirectConne
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsDirectConnectPtrOutput)
 }
 
+func (i *awsIntegrationsAwsDirectConnectPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsDirectConnect] {
+	return pulumix.Output[*AwsIntegrationsAwsDirectConnect]{
+		OutputState: i.ToAwsIntegrationsAwsDirectConnectPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsDirectConnectOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsDirectConnectOutput) ElementType() reflect.Type {
@@ -5893,6 +6554,12 @@ func (o AwsIntegrationsAwsDirectConnectOutput) ToAwsIntegrationsAwsDirectConnect
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsDirectConnect) *AwsIntegrationsAwsDirectConnect {
 		return &v
 	}).(AwsIntegrationsAwsDirectConnectPtrOutput)
+}
+
+func (o AwsIntegrationsAwsDirectConnectOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsDirectConnect] {
+	return pulumix.Output[AwsIntegrationsAwsDirectConnect]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -5921,6 +6588,12 @@ func (o AwsIntegrationsAwsDirectConnectPtrOutput) ToAwsIntegrationsAwsDirectConn
 
 func (o AwsIntegrationsAwsDirectConnectPtrOutput) ToAwsIntegrationsAwsDirectConnectPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsDirectConnectPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsDirectConnectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsDirectConnect] {
+	return pulumix.Output[*AwsIntegrationsAwsDirectConnect]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsDirectConnectPtrOutput) Elem() AwsIntegrationsAwsDirectConnectOutput {
@@ -6002,6 +6675,12 @@ func (i AwsIntegrationsAwsFsxArgs) ToAwsIntegrationsAwsFsxOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsFsxOutput)
 }
 
+func (i AwsIntegrationsAwsFsxArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsFsx] {
+	return pulumix.Output[AwsIntegrationsAwsFsx]{
+		OutputState: i.ToAwsIntegrationsAwsFsxOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsFsxArgs) ToAwsIntegrationsAwsFsxPtrOutput() AwsIntegrationsAwsFsxPtrOutput {
 	return i.ToAwsIntegrationsAwsFsxPtrOutputWithContext(context.Background())
 }
@@ -6043,6 +6722,12 @@ func (i *awsIntegrationsAwsFsxPtrType) ToAwsIntegrationsAwsFsxPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsFsxPtrOutput)
 }
 
+func (i *awsIntegrationsAwsFsxPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsFsx] {
+	return pulumix.Output[*AwsIntegrationsAwsFsx]{
+		OutputState: i.ToAwsIntegrationsAwsFsxPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsFsxOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsFsxOutput) ElementType() reflect.Type {
@@ -6065,6 +6750,12 @@ func (o AwsIntegrationsAwsFsxOutput) ToAwsIntegrationsAwsFsxPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsFsx) *AwsIntegrationsAwsFsx {
 		return &v
 	}).(AwsIntegrationsAwsFsxPtrOutput)
+}
+
+func (o AwsIntegrationsAwsFsxOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsFsx] {
+	return pulumix.Output[AwsIntegrationsAwsFsx]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -6093,6 +6784,12 @@ func (o AwsIntegrationsAwsFsxPtrOutput) ToAwsIntegrationsAwsFsxPtrOutput() AwsIn
 
 func (o AwsIntegrationsAwsFsxPtrOutput) ToAwsIntegrationsAwsFsxPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsFsxPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsFsxPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsFsx] {
+	return pulumix.Output[*AwsIntegrationsAwsFsx]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsFsxPtrOutput) Elem() AwsIntegrationsAwsFsxOutput {
@@ -6174,6 +6871,12 @@ func (i AwsIntegrationsAwsGlueArgs) ToAwsIntegrationsAwsGlueOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsGlueOutput)
 }
 
+func (i AwsIntegrationsAwsGlueArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsGlue] {
+	return pulumix.Output[AwsIntegrationsAwsGlue]{
+		OutputState: i.ToAwsIntegrationsAwsGlueOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsGlueArgs) ToAwsIntegrationsAwsGluePtrOutput() AwsIntegrationsAwsGluePtrOutput {
 	return i.ToAwsIntegrationsAwsGluePtrOutputWithContext(context.Background())
 }
@@ -6215,6 +6918,12 @@ func (i *awsIntegrationsAwsGluePtrType) ToAwsIntegrationsAwsGluePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsGluePtrOutput)
 }
 
+func (i *awsIntegrationsAwsGluePtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsGlue] {
+	return pulumix.Output[*AwsIntegrationsAwsGlue]{
+		OutputState: i.ToAwsIntegrationsAwsGluePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsGlueOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsGlueOutput) ElementType() reflect.Type {
@@ -6237,6 +6946,12 @@ func (o AwsIntegrationsAwsGlueOutput) ToAwsIntegrationsAwsGluePtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsGlue) *AwsIntegrationsAwsGlue {
 		return &v
 	}).(AwsIntegrationsAwsGluePtrOutput)
+}
+
+func (o AwsIntegrationsAwsGlueOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsGlue] {
+	return pulumix.Output[AwsIntegrationsAwsGlue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -6265,6 +6980,12 @@ func (o AwsIntegrationsAwsGluePtrOutput) ToAwsIntegrationsAwsGluePtrOutput() Aws
 
 func (o AwsIntegrationsAwsGluePtrOutput) ToAwsIntegrationsAwsGluePtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsGluePtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsGluePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsGlue] {
+	return pulumix.Output[*AwsIntegrationsAwsGlue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsGluePtrOutput) Elem() AwsIntegrationsAwsGlueOutput {
@@ -6346,6 +7067,12 @@ func (i AwsIntegrationsAwsKinesisAnalyticsArgs) ToAwsIntegrationsAwsKinesisAnaly
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsKinesisAnalyticsOutput)
 }
 
+func (i AwsIntegrationsAwsKinesisAnalyticsArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsKinesisAnalytics] {
+	return pulumix.Output[AwsIntegrationsAwsKinesisAnalytics]{
+		OutputState: i.ToAwsIntegrationsAwsKinesisAnalyticsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsKinesisAnalyticsArgs) ToAwsIntegrationsAwsKinesisAnalyticsPtrOutput() AwsIntegrationsAwsKinesisAnalyticsPtrOutput {
 	return i.ToAwsIntegrationsAwsKinesisAnalyticsPtrOutputWithContext(context.Background())
 }
@@ -6387,6 +7114,12 @@ func (i *awsIntegrationsAwsKinesisAnalyticsPtrType) ToAwsIntegrationsAwsKinesisA
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsKinesisAnalyticsPtrOutput)
 }
 
+func (i *awsIntegrationsAwsKinesisAnalyticsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsKinesisAnalytics] {
+	return pulumix.Output[*AwsIntegrationsAwsKinesisAnalytics]{
+		OutputState: i.ToAwsIntegrationsAwsKinesisAnalyticsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsKinesisAnalyticsOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsKinesisAnalyticsOutput) ElementType() reflect.Type {
@@ -6409,6 +7142,12 @@ func (o AwsIntegrationsAwsKinesisAnalyticsOutput) ToAwsIntegrationsAwsKinesisAna
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsKinesisAnalytics) *AwsIntegrationsAwsKinesisAnalytics {
 		return &v
 	}).(AwsIntegrationsAwsKinesisAnalyticsPtrOutput)
+}
+
+func (o AwsIntegrationsAwsKinesisAnalyticsOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsKinesisAnalytics] {
+	return pulumix.Output[AwsIntegrationsAwsKinesisAnalytics]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -6437,6 +7176,12 @@ func (o AwsIntegrationsAwsKinesisAnalyticsPtrOutput) ToAwsIntegrationsAwsKinesis
 
 func (o AwsIntegrationsAwsKinesisAnalyticsPtrOutput) ToAwsIntegrationsAwsKinesisAnalyticsPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsKinesisAnalyticsPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsKinesisAnalyticsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsKinesisAnalytics] {
+	return pulumix.Output[*AwsIntegrationsAwsKinesisAnalytics]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsKinesisAnalyticsPtrOutput) Elem() AwsIntegrationsAwsKinesisAnalyticsOutput {
@@ -6518,6 +7263,12 @@ func (i AwsIntegrationsAwsMediaConvertArgs) ToAwsIntegrationsAwsMediaConvertOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsMediaConvertOutput)
 }
 
+func (i AwsIntegrationsAwsMediaConvertArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsMediaConvert] {
+	return pulumix.Output[AwsIntegrationsAwsMediaConvert]{
+		OutputState: i.ToAwsIntegrationsAwsMediaConvertOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsMediaConvertArgs) ToAwsIntegrationsAwsMediaConvertPtrOutput() AwsIntegrationsAwsMediaConvertPtrOutput {
 	return i.ToAwsIntegrationsAwsMediaConvertPtrOutputWithContext(context.Background())
 }
@@ -6559,6 +7310,12 @@ func (i *awsIntegrationsAwsMediaConvertPtrType) ToAwsIntegrationsAwsMediaConvert
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsMediaConvertPtrOutput)
 }
 
+func (i *awsIntegrationsAwsMediaConvertPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsMediaConvert] {
+	return pulumix.Output[*AwsIntegrationsAwsMediaConvert]{
+		OutputState: i.ToAwsIntegrationsAwsMediaConvertPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsMediaConvertOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsMediaConvertOutput) ElementType() reflect.Type {
@@ -6581,6 +7338,12 @@ func (o AwsIntegrationsAwsMediaConvertOutput) ToAwsIntegrationsAwsMediaConvertPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsMediaConvert) *AwsIntegrationsAwsMediaConvert {
 		return &v
 	}).(AwsIntegrationsAwsMediaConvertPtrOutput)
+}
+
+func (o AwsIntegrationsAwsMediaConvertOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsMediaConvert] {
+	return pulumix.Output[AwsIntegrationsAwsMediaConvert]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -6609,6 +7372,12 @@ func (o AwsIntegrationsAwsMediaConvertPtrOutput) ToAwsIntegrationsAwsMediaConver
 
 func (o AwsIntegrationsAwsMediaConvertPtrOutput) ToAwsIntegrationsAwsMediaConvertPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsMediaConvertPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsMediaConvertPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsMediaConvert] {
+	return pulumix.Output[*AwsIntegrationsAwsMediaConvert]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsMediaConvertPtrOutput) Elem() AwsIntegrationsAwsMediaConvertOutput {
@@ -6690,6 +7459,12 @@ func (i AwsIntegrationsAwsMediaPackageVodArgs) ToAwsIntegrationsAwsMediaPackageV
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsMediaPackageVodOutput)
 }
 
+func (i AwsIntegrationsAwsMediaPackageVodArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsMediaPackageVod] {
+	return pulumix.Output[AwsIntegrationsAwsMediaPackageVod]{
+		OutputState: i.ToAwsIntegrationsAwsMediaPackageVodOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsMediaPackageVodArgs) ToAwsIntegrationsAwsMediaPackageVodPtrOutput() AwsIntegrationsAwsMediaPackageVodPtrOutput {
 	return i.ToAwsIntegrationsAwsMediaPackageVodPtrOutputWithContext(context.Background())
 }
@@ -6731,6 +7506,12 @@ func (i *awsIntegrationsAwsMediaPackageVodPtrType) ToAwsIntegrationsAwsMediaPack
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsMediaPackageVodPtrOutput)
 }
 
+func (i *awsIntegrationsAwsMediaPackageVodPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsMediaPackageVod] {
+	return pulumix.Output[*AwsIntegrationsAwsMediaPackageVod]{
+		OutputState: i.ToAwsIntegrationsAwsMediaPackageVodPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsMediaPackageVodOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsMediaPackageVodOutput) ElementType() reflect.Type {
@@ -6753,6 +7534,12 @@ func (o AwsIntegrationsAwsMediaPackageVodOutput) ToAwsIntegrationsAwsMediaPackag
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsMediaPackageVod) *AwsIntegrationsAwsMediaPackageVod {
 		return &v
 	}).(AwsIntegrationsAwsMediaPackageVodPtrOutput)
+}
+
+func (o AwsIntegrationsAwsMediaPackageVodOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsMediaPackageVod] {
+	return pulumix.Output[AwsIntegrationsAwsMediaPackageVod]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -6781,6 +7568,12 @@ func (o AwsIntegrationsAwsMediaPackageVodPtrOutput) ToAwsIntegrationsAwsMediaPac
 
 func (o AwsIntegrationsAwsMediaPackageVodPtrOutput) ToAwsIntegrationsAwsMediaPackageVodPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsMediaPackageVodPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsMediaPackageVodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsMediaPackageVod] {
+	return pulumix.Output[*AwsIntegrationsAwsMediaPackageVod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsMediaPackageVodPtrOutput) Elem() AwsIntegrationsAwsMediaPackageVodOutput {
@@ -6862,6 +7655,12 @@ func (i AwsIntegrationsAwsMqArgs) ToAwsIntegrationsAwsMqOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsMqOutput)
 }
 
+func (i AwsIntegrationsAwsMqArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsMq] {
+	return pulumix.Output[AwsIntegrationsAwsMq]{
+		OutputState: i.ToAwsIntegrationsAwsMqOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsMqArgs) ToAwsIntegrationsAwsMqPtrOutput() AwsIntegrationsAwsMqPtrOutput {
 	return i.ToAwsIntegrationsAwsMqPtrOutputWithContext(context.Background())
 }
@@ -6903,6 +7702,12 @@ func (i *awsIntegrationsAwsMqPtrType) ToAwsIntegrationsAwsMqPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsMqPtrOutput)
 }
 
+func (i *awsIntegrationsAwsMqPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsMq] {
+	return pulumix.Output[*AwsIntegrationsAwsMq]{
+		OutputState: i.ToAwsIntegrationsAwsMqPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsMqOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsMqOutput) ElementType() reflect.Type {
@@ -6925,6 +7730,12 @@ func (o AwsIntegrationsAwsMqOutput) ToAwsIntegrationsAwsMqPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsMq) *AwsIntegrationsAwsMq {
 		return &v
 	}).(AwsIntegrationsAwsMqPtrOutput)
+}
+
+func (o AwsIntegrationsAwsMqOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsMq] {
+	return pulumix.Output[AwsIntegrationsAwsMq]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -6953,6 +7764,12 @@ func (o AwsIntegrationsAwsMqPtrOutput) ToAwsIntegrationsAwsMqPtrOutput() AwsInte
 
 func (o AwsIntegrationsAwsMqPtrOutput) ToAwsIntegrationsAwsMqPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsMqPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsMqPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsMq] {
+	return pulumix.Output[*AwsIntegrationsAwsMq]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsMqPtrOutput) Elem() AwsIntegrationsAwsMqOutput {
@@ -7034,6 +7851,12 @@ func (i AwsIntegrationsAwsMskArgs) ToAwsIntegrationsAwsMskOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsMskOutput)
 }
 
+func (i AwsIntegrationsAwsMskArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsMsk] {
+	return pulumix.Output[AwsIntegrationsAwsMsk]{
+		OutputState: i.ToAwsIntegrationsAwsMskOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsMskArgs) ToAwsIntegrationsAwsMskPtrOutput() AwsIntegrationsAwsMskPtrOutput {
 	return i.ToAwsIntegrationsAwsMskPtrOutputWithContext(context.Background())
 }
@@ -7075,6 +7898,12 @@ func (i *awsIntegrationsAwsMskPtrType) ToAwsIntegrationsAwsMskPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsMskPtrOutput)
 }
 
+func (i *awsIntegrationsAwsMskPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsMsk] {
+	return pulumix.Output[*AwsIntegrationsAwsMsk]{
+		OutputState: i.ToAwsIntegrationsAwsMskPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsMskOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsMskOutput) ElementType() reflect.Type {
@@ -7097,6 +7926,12 @@ func (o AwsIntegrationsAwsMskOutput) ToAwsIntegrationsAwsMskPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsMsk) *AwsIntegrationsAwsMsk {
 		return &v
 	}).(AwsIntegrationsAwsMskPtrOutput)
+}
+
+func (o AwsIntegrationsAwsMskOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsMsk] {
+	return pulumix.Output[AwsIntegrationsAwsMsk]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -7125,6 +7960,12 @@ func (o AwsIntegrationsAwsMskPtrOutput) ToAwsIntegrationsAwsMskPtrOutput() AwsIn
 
 func (o AwsIntegrationsAwsMskPtrOutput) ToAwsIntegrationsAwsMskPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsMskPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsMskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsMsk] {
+	return pulumix.Output[*AwsIntegrationsAwsMsk]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsMskPtrOutput) Elem() AwsIntegrationsAwsMskOutput {
@@ -7206,6 +8047,12 @@ func (i AwsIntegrationsAwsNeptuneArgs) ToAwsIntegrationsAwsNeptuneOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsNeptuneOutput)
 }
 
+func (i AwsIntegrationsAwsNeptuneArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsNeptune] {
+	return pulumix.Output[AwsIntegrationsAwsNeptune]{
+		OutputState: i.ToAwsIntegrationsAwsNeptuneOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsNeptuneArgs) ToAwsIntegrationsAwsNeptunePtrOutput() AwsIntegrationsAwsNeptunePtrOutput {
 	return i.ToAwsIntegrationsAwsNeptunePtrOutputWithContext(context.Background())
 }
@@ -7247,6 +8094,12 @@ func (i *awsIntegrationsAwsNeptunePtrType) ToAwsIntegrationsAwsNeptunePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsNeptunePtrOutput)
 }
 
+func (i *awsIntegrationsAwsNeptunePtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsNeptune] {
+	return pulumix.Output[*AwsIntegrationsAwsNeptune]{
+		OutputState: i.ToAwsIntegrationsAwsNeptunePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsNeptuneOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsNeptuneOutput) ElementType() reflect.Type {
@@ -7269,6 +8122,12 @@ func (o AwsIntegrationsAwsNeptuneOutput) ToAwsIntegrationsAwsNeptunePtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsNeptune) *AwsIntegrationsAwsNeptune {
 		return &v
 	}).(AwsIntegrationsAwsNeptunePtrOutput)
+}
+
+func (o AwsIntegrationsAwsNeptuneOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsNeptune] {
+	return pulumix.Output[AwsIntegrationsAwsNeptune]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -7297,6 +8156,12 @@ func (o AwsIntegrationsAwsNeptunePtrOutput) ToAwsIntegrationsAwsNeptunePtrOutput
 
 func (o AwsIntegrationsAwsNeptunePtrOutput) ToAwsIntegrationsAwsNeptunePtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsNeptunePtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsNeptunePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsNeptune] {
+	return pulumix.Output[*AwsIntegrationsAwsNeptune]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsNeptunePtrOutput) Elem() AwsIntegrationsAwsNeptuneOutput {
@@ -7378,6 +8243,12 @@ func (i AwsIntegrationsAwsQldbArgs) ToAwsIntegrationsAwsQldbOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsQldbOutput)
 }
 
+func (i AwsIntegrationsAwsQldbArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsQldb] {
+	return pulumix.Output[AwsIntegrationsAwsQldb]{
+		OutputState: i.ToAwsIntegrationsAwsQldbOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsQldbArgs) ToAwsIntegrationsAwsQldbPtrOutput() AwsIntegrationsAwsQldbPtrOutput {
 	return i.ToAwsIntegrationsAwsQldbPtrOutputWithContext(context.Background())
 }
@@ -7419,6 +8290,12 @@ func (i *awsIntegrationsAwsQldbPtrType) ToAwsIntegrationsAwsQldbPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsQldbPtrOutput)
 }
 
+func (i *awsIntegrationsAwsQldbPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsQldb] {
+	return pulumix.Output[*AwsIntegrationsAwsQldb]{
+		OutputState: i.ToAwsIntegrationsAwsQldbPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsQldbOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsQldbOutput) ElementType() reflect.Type {
@@ -7441,6 +8318,12 @@ func (o AwsIntegrationsAwsQldbOutput) ToAwsIntegrationsAwsQldbPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsQldb) *AwsIntegrationsAwsQldb {
 		return &v
 	}).(AwsIntegrationsAwsQldbPtrOutput)
+}
+
+func (o AwsIntegrationsAwsQldbOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsQldb] {
+	return pulumix.Output[AwsIntegrationsAwsQldb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -7469,6 +8352,12 @@ func (o AwsIntegrationsAwsQldbPtrOutput) ToAwsIntegrationsAwsQldbPtrOutput() Aws
 
 func (o AwsIntegrationsAwsQldbPtrOutput) ToAwsIntegrationsAwsQldbPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsQldbPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsQldbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsQldb] {
+	return pulumix.Output[*AwsIntegrationsAwsQldb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsQldbPtrOutput) Elem() AwsIntegrationsAwsQldbOutput {
@@ -7550,6 +8439,12 @@ func (i AwsIntegrationsAwsRoute53resolverArgs) ToAwsIntegrationsAwsRoute53resolv
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsRoute53resolverOutput)
 }
 
+func (i AwsIntegrationsAwsRoute53resolverArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsRoute53resolver] {
+	return pulumix.Output[AwsIntegrationsAwsRoute53resolver]{
+		OutputState: i.ToAwsIntegrationsAwsRoute53resolverOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsRoute53resolverArgs) ToAwsIntegrationsAwsRoute53resolverPtrOutput() AwsIntegrationsAwsRoute53resolverPtrOutput {
 	return i.ToAwsIntegrationsAwsRoute53resolverPtrOutputWithContext(context.Background())
 }
@@ -7591,6 +8486,12 @@ func (i *awsIntegrationsAwsRoute53resolverPtrType) ToAwsIntegrationsAwsRoute53re
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsRoute53resolverPtrOutput)
 }
 
+func (i *awsIntegrationsAwsRoute53resolverPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsRoute53resolver] {
+	return pulumix.Output[*AwsIntegrationsAwsRoute53resolver]{
+		OutputState: i.ToAwsIntegrationsAwsRoute53resolverPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsRoute53resolverOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsRoute53resolverOutput) ElementType() reflect.Type {
@@ -7613,6 +8514,12 @@ func (o AwsIntegrationsAwsRoute53resolverOutput) ToAwsIntegrationsAwsRoute53reso
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsRoute53resolver) *AwsIntegrationsAwsRoute53resolver {
 		return &v
 	}).(AwsIntegrationsAwsRoute53resolverPtrOutput)
+}
+
+func (o AwsIntegrationsAwsRoute53resolverOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsRoute53resolver] {
+	return pulumix.Output[AwsIntegrationsAwsRoute53resolver]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -7641,6 +8548,12 @@ func (o AwsIntegrationsAwsRoute53resolverPtrOutput) ToAwsIntegrationsAwsRoute53r
 
 func (o AwsIntegrationsAwsRoute53resolverPtrOutput) ToAwsIntegrationsAwsRoute53resolverPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsRoute53resolverPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsRoute53resolverPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsRoute53resolver] {
+	return pulumix.Output[*AwsIntegrationsAwsRoute53resolver]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsRoute53resolverPtrOutput) Elem() AwsIntegrationsAwsRoute53resolverOutput {
@@ -7722,6 +8635,12 @@ func (i AwsIntegrationsAwsStatesArgs) ToAwsIntegrationsAwsStatesOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsStatesOutput)
 }
 
+func (i AwsIntegrationsAwsStatesArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsStates] {
+	return pulumix.Output[AwsIntegrationsAwsStates]{
+		OutputState: i.ToAwsIntegrationsAwsStatesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsStatesArgs) ToAwsIntegrationsAwsStatesPtrOutput() AwsIntegrationsAwsStatesPtrOutput {
 	return i.ToAwsIntegrationsAwsStatesPtrOutputWithContext(context.Background())
 }
@@ -7763,6 +8682,12 @@ func (i *awsIntegrationsAwsStatesPtrType) ToAwsIntegrationsAwsStatesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsStatesPtrOutput)
 }
 
+func (i *awsIntegrationsAwsStatesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsStates] {
+	return pulumix.Output[*AwsIntegrationsAwsStates]{
+		OutputState: i.ToAwsIntegrationsAwsStatesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsStatesOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsStatesOutput) ElementType() reflect.Type {
@@ -7785,6 +8710,12 @@ func (o AwsIntegrationsAwsStatesOutput) ToAwsIntegrationsAwsStatesPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsStates) *AwsIntegrationsAwsStates {
 		return &v
 	}).(AwsIntegrationsAwsStatesPtrOutput)
+}
+
+func (o AwsIntegrationsAwsStatesOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsStates] {
+	return pulumix.Output[AwsIntegrationsAwsStates]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -7813,6 +8744,12 @@ func (o AwsIntegrationsAwsStatesPtrOutput) ToAwsIntegrationsAwsStatesPtrOutput()
 
 func (o AwsIntegrationsAwsStatesPtrOutput) ToAwsIntegrationsAwsStatesPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsStatesPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsStatesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsStates] {
+	return pulumix.Output[*AwsIntegrationsAwsStates]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsStatesPtrOutput) Elem() AwsIntegrationsAwsStatesOutput {
@@ -7894,6 +8831,12 @@ func (i AwsIntegrationsAwsTransitGatewayArgs) ToAwsIntegrationsAwsTransitGateway
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsTransitGatewayOutput)
 }
 
+func (i AwsIntegrationsAwsTransitGatewayArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsTransitGateway] {
+	return pulumix.Output[AwsIntegrationsAwsTransitGateway]{
+		OutputState: i.ToAwsIntegrationsAwsTransitGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsTransitGatewayArgs) ToAwsIntegrationsAwsTransitGatewayPtrOutput() AwsIntegrationsAwsTransitGatewayPtrOutput {
 	return i.ToAwsIntegrationsAwsTransitGatewayPtrOutputWithContext(context.Background())
 }
@@ -7935,6 +8878,12 @@ func (i *awsIntegrationsAwsTransitGatewayPtrType) ToAwsIntegrationsAwsTransitGat
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsTransitGatewayPtrOutput)
 }
 
+func (i *awsIntegrationsAwsTransitGatewayPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsTransitGateway] {
+	return pulumix.Output[*AwsIntegrationsAwsTransitGateway]{
+		OutputState: i.ToAwsIntegrationsAwsTransitGatewayPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsTransitGatewayOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsTransitGatewayOutput) ElementType() reflect.Type {
@@ -7957,6 +8906,12 @@ func (o AwsIntegrationsAwsTransitGatewayOutput) ToAwsIntegrationsAwsTransitGatew
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsTransitGateway) *AwsIntegrationsAwsTransitGateway {
 		return &v
 	}).(AwsIntegrationsAwsTransitGatewayPtrOutput)
+}
+
+func (o AwsIntegrationsAwsTransitGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsTransitGateway] {
+	return pulumix.Output[AwsIntegrationsAwsTransitGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -7985,6 +8940,12 @@ func (o AwsIntegrationsAwsTransitGatewayPtrOutput) ToAwsIntegrationsAwsTransitGa
 
 func (o AwsIntegrationsAwsTransitGatewayPtrOutput) ToAwsIntegrationsAwsTransitGatewayPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsTransitGatewayPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsTransitGatewayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsTransitGateway] {
+	return pulumix.Output[*AwsIntegrationsAwsTransitGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsTransitGatewayPtrOutput) Elem() AwsIntegrationsAwsTransitGatewayOutput {
@@ -8066,6 +9027,12 @@ func (i AwsIntegrationsAwsWafArgs) ToAwsIntegrationsAwsWafOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsWafOutput)
 }
 
+func (i AwsIntegrationsAwsWafArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsWaf] {
+	return pulumix.Output[AwsIntegrationsAwsWaf]{
+		OutputState: i.ToAwsIntegrationsAwsWafOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsWafArgs) ToAwsIntegrationsAwsWafPtrOutput() AwsIntegrationsAwsWafPtrOutput {
 	return i.ToAwsIntegrationsAwsWafPtrOutputWithContext(context.Background())
 }
@@ -8107,6 +9074,12 @@ func (i *awsIntegrationsAwsWafPtrType) ToAwsIntegrationsAwsWafPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsWafPtrOutput)
 }
 
+func (i *awsIntegrationsAwsWafPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsWaf] {
+	return pulumix.Output[*AwsIntegrationsAwsWaf]{
+		OutputState: i.ToAwsIntegrationsAwsWafPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsWafOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsWafOutput) ElementType() reflect.Type {
@@ -8129,6 +9102,12 @@ func (o AwsIntegrationsAwsWafOutput) ToAwsIntegrationsAwsWafPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsWaf) *AwsIntegrationsAwsWaf {
 		return &v
 	}).(AwsIntegrationsAwsWafPtrOutput)
+}
+
+func (o AwsIntegrationsAwsWafOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsWaf] {
+	return pulumix.Output[AwsIntegrationsAwsWaf]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -8157,6 +9136,12 @@ func (o AwsIntegrationsAwsWafPtrOutput) ToAwsIntegrationsAwsWafPtrOutput() AwsIn
 
 func (o AwsIntegrationsAwsWafPtrOutput) ToAwsIntegrationsAwsWafPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsWafPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsWafPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsWaf] {
+	return pulumix.Output[*AwsIntegrationsAwsWaf]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsWafPtrOutput) Elem() AwsIntegrationsAwsWafOutput {
@@ -8238,6 +9223,12 @@ func (i AwsIntegrationsAwsWafv2Args) ToAwsIntegrationsAwsWafv2OutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsWafv2Output)
 }
 
+func (i AwsIntegrationsAwsWafv2Args) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsWafv2] {
+	return pulumix.Output[AwsIntegrationsAwsWafv2]{
+		OutputState: i.ToAwsIntegrationsAwsWafv2OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsAwsWafv2Args) ToAwsIntegrationsAwsWafv2PtrOutput() AwsIntegrationsAwsWafv2PtrOutput {
 	return i.ToAwsIntegrationsAwsWafv2PtrOutputWithContext(context.Background())
 }
@@ -8279,6 +9270,12 @@ func (i *awsIntegrationsAwsWafv2PtrType) ToAwsIntegrationsAwsWafv2PtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsWafv2PtrOutput)
 }
 
+func (i *awsIntegrationsAwsWafv2PtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsWafv2] {
+	return pulumix.Output[*AwsIntegrationsAwsWafv2]{
+		OutputState: i.ToAwsIntegrationsAwsWafv2PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsAwsWafv2Output struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsAwsWafv2Output) ElementType() reflect.Type {
@@ -8301,6 +9298,12 @@ func (o AwsIntegrationsAwsWafv2Output) ToAwsIntegrationsAwsWafv2PtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsWafv2) *AwsIntegrationsAwsWafv2 {
 		return &v
 	}).(AwsIntegrationsAwsWafv2PtrOutput)
+}
+
+func (o AwsIntegrationsAwsWafv2Output) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsAwsWafv2] {
+	return pulumix.Output[AwsIntegrationsAwsWafv2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -8329,6 +9332,12 @@ func (o AwsIntegrationsAwsWafv2PtrOutput) ToAwsIntegrationsAwsWafv2PtrOutput() A
 
 func (o AwsIntegrationsAwsWafv2PtrOutput) ToAwsIntegrationsAwsWafv2PtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsWafv2PtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsAwsWafv2PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsAwsWafv2] {
+	return pulumix.Output[*AwsIntegrationsAwsWafv2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsAwsWafv2PtrOutput) Elem() AwsIntegrationsAwsWafv2Output {
@@ -8404,6 +9413,12 @@ func (i AwsIntegrationsBillingArgs) ToAwsIntegrationsBillingOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsBillingOutput)
 }
 
+func (i AwsIntegrationsBillingArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsBilling] {
+	return pulumix.Output[AwsIntegrationsBilling]{
+		OutputState: i.ToAwsIntegrationsBillingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsBillingArgs) ToAwsIntegrationsBillingPtrOutput() AwsIntegrationsBillingPtrOutput {
 	return i.ToAwsIntegrationsBillingPtrOutputWithContext(context.Background())
 }
@@ -8445,6 +9460,12 @@ func (i *awsIntegrationsBillingPtrType) ToAwsIntegrationsBillingPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsBillingPtrOutput)
 }
 
+func (i *awsIntegrationsBillingPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsBilling] {
+	return pulumix.Output[*AwsIntegrationsBilling]{
+		OutputState: i.ToAwsIntegrationsBillingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsBillingOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsBillingOutput) ElementType() reflect.Type {
@@ -8469,6 +9490,12 @@ func (o AwsIntegrationsBillingOutput) ToAwsIntegrationsBillingPtrOutputWithConte
 	}).(AwsIntegrationsBillingPtrOutput)
 }
 
+func (o AwsIntegrationsBillingOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsBilling] {
+	return pulumix.Output[AwsIntegrationsBilling]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // <details>
@@ -8489,6 +9516,12 @@ func (o AwsIntegrationsBillingPtrOutput) ToAwsIntegrationsBillingPtrOutput() Aws
 
 func (o AwsIntegrationsBillingPtrOutput) ToAwsIntegrationsBillingPtrOutputWithContext(ctx context.Context) AwsIntegrationsBillingPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsBillingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsBilling] {
+	return pulumix.Output[*AwsIntegrationsBilling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsBillingPtrOutput) Elem() AwsIntegrationsBillingOutput {
@@ -8569,6 +9602,12 @@ func (i AwsIntegrationsCloudfrontArgs) ToAwsIntegrationsCloudfrontOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsCloudfrontOutput)
 }
 
+func (i AwsIntegrationsCloudfrontArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsCloudfront] {
+	return pulumix.Output[AwsIntegrationsCloudfront]{
+		OutputState: i.ToAwsIntegrationsCloudfrontOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsCloudfrontArgs) ToAwsIntegrationsCloudfrontPtrOutput() AwsIntegrationsCloudfrontPtrOutput {
 	return i.ToAwsIntegrationsCloudfrontPtrOutputWithContext(context.Background())
 }
@@ -8610,6 +9649,12 @@ func (i *awsIntegrationsCloudfrontPtrType) ToAwsIntegrationsCloudfrontPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsCloudfrontPtrOutput)
 }
 
+func (i *awsIntegrationsCloudfrontPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsCloudfront] {
+	return pulumix.Output[*AwsIntegrationsCloudfront]{
+		OutputState: i.ToAwsIntegrationsCloudfrontPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsCloudfrontOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsCloudfrontOutput) ElementType() reflect.Type {
@@ -8632,6 +9677,12 @@ func (o AwsIntegrationsCloudfrontOutput) ToAwsIntegrationsCloudfrontPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsCloudfront) *AwsIntegrationsCloudfront {
 		return &v
 	}).(AwsIntegrationsCloudfrontPtrOutput)
+}
+
+func (o AwsIntegrationsCloudfrontOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsCloudfront] {
+	return pulumix.Output[AwsIntegrationsCloudfront]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -8674,6 +9725,12 @@ func (o AwsIntegrationsCloudfrontPtrOutput) ToAwsIntegrationsCloudfrontPtrOutput
 
 func (o AwsIntegrationsCloudfrontPtrOutput) ToAwsIntegrationsCloudfrontPtrOutputWithContext(ctx context.Context) AwsIntegrationsCloudfrontPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsCloudfrontPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsCloudfront] {
+	return pulumix.Output[*AwsIntegrationsCloudfront]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsCloudfrontPtrOutput) Elem() AwsIntegrationsCloudfrontOutput {
@@ -8784,6 +9841,12 @@ func (i AwsIntegrationsCloudtrailArgs) ToAwsIntegrationsCloudtrailOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsCloudtrailOutput)
 }
 
+func (i AwsIntegrationsCloudtrailArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsCloudtrail] {
+	return pulumix.Output[AwsIntegrationsCloudtrail]{
+		OutputState: i.ToAwsIntegrationsCloudtrailOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsCloudtrailArgs) ToAwsIntegrationsCloudtrailPtrOutput() AwsIntegrationsCloudtrailPtrOutput {
 	return i.ToAwsIntegrationsCloudtrailPtrOutputWithContext(context.Background())
 }
@@ -8825,6 +9888,12 @@ func (i *awsIntegrationsCloudtrailPtrType) ToAwsIntegrationsCloudtrailPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsCloudtrailPtrOutput)
 }
 
+func (i *awsIntegrationsCloudtrailPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsCloudtrail] {
+	return pulumix.Output[*AwsIntegrationsCloudtrail]{
+		OutputState: i.ToAwsIntegrationsCloudtrailPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsCloudtrailOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsCloudtrailOutput) ElementType() reflect.Type {
@@ -8847,6 +9916,12 @@ func (o AwsIntegrationsCloudtrailOutput) ToAwsIntegrationsCloudtrailPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsCloudtrail) *AwsIntegrationsCloudtrail {
 		return &v
 	}).(AwsIntegrationsCloudtrailPtrOutput)
+}
+
+func (o AwsIntegrationsCloudtrailOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsCloudtrail] {
+	return pulumix.Output[AwsIntegrationsCloudtrail]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -8875,6 +9950,12 @@ func (o AwsIntegrationsCloudtrailPtrOutput) ToAwsIntegrationsCloudtrailPtrOutput
 
 func (o AwsIntegrationsCloudtrailPtrOutput) ToAwsIntegrationsCloudtrailPtrOutputWithContext(ctx context.Context) AwsIntegrationsCloudtrailPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsCloudtrailPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsCloudtrail] {
+	return pulumix.Output[*AwsIntegrationsCloudtrail]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsCloudtrailPtrOutput) Elem() AwsIntegrationsCloudtrailOutput {
@@ -8956,6 +10037,12 @@ func (i AwsIntegrationsDocDbArgs) ToAwsIntegrationsDocDbOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsDocDbOutput)
 }
 
+func (i AwsIntegrationsDocDbArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsDocDb] {
+	return pulumix.Output[AwsIntegrationsDocDb]{
+		OutputState: i.ToAwsIntegrationsDocDbOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsDocDbArgs) ToAwsIntegrationsDocDbPtrOutput() AwsIntegrationsDocDbPtrOutput {
 	return i.ToAwsIntegrationsDocDbPtrOutputWithContext(context.Background())
 }
@@ -8997,6 +10084,12 @@ func (i *awsIntegrationsDocDbPtrType) ToAwsIntegrationsDocDbPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsDocDbPtrOutput)
 }
 
+func (i *awsIntegrationsDocDbPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsDocDb] {
+	return pulumix.Output[*AwsIntegrationsDocDb]{
+		OutputState: i.ToAwsIntegrationsDocDbPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsDocDbOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsDocDbOutput) ElementType() reflect.Type {
@@ -9019,6 +10112,12 @@ func (o AwsIntegrationsDocDbOutput) ToAwsIntegrationsDocDbPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsDocDb) *AwsIntegrationsDocDb {
 		return &v
 	}).(AwsIntegrationsDocDbPtrOutput)
+}
+
+func (o AwsIntegrationsDocDbOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsDocDb] {
+	return pulumix.Output[AwsIntegrationsDocDb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -9047,6 +10146,12 @@ func (o AwsIntegrationsDocDbPtrOutput) ToAwsIntegrationsDocDbPtrOutput() AwsInte
 
 func (o AwsIntegrationsDocDbPtrOutput) ToAwsIntegrationsDocDbPtrOutputWithContext(ctx context.Context) AwsIntegrationsDocDbPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsDocDbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsDocDb] {
+	return pulumix.Output[*AwsIntegrationsDocDb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsDocDbPtrOutput) Elem() AwsIntegrationsDocDbOutput {
@@ -9148,6 +10253,12 @@ func (i AwsIntegrationsDynamodbArgs) ToAwsIntegrationsDynamodbOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsDynamodbOutput)
 }
 
+func (i AwsIntegrationsDynamodbArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsDynamodb] {
+	return pulumix.Output[AwsIntegrationsDynamodb]{
+		OutputState: i.ToAwsIntegrationsDynamodbOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsDynamodbArgs) ToAwsIntegrationsDynamodbPtrOutput() AwsIntegrationsDynamodbPtrOutput {
 	return i.ToAwsIntegrationsDynamodbPtrOutputWithContext(context.Background())
 }
@@ -9189,6 +10300,12 @@ func (i *awsIntegrationsDynamodbPtrType) ToAwsIntegrationsDynamodbPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsDynamodbPtrOutput)
 }
 
+func (i *awsIntegrationsDynamodbPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsDynamodb] {
+	return pulumix.Output[*AwsIntegrationsDynamodb]{
+		OutputState: i.ToAwsIntegrationsDynamodbPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsDynamodbOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsDynamodbOutput) ElementType() reflect.Type {
@@ -9211,6 +10328,12 @@ func (o AwsIntegrationsDynamodbOutput) ToAwsIntegrationsDynamodbPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsDynamodb) *AwsIntegrationsDynamodb {
 		return &v
 	}).(AwsIntegrationsDynamodbPtrOutput)
+}
+
+func (o AwsIntegrationsDynamodbOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsDynamodb] {
+	return pulumix.Output[AwsIntegrationsDynamodb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -9261,6 +10384,12 @@ func (o AwsIntegrationsDynamodbPtrOutput) ToAwsIntegrationsDynamodbPtrOutput() A
 
 func (o AwsIntegrationsDynamodbPtrOutput) ToAwsIntegrationsDynamodbPtrOutputWithContext(ctx context.Context) AwsIntegrationsDynamodbPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsDynamodbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsDynamodb] {
+	return pulumix.Output[*AwsIntegrationsDynamodb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsDynamodbPtrOutput) Elem() AwsIntegrationsDynamodbOutput {
@@ -9400,6 +10529,12 @@ func (i AwsIntegrationsEbsArgs) ToAwsIntegrationsEbsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsEbsOutput)
 }
 
+func (i AwsIntegrationsEbsArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsEbs] {
+	return pulumix.Output[AwsIntegrationsEbs]{
+		OutputState: i.ToAwsIntegrationsEbsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsEbsArgs) ToAwsIntegrationsEbsPtrOutput() AwsIntegrationsEbsPtrOutput {
 	return i.ToAwsIntegrationsEbsPtrOutputWithContext(context.Background())
 }
@@ -9441,6 +10576,12 @@ func (i *awsIntegrationsEbsPtrType) ToAwsIntegrationsEbsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsEbsPtrOutput)
 }
 
+func (i *awsIntegrationsEbsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsEbs] {
+	return pulumix.Output[*AwsIntegrationsEbs]{
+		OutputState: i.ToAwsIntegrationsEbsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsEbsOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsEbsOutput) ElementType() reflect.Type {
@@ -9463,6 +10604,12 @@ func (o AwsIntegrationsEbsOutput) ToAwsIntegrationsEbsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsEbs) *AwsIntegrationsEbs {
 		return &v
 	}).(AwsIntegrationsEbsPtrOutput)
+}
+
+func (o AwsIntegrationsEbsOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsEbs] {
+	return pulumix.Output[AwsIntegrationsEbs]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -9508,6 +10655,12 @@ func (o AwsIntegrationsEbsPtrOutput) ToAwsIntegrationsEbsPtrOutput() AwsIntegrat
 
 func (o AwsIntegrationsEbsPtrOutput) ToAwsIntegrationsEbsPtrOutputWithContext(ctx context.Context) AwsIntegrationsEbsPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsEbsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsEbs] {
+	return pulumix.Output[*AwsIntegrationsEbs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsEbsPtrOutput) Elem() AwsIntegrationsEbsOutput {
@@ -9637,6 +10790,12 @@ func (i AwsIntegrationsEc2Args) ToAwsIntegrationsEc2OutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsEc2Output)
 }
 
+func (i AwsIntegrationsEc2Args) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsEc2] {
+	return pulumix.Output[AwsIntegrationsEc2]{
+		OutputState: i.ToAwsIntegrationsEc2OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsEc2Args) ToAwsIntegrationsEc2PtrOutput() AwsIntegrationsEc2PtrOutput {
 	return i.ToAwsIntegrationsEc2PtrOutputWithContext(context.Background())
 }
@@ -9678,6 +10837,12 @@ func (i *awsIntegrationsEc2PtrType) ToAwsIntegrationsEc2PtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsEc2PtrOutput)
 }
 
+func (i *awsIntegrationsEc2PtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsEc2] {
+	return pulumix.Output[*AwsIntegrationsEc2]{
+		OutputState: i.ToAwsIntegrationsEc2PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsEc2Output struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsEc2Output) ElementType() reflect.Type {
@@ -9700,6 +10865,12 @@ func (o AwsIntegrationsEc2Output) ToAwsIntegrationsEc2PtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsEc2) *AwsIntegrationsEc2 {
 		return &v
 	}).(AwsIntegrationsEc2PtrOutput)
+}
+
+func (o AwsIntegrationsEc2Output) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsEc2] {
+	return pulumix.Output[AwsIntegrationsEc2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -9748,6 +10919,12 @@ func (o AwsIntegrationsEc2PtrOutput) ToAwsIntegrationsEc2PtrOutput() AwsIntegrat
 
 func (o AwsIntegrationsEc2PtrOutput) ToAwsIntegrationsEc2PtrOutputWithContext(ctx context.Context) AwsIntegrationsEc2PtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsEc2PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsEc2] {
+	return pulumix.Output[*AwsIntegrationsEc2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsEc2PtrOutput) Elem() AwsIntegrationsEc2Output {
@@ -9881,6 +11058,12 @@ func (i AwsIntegrationsEcsArgs) ToAwsIntegrationsEcsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsEcsOutput)
 }
 
+func (i AwsIntegrationsEcsArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsEcs] {
+	return pulumix.Output[AwsIntegrationsEcs]{
+		OutputState: i.ToAwsIntegrationsEcsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsEcsArgs) ToAwsIntegrationsEcsPtrOutput() AwsIntegrationsEcsPtrOutput {
 	return i.ToAwsIntegrationsEcsPtrOutputWithContext(context.Background())
 }
@@ -9922,6 +11105,12 @@ func (i *awsIntegrationsEcsPtrType) ToAwsIntegrationsEcsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsEcsPtrOutput)
 }
 
+func (i *awsIntegrationsEcsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsEcs] {
+	return pulumix.Output[*AwsIntegrationsEcs]{
+		OutputState: i.ToAwsIntegrationsEcsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsEcsOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsEcsOutput) ElementType() reflect.Type {
@@ -9944,6 +11133,12 @@ func (o AwsIntegrationsEcsOutput) ToAwsIntegrationsEcsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsEcs) *AwsIntegrationsEcs {
 		return &v
 	}).(AwsIntegrationsEcsPtrOutput)
+}
+
+func (o AwsIntegrationsEcsOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsEcs] {
+	return pulumix.Output[AwsIntegrationsEcs]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -9987,6 +11182,12 @@ func (o AwsIntegrationsEcsPtrOutput) ToAwsIntegrationsEcsPtrOutput() AwsIntegrat
 
 func (o AwsIntegrationsEcsPtrOutput) ToAwsIntegrationsEcsPtrOutputWithContext(ctx context.Context) AwsIntegrationsEcsPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsEcsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsEcs] {
+	return pulumix.Output[*AwsIntegrationsEcs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsEcsPtrOutput) Elem() AwsIntegrationsEcsOutput {
@@ -10110,6 +11311,12 @@ func (i AwsIntegrationsEfsArgs) ToAwsIntegrationsEfsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsEfsOutput)
 }
 
+func (i AwsIntegrationsEfsArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsEfs] {
+	return pulumix.Output[AwsIntegrationsEfs]{
+		OutputState: i.ToAwsIntegrationsEfsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsEfsArgs) ToAwsIntegrationsEfsPtrOutput() AwsIntegrationsEfsPtrOutput {
 	return i.ToAwsIntegrationsEfsPtrOutputWithContext(context.Background())
 }
@@ -10151,6 +11358,12 @@ func (i *awsIntegrationsEfsPtrType) ToAwsIntegrationsEfsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsEfsPtrOutput)
 }
 
+func (i *awsIntegrationsEfsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsEfs] {
+	return pulumix.Output[*AwsIntegrationsEfs]{
+		OutputState: i.ToAwsIntegrationsEfsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsEfsOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsEfsOutput) ElementType() reflect.Type {
@@ -10173,6 +11386,12 @@ func (o AwsIntegrationsEfsOutput) ToAwsIntegrationsEfsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsEfs) *AwsIntegrationsEfs {
 		return &v
 	}).(AwsIntegrationsEfsPtrOutput)
+}
+
+func (o AwsIntegrationsEfsOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsEfs] {
+	return pulumix.Output[AwsIntegrationsEfs]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -10216,6 +11435,12 @@ func (o AwsIntegrationsEfsPtrOutput) ToAwsIntegrationsEfsPtrOutput() AwsIntegrat
 
 func (o AwsIntegrationsEfsPtrOutput) ToAwsIntegrationsEfsPtrOutputWithContext(ctx context.Context) AwsIntegrationsEfsPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsEfsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsEfs] {
+	return pulumix.Output[*AwsIntegrationsEfs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsEfsPtrOutput) Elem() AwsIntegrationsEfsOutput {
@@ -10339,6 +11564,12 @@ func (i AwsIntegrationsElasticacheArgs) ToAwsIntegrationsElasticacheOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsElasticacheOutput)
 }
 
+func (i AwsIntegrationsElasticacheArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsElasticache] {
+	return pulumix.Output[AwsIntegrationsElasticache]{
+		OutputState: i.ToAwsIntegrationsElasticacheOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsElasticacheArgs) ToAwsIntegrationsElasticachePtrOutput() AwsIntegrationsElasticachePtrOutput {
 	return i.ToAwsIntegrationsElasticachePtrOutputWithContext(context.Background())
 }
@@ -10380,6 +11611,12 @@ func (i *awsIntegrationsElasticachePtrType) ToAwsIntegrationsElasticachePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsElasticachePtrOutput)
 }
 
+func (i *awsIntegrationsElasticachePtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsElasticache] {
+	return pulumix.Output[*AwsIntegrationsElasticache]{
+		OutputState: i.ToAwsIntegrationsElasticachePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsElasticacheOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsElasticacheOutput) ElementType() reflect.Type {
@@ -10402,6 +11639,12 @@ func (o AwsIntegrationsElasticacheOutput) ToAwsIntegrationsElasticachePtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsElasticache) *AwsIntegrationsElasticache {
 		return &v
 	}).(AwsIntegrationsElasticachePtrOutput)
+}
+
+func (o AwsIntegrationsElasticacheOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsElasticache] {
+	return pulumix.Output[AwsIntegrationsElasticache]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -10445,6 +11688,12 @@ func (o AwsIntegrationsElasticachePtrOutput) ToAwsIntegrationsElasticachePtrOutp
 
 func (o AwsIntegrationsElasticachePtrOutput) ToAwsIntegrationsElasticachePtrOutputWithContext(ctx context.Context) AwsIntegrationsElasticachePtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsElasticachePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsElasticache] {
+	return pulumix.Output[*AwsIntegrationsElasticache]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsElasticachePtrOutput) Elem() AwsIntegrationsElasticacheOutput {
@@ -10576,6 +11825,12 @@ func (i AwsIntegrationsElasticbeanstalkArgs) ToAwsIntegrationsElasticbeanstalkOu
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsElasticbeanstalkOutput)
 }
 
+func (i AwsIntegrationsElasticbeanstalkArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsElasticbeanstalk] {
+	return pulumix.Output[AwsIntegrationsElasticbeanstalk]{
+		OutputState: i.ToAwsIntegrationsElasticbeanstalkOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsElasticbeanstalkArgs) ToAwsIntegrationsElasticbeanstalkPtrOutput() AwsIntegrationsElasticbeanstalkPtrOutput {
 	return i.ToAwsIntegrationsElasticbeanstalkPtrOutputWithContext(context.Background())
 }
@@ -10617,6 +11872,12 @@ func (i *awsIntegrationsElasticbeanstalkPtrType) ToAwsIntegrationsElasticbeansta
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsElasticbeanstalkPtrOutput)
 }
 
+func (i *awsIntegrationsElasticbeanstalkPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsElasticbeanstalk] {
+	return pulumix.Output[*AwsIntegrationsElasticbeanstalk]{
+		OutputState: i.ToAwsIntegrationsElasticbeanstalkPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsElasticbeanstalkOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsElasticbeanstalkOutput) ElementType() reflect.Type {
@@ -10639,6 +11900,12 @@ func (o AwsIntegrationsElasticbeanstalkOutput) ToAwsIntegrationsElasticbeanstalk
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsElasticbeanstalk) *AwsIntegrationsElasticbeanstalk {
 		return &v
 	}).(AwsIntegrationsElasticbeanstalkPtrOutput)
+}
+
+func (o AwsIntegrationsElasticbeanstalkOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsElasticbeanstalk] {
+	return pulumix.Output[AwsIntegrationsElasticbeanstalk]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -10689,6 +11956,12 @@ func (o AwsIntegrationsElasticbeanstalkPtrOutput) ToAwsIntegrationsElasticbeanst
 
 func (o AwsIntegrationsElasticbeanstalkPtrOutput) ToAwsIntegrationsElasticbeanstalkPtrOutputWithContext(ctx context.Context) AwsIntegrationsElasticbeanstalkPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsElasticbeanstalkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsElasticbeanstalk] {
+	return pulumix.Output[*AwsIntegrationsElasticbeanstalk]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsElasticbeanstalkPtrOutput) Elem() AwsIntegrationsElasticbeanstalkOutput {
@@ -10824,6 +12097,12 @@ func (i AwsIntegrationsElasticsearchArgs) ToAwsIntegrationsElasticsearchOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsElasticsearchOutput)
 }
 
+func (i AwsIntegrationsElasticsearchArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsElasticsearch] {
+	return pulumix.Output[AwsIntegrationsElasticsearch]{
+		OutputState: i.ToAwsIntegrationsElasticsearchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsElasticsearchArgs) ToAwsIntegrationsElasticsearchPtrOutput() AwsIntegrationsElasticsearchPtrOutput {
 	return i.ToAwsIntegrationsElasticsearchPtrOutputWithContext(context.Background())
 }
@@ -10865,6 +12144,12 @@ func (i *awsIntegrationsElasticsearchPtrType) ToAwsIntegrationsElasticsearchPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsElasticsearchPtrOutput)
 }
 
+func (i *awsIntegrationsElasticsearchPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsElasticsearch] {
+	return pulumix.Output[*AwsIntegrationsElasticsearch]{
+		OutputState: i.ToAwsIntegrationsElasticsearchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsElasticsearchOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsElasticsearchOutput) ElementType() reflect.Type {
@@ -10887,6 +12172,12 @@ func (o AwsIntegrationsElasticsearchOutput) ToAwsIntegrationsElasticsearchPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsElasticsearch) *AwsIntegrationsElasticsearch {
 		return &v
 	}).(AwsIntegrationsElasticsearchPtrOutput)
+}
+
+func (o AwsIntegrationsElasticsearchOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsElasticsearch] {
+	return pulumix.Output[AwsIntegrationsElasticsearch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -10930,6 +12221,12 @@ func (o AwsIntegrationsElasticsearchPtrOutput) ToAwsIntegrationsElasticsearchPtr
 
 func (o AwsIntegrationsElasticsearchPtrOutput) ToAwsIntegrationsElasticsearchPtrOutputWithContext(ctx context.Context) AwsIntegrationsElasticsearchPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsElasticsearchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsElasticsearch] {
+	return pulumix.Output[*AwsIntegrationsElasticsearch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsElasticsearchPtrOutput) Elem() AwsIntegrationsElasticsearchOutput {
@@ -11053,6 +12350,12 @@ func (i AwsIntegrationsElbArgs) ToAwsIntegrationsElbOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsElbOutput)
 }
 
+func (i AwsIntegrationsElbArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsElb] {
+	return pulumix.Output[AwsIntegrationsElb]{
+		OutputState: i.ToAwsIntegrationsElbOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsElbArgs) ToAwsIntegrationsElbPtrOutput() AwsIntegrationsElbPtrOutput {
 	return i.ToAwsIntegrationsElbPtrOutputWithContext(context.Background())
 }
@@ -11094,6 +12397,12 @@ func (i *awsIntegrationsElbPtrType) ToAwsIntegrationsElbPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsElbPtrOutput)
 }
 
+func (i *awsIntegrationsElbPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsElb] {
+	return pulumix.Output[*AwsIntegrationsElb]{
+		OutputState: i.ToAwsIntegrationsElbPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsElbOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsElbOutput) ElementType() reflect.Type {
@@ -11116,6 +12425,12 @@ func (o AwsIntegrationsElbOutput) ToAwsIntegrationsElbPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsElb) *AwsIntegrationsElb {
 		return &v
 	}).(AwsIntegrationsElbPtrOutput)
+}
+
+func (o AwsIntegrationsElbOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsElb] {
+	return pulumix.Output[AwsIntegrationsElb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -11156,6 +12471,12 @@ func (o AwsIntegrationsElbPtrOutput) ToAwsIntegrationsElbPtrOutput() AwsIntegrat
 
 func (o AwsIntegrationsElbPtrOutput) ToAwsIntegrationsElbPtrOutputWithContext(ctx context.Context) AwsIntegrationsElbPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsElbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsElb] {
+	return pulumix.Output[*AwsIntegrationsElb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsElbPtrOutput) Elem() AwsIntegrationsElbOutput {
@@ -11271,6 +12592,12 @@ func (i AwsIntegrationsEmrArgs) ToAwsIntegrationsEmrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsEmrOutput)
 }
 
+func (i AwsIntegrationsEmrArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsEmr] {
+	return pulumix.Output[AwsIntegrationsEmr]{
+		OutputState: i.ToAwsIntegrationsEmrOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsEmrArgs) ToAwsIntegrationsEmrPtrOutput() AwsIntegrationsEmrPtrOutput {
 	return i.ToAwsIntegrationsEmrPtrOutputWithContext(context.Background())
 }
@@ -11312,6 +12639,12 @@ func (i *awsIntegrationsEmrPtrType) ToAwsIntegrationsEmrPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsEmrPtrOutput)
 }
 
+func (i *awsIntegrationsEmrPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsEmr] {
+	return pulumix.Output[*AwsIntegrationsEmr]{
+		OutputState: i.ToAwsIntegrationsEmrPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsEmrOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsEmrOutput) ElementType() reflect.Type {
@@ -11334,6 +12667,12 @@ func (o AwsIntegrationsEmrOutput) ToAwsIntegrationsEmrPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsEmr) *AwsIntegrationsEmr {
 		return &v
 	}).(AwsIntegrationsEmrPtrOutput)
+}
+
+func (o AwsIntegrationsEmrOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsEmr] {
+	return pulumix.Output[AwsIntegrationsEmr]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -11377,6 +12716,12 @@ func (o AwsIntegrationsEmrPtrOutput) ToAwsIntegrationsEmrPtrOutput() AwsIntegrat
 
 func (o AwsIntegrationsEmrPtrOutput) ToAwsIntegrationsEmrPtrOutputWithContext(ctx context.Context) AwsIntegrationsEmrPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsEmrPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsEmr] {
+	return pulumix.Output[*AwsIntegrationsEmr]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsEmrPtrOutput) Elem() AwsIntegrationsEmrOutput {
@@ -11482,6 +12827,12 @@ func (i AwsIntegrationsHealthArgs) ToAwsIntegrationsHealthOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsHealthOutput)
 }
 
+func (i AwsIntegrationsHealthArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsHealth] {
+	return pulumix.Output[AwsIntegrationsHealth]{
+		OutputState: i.ToAwsIntegrationsHealthOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsHealthArgs) ToAwsIntegrationsHealthPtrOutput() AwsIntegrationsHealthPtrOutput {
 	return i.ToAwsIntegrationsHealthPtrOutputWithContext(context.Background())
 }
@@ -11523,6 +12874,12 @@ func (i *awsIntegrationsHealthPtrType) ToAwsIntegrationsHealthPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsHealthPtrOutput)
 }
 
+func (i *awsIntegrationsHealthPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsHealth] {
+	return pulumix.Output[*AwsIntegrationsHealth]{
+		OutputState: i.ToAwsIntegrationsHealthPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsHealthOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsHealthOutput) ElementType() reflect.Type {
@@ -11547,6 +12904,12 @@ func (o AwsIntegrationsHealthOutput) ToAwsIntegrationsHealthPtrOutputWithContext
 	}).(AwsIntegrationsHealthPtrOutput)
 }
 
+func (o AwsIntegrationsHealthOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsHealth] {
+	return pulumix.Output[AwsIntegrationsHealth]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // <details>
@@ -11567,6 +12930,12 @@ func (o AwsIntegrationsHealthPtrOutput) ToAwsIntegrationsHealthPtrOutput() AwsIn
 
 func (o AwsIntegrationsHealthPtrOutput) ToAwsIntegrationsHealthPtrOutputWithContext(ctx context.Context) AwsIntegrationsHealthPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsHealthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsHealth] {
+	return pulumix.Output[*AwsIntegrationsHealth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsHealthPtrOutput) Elem() AwsIntegrationsHealthOutput {
@@ -11639,6 +13008,12 @@ func (i AwsIntegrationsIamArgs) ToAwsIntegrationsIamOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsIamOutput)
 }
 
+func (i AwsIntegrationsIamArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsIam] {
+	return pulumix.Output[AwsIntegrationsIam]{
+		OutputState: i.ToAwsIntegrationsIamOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsIamArgs) ToAwsIntegrationsIamPtrOutput() AwsIntegrationsIamPtrOutput {
 	return i.ToAwsIntegrationsIamPtrOutputWithContext(context.Background())
 }
@@ -11680,6 +13055,12 @@ func (i *awsIntegrationsIamPtrType) ToAwsIntegrationsIamPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsIamPtrOutput)
 }
 
+func (i *awsIntegrationsIamPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsIam] {
+	return pulumix.Output[*AwsIntegrationsIam]{
+		OutputState: i.ToAwsIntegrationsIamPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsIamOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsIamOutput) ElementType() reflect.Type {
@@ -11702,6 +13083,12 @@ func (o AwsIntegrationsIamOutput) ToAwsIntegrationsIamPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsIam) *AwsIntegrationsIam {
 		return &v
 	}).(AwsIntegrationsIamPtrOutput)
+}
+
+func (o AwsIntegrationsIamOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsIam] {
+	return pulumix.Output[AwsIntegrationsIam]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -11734,6 +13121,12 @@ func (o AwsIntegrationsIamPtrOutput) ToAwsIntegrationsIamPtrOutput() AwsIntegrat
 
 func (o AwsIntegrationsIamPtrOutput) ToAwsIntegrationsIamPtrOutputWithContext(ctx context.Context) AwsIntegrationsIamPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsIamPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsIam] {
+	return pulumix.Output[*AwsIntegrationsIam]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsIamPtrOutput) Elem() AwsIntegrationsIamOutput {
@@ -11824,6 +13217,12 @@ func (i AwsIntegrationsIotArgs) ToAwsIntegrationsIotOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsIotOutput)
 }
 
+func (i AwsIntegrationsIotArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsIot] {
+	return pulumix.Output[AwsIntegrationsIot]{
+		OutputState: i.ToAwsIntegrationsIotOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsIotArgs) ToAwsIntegrationsIotPtrOutput() AwsIntegrationsIotPtrOutput {
 	return i.ToAwsIntegrationsIotPtrOutputWithContext(context.Background())
 }
@@ -11865,6 +13264,12 @@ func (i *awsIntegrationsIotPtrType) ToAwsIntegrationsIotPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsIotPtrOutput)
 }
 
+func (i *awsIntegrationsIotPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsIot] {
+	return pulumix.Output[*AwsIntegrationsIot]{
+		OutputState: i.ToAwsIntegrationsIotPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsIotOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsIotOutput) ElementType() reflect.Type {
@@ -11887,6 +13292,12 @@ func (o AwsIntegrationsIotOutput) ToAwsIntegrationsIotPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsIot) *AwsIntegrationsIot {
 		return &v
 	}).(AwsIntegrationsIotPtrOutput)
+}
+
+func (o AwsIntegrationsIotOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsIot] {
+	return pulumix.Output[AwsIntegrationsIot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -11915,6 +13326,12 @@ func (o AwsIntegrationsIotPtrOutput) ToAwsIntegrationsIotPtrOutput() AwsIntegrat
 
 func (o AwsIntegrationsIotPtrOutput) ToAwsIntegrationsIotPtrOutputWithContext(ctx context.Context) AwsIntegrationsIotPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsIotPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsIot] {
+	return pulumix.Output[*AwsIntegrationsIot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsIotPtrOutput) Elem() AwsIntegrationsIotOutput {
@@ -12012,6 +13429,12 @@ func (i AwsIntegrationsKinesisArgs) ToAwsIntegrationsKinesisOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsKinesisOutput)
 }
 
+func (i AwsIntegrationsKinesisArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsKinesis] {
+	return pulumix.Output[AwsIntegrationsKinesis]{
+		OutputState: i.ToAwsIntegrationsKinesisOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsKinesisArgs) ToAwsIntegrationsKinesisPtrOutput() AwsIntegrationsKinesisPtrOutput {
 	return i.ToAwsIntegrationsKinesisPtrOutputWithContext(context.Background())
 }
@@ -12053,6 +13476,12 @@ func (i *awsIntegrationsKinesisPtrType) ToAwsIntegrationsKinesisPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsKinesisPtrOutput)
 }
 
+func (i *awsIntegrationsKinesisPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsKinesis] {
+	return pulumix.Output[*AwsIntegrationsKinesis]{
+		OutputState: i.ToAwsIntegrationsKinesisPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsKinesisOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsKinesisOutput) ElementType() reflect.Type {
@@ -12075,6 +13504,12 @@ func (o AwsIntegrationsKinesisOutput) ToAwsIntegrationsKinesisPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsKinesis) *AwsIntegrationsKinesis {
 		return &v
 	}).(AwsIntegrationsKinesisPtrOutput)
+}
+
+func (o AwsIntegrationsKinesisOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsKinesis] {
+	return pulumix.Output[AwsIntegrationsKinesis]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -12123,6 +13558,12 @@ func (o AwsIntegrationsKinesisPtrOutput) ToAwsIntegrationsKinesisPtrOutput() Aws
 
 func (o AwsIntegrationsKinesisPtrOutput) ToAwsIntegrationsKinesisPtrOutputWithContext(ctx context.Context) AwsIntegrationsKinesisPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsKinesisPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsKinesis] {
+	return pulumix.Output[*AwsIntegrationsKinesis]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsKinesisPtrOutput) Elem() AwsIntegrationsKinesisOutput {
@@ -12244,6 +13685,12 @@ func (i AwsIntegrationsKinesisFirehoseArgs) ToAwsIntegrationsKinesisFirehoseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsKinesisFirehoseOutput)
 }
 
+func (i AwsIntegrationsKinesisFirehoseArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsKinesisFirehose] {
+	return pulumix.Output[AwsIntegrationsKinesisFirehose]{
+		OutputState: i.ToAwsIntegrationsKinesisFirehoseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsKinesisFirehoseArgs) ToAwsIntegrationsKinesisFirehosePtrOutput() AwsIntegrationsKinesisFirehosePtrOutput {
 	return i.ToAwsIntegrationsKinesisFirehosePtrOutputWithContext(context.Background())
 }
@@ -12285,6 +13732,12 @@ func (i *awsIntegrationsKinesisFirehosePtrType) ToAwsIntegrationsKinesisFirehose
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsKinesisFirehosePtrOutput)
 }
 
+func (i *awsIntegrationsKinesisFirehosePtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsKinesisFirehose] {
+	return pulumix.Output[*AwsIntegrationsKinesisFirehose]{
+		OutputState: i.ToAwsIntegrationsKinesisFirehosePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsKinesisFirehoseOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsKinesisFirehoseOutput) ElementType() reflect.Type {
@@ -12307,6 +13760,12 @@ func (o AwsIntegrationsKinesisFirehoseOutput) ToAwsIntegrationsKinesisFirehosePt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsKinesisFirehose) *AwsIntegrationsKinesisFirehose {
 		return &v
 	}).(AwsIntegrationsKinesisFirehosePtrOutput)
+}
+
+func (o AwsIntegrationsKinesisFirehoseOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsKinesisFirehose] {
+	return pulumix.Output[AwsIntegrationsKinesisFirehose]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -12335,6 +13794,12 @@ func (o AwsIntegrationsKinesisFirehosePtrOutput) ToAwsIntegrationsKinesisFirehos
 
 func (o AwsIntegrationsKinesisFirehosePtrOutput) ToAwsIntegrationsKinesisFirehosePtrOutputWithContext(ctx context.Context) AwsIntegrationsKinesisFirehosePtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsKinesisFirehosePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsKinesisFirehose] {
+	return pulumix.Output[*AwsIntegrationsKinesisFirehose]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsKinesisFirehosePtrOutput) Elem() AwsIntegrationsKinesisFirehoseOutput {
@@ -12428,6 +13893,12 @@ func (i AwsIntegrationsLambdaArgs) ToAwsIntegrationsLambdaOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsLambdaOutput)
 }
 
+func (i AwsIntegrationsLambdaArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsLambda] {
+	return pulumix.Output[AwsIntegrationsLambda]{
+		OutputState: i.ToAwsIntegrationsLambdaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsLambdaArgs) ToAwsIntegrationsLambdaPtrOutput() AwsIntegrationsLambdaPtrOutput {
 	return i.ToAwsIntegrationsLambdaPtrOutputWithContext(context.Background())
 }
@@ -12469,6 +13940,12 @@ func (i *awsIntegrationsLambdaPtrType) ToAwsIntegrationsLambdaPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsLambdaPtrOutput)
 }
 
+func (i *awsIntegrationsLambdaPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsLambda] {
+	return pulumix.Output[*AwsIntegrationsLambda]{
+		OutputState: i.ToAwsIntegrationsLambdaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsLambdaOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsLambdaOutput) ElementType() reflect.Type {
@@ -12491,6 +13968,12 @@ func (o AwsIntegrationsLambdaOutput) ToAwsIntegrationsLambdaPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsLambda) *AwsIntegrationsLambda {
 		return &v
 	}).(AwsIntegrationsLambdaPtrOutput)
+}
+
+func (o AwsIntegrationsLambdaOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsLambda] {
+	return pulumix.Output[AwsIntegrationsLambda]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -12534,6 +14017,12 @@ func (o AwsIntegrationsLambdaPtrOutput) ToAwsIntegrationsLambdaPtrOutput() AwsIn
 
 func (o AwsIntegrationsLambdaPtrOutput) ToAwsIntegrationsLambdaPtrOutputWithContext(ctx context.Context) AwsIntegrationsLambdaPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsLambdaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsLambda] {
+	return pulumix.Output[*AwsIntegrationsLambda]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsLambdaPtrOutput) Elem() AwsIntegrationsLambdaOutput {
@@ -12657,6 +14146,12 @@ func (i AwsIntegrationsRdsArgs) ToAwsIntegrationsRdsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsRdsOutput)
 }
 
+func (i AwsIntegrationsRdsArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsRds] {
+	return pulumix.Output[AwsIntegrationsRds]{
+		OutputState: i.ToAwsIntegrationsRdsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsRdsArgs) ToAwsIntegrationsRdsPtrOutput() AwsIntegrationsRdsPtrOutput {
 	return i.ToAwsIntegrationsRdsPtrOutputWithContext(context.Background())
 }
@@ -12698,6 +14193,12 @@ func (i *awsIntegrationsRdsPtrType) ToAwsIntegrationsRdsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsRdsPtrOutput)
 }
 
+func (i *awsIntegrationsRdsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsRds] {
+	return pulumix.Output[*AwsIntegrationsRds]{
+		OutputState: i.ToAwsIntegrationsRdsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsRdsOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsRdsOutput) ElementType() reflect.Type {
@@ -12720,6 +14221,12 @@ func (o AwsIntegrationsRdsOutput) ToAwsIntegrationsRdsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsRds) *AwsIntegrationsRds {
 		return &v
 	}).(AwsIntegrationsRdsPtrOutput)
+}
+
+func (o AwsIntegrationsRdsOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsRds] {
+	return pulumix.Output[AwsIntegrationsRds]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -12763,6 +14270,12 @@ func (o AwsIntegrationsRdsPtrOutput) ToAwsIntegrationsRdsPtrOutput() AwsIntegrat
 
 func (o AwsIntegrationsRdsPtrOutput) ToAwsIntegrationsRdsPtrOutputWithContext(ctx context.Context) AwsIntegrationsRdsPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsRdsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsRds] {
+	return pulumix.Output[*AwsIntegrationsRds]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsRdsPtrOutput) Elem() AwsIntegrationsRdsOutput {
@@ -12882,6 +14395,12 @@ func (i AwsIntegrationsRedshiftArgs) ToAwsIntegrationsRedshiftOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsRedshiftOutput)
 }
 
+func (i AwsIntegrationsRedshiftArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsRedshift] {
+	return pulumix.Output[AwsIntegrationsRedshift]{
+		OutputState: i.ToAwsIntegrationsRedshiftOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsRedshiftArgs) ToAwsIntegrationsRedshiftPtrOutput() AwsIntegrationsRedshiftPtrOutput {
 	return i.ToAwsIntegrationsRedshiftPtrOutputWithContext(context.Background())
 }
@@ -12923,6 +14442,12 @@ func (i *awsIntegrationsRedshiftPtrType) ToAwsIntegrationsRedshiftPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsRedshiftPtrOutput)
 }
 
+func (i *awsIntegrationsRedshiftPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsRedshift] {
+	return pulumix.Output[*AwsIntegrationsRedshift]{
+		OutputState: i.ToAwsIntegrationsRedshiftPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsRedshiftOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsRedshiftOutput) ElementType() reflect.Type {
@@ -12945,6 +14470,12 @@ func (o AwsIntegrationsRedshiftOutput) ToAwsIntegrationsRedshiftPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsRedshift) *AwsIntegrationsRedshift {
 		return &v
 	}).(AwsIntegrationsRedshiftPtrOutput)
+}
+
+func (o AwsIntegrationsRedshiftOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsRedshift] {
+	return pulumix.Output[AwsIntegrationsRedshift]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -12983,6 +14514,12 @@ func (o AwsIntegrationsRedshiftPtrOutput) ToAwsIntegrationsRedshiftPtrOutput() A
 
 func (o AwsIntegrationsRedshiftPtrOutput) ToAwsIntegrationsRedshiftPtrOutputWithContext(ctx context.Context) AwsIntegrationsRedshiftPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsRedshiftPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsRedshift] {
+	return pulumix.Output[*AwsIntegrationsRedshift]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsRedshiftPtrOutput) Elem() AwsIntegrationsRedshiftOutput {
@@ -13086,6 +14623,12 @@ func (i AwsIntegrationsRoute53Args) ToAwsIntegrationsRoute53OutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsRoute53Output)
 }
 
+func (i AwsIntegrationsRoute53Args) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsRoute53] {
+	return pulumix.Output[AwsIntegrationsRoute53]{
+		OutputState: i.ToAwsIntegrationsRoute53OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsRoute53Args) ToAwsIntegrationsRoute53PtrOutput() AwsIntegrationsRoute53PtrOutput {
 	return i.ToAwsIntegrationsRoute53PtrOutputWithContext(context.Background())
 }
@@ -13127,6 +14670,12 @@ func (i *awsIntegrationsRoute53PtrType) ToAwsIntegrationsRoute53PtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsRoute53PtrOutput)
 }
 
+func (i *awsIntegrationsRoute53PtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsRoute53] {
+	return pulumix.Output[*AwsIntegrationsRoute53]{
+		OutputState: i.ToAwsIntegrationsRoute53PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsRoute53Output struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsRoute53Output) ElementType() reflect.Type {
@@ -13149,6 +14698,12 @@ func (o AwsIntegrationsRoute53Output) ToAwsIntegrationsRoute53PtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsRoute53) *AwsIntegrationsRoute53 {
 		return &v
 	}).(AwsIntegrationsRoute53PtrOutput)
+}
+
+func (o AwsIntegrationsRoute53Output) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsRoute53] {
+	return pulumix.Output[AwsIntegrationsRoute53]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -13178,6 +14733,12 @@ func (o AwsIntegrationsRoute53PtrOutput) ToAwsIntegrationsRoute53PtrOutput() Aws
 
 func (o AwsIntegrationsRoute53PtrOutput) ToAwsIntegrationsRoute53PtrOutputWithContext(ctx context.Context) AwsIntegrationsRoute53PtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsRoute53PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsRoute53] {
+	return pulumix.Output[*AwsIntegrationsRoute53]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsRoute53PtrOutput) Elem() AwsIntegrationsRoute53Output {
@@ -13274,6 +14835,12 @@ func (i AwsIntegrationsS3Args) ToAwsIntegrationsS3OutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsS3Output)
 }
 
+func (i AwsIntegrationsS3Args) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsS3] {
+	return pulumix.Output[AwsIntegrationsS3]{
+		OutputState: i.ToAwsIntegrationsS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsS3Args) ToAwsIntegrationsS3PtrOutput() AwsIntegrationsS3PtrOutput {
 	return i.ToAwsIntegrationsS3PtrOutputWithContext(context.Background())
 }
@@ -13315,6 +14882,12 @@ func (i *awsIntegrationsS3PtrType) ToAwsIntegrationsS3PtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsS3PtrOutput)
 }
 
+func (i *awsIntegrationsS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsS3] {
+	return pulumix.Output[*AwsIntegrationsS3]{
+		OutputState: i.ToAwsIntegrationsS3PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsS3Output struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsS3Output) ElementType() reflect.Type {
@@ -13337,6 +14910,12 @@ func (o AwsIntegrationsS3Output) ToAwsIntegrationsS3PtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsS3) *AwsIntegrationsS3 {
 		return &v
 	}).(AwsIntegrationsS3PtrOutput)
+}
+
+func (o AwsIntegrationsS3Output) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsS3] {
+	return pulumix.Output[AwsIntegrationsS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -13381,6 +14960,12 @@ func (o AwsIntegrationsS3PtrOutput) ToAwsIntegrationsS3PtrOutput() AwsIntegratio
 
 func (o AwsIntegrationsS3PtrOutput) ToAwsIntegrationsS3PtrOutputWithContext(ctx context.Context) AwsIntegrationsS3PtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsS3] {
+	return pulumix.Output[*AwsIntegrationsS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsS3PtrOutput) Elem() AwsIntegrationsS3Output {
@@ -13493,6 +15078,12 @@ func (i AwsIntegrationsSesArgs) ToAwsIntegrationsSesOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsSesOutput)
 }
 
+func (i AwsIntegrationsSesArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsSes] {
+	return pulumix.Output[AwsIntegrationsSes]{
+		OutputState: i.ToAwsIntegrationsSesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsSesArgs) ToAwsIntegrationsSesPtrOutput() AwsIntegrationsSesPtrOutput {
 	return i.ToAwsIntegrationsSesPtrOutputWithContext(context.Background())
 }
@@ -13534,6 +15125,12 @@ func (i *awsIntegrationsSesPtrType) ToAwsIntegrationsSesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsSesPtrOutput)
 }
 
+func (i *awsIntegrationsSesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsSes] {
+	return pulumix.Output[*AwsIntegrationsSes]{
+		OutputState: i.ToAwsIntegrationsSesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsSesOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsSesOutput) ElementType() reflect.Type {
@@ -13556,6 +15153,12 @@ func (o AwsIntegrationsSesOutput) ToAwsIntegrationsSesPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsSes) *AwsIntegrationsSes {
 		return &v
 	}).(AwsIntegrationsSesPtrOutput)
+}
+
+func (o AwsIntegrationsSesOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsSes] {
+	return pulumix.Output[AwsIntegrationsSes]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -13584,6 +15187,12 @@ func (o AwsIntegrationsSesPtrOutput) ToAwsIntegrationsSesPtrOutput() AwsIntegrat
 
 func (o AwsIntegrationsSesPtrOutput) ToAwsIntegrationsSesPtrOutputWithContext(ctx context.Context) AwsIntegrationsSesPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsSesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsSes] {
+	return pulumix.Output[*AwsIntegrationsSes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsSesPtrOutput) Elem() AwsIntegrationsSesOutput {
@@ -13673,6 +15282,12 @@ func (i AwsIntegrationsSnsArgs) ToAwsIntegrationsSnsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsSnsOutput)
 }
 
+func (i AwsIntegrationsSnsArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsSns] {
+	return pulumix.Output[AwsIntegrationsSns]{
+		OutputState: i.ToAwsIntegrationsSnsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsSnsArgs) ToAwsIntegrationsSnsPtrOutput() AwsIntegrationsSnsPtrOutput {
 	return i.ToAwsIntegrationsSnsPtrOutputWithContext(context.Background())
 }
@@ -13714,6 +15329,12 @@ func (i *awsIntegrationsSnsPtrType) ToAwsIntegrationsSnsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsSnsPtrOutput)
 }
 
+func (i *awsIntegrationsSnsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsSns] {
+	return pulumix.Output[*AwsIntegrationsSns]{
+		OutputState: i.ToAwsIntegrationsSnsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsSnsOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsSnsOutput) ElementType() reflect.Type {
@@ -13736,6 +15357,12 @@ func (o AwsIntegrationsSnsOutput) ToAwsIntegrationsSnsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsSns) *AwsIntegrationsSns {
 		return &v
 	}).(AwsIntegrationsSnsPtrOutput)
+}
+
+func (o AwsIntegrationsSnsOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsSns] {
+	return pulumix.Output[AwsIntegrationsSns]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -13771,6 +15398,12 @@ func (o AwsIntegrationsSnsPtrOutput) ToAwsIntegrationsSnsPtrOutput() AwsIntegrat
 
 func (o AwsIntegrationsSnsPtrOutput) ToAwsIntegrationsSnsPtrOutputWithContext(ctx context.Context) AwsIntegrationsSnsPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsSnsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsSns] {
+	return pulumix.Output[*AwsIntegrationsSns]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsSnsPtrOutput) Elem() AwsIntegrationsSnsOutput {
@@ -13888,6 +15521,12 @@ func (i AwsIntegrationsSqsArgs) ToAwsIntegrationsSqsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsSqsOutput)
 }
 
+func (i AwsIntegrationsSqsArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsSqs] {
+	return pulumix.Output[AwsIntegrationsSqs]{
+		OutputState: i.ToAwsIntegrationsSqsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsSqsArgs) ToAwsIntegrationsSqsPtrOutput() AwsIntegrationsSqsPtrOutput {
 	return i.ToAwsIntegrationsSqsPtrOutputWithContext(context.Background())
 }
@@ -13929,6 +15568,12 @@ func (i *awsIntegrationsSqsPtrType) ToAwsIntegrationsSqsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsSqsPtrOutput)
 }
 
+func (i *awsIntegrationsSqsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsSqs] {
+	return pulumix.Output[*AwsIntegrationsSqs]{
+		OutputState: i.ToAwsIntegrationsSqsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsSqsOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsSqsOutput) ElementType() reflect.Type {
@@ -13951,6 +15596,12 @@ func (o AwsIntegrationsSqsOutput) ToAwsIntegrationsSqsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsSqs) *AwsIntegrationsSqs {
 		return &v
 	}).(AwsIntegrationsSqsPtrOutput)
+}
+
+func (o AwsIntegrationsSqsOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsSqs] {
+	return pulumix.Output[AwsIntegrationsSqs]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -14006,6 +15657,12 @@ func (o AwsIntegrationsSqsPtrOutput) ToAwsIntegrationsSqsPtrOutput() AwsIntegrat
 
 func (o AwsIntegrationsSqsPtrOutput) ToAwsIntegrationsSqsPtrOutputWithContext(ctx context.Context) AwsIntegrationsSqsPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsSqsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsSqs] {
+	return pulumix.Output[*AwsIntegrationsSqs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsSqsPtrOutput) Elem() AwsIntegrationsSqsOutput {
@@ -14133,6 +15790,12 @@ func (i AwsIntegrationsTrustedAdvisorArgs) ToAwsIntegrationsTrustedAdvisorOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsTrustedAdvisorOutput)
 }
 
+func (i AwsIntegrationsTrustedAdvisorArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsTrustedAdvisor] {
+	return pulumix.Output[AwsIntegrationsTrustedAdvisor]{
+		OutputState: i.ToAwsIntegrationsTrustedAdvisorOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsTrustedAdvisorArgs) ToAwsIntegrationsTrustedAdvisorPtrOutput() AwsIntegrationsTrustedAdvisorPtrOutput {
 	return i.ToAwsIntegrationsTrustedAdvisorPtrOutputWithContext(context.Background())
 }
@@ -14174,6 +15837,12 @@ func (i *awsIntegrationsTrustedAdvisorPtrType) ToAwsIntegrationsTrustedAdvisorPt
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsTrustedAdvisorPtrOutput)
 }
 
+func (i *awsIntegrationsTrustedAdvisorPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsTrustedAdvisor] {
+	return pulumix.Output[*AwsIntegrationsTrustedAdvisor]{
+		OutputState: i.ToAwsIntegrationsTrustedAdvisorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsTrustedAdvisorOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsTrustedAdvisorOutput) ElementType() reflect.Type {
@@ -14198,6 +15867,12 @@ func (o AwsIntegrationsTrustedAdvisorOutput) ToAwsIntegrationsTrustedAdvisorPtrO
 	}).(AwsIntegrationsTrustedAdvisorPtrOutput)
 }
 
+func (o AwsIntegrationsTrustedAdvisorOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsTrustedAdvisor] {
+	return pulumix.Output[AwsIntegrationsTrustedAdvisor]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // <details>
@@ -14218,6 +15893,12 @@ func (o AwsIntegrationsTrustedAdvisorPtrOutput) ToAwsIntegrationsTrustedAdvisorP
 
 func (o AwsIntegrationsTrustedAdvisorPtrOutput) ToAwsIntegrationsTrustedAdvisorPtrOutputWithContext(ctx context.Context) AwsIntegrationsTrustedAdvisorPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsTrustedAdvisorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsTrustedAdvisor] {
+	return pulumix.Output[*AwsIntegrationsTrustedAdvisor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsTrustedAdvisorPtrOutput) Elem() AwsIntegrationsTrustedAdvisorOutput {
@@ -14304,6 +15985,12 @@ func (i AwsIntegrationsVpcArgs) ToAwsIntegrationsVpcOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsVpcOutput)
 }
 
+func (i AwsIntegrationsVpcArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsVpc] {
+	return pulumix.Output[AwsIntegrationsVpc]{
+		OutputState: i.ToAwsIntegrationsVpcOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsVpcArgs) ToAwsIntegrationsVpcPtrOutput() AwsIntegrationsVpcPtrOutput {
 	return i.ToAwsIntegrationsVpcPtrOutputWithContext(context.Background())
 }
@@ -14345,6 +16032,12 @@ func (i *awsIntegrationsVpcPtrType) ToAwsIntegrationsVpcPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsVpcPtrOutput)
 }
 
+func (i *awsIntegrationsVpcPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsVpc] {
+	return pulumix.Output[*AwsIntegrationsVpc]{
+		OutputState: i.ToAwsIntegrationsVpcPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsVpcOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsVpcOutput) ElementType() reflect.Type {
@@ -14367,6 +16060,12 @@ func (o AwsIntegrationsVpcOutput) ToAwsIntegrationsVpcPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsVpc) *AwsIntegrationsVpc {
 		return &v
 	}).(AwsIntegrationsVpcPtrOutput)
+}
+
+func (o AwsIntegrationsVpcOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsVpc] {
+	return pulumix.Output[AwsIntegrationsVpc]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -14415,6 +16114,12 @@ func (o AwsIntegrationsVpcPtrOutput) ToAwsIntegrationsVpcPtrOutput() AwsIntegrat
 
 func (o AwsIntegrationsVpcPtrOutput) ToAwsIntegrationsVpcPtrOutputWithContext(ctx context.Context) AwsIntegrationsVpcPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsVpcPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsVpc] {
+	return pulumix.Output[*AwsIntegrationsVpc]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsVpcPtrOutput) Elem() AwsIntegrationsVpcOutput {
@@ -14536,6 +16241,12 @@ func (i AwsIntegrationsXRayArgs) ToAwsIntegrationsXRayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsXRayOutput)
 }
 
+func (i AwsIntegrationsXRayArgs) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsXRay] {
+	return pulumix.Output[AwsIntegrationsXRay]{
+		OutputState: i.ToAwsIntegrationsXRayOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AwsIntegrationsXRayArgs) ToAwsIntegrationsXRayPtrOutput() AwsIntegrationsXRayPtrOutput {
 	return i.ToAwsIntegrationsXRayPtrOutputWithContext(context.Background())
 }
@@ -14577,6 +16288,12 @@ func (i *awsIntegrationsXRayPtrType) ToAwsIntegrationsXRayPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsXRayPtrOutput)
 }
 
+func (i *awsIntegrationsXRayPtrType) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsXRay] {
+	return pulumix.Output[*AwsIntegrationsXRay]{
+		OutputState: i.ToAwsIntegrationsXRayPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsXRayOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsXRayOutput) ElementType() reflect.Type {
@@ -14599,6 +16316,12 @@ func (o AwsIntegrationsXRayOutput) ToAwsIntegrationsXRayPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsXRay) *AwsIntegrationsXRay {
 		return &v
 	}).(AwsIntegrationsXRayPtrOutput)
+}
+
+func (o AwsIntegrationsXRayOutput) ToOutput(ctx context.Context) pulumix.Output[AwsIntegrationsXRay] {
+	return pulumix.Output[AwsIntegrationsXRay]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
@@ -14627,6 +16350,12 @@ func (o AwsIntegrationsXRayPtrOutput) ToAwsIntegrationsXRayPtrOutput() AwsIntegr
 
 func (o AwsIntegrationsXRayPtrOutput) ToAwsIntegrationsXRayPtrOutputWithContext(ctx context.Context) AwsIntegrationsXRayPtrOutput {
 	return o
+}
+
+func (o AwsIntegrationsXRayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrationsXRay] {
+	return pulumix.Output[*AwsIntegrationsXRay]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsXRayPtrOutput) Elem() AwsIntegrationsXRayOutput {
@@ -14704,6 +16433,12 @@ func (i AzureIntegrationsApiManagementArgs) ToAzureIntegrationsApiManagementOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsApiManagementOutput)
 }
 
+func (i AzureIntegrationsApiManagementArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsApiManagement] {
+	return pulumix.Output[AzureIntegrationsApiManagement]{
+		OutputState: i.ToAzureIntegrationsApiManagementOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsApiManagementArgs) ToAzureIntegrationsApiManagementPtrOutput() AzureIntegrationsApiManagementPtrOutput {
 	return i.ToAzureIntegrationsApiManagementPtrOutputWithContext(context.Background())
 }
@@ -14745,6 +16480,12 @@ func (i *azureIntegrationsApiManagementPtrType) ToAzureIntegrationsApiManagement
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsApiManagementPtrOutput)
 }
 
+func (i *azureIntegrationsApiManagementPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsApiManagement] {
+	return pulumix.Output[*AzureIntegrationsApiManagement]{
+		OutputState: i.ToAzureIntegrationsApiManagementPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsApiManagementOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsApiManagementOutput) ElementType() reflect.Type {
@@ -14767,6 +16508,12 @@ func (o AzureIntegrationsApiManagementOutput) ToAzureIntegrationsApiManagementPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsApiManagement) *AzureIntegrationsApiManagement {
 		return &v
 	}).(AzureIntegrationsApiManagementPtrOutput)
+}
+
+func (o AzureIntegrationsApiManagementOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsApiManagement] {
+	return pulumix.Output[AzureIntegrationsApiManagement]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -14793,6 +16540,12 @@ func (o AzureIntegrationsApiManagementPtrOutput) ToAzureIntegrationsApiManagemen
 
 func (o AzureIntegrationsApiManagementPtrOutput) ToAzureIntegrationsApiManagementPtrOutputWithContext(ctx context.Context) AzureIntegrationsApiManagementPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsApiManagementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsApiManagement] {
+	return pulumix.Output[*AzureIntegrationsApiManagement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsApiManagementPtrOutput) Elem() AzureIntegrationsApiManagementOutput {
@@ -14868,6 +16621,12 @@ func (i AzureIntegrationsAppGatewayArgs) ToAzureIntegrationsAppGatewayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsAppGatewayOutput)
 }
 
+func (i AzureIntegrationsAppGatewayArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsAppGateway] {
+	return pulumix.Output[AzureIntegrationsAppGateway]{
+		OutputState: i.ToAzureIntegrationsAppGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsAppGatewayArgs) ToAzureIntegrationsAppGatewayPtrOutput() AzureIntegrationsAppGatewayPtrOutput {
 	return i.ToAzureIntegrationsAppGatewayPtrOutputWithContext(context.Background())
 }
@@ -14909,6 +16668,12 @@ func (i *azureIntegrationsAppGatewayPtrType) ToAzureIntegrationsAppGatewayPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsAppGatewayPtrOutput)
 }
 
+func (i *azureIntegrationsAppGatewayPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsAppGateway] {
+	return pulumix.Output[*AzureIntegrationsAppGateway]{
+		OutputState: i.ToAzureIntegrationsAppGatewayPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsAppGatewayOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsAppGatewayOutput) ElementType() reflect.Type {
@@ -14931,6 +16696,12 @@ func (o AzureIntegrationsAppGatewayOutput) ToAzureIntegrationsAppGatewayPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsAppGateway) *AzureIntegrationsAppGateway {
 		return &v
 	}).(AzureIntegrationsAppGatewayPtrOutput)
+}
+
+func (o AzureIntegrationsAppGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsAppGateway] {
+	return pulumix.Output[AzureIntegrationsAppGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -14957,6 +16728,12 @@ func (o AzureIntegrationsAppGatewayPtrOutput) ToAzureIntegrationsAppGatewayPtrOu
 
 func (o AzureIntegrationsAppGatewayPtrOutput) ToAzureIntegrationsAppGatewayPtrOutputWithContext(ctx context.Context) AzureIntegrationsAppGatewayPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsAppGatewayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsAppGateway] {
+	return pulumix.Output[*AzureIntegrationsAppGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsAppGatewayPtrOutput) Elem() AzureIntegrationsAppGatewayOutput {
@@ -15032,6 +16809,12 @@ func (i AzureIntegrationsAppServiceArgs) ToAzureIntegrationsAppServiceOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsAppServiceOutput)
 }
 
+func (i AzureIntegrationsAppServiceArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsAppService] {
+	return pulumix.Output[AzureIntegrationsAppService]{
+		OutputState: i.ToAzureIntegrationsAppServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsAppServiceArgs) ToAzureIntegrationsAppServicePtrOutput() AzureIntegrationsAppServicePtrOutput {
 	return i.ToAzureIntegrationsAppServicePtrOutputWithContext(context.Background())
 }
@@ -15073,6 +16856,12 @@ func (i *azureIntegrationsAppServicePtrType) ToAzureIntegrationsAppServicePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsAppServicePtrOutput)
 }
 
+func (i *azureIntegrationsAppServicePtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsAppService] {
+	return pulumix.Output[*AzureIntegrationsAppService]{
+		OutputState: i.ToAzureIntegrationsAppServicePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsAppServiceOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsAppServiceOutput) ElementType() reflect.Type {
@@ -15095,6 +16884,12 @@ func (o AzureIntegrationsAppServiceOutput) ToAzureIntegrationsAppServicePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsAppService) *AzureIntegrationsAppService {
 		return &v
 	}).(AzureIntegrationsAppServicePtrOutput)
+}
+
+func (o AzureIntegrationsAppServiceOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsAppService] {
+	return pulumix.Output[AzureIntegrationsAppService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -15121,6 +16916,12 @@ func (o AzureIntegrationsAppServicePtrOutput) ToAzureIntegrationsAppServicePtrOu
 
 func (o AzureIntegrationsAppServicePtrOutput) ToAzureIntegrationsAppServicePtrOutputWithContext(ctx context.Context) AzureIntegrationsAppServicePtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsAppServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsAppService] {
+	return pulumix.Output[*AzureIntegrationsAppService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsAppServicePtrOutput) Elem() AzureIntegrationsAppServiceOutput {
@@ -15196,6 +16997,12 @@ func (i AzureIntegrationsContainersArgs) ToAzureIntegrationsContainersOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsContainersOutput)
 }
 
+func (i AzureIntegrationsContainersArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsContainers] {
+	return pulumix.Output[AzureIntegrationsContainers]{
+		OutputState: i.ToAzureIntegrationsContainersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsContainersArgs) ToAzureIntegrationsContainersPtrOutput() AzureIntegrationsContainersPtrOutput {
 	return i.ToAzureIntegrationsContainersPtrOutputWithContext(context.Background())
 }
@@ -15237,6 +17044,12 @@ func (i *azureIntegrationsContainersPtrType) ToAzureIntegrationsContainersPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsContainersPtrOutput)
 }
 
+func (i *azureIntegrationsContainersPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsContainers] {
+	return pulumix.Output[*AzureIntegrationsContainers]{
+		OutputState: i.ToAzureIntegrationsContainersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsContainersOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsContainersOutput) ElementType() reflect.Type {
@@ -15259,6 +17072,12 @@ func (o AzureIntegrationsContainersOutput) ToAzureIntegrationsContainersPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsContainers) *AzureIntegrationsContainers {
 		return &v
 	}).(AzureIntegrationsContainersPtrOutput)
+}
+
+func (o AzureIntegrationsContainersOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsContainers] {
+	return pulumix.Output[AzureIntegrationsContainers]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -15285,6 +17104,12 @@ func (o AzureIntegrationsContainersPtrOutput) ToAzureIntegrationsContainersPtrOu
 
 func (o AzureIntegrationsContainersPtrOutput) ToAzureIntegrationsContainersPtrOutputWithContext(ctx context.Context) AzureIntegrationsContainersPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsContainersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsContainers] {
+	return pulumix.Output[*AzureIntegrationsContainers]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsContainersPtrOutput) Elem() AzureIntegrationsContainersOutput {
@@ -15360,6 +17185,12 @@ func (i AzureIntegrationsCosmosDbArgs) ToAzureIntegrationsCosmosDbOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsCosmosDbOutput)
 }
 
+func (i AzureIntegrationsCosmosDbArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsCosmosDb] {
+	return pulumix.Output[AzureIntegrationsCosmosDb]{
+		OutputState: i.ToAzureIntegrationsCosmosDbOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsCosmosDbArgs) ToAzureIntegrationsCosmosDbPtrOutput() AzureIntegrationsCosmosDbPtrOutput {
 	return i.ToAzureIntegrationsCosmosDbPtrOutputWithContext(context.Background())
 }
@@ -15401,6 +17232,12 @@ func (i *azureIntegrationsCosmosDbPtrType) ToAzureIntegrationsCosmosDbPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsCosmosDbPtrOutput)
 }
 
+func (i *azureIntegrationsCosmosDbPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsCosmosDb] {
+	return pulumix.Output[*AzureIntegrationsCosmosDb]{
+		OutputState: i.ToAzureIntegrationsCosmosDbPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsCosmosDbOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsCosmosDbOutput) ElementType() reflect.Type {
@@ -15423,6 +17260,12 @@ func (o AzureIntegrationsCosmosDbOutput) ToAzureIntegrationsCosmosDbPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsCosmosDb) *AzureIntegrationsCosmosDb {
 		return &v
 	}).(AzureIntegrationsCosmosDbPtrOutput)
+}
+
+func (o AzureIntegrationsCosmosDbOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsCosmosDb] {
+	return pulumix.Output[AzureIntegrationsCosmosDb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -15449,6 +17292,12 @@ func (o AzureIntegrationsCosmosDbPtrOutput) ToAzureIntegrationsCosmosDbPtrOutput
 
 func (o AzureIntegrationsCosmosDbPtrOutput) ToAzureIntegrationsCosmosDbPtrOutputWithContext(ctx context.Context) AzureIntegrationsCosmosDbPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsCosmosDbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsCosmosDb] {
+	return pulumix.Output[*AzureIntegrationsCosmosDb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsCosmosDbPtrOutput) Elem() AzureIntegrationsCosmosDbOutput {
@@ -15520,6 +17369,12 @@ func (i AzureIntegrationsCostManagementArgs) ToAzureIntegrationsCostManagementOu
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsCostManagementOutput)
 }
 
+func (i AzureIntegrationsCostManagementArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsCostManagement] {
+	return pulumix.Output[AzureIntegrationsCostManagement]{
+		OutputState: i.ToAzureIntegrationsCostManagementOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsCostManagementArgs) ToAzureIntegrationsCostManagementPtrOutput() AzureIntegrationsCostManagementPtrOutput {
 	return i.ToAzureIntegrationsCostManagementPtrOutputWithContext(context.Background())
 }
@@ -15561,6 +17416,12 @@ func (i *azureIntegrationsCostManagementPtrType) ToAzureIntegrationsCostManageme
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsCostManagementPtrOutput)
 }
 
+func (i *azureIntegrationsCostManagementPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsCostManagement] {
+	return pulumix.Output[*AzureIntegrationsCostManagement]{
+		OutputState: i.ToAzureIntegrationsCostManagementPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsCostManagementOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsCostManagementOutput) ElementType() reflect.Type {
@@ -15585,6 +17446,12 @@ func (o AzureIntegrationsCostManagementOutput) ToAzureIntegrationsCostManagement
 	}).(AzureIntegrationsCostManagementPtrOutput)
 }
 
+func (o AzureIntegrationsCostManagementOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsCostManagement] {
+	return pulumix.Output[AzureIntegrationsCostManagement]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 func (o AzureIntegrationsCostManagementOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureIntegrationsCostManagement) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
@@ -15607,6 +17474,12 @@ func (o AzureIntegrationsCostManagementPtrOutput) ToAzureIntegrationsCostManagem
 
 func (o AzureIntegrationsCostManagementPtrOutput) ToAzureIntegrationsCostManagementPtrOutputWithContext(ctx context.Context) AzureIntegrationsCostManagementPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsCostManagementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsCostManagement] {
+	return pulumix.Output[*AzureIntegrationsCostManagement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsCostManagementPtrOutput) Elem() AzureIntegrationsCostManagementOutput {
@@ -15680,6 +17553,12 @@ func (i AzureIntegrationsDataFactoryArgs) ToAzureIntegrationsDataFactoryOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsDataFactoryOutput)
 }
 
+func (i AzureIntegrationsDataFactoryArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsDataFactory] {
+	return pulumix.Output[AzureIntegrationsDataFactory]{
+		OutputState: i.ToAzureIntegrationsDataFactoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsDataFactoryArgs) ToAzureIntegrationsDataFactoryPtrOutput() AzureIntegrationsDataFactoryPtrOutput {
 	return i.ToAzureIntegrationsDataFactoryPtrOutputWithContext(context.Background())
 }
@@ -15721,6 +17600,12 @@ func (i *azureIntegrationsDataFactoryPtrType) ToAzureIntegrationsDataFactoryPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsDataFactoryPtrOutput)
 }
 
+func (i *azureIntegrationsDataFactoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsDataFactory] {
+	return pulumix.Output[*AzureIntegrationsDataFactory]{
+		OutputState: i.ToAzureIntegrationsDataFactoryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsDataFactoryOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsDataFactoryOutput) ElementType() reflect.Type {
@@ -15743,6 +17628,12 @@ func (o AzureIntegrationsDataFactoryOutput) ToAzureIntegrationsDataFactoryPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsDataFactory) *AzureIntegrationsDataFactory {
 		return &v
 	}).(AzureIntegrationsDataFactoryPtrOutput)
+}
+
+func (o AzureIntegrationsDataFactoryOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsDataFactory] {
+	return pulumix.Output[AzureIntegrationsDataFactory]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -15769,6 +17660,12 @@ func (o AzureIntegrationsDataFactoryPtrOutput) ToAzureIntegrationsDataFactoryPtr
 
 func (o AzureIntegrationsDataFactoryPtrOutput) ToAzureIntegrationsDataFactoryPtrOutputWithContext(ctx context.Context) AzureIntegrationsDataFactoryPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsDataFactoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsDataFactory] {
+	return pulumix.Output[*AzureIntegrationsDataFactory]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsDataFactoryPtrOutput) Elem() AzureIntegrationsDataFactoryOutput {
@@ -15844,6 +17741,12 @@ func (i AzureIntegrationsEventHubArgs) ToAzureIntegrationsEventHubOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsEventHubOutput)
 }
 
+func (i AzureIntegrationsEventHubArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsEventHub] {
+	return pulumix.Output[AzureIntegrationsEventHub]{
+		OutputState: i.ToAzureIntegrationsEventHubOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsEventHubArgs) ToAzureIntegrationsEventHubPtrOutput() AzureIntegrationsEventHubPtrOutput {
 	return i.ToAzureIntegrationsEventHubPtrOutputWithContext(context.Background())
 }
@@ -15885,6 +17788,12 @@ func (i *azureIntegrationsEventHubPtrType) ToAzureIntegrationsEventHubPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsEventHubPtrOutput)
 }
 
+func (i *azureIntegrationsEventHubPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsEventHub] {
+	return pulumix.Output[*AzureIntegrationsEventHub]{
+		OutputState: i.ToAzureIntegrationsEventHubPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsEventHubOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsEventHubOutput) ElementType() reflect.Type {
@@ -15907,6 +17816,12 @@ func (o AzureIntegrationsEventHubOutput) ToAzureIntegrationsEventHubPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsEventHub) *AzureIntegrationsEventHub {
 		return &v
 	}).(AzureIntegrationsEventHubPtrOutput)
+}
+
+func (o AzureIntegrationsEventHubOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsEventHub] {
+	return pulumix.Output[AzureIntegrationsEventHub]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -15933,6 +17848,12 @@ func (o AzureIntegrationsEventHubPtrOutput) ToAzureIntegrationsEventHubPtrOutput
 
 func (o AzureIntegrationsEventHubPtrOutput) ToAzureIntegrationsEventHubPtrOutputWithContext(ctx context.Context) AzureIntegrationsEventHubPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsEventHubPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsEventHub] {
+	return pulumix.Output[*AzureIntegrationsEventHub]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsEventHubPtrOutput) Elem() AzureIntegrationsEventHubOutput {
@@ -16008,6 +17929,12 @@ func (i AzureIntegrationsExpressRouteArgs) ToAzureIntegrationsExpressRouteOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsExpressRouteOutput)
 }
 
+func (i AzureIntegrationsExpressRouteArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsExpressRoute] {
+	return pulumix.Output[AzureIntegrationsExpressRoute]{
+		OutputState: i.ToAzureIntegrationsExpressRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsExpressRouteArgs) ToAzureIntegrationsExpressRoutePtrOutput() AzureIntegrationsExpressRoutePtrOutput {
 	return i.ToAzureIntegrationsExpressRoutePtrOutputWithContext(context.Background())
 }
@@ -16049,6 +17976,12 @@ func (i *azureIntegrationsExpressRoutePtrType) ToAzureIntegrationsExpressRoutePt
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsExpressRoutePtrOutput)
 }
 
+func (i *azureIntegrationsExpressRoutePtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsExpressRoute] {
+	return pulumix.Output[*AzureIntegrationsExpressRoute]{
+		OutputState: i.ToAzureIntegrationsExpressRoutePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsExpressRouteOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsExpressRouteOutput) ElementType() reflect.Type {
@@ -16071,6 +18004,12 @@ func (o AzureIntegrationsExpressRouteOutput) ToAzureIntegrationsExpressRoutePtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsExpressRoute) *AzureIntegrationsExpressRoute {
 		return &v
 	}).(AzureIntegrationsExpressRoutePtrOutput)
+}
+
+func (o AzureIntegrationsExpressRouteOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsExpressRoute] {
+	return pulumix.Output[AzureIntegrationsExpressRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -16097,6 +18036,12 @@ func (o AzureIntegrationsExpressRoutePtrOutput) ToAzureIntegrationsExpressRouteP
 
 func (o AzureIntegrationsExpressRoutePtrOutput) ToAzureIntegrationsExpressRoutePtrOutputWithContext(ctx context.Context) AzureIntegrationsExpressRoutePtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsExpressRoutePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsExpressRoute] {
+	return pulumix.Output[*AzureIntegrationsExpressRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsExpressRoutePtrOutput) Elem() AzureIntegrationsExpressRouteOutput {
@@ -16172,6 +18117,12 @@ func (i AzureIntegrationsFirewallsArgs) ToAzureIntegrationsFirewallsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsFirewallsOutput)
 }
 
+func (i AzureIntegrationsFirewallsArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsFirewalls] {
+	return pulumix.Output[AzureIntegrationsFirewalls]{
+		OutputState: i.ToAzureIntegrationsFirewallsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsFirewallsArgs) ToAzureIntegrationsFirewallsPtrOutput() AzureIntegrationsFirewallsPtrOutput {
 	return i.ToAzureIntegrationsFirewallsPtrOutputWithContext(context.Background())
 }
@@ -16213,6 +18164,12 @@ func (i *azureIntegrationsFirewallsPtrType) ToAzureIntegrationsFirewallsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsFirewallsPtrOutput)
 }
 
+func (i *azureIntegrationsFirewallsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsFirewalls] {
+	return pulumix.Output[*AzureIntegrationsFirewalls]{
+		OutputState: i.ToAzureIntegrationsFirewallsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsFirewallsOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsFirewallsOutput) ElementType() reflect.Type {
@@ -16235,6 +18192,12 @@ func (o AzureIntegrationsFirewallsOutput) ToAzureIntegrationsFirewallsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsFirewalls) *AzureIntegrationsFirewalls {
 		return &v
 	}).(AzureIntegrationsFirewallsPtrOutput)
+}
+
+func (o AzureIntegrationsFirewallsOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsFirewalls] {
+	return pulumix.Output[AzureIntegrationsFirewalls]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -16261,6 +18224,12 @@ func (o AzureIntegrationsFirewallsPtrOutput) ToAzureIntegrationsFirewallsPtrOutp
 
 func (o AzureIntegrationsFirewallsPtrOutput) ToAzureIntegrationsFirewallsPtrOutputWithContext(ctx context.Context) AzureIntegrationsFirewallsPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsFirewallsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsFirewalls] {
+	return pulumix.Output[*AzureIntegrationsFirewalls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsFirewallsPtrOutput) Elem() AzureIntegrationsFirewallsOutput {
@@ -16336,6 +18305,12 @@ func (i AzureIntegrationsFrontDoorArgs) ToAzureIntegrationsFrontDoorOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsFrontDoorOutput)
 }
 
+func (i AzureIntegrationsFrontDoorArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsFrontDoor] {
+	return pulumix.Output[AzureIntegrationsFrontDoor]{
+		OutputState: i.ToAzureIntegrationsFrontDoorOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsFrontDoorArgs) ToAzureIntegrationsFrontDoorPtrOutput() AzureIntegrationsFrontDoorPtrOutput {
 	return i.ToAzureIntegrationsFrontDoorPtrOutputWithContext(context.Background())
 }
@@ -16377,6 +18352,12 @@ func (i *azureIntegrationsFrontDoorPtrType) ToAzureIntegrationsFrontDoorPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsFrontDoorPtrOutput)
 }
 
+func (i *azureIntegrationsFrontDoorPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsFrontDoor] {
+	return pulumix.Output[*AzureIntegrationsFrontDoor]{
+		OutputState: i.ToAzureIntegrationsFrontDoorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsFrontDoorOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsFrontDoorOutput) ElementType() reflect.Type {
@@ -16399,6 +18380,12 @@ func (o AzureIntegrationsFrontDoorOutput) ToAzureIntegrationsFrontDoorPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsFrontDoor) *AzureIntegrationsFrontDoor {
 		return &v
 	}).(AzureIntegrationsFrontDoorPtrOutput)
+}
+
+func (o AzureIntegrationsFrontDoorOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsFrontDoor] {
+	return pulumix.Output[AzureIntegrationsFrontDoor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -16425,6 +18412,12 @@ func (o AzureIntegrationsFrontDoorPtrOutput) ToAzureIntegrationsFrontDoorPtrOutp
 
 func (o AzureIntegrationsFrontDoorPtrOutput) ToAzureIntegrationsFrontDoorPtrOutputWithContext(ctx context.Context) AzureIntegrationsFrontDoorPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsFrontDoorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsFrontDoor] {
+	return pulumix.Output[*AzureIntegrationsFrontDoor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsFrontDoorPtrOutput) Elem() AzureIntegrationsFrontDoorOutput {
@@ -16500,6 +18493,12 @@ func (i AzureIntegrationsFunctionsArgs) ToAzureIntegrationsFunctionsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsFunctionsOutput)
 }
 
+func (i AzureIntegrationsFunctionsArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsFunctions] {
+	return pulumix.Output[AzureIntegrationsFunctions]{
+		OutputState: i.ToAzureIntegrationsFunctionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsFunctionsArgs) ToAzureIntegrationsFunctionsPtrOutput() AzureIntegrationsFunctionsPtrOutput {
 	return i.ToAzureIntegrationsFunctionsPtrOutputWithContext(context.Background())
 }
@@ -16541,6 +18540,12 @@ func (i *azureIntegrationsFunctionsPtrType) ToAzureIntegrationsFunctionsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsFunctionsPtrOutput)
 }
 
+func (i *azureIntegrationsFunctionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsFunctions] {
+	return pulumix.Output[*AzureIntegrationsFunctions]{
+		OutputState: i.ToAzureIntegrationsFunctionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsFunctionsOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsFunctionsOutput) ElementType() reflect.Type {
@@ -16563,6 +18568,12 @@ func (o AzureIntegrationsFunctionsOutput) ToAzureIntegrationsFunctionsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsFunctions) *AzureIntegrationsFunctions {
 		return &v
 	}).(AzureIntegrationsFunctionsPtrOutput)
+}
+
+func (o AzureIntegrationsFunctionsOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsFunctions] {
+	return pulumix.Output[AzureIntegrationsFunctions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -16589,6 +18600,12 @@ func (o AzureIntegrationsFunctionsPtrOutput) ToAzureIntegrationsFunctionsPtrOutp
 
 func (o AzureIntegrationsFunctionsPtrOutput) ToAzureIntegrationsFunctionsPtrOutputWithContext(ctx context.Context) AzureIntegrationsFunctionsPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsFunctionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsFunctions] {
+	return pulumix.Output[*AzureIntegrationsFunctions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsFunctionsPtrOutput) Elem() AzureIntegrationsFunctionsOutput {
@@ -16664,6 +18681,12 @@ func (i AzureIntegrationsKeyVaultArgs) ToAzureIntegrationsKeyVaultOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsKeyVaultOutput)
 }
 
+func (i AzureIntegrationsKeyVaultArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsKeyVault] {
+	return pulumix.Output[AzureIntegrationsKeyVault]{
+		OutputState: i.ToAzureIntegrationsKeyVaultOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsKeyVaultArgs) ToAzureIntegrationsKeyVaultPtrOutput() AzureIntegrationsKeyVaultPtrOutput {
 	return i.ToAzureIntegrationsKeyVaultPtrOutputWithContext(context.Background())
 }
@@ -16705,6 +18728,12 @@ func (i *azureIntegrationsKeyVaultPtrType) ToAzureIntegrationsKeyVaultPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsKeyVaultPtrOutput)
 }
 
+func (i *azureIntegrationsKeyVaultPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsKeyVault] {
+	return pulumix.Output[*AzureIntegrationsKeyVault]{
+		OutputState: i.ToAzureIntegrationsKeyVaultPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsKeyVaultOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsKeyVaultOutput) ElementType() reflect.Type {
@@ -16727,6 +18756,12 @@ func (o AzureIntegrationsKeyVaultOutput) ToAzureIntegrationsKeyVaultPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsKeyVault) *AzureIntegrationsKeyVault {
 		return &v
 	}).(AzureIntegrationsKeyVaultPtrOutput)
+}
+
+func (o AzureIntegrationsKeyVaultOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsKeyVault] {
+	return pulumix.Output[AzureIntegrationsKeyVault]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -16753,6 +18788,12 @@ func (o AzureIntegrationsKeyVaultPtrOutput) ToAzureIntegrationsKeyVaultPtrOutput
 
 func (o AzureIntegrationsKeyVaultPtrOutput) ToAzureIntegrationsKeyVaultPtrOutputWithContext(ctx context.Context) AzureIntegrationsKeyVaultPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsKeyVaultPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsKeyVault] {
+	return pulumix.Output[*AzureIntegrationsKeyVault]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsKeyVaultPtrOutput) Elem() AzureIntegrationsKeyVaultOutput {
@@ -16828,6 +18869,12 @@ func (i AzureIntegrationsLoadBalancerArgs) ToAzureIntegrationsLoadBalancerOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsLoadBalancerOutput)
 }
 
+func (i AzureIntegrationsLoadBalancerArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsLoadBalancer] {
+	return pulumix.Output[AzureIntegrationsLoadBalancer]{
+		OutputState: i.ToAzureIntegrationsLoadBalancerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsLoadBalancerArgs) ToAzureIntegrationsLoadBalancerPtrOutput() AzureIntegrationsLoadBalancerPtrOutput {
 	return i.ToAzureIntegrationsLoadBalancerPtrOutputWithContext(context.Background())
 }
@@ -16869,6 +18916,12 @@ func (i *azureIntegrationsLoadBalancerPtrType) ToAzureIntegrationsLoadBalancerPt
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsLoadBalancerPtrOutput)
 }
 
+func (i *azureIntegrationsLoadBalancerPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsLoadBalancer] {
+	return pulumix.Output[*AzureIntegrationsLoadBalancer]{
+		OutputState: i.ToAzureIntegrationsLoadBalancerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsLoadBalancerOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsLoadBalancerOutput) ElementType() reflect.Type {
@@ -16891,6 +18944,12 @@ func (o AzureIntegrationsLoadBalancerOutput) ToAzureIntegrationsLoadBalancerPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsLoadBalancer) *AzureIntegrationsLoadBalancer {
 		return &v
 	}).(AzureIntegrationsLoadBalancerPtrOutput)
+}
+
+func (o AzureIntegrationsLoadBalancerOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsLoadBalancer] {
+	return pulumix.Output[AzureIntegrationsLoadBalancer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -16917,6 +18976,12 @@ func (o AzureIntegrationsLoadBalancerPtrOutput) ToAzureIntegrationsLoadBalancerP
 
 func (o AzureIntegrationsLoadBalancerPtrOutput) ToAzureIntegrationsLoadBalancerPtrOutputWithContext(ctx context.Context) AzureIntegrationsLoadBalancerPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsLoadBalancerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsLoadBalancer] {
+	return pulumix.Output[*AzureIntegrationsLoadBalancer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsLoadBalancerPtrOutput) Elem() AzureIntegrationsLoadBalancerOutput {
@@ -16992,6 +19057,12 @@ func (i AzureIntegrationsLogicAppsArgs) ToAzureIntegrationsLogicAppsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsLogicAppsOutput)
 }
 
+func (i AzureIntegrationsLogicAppsArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsLogicApps] {
+	return pulumix.Output[AzureIntegrationsLogicApps]{
+		OutputState: i.ToAzureIntegrationsLogicAppsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsLogicAppsArgs) ToAzureIntegrationsLogicAppsPtrOutput() AzureIntegrationsLogicAppsPtrOutput {
 	return i.ToAzureIntegrationsLogicAppsPtrOutputWithContext(context.Background())
 }
@@ -17033,6 +19104,12 @@ func (i *azureIntegrationsLogicAppsPtrType) ToAzureIntegrationsLogicAppsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsLogicAppsPtrOutput)
 }
 
+func (i *azureIntegrationsLogicAppsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsLogicApps] {
+	return pulumix.Output[*AzureIntegrationsLogicApps]{
+		OutputState: i.ToAzureIntegrationsLogicAppsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsLogicAppsOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsLogicAppsOutput) ElementType() reflect.Type {
@@ -17055,6 +19132,12 @@ func (o AzureIntegrationsLogicAppsOutput) ToAzureIntegrationsLogicAppsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsLogicApps) *AzureIntegrationsLogicApps {
 		return &v
 	}).(AzureIntegrationsLogicAppsPtrOutput)
+}
+
+func (o AzureIntegrationsLogicAppsOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsLogicApps] {
+	return pulumix.Output[AzureIntegrationsLogicApps]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -17081,6 +19164,12 @@ func (o AzureIntegrationsLogicAppsPtrOutput) ToAzureIntegrationsLogicAppsPtrOutp
 
 func (o AzureIntegrationsLogicAppsPtrOutput) ToAzureIntegrationsLogicAppsPtrOutputWithContext(ctx context.Context) AzureIntegrationsLogicAppsPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsLogicAppsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsLogicApps] {
+	return pulumix.Output[*AzureIntegrationsLogicApps]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsLogicAppsPtrOutput) Elem() AzureIntegrationsLogicAppsOutput {
@@ -17156,6 +19245,12 @@ func (i AzureIntegrationsMachineLearningArgs) ToAzureIntegrationsMachineLearning
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMachineLearningOutput)
 }
 
+func (i AzureIntegrationsMachineLearningArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsMachineLearning] {
+	return pulumix.Output[AzureIntegrationsMachineLearning]{
+		OutputState: i.ToAzureIntegrationsMachineLearningOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsMachineLearningArgs) ToAzureIntegrationsMachineLearningPtrOutput() AzureIntegrationsMachineLearningPtrOutput {
 	return i.ToAzureIntegrationsMachineLearningPtrOutputWithContext(context.Background())
 }
@@ -17197,6 +19292,12 @@ func (i *azureIntegrationsMachineLearningPtrType) ToAzureIntegrationsMachineLear
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMachineLearningPtrOutput)
 }
 
+func (i *azureIntegrationsMachineLearningPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsMachineLearning] {
+	return pulumix.Output[*AzureIntegrationsMachineLearning]{
+		OutputState: i.ToAzureIntegrationsMachineLearningPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsMachineLearningOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsMachineLearningOutput) ElementType() reflect.Type {
@@ -17219,6 +19320,12 @@ func (o AzureIntegrationsMachineLearningOutput) ToAzureIntegrationsMachineLearni
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsMachineLearning) *AzureIntegrationsMachineLearning {
 		return &v
 	}).(AzureIntegrationsMachineLearningPtrOutput)
+}
+
+func (o AzureIntegrationsMachineLearningOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsMachineLearning] {
+	return pulumix.Output[AzureIntegrationsMachineLearning]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -17245,6 +19352,12 @@ func (o AzureIntegrationsMachineLearningPtrOutput) ToAzureIntegrationsMachineLea
 
 func (o AzureIntegrationsMachineLearningPtrOutput) ToAzureIntegrationsMachineLearningPtrOutputWithContext(ctx context.Context) AzureIntegrationsMachineLearningPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsMachineLearningPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsMachineLearning] {
+	return pulumix.Output[*AzureIntegrationsMachineLearning]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsMachineLearningPtrOutput) Elem() AzureIntegrationsMachineLearningOutput {
@@ -17320,6 +19433,12 @@ func (i AzureIntegrationsMariaDbArgs) ToAzureIntegrationsMariaDbOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMariaDbOutput)
 }
 
+func (i AzureIntegrationsMariaDbArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsMariaDb] {
+	return pulumix.Output[AzureIntegrationsMariaDb]{
+		OutputState: i.ToAzureIntegrationsMariaDbOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsMariaDbArgs) ToAzureIntegrationsMariaDbPtrOutput() AzureIntegrationsMariaDbPtrOutput {
 	return i.ToAzureIntegrationsMariaDbPtrOutputWithContext(context.Background())
 }
@@ -17361,6 +19480,12 @@ func (i *azureIntegrationsMariaDbPtrType) ToAzureIntegrationsMariaDbPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMariaDbPtrOutput)
 }
 
+func (i *azureIntegrationsMariaDbPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsMariaDb] {
+	return pulumix.Output[*AzureIntegrationsMariaDb]{
+		OutputState: i.ToAzureIntegrationsMariaDbPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsMariaDbOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsMariaDbOutput) ElementType() reflect.Type {
@@ -17383,6 +19508,12 @@ func (o AzureIntegrationsMariaDbOutput) ToAzureIntegrationsMariaDbPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsMariaDb) *AzureIntegrationsMariaDb {
 		return &v
 	}).(AzureIntegrationsMariaDbPtrOutput)
+}
+
+func (o AzureIntegrationsMariaDbOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsMariaDb] {
+	return pulumix.Output[AzureIntegrationsMariaDb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -17409,6 +19540,12 @@ func (o AzureIntegrationsMariaDbPtrOutput) ToAzureIntegrationsMariaDbPtrOutput()
 
 func (o AzureIntegrationsMariaDbPtrOutput) ToAzureIntegrationsMariaDbPtrOutputWithContext(ctx context.Context) AzureIntegrationsMariaDbPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsMariaDbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsMariaDb] {
+	return pulumix.Output[*AzureIntegrationsMariaDb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsMariaDbPtrOutput) Elem() AzureIntegrationsMariaDbOutput {
@@ -17500,6 +19637,12 @@ func (i AzureIntegrationsMonitorArgs) ToAzureIntegrationsMonitorOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMonitorOutput)
 }
 
+func (i AzureIntegrationsMonitorArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsMonitor] {
+	return pulumix.Output[AzureIntegrationsMonitor]{
+		OutputState: i.ToAzureIntegrationsMonitorOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsMonitorArgs) ToAzureIntegrationsMonitorPtrOutput() AzureIntegrationsMonitorPtrOutput {
 	return i.ToAzureIntegrationsMonitorPtrOutputWithContext(context.Background())
 }
@@ -17541,6 +19684,12 @@ func (i *azureIntegrationsMonitorPtrType) ToAzureIntegrationsMonitorPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMonitorPtrOutput)
 }
 
+func (i *azureIntegrationsMonitorPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsMonitor] {
+	return pulumix.Output[*AzureIntegrationsMonitor]{
+		OutputState: i.ToAzureIntegrationsMonitorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsMonitorOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsMonitorOutput) ElementType() reflect.Type {
@@ -17563,6 +19712,12 @@ func (o AzureIntegrationsMonitorOutput) ToAzureIntegrationsMonitorPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsMonitor) *AzureIntegrationsMonitor {
 		return &v
 	}).(AzureIntegrationsMonitorPtrOutput)
+}
+
+func (o AzureIntegrationsMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsMonitor] {
+	return pulumix.Output[AzureIntegrationsMonitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
@@ -17609,6 +19764,12 @@ func (o AzureIntegrationsMonitorPtrOutput) ToAzureIntegrationsMonitorPtrOutput()
 
 func (o AzureIntegrationsMonitorPtrOutput) ToAzureIntegrationsMonitorPtrOutputWithContext(ctx context.Context) AzureIntegrationsMonitorPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsMonitorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsMonitor] {
+	return pulumix.Output[*AzureIntegrationsMonitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsMonitorPtrOutput) Elem() AzureIntegrationsMonitorOutput {
@@ -17724,6 +19885,12 @@ func (i AzureIntegrationsMysqlArgs) ToAzureIntegrationsMysqlOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMysqlOutput)
 }
 
+func (i AzureIntegrationsMysqlArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsMysql] {
+	return pulumix.Output[AzureIntegrationsMysql]{
+		OutputState: i.ToAzureIntegrationsMysqlOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsMysqlArgs) ToAzureIntegrationsMysqlPtrOutput() AzureIntegrationsMysqlPtrOutput {
 	return i.ToAzureIntegrationsMysqlPtrOutputWithContext(context.Background())
 }
@@ -17765,6 +19932,12 @@ func (i *azureIntegrationsMysqlPtrType) ToAzureIntegrationsMysqlPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMysqlPtrOutput)
 }
 
+func (i *azureIntegrationsMysqlPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsMysql] {
+	return pulumix.Output[*AzureIntegrationsMysql]{
+		OutputState: i.ToAzureIntegrationsMysqlPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsMysqlOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsMysqlOutput) ElementType() reflect.Type {
@@ -17787,6 +19960,12 @@ func (o AzureIntegrationsMysqlOutput) ToAzureIntegrationsMysqlPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsMysql) *AzureIntegrationsMysql {
 		return &v
 	}).(AzureIntegrationsMysqlPtrOutput)
+}
+
+func (o AzureIntegrationsMysqlOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsMysql] {
+	return pulumix.Output[AzureIntegrationsMysql]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -17813,6 +19992,12 @@ func (o AzureIntegrationsMysqlPtrOutput) ToAzureIntegrationsMysqlPtrOutput() Azu
 
 func (o AzureIntegrationsMysqlPtrOutput) ToAzureIntegrationsMysqlPtrOutputWithContext(ctx context.Context) AzureIntegrationsMysqlPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsMysqlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsMysql] {
+	return pulumix.Output[*AzureIntegrationsMysql]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsMysqlPtrOutput) Elem() AzureIntegrationsMysqlOutput {
@@ -17888,6 +20073,12 @@ func (i AzureIntegrationsMysqlFlexibleArgs) ToAzureIntegrationsMysqlFlexibleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMysqlFlexibleOutput)
 }
 
+func (i AzureIntegrationsMysqlFlexibleArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsMysqlFlexible] {
+	return pulumix.Output[AzureIntegrationsMysqlFlexible]{
+		OutputState: i.ToAzureIntegrationsMysqlFlexibleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsMysqlFlexibleArgs) ToAzureIntegrationsMysqlFlexiblePtrOutput() AzureIntegrationsMysqlFlexiblePtrOutput {
 	return i.ToAzureIntegrationsMysqlFlexiblePtrOutputWithContext(context.Background())
 }
@@ -17929,6 +20120,12 @@ func (i *azureIntegrationsMysqlFlexiblePtrType) ToAzureIntegrationsMysqlFlexible
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMysqlFlexiblePtrOutput)
 }
 
+func (i *azureIntegrationsMysqlFlexiblePtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsMysqlFlexible] {
+	return pulumix.Output[*AzureIntegrationsMysqlFlexible]{
+		OutputState: i.ToAzureIntegrationsMysqlFlexiblePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsMysqlFlexibleOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsMysqlFlexibleOutput) ElementType() reflect.Type {
@@ -17951,6 +20148,12 @@ func (o AzureIntegrationsMysqlFlexibleOutput) ToAzureIntegrationsMysqlFlexiblePt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsMysqlFlexible) *AzureIntegrationsMysqlFlexible {
 		return &v
 	}).(AzureIntegrationsMysqlFlexiblePtrOutput)
+}
+
+func (o AzureIntegrationsMysqlFlexibleOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsMysqlFlexible] {
+	return pulumix.Output[AzureIntegrationsMysqlFlexible]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -17977,6 +20180,12 @@ func (o AzureIntegrationsMysqlFlexiblePtrOutput) ToAzureIntegrationsMysqlFlexibl
 
 func (o AzureIntegrationsMysqlFlexiblePtrOutput) ToAzureIntegrationsMysqlFlexiblePtrOutputWithContext(ctx context.Context) AzureIntegrationsMysqlFlexiblePtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsMysqlFlexiblePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsMysqlFlexible] {
+	return pulumix.Output[*AzureIntegrationsMysqlFlexible]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsMysqlFlexiblePtrOutput) Elem() AzureIntegrationsMysqlFlexibleOutput {
@@ -18052,6 +20261,12 @@ func (i AzureIntegrationsPostgresqlArgs) ToAzureIntegrationsPostgresqlOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsPostgresqlOutput)
 }
 
+func (i AzureIntegrationsPostgresqlArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsPostgresql] {
+	return pulumix.Output[AzureIntegrationsPostgresql]{
+		OutputState: i.ToAzureIntegrationsPostgresqlOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsPostgresqlArgs) ToAzureIntegrationsPostgresqlPtrOutput() AzureIntegrationsPostgresqlPtrOutput {
 	return i.ToAzureIntegrationsPostgresqlPtrOutputWithContext(context.Background())
 }
@@ -18093,6 +20308,12 @@ func (i *azureIntegrationsPostgresqlPtrType) ToAzureIntegrationsPostgresqlPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsPostgresqlPtrOutput)
 }
 
+func (i *azureIntegrationsPostgresqlPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsPostgresql] {
+	return pulumix.Output[*AzureIntegrationsPostgresql]{
+		OutputState: i.ToAzureIntegrationsPostgresqlPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsPostgresqlOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsPostgresqlOutput) ElementType() reflect.Type {
@@ -18115,6 +20336,12 @@ func (o AzureIntegrationsPostgresqlOutput) ToAzureIntegrationsPostgresqlPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsPostgresql) *AzureIntegrationsPostgresql {
 		return &v
 	}).(AzureIntegrationsPostgresqlPtrOutput)
+}
+
+func (o AzureIntegrationsPostgresqlOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsPostgresql] {
+	return pulumix.Output[AzureIntegrationsPostgresql]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -18141,6 +20368,12 @@ func (o AzureIntegrationsPostgresqlPtrOutput) ToAzureIntegrationsPostgresqlPtrOu
 
 func (o AzureIntegrationsPostgresqlPtrOutput) ToAzureIntegrationsPostgresqlPtrOutputWithContext(ctx context.Context) AzureIntegrationsPostgresqlPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsPostgresqlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsPostgresql] {
+	return pulumix.Output[*AzureIntegrationsPostgresql]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsPostgresqlPtrOutput) Elem() AzureIntegrationsPostgresqlOutput {
@@ -18216,6 +20449,12 @@ func (i AzureIntegrationsPostgresqlFlexibleArgs) ToAzureIntegrationsPostgresqlFl
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsPostgresqlFlexibleOutput)
 }
 
+func (i AzureIntegrationsPostgresqlFlexibleArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsPostgresqlFlexible] {
+	return pulumix.Output[AzureIntegrationsPostgresqlFlexible]{
+		OutputState: i.ToAzureIntegrationsPostgresqlFlexibleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsPostgresqlFlexibleArgs) ToAzureIntegrationsPostgresqlFlexiblePtrOutput() AzureIntegrationsPostgresqlFlexiblePtrOutput {
 	return i.ToAzureIntegrationsPostgresqlFlexiblePtrOutputWithContext(context.Background())
 }
@@ -18257,6 +20496,12 @@ func (i *azureIntegrationsPostgresqlFlexiblePtrType) ToAzureIntegrationsPostgres
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsPostgresqlFlexiblePtrOutput)
 }
 
+func (i *azureIntegrationsPostgresqlFlexiblePtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsPostgresqlFlexible] {
+	return pulumix.Output[*AzureIntegrationsPostgresqlFlexible]{
+		OutputState: i.ToAzureIntegrationsPostgresqlFlexiblePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsPostgresqlFlexibleOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsPostgresqlFlexibleOutput) ElementType() reflect.Type {
@@ -18279,6 +20524,12 @@ func (o AzureIntegrationsPostgresqlFlexibleOutput) ToAzureIntegrationsPostgresql
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsPostgresqlFlexible) *AzureIntegrationsPostgresqlFlexible {
 		return &v
 	}).(AzureIntegrationsPostgresqlFlexiblePtrOutput)
+}
+
+func (o AzureIntegrationsPostgresqlFlexibleOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsPostgresqlFlexible] {
+	return pulumix.Output[AzureIntegrationsPostgresqlFlexible]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -18305,6 +20556,12 @@ func (o AzureIntegrationsPostgresqlFlexiblePtrOutput) ToAzureIntegrationsPostgre
 
 func (o AzureIntegrationsPostgresqlFlexiblePtrOutput) ToAzureIntegrationsPostgresqlFlexiblePtrOutputWithContext(ctx context.Context) AzureIntegrationsPostgresqlFlexiblePtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsPostgresqlFlexiblePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsPostgresqlFlexible] {
+	return pulumix.Output[*AzureIntegrationsPostgresqlFlexible]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsPostgresqlFlexiblePtrOutput) Elem() AzureIntegrationsPostgresqlFlexibleOutput {
@@ -18380,6 +20637,12 @@ func (i AzureIntegrationsPowerBiDedicatedArgs) ToAzureIntegrationsPowerBiDedicat
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsPowerBiDedicatedOutput)
 }
 
+func (i AzureIntegrationsPowerBiDedicatedArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsPowerBiDedicated] {
+	return pulumix.Output[AzureIntegrationsPowerBiDedicated]{
+		OutputState: i.ToAzureIntegrationsPowerBiDedicatedOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsPowerBiDedicatedArgs) ToAzureIntegrationsPowerBiDedicatedPtrOutput() AzureIntegrationsPowerBiDedicatedPtrOutput {
 	return i.ToAzureIntegrationsPowerBiDedicatedPtrOutputWithContext(context.Background())
 }
@@ -18421,6 +20684,12 @@ func (i *azureIntegrationsPowerBiDedicatedPtrType) ToAzureIntegrationsPowerBiDed
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsPowerBiDedicatedPtrOutput)
 }
 
+func (i *azureIntegrationsPowerBiDedicatedPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsPowerBiDedicated] {
+	return pulumix.Output[*AzureIntegrationsPowerBiDedicated]{
+		OutputState: i.ToAzureIntegrationsPowerBiDedicatedPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsPowerBiDedicatedOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsPowerBiDedicatedOutput) ElementType() reflect.Type {
@@ -18443,6 +20712,12 @@ func (o AzureIntegrationsPowerBiDedicatedOutput) ToAzureIntegrationsPowerBiDedic
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsPowerBiDedicated) *AzureIntegrationsPowerBiDedicated {
 		return &v
 	}).(AzureIntegrationsPowerBiDedicatedPtrOutput)
+}
+
+func (o AzureIntegrationsPowerBiDedicatedOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsPowerBiDedicated] {
+	return pulumix.Output[AzureIntegrationsPowerBiDedicated]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -18469,6 +20744,12 @@ func (o AzureIntegrationsPowerBiDedicatedPtrOutput) ToAzureIntegrationsPowerBiDe
 
 func (o AzureIntegrationsPowerBiDedicatedPtrOutput) ToAzureIntegrationsPowerBiDedicatedPtrOutputWithContext(ctx context.Context) AzureIntegrationsPowerBiDedicatedPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsPowerBiDedicatedPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsPowerBiDedicated] {
+	return pulumix.Output[*AzureIntegrationsPowerBiDedicated]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsPowerBiDedicatedPtrOutput) Elem() AzureIntegrationsPowerBiDedicatedOutput {
@@ -18544,6 +20825,12 @@ func (i AzureIntegrationsRedisCacheArgs) ToAzureIntegrationsRedisCacheOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsRedisCacheOutput)
 }
 
+func (i AzureIntegrationsRedisCacheArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsRedisCache] {
+	return pulumix.Output[AzureIntegrationsRedisCache]{
+		OutputState: i.ToAzureIntegrationsRedisCacheOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsRedisCacheArgs) ToAzureIntegrationsRedisCachePtrOutput() AzureIntegrationsRedisCachePtrOutput {
 	return i.ToAzureIntegrationsRedisCachePtrOutputWithContext(context.Background())
 }
@@ -18585,6 +20872,12 @@ func (i *azureIntegrationsRedisCachePtrType) ToAzureIntegrationsRedisCachePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsRedisCachePtrOutput)
 }
 
+func (i *azureIntegrationsRedisCachePtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsRedisCache] {
+	return pulumix.Output[*AzureIntegrationsRedisCache]{
+		OutputState: i.ToAzureIntegrationsRedisCachePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsRedisCacheOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsRedisCacheOutput) ElementType() reflect.Type {
@@ -18607,6 +20900,12 @@ func (o AzureIntegrationsRedisCacheOutput) ToAzureIntegrationsRedisCachePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsRedisCache) *AzureIntegrationsRedisCache {
 		return &v
 	}).(AzureIntegrationsRedisCachePtrOutput)
+}
+
+func (o AzureIntegrationsRedisCacheOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsRedisCache] {
+	return pulumix.Output[AzureIntegrationsRedisCache]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -18633,6 +20932,12 @@ func (o AzureIntegrationsRedisCachePtrOutput) ToAzureIntegrationsRedisCachePtrOu
 
 func (o AzureIntegrationsRedisCachePtrOutput) ToAzureIntegrationsRedisCachePtrOutputWithContext(ctx context.Context) AzureIntegrationsRedisCachePtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsRedisCachePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsRedisCache] {
+	return pulumix.Output[*AzureIntegrationsRedisCache]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsRedisCachePtrOutput) Elem() AzureIntegrationsRedisCacheOutput {
@@ -18708,6 +21013,12 @@ func (i AzureIntegrationsServiceBusArgs) ToAzureIntegrationsServiceBusOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsServiceBusOutput)
 }
 
+func (i AzureIntegrationsServiceBusArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsServiceBus] {
+	return pulumix.Output[AzureIntegrationsServiceBus]{
+		OutputState: i.ToAzureIntegrationsServiceBusOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsServiceBusArgs) ToAzureIntegrationsServiceBusPtrOutput() AzureIntegrationsServiceBusPtrOutput {
 	return i.ToAzureIntegrationsServiceBusPtrOutputWithContext(context.Background())
 }
@@ -18749,6 +21060,12 @@ func (i *azureIntegrationsServiceBusPtrType) ToAzureIntegrationsServiceBusPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsServiceBusPtrOutput)
 }
 
+func (i *azureIntegrationsServiceBusPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsServiceBus] {
+	return pulumix.Output[*AzureIntegrationsServiceBus]{
+		OutputState: i.ToAzureIntegrationsServiceBusPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsServiceBusOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsServiceBusOutput) ElementType() reflect.Type {
@@ -18771,6 +21088,12 @@ func (o AzureIntegrationsServiceBusOutput) ToAzureIntegrationsServiceBusPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsServiceBus) *AzureIntegrationsServiceBus {
 		return &v
 	}).(AzureIntegrationsServiceBusPtrOutput)
+}
+
+func (o AzureIntegrationsServiceBusOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsServiceBus] {
+	return pulumix.Output[AzureIntegrationsServiceBus]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -18797,6 +21120,12 @@ func (o AzureIntegrationsServiceBusPtrOutput) ToAzureIntegrationsServiceBusPtrOu
 
 func (o AzureIntegrationsServiceBusPtrOutput) ToAzureIntegrationsServiceBusPtrOutputWithContext(ctx context.Context) AzureIntegrationsServiceBusPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsServiceBusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsServiceBus] {
+	return pulumix.Output[*AzureIntegrationsServiceBus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsServiceBusPtrOutput) Elem() AzureIntegrationsServiceBusOutput {
@@ -18872,6 +21201,12 @@ func (i AzureIntegrationsSqlArgs) ToAzureIntegrationsSqlOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsSqlOutput)
 }
 
+func (i AzureIntegrationsSqlArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsSql] {
+	return pulumix.Output[AzureIntegrationsSql]{
+		OutputState: i.ToAzureIntegrationsSqlOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsSqlArgs) ToAzureIntegrationsSqlPtrOutput() AzureIntegrationsSqlPtrOutput {
 	return i.ToAzureIntegrationsSqlPtrOutputWithContext(context.Background())
 }
@@ -18913,6 +21248,12 @@ func (i *azureIntegrationsSqlPtrType) ToAzureIntegrationsSqlPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsSqlPtrOutput)
 }
 
+func (i *azureIntegrationsSqlPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsSql] {
+	return pulumix.Output[*AzureIntegrationsSql]{
+		OutputState: i.ToAzureIntegrationsSqlPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsSqlOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsSqlOutput) ElementType() reflect.Type {
@@ -18935,6 +21276,12 @@ func (o AzureIntegrationsSqlOutput) ToAzureIntegrationsSqlPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsSql) *AzureIntegrationsSql {
 		return &v
 	}).(AzureIntegrationsSqlPtrOutput)
+}
+
+func (o AzureIntegrationsSqlOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsSql] {
+	return pulumix.Output[AzureIntegrationsSql]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -18961,6 +21308,12 @@ func (o AzureIntegrationsSqlPtrOutput) ToAzureIntegrationsSqlPtrOutput() AzureIn
 
 func (o AzureIntegrationsSqlPtrOutput) ToAzureIntegrationsSqlPtrOutputWithContext(ctx context.Context) AzureIntegrationsSqlPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsSqlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsSql] {
+	return pulumix.Output[*AzureIntegrationsSql]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsSqlPtrOutput) Elem() AzureIntegrationsSqlOutput {
@@ -19036,6 +21389,12 @@ func (i AzureIntegrationsSqlManagedArgs) ToAzureIntegrationsSqlManagedOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsSqlManagedOutput)
 }
 
+func (i AzureIntegrationsSqlManagedArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsSqlManaged] {
+	return pulumix.Output[AzureIntegrationsSqlManaged]{
+		OutputState: i.ToAzureIntegrationsSqlManagedOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsSqlManagedArgs) ToAzureIntegrationsSqlManagedPtrOutput() AzureIntegrationsSqlManagedPtrOutput {
 	return i.ToAzureIntegrationsSqlManagedPtrOutputWithContext(context.Background())
 }
@@ -19077,6 +21436,12 @@ func (i *azureIntegrationsSqlManagedPtrType) ToAzureIntegrationsSqlManagedPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsSqlManagedPtrOutput)
 }
 
+func (i *azureIntegrationsSqlManagedPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsSqlManaged] {
+	return pulumix.Output[*AzureIntegrationsSqlManaged]{
+		OutputState: i.ToAzureIntegrationsSqlManagedPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsSqlManagedOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsSqlManagedOutput) ElementType() reflect.Type {
@@ -19099,6 +21464,12 @@ func (o AzureIntegrationsSqlManagedOutput) ToAzureIntegrationsSqlManagedPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsSqlManaged) *AzureIntegrationsSqlManaged {
 		return &v
 	}).(AzureIntegrationsSqlManagedPtrOutput)
+}
+
+func (o AzureIntegrationsSqlManagedOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsSqlManaged] {
+	return pulumix.Output[AzureIntegrationsSqlManaged]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -19125,6 +21496,12 @@ func (o AzureIntegrationsSqlManagedPtrOutput) ToAzureIntegrationsSqlManagedPtrOu
 
 func (o AzureIntegrationsSqlManagedPtrOutput) ToAzureIntegrationsSqlManagedPtrOutputWithContext(ctx context.Context) AzureIntegrationsSqlManagedPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsSqlManagedPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsSqlManaged] {
+	return pulumix.Output[*AzureIntegrationsSqlManaged]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsSqlManagedPtrOutput) Elem() AzureIntegrationsSqlManagedOutput {
@@ -19200,6 +21577,12 @@ func (i AzureIntegrationsStorageArgs) ToAzureIntegrationsStorageOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsStorageOutput)
 }
 
+func (i AzureIntegrationsStorageArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsStorage] {
+	return pulumix.Output[AzureIntegrationsStorage]{
+		OutputState: i.ToAzureIntegrationsStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsStorageArgs) ToAzureIntegrationsStoragePtrOutput() AzureIntegrationsStoragePtrOutput {
 	return i.ToAzureIntegrationsStoragePtrOutputWithContext(context.Background())
 }
@@ -19241,6 +21624,12 @@ func (i *azureIntegrationsStoragePtrType) ToAzureIntegrationsStoragePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsStoragePtrOutput)
 }
 
+func (i *azureIntegrationsStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsStorage] {
+	return pulumix.Output[*AzureIntegrationsStorage]{
+		OutputState: i.ToAzureIntegrationsStoragePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsStorageOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsStorageOutput) ElementType() reflect.Type {
@@ -19263,6 +21652,12 @@ func (o AzureIntegrationsStorageOutput) ToAzureIntegrationsStoragePtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsStorage) *AzureIntegrationsStorage {
 		return &v
 	}).(AzureIntegrationsStoragePtrOutput)
+}
+
+func (o AzureIntegrationsStorageOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsStorage] {
+	return pulumix.Output[AzureIntegrationsStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -19289,6 +21684,12 @@ func (o AzureIntegrationsStoragePtrOutput) ToAzureIntegrationsStoragePtrOutput()
 
 func (o AzureIntegrationsStoragePtrOutput) ToAzureIntegrationsStoragePtrOutputWithContext(ctx context.Context) AzureIntegrationsStoragePtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsStorage] {
+	return pulumix.Output[*AzureIntegrationsStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsStoragePtrOutput) Elem() AzureIntegrationsStorageOutput {
@@ -19364,6 +21765,12 @@ func (i AzureIntegrationsVirtualMachineArgs) ToAzureIntegrationsVirtualMachineOu
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsVirtualMachineOutput)
 }
 
+func (i AzureIntegrationsVirtualMachineArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsVirtualMachine] {
+	return pulumix.Output[AzureIntegrationsVirtualMachine]{
+		OutputState: i.ToAzureIntegrationsVirtualMachineOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsVirtualMachineArgs) ToAzureIntegrationsVirtualMachinePtrOutput() AzureIntegrationsVirtualMachinePtrOutput {
 	return i.ToAzureIntegrationsVirtualMachinePtrOutputWithContext(context.Background())
 }
@@ -19405,6 +21812,12 @@ func (i *azureIntegrationsVirtualMachinePtrType) ToAzureIntegrationsVirtualMachi
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsVirtualMachinePtrOutput)
 }
 
+func (i *azureIntegrationsVirtualMachinePtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsVirtualMachine] {
+	return pulumix.Output[*AzureIntegrationsVirtualMachine]{
+		OutputState: i.ToAzureIntegrationsVirtualMachinePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsVirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsVirtualMachineOutput) ElementType() reflect.Type {
@@ -19427,6 +21840,12 @@ func (o AzureIntegrationsVirtualMachineOutput) ToAzureIntegrationsVirtualMachine
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsVirtualMachine) *AzureIntegrationsVirtualMachine {
 		return &v
 	}).(AzureIntegrationsVirtualMachinePtrOutput)
+}
+
+func (o AzureIntegrationsVirtualMachineOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsVirtualMachine] {
+	return pulumix.Output[AzureIntegrationsVirtualMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -19453,6 +21872,12 @@ func (o AzureIntegrationsVirtualMachinePtrOutput) ToAzureIntegrationsVirtualMach
 
 func (o AzureIntegrationsVirtualMachinePtrOutput) ToAzureIntegrationsVirtualMachinePtrOutputWithContext(ctx context.Context) AzureIntegrationsVirtualMachinePtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsVirtualMachinePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsVirtualMachine] {
+	return pulumix.Output[*AzureIntegrationsVirtualMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsVirtualMachinePtrOutput) Elem() AzureIntegrationsVirtualMachineOutput {
@@ -19528,6 +21953,12 @@ func (i AzureIntegrationsVirtualNetworksArgs) ToAzureIntegrationsVirtualNetworks
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsVirtualNetworksOutput)
 }
 
+func (i AzureIntegrationsVirtualNetworksArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsVirtualNetworks] {
+	return pulumix.Output[AzureIntegrationsVirtualNetworks]{
+		OutputState: i.ToAzureIntegrationsVirtualNetworksOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsVirtualNetworksArgs) ToAzureIntegrationsVirtualNetworksPtrOutput() AzureIntegrationsVirtualNetworksPtrOutput {
 	return i.ToAzureIntegrationsVirtualNetworksPtrOutputWithContext(context.Background())
 }
@@ -19569,6 +22000,12 @@ func (i *azureIntegrationsVirtualNetworksPtrType) ToAzureIntegrationsVirtualNetw
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsVirtualNetworksPtrOutput)
 }
 
+func (i *azureIntegrationsVirtualNetworksPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsVirtualNetworks] {
+	return pulumix.Output[*AzureIntegrationsVirtualNetworks]{
+		OutputState: i.ToAzureIntegrationsVirtualNetworksPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsVirtualNetworksOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsVirtualNetworksOutput) ElementType() reflect.Type {
@@ -19591,6 +22028,12 @@ func (o AzureIntegrationsVirtualNetworksOutput) ToAzureIntegrationsVirtualNetwor
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsVirtualNetworks) *AzureIntegrationsVirtualNetworks {
 		return &v
 	}).(AzureIntegrationsVirtualNetworksPtrOutput)
+}
+
+func (o AzureIntegrationsVirtualNetworksOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsVirtualNetworks] {
+	return pulumix.Output[AzureIntegrationsVirtualNetworks]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -19617,6 +22060,12 @@ func (o AzureIntegrationsVirtualNetworksPtrOutput) ToAzureIntegrationsVirtualNet
 
 func (o AzureIntegrationsVirtualNetworksPtrOutput) ToAzureIntegrationsVirtualNetworksPtrOutputWithContext(ctx context.Context) AzureIntegrationsVirtualNetworksPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsVirtualNetworksPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsVirtualNetworks] {
+	return pulumix.Output[*AzureIntegrationsVirtualNetworks]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsVirtualNetworksPtrOutput) Elem() AzureIntegrationsVirtualNetworksOutput {
@@ -19692,6 +22141,12 @@ func (i AzureIntegrationsVmsArgs) ToAzureIntegrationsVmsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsVmsOutput)
 }
 
+func (i AzureIntegrationsVmsArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsVms] {
+	return pulumix.Output[AzureIntegrationsVms]{
+		OutputState: i.ToAzureIntegrationsVmsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsVmsArgs) ToAzureIntegrationsVmsPtrOutput() AzureIntegrationsVmsPtrOutput {
 	return i.ToAzureIntegrationsVmsPtrOutputWithContext(context.Background())
 }
@@ -19733,6 +22188,12 @@ func (i *azureIntegrationsVmsPtrType) ToAzureIntegrationsVmsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsVmsPtrOutput)
 }
 
+func (i *azureIntegrationsVmsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsVms] {
+	return pulumix.Output[*AzureIntegrationsVms]{
+		OutputState: i.ToAzureIntegrationsVmsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsVmsOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsVmsOutput) ElementType() reflect.Type {
@@ -19755,6 +22216,12 @@ func (o AzureIntegrationsVmsOutput) ToAzureIntegrationsVmsPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsVms) *AzureIntegrationsVms {
 		return &v
 	}).(AzureIntegrationsVmsPtrOutput)
+}
+
+func (o AzureIntegrationsVmsOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsVms] {
+	return pulumix.Output[AzureIntegrationsVms]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -19781,6 +22248,12 @@ func (o AzureIntegrationsVmsPtrOutput) ToAzureIntegrationsVmsPtrOutput() AzureIn
 
 func (o AzureIntegrationsVmsPtrOutput) ToAzureIntegrationsVmsPtrOutputWithContext(ctx context.Context) AzureIntegrationsVmsPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsVmsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsVms] {
+	return pulumix.Output[*AzureIntegrationsVms]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsVmsPtrOutput) Elem() AzureIntegrationsVmsOutput {
@@ -19856,6 +22329,12 @@ func (i AzureIntegrationsVpnGatewayArgs) ToAzureIntegrationsVpnGatewayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsVpnGatewayOutput)
 }
 
+func (i AzureIntegrationsVpnGatewayArgs) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsVpnGateway] {
+	return pulumix.Output[AzureIntegrationsVpnGateway]{
+		OutputState: i.ToAzureIntegrationsVpnGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AzureIntegrationsVpnGatewayArgs) ToAzureIntegrationsVpnGatewayPtrOutput() AzureIntegrationsVpnGatewayPtrOutput {
 	return i.ToAzureIntegrationsVpnGatewayPtrOutputWithContext(context.Background())
 }
@@ -19897,6 +22376,12 @@ func (i *azureIntegrationsVpnGatewayPtrType) ToAzureIntegrationsVpnGatewayPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsVpnGatewayPtrOutput)
 }
 
+func (i *azureIntegrationsVpnGatewayPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsVpnGateway] {
+	return pulumix.Output[*AzureIntegrationsVpnGateway]{
+		OutputState: i.ToAzureIntegrationsVpnGatewayPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureIntegrationsVpnGatewayOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsVpnGatewayOutput) ElementType() reflect.Type {
@@ -19919,6 +22404,12 @@ func (o AzureIntegrationsVpnGatewayOutput) ToAzureIntegrationsVpnGatewayPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsVpnGateway) *AzureIntegrationsVpnGateway {
 		return &v
 	}).(AzureIntegrationsVpnGatewayPtrOutput)
+}
+
+func (o AzureIntegrationsVpnGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[AzureIntegrationsVpnGateway] {
+	return pulumix.Output[AzureIntegrationsVpnGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data polling interval in seconds.
@@ -19945,6 +22436,12 @@ func (o AzureIntegrationsVpnGatewayPtrOutput) ToAzureIntegrationsVpnGatewayPtrOu
 
 func (o AzureIntegrationsVpnGatewayPtrOutput) ToAzureIntegrationsVpnGatewayPtrOutputWithContext(ctx context.Context) AzureIntegrationsVpnGatewayPtrOutput {
 	return o
+}
+
+func (o AzureIntegrationsVpnGatewayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrationsVpnGateway] {
+	return pulumix.Output[*AzureIntegrationsVpnGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureIntegrationsVpnGatewayPtrOutput) Elem() AzureIntegrationsVpnGatewayOutput {
@@ -20016,6 +22513,12 @@ func (i GcpIntegrationsAlloyDbArgs) ToGcpIntegrationsAlloyDbOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsAlloyDbOutput)
 }
 
+func (i GcpIntegrationsAlloyDbArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsAlloyDb] {
+	return pulumix.Output[GcpIntegrationsAlloyDb]{
+		OutputState: i.ToGcpIntegrationsAlloyDbOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsAlloyDbArgs) ToGcpIntegrationsAlloyDbPtrOutput() GcpIntegrationsAlloyDbPtrOutput {
 	return i.ToGcpIntegrationsAlloyDbPtrOutputWithContext(context.Background())
 }
@@ -20057,6 +22560,12 @@ func (i *gcpIntegrationsAlloyDbPtrType) ToGcpIntegrationsAlloyDbPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsAlloyDbPtrOutput)
 }
 
+func (i *gcpIntegrationsAlloyDbPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsAlloyDb] {
+	return pulumix.Output[*GcpIntegrationsAlloyDb]{
+		OutputState: i.ToGcpIntegrationsAlloyDbPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsAlloyDbOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsAlloyDbOutput) ElementType() reflect.Type {
@@ -20081,6 +22590,12 @@ func (o GcpIntegrationsAlloyDbOutput) ToGcpIntegrationsAlloyDbPtrOutputWithConte
 	}).(GcpIntegrationsAlloyDbPtrOutput)
 }
 
+func (o GcpIntegrationsAlloyDbOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsAlloyDb] {
+	return pulumix.Output[GcpIntegrationsAlloyDb]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -20100,6 +22615,12 @@ func (o GcpIntegrationsAlloyDbPtrOutput) ToGcpIntegrationsAlloyDbPtrOutput() Gcp
 
 func (o GcpIntegrationsAlloyDbPtrOutput) ToGcpIntegrationsAlloyDbPtrOutputWithContext(ctx context.Context) GcpIntegrationsAlloyDbPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsAlloyDbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsAlloyDb] {
+	return pulumix.Output[*GcpIntegrationsAlloyDb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsAlloyDbPtrOutput) Elem() GcpIntegrationsAlloyDbOutput {
@@ -20161,6 +22682,12 @@ func (i GcpIntegrationsAppEngineArgs) ToGcpIntegrationsAppEngineOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsAppEngineOutput)
 }
 
+func (i GcpIntegrationsAppEngineArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsAppEngine] {
+	return pulumix.Output[GcpIntegrationsAppEngine]{
+		OutputState: i.ToGcpIntegrationsAppEngineOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsAppEngineArgs) ToGcpIntegrationsAppEnginePtrOutput() GcpIntegrationsAppEnginePtrOutput {
 	return i.ToGcpIntegrationsAppEnginePtrOutputWithContext(context.Background())
 }
@@ -20202,6 +22729,12 @@ func (i *gcpIntegrationsAppEnginePtrType) ToGcpIntegrationsAppEnginePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsAppEnginePtrOutput)
 }
 
+func (i *gcpIntegrationsAppEnginePtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsAppEngine] {
+	return pulumix.Output[*GcpIntegrationsAppEngine]{
+		OutputState: i.ToGcpIntegrationsAppEnginePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsAppEngineOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsAppEngineOutput) ElementType() reflect.Type {
@@ -20226,6 +22759,12 @@ func (o GcpIntegrationsAppEngineOutput) ToGcpIntegrationsAppEnginePtrOutputWithC
 	}).(GcpIntegrationsAppEnginePtrOutput)
 }
 
+func (o GcpIntegrationsAppEngineOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsAppEngine] {
+	return pulumix.Output[GcpIntegrationsAppEngine]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -20245,6 +22784,12 @@ func (o GcpIntegrationsAppEnginePtrOutput) ToGcpIntegrationsAppEnginePtrOutput()
 
 func (o GcpIntegrationsAppEnginePtrOutput) ToGcpIntegrationsAppEnginePtrOutputWithContext(ctx context.Context) GcpIntegrationsAppEnginePtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsAppEnginePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsAppEngine] {
+	return pulumix.Output[*GcpIntegrationsAppEngine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsAppEnginePtrOutput) Elem() GcpIntegrationsAppEngineOutput {
@@ -20310,6 +22855,12 @@ func (i GcpIntegrationsBigQueryArgs) ToGcpIntegrationsBigQueryOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsBigQueryOutput)
 }
 
+func (i GcpIntegrationsBigQueryArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsBigQuery] {
+	return pulumix.Output[GcpIntegrationsBigQuery]{
+		OutputState: i.ToGcpIntegrationsBigQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsBigQueryArgs) ToGcpIntegrationsBigQueryPtrOutput() GcpIntegrationsBigQueryPtrOutput {
 	return i.ToGcpIntegrationsBigQueryPtrOutputWithContext(context.Background())
 }
@@ -20351,6 +22902,12 @@ func (i *gcpIntegrationsBigQueryPtrType) ToGcpIntegrationsBigQueryPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsBigQueryPtrOutput)
 }
 
+func (i *gcpIntegrationsBigQueryPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsBigQuery] {
+	return pulumix.Output[*GcpIntegrationsBigQuery]{
+		OutputState: i.ToGcpIntegrationsBigQueryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsBigQueryOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsBigQueryOutput) ElementType() reflect.Type {
@@ -20373,6 +22930,12 @@ func (o GcpIntegrationsBigQueryOutput) ToGcpIntegrationsBigQueryPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpIntegrationsBigQuery) *GcpIntegrationsBigQuery {
 		return &v
 	}).(GcpIntegrationsBigQueryPtrOutput)
+}
+
+func (o GcpIntegrationsBigQueryOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsBigQuery] {
+	return pulumix.Output[GcpIntegrationsBigQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -20399,6 +22962,12 @@ func (o GcpIntegrationsBigQueryPtrOutput) ToGcpIntegrationsBigQueryPtrOutput() G
 
 func (o GcpIntegrationsBigQueryPtrOutput) ToGcpIntegrationsBigQueryPtrOutputWithContext(ctx context.Context) GcpIntegrationsBigQueryPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsBigQueryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsBigQuery] {
+	return pulumix.Output[*GcpIntegrationsBigQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsBigQueryPtrOutput) Elem() GcpIntegrationsBigQueryOutput {
@@ -20470,6 +23039,12 @@ func (i GcpIntegrationsBigTableArgs) ToGcpIntegrationsBigTableOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsBigTableOutput)
 }
 
+func (i GcpIntegrationsBigTableArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsBigTable] {
+	return pulumix.Output[GcpIntegrationsBigTable]{
+		OutputState: i.ToGcpIntegrationsBigTableOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsBigTableArgs) ToGcpIntegrationsBigTablePtrOutput() GcpIntegrationsBigTablePtrOutput {
 	return i.ToGcpIntegrationsBigTablePtrOutputWithContext(context.Background())
 }
@@ -20511,6 +23086,12 @@ func (i *gcpIntegrationsBigTablePtrType) ToGcpIntegrationsBigTablePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsBigTablePtrOutput)
 }
 
+func (i *gcpIntegrationsBigTablePtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsBigTable] {
+	return pulumix.Output[*GcpIntegrationsBigTable]{
+		OutputState: i.ToGcpIntegrationsBigTablePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsBigTableOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsBigTableOutput) ElementType() reflect.Type {
@@ -20535,6 +23116,12 @@ func (o GcpIntegrationsBigTableOutput) ToGcpIntegrationsBigTablePtrOutputWithCon
 	}).(GcpIntegrationsBigTablePtrOutput)
 }
 
+func (o GcpIntegrationsBigTableOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsBigTable] {
+	return pulumix.Output[GcpIntegrationsBigTable]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -20554,6 +23141,12 @@ func (o GcpIntegrationsBigTablePtrOutput) ToGcpIntegrationsBigTablePtrOutput() G
 
 func (o GcpIntegrationsBigTablePtrOutput) ToGcpIntegrationsBigTablePtrOutputWithContext(ctx context.Context) GcpIntegrationsBigTablePtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsBigTablePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsBigTable] {
+	return pulumix.Output[*GcpIntegrationsBigTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsBigTablePtrOutput) Elem() GcpIntegrationsBigTableOutput {
@@ -20615,6 +23208,12 @@ func (i GcpIntegrationsComposerArgs) ToGcpIntegrationsComposerOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsComposerOutput)
 }
 
+func (i GcpIntegrationsComposerArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsComposer] {
+	return pulumix.Output[GcpIntegrationsComposer]{
+		OutputState: i.ToGcpIntegrationsComposerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsComposerArgs) ToGcpIntegrationsComposerPtrOutput() GcpIntegrationsComposerPtrOutput {
 	return i.ToGcpIntegrationsComposerPtrOutputWithContext(context.Background())
 }
@@ -20656,6 +23255,12 @@ func (i *gcpIntegrationsComposerPtrType) ToGcpIntegrationsComposerPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsComposerPtrOutput)
 }
 
+func (i *gcpIntegrationsComposerPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsComposer] {
+	return pulumix.Output[*GcpIntegrationsComposer]{
+		OutputState: i.ToGcpIntegrationsComposerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsComposerOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsComposerOutput) ElementType() reflect.Type {
@@ -20680,6 +23285,12 @@ func (o GcpIntegrationsComposerOutput) ToGcpIntegrationsComposerPtrOutputWithCon
 	}).(GcpIntegrationsComposerPtrOutput)
 }
 
+func (o GcpIntegrationsComposerOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsComposer] {
+	return pulumix.Output[GcpIntegrationsComposer]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -20699,6 +23310,12 @@ func (o GcpIntegrationsComposerPtrOutput) ToGcpIntegrationsComposerPtrOutput() G
 
 func (o GcpIntegrationsComposerPtrOutput) ToGcpIntegrationsComposerPtrOutputWithContext(ctx context.Context) GcpIntegrationsComposerPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsComposerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsComposer] {
+	return pulumix.Output[*GcpIntegrationsComposer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsComposerPtrOutput) Elem() GcpIntegrationsComposerOutput {
@@ -20760,6 +23377,12 @@ func (i GcpIntegrationsDataFlowArgs) ToGcpIntegrationsDataFlowOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsDataFlowOutput)
 }
 
+func (i GcpIntegrationsDataFlowArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsDataFlow] {
+	return pulumix.Output[GcpIntegrationsDataFlow]{
+		OutputState: i.ToGcpIntegrationsDataFlowOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsDataFlowArgs) ToGcpIntegrationsDataFlowPtrOutput() GcpIntegrationsDataFlowPtrOutput {
 	return i.ToGcpIntegrationsDataFlowPtrOutputWithContext(context.Background())
 }
@@ -20801,6 +23424,12 @@ func (i *gcpIntegrationsDataFlowPtrType) ToGcpIntegrationsDataFlowPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsDataFlowPtrOutput)
 }
 
+func (i *gcpIntegrationsDataFlowPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsDataFlow] {
+	return pulumix.Output[*GcpIntegrationsDataFlow]{
+		OutputState: i.ToGcpIntegrationsDataFlowPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsDataFlowOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsDataFlowOutput) ElementType() reflect.Type {
@@ -20825,6 +23454,12 @@ func (o GcpIntegrationsDataFlowOutput) ToGcpIntegrationsDataFlowPtrOutputWithCon
 	}).(GcpIntegrationsDataFlowPtrOutput)
 }
 
+func (o GcpIntegrationsDataFlowOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsDataFlow] {
+	return pulumix.Output[GcpIntegrationsDataFlow]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -20844,6 +23479,12 @@ func (o GcpIntegrationsDataFlowPtrOutput) ToGcpIntegrationsDataFlowPtrOutput() G
 
 func (o GcpIntegrationsDataFlowPtrOutput) ToGcpIntegrationsDataFlowPtrOutputWithContext(ctx context.Context) GcpIntegrationsDataFlowPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsDataFlowPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsDataFlow] {
+	return pulumix.Output[*GcpIntegrationsDataFlow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsDataFlowPtrOutput) Elem() GcpIntegrationsDataFlowOutput {
@@ -20905,6 +23546,12 @@ func (i GcpIntegrationsDataProcArgs) ToGcpIntegrationsDataProcOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsDataProcOutput)
 }
 
+func (i GcpIntegrationsDataProcArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsDataProc] {
+	return pulumix.Output[GcpIntegrationsDataProc]{
+		OutputState: i.ToGcpIntegrationsDataProcOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsDataProcArgs) ToGcpIntegrationsDataProcPtrOutput() GcpIntegrationsDataProcPtrOutput {
 	return i.ToGcpIntegrationsDataProcPtrOutputWithContext(context.Background())
 }
@@ -20946,6 +23593,12 @@ func (i *gcpIntegrationsDataProcPtrType) ToGcpIntegrationsDataProcPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsDataProcPtrOutput)
 }
 
+func (i *gcpIntegrationsDataProcPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsDataProc] {
+	return pulumix.Output[*GcpIntegrationsDataProc]{
+		OutputState: i.ToGcpIntegrationsDataProcPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsDataProcOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsDataProcOutput) ElementType() reflect.Type {
@@ -20970,6 +23623,12 @@ func (o GcpIntegrationsDataProcOutput) ToGcpIntegrationsDataProcPtrOutputWithCon
 	}).(GcpIntegrationsDataProcPtrOutput)
 }
 
+func (o GcpIntegrationsDataProcOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsDataProc] {
+	return pulumix.Output[GcpIntegrationsDataProc]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -20989,6 +23648,12 @@ func (o GcpIntegrationsDataProcPtrOutput) ToGcpIntegrationsDataProcPtrOutput() G
 
 func (o GcpIntegrationsDataProcPtrOutput) ToGcpIntegrationsDataProcPtrOutputWithContext(ctx context.Context) GcpIntegrationsDataProcPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsDataProcPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsDataProc] {
+	return pulumix.Output[*GcpIntegrationsDataProc]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsDataProcPtrOutput) Elem() GcpIntegrationsDataProcOutput {
@@ -21050,6 +23715,12 @@ func (i GcpIntegrationsDataStoreArgs) ToGcpIntegrationsDataStoreOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsDataStoreOutput)
 }
 
+func (i GcpIntegrationsDataStoreArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsDataStore] {
+	return pulumix.Output[GcpIntegrationsDataStore]{
+		OutputState: i.ToGcpIntegrationsDataStoreOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsDataStoreArgs) ToGcpIntegrationsDataStorePtrOutput() GcpIntegrationsDataStorePtrOutput {
 	return i.ToGcpIntegrationsDataStorePtrOutputWithContext(context.Background())
 }
@@ -21091,6 +23762,12 @@ func (i *gcpIntegrationsDataStorePtrType) ToGcpIntegrationsDataStorePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsDataStorePtrOutput)
 }
 
+func (i *gcpIntegrationsDataStorePtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsDataStore] {
+	return pulumix.Output[*GcpIntegrationsDataStore]{
+		OutputState: i.ToGcpIntegrationsDataStorePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsDataStoreOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsDataStoreOutput) ElementType() reflect.Type {
@@ -21115,6 +23792,12 @@ func (o GcpIntegrationsDataStoreOutput) ToGcpIntegrationsDataStorePtrOutputWithC
 	}).(GcpIntegrationsDataStorePtrOutput)
 }
 
+func (o GcpIntegrationsDataStoreOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsDataStore] {
+	return pulumix.Output[GcpIntegrationsDataStore]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -21134,6 +23817,12 @@ func (o GcpIntegrationsDataStorePtrOutput) ToGcpIntegrationsDataStorePtrOutput()
 
 func (o GcpIntegrationsDataStorePtrOutput) ToGcpIntegrationsDataStorePtrOutputWithContext(ctx context.Context) GcpIntegrationsDataStorePtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsDataStorePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsDataStore] {
+	return pulumix.Output[*GcpIntegrationsDataStore]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsDataStorePtrOutput) Elem() GcpIntegrationsDataStoreOutput {
@@ -21195,6 +23884,12 @@ func (i GcpIntegrationsFireBaseDatabaseArgs) ToGcpIntegrationsFireBaseDatabaseOu
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsFireBaseDatabaseOutput)
 }
 
+func (i GcpIntegrationsFireBaseDatabaseArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsFireBaseDatabase] {
+	return pulumix.Output[GcpIntegrationsFireBaseDatabase]{
+		OutputState: i.ToGcpIntegrationsFireBaseDatabaseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsFireBaseDatabaseArgs) ToGcpIntegrationsFireBaseDatabasePtrOutput() GcpIntegrationsFireBaseDatabasePtrOutput {
 	return i.ToGcpIntegrationsFireBaseDatabasePtrOutputWithContext(context.Background())
 }
@@ -21236,6 +23931,12 @@ func (i *gcpIntegrationsFireBaseDatabasePtrType) ToGcpIntegrationsFireBaseDataba
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsFireBaseDatabasePtrOutput)
 }
 
+func (i *gcpIntegrationsFireBaseDatabasePtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsFireBaseDatabase] {
+	return pulumix.Output[*GcpIntegrationsFireBaseDatabase]{
+		OutputState: i.ToGcpIntegrationsFireBaseDatabasePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsFireBaseDatabaseOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsFireBaseDatabaseOutput) ElementType() reflect.Type {
@@ -21260,6 +23961,12 @@ func (o GcpIntegrationsFireBaseDatabaseOutput) ToGcpIntegrationsFireBaseDatabase
 	}).(GcpIntegrationsFireBaseDatabasePtrOutput)
 }
 
+func (o GcpIntegrationsFireBaseDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsFireBaseDatabase] {
+	return pulumix.Output[GcpIntegrationsFireBaseDatabase]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -21279,6 +23986,12 @@ func (o GcpIntegrationsFireBaseDatabasePtrOutput) ToGcpIntegrationsFireBaseDatab
 
 func (o GcpIntegrationsFireBaseDatabasePtrOutput) ToGcpIntegrationsFireBaseDatabasePtrOutputWithContext(ctx context.Context) GcpIntegrationsFireBaseDatabasePtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsFireBaseDatabasePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsFireBaseDatabase] {
+	return pulumix.Output[*GcpIntegrationsFireBaseDatabase]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsFireBaseDatabasePtrOutput) Elem() GcpIntegrationsFireBaseDatabaseOutput {
@@ -21340,6 +24053,12 @@ func (i GcpIntegrationsFireBaseHostingArgs) ToGcpIntegrationsFireBaseHostingOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsFireBaseHostingOutput)
 }
 
+func (i GcpIntegrationsFireBaseHostingArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsFireBaseHosting] {
+	return pulumix.Output[GcpIntegrationsFireBaseHosting]{
+		OutputState: i.ToGcpIntegrationsFireBaseHostingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsFireBaseHostingArgs) ToGcpIntegrationsFireBaseHostingPtrOutput() GcpIntegrationsFireBaseHostingPtrOutput {
 	return i.ToGcpIntegrationsFireBaseHostingPtrOutputWithContext(context.Background())
 }
@@ -21381,6 +24100,12 @@ func (i *gcpIntegrationsFireBaseHostingPtrType) ToGcpIntegrationsFireBaseHosting
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsFireBaseHostingPtrOutput)
 }
 
+func (i *gcpIntegrationsFireBaseHostingPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsFireBaseHosting] {
+	return pulumix.Output[*GcpIntegrationsFireBaseHosting]{
+		OutputState: i.ToGcpIntegrationsFireBaseHostingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsFireBaseHostingOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsFireBaseHostingOutput) ElementType() reflect.Type {
@@ -21405,6 +24130,12 @@ func (o GcpIntegrationsFireBaseHostingOutput) ToGcpIntegrationsFireBaseHostingPt
 	}).(GcpIntegrationsFireBaseHostingPtrOutput)
 }
 
+func (o GcpIntegrationsFireBaseHostingOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsFireBaseHosting] {
+	return pulumix.Output[GcpIntegrationsFireBaseHosting]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -21424,6 +24155,12 @@ func (o GcpIntegrationsFireBaseHostingPtrOutput) ToGcpIntegrationsFireBaseHostin
 
 func (o GcpIntegrationsFireBaseHostingPtrOutput) ToGcpIntegrationsFireBaseHostingPtrOutputWithContext(ctx context.Context) GcpIntegrationsFireBaseHostingPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsFireBaseHostingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsFireBaseHosting] {
+	return pulumix.Output[*GcpIntegrationsFireBaseHosting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsFireBaseHostingPtrOutput) Elem() GcpIntegrationsFireBaseHostingOutput {
@@ -21485,6 +24222,12 @@ func (i GcpIntegrationsFireBaseStorageArgs) ToGcpIntegrationsFireBaseStorageOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsFireBaseStorageOutput)
 }
 
+func (i GcpIntegrationsFireBaseStorageArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsFireBaseStorage] {
+	return pulumix.Output[GcpIntegrationsFireBaseStorage]{
+		OutputState: i.ToGcpIntegrationsFireBaseStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsFireBaseStorageArgs) ToGcpIntegrationsFireBaseStoragePtrOutput() GcpIntegrationsFireBaseStoragePtrOutput {
 	return i.ToGcpIntegrationsFireBaseStoragePtrOutputWithContext(context.Background())
 }
@@ -21526,6 +24269,12 @@ func (i *gcpIntegrationsFireBaseStoragePtrType) ToGcpIntegrationsFireBaseStorage
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsFireBaseStoragePtrOutput)
 }
 
+func (i *gcpIntegrationsFireBaseStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsFireBaseStorage] {
+	return pulumix.Output[*GcpIntegrationsFireBaseStorage]{
+		OutputState: i.ToGcpIntegrationsFireBaseStoragePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsFireBaseStorageOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsFireBaseStorageOutput) ElementType() reflect.Type {
@@ -21550,6 +24299,12 @@ func (o GcpIntegrationsFireBaseStorageOutput) ToGcpIntegrationsFireBaseStoragePt
 	}).(GcpIntegrationsFireBaseStoragePtrOutput)
 }
 
+func (o GcpIntegrationsFireBaseStorageOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsFireBaseStorage] {
+	return pulumix.Output[GcpIntegrationsFireBaseStorage]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -21569,6 +24324,12 @@ func (o GcpIntegrationsFireBaseStoragePtrOutput) ToGcpIntegrationsFireBaseStorag
 
 func (o GcpIntegrationsFireBaseStoragePtrOutput) ToGcpIntegrationsFireBaseStoragePtrOutputWithContext(ctx context.Context) GcpIntegrationsFireBaseStoragePtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsFireBaseStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsFireBaseStorage] {
+	return pulumix.Output[*GcpIntegrationsFireBaseStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsFireBaseStoragePtrOutput) Elem() GcpIntegrationsFireBaseStorageOutput {
@@ -21630,6 +24391,12 @@ func (i GcpIntegrationsFireStoreArgs) ToGcpIntegrationsFireStoreOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsFireStoreOutput)
 }
 
+func (i GcpIntegrationsFireStoreArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsFireStore] {
+	return pulumix.Output[GcpIntegrationsFireStore]{
+		OutputState: i.ToGcpIntegrationsFireStoreOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsFireStoreArgs) ToGcpIntegrationsFireStorePtrOutput() GcpIntegrationsFireStorePtrOutput {
 	return i.ToGcpIntegrationsFireStorePtrOutputWithContext(context.Background())
 }
@@ -21671,6 +24438,12 @@ func (i *gcpIntegrationsFireStorePtrType) ToGcpIntegrationsFireStorePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsFireStorePtrOutput)
 }
 
+func (i *gcpIntegrationsFireStorePtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsFireStore] {
+	return pulumix.Output[*GcpIntegrationsFireStore]{
+		OutputState: i.ToGcpIntegrationsFireStorePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsFireStoreOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsFireStoreOutput) ElementType() reflect.Type {
@@ -21695,6 +24468,12 @@ func (o GcpIntegrationsFireStoreOutput) ToGcpIntegrationsFireStorePtrOutputWithC
 	}).(GcpIntegrationsFireStorePtrOutput)
 }
 
+func (o GcpIntegrationsFireStoreOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsFireStore] {
+	return pulumix.Output[GcpIntegrationsFireStore]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -21714,6 +24493,12 @@ func (o GcpIntegrationsFireStorePtrOutput) ToGcpIntegrationsFireStorePtrOutput()
 
 func (o GcpIntegrationsFireStorePtrOutput) ToGcpIntegrationsFireStorePtrOutputWithContext(ctx context.Context) GcpIntegrationsFireStorePtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsFireStorePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsFireStore] {
+	return pulumix.Output[*GcpIntegrationsFireStore]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsFireStorePtrOutput) Elem() GcpIntegrationsFireStoreOutput {
@@ -21775,6 +24560,12 @@ func (i GcpIntegrationsFunctionsArgs) ToGcpIntegrationsFunctionsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsFunctionsOutput)
 }
 
+func (i GcpIntegrationsFunctionsArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsFunctions] {
+	return pulumix.Output[GcpIntegrationsFunctions]{
+		OutputState: i.ToGcpIntegrationsFunctionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsFunctionsArgs) ToGcpIntegrationsFunctionsPtrOutput() GcpIntegrationsFunctionsPtrOutput {
 	return i.ToGcpIntegrationsFunctionsPtrOutputWithContext(context.Background())
 }
@@ -21816,6 +24607,12 @@ func (i *gcpIntegrationsFunctionsPtrType) ToGcpIntegrationsFunctionsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsFunctionsPtrOutput)
 }
 
+func (i *gcpIntegrationsFunctionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsFunctions] {
+	return pulumix.Output[*GcpIntegrationsFunctions]{
+		OutputState: i.ToGcpIntegrationsFunctionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsFunctionsOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsFunctionsOutput) ElementType() reflect.Type {
@@ -21840,6 +24637,12 @@ func (o GcpIntegrationsFunctionsOutput) ToGcpIntegrationsFunctionsPtrOutputWithC
 	}).(GcpIntegrationsFunctionsPtrOutput)
 }
 
+func (o GcpIntegrationsFunctionsOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsFunctions] {
+	return pulumix.Output[GcpIntegrationsFunctions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -21859,6 +24662,12 @@ func (o GcpIntegrationsFunctionsPtrOutput) ToGcpIntegrationsFunctionsPtrOutput()
 
 func (o GcpIntegrationsFunctionsPtrOutput) ToGcpIntegrationsFunctionsPtrOutputWithContext(ctx context.Context) GcpIntegrationsFunctionsPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsFunctionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsFunctions] {
+	return pulumix.Output[*GcpIntegrationsFunctions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsFunctionsPtrOutput) Elem() GcpIntegrationsFunctionsOutput {
@@ -21920,6 +24729,12 @@ func (i GcpIntegrationsInterconnectArgs) ToGcpIntegrationsInterconnectOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsInterconnectOutput)
 }
 
+func (i GcpIntegrationsInterconnectArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsInterconnect] {
+	return pulumix.Output[GcpIntegrationsInterconnect]{
+		OutputState: i.ToGcpIntegrationsInterconnectOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsInterconnectArgs) ToGcpIntegrationsInterconnectPtrOutput() GcpIntegrationsInterconnectPtrOutput {
 	return i.ToGcpIntegrationsInterconnectPtrOutputWithContext(context.Background())
 }
@@ -21961,6 +24776,12 @@ func (i *gcpIntegrationsInterconnectPtrType) ToGcpIntegrationsInterconnectPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsInterconnectPtrOutput)
 }
 
+func (i *gcpIntegrationsInterconnectPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsInterconnect] {
+	return pulumix.Output[*GcpIntegrationsInterconnect]{
+		OutputState: i.ToGcpIntegrationsInterconnectPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsInterconnectOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsInterconnectOutput) ElementType() reflect.Type {
@@ -21985,6 +24806,12 @@ func (o GcpIntegrationsInterconnectOutput) ToGcpIntegrationsInterconnectPtrOutpu
 	}).(GcpIntegrationsInterconnectPtrOutput)
 }
 
+func (o GcpIntegrationsInterconnectOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsInterconnect] {
+	return pulumix.Output[GcpIntegrationsInterconnect]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -22004,6 +24831,12 @@ func (o GcpIntegrationsInterconnectPtrOutput) ToGcpIntegrationsInterconnectPtrOu
 
 func (o GcpIntegrationsInterconnectPtrOutput) ToGcpIntegrationsInterconnectPtrOutputWithContext(ctx context.Context) GcpIntegrationsInterconnectPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsInterconnectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsInterconnect] {
+	return pulumix.Output[*GcpIntegrationsInterconnect]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsInterconnectPtrOutput) Elem() GcpIntegrationsInterconnectOutput {
@@ -22065,6 +24898,12 @@ func (i GcpIntegrationsKubernetesArgs) ToGcpIntegrationsKubernetesOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsKubernetesOutput)
 }
 
+func (i GcpIntegrationsKubernetesArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsKubernetes] {
+	return pulumix.Output[GcpIntegrationsKubernetes]{
+		OutputState: i.ToGcpIntegrationsKubernetesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsKubernetesArgs) ToGcpIntegrationsKubernetesPtrOutput() GcpIntegrationsKubernetesPtrOutput {
 	return i.ToGcpIntegrationsKubernetesPtrOutputWithContext(context.Background())
 }
@@ -22106,6 +24945,12 @@ func (i *gcpIntegrationsKubernetesPtrType) ToGcpIntegrationsKubernetesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsKubernetesPtrOutput)
 }
 
+func (i *gcpIntegrationsKubernetesPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsKubernetes] {
+	return pulumix.Output[*GcpIntegrationsKubernetes]{
+		OutputState: i.ToGcpIntegrationsKubernetesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsKubernetesOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsKubernetesOutput) ElementType() reflect.Type {
@@ -22130,6 +24975,12 @@ func (o GcpIntegrationsKubernetesOutput) ToGcpIntegrationsKubernetesPtrOutputWit
 	}).(GcpIntegrationsKubernetesPtrOutput)
 }
 
+func (o GcpIntegrationsKubernetesOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsKubernetes] {
+	return pulumix.Output[GcpIntegrationsKubernetes]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -22149,6 +25000,12 @@ func (o GcpIntegrationsKubernetesPtrOutput) ToGcpIntegrationsKubernetesPtrOutput
 
 func (o GcpIntegrationsKubernetesPtrOutput) ToGcpIntegrationsKubernetesPtrOutputWithContext(ctx context.Context) GcpIntegrationsKubernetesPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsKubernetesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsKubernetes] {
+	return pulumix.Output[*GcpIntegrationsKubernetes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsKubernetesPtrOutput) Elem() GcpIntegrationsKubernetesOutput {
@@ -22210,6 +25067,12 @@ func (i GcpIntegrationsLoadBalancingArgs) ToGcpIntegrationsLoadBalancingOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsLoadBalancingOutput)
 }
 
+func (i GcpIntegrationsLoadBalancingArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsLoadBalancing] {
+	return pulumix.Output[GcpIntegrationsLoadBalancing]{
+		OutputState: i.ToGcpIntegrationsLoadBalancingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsLoadBalancingArgs) ToGcpIntegrationsLoadBalancingPtrOutput() GcpIntegrationsLoadBalancingPtrOutput {
 	return i.ToGcpIntegrationsLoadBalancingPtrOutputWithContext(context.Background())
 }
@@ -22251,6 +25114,12 @@ func (i *gcpIntegrationsLoadBalancingPtrType) ToGcpIntegrationsLoadBalancingPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsLoadBalancingPtrOutput)
 }
 
+func (i *gcpIntegrationsLoadBalancingPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsLoadBalancing] {
+	return pulumix.Output[*GcpIntegrationsLoadBalancing]{
+		OutputState: i.ToGcpIntegrationsLoadBalancingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsLoadBalancingOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsLoadBalancingOutput) ElementType() reflect.Type {
@@ -22275,6 +25144,12 @@ func (o GcpIntegrationsLoadBalancingOutput) ToGcpIntegrationsLoadBalancingPtrOut
 	}).(GcpIntegrationsLoadBalancingPtrOutput)
 }
 
+func (o GcpIntegrationsLoadBalancingOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsLoadBalancing] {
+	return pulumix.Output[GcpIntegrationsLoadBalancing]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -22294,6 +25169,12 @@ func (o GcpIntegrationsLoadBalancingPtrOutput) ToGcpIntegrationsLoadBalancingPtr
 
 func (o GcpIntegrationsLoadBalancingPtrOutput) ToGcpIntegrationsLoadBalancingPtrOutputWithContext(ctx context.Context) GcpIntegrationsLoadBalancingPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsLoadBalancingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsLoadBalancing] {
+	return pulumix.Output[*GcpIntegrationsLoadBalancing]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsLoadBalancingPtrOutput) Elem() GcpIntegrationsLoadBalancingOutput {
@@ -22355,6 +25236,12 @@ func (i GcpIntegrationsMemCacheArgs) ToGcpIntegrationsMemCacheOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsMemCacheOutput)
 }
 
+func (i GcpIntegrationsMemCacheArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsMemCache] {
+	return pulumix.Output[GcpIntegrationsMemCache]{
+		OutputState: i.ToGcpIntegrationsMemCacheOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsMemCacheArgs) ToGcpIntegrationsMemCachePtrOutput() GcpIntegrationsMemCachePtrOutput {
 	return i.ToGcpIntegrationsMemCachePtrOutputWithContext(context.Background())
 }
@@ -22396,6 +25283,12 @@ func (i *gcpIntegrationsMemCachePtrType) ToGcpIntegrationsMemCachePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsMemCachePtrOutput)
 }
 
+func (i *gcpIntegrationsMemCachePtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsMemCache] {
+	return pulumix.Output[*GcpIntegrationsMemCache]{
+		OutputState: i.ToGcpIntegrationsMemCachePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsMemCacheOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsMemCacheOutput) ElementType() reflect.Type {
@@ -22420,6 +25313,12 @@ func (o GcpIntegrationsMemCacheOutput) ToGcpIntegrationsMemCachePtrOutputWithCon
 	}).(GcpIntegrationsMemCachePtrOutput)
 }
 
+func (o GcpIntegrationsMemCacheOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsMemCache] {
+	return pulumix.Output[GcpIntegrationsMemCache]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -22439,6 +25338,12 @@ func (o GcpIntegrationsMemCachePtrOutput) ToGcpIntegrationsMemCachePtrOutput() G
 
 func (o GcpIntegrationsMemCachePtrOutput) ToGcpIntegrationsMemCachePtrOutputWithContext(ctx context.Context) GcpIntegrationsMemCachePtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsMemCachePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsMemCache] {
+	return pulumix.Output[*GcpIntegrationsMemCache]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsMemCachePtrOutput) Elem() GcpIntegrationsMemCacheOutput {
@@ -22504,6 +25409,12 @@ func (i GcpIntegrationsPubSubArgs) ToGcpIntegrationsPubSubOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsPubSubOutput)
 }
 
+func (i GcpIntegrationsPubSubArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsPubSub] {
+	return pulumix.Output[GcpIntegrationsPubSub]{
+		OutputState: i.ToGcpIntegrationsPubSubOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsPubSubArgs) ToGcpIntegrationsPubSubPtrOutput() GcpIntegrationsPubSubPtrOutput {
 	return i.ToGcpIntegrationsPubSubPtrOutputWithContext(context.Background())
 }
@@ -22545,6 +25456,12 @@ func (i *gcpIntegrationsPubSubPtrType) ToGcpIntegrationsPubSubPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsPubSubPtrOutput)
 }
 
+func (i *gcpIntegrationsPubSubPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsPubSub] {
+	return pulumix.Output[*GcpIntegrationsPubSub]{
+		OutputState: i.ToGcpIntegrationsPubSubPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsPubSubOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsPubSubOutput) ElementType() reflect.Type {
@@ -22567,6 +25484,12 @@ func (o GcpIntegrationsPubSubOutput) ToGcpIntegrationsPubSubPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpIntegrationsPubSub) *GcpIntegrationsPubSub {
 		return &v
 	}).(GcpIntegrationsPubSubPtrOutput)
+}
+
+func (o GcpIntegrationsPubSubOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsPubSub] {
+	return pulumix.Output[GcpIntegrationsPubSub]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -22593,6 +25516,12 @@ func (o GcpIntegrationsPubSubPtrOutput) ToGcpIntegrationsPubSubPtrOutput() GcpIn
 
 func (o GcpIntegrationsPubSubPtrOutput) ToGcpIntegrationsPubSubPtrOutputWithContext(ctx context.Context) GcpIntegrationsPubSubPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsPubSubPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsPubSub] {
+	return pulumix.Output[*GcpIntegrationsPubSub]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsPubSubPtrOutput) Elem() GcpIntegrationsPubSubOutput {
@@ -22664,6 +25593,12 @@ func (i GcpIntegrationsRedisArgs) ToGcpIntegrationsRedisOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsRedisOutput)
 }
 
+func (i GcpIntegrationsRedisArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsRedis] {
+	return pulumix.Output[GcpIntegrationsRedis]{
+		OutputState: i.ToGcpIntegrationsRedisOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsRedisArgs) ToGcpIntegrationsRedisPtrOutput() GcpIntegrationsRedisPtrOutput {
 	return i.ToGcpIntegrationsRedisPtrOutputWithContext(context.Background())
 }
@@ -22705,6 +25640,12 @@ func (i *gcpIntegrationsRedisPtrType) ToGcpIntegrationsRedisPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsRedisPtrOutput)
 }
 
+func (i *gcpIntegrationsRedisPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsRedis] {
+	return pulumix.Output[*GcpIntegrationsRedis]{
+		OutputState: i.ToGcpIntegrationsRedisPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsRedisOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsRedisOutput) ElementType() reflect.Type {
@@ -22729,6 +25670,12 @@ func (o GcpIntegrationsRedisOutput) ToGcpIntegrationsRedisPtrOutputWithContext(c
 	}).(GcpIntegrationsRedisPtrOutput)
 }
 
+func (o GcpIntegrationsRedisOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsRedis] {
+	return pulumix.Output[GcpIntegrationsRedis]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -22748,6 +25695,12 @@ func (o GcpIntegrationsRedisPtrOutput) ToGcpIntegrationsRedisPtrOutput() GcpInte
 
 func (o GcpIntegrationsRedisPtrOutput) ToGcpIntegrationsRedisPtrOutputWithContext(ctx context.Context) GcpIntegrationsRedisPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsRedisPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsRedis] {
+	return pulumix.Output[*GcpIntegrationsRedis]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsRedisPtrOutput) Elem() GcpIntegrationsRedisOutput {
@@ -22809,6 +25762,12 @@ func (i GcpIntegrationsRouterArgs) ToGcpIntegrationsRouterOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsRouterOutput)
 }
 
+func (i GcpIntegrationsRouterArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsRouter] {
+	return pulumix.Output[GcpIntegrationsRouter]{
+		OutputState: i.ToGcpIntegrationsRouterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsRouterArgs) ToGcpIntegrationsRouterPtrOutput() GcpIntegrationsRouterPtrOutput {
 	return i.ToGcpIntegrationsRouterPtrOutputWithContext(context.Background())
 }
@@ -22850,6 +25809,12 @@ func (i *gcpIntegrationsRouterPtrType) ToGcpIntegrationsRouterPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsRouterPtrOutput)
 }
 
+func (i *gcpIntegrationsRouterPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsRouter] {
+	return pulumix.Output[*GcpIntegrationsRouter]{
+		OutputState: i.ToGcpIntegrationsRouterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsRouterOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsRouterOutput) ElementType() reflect.Type {
@@ -22874,6 +25839,12 @@ func (o GcpIntegrationsRouterOutput) ToGcpIntegrationsRouterPtrOutputWithContext
 	}).(GcpIntegrationsRouterPtrOutput)
 }
 
+func (o GcpIntegrationsRouterOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsRouter] {
+	return pulumix.Output[GcpIntegrationsRouter]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -22893,6 +25864,12 @@ func (o GcpIntegrationsRouterPtrOutput) ToGcpIntegrationsRouterPtrOutput() GcpIn
 
 func (o GcpIntegrationsRouterPtrOutput) ToGcpIntegrationsRouterPtrOutputWithContext(ctx context.Context) GcpIntegrationsRouterPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsRouterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsRouter] {
+	return pulumix.Output[*GcpIntegrationsRouter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsRouterPtrOutput) Elem() GcpIntegrationsRouterOutput {
@@ -22954,6 +25931,12 @@ func (i GcpIntegrationsRunArgs) ToGcpIntegrationsRunOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsRunOutput)
 }
 
+func (i GcpIntegrationsRunArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsRun] {
+	return pulumix.Output[GcpIntegrationsRun]{
+		OutputState: i.ToGcpIntegrationsRunOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsRunArgs) ToGcpIntegrationsRunPtrOutput() GcpIntegrationsRunPtrOutput {
 	return i.ToGcpIntegrationsRunPtrOutputWithContext(context.Background())
 }
@@ -22995,6 +25978,12 @@ func (i *gcpIntegrationsRunPtrType) ToGcpIntegrationsRunPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsRunPtrOutput)
 }
 
+func (i *gcpIntegrationsRunPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsRun] {
+	return pulumix.Output[*GcpIntegrationsRun]{
+		OutputState: i.ToGcpIntegrationsRunPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsRunOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsRunOutput) ElementType() reflect.Type {
@@ -23019,6 +26008,12 @@ func (o GcpIntegrationsRunOutput) ToGcpIntegrationsRunPtrOutputWithContext(ctx c
 	}).(GcpIntegrationsRunPtrOutput)
 }
 
+func (o GcpIntegrationsRunOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsRun] {
+	return pulumix.Output[GcpIntegrationsRun]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -23038,6 +26033,12 @@ func (o GcpIntegrationsRunPtrOutput) ToGcpIntegrationsRunPtrOutput() GcpIntegrat
 
 func (o GcpIntegrationsRunPtrOutput) ToGcpIntegrationsRunPtrOutputWithContext(ctx context.Context) GcpIntegrationsRunPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsRunPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsRun] {
+	return pulumix.Output[*GcpIntegrationsRun]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsRunPtrOutput) Elem() GcpIntegrationsRunOutput {
@@ -23103,6 +26104,12 @@ func (i GcpIntegrationsSpannerArgs) ToGcpIntegrationsSpannerOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsSpannerOutput)
 }
 
+func (i GcpIntegrationsSpannerArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsSpanner] {
+	return pulumix.Output[GcpIntegrationsSpanner]{
+		OutputState: i.ToGcpIntegrationsSpannerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsSpannerArgs) ToGcpIntegrationsSpannerPtrOutput() GcpIntegrationsSpannerPtrOutput {
 	return i.ToGcpIntegrationsSpannerPtrOutputWithContext(context.Background())
 }
@@ -23144,6 +26151,12 @@ func (i *gcpIntegrationsSpannerPtrType) ToGcpIntegrationsSpannerPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsSpannerPtrOutput)
 }
 
+func (i *gcpIntegrationsSpannerPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsSpanner] {
+	return pulumix.Output[*GcpIntegrationsSpanner]{
+		OutputState: i.ToGcpIntegrationsSpannerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsSpannerOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsSpannerOutput) ElementType() reflect.Type {
@@ -23166,6 +26179,12 @@ func (o GcpIntegrationsSpannerOutput) ToGcpIntegrationsSpannerPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpIntegrationsSpanner) *GcpIntegrationsSpanner {
 		return &v
 	}).(GcpIntegrationsSpannerPtrOutput)
+}
+
+func (o GcpIntegrationsSpannerOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsSpanner] {
+	return pulumix.Output[GcpIntegrationsSpanner]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -23192,6 +26211,12 @@ func (o GcpIntegrationsSpannerPtrOutput) ToGcpIntegrationsSpannerPtrOutput() Gcp
 
 func (o GcpIntegrationsSpannerPtrOutput) ToGcpIntegrationsSpannerPtrOutputWithContext(ctx context.Context) GcpIntegrationsSpannerPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsSpannerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsSpanner] {
+	return pulumix.Output[*GcpIntegrationsSpanner]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsSpannerPtrOutput) Elem() GcpIntegrationsSpannerOutput {
@@ -23263,6 +26288,12 @@ func (i GcpIntegrationsSqlArgs) ToGcpIntegrationsSqlOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsSqlOutput)
 }
 
+func (i GcpIntegrationsSqlArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsSql] {
+	return pulumix.Output[GcpIntegrationsSql]{
+		OutputState: i.ToGcpIntegrationsSqlOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsSqlArgs) ToGcpIntegrationsSqlPtrOutput() GcpIntegrationsSqlPtrOutput {
 	return i.ToGcpIntegrationsSqlPtrOutputWithContext(context.Background())
 }
@@ -23304,6 +26335,12 @@ func (i *gcpIntegrationsSqlPtrType) ToGcpIntegrationsSqlPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsSqlPtrOutput)
 }
 
+func (i *gcpIntegrationsSqlPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsSql] {
+	return pulumix.Output[*GcpIntegrationsSql]{
+		OutputState: i.ToGcpIntegrationsSqlPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsSqlOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsSqlOutput) ElementType() reflect.Type {
@@ -23328,6 +26365,12 @@ func (o GcpIntegrationsSqlOutput) ToGcpIntegrationsSqlPtrOutputWithContext(ctx c
 	}).(GcpIntegrationsSqlPtrOutput)
 }
 
+func (o GcpIntegrationsSqlOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsSql] {
+	return pulumix.Output[GcpIntegrationsSql]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -23347,6 +26390,12 @@ func (o GcpIntegrationsSqlPtrOutput) ToGcpIntegrationsSqlPtrOutput() GcpIntegrat
 
 func (o GcpIntegrationsSqlPtrOutput) ToGcpIntegrationsSqlPtrOutputWithContext(ctx context.Context) GcpIntegrationsSqlPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsSqlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsSql] {
+	return pulumix.Output[*GcpIntegrationsSql]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsSqlPtrOutput) Elem() GcpIntegrationsSqlOutput {
@@ -23412,6 +26461,12 @@ func (i GcpIntegrationsStorageArgs) ToGcpIntegrationsStorageOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsStorageOutput)
 }
 
+func (i GcpIntegrationsStorageArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsStorage] {
+	return pulumix.Output[GcpIntegrationsStorage]{
+		OutputState: i.ToGcpIntegrationsStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsStorageArgs) ToGcpIntegrationsStoragePtrOutput() GcpIntegrationsStoragePtrOutput {
 	return i.ToGcpIntegrationsStoragePtrOutputWithContext(context.Background())
 }
@@ -23453,6 +26508,12 @@ func (i *gcpIntegrationsStoragePtrType) ToGcpIntegrationsStoragePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsStoragePtrOutput)
 }
 
+func (i *gcpIntegrationsStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsStorage] {
+	return pulumix.Output[*GcpIntegrationsStorage]{
+		OutputState: i.ToGcpIntegrationsStoragePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsStorageOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsStorageOutput) ElementType() reflect.Type {
@@ -23475,6 +26536,12 @@ func (o GcpIntegrationsStorageOutput) ToGcpIntegrationsStoragePtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpIntegrationsStorage) *GcpIntegrationsStorage {
 		return &v
 	}).(GcpIntegrationsStoragePtrOutput)
+}
+
+func (o GcpIntegrationsStorageOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsStorage] {
+	return pulumix.Output[GcpIntegrationsStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -23501,6 +26568,12 @@ func (o GcpIntegrationsStoragePtrOutput) ToGcpIntegrationsStoragePtrOutput() Gcp
 
 func (o GcpIntegrationsStoragePtrOutput) ToGcpIntegrationsStoragePtrOutputWithContext(ctx context.Context) GcpIntegrationsStoragePtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsStorage] {
+	return pulumix.Output[*GcpIntegrationsStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsStoragePtrOutput) Elem() GcpIntegrationsStorageOutput {
@@ -23572,6 +26645,12 @@ func (i GcpIntegrationsVirtualMachinesArgs) ToGcpIntegrationsVirtualMachinesOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsVirtualMachinesOutput)
 }
 
+func (i GcpIntegrationsVirtualMachinesArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsVirtualMachines] {
+	return pulumix.Output[GcpIntegrationsVirtualMachines]{
+		OutputState: i.ToGcpIntegrationsVirtualMachinesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsVirtualMachinesArgs) ToGcpIntegrationsVirtualMachinesPtrOutput() GcpIntegrationsVirtualMachinesPtrOutput {
 	return i.ToGcpIntegrationsVirtualMachinesPtrOutputWithContext(context.Background())
 }
@@ -23613,6 +26692,12 @@ func (i *gcpIntegrationsVirtualMachinesPtrType) ToGcpIntegrationsVirtualMachines
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsVirtualMachinesPtrOutput)
 }
 
+func (i *gcpIntegrationsVirtualMachinesPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsVirtualMachines] {
+	return pulumix.Output[*GcpIntegrationsVirtualMachines]{
+		OutputState: i.ToGcpIntegrationsVirtualMachinesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsVirtualMachinesOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsVirtualMachinesOutput) ElementType() reflect.Type {
@@ -23637,6 +26722,12 @@ func (o GcpIntegrationsVirtualMachinesOutput) ToGcpIntegrationsVirtualMachinesPt
 	}).(GcpIntegrationsVirtualMachinesPtrOutput)
 }
 
+func (o GcpIntegrationsVirtualMachinesOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsVirtualMachines] {
+	return pulumix.Output[GcpIntegrationsVirtualMachines]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -23656,6 +26747,12 @@ func (o GcpIntegrationsVirtualMachinesPtrOutput) ToGcpIntegrationsVirtualMachine
 
 func (o GcpIntegrationsVirtualMachinesPtrOutput) ToGcpIntegrationsVirtualMachinesPtrOutputWithContext(ctx context.Context) GcpIntegrationsVirtualMachinesPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsVirtualMachinesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsVirtualMachines] {
+	return pulumix.Output[*GcpIntegrationsVirtualMachines]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsVirtualMachinesPtrOutput) Elem() GcpIntegrationsVirtualMachinesOutput {
@@ -23717,6 +26814,12 @@ func (i GcpIntegrationsVpcAccessArgs) ToGcpIntegrationsVpcAccessOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsVpcAccessOutput)
 }
 
+func (i GcpIntegrationsVpcAccessArgs) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsVpcAccess] {
+	return pulumix.Output[GcpIntegrationsVpcAccess]{
+		OutputState: i.ToGcpIntegrationsVpcAccessOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GcpIntegrationsVpcAccessArgs) ToGcpIntegrationsVpcAccessPtrOutput() GcpIntegrationsVpcAccessPtrOutput {
 	return i.ToGcpIntegrationsVpcAccessPtrOutputWithContext(context.Background())
 }
@@ -23758,6 +26861,12 @@ func (i *gcpIntegrationsVpcAccessPtrType) ToGcpIntegrationsVpcAccessPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsVpcAccessPtrOutput)
 }
 
+func (i *gcpIntegrationsVpcAccessPtrType) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsVpcAccess] {
+	return pulumix.Output[*GcpIntegrationsVpcAccess]{
+		OutputState: i.ToGcpIntegrationsVpcAccessPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GcpIntegrationsVpcAccessOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsVpcAccessOutput) ElementType() reflect.Type {
@@ -23782,6 +26891,12 @@ func (o GcpIntegrationsVpcAccessOutput) ToGcpIntegrationsVpcAccessPtrOutputWithC
 	}).(GcpIntegrationsVpcAccessPtrOutput)
 }
 
+func (o GcpIntegrationsVpcAccessOutput) ToOutput(ctx context.Context) pulumix.Output[GcpIntegrationsVpcAccess] {
+	return pulumix.Output[GcpIntegrationsVpcAccess]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The data polling interval in seconds.
 //
 // Other integration supports an additional argument:
@@ -23801,6 +26916,12 @@ func (o GcpIntegrationsVpcAccessPtrOutput) ToGcpIntegrationsVpcAccessPtrOutput()
 
 func (o GcpIntegrationsVpcAccessPtrOutput) ToGcpIntegrationsVpcAccessPtrOutputWithContext(ctx context.Context) GcpIntegrationsVpcAccessPtrOutput {
 	return o
+}
+
+func (o GcpIntegrationsVpcAccessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrationsVpcAccess] {
+	return pulumix.Output[*GcpIntegrationsVpcAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GcpIntegrationsVpcAccessPtrOutput) Elem() GcpIntegrationsVpcAccessOutput {

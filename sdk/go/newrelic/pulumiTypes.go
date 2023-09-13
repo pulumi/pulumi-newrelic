@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -124,6 +125,12 @@ func (i AlertChannelConfigArgs) ToAlertChannelConfigOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AlertChannelConfigOutput)
 }
 
+func (i AlertChannelConfigArgs) ToOutput(ctx context.Context) pulumix.Output[AlertChannelConfig] {
+	return pulumix.Output[AlertChannelConfig]{
+		OutputState: i.ToAlertChannelConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlertChannelConfigArgs) ToAlertChannelConfigPtrOutput() AlertChannelConfigPtrOutput {
 	return i.ToAlertChannelConfigPtrOutputWithContext(context.Background())
 }
@@ -165,6 +172,12 @@ func (i *alertChannelConfigPtrType) ToAlertChannelConfigPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AlertChannelConfigPtrOutput)
 }
 
+func (i *alertChannelConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertChannelConfig] {
+	return pulumix.Output[*AlertChannelConfig]{
+		OutputState: i.ToAlertChannelConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertChannelConfigOutput struct{ *pulumi.OutputState }
 
 func (AlertChannelConfigOutput) ElementType() reflect.Type {
@@ -187,6 +200,12 @@ func (o AlertChannelConfigOutput) ToAlertChannelConfigPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertChannelConfig) *AlertChannelConfig {
 		return &v
 	}).(AlertChannelConfigPtrOutput)
+}
+
+func (o AlertChannelConfigOutput) ToOutput(ctx context.Context) pulumix.Output[AlertChannelConfig] {
+	return pulumix.Output[AlertChannelConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The API key for integrating with OpsGenie.
@@ -305,6 +324,12 @@ func (o AlertChannelConfigPtrOutput) ToAlertChannelConfigPtrOutput() AlertChanne
 
 func (o AlertChannelConfigPtrOutput) ToAlertChannelConfigPtrOutputWithContext(ctx context.Context) AlertChannelConfigPtrOutput {
 	return o
+}
+
+func (o AlertChannelConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertChannelConfig] {
+	return pulumix.Output[*AlertChannelConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertChannelConfigPtrOutput) Elem() AlertChannelConfigOutput {
@@ -565,6 +590,12 @@ func (i AlertConditionTermArgs) ToAlertConditionTermOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AlertConditionTermOutput)
 }
 
+func (i AlertConditionTermArgs) ToOutput(ctx context.Context) pulumix.Output[AlertConditionTerm] {
+	return pulumix.Output[AlertConditionTerm]{
+		OutputState: i.ToAlertConditionTermOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertConditionTermArrayInput is an input type that accepts AlertConditionTermArray and AlertConditionTermArrayOutput values.
 // You can construct a concrete instance of `AlertConditionTermArrayInput` via:
 //
@@ -590,6 +621,12 @@ func (i AlertConditionTermArray) ToAlertConditionTermArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AlertConditionTermArrayOutput)
 }
 
+func (i AlertConditionTermArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertConditionTerm] {
+	return pulumix.Output[[]AlertConditionTerm]{
+		OutputState: i.ToAlertConditionTermArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertConditionTermOutput struct{ *pulumi.OutputState }
 
 func (AlertConditionTermOutput) ElementType() reflect.Type {
@@ -602,6 +639,12 @@ func (o AlertConditionTermOutput) ToAlertConditionTermOutput() AlertConditionTer
 
 func (o AlertConditionTermOutput) ToAlertConditionTermOutputWithContext(ctx context.Context) AlertConditionTermOutput {
 	return o
+}
+
+func (o AlertConditionTermOutput) ToOutput(ctx context.Context) pulumix.Output[AlertConditionTerm] {
+	return pulumix.Output[AlertConditionTerm]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertConditionTermOutput) Duration() pulumi.IntOutput {
@@ -636,6 +679,12 @@ func (o AlertConditionTermArrayOutput) ToAlertConditionTermArrayOutput() AlertCo
 
 func (o AlertConditionTermArrayOutput) ToAlertConditionTermArrayOutputWithContext(ctx context.Context) AlertConditionTermArrayOutput {
 	return o
+}
+
+func (o AlertConditionTermArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertConditionTerm] {
+	return pulumix.Output[[]AlertConditionTerm]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertConditionTermArrayOutput) Index(i pulumi.IntInput) AlertConditionTermOutput {
@@ -681,6 +730,12 @@ func (i AlertMutingRuleConditionArgs) ToAlertMutingRuleConditionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleConditionOutput)
 }
 
+func (i AlertMutingRuleConditionArgs) ToOutput(ctx context.Context) pulumix.Output[AlertMutingRuleCondition] {
+	return pulumix.Output[AlertMutingRuleCondition]{
+		OutputState: i.ToAlertMutingRuleConditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlertMutingRuleConditionArgs) ToAlertMutingRuleConditionPtrOutput() AlertMutingRuleConditionPtrOutput {
 	return i.ToAlertMutingRuleConditionPtrOutputWithContext(context.Background())
 }
@@ -722,6 +777,12 @@ func (i *alertMutingRuleConditionPtrType) ToAlertMutingRuleConditionPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleConditionPtrOutput)
 }
 
+func (i *alertMutingRuleConditionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertMutingRuleCondition] {
+	return pulumix.Output[*AlertMutingRuleCondition]{
+		OutputState: i.ToAlertMutingRuleConditionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertMutingRuleConditionOutput struct{ *pulumi.OutputState }
 
 func (AlertMutingRuleConditionOutput) ElementType() reflect.Type {
@@ -746,6 +807,12 @@ func (o AlertMutingRuleConditionOutput) ToAlertMutingRuleConditionPtrOutputWithC
 	}).(AlertMutingRuleConditionPtrOutput)
 }
 
+func (o AlertMutingRuleConditionOutput) ToOutput(ctx context.Context) pulumix.Output[AlertMutingRuleCondition] {
+	return pulumix.Output[AlertMutingRuleCondition]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
 func (o AlertMutingRuleConditionOutput) Conditions() AlertMutingRuleConditionConditionArrayOutput {
 	return o.ApplyT(func(v AlertMutingRuleCondition) []AlertMutingRuleConditionCondition { return v.Conditions }).(AlertMutingRuleConditionConditionArrayOutput)
@@ -768,6 +835,12 @@ func (o AlertMutingRuleConditionPtrOutput) ToAlertMutingRuleConditionPtrOutput()
 
 func (o AlertMutingRuleConditionPtrOutput) ToAlertMutingRuleConditionPtrOutputWithContext(ctx context.Context) AlertMutingRuleConditionPtrOutput {
 	return o
+}
+
+func (o AlertMutingRuleConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertMutingRuleCondition] {
+	return pulumix.Output[*AlertMutingRuleCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertMutingRuleConditionPtrOutput) Elem() AlertMutingRuleConditionOutput {
@@ -841,6 +914,12 @@ func (i AlertMutingRuleConditionConditionArgs) ToAlertMutingRuleConditionConditi
 	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleConditionConditionOutput)
 }
 
+func (i AlertMutingRuleConditionConditionArgs) ToOutput(ctx context.Context) pulumix.Output[AlertMutingRuleConditionCondition] {
+	return pulumix.Output[AlertMutingRuleConditionCondition]{
+		OutputState: i.ToAlertMutingRuleConditionConditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertMutingRuleConditionConditionArrayInput is an input type that accepts AlertMutingRuleConditionConditionArray and AlertMutingRuleConditionConditionArrayOutput values.
 // You can construct a concrete instance of `AlertMutingRuleConditionConditionArrayInput` via:
 //
@@ -866,6 +945,12 @@ func (i AlertMutingRuleConditionConditionArray) ToAlertMutingRuleConditionCondit
 	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleConditionConditionArrayOutput)
 }
 
+func (i AlertMutingRuleConditionConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertMutingRuleConditionCondition] {
+	return pulumix.Output[[]AlertMutingRuleConditionCondition]{
+		OutputState: i.ToAlertMutingRuleConditionConditionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertMutingRuleConditionConditionOutput struct{ *pulumi.OutputState }
 
 func (AlertMutingRuleConditionConditionOutput) ElementType() reflect.Type {
@@ -878,6 +963,12 @@ func (o AlertMutingRuleConditionConditionOutput) ToAlertMutingRuleConditionCondi
 
 func (o AlertMutingRuleConditionConditionOutput) ToAlertMutingRuleConditionConditionOutputWithContext(ctx context.Context) AlertMutingRuleConditionConditionOutput {
 	return o
+}
+
+func (o AlertMutingRuleConditionConditionOutput) ToOutput(ctx context.Context) pulumix.Output[AlertMutingRuleConditionCondition] {
+	return pulumix.Output[AlertMutingRuleConditionCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
@@ -907,6 +998,12 @@ func (o AlertMutingRuleConditionConditionArrayOutput) ToAlertMutingRuleCondition
 
 func (o AlertMutingRuleConditionConditionArrayOutput) ToAlertMutingRuleConditionConditionArrayOutputWithContext(ctx context.Context) AlertMutingRuleConditionConditionArrayOutput {
 	return o
+}
+
+func (o AlertMutingRuleConditionConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertMutingRuleConditionCondition] {
+	return pulumix.Output[[]AlertMutingRuleConditionCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertMutingRuleConditionConditionArrayOutput) Index(i pulumi.IntInput) AlertMutingRuleConditionConditionOutput {
@@ -970,6 +1067,12 @@ func (i AlertMutingRuleScheduleArgs) ToAlertMutingRuleScheduleOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleScheduleOutput)
 }
 
+func (i AlertMutingRuleScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[AlertMutingRuleSchedule] {
+	return pulumix.Output[AlertMutingRuleSchedule]{
+		OutputState: i.ToAlertMutingRuleScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlertMutingRuleScheduleArgs) ToAlertMutingRuleSchedulePtrOutput() AlertMutingRuleSchedulePtrOutput {
 	return i.ToAlertMutingRuleSchedulePtrOutputWithContext(context.Background())
 }
@@ -1011,6 +1114,12 @@ func (i *alertMutingRuleSchedulePtrType) ToAlertMutingRuleSchedulePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleSchedulePtrOutput)
 }
 
+func (i *alertMutingRuleSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertMutingRuleSchedule] {
+	return pulumix.Output[*AlertMutingRuleSchedule]{
+		OutputState: i.ToAlertMutingRuleSchedulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertMutingRuleScheduleOutput struct{ *pulumi.OutputState }
 
 func (AlertMutingRuleScheduleOutput) ElementType() reflect.Type {
@@ -1033,6 +1142,12 @@ func (o AlertMutingRuleScheduleOutput) ToAlertMutingRuleSchedulePtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertMutingRuleSchedule) *AlertMutingRuleSchedule {
 		return &v
 	}).(AlertMutingRuleSchedulePtrOutput)
+}
+
+func (o AlertMutingRuleScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[AlertMutingRuleSchedule] {
+	return pulumix.Output[AlertMutingRuleSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
@@ -1081,6 +1196,12 @@ func (o AlertMutingRuleSchedulePtrOutput) ToAlertMutingRuleSchedulePtrOutput() A
 
 func (o AlertMutingRuleSchedulePtrOutput) ToAlertMutingRuleSchedulePtrOutputWithContext(ctx context.Context) AlertMutingRuleSchedulePtrOutput {
 	return o
+}
+
+func (o AlertMutingRuleSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertMutingRuleSchedule] {
+	return pulumix.Output[*AlertMutingRuleSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertMutingRuleSchedulePtrOutput) Elem() AlertMutingRuleScheduleOutput {
@@ -1199,6 +1320,12 @@ func (i EntityTagsTagArgs) ToEntityTagsTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsTagOutput)
 }
 
+func (i EntityTagsTagArgs) ToOutput(ctx context.Context) pulumix.Output[EntityTagsTag] {
+	return pulumix.Output[EntityTagsTag]{
+		OutputState: i.ToEntityTagsTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EntityTagsTagArrayInput is an input type that accepts EntityTagsTagArray and EntityTagsTagArrayOutput values.
 // You can construct a concrete instance of `EntityTagsTagArrayInput` via:
 //
@@ -1224,6 +1351,12 @@ func (i EntityTagsTagArray) ToEntityTagsTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsTagArrayOutput)
 }
 
+func (i EntityTagsTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EntityTagsTag] {
+	return pulumix.Output[[]EntityTagsTag]{
+		OutputState: i.ToEntityTagsTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EntityTagsTagOutput struct{ *pulumi.OutputState }
 
 func (EntityTagsTagOutput) ElementType() reflect.Type {
@@ -1236,6 +1369,12 @@ func (o EntityTagsTagOutput) ToEntityTagsTagOutput() EntityTagsTagOutput {
 
 func (o EntityTagsTagOutput) ToEntityTagsTagOutputWithContext(ctx context.Context) EntityTagsTagOutput {
 	return o
+}
+
+func (o EntityTagsTagOutput) ToOutput(ctx context.Context) pulumix.Output[EntityTagsTag] {
+	return pulumix.Output[EntityTagsTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The tag key.
@@ -1260,6 +1399,12 @@ func (o EntityTagsTagArrayOutput) ToEntityTagsTagArrayOutput() EntityTagsTagArra
 
 func (o EntityTagsTagArrayOutput) ToEntityTagsTagArrayOutputWithContext(ctx context.Context) EntityTagsTagArrayOutput {
 	return o
+}
+
+func (o EntityTagsTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EntityTagsTag] {
+	return pulumix.Output[[]EntityTagsTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EntityTagsTagArrayOutput) Index(i pulumi.IntInput) EntityTagsTagOutput {
@@ -1303,6 +1448,12 @@ func (i InfraAlertConditionCriticalArgs) ToInfraAlertConditionCriticalOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionCriticalOutput)
 }
 
+func (i InfraAlertConditionCriticalArgs) ToOutput(ctx context.Context) pulumix.Output[InfraAlertConditionCritical] {
+	return pulumix.Output[InfraAlertConditionCritical]{
+		OutputState: i.ToInfraAlertConditionCriticalOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InfraAlertConditionCriticalArgs) ToInfraAlertConditionCriticalPtrOutput() InfraAlertConditionCriticalPtrOutput {
 	return i.ToInfraAlertConditionCriticalPtrOutputWithContext(context.Background())
 }
@@ -1344,6 +1495,12 @@ func (i *infraAlertConditionCriticalPtrType) ToInfraAlertConditionCriticalPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionCriticalPtrOutput)
 }
 
+func (i *infraAlertConditionCriticalPtrType) ToOutput(ctx context.Context) pulumix.Output[*InfraAlertConditionCritical] {
+	return pulumix.Output[*InfraAlertConditionCritical]{
+		OutputState: i.ToInfraAlertConditionCriticalPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InfraAlertConditionCriticalOutput struct{ *pulumi.OutputState }
 
 func (InfraAlertConditionCriticalOutput) ElementType() reflect.Type {
@@ -1366,6 +1523,12 @@ func (o InfraAlertConditionCriticalOutput) ToInfraAlertConditionCriticalPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfraAlertConditionCritical) *InfraAlertConditionCritical {
 		return &v
 	}).(InfraAlertConditionCriticalPtrOutput)
+}
+
+func (o InfraAlertConditionCriticalOutput) ToOutput(ctx context.Context) pulumix.Output[InfraAlertConditionCritical] {
+	return pulumix.Output[InfraAlertConditionCritical]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InfraAlertConditionCriticalOutput) Duration() pulumi.IntOutput {
@@ -1392,6 +1555,12 @@ func (o InfraAlertConditionCriticalPtrOutput) ToInfraAlertConditionCriticalPtrOu
 
 func (o InfraAlertConditionCriticalPtrOutput) ToInfraAlertConditionCriticalPtrOutputWithContext(ctx context.Context) InfraAlertConditionCriticalPtrOutput {
 	return o
+}
+
+func (o InfraAlertConditionCriticalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InfraAlertConditionCritical] {
+	return pulumix.Output[*InfraAlertConditionCritical]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InfraAlertConditionCriticalPtrOutput) Elem() InfraAlertConditionCriticalOutput {
@@ -1466,6 +1635,12 @@ func (i InfraAlertConditionWarningArgs) ToInfraAlertConditionWarningOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionWarningOutput)
 }
 
+func (i InfraAlertConditionWarningArgs) ToOutput(ctx context.Context) pulumix.Output[InfraAlertConditionWarning] {
+	return pulumix.Output[InfraAlertConditionWarning]{
+		OutputState: i.ToInfraAlertConditionWarningOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InfraAlertConditionWarningArgs) ToInfraAlertConditionWarningPtrOutput() InfraAlertConditionWarningPtrOutput {
 	return i.ToInfraAlertConditionWarningPtrOutputWithContext(context.Background())
 }
@@ -1507,6 +1682,12 @@ func (i *infraAlertConditionWarningPtrType) ToInfraAlertConditionWarningPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionWarningPtrOutput)
 }
 
+func (i *infraAlertConditionWarningPtrType) ToOutput(ctx context.Context) pulumix.Output[*InfraAlertConditionWarning] {
+	return pulumix.Output[*InfraAlertConditionWarning]{
+		OutputState: i.ToInfraAlertConditionWarningPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InfraAlertConditionWarningOutput struct{ *pulumi.OutputState }
 
 func (InfraAlertConditionWarningOutput) ElementType() reflect.Type {
@@ -1529,6 +1710,12 @@ func (o InfraAlertConditionWarningOutput) ToInfraAlertConditionWarningPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfraAlertConditionWarning) *InfraAlertConditionWarning {
 		return &v
 	}).(InfraAlertConditionWarningPtrOutput)
+}
+
+func (o InfraAlertConditionWarningOutput) ToOutput(ctx context.Context) pulumix.Output[InfraAlertConditionWarning] {
+	return pulumix.Output[InfraAlertConditionWarning]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InfraAlertConditionWarningOutput) Duration() pulumi.IntOutput {
@@ -1555,6 +1742,12 @@ func (o InfraAlertConditionWarningPtrOutput) ToInfraAlertConditionWarningPtrOutp
 
 func (o InfraAlertConditionWarningPtrOutput) ToInfraAlertConditionWarningPtrOutputWithContext(ctx context.Context) InfraAlertConditionWarningPtrOutput {
 	return o
+}
+
+func (o InfraAlertConditionWarningPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InfraAlertConditionWarning] {
+	return pulumix.Output[*InfraAlertConditionWarning]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InfraAlertConditionWarningPtrOutput) Elem() InfraAlertConditionWarningOutput {
@@ -1643,6 +1836,12 @@ func (i NotificationChannelPropertyArgs) ToNotificationChannelPropertyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelPropertyOutput)
 }
 
+func (i NotificationChannelPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationChannelProperty] {
+	return pulumix.Output[NotificationChannelProperty]{
+		OutputState: i.ToNotificationChannelPropertyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NotificationChannelPropertyArrayInput is an input type that accepts NotificationChannelPropertyArray and NotificationChannelPropertyArrayOutput values.
 // You can construct a concrete instance of `NotificationChannelPropertyArrayInput` via:
 //
@@ -1668,6 +1867,12 @@ func (i NotificationChannelPropertyArray) ToNotificationChannelPropertyArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelPropertyArrayOutput)
 }
 
+func (i NotificationChannelPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationChannelProperty] {
+	return pulumix.Output[[]NotificationChannelProperty]{
+		OutputState: i.ToNotificationChannelPropertyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotificationChannelPropertyOutput struct{ *pulumi.OutputState }
 
 func (NotificationChannelPropertyOutput) ElementType() reflect.Type {
@@ -1680,6 +1885,12 @@ func (o NotificationChannelPropertyOutput) ToNotificationChannelPropertyOutput()
 
 func (o NotificationChannelPropertyOutput) ToNotificationChannelPropertyOutputWithContext(ctx context.Context) NotificationChannelPropertyOutput {
 	return o
+}
+
+func (o NotificationChannelPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationChannelProperty] {
+	return pulumix.Output[NotificationChannelProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The notification property display value.
@@ -1716,6 +1927,12 @@ func (o NotificationChannelPropertyArrayOutput) ToNotificationChannelPropertyArr
 
 func (o NotificationChannelPropertyArrayOutput) ToNotificationChannelPropertyArrayOutputWithContext(ctx context.Context) NotificationChannelPropertyArrayOutput {
 	return o
+}
+
+func (o NotificationChannelPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationChannelProperty] {
+	return pulumix.Output[[]NotificationChannelProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationChannelPropertyArrayOutput) Index(i pulumi.IntInput) NotificationChannelPropertyOutput {
@@ -1761,6 +1978,12 @@ func (i NotificationDestinationAuthBasicArgs) ToNotificationDestinationAuthBasic
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationAuthBasicOutput)
 }
 
+func (i NotificationDestinationAuthBasicArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationDestinationAuthBasic] {
+	return pulumix.Output[NotificationDestinationAuthBasic]{
+		OutputState: i.ToNotificationDestinationAuthBasicOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NotificationDestinationAuthBasicArgs) ToNotificationDestinationAuthBasicPtrOutput() NotificationDestinationAuthBasicPtrOutput {
 	return i.ToNotificationDestinationAuthBasicPtrOutputWithContext(context.Background())
 }
@@ -1802,6 +2025,12 @@ func (i *notificationDestinationAuthBasicPtrType) ToNotificationDestinationAuthB
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationAuthBasicPtrOutput)
 }
 
+func (i *notificationDestinationAuthBasicPtrType) ToOutput(ctx context.Context) pulumix.Output[*NotificationDestinationAuthBasic] {
+	return pulumix.Output[*NotificationDestinationAuthBasic]{
+		OutputState: i.ToNotificationDestinationAuthBasicPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotificationDestinationAuthBasicOutput struct{ *pulumi.OutputState }
 
 func (NotificationDestinationAuthBasicOutput) ElementType() reflect.Type {
@@ -1826,6 +2055,12 @@ func (o NotificationDestinationAuthBasicOutput) ToNotificationDestinationAuthBas
 	}).(NotificationDestinationAuthBasicPtrOutput)
 }
 
+func (o NotificationDestinationAuthBasicOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationDestinationAuthBasic] {
+	return pulumix.Output[NotificationDestinationAuthBasic]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies an authentication password for use with a destination.
 func (o NotificationDestinationAuthBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthBasic) string { return v.Password }).(pulumi.StringOutput)
@@ -1848,6 +2083,12 @@ func (o NotificationDestinationAuthBasicPtrOutput) ToNotificationDestinationAuth
 
 func (o NotificationDestinationAuthBasicPtrOutput) ToNotificationDestinationAuthBasicPtrOutputWithContext(ctx context.Context) NotificationDestinationAuthBasicPtrOutput {
 	return o
+}
+
+func (o NotificationDestinationAuthBasicPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationDestinationAuthBasic] {
+	return pulumix.Output[*NotificationDestinationAuthBasic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationDestinationAuthBasicPtrOutput) Elem() NotificationDestinationAuthBasicOutput {
@@ -1915,6 +2156,12 @@ func (i NotificationDestinationAuthTokenArgs) ToNotificationDestinationAuthToken
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationAuthTokenOutput)
 }
 
+func (i NotificationDestinationAuthTokenArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationDestinationAuthToken] {
+	return pulumix.Output[NotificationDestinationAuthToken]{
+		OutputState: i.ToNotificationDestinationAuthTokenOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NotificationDestinationAuthTokenArgs) ToNotificationDestinationAuthTokenPtrOutput() NotificationDestinationAuthTokenPtrOutput {
 	return i.ToNotificationDestinationAuthTokenPtrOutputWithContext(context.Background())
 }
@@ -1956,6 +2203,12 @@ func (i *notificationDestinationAuthTokenPtrType) ToNotificationDestinationAuthT
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationAuthTokenPtrOutput)
 }
 
+func (i *notificationDestinationAuthTokenPtrType) ToOutput(ctx context.Context) pulumix.Output[*NotificationDestinationAuthToken] {
+	return pulumix.Output[*NotificationDestinationAuthToken]{
+		OutputState: i.ToNotificationDestinationAuthTokenPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotificationDestinationAuthTokenOutput struct{ *pulumi.OutputState }
 
 func (NotificationDestinationAuthTokenOutput) ElementType() reflect.Type {
@@ -1980,6 +2233,12 @@ func (o NotificationDestinationAuthTokenOutput) ToNotificationDestinationAuthTok
 	}).(NotificationDestinationAuthTokenPtrOutput)
 }
 
+func (o NotificationDestinationAuthTokenOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationDestinationAuthToken] {
+	return pulumix.Output[NotificationDestinationAuthToken]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The prefix of the token auth.
 func (o NotificationDestinationAuthTokenOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthToken) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -2001,6 +2260,12 @@ func (o NotificationDestinationAuthTokenPtrOutput) ToNotificationDestinationAuth
 
 func (o NotificationDestinationAuthTokenPtrOutput) ToNotificationDestinationAuthTokenPtrOutputWithContext(ctx context.Context) NotificationDestinationAuthTokenPtrOutput {
 	return o
+}
+
+func (o NotificationDestinationAuthTokenPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationDestinationAuthToken] {
+	return pulumix.Output[*NotificationDestinationAuthToken]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationDestinationAuthTokenPtrOutput) Elem() NotificationDestinationAuthTokenOutput {
@@ -2081,6 +2346,12 @@ func (i NotificationDestinationPropertyArgs) ToNotificationDestinationPropertyOu
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationPropertyOutput)
 }
 
+func (i NotificationDestinationPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationDestinationProperty] {
+	return pulumix.Output[NotificationDestinationProperty]{
+		OutputState: i.ToNotificationDestinationPropertyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NotificationDestinationPropertyArrayInput is an input type that accepts NotificationDestinationPropertyArray and NotificationDestinationPropertyArrayOutput values.
 // You can construct a concrete instance of `NotificationDestinationPropertyArrayInput` via:
 //
@@ -2106,6 +2377,12 @@ func (i NotificationDestinationPropertyArray) ToNotificationDestinationPropertyA
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationPropertyArrayOutput)
 }
 
+func (i NotificationDestinationPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationDestinationProperty] {
+	return pulumix.Output[[]NotificationDestinationProperty]{
+		OutputState: i.ToNotificationDestinationPropertyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotificationDestinationPropertyOutput struct{ *pulumi.OutputState }
 
 func (NotificationDestinationPropertyOutput) ElementType() reflect.Type {
@@ -2118,6 +2395,12 @@ func (o NotificationDestinationPropertyOutput) ToNotificationDestinationProperty
 
 func (o NotificationDestinationPropertyOutput) ToNotificationDestinationPropertyOutputWithContext(ctx context.Context) NotificationDestinationPropertyOutput {
 	return o
+}
+
+func (o NotificationDestinationPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationDestinationProperty] {
+	return pulumix.Output[NotificationDestinationProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The notification property display value.
@@ -2154,6 +2437,12 @@ func (o NotificationDestinationPropertyArrayOutput) ToNotificationDestinationPro
 
 func (o NotificationDestinationPropertyArrayOutput) ToNotificationDestinationPropertyArrayOutputWithContext(ctx context.Context) NotificationDestinationPropertyArrayOutput {
 	return o
+}
+
+func (o NotificationDestinationPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationDestinationProperty] {
+	return pulumix.Output[[]NotificationDestinationProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationDestinationPropertyArrayOutput) Index(i pulumi.IntInput) NotificationDestinationPropertyOutput {
@@ -2207,6 +2496,12 @@ func (i NrqlAlertConditionCriticalArgs) ToNrqlAlertConditionCriticalOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionCriticalOutput)
 }
 
+func (i NrqlAlertConditionCriticalArgs) ToOutput(ctx context.Context) pulumix.Output[NrqlAlertConditionCritical] {
+	return pulumix.Output[NrqlAlertConditionCritical]{
+		OutputState: i.ToNrqlAlertConditionCriticalOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NrqlAlertConditionCriticalArgs) ToNrqlAlertConditionCriticalPtrOutput() NrqlAlertConditionCriticalPtrOutput {
 	return i.ToNrqlAlertConditionCriticalPtrOutputWithContext(context.Background())
 }
@@ -2248,6 +2543,12 @@ func (i *nrqlAlertConditionCriticalPtrType) ToNrqlAlertConditionCriticalPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionCriticalPtrOutput)
 }
 
+func (i *nrqlAlertConditionCriticalPtrType) ToOutput(ctx context.Context) pulumix.Output[*NrqlAlertConditionCritical] {
+	return pulumix.Output[*NrqlAlertConditionCritical]{
+		OutputState: i.ToNrqlAlertConditionCriticalPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NrqlAlertConditionCriticalOutput struct{ *pulumi.OutputState }
 
 func (NrqlAlertConditionCriticalOutput) ElementType() reflect.Type {
@@ -2270,6 +2571,12 @@ func (o NrqlAlertConditionCriticalOutput) ToNrqlAlertConditionCriticalPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NrqlAlertConditionCritical) *NrqlAlertConditionCritical {
 		return &v
 	}).(NrqlAlertConditionCriticalPtrOutput)
+}
+
+func (o NrqlAlertConditionCriticalOutput) ToOutput(ctx context.Context) pulumix.Output[NrqlAlertConditionCritical] {
+	return pulumix.Output[NrqlAlertConditionCritical]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Deprecated: use `threshold_duration` attribute instead
@@ -2310,6 +2617,12 @@ func (o NrqlAlertConditionCriticalPtrOutput) ToNrqlAlertConditionCriticalPtrOutp
 
 func (o NrqlAlertConditionCriticalPtrOutput) ToNrqlAlertConditionCriticalPtrOutputWithContext(ctx context.Context) NrqlAlertConditionCriticalPtrOutput {
 	return o
+}
+
+func (o NrqlAlertConditionCriticalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NrqlAlertConditionCritical] {
+	return pulumix.Output[*NrqlAlertConditionCritical]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NrqlAlertConditionCriticalPtrOutput) Elem() NrqlAlertConditionCriticalOutput {
@@ -2417,6 +2730,12 @@ func (i NrqlAlertConditionNrqlArgs) ToNrqlAlertConditionNrqlOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionNrqlOutput)
 }
 
+func (i NrqlAlertConditionNrqlArgs) ToOutput(ctx context.Context) pulumix.Output[NrqlAlertConditionNrql] {
+	return pulumix.Output[NrqlAlertConditionNrql]{
+		OutputState: i.ToNrqlAlertConditionNrqlOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NrqlAlertConditionNrqlArgs) ToNrqlAlertConditionNrqlPtrOutput() NrqlAlertConditionNrqlPtrOutput {
 	return i.ToNrqlAlertConditionNrqlPtrOutputWithContext(context.Background())
 }
@@ -2458,6 +2777,12 @@ func (i *nrqlAlertConditionNrqlPtrType) ToNrqlAlertConditionNrqlPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionNrqlPtrOutput)
 }
 
+func (i *nrqlAlertConditionNrqlPtrType) ToOutput(ctx context.Context) pulumix.Output[*NrqlAlertConditionNrql] {
+	return pulumix.Output[*NrqlAlertConditionNrql]{
+		OutputState: i.ToNrqlAlertConditionNrqlPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NrqlAlertConditionNrqlOutput struct{ *pulumi.OutputState }
 
 func (NrqlAlertConditionNrqlOutput) ElementType() reflect.Type {
@@ -2480,6 +2805,12 @@ func (o NrqlAlertConditionNrqlOutput) ToNrqlAlertConditionNrqlPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NrqlAlertConditionNrql) *NrqlAlertConditionNrql {
 		return &v
 	}).(NrqlAlertConditionNrqlPtrOutput)
+}
+
+func (o NrqlAlertConditionNrqlOutput) ToOutput(ctx context.Context) pulumix.Output[NrqlAlertConditionNrql] {
+	return pulumix.Output[NrqlAlertConditionNrql]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Deprecated: use `aggregation_method` attribute instead
@@ -2508,6 +2839,12 @@ func (o NrqlAlertConditionNrqlPtrOutput) ToNrqlAlertConditionNrqlPtrOutput() Nrq
 
 func (o NrqlAlertConditionNrqlPtrOutput) ToNrqlAlertConditionNrqlPtrOutputWithContext(ctx context.Context) NrqlAlertConditionNrqlPtrOutput {
 	return o
+}
+
+func (o NrqlAlertConditionNrqlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NrqlAlertConditionNrql] {
+	return pulumix.Output[*NrqlAlertConditionNrql]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NrqlAlertConditionNrqlPtrOutput) Elem() NrqlAlertConditionNrqlOutput {
@@ -2596,6 +2933,12 @@ func (i NrqlAlertConditionTermArgs) ToNrqlAlertConditionTermOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionTermOutput)
 }
 
+func (i NrqlAlertConditionTermArgs) ToOutput(ctx context.Context) pulumix.Output[NrqlAlertConditionTerm] {
+	return pulumix.Output[NrqlAlertConditionTerm]{
+		OutputState: i.ToNrqlAlertConditionTermOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NrqlAlertConditionTermArrayInput is an input type that accepts NrqlAlertConditionTermArray and NrqlAlertConditionTermArrayOutput values.
 // You can construct a concrete instance of `NrqlAlertConditionTermArrayInput` via:
 //
@@ -2621,6 +2964,12 @@ func (i NrqlAlertConditionTermArray) ToNrqlAlertConditionTermArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionTermArrayOutput)
 }
 
+func (i NrqlAlertConditionTermArray) ToOutput(ctx context.Context) pulumix.Output[[]NrqlAlertConditionTerm] {
+	return pulumix.Output[[]NrqlAlertConditionTerm]{
+		OutputState: i.ToNrqlAlertConditionTermArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NrqlAlertConditionTermOutput struct{ *pulumi.OutputState }
 
 func (NrqlAlertConditionTermOutput) ElementType() reflect.Type {
@@ -2633,6 +2982,12 @@ func (o NrqlAlertConditionTermOutput) ToNrqlAlertConditionTermOutput() NrqlAlert
 
 func (o NrqlAlertConditionTermOutput) ToNrqlAlertConditionTermOutputWithContext(ctx context.Context) NrqlAlertConditionTermOutput {
 	return o
+}
+
+func (o NrqlAlertConditionTermOutput) ToOutput(ctx context.Context) pulumix.Output[NrqlAlertConditionTerm] {
+	return pulumix.Output[NrqlAlertConditionTerm]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Deprecated: use `threshold_duration` attribute instead
@@ -2677,6 +3032,12 @@ func (o NrqlAlertConditionTermArrayOutput) ToNrqlAlertConditionTermArrayOutput()
 
 func (o NrqlAlertConditionTermArrayOutput) ToNrqlAlertConditionTermArrayOutputWithContext(ctx context.Context) NrqlAlertConditionTermArrayOutput {
 	return o
+}
+
+func (o NrqlAlertConditionTermArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NrqlAlertConditionTerm] {
+	return pulumix.Output[[]NrqlAlertConditionTerm]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NrqlAlertConditionTermArrayOutput) Index(i pulumi.IntInput) NrqlAlertConditionTermOutput {
@@ -2730,6 +3091,12 @@ func (i NrqlAlertConditionWarningArgs) ToNrqlAlertConditionWarningOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionWarningOutput)
 }
 
+func (i NrqlAlertConditionWarningArgs) ToOutput(ctx context.Context) pulumix.Output[NrqlAlertConditionWarning] {
+	return pulumix.Output[NrqlAlertConditionWarning]{
+		OutputState: i.ToNrqlAlertConditionWarningOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NrqlAlertConditionWarningArgs) ToNrqlAlertConditionWarningPtrOutput() NrqlAlertConditionWarningPtrOutput {
 	return i.ToNrqlAlertConditionWarningPtrOutputWithContext(context.Background())
 }
@@ -2771,6 +3138,12 @@ func (i *nrqlAlertConditionWarningPtrType) ToNrqlAlertConditionWarningPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionWarningPtrOutput)
 }
 
+func (i *nrqlAlertConditionWarningPtrType) ToOutput(ctx context.Context) pulumix.Output[*NrqlAlertConditionWarning] {
+	return pulumix.Output[*NrqlAlertConditionWarning]{
+		OutputState: i.ToNrqlAlertConditionWarningPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NrqlAlertConditionWarningOutput struct{ *pulumi.OutputState }
 
 func (NrqlAlertConditionWarningOutput) ElementType() reflect.Type {
@@ -2793,6 +3166,12 @@ func (o NrqlAlertConditionWarningOutput) ToNrqlAlertConditionWarningPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NrqlAlertConditionWarning) *NrqlAlertConditionWarning {
 		return &v
 	}).(NrqlAlertConditionWarningPtrOutput)
+}
+
+func (o NrqlAlertConditionWarningOutput) ToOutput(ctx context.Context) pulumix.Output[NrqlAlertConditionWarning] {
+	return pulumix.Output[NrqlAlertConditionWarning]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Deprecated: use `threshold_duration` attribute instead
@@ -2833,6 +3212,12 @@ func (o NrqlAlertConditionWarningPtrOutput) ToNrqlAlertConditionWarningPtrOutput
 
 func (o NrqlAlertConditionWarningPtrOutput) ToNrqlAlertConditionWarningPtrOutputWithContext(ctx context.Context) NrqlAlertConditionWarningPtrOutput {
 	return o
+}
+
+func (o NrqlAlertConditionWarningPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NrqlAlertConditionWarning] {
+	return pulumix.Output[*NrqlAlertConditionWarning]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NrqlAlertConditionWarningPtrOutput) Elem() NrqlAlertConditionWarningOutput {
@@ -2942,6 +3327,12 @@ func (i ObfuscationRuleActionArgs) ToObfuscationRuleActionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ObfuscationRuleActionOutput)
 }
 
+func (i ObfuscationRuleActionArgs) ToOutput(ctx context.Context) pulumix.Output[ObfuscationRuleAction] {
+	return pulumix.Output[ObfuscationRuleAction]{
+		OutputState: i.ToObfuscationRuleActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ObfuscationRuleActionArrayInput is an input type that accepts ObfuscationRuleActionArray and ObfuscationRuleActionArrayOutput values.
 // You can construct a concrete instance of `ObfuscationRuleActionArrayInput` via:
 //
@@ -2967,6 +3358,12 @@ func (i ObfuscationRuleActionArray) ToObfuscationRuleActionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ObfuscationRuleActionArrayOutput)
 }
 
+func (i ObfuscationRuleActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ObfuscationRuleAction] {
+	return pulumix.Output[[]ObfuscationRuleAction]{
+		OutputState: i.ToObfuscationRuleActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ObfuscationRuleActionOutput struct{ *pulumi.OutputState }
 
 func (ObfuscationRuleActionOutput) ElementType() reflect.Type {
@@ -2979,6 +3376,12 @@ func (o ObfuscationRuleActionOutput) ToObfuscationRuleActionOutput() Obfuscation
 
 func (o ObfuscationRuleActionOutput) ToObfuscationRuleActionOutputWithContext(ctx context.Context) ObfuscationRuleActionOutput {
 	return o
+}
+
+func (o ObfuscationRuleActionOutput) ToOutput(ctx context.Context) pulumix.Output[ObfuscationRuleAction] {
+	return pulumix.Output[ObfuscationRuleAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Attribute names for action. An empty list applies the action to all the attributes.
@@ -3008,6 +3411,12 @@ func (o ObfuscationRuleActionArrayOutput) ToObfuscationRuleActionArrayOutput() O
 
 func (o ObfuscationRuleActionArrayOutput) ToObfuscationRuleActionArrayOutputWithContext(ctx context.Context) ObfuscationRuleActionArrayOutput {
 	return o
+}
+
+func (o ObfuscationRuleActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ObfuscationRuleAction] {
+	return pulumix.Output[[]ObfuscationRuleAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ObfuscationRuleActionArrayOutput) Index(i pulumi.IntInput) ObfuscationRuleActionOutput {
@@ -3085,6 +3494,12 @@ func (i OneDashboardPageArgs) ToOneDashboardPageOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageOutput)
 }
 
+func (i OneDashboardPageArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPage] {
+	return pulumix.Output[OneDashboardPage]{
+		OutputState: i.ToOneDashboardPageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageArrayInput is an input type that accepts OneDashboardPageArray and OneDashboardPageArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageArrayInput` via:
 //
@@ -3110,6 +3525,12 @@ func (i OneDashboardPageArray) ToOneDashboardPageArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageArrayOutput)
 }
 
+func (i OneDashboardPageArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPage] {
+	return pulumix.Output[[]OneDashboardPage]{
+		OutputState: i.ToOneDashboardPageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageOutput) ElementType() reflect.Type {
@@ -3122,6 +3543,12 @@ func (o OneDashboardPageOutput) ToOneDashboardPageOutput() OneDashboardPageOutpu
 
 func (o OneDashboardPageOutput) ToOneDashboardPageOutputWithContext(ctx context.Context) OneDashboardPageOutput {
 	return o
+}
+
+func (o OneDashboardPageOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPage] {
+	return pulumix.Output[OneDashboardPage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Brief text describing the dashboard.
@@ -3207,6 +3634,12 @@ func (o OneDashboardPageArrayOutput) ToOneDashboardPageArrayOutput() OneDashboar
 
 func (o OneDashboardPageArrayOutput) ToOneDashboardPageArrayOutputWithContext(ctx context.Context) OneDashboardPageArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPage] {
+	return pulumix.Output[[]OneDashboardPage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageArrayOutput) Index(i pulumi.IntInput) OneDashboardPageOutput {
@@ -3300,6 +3733,12 @@ func (i OneDashboardPageWidgetAreaArgs) ToOneDashboardPageWidgetAreaOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaOutput)
 }
 
+func (i OneDashboardPageWidgetAreaArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetArea] {
+	return pulumix.Output[OneDashboardPageWidgetArea]{
+		OutputState: i.ToOneDashboardPageWidgetAreaOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetAreaArrayInput is an input type that accepts OneDashboardPageWidgetAreaArray and OneDashboardPageWidgetAreaArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetAreaArrayInput` via:
 //
@@ -3325,6 +3764,12 @@ func (i OneDashboardPageWidgetAreaArray) ToOneDashboardPageWidgetAreaArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaArrayOutput)
 }
 
+func (i OneDashboardPageWidgetAreaArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetArea] {
+	return pulumix.Output[[]OneDashboardPageWidgetArea]{
+		OutputState: i.ToOneDashboardPageWidgetAreaArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetAreaOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetAreaOutput) ElementType() reflect.Type {
@@ -3337,6 +3782,12 @@ func (o OneDashboardPageWidgetAreaOutput) ToOneDashboardPageWidgetAreaOutput() O
 
 func (o OneDashboardPageWidgetAreaOutput) ToOneDashboardPageWidgetAreaOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetAreaOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetArea] {
+	return pulumix.Output[OneDashboardPageWidgetArea]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -3426,6 +3877,12 @@ func (o OneDashboardPageWidgetAreaArrayOutput) ToOneDashboardPageWidgetAreaArray
 	return o
 }
 
+func (o OneDashboardPageWidgetAreaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetArea] {
+	return pulumix.Output[[]OneDashboardPageWidgetArea]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardPageWidgetAreaArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetArea {
 		return vs[0].([]OneDashboardPageWidgetArea)[vs[1].(int)]
@@ -3469,6 +3926,12 @@ func (i OneDashboardPageWidgetAreaColorArgs) ToOneDashboardPageWidgetAreaColorOu
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaColorOutput)
 }
 
+func (i OneDashboardPageWidgetAreaColorArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetAreaColor] {
+	return pulumix.Output[OneDashboardPageWidgetAreaColor]{
+		OutputState: i.ToOneDashboardPageWidgetAreaColorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetAreaColorArrayInput is an input type that accepts OneDashboardPageWidgetAreaColorArray and OneDashboardPageWidgetAreaColorArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetAreaColorArrayInput` via:
 //
@@ -3494,6 +3957,12 @@ func (i OneDashboardPageWidgetAreaColorArray) ToOneDashboardPageWidgetAreaColorA
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaColorArrayOutput)
 }
 
+func (i OneDashboardPageWidgetAreaColorArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetAreaColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetAreaColor]{
+		OutputState: i.ToOneDashboardPageWidgetAreaColorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetAreaColorOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetAreaColorOutput) ElementType() reflect.Type {
@@ -3506,6 +3975,12 @@ func (o OneDashboardPageWidgetAreaColorOutput) ToOneDashboardPageWidgetAreaColor
 
 func (o OneDashboardPageWidgetAreaColorOutput) ToOneDashboardPageWidgetAreaColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaColorOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetAreaColorOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetAreaColor] {
+	return pulumix.Output[OneDashboardPageWidgetAreaColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -3532,6 +4007,12 @@ func (o OneDashboardPageWidgetAreaColorArrayOutput) ToOneDashboardPageWidgetArea
 
 func (o OneDashboardPageWidgetAreaColorArrayOutput) ToOneDashboardPageWidgetAreaColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaColorArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetAreaColorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetAreaColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetAreaColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetAreaColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaColorOutput {
@@ -3575,6 +4056,12 @@ func (i OneDashboardPageWidgetAreaColorSeriesOverrideArgs) ToOneDashboardPageWid
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaColorSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetAreaColorSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetAreaColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetAreaColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetAreaColorSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetAreaColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetAreaColorSeriesOverrideArray and OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetAreaColorSeriesOverrideArrayInput` via:
 //
@@ -3600,6 +4087,12 @@ func (i OneDashboardPageWidgetAreaColorSeriesOverrideArray) ToOneDashboardPageWi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetAreaColorSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetAreaColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetAreaColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetAreaColorSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetAreaColorSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetAreaColorSeriesOverrideOutput) ElementType() reflect.Type {
@@ -3612,6 +4105,12 @@ func (o OneDashboardPageWidgetAreaColorSeriesOverrideOutput) ToOneDashboardPageW
 
 func (o OneDashboardPageWidgetAreaColorSeriesOverrideOutput) ToOneDashboardPageWidgetAreaColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaColorSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetAreaColorSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetAreaColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetAreaColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -3635,6 +4134,12 @@ func (o OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput) ToOneDashboard
 
 func (o OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetAreaColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetAreaColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetAreaColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaColorSeriesOverrideOutput {
@@ -3680,6 +4185,12 @@ func (i OneDashboardPageWidgetAreaNrqlQueryArgs) ToOneDashboardPageWidgetAreaNrq
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaNrqlQueryOutput)
 }
 
+func (i OneDashboardPageWidgetAreaNrqlQueryArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetAreaNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetAreaNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetAreaNrqlQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetAreaNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetAreaNrqlQueryArray and OneDashboardPageWidgetAreaNrqlQueryArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetAreaNrqlQueryArrayInput` via:
 //
@@ -3705,6 +4216,12 @@ func (i OneDashboardPageWidgetAreaNrqlQueryArray) ToOneDashboardPageWidgetAreaNr
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaNrqlQueryArrayOutput)
 }
 
+func (i OneDashboardPageWidgetAreaNrqlQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetAreaNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetAreaNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetAreaNrqlQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetAreaNrqlQueryOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetAreaNrqlQueryOutput) ElementType() reflect.Type {
@@ -3717,6 +4234,12 @@ func (o OneDashboardPageWidgetAreaNrqlQueryOutput) ToOneDashboardPageWidgetAreaN
 
 func (o OneDashboardPageWidgetAreaNrqlQueryOutput) ToOneDashboardPageWidgetAreaNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNrqlQueryOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetAreaNrqlQueryOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetAreaNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetAreaNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -3741,6 +4264,12 @@ func (o OneDashboardPageWidgetAreaNrqlQueryArrayOutput) ToOneDashboardPageWidget
 
 func (o OneDashboardPageWidgetAreaNrqlQueryArrayOutput) ToOneDashboardPageWidgetAreaNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNrqlQueryArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetAreaNrqlQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetAreaNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetAreaNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetAreaNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaNrqlQueryOutput {
@@ -3786,6 +4315,12 @@ func (i OneDashboardPageWidgetAreaNullValueArgs) ToOneDashboardPageWidgetAreaNul
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaNullValueOutput)
 }
 
+func (i OneDashboardPageWidgetAreaNullValueArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetAreaNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetAreaNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetAreaNullValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetAreaNullValueArrayInput is an input type that accepts OneDashboardPageWidgetAreaNullValueArray and OneDashboardPageWidgetAreaNullValueArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetAreaNullValueArrayInput` via:
 //
@@ -3811,6 +4346,12 @@ func (i OneDashboardPageWidgetAreaNullValueArray) ToOneDashboardPageWidgetAreaNu
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaNullValueArrayOutput)
 }
 
+func (i OneDashboardPageWidgetAreaNullValueArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetAreaNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetAreaNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetAreaNullValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetAreaNullValueOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetAreaNullValueOutput) ElementType() reflect.Type {
@@ -3823,6 +4364,12 @@ func (o OneDashboardPageWidgetAreaNullValueOutput) ToOneDashboardPageWidgetAreaN
 
 func (o OneDashboardPageWidgetAreaNullValueOutput) ToOneDashboardPageWidgetAreaNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNullValueOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetAreaNullValueOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetAreaNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetAreaNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -3849,6 +4396,12 @@ func (o OneDashboardPageWidgetAreaNullValueArrayOutput) ToOneDashboardPageWidget
 
 func (o OneDashboardPageWidgetAreaNullValueArrayOutput) ToOneDashboardPageWidgetAreaNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNullValueArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetAreaNullValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetAreaNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetAreaNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetAreaNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaNullValueOutput {
@@ -3892,6 +4445,12 @@ func (i OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs) ToOneDashboardPag
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetAreaNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetAreaNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetAreaNullValueSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetAreaNullValueSeriesOverrideArray and OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayInput` via:
 //
@@ -3917,6 +4476,12 @@ func (i OneDashboardPageWidgetAreaNullValueSeriesOverrideArray) ToOneDashboardPa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetAreaNullValueSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetAreaNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetAreaNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput) ElementType() reflect.Type {
@@ -3929,6 +4494,12 @@ func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput) ToOneDashboardP
 
 func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetAreaNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetAreaNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetAreaNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -3952,6 +4523,12 @@ func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput) ToOneDashb
 
 func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetAreaNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetAreaNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput {
@@ -3997,6 +4574,12 @@ func (i OneDashboardPageWidgetAreaUnitArgs) ToOneDashboardPageWidgetAreaUnitOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaUnitOutput)
 }
 
+func (i OneDashboardPageWidgetAreaUnitArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetAreaUnit] {
+	return pulumix.Output[OneDashboardPageWidgetAreaUnit]{
+		OutputState: i.ToOneDashboardPageWidgetAreaUnitOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetAreaUnitArrayInput is an input type that accepts OneDashboardPageWidgetAreaUnitArray and OneDashboardPageWidgetAreaUnitArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetAreaUnitArrayInput` via:
 //
@@ -4022,6 +4605,12 @@ func (i OneDashboardPageWidgetAreaUnitArray) ToOneDashboardPageWidgetAreaUnitArr
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaUnitArrayOutput)
 }
 
+func (i OneDashboardPageWidgetAreaUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetAreaUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetAreaUnit]{
+		OutputState: i.ToOneDashboardPageWidgetAreaUnitArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetAreaUnitOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetAreaUnitOutput) ElementType() reflect.Type {
@@ -4034,6 +4623,12 @@ func (o OneDashboardPageWidgetAreaUnitOutput) ToOneDashboardPageWidgetAreaUnitOu
 
 func (o OneDashboardPageWidgetAreaUnitOutput) ToOneDashboardPageWidgetAreaUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaUnitOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetAreaUnitOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetAreaUnit] {
+	return pulumix.Output[OneDashboardPageWidgetAreaUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
@@ -4060,6 +4655,12 @@ func (o OneDashboardPageWidgetAreaUnitArrayOutput) ToOneDashboardPageWidgetAreaU
 
 func (o OneDashboardPageWidgetAreaUnitArrayOutput) ToOneDashboardPageWidgetAreaUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaUnitArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetAreaUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetAreaUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetAreaUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetAreaUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaUnitOutput {
@@ -4103,6 +4704,12 @@ func (i OneDashboardPageWidgetAreaUnitSeriesOverrideArgs) ToOneDashboardPageWidg
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaUnitSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetAreaUnitSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetAreaUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetAreaUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetAreaUnitSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetAreaUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetAreaUnitSeriesOverrideArray and OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetAreaUnitSeriesOverrideArrayInput` via:
 //
@@ -4128,6 +4735,12 @@ func (i OneDashboardPageWidgetAreaUnitSeriesOverrideArray) ToOneDashboardPageWid
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetAreaUnitSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetAreaUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetAreaUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetAreaUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetAreaUnitSeriesOverrideOutput) ElementType() reflect.Type {
@@ -4140,6 +4753,12 @@ func (o OneDashboardPageWidgetAreaUnitSeriesOverrideOutput) ToOneDashboardPageWi
 
 func (o OneDashboardPageWidgetAreaUnitSeriesOverrideOutput) ToOneDashboardPageWidgetAreaUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaUnitSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetAreaUnitSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetAreaUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetAreaUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetAreaUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
@@ -4163,6 +4782,12 @@ func (o OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput) ToOneDashboardP
 
 func (o OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetAreaUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetAreaUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaUnitSeriesOverrideOutput {
@@ -4264,6 +4889,12 @@ func (i OneDashboardPageWidgetBarArgs) ToOneDashboardPageWidgetBarOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarOutput)
 }
 
+func (i OneDashboardPageWidgetBarArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBar] {
+	return pulumix.Output[OneDashboardPageWidgetBar]{
+		OutputState: i.ToOneDashboardPageWidgetBarOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBarArrayInput is an input type that accepts OneDashboardPageWidgetBarArray and OneDashboardPageWidgetBarArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBarArrayInput` via:
 //
@@ -4289,6 +4920,12 @@ func (i OneDashboardPageWidgetBarArray) ToOneDashboardPageWidgetBarArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBarArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBar] {
+	return pulumix.Output[[]OneDashboardPageWidgetBar]{
+		OutputState: i.ToOneDashboardPageWidgetBarArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBarOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBarOutput) ElementType() reflect.Type {
@@ -4301,6 +4938,12 @@ func (o OneDashboardPageWidgetBarOutput) ToOneDashboardPageWidgetBarOutput() One
 
 func (o OneDashboardPageWidgetBarOutput) ToOneDashboardPageWidgetBarOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBarOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBar] {
+	return pulumix.Output[OneDashboardPageWidgetBar]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -4400,6 +5043,12 @@ func (o OneDashboardPageWidgetBarArrayOutput) ToOneDashboardPageWidgetBarArrayOu
 	return o
 }
 
+func (o OneDashboardPageWidgetBarArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBar] {
+	return pulumix.Output[[]OneDashboardPageWidgetBar]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardPageWidgetBarArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBar {
 		return vs[0].([]OneDashboardPageWidgetBar)[vs[1].(int)]
@@ -4443,6 +5092,12 @@ func (i OneDashboardPageWidgetBarColorArgs) ToOneDashboardPageWidgetBarColorOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarColorOutput)
 }
 
+func (i OneDashboardPageWidgetBarColorArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBarColor] {
+	return pulumix.Output[OneDashboardPageWidgetBarColor]{
+		OutputState: i.ToOneDashboardPageWidgetBarColorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBarColorArrayInput is an input type that accepts OneDashboardPageWidgetBarColorArray and OneDashboardPageWidgetBarColorArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBarColorArrayInput` via:
 //
@@ -4468,6 +5123,12 @@ func (i OneDashboardPageWidgetBarColorArray) ToOneDashboardPageWidgetBarColorArr
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarColorArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBarColorArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBarColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetBarColor]{
+		OutputState: i.ToOneDashboardPageWidgetBarColorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBarColorOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBarColorOutput) ElementType() reflect.Type {
@@ -4480,6 +5141,12 @@ func (o OneDashboardPageWidgetBarColorOutput) ToOneDashboardPageWidgetBarColorOu
 
 func (o OneDashboardPageWidgetBarColorOutput) ToOneDashboardPageWidgetBarColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarColorOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBarColorOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBarColor] {
+	return pulumix.Output[OneDashboardPageWidgetBarColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -4506,6 +5173,12 @@ func (o OneDashboardPageWidgetBarColorArrayOutput) ToOneDashboardPageWidgetBarCo
 
 func (o OneDashboardPageWidgetBarColorArrayOutput) ToOneDashboardPageWidgetBarColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarColorArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBarColorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBarColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetBarColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBarColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarColorOutput {
@@ -4549,6 +5222,12 @@ func (i OneDashboardPageWidgetBarColorSeriesOverrideArgs) ToOneDashboardPageWidg
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarColorSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetBarColorSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBarColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBarColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBarColorSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBarColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBarColorSeriesOverrideArray and OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBarColorSeriesOverrideArrayInput` via:
 //
@@ -4574,6 +5253,12 @@ func (i OneDashboardPageWidgetBarColorSeriesOverrideArray) ToOneDashboardPageWid
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBarColorSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBarColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBarColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBarColorSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBarColorSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBarColorSeriesOverrideOutput) ElementType() reflect.Type {
@@ -4586,6 +5271,12 @@ func (o OneDashboardPageWidgetBarColorSeriesOverrideOutput) ToOneDashboardPageWi
 
 func (o OneDashboardPageWidgetBarColorSeriesOverrideOutput) ToOneDashboardPageWidgetBarColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarColorSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBarColorSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBarColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBarColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -4609,6 +5300,12 @@ func (o OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput) ToOneDashboardP
 
 func (o OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBarColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBarColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBarColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarColorSeriesOverrideOutput {
@@ -4654,6 +5351,12 @@ func (i OneDashboardPageWidgetBarNrqlQueryArgs) ToOneDashboardPageWidgetBarNrqlQ
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarNrqlQueryOutput)
 }
 
+func (i OneDashboardPageWidgetBarNrqlQueryArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBarNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetBarNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetBarNrqlQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBarNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetBarNrqlQueryArray and OneDashboardPageWidgetBarNrqlQueryArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBarNrqlQueryArrayInput` via:
 //
@@ -4679,6 +5382,12 @@ func (i OneDashboardPageWidgetBarNrqlQueryArray) ToOneDashboardPageWidgetBarNrql
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarNrqlQueryArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBarNrqlQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBarNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetBarNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetBarNrqlQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBarNrqlQueryOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBarNrqlQueryOutput) ElementType() reflect.Type {
@@ -4691,6 +5400,12 @@ func (o OneDashboardPageWidgetBarNrqlQueryOutput) ToOneDashboardPageWidgetBarNrq
 
 func (o OneDashboardPageWidgetBarNrqlQueryOutput) ToOneDashboardPageWidgetBarNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNrqlQueryOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBarNrqlQueryOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBarNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetBarNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -4715,6 +5430,12 @@ func (o OneDashboardPageWidgetBarNrqlQueryArrayOutput) ToOneDashboardPageWidgetB
 
 func (o OneDashboardPageWidgetBarNrqlQueryArrayOutput) ToOneDashboardPageWidgetBarNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNrqlQueryArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBarNrqlQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBarNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetBarNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBarNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarNrqlQueryOutput {
@@ -4760,6 +5481,12 @@ func (i OneDashboardPageWidgetBarNullValueArgs) ToOneDashboardPageWidgetBarNullV
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarNullValueOutput)
 }
 
+func (i OneDashboardPageWidgetBarNullValueArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBarNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetBarNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetBarNullValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBarNullValueArrayInput is an input type that accepts OneDashboardPageWidgetBarNullValueArray and OneDashboardPageWidgetBarNullValueArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBarNullValueArrayInput` via:
 //
@@ -4785,6 +5512,12 @@ func (i OneDashboardPageWidgetBarNullValueArray) ToOneDashboardPageWidgetBarNull
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarNullValueArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBarNullValueArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBarNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetBarNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetBarNullValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBarNullValueOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBarNullValueOutput) ElementType() reflect.Type {
@@ -4797,6 +5530,12 @@ func (o OneDashboardPageWidgetBarNullValueOutput) ToOneDashboardPageWidgetBarNul
 
 func (o OneDashboardPageWidgetBarNullValueOutput) ToOneDashboardPageWidgetBarNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNullValueOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBarNullValueOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBarNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetBarNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -4823,6 +5562,12 @@ func (o OneDashboardPageWidgetBarNullValueArrayOutput) ToOneDashboardPageWidgetB
 
 func (o OneDashboardPageWidgetBarNullValueArrayOutput) ToOneDashboardPageWidgetBarNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNullValueArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBarNullValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBarNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetBarNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBarNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarNullValueOutput {
@@ -4866,6 +5611,12 @@ func (i OneDashboardPageWidgetBarNullValueSeriesOverrideArgs) ToOneDashboardPage
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarNullValueSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetBarNullValueSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBarNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBarNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBarNullValueSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBarNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBarNullValueSeriesOverrideArray and OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBarNullValueSeriesOverrideArrayInput` via:
 //
@@ -4891,6 +5642,12 @@ func (i OneDashboardPageWidgetBarNullValueSeriesOverrideArray) ToOneDashboardPag
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBarNullValueSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBarNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBarNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBarNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBarNullValueSeriesOverrideOutput) ElementType() reflect.Type {
@@ -4903,6 +5660,12 @@ func (o OneDashboardPageWidgetBarNullValueSeriesOverrideOutput) ToOneDashboardPa
 
 func (o OneDashboardPageWidgetBarNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetBarNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNullValueSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBarNullValueSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBarNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBarNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -4926,6 +5689,12 @@ func (o OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput) ToOneDashbo
 
 func (o OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBarNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBarNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarNullValueSeriesOverrideOutput {
@@ -4971,6 +5740,12 @@ func (i OneDashboardPageWidgetBarUnitArgs) ToOneDashboardPageWidgetBarUnitOutput
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarUnitOutput)
 }
 
+func (i OneDashboardPageWidgetBarUnitArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBarUnit] {
+	return pulumix.Output[OneDashboardPageWidgetBarUnit]{
+		OutputState: i.ToOneDashboardPageWidgetBarUnitOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBarUnitArrayInput is an input type that accepts OneDashboardPageWidgetBarUnitArray and OneDashboardPageWidgetBarUnitArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBarUnitArrayInput` via:
 //
@@ -4996,6 +5771,12 @@ func (i OneDashboardPageWidgetBarUnitArray) ToOneDashboardPageWidgetBarUnitArray
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarUnitArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBarUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBarUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetBarUnit]{
+		OutputState: i.ToOneDashboardPageWidgetBarUnitArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBarUnitOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBarUnitOutput) ElementType() reflect.Type {
@@ -5008,6 +5789,12 @@ func (o OneDashboardPageWidgetBarUnitOutput) ToOneDashboardPageWidgetBarUnitOutp
 
 func (o OneDashboardPageWidgetBarUnitOutput) ToOneDashboardPageWidgetBarUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarUnitOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBarUnitOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBarUnit] {
+	return pulumix.Output[OneDashboardPageWidgetBarUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
@@ -5034,6 +5821,12 @@ func (o OneDashboardPageWidgetBarUnitArrayOutput) ToOneDashboardPageWidgetBarUni
 
 func (o OneDashboardPageWidgetBarUnitArrayOutput) ToOneDashboardPageWidgetBarUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarUnitArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBarUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBarUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetBarUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBarUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarUnitOutput {
@@ -5077,6 +5870,12 @@ func (i OneDashboardPageWidgetBarUnitSeriesOverrideArgs) ToOneDashboardPageWidge
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarUnitSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetBarUnitSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBarUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBarUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBarUnitSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBarUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBarUnitSeriesOverrideArray and OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBarUnitSeriesOverrideArrayInput` via:
 //
@@ -5102,6 +5901,12 @@ func (i OneDashboardPageWidgetBarUnitSeriesOverrideArray) ToOneDashboardPageWidg
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBarUnitSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBarUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBarUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBarUnitSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBarUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBarUnitSeriesOverrideOutput) ElementType() reflect.Type {
@@ -5114,6 +5919,12 @@ func (o OneDashboardPageWidgetBarUnitSeriesOverrideOutput) ToOneDashboardPageWid
 
 func (o OneDashboardPageWidgetBarUnitSeriesOverrideOutput) ToOneDashboardPageWidgetBarUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarUnitSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBarUnitSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBarUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBarUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBarUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
@@ -5137,6 +5948,12 @@ func (o OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput) ToOneDashboardPa
 
 func (o OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBarUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBarUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBarUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarUnitSeriesOverrideOutput {
@@ -5238,6 +6055,12 @@ func (i OneDashboardPageWidgetBillboardArgs) ToOneDashboardPageWidgetBillboardOu
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboard] {
+	return pulumix.Output[OneDashboardPageWidgetBillboard]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBillboardArrayInput is an input type that accepts OneDashboardPageWidgetBillboardArray and OneDashboardPageWidgetBillboardArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBillboardArrayInput` via:
 //
@@ -5263,6 +6086,12 @@ func (i OneDashboardPageWidgetBillboardArray) ToOneDashboardPageWidgetBillboardA
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboard] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboard]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBillboardOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBillboardOutput) ElementType() reflect.Type {
@@ -5275,6 +6104,12 @@ func (o OneDashboardPageWidgetBillboardOutput) ToOneDashboardPageWidgetBillboard
 
 func (o OneDashboardPageWidgetBillboardOutput) ToOneDashboardPageWidgetBillboardOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBillboardOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboard] {
+	return pulumix.Output[OneDashboardPageWidgetBillboard]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -5378,6 +6213,12 @@ func (o OneDashboardPageWidgetBillboardArrayOutput) ToOneDashboardPageWidgetBill
 	return o
 }
 
+func (o OneDashboardPageWidgetBillboardArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboard] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboard]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardPageWidgetBillboardArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboard {
 		return vs[0].([]OneDashboardPageWidgetBillboard)[vs[1].(int)]
@@ -5421,6 +6262,12 @@ func (i OneDashboardPageWidgetBillboardColorArgs) ToOneDashboardPageWidgetBillbo
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardColorOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardColorArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboardColor] {
+	return pulumix.Output[OneDashboardPageWidgetBillboardColor]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardColorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBillboardColorArrayInput is an input type that accepts OneDashboardPageWidgetBillboardColorArray and OneDashboardPageWidgetBillboardColorArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBillboardColorArrayInput` via:
 //
@@ -5446,6 +6293,12 @@ func (i OneDashboardPageWidgetBillboardColorArray) ToOneDashboardPageWidgetBillb
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardColorArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardColorArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboardColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboardColor]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardColorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBillboardColorOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBillboardColorOutput) ElementType() reflect.Type {
@@ -5458,6 +6311,12 @@ func (o OneDashboardPageWidgetBillboardColorOutput) ToOneDashboardPageWidgetBill
 
 func (o OneDashboardPageWidgetBillboardColorOutput) ToOneDashboardPageWidgetBillboardColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardColorOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBillboardColorOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboardColor] {
+	return pulumix.Output[OneDashboardPageWidgetBillboardColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -5484,6 +6343,12 @@ func (o OneDashboardPageWidgetBillboardColorArrayOutput) ToOneDashboardPageWidge
 
 func (o OneDashboardPageWidgetBillboardColorArrayOutput) ToOneDashboardPageWidgetBillboardColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardColorArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBillboardColorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboardColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboardColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBillboardColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardColorOutput {
@@ -5527,6 +6392,12 @@ func (i OneDashboardPageWidgetBillboardColorSeriesOverrideArgs) ToOneDashboardPa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardColorSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardColorSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboardColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBillboardColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardColorSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBillboardColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBillboardColorSeriesOverrideArray and OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBillboardColorSeriesOverrideArrayInput` via:
 //
@@ -5552,6 +6423,12 @@ func (i OneDashboardPageWidgetBillboardColorSeriesOverrideArray) ToOneDashboardP
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardColorSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboardColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboardColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBillboardColorSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBillboardColorSeriesOverrideOutput) ElementType() reflect.Type {
@@ -5564,6 +6441,12 @@ func (o OneDashboardPageWidgetBillboardColorSeriesOverrideOutput) ToOneDashboard
 
 func (o OneDashboardPageWidgetBillboardColorSeriesOverrideOutput) ToOneDashboardPageWidgetBillboardColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardColorSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBillboardColorSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboardColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBillboardColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -5587,6 +6470,12 @@ func (o OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput) ToOneDash
 
 func (o OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboardColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboardColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardColorSeriesOverrideOutput {
@@ -5632,6 +6521,12 @@ func (i OneDashboardPageWidgetBillboardNrqlQueryArgs) ToOneDashboardPageWidgetBi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardNrqlQueryOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardNrqlQueryArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboardNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetBillboardNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardNrqlQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBillboardNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetBillboardNrqlQueryArray and OneDashboardPageWidgetBillboardNrqlQueryArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBillboardNrqlQueryArrayInput` via:
 //
@@ -5657,6 +6552,12 @@ func (i OneDashboardPageWidgetBillboardNrqlQueryArray) ToOneDashboardPageWidgetB
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardNrqlQueryArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardNrqlQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboardNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboardNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardNrqlQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBillboardNrqlQueryOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBillboardNrqlQueryOutput) ElementType() reflect.Type {
@@ -5669,6 +6570,12 @@ func (o OneDashboardPageWidgetBillboardNrqlQueryOutput) ToOneDashboardPageWidget
 
 func (o OneDashboardPageWidgetBillboardNrqlQueryOutput) ToOneDashboardPageWidgetBillboardNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNrqlQueryOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBillboardNrqlQueryOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboardNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetBillboardNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -5693,6 +6600,12 @@ func (o OneDashboardPageWidgetBillboardNrqlQueryArrayOutput) ToOneDashboardPageW
 
 func (o OneDashboardPageWidgetBillboardNrqlQueryArrayOutput) ToOneDashboardPageWidgetBillboardNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNrqlQueryArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBillboardNrqlQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboardNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboardNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBillboardNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardNrqlQueryOutput {
@@ -5738,6 +6651,12 @@ func (i OneDashboardPageWidgetBillboardNullValueArgs) ToOneDashboardPageWidgetBi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardNullValueOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardNullValueArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboardNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetBillboardNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardNullValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBillboardNullValueArrayInput is an input type that accepts OneDashboardPageWidgetBillboardNullValueArray and OneDashboardPageWidgetBillboardNullValueArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBillboardNullValueArrayInput` via:
 //
@@ -5763,6 +6682,12 @@ func (i OneDashboardPageWidgetBillboardNullValueArray) ToOneDashboardPageWidgetB
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardNullValueArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardNullValueArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboardNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboardNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardNullValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBillboardNullValueOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBillboardNullValueOutput) ElementType() reflect.Type {
@@ -5775,6 +6700,12 @@ func (o OneDashboardPageWidgetBillboardNullValueOutput) ToOneDashboardPageWidget
 
 func (o OneDashboardPageWidgetBillboardNullValueOutput) ToOneDashboardPageWidgetBillboardNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNullValueOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBillboardNullValueOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboardNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetBillboardNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -5801,6 +6732,12 @@ func (o OneDashboardPageWidgetBillboardNullValueArrayOutput) ToOneDashboardPageW
 
 func (o OneDashboardPageWidgetBillboardNullValueArrayOutput) ToOneDashboardPageWidgetBillboardNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNullValueArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBillboardNullValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboardNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboardNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBillboardNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardNullValueOutput {
@@ -5844,6 +6781,12 @@ func (i OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs) ToOneDashboa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboardNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBillboardNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBillboardNullValueSeriesOverrideArray and OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayInput` via:
 //
@@ -5869,6 +6812,12 @@ func (i OneDashboardPageWidgetBillboardNullValueSeriesOverrideArray) ToOneDashbo
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardNullValueSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboardNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboardNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput) ElementType() reflect.Type {
@@ -5881,6 +6830,12 @@ func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput) ToOneDashb
 
 func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboardNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBillboardNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -5904,6 +6859,12 @@ func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput) ToOne
 
 func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboardNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboardNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput {
@@ -5949,6 +6910,12 @@ func (i OneDashboardPageWidgetBillboardUnitArgs) ToOneDashboardPageWidgetBillboa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardUnitOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardUnitArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboardUnit] {
+	return pulumix.Output[OneDashboardPageWidgetBillboardUnit]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardUnitOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBillboardUnitArrayInput is an input type that accepts OneDashboardPageWidgetBillboardUnitArray and OneDashboardPageWidgetBillboardUnitArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBillboardUnitArrayInput` via:
 //
@@ -5974,6 +6941,12 @@ func (i OneDashboardPageWidgetBillboardUnitArray) ToOneDashboardPageWidgetBillbo
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardUnitArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboardUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboardUnit]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardUnitArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBillboardUnitOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBillboardUnitOutput) ElementType() reflect.Type {
@@ -5986,6 +6959,12 @@ func (o OneDashboardPageWidgetBillboardUnitOutput) ToOneDashboardPageWidgetBillb
 
 func (o OneDashboardPageWidgetBillboardUnitOutput) ToOneDashboardPageWidgetBillboardUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardUnitOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBillboardUnitOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboardUnit] {
+	return pulumix.Output[OneDashboardPageWidgetBillboardUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
@@ -6012,6 +6991,12 @@ func (o OneDashboardPageWidgetBillboardUnitArrayOutput) ToOneDashboardPageWidget
 
 func (o OneDashboardPageWidgetBillboardUnitArrayOutput) ToOneDashboardPageWidgetBillboardUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardUnitArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBillboardUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboardUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboardUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBillboardUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardUnitOutput {
@@ -6055,6 +7040,12 @@ func (i OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs) ToOneDashboardPag
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboardUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBillboardUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardUnitSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBillboardUnitSeriesOverrideArray and OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayInput` via:
 //
@@ -6080,6 +7071,12 @@ func (i OneDashboardPageWidgetBillboardUnitSeriesOverrideArray) ToOneDashboardPa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBillboardUnitSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboardUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboardUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput) ElementType() reflect.Type {
@@ -6092,6 +7089,12 @@ func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput) ToOneDashboardP
 
 func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput) ToOneDashboardPageWidgetBillboardUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBillboardUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBillboardUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
@@ -6115,6 +7118,12 @@ func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput) ToOneDashb
 
 func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBillboardUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBillboardUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput {
@@ -6212,6 +7221,12 @@ func (i OneDashboardPageWidgetBulletArgs) ToOneDashboardPageWidgetBulletOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletOutput)
 }
 
+func (i OneDashboardPageWidgetBulletArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBullet] {
+	return pulumix.Output[OneDashboardPageWidgetBullet]{
+		OutputState: i.ToOneDashboardPageWidgetBulletOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBulletArrayInput is an input type that accepts OneDashboardPageWidgetBulletArray and OneDashboardPageWidgetBulletArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBulletArrayInput` via:
 //
@@ -6237,6 +7252,12 @@ func (i OneDashboardPageWidgetBulletArray) ToOneDashboardPageWidgetBulletArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBulletArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBullet] {
+	return pulumix.Output[[]OneDashboardPageWidgetBullet]{
+		OutputState: i.ToOneDashboardPageWidgetBulletArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBulletOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBulletOutput) ElementType() reflect.Type {
@@ -6249,6 +7270,12 @@ func (o OneDashboardPageWidgetBulletOutput) ToOneDashboardPageWidgetBulletOutput
 
 func (o OneDashboardPageWidgetBulletOutput) ToOneDashboardPageWidgetBulletOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBulletOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBullet] {
+	return pulumix.Output[OneDashboardPageWidgetBullet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -6343,6 +7370,12 @@ func (o OneDashboardPageWidgetBulletArrayOutput) ToOneDashboardPageWidgetBulletA
 	return o
 }
 
+func (o OneDashboardPageWidgetBulletArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBullet] {
+	return pulumix.Output[[]OneDashboardPageWidgetBullet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardPageWidgetBulletArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBulletOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBullet {
 		return vs[0].([]OneDashboardPageWidgetBullet)[vs[1].(int)]
@@ -6386,6 +7419,12 @@ func (i OneDashboardPageWidgetBulletColorArgs) ToOneDashboardPageWidgetBulletCol
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletColorOutput)
 }
 
+func (i OneDashboardPageWidgetBulletColorArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBulletColor] {
+	return pulumix.Output[OneDashboardPageWidgetBulletColor]{
+		OutputState: i.ToOneDashboardPageWidgetBulletColorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBulletColorArrayInput is an input type that accepts OneDashboardPageWidgetBulletColorArray and OneDashboardPageWidgetBulletColorArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBulletColorArrayInput` via:
 //
@@ -6411,6 +7450,12 @@ func (i OneDashboardPageWidgetBulletColorArray) ToOneDashboardPageWidgetBulletCo
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletColorArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBulletColorArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBulletColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetBulletColor]{
+		OutputState: i.ToOneDashboardPageWidgetBulletColorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBulletColorOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBulletColorOutput) ElementType() reflect.Type {
@@ -6423,6 +7468,12 @@ func (o OneDashboardPageWidgetBulletColorOutput) ToOneDashboardPageWidgetBulletC
 
 func (o OneDashboardPageWidgetBulletColorOutput) ToOneDashboardPageWidgetBulletColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletColorOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBulletColorOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBulletColor] {
+	return pulumix.Output[OneDashboardPageWidgetBulletColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -6449,6 +7500,12 @@ func (o OneDashboardPageWidgetBulletColorArrayOutput) ToOneDashboardPageWidgetBu
 
 func (o OneDashboardPageWidgetBulletColorArrayOutput) ToOneDashboardPageWidgetBulletColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletColorArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBulletColorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBulletColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetBulletColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBulletColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBulletColorOutput {
@@ -6492,6 +7549,12 @@ func (i OneDashboardPageWidgetBulletColorSeriesOverrideArgs) ToOneDashboardPageW
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletColorSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetBulletColorSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBulletColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBulletColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBulletColorSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBulletColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBulletColorSeriesOverrideArray and OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBulletColorSeriesOverrideArrayInput` via:
 //
@@ -6517,6 +7580,12 @@ func (i OneDashboardPageWidgetBulletColorSeriesOverrideArray) ToOneDashboardPage
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBulletColorSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBulletColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBulletColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBulletColorSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBulletColorSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBulletColorSeriesOverrideOutput) ElementType() reflect.Type {
@@ -6529,6 +7598,12 @@ func (o OneDashboardPageWidgetBulletColorSeriesOverrideOutput) ToOneDashboardPag
 
 func (o OneDashboardPageWidgetBulletColorSeriesOverrideOutput) ToOneDashboardPageWidgetBulletColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletColorSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBulletColorSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBulletColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBulletColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -6552,6 +7627,12 @@ func (o OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput) ToOneDashboa
 
 func (o OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBulletColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBulletColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBulletColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBulletColorSeriesOverrideOutput {
@@ -6597,6 +7678,12 @@ func (i OneDashboardPageWidgetBulletNrqlQueryArgs) ToOneDashboardPageWidgetBulle
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletNrqlQueryOutput)
 }
 
+func (i OneDashboardPageWidgetBulletNrqlQueryArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBulletNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetBulletNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetBulletNrqlQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBulletNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetBulletNrqlQueryArray and OneDashboardPageWidgetBulletNrqlQueryArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBulletNrqlQueryArrayInput` via:
 //
@@ -6622,6 +7709,12 @@ func (i OneDashboardPageWidgetBulletNrqlQueryArray) ToOneDashboardPageWidgetBull
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletNrqlQueryArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBulletNrqlQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBulletNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetBulletNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetBulletNrqlQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBulletNrqlQueryOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBulletNrqlQueryOutput) ElementType() reflect.Type {
@@ -6634,6 +7727,12 @@ func (o OneDashboardPageWidgetBulletNrqlQueryOutput) ToOneDashboardPageWidgetBul
 
 func (o OneDashboardPageWidgetBulletNrqlQueryOutput) ToOneDashboardPageWidgetBulletNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletNrqlQueryOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBulletNrqlQueryOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBulletNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetBulletNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -6658,6 +7757,12 @@ func (o OneDashboardPageWidgetBulletNrqlQueryArrayOutput) ToOneDashboardPageWidg
 
 func (o OneDashboardPageWidgetBulletNrqlQueryArrayOutput) ToOneDashboardPageWidgetBulletNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletNrqlQueryArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBulletNrqlQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBulletNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetBulletNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBulletNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBulletNrqlQueryOutput {
@@ -6703,6 +7808,12 @@ func (i OneDashboardPageWidgetBulletNullValueArgs) ToOneDashboardPageWidgetBulle
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletNullValueOutput)
 }
 
+func (i OneDashboardPageWidgetBulletNullValueArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBulletNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetBulletNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetBulletNullValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBulletNullValueArrayInput is an input type that accepts OneDashboardPageWidgetBulletNullValueArray and OneDashboardPageWidgetBulletNullValueArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBulletNullValueArrayInput` via:
 //
@@ -6728,6 +7839,12 @@ func (i OneDashboardPageWidgetBulletNullValueArray) ToOneDashboardPageWidgetBull
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletNullValueArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBulletNullValueArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBulletNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetBulletNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetBulletNullValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBulletNullValueOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBulletNullValueOutput) ElementType() reflect.Type {
@@ -6740,6 +7857,12 @@ func (o OneDashboardPageWidgetBulletNullValueOutput) ToOneDashboardPageWidgetBul
 
 func (o OneDashboardPageWidgetBulletNullValueOutput) ToOneDashboardPageWidgetBulletNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletNullValueOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBulletNullValueOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBulletNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetBulletNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -6766,6 +7889,12 @@ func (o OneDashboardPageWidgetBulletNullValueArrayOutput) ToOneDashboardPageWidg
 
 func (o OneDashboardPageWidgetBulletNullValueArrayOutput) ToOneDashboardPageWidgetBulletNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletNullValueArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBulletNullValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBulletNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetBulletNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBulletNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBulletNullValueOutput {
@@ -6809,6 +7938,12 @@ func (i OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs) ToOneDashboardP
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBulletNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBulletNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBulletNullValueSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBulletNullValueSeriesOverrideArray and OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayInput` via:
 //
@@ -6834,6 +7969,12 @@ func (i OneDashboardPageWidgetBulletNullValueSeriesOverrideArray) ToOneDashboard
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBulletNullValueSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBulletNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBulletNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput) ElementType() reflect.Type {
@@ -6846,6 +7987,12 @@ func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput) ToOneDashboar
 
 func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetBulletNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBulletNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBulletNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -6869,6 +8016,12 @@ func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput) ToOneDas
 
 func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBulletNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBulletNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput {
@@ -6914,6 +8067,12 @@ func (i OneDashboardPageWidgetBulletUnitArgs) ToOneDashboardPageWidgetBulletUnit
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletUnitOutput)
 }
 
+func (i OneDashboardPageWidgetBulletUnitArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBulletUnit] {
+	return pulumix.Output[OneDashboardPageWidgetBulletUnit]{
+		OutputState: i.ToOneDashboardPageWidgetBulletUnitOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBulletUnitArrayInput is an input type that accepts OneDashboardPageWidgetBulletUnitArray and OneDashboardPageWidgetBulletUnitArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBulletUnitArrayInput` via:
 //
@@ -6939,6 +8098,12 @@ func (i OneDashboardPageWidgetBulletUnitArray) ToOneDashboardPageWidgetBulletUni
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletUnitArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBulletUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBulletUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetBulletUnit]{
+		OutputState: i.ToOneDashboardPageWidgetBulletUnitArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBulletUnitOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBulletUnitOutput) ElementType() reflect.Type {
@@ -6951,6 +8116,12 @@ func (o OneDashboardPageWidgetBulletUnitOutput) ToOneDashboardPageWidgetBulletUn
 
 func (o OneDashboardPageWidgetBulletUnitOutput) ToOneDashboardPageWidgetBulletUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletUnitOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBulletUnitOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBulletUnit] {
+	return pulumix.Output[OneDashboardPageWidgetBulletUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
@@ -6977,6 +8148,12 @@ func (o OneDashboardPageWidgetBulletUnitArrayOutput) ToOneDashboardPageWidgetBul
 
 func (o OneDashboardPageWidgetBulletUnitArrayOutput) ToOneDashboardPageWidgetBulletUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletUnitArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBulletUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBulletUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetBulletUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBulletUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBulletUnitOutput {
@@ -7020,6 +8197,12 @@ func (i OneDashboardPageWidgetBulletUnitSeriesOverrideArgs) ToOneDashboardPageWi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletUnitSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetBulletUnitSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBulletUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBulletUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBulletUnitSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetBulletUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBulletUnitSeriesOverrideArray and OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetBulletUnitSeriesOverrideArrayInput` via:
 //
@@ -7045,6 +8228,12 @@ func (i OneDashboardPageWidgetBulletUnitSeriesOverrideArray) ToOneDashboardPageW
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetBulletUnitSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBulletUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBulletUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetBulletUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetBulletUnitSeriesOverrideOutput) ElementType() reflect.Type {
@@ -7057,6 +8246,12 @@ func (o OneDashboardPageWidgetBulletUnitSeriesOverrideOutput) ToOneDashboardPage
 
 func (o OneDashboardPageWidgetBulletUnitSeriesOverrideOutput) ToOneDashboardPageWidgetBulletUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletUnitSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBulletUnitSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetBulletUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetBulletUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBulletUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
@@ -7080,6 +8275,12 @@ func (o OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput) ToOneDashboar
 
 func (o OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetBulletUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetBulletUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBulletUnitSeriesOverrideOutput {
@@ -7173,6 +8374,12 @@ func (i OneDashboardPageWidgetFunnelArgs) ToOneDashboardPageWidgetFunnelOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnel] {
+	return pulumix.Output[OneDashboardPageWidgetFunnel]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetFunnelArrayInput is an input type that accepts OneDashboardPageWidgetFunnelArray and OneDashboardPageWidgetFunnelArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetFunnelArrayInput` via:
 //
@@ -7198,6 +8405,12 @@ func (i OneDashboardPageWidgetFunnelArray) ToOneDashboardPageWidgetFunnelArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelArrayOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnel] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnel]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetFunnelOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetFunnelOutput) ElementType() reflect.Type {
@@ -7210,6 +8423,12 @@ func (o OneDashboardPageWidgetFunnelOutput) ToOneDashboardPageWidgetFunnelOutput
 
 func (o OneDashboardPageWidgetFunnelOutput) ToOneDashboardPageWidgetFunnelOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetFunnelOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnel] {
+	return pulumix.Output[OneDashboardPageWidgetFunnel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -7299,6 +8518,12 @@ func (o OneDashboardPageWidgetFunnelArrayOutput) ToOneDashboardPageWidgetFunnelA
 	return o
 }
 
+func (o OneDashboardPageWidgetFunnelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnel] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardPageWidgetFunnelArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetFunnelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetFunnel {
 		return vs[0].([]OneDashboardPageWidgetFunnel)[vs[1].(int)]
@@ -7342,6 +8567,12 @@ func (i OneDashboardPageWidgetFunnelColorArgs) ToOneDashboardPageWidgetFunnelCol
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelColorOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelColorArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnelColor] {
+	return pulumix.Output[OneDashboardPageWidgetFunnelColor]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelColorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetFunnelColorArrayInput is an input type that accepts OneDashboardPageWidgetFunnelColorArray and OneDashboardPageWidgetFunnelColorArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetFunnelColorArrayInput` via:
 //
@@ -7367,6 +8598,12 @@ func (i OneDashboardPageWidgetFunnelColorArray) ToOneDashboardPageWidgetFunnelCo
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelColorArrayOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelColorArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnelColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnelColor]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelColorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetFunnelColorOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetFunnelColorOutput) ElementType() reflect.Type {
@@ -7379,6 +8616,12 @@ func (o OneDashboardPageWidgetFunnelColorOutput) ToOneDashboardPageWidgetFunnelC
 
 func (o OneDashboardPageWidgetFunnelColorOutput) ToOneDashboardPageWidgetFunnelColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelColorOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetFunnelColorOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnelColor] {
+	return pulumix.Output[OneDashboardPageWidgetFunnelColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -7405,6 +8648,12 @@ func (o OneDashboardPageWidgetFunnelColorArrayOutput) ToOneDashboardPageWidgetFu
 
 func (o OneDashboardPageWidgetFunnelColorArrayOutput) ToOneDashboardPageWidgetFunnelColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelColorArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetFunnelColorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnelColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnelColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetFunnelColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetFunnelColorOutput {
@@ -7448,6 +8697,12 @@ func (i OneDashboardPageWidgetFunnelColorSeriesOverrideArgs) ToOneDashboardPageW
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelColorSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelColorSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnelColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetFunnelColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelColorSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetFunnelColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetFunnelColorSeriesOverrideArray and OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetFunnelColorSeriesOverrideArrayInput` via:
 //
@@ -7473,6 +8728,12 @@ func (i OneDashboardPageWidgetFunnelColorSeriesOverrideArray) ToOneDashboardPage
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelColorSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnelColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnelColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetFunnelColorSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetFunnelColorSeriesOverrideOutput) ElementType() reflect.Type {
@@ -7485,6 +8746,12 @@ func (o OneDashboardPageWidgetFunnelColorSeriesOverrideOutput) ToOneDashboardPag
 
 func (o OneDashboardPageWidgetFunnelColorSeriesOverrideOutput) ToOneDashboardPageWidgetFunnelColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelColorSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetFunnelColorSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnelColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetFunnelColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -7508,6 +8775,12 @@ func (o OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput) ToOneDashboa
 
 func (o OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnelColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnelColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetFunnelColorSeriesOverrideOutput {
@@ -7553,6 +8826,12 @@ func (i OneDashboardPageWidgetFunnelNrqlQueryArgs) ToOneDashboardPageWidgetFunne
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelNrqlQueryOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelNrqlQueryArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnelNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetFunnelNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelNrqlQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetFunnelNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetFunnelNrqlQueryArray and OneDashboardPageWidgetFunnelNrqlQueryArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetFunnelNrqlQueryArrayInput` via:
 //
@@ -7578,6 +8857,12 @@ func (i OneDashboardPageWidgetFunnelNrqlQueryArray) ToOneDashboardPageWidgetFunn
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelNrqlQueryArrayOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelNrqlQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnelNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnelNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelNrqlQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetFunnelNrqlQueryOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetFunnelNrqlQueryOutput) ElementType() reflect.Type {
@@ -7590,6 +8875,12 @@ func (o OneDashboardPageWidgetFunnelNrqlQueryOutput) ToOneDashboardPageWidgetFun
 
 func (o OneDashboardPageWidgetFunnelNrqlQueryOutput) ToOneDashboardPageWidgetFunnelNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelNrqlQueryOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetFunnelNrqlQueryOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnelNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetFunnelNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -7614,6 +8905,12 @@ func (o OneDashboardPageWidgetFunnelNrqlQueryArrayOutput) ToOneDashboardPageWidg
 
 func (o OneDashboardPageWidgetFunnelNrqlQueryArrayOutput) ToOneDashboardPageWidgetFunnelNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelNrqlQueryArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetFunnelNrqlQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnelNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnelNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetFunnelNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetFunnelNrqlQueryOutput {
@@ -7659,6 +8956,12 @@ func (i OneDashboardPageWidgetFunnelNullValueArgs) ToOneDashboardPageWidgetFunne
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelNullValueOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelNullValueArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnelNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetFunnelNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelNullValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetFunnelNullValueArrayInput is an input type that accepts OneDashboardPageWidgetFunnelNullValueArray and OneDashboardPageWidgetFunnelNullValueArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetFunnelNullValueArrayInput` via:
 //
@@ -7684,6 +8987,12 @@ func (i OneDashboardPageWidgetFunnelNullValueArray) ToOneDashboardPageWidgetFunn
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelNullValueArrayOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelNullValueArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnelNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnelNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelNullValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetFunnelNullValueOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetFunnelNullValueOutput) ElementType() reflect.Type {
@@ -7696,6 +9005,12 @@ func (o OneDashboardPageWidgetFunnelNullValueOutput) ToOneDashboardPageWidgetFun
 
 func (o OneDashboardPageWidgetFunnelNullValueOutput) ToOneDashboardPageWidgetFunnelNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelNullValueOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetFunnelNullValueOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnelNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetFunnelNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -7722,6 +9037,12 @@ func (o OneDashboardPageWidgetFunnelNullValueArrayOutput) ToOneDashboardPageWidg
 
 func (o OneDashboardPageWidgetFunnelNullValueArrayOutput) ToOneDashboardPageWidgetFunnelNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelNullValueArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetFunnelNullValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnelNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnelNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetFunnelNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetFunnelNullValueOutput {
@@ -7765,6 +9086,12 @@ func (i OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs) ToOneDashboardP
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnelNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetFunnelNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetFunnelNullValueSeriesOverrideArray and OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayInput` via:
 //
@@ -7790,6 +9117,12 @@ func (i OneDashboardPageWidgetFunnelNullValueSeriesOverrideArray) ToOneDashboard
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelNullValueSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnelNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnelNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput) ElementType() reflect.Type {
@@ -7802,6 +9135,12 @@ func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput) ToOneDashboar
 
 func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnelNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetFunnelNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -7825,6 +9164,12 @@ func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput) ToOneDas
 
 func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnelNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnelNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput {
@@ -7870,6 +9215,12 @@ func (i OneDashboardPageWidgetFunnelUnitArgs) ToOneDashboardPageWidgetFunnelUnit
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelUnitOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelUnitArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnelUnit] {
+	return pulumix.Output[OneDashboardPageWidgetFunnelUnit]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelUnitOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetFunnelUnitArrayInput is an input type that accepts OneDashboardPageWidgetFunnelUnitArray and OneDashboardPageWidgetFunnelUnitArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetFunnelUnitArrayInput` via:
 //
@@ -7895,6 +9246,12 @@ func (i OneDashboardPageWidgetFunnelUnitArray) ToOneDashboardPageWidgetFunnelUni
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelUnitArrayOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnelUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnelUnit]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelUnitArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetFunnelUnitOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetFunnelUnitOutput) ElementType() reflect.Type {
@@ -7907,6 +9264,12 @@ func (o OneDashboardPageWidgetFunnelUnitOutput) ToOneDashboardPageWidgetFunnelUn
 
 func (o OneDashboardPageWidgetFunnelUnitOutput) ToOneDashboardPageWidgetFunnelUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelUnitOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetFunnelUnitOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnelUnit] {
+	return pulumix.Output[OneDashboardPageWidgetFunnelUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
@@ -7933,6 +9296,12 @@ func (o OneDashboardPageWidgetFunnelUnitArrayOutput) ToOneDashboardPageWidgetFun
 
 func (o OneDashboardPageWidgetFunnelUnitArrayOutput) ToOneDashboardPageWidgetFunnelUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelUnitArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetFunnelUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnelUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnelUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetFunnelUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetFunnelUnitOutput {
@@ -7976,6 +9345,12 @@ func (i OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs) ToOneDashboardPageWi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnelUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetFunnelUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelUnitSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetFunnelUnitSeriesOverrideArray and OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayInput` via:
 //
@@ -8001,6 +9376,12 @@ func (i OneDashboardPageWidgetFunnelUnitSeriesOverrideArray) ToOneDashboardPageW
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetFunnelUnitSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnelUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnelUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput) ElementType() reflect.Type {
@@ -8013,6 +9394,12 @@ func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput) ToOneDashboardPage
 
 func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput) ToOneDashboardPageWidgetFunnelUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetFunnelUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetFunnelUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
@@ -8036,6 +9423,12 @@ func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput) ToOneDashboar
 
 func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetFunnelUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetFunnelUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput {
@@ -8137,6 +9530,12 @@ func (i OneDashboardPageWidgetHeatmapArgs) ToOneDashboardPageWidgetHeatmapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmap] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmap]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHeatmapArrayInput is an input type that accepts OneDashboardPageWidgetHeatmapArray and OneDashboardPageWidgetHeatmapArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHeatmapArrayInput` via:
 //
@@ -8162,6 +9561,12 @@ func (i OneDashboardPageWidgetHeatmapArray) ToOneDashboardPageWidgetHeatmapArray
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmap] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmap]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHeatmapOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHeatmapOutput) ElementType() reflect.Type {
@@ -8174,6 +9579,12 @@ func (o OneDashboardPageWidgetHeatmapOutput) ToOneDashboardPageWidgetHeatmapOutp
 
 func (o OneDashboardPageWidgetHeatmapOutput) ToOneDashboardPageWidgetHeatmapOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmap] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmap]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -8273,6 +9684,12 @@ func (o OneDashboardPageWidgetHeatmapArrayOutput) ToOneDashboardPageWidgetHeatma
 	return o
 }
 
+func (o OneDashboardPageWidgetHeatmapArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmap] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmap]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardPageWidgetHeatmapArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHeatmapOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHeatmap {
 		return vs[0].([]OneDashboardPageWidgetHeatmap)[vs[1].(int)]
@@ -8316,6 +9733,12 @@ func (i OneDashboardPageWidgetHeatmapColorArgs) ToOneDashboardPageWidgetHeatmapC
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapColorOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapColorArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmapColor] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmapColor]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapColorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHeatmapColorArrayInput is an input type that accepts OneDashboardPageWidgetHeatmapColorArray and OneDashboardPageWidgetHeatmapColorArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHeatmapColorArrayInput` via:
 //
@@ -8341,6 +9764,12 @@ func (i OneDashboardPageWidgetHeatmapColorArray) ToOneDashboardPageWidgetHeatmap
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapColorArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapColorArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmapColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmapColor]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapColorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHeatmapColorOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHeatmapColorOutput) ElementType() reflect.Type {
@@ -8353,6 +9782,12 @@ func (o OneDashboardPageWidgetHeatmapColorOutput) ToOneDashboardPageWidgetHeatma
 
 func (o OneDashboardPageWidgetHeatmapColorOutput) ToOneDashboardPageWidgetHeatmapColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapColorOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapColorOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmapColor] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmapColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -8379,6 +9814,12 @@ func (o OneDashboardPageWidgetHeatmapColorArrayOutput) ToOneDashboardPageWidgetH
 
 func (o OneDashboardPageWidgetHeatmapColorArrayOutput) ToOneDashboardPageWidgetHeatmapColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapColorArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapColorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmapColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmapColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHeatmapColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHeatmapColorOutput {
@@ -8422,6 +9863,12 @@ func (i OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs) ToOneDashboardPage
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmapColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmapColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapColorSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetHeatmapColorSeriesOverrideArray and OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayInput` via:
 //
@@ -8447,6 +9894,12 @@ func (i OneDashboardPageWidgetHeatmapColorSeriesOverrideArray) ToOneDashboardPag
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapColorSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmapColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmapColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput) ElementType() reflect.Type {
@@ -8459,6 +9912,12 @@ func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput) ToOneDashboardPa
 
 func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput) ToOneDashboardPageWidgetHeatmapColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmapColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmapColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -8482,6 +9941,12 @@ func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput) ToOneDashbo
 
 func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmapColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmapColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput {
@@ -8527,6 +9992,12 @@ func (i OneDashboardPageWidgetHeatmapNrqlQueryArgs) ToOneDashboardPageWidgetHeat
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapNrqlQueryOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapNrqlQueryArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmapNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmapNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapNrqlQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHeatmapNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetHeatmapNrqlQueryArray and OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHeatmapNrqlQueryArrayInput` via:
 //
@@ -8552,6 +10023,12 @@ func (i OneDashboardPageWidgetHeatmapNrqlQueryArray) ToOneDashboardPageWidgetHea
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapNrqlQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmapNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmapNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapNrqlQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHeatmapNrqlQueryOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHeatmapNrqlQueryOutput) ElementType() reflect.Type {
@@ -8564,6 +10041,12 @@ func (o OneDashboardPageWidgetHeatmapNrqlQueryOutput) ToOneDashboardPageWidgetHe
 
 func (o OneDashboardPageWidgetHeatmapNrqlQueryOutput) ToOneDashboardPageWidgetHeatmapNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapNrqlQueryOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapNrqlQueryOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmapNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmapNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -8588,6 +10071,12 @@ func (o OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput) ToOneDashboardPageWid
 
 func (o OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput) ToOneDashboardPageWidgetHeatmapNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmapNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmapNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHeatmapNrqlQueryOutput {
@@ -8633,6 +10122,12 @@ func (i OneDashboardPageWidgetHeatmapNullValueArgs) ToOneDashboardPageWidgetHeat
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapNullValueOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapNullValueArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmapNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmapNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapNullValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHeatmapNullValueArrayInput is an input type that accepts OneDashboardPageWidgetHeatmapNullValueArray and OneDashboardPageWidgetHeatmapNullValueArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHeatmapNullValueArrayInput` via:
 //
@@ -8658,6 +10153,12 @@ func (i OneDashboardPageWidgetHeatmapNullValueArray) ToOneDashboardPageWidgetHea
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapNullValueArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapNullValueArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmapNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmapNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapNullValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHeatmapNullValueOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHeatmapNullValueOutput) ElementType() reflect.Type {
@@ -8670,6 +10171,12 @@ func (o OneDashboardPageWidgetHeatmapNullValueOutput) ToOneDashboardPageWidgetHe
 
 func (o OneDashboardPageWidgetHeatmapNullValueOutput) ToOneDashboardPageWidgetHeatmapNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapNullValueOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapNullValueOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmapNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmapNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -8696,6 +10203,12 @@ func (o OneDashboardPageWidgetHeatmapNullValueArrayOutput) ToOneDashboardPageWid
 
 func (o OneDashboardPageWidgetHeatmapNullValueArrayOutput) ToOneDashboardPageWidgetHeatmapNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapNullValueArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapNullValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmapNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmapNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHeatmapNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHeatmapNullValueOutput {
@@ -8739,6 +10252,12 @@ func (i OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs) ToOneDashboard
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmapNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmapNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArray and OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayInput` via:
 //
@@ -8764,6 +10283,12 @@ func (i OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArray) ToOneDashboar
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmapNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmapNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput) ElementType() reflect.Type {
@@ -8776,6 +10301,12 @@ func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput) ToOneDashboa
 
 func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmapNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmapNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -8799,6 +10330,12 @@ func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput) ToOneDa
 
 func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmapNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmapNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput {
@@ -8844,6 +10381,12 @@ func (i OneDashboardPageWidgetHeatmapUnitArgs) ToOneDashboardPageWidgetHeatmapUn
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapUnitOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapUnitArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmapUnit] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmapUnit]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapUnitOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHeatmapUnitArrayInput is an input type that accepts OneDashboardPageWidgetHeatmapUnitArray and OneDashboardPageWidgetHeatmapUnitArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHeatmapUnitArrayInput` via:
 //
@@ -8869,6 +10412,12 @@ func (i OneDashboardPageWidgetHeatmapUnitArray) ToOneDashboardPageWidgetHeatmapU
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapUnitArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmapUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmapUnit]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapUnitArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHeatmapUnitOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHeatmapUnitOutput) ElementType() reflect.Type {
@@ -8881,6 +10430,12 @@ func (o OneDashboardPageWidgetHeatmapUnitOutput) ToOneDashboardPageWidgetHeatmap
 
 func (o OneDashboardPageWidgetHeatmapUnitOutput) ToOneDashboardPageWidgetHeatmapUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapUnitOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapUnitOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmapUnit] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmapUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
@@ -8907,6 +10462,12 @@ func (o OneDashboardPageWidgetHeatmapUnitArrayOutput) ToOneDashboardPageWidgetHe
 
 func (o OneDashboardPageWidgetHeatmapUnitArrayOutput) ToOneDashboardPageWidgetHeatmapUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapUnitArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmapUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmapUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHeatmapUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHeatmapUnitOutput {
@@ -8950,6 +10511,12 @@ func (i OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs) ToOneDashboardPageW
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmapUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmapUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetHeatmapUnitSeriesOverrideArray and OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayInput` via:
 //
@@ -8975,6 +10542,12 @@ func (i OneDashboardPageWidgetHeatmapUnitSeriesOverrideArray) ToOneDashboardPage
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHeatmapUnitSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmapUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmapUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput) ElementType() reflect.Type {
@@ -8987,6 +10560,12 @@ func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput) ToOneDashboardPag
 
 func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput) ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHeatmapUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetHeatmapUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
@@ -9010,6 +10589,12 @@ func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput) ToOneDashboa
 
 func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHeatmapUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetHeatmapUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput {
@@ -9103,6 +10688,12 @@ func (i OneDashboardPageWidgetHistogramArgs) ToOneDashboardPageWidgetHistogramOu
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogram] {
+	return pulumix.Output[OneDashboardPageWidgetHistogram]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHistogramArrayInput is an input type that accepts OneDashboardPageWidgetHistogramArray and OneDashboardPageWidgetHistogramArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHistogramArrayInput` via:
 //
@@ -9128,6 +10719,12 @@ func (i OneDashboardPageWidgetHistogramArray) ToOneDashboardPageWidgetHistogramA
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogram] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogram]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHistogramOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHistogramOutput) ElementType() reflect.Type {
@@ -9140,6 +10737,12 @@ func (o OneDashboardPageWidgetHistogramOutput) ToOneDashboardPageWidgetHistogram
 
 func (o OneDashboardPageWidgetHistogramOutput) ToOneDashboardPageWidgetHistogramOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHistogramOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogram] {
+	return pulumix.Output[OneDashboardPageWidgetHistogram]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -9233,6 +10836,12 @@ func (o OneDashboardPageWidgetHistogramArrayOutput) ToOneDashboardPageWidgetHist
 	return o
 }
 
+func (o OneDashboardPageWidgetHistogramArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogram] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogram]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardPageWidgetHistogramArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHistogramOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHistogram {
 		return vs[0].([]OneDashboardPageWidgetHistogram)[vs[1].(int)]
@@ -9276,6 +10885,12 @@ func (i OneDashboardPageWidgetHistogramColorArgs) ToOneDashboardPageWidgetHistog
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramColorOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramColorArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogramColor] {
+	return pulumix.Output[OneDashboardPageWidgetHistogramColor]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramColorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHistogramColorArrayInput is an input type that accepts OneDashboardPageWidgetHistogramColorArray and OneDashboardPageWidgetHistogramColorArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHistogramColorArrayInput` via:
 //
@@ -9301,6 +10916,12 @@ func (i OneDashboardPageWidgetHistogramColorArray) ToOneDashboardPageWidgetHisto
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramColorArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramColorArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogramColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogramColor]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramColorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHistogramColorOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHistogramColorOutput) ElementType() reflect.Type {
@@ -9313,6 +10934,12 @@ func (o OneDashboardPageWidgetHistogramColorOutput) ToOneDashboardPageWidgetHist
 
 func (o OneDashboardPageWidgetHistogramColorOutput) ToOneDashboardPageWidgetHistogramColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramColorOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHistogramColorOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogramColor] {
+	return pulumix.Output[OneDashboardPageWidgetHistogramColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -9339,6 +10966,12 @@ func (o OneDashboardPageWidgetHistogramColorArrayOutput) ToOneDashboardPageWidge
 
 func (o OneDashboardPageWidgetHistogramColorArrayOutput) ToOneDashboardPageWidgetHistogramColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramColorArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHistogramColorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogramColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogramColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHistogramColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHistogramColorOutput {
@@ -9382,6 +11015,12 @@ func (i OneDashboardPageWidgetHistogramColorSeriesOverrideArgs) ToOneDashboardPa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramColorSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramColorSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogramColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetHistogramColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramColorSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHistogramColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetHistogramColorSeriesOverrideArray and OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHistogramColorSeriesOverrideArrayInput` via:
 //
@@ -9407,6 +11046,12 @@ func (i OneDashboardPageWidgetHistogramColorSeriesOverrideArray) ToOneDashboardP
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramColorSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogramColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogramColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHistogramColorSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHistogramColorSeriesOverrideOutput) ElementType() reflect.Type {
@@ -9419,6 +11064,12 @@ func (o OneDashboardPageWidgetHistogramColorSeriesOverrideOutput) ToOneDashboard
 
 func (o OneDashboardPageWidgetHistogramColorSeriesOverrideOutput) ToOneDashboardPageWidgetHistogramColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramColorSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHistogramColorSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogramColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetHistogramColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -9442,6 +11093,12 @@ func (o OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput) ToOneDash
 
 func (o OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogramColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogramColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHistogramColorSeriesOverrideOutput {
@@ -9487,6 +11144,12 @@ func (i OneDashboardPageWidgetHistogramNrqlQueryArgs) ToOneDashboardPageWidgetHi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramNrqlQueryOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramNrqlQueryArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogramNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetHistogramNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramNrqlQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHistogramNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetHistogramNrqlQueryArray and OneDashboardPageWidgetHistogramNrqlQueryArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHistogramNrqlQueryArrayInput` via:
 //
@@ -9512,6 +11175,12 @@ func (i OneDashboardPageWidgetHistogramNrqlQueryArray) ToOneDashboardPageWidgetH
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramNrqlQueryArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramNrqlQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogramNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogramNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramNrqlQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHistogramNrqlQueryOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHistogramNrqlQueryOutput) ElementType() reflect.Type {
@@ -9524,6 +11193,12 @@ func (o OneDashboardPageWidgetHistogramNrqlQueryOutput) ToOneDashboardPageWidget
 
 func (o OneDashboardPageWidgetHistogramNrqlQueryOutput) ToOneDashboardPageWidgetHistogramNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramNrqlQueryOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHistogramNrqlQueryOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogramNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetHistogramNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -9548,6 +11223,12 @@ func (o OneDashboardPageWidgetHistogramNrqlQueryArrayOutput) ToOneDashboardPageW
 
 func (o OneDashboardPageWidgetHistogramNrqlQueryArrayOutput) ToOneDashboardPageWidgetHistogramNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramNrqlQueryArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHistogramNrqlQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogramNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogramNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHistogramNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHistogramNrqlQueryOutput {
@@ -9593,6 +11274,12 @@ func (i OneDashboardPageWidgetHistogramNullValueArgs) ToOneDashboardPageWidgetHi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramNullValueOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramNullValueArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogramNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetHistogramNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramNullValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHistogramNullValueArrayInput is an input type that accepts OneDashboardPageWidgetHistogramNullValueArray and OneDashboardPageWidgetHistogramNullValueArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHistogramNullValueArrayInput` via:
 //
@@ -9618,6 +11305,12 @@ func (i OneDashboardPageWidgetHistogramNullValueArray) ToOneDashboardPageWidgetH
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramNullValueArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramNullValueArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogramNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogramNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramNullValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHistogramNullValueOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHistogramNullValueOutput) ElementType() reflect.Type {
@@ -9630,6 +11323,12 @@ func (o OneDashboardPageWidgetHistogramNullValueOutput) ToOneDashboardPageWidget
 
 func (o OneDashboardPageWidgetHistogramNullValueOutput) ToOneDashboardPageWidgetHistogramNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramNullValueOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHistogramNullValueOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogramNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetHistogramNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -9656,6 +11355,12 @@ func (o OneDashboardPageWidgetHistogramNullValueArrayOutput) ToOneDashboardPageW
 
 func (o OneDashboardPageWidgetHistogramNullValueArrayOutput) ToOneDashboardPageWidgetHistogramNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramNullValueArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHistogramNullValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogramNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogramNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHistogramNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHistogramNullValueOutput {
@@ -9699,6 +11404,12 @@ func (i OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs) ToOneDashboa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogramNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetHistogramNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetHistogramNullValueSeriesOverrideArray and OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayInput` via:
 //
@@ -9724,6 +11435,12 @@ func (i OneDashboardPageWidgetHistogramNullValueSeriesOverrideArray) ToOneDashbo
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramNullValueSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogramNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogramNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput) ElementType() reflect.Type {
@@ -9736,6 +11453,12 @@ func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput) ToOneDashb
 
 func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogramNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetHistogramNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -9759,6 +11482,12 @@ func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput) ToOne
 
 func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogramNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogramNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput {
@@ -9804,6 +11533,12 @@ func (i OneDashboardPageWidgetHistogramUnitArgs) ToOneDashboardPageWidgetHistogr
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramUnitOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramUnitArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogramUnit] {
+	return pulumix.Output[OneDashboardPageWidgetHistogramUnit]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramUnitOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHistogramUnitArrayInput is an input type that accepts OneDashboardPageWidgetHistogramUnitArray and OneDashboardPageWidgetHistogramUnitArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHistogramUnitArrayInput` via:
 //
@@ -9829,6 +11564,12 @@ func (i OneDashboardPageWidgetHistogramUnitArray) ToOneDashboardPageWidgetHistog
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramUnitArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogramUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogramUnit]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramUnitArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHistogramUnitOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHistogramUnitOutput) ElementType() reflect.Type {
@@ -9841,6 +11582,12 @@ func (o OneDashboardPageWidgetHistogramUnitOutput) ToOneDashboardPageWidgetHisto
 
 func (o OneDashboardPageWidgetHistogramUnitOutput) ToOneDashboardPageWidgetHistogramUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramUnitOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHistogramUnitOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogramUnit] {
+	return pulumix.Output[OneDashboardPageWidgetHistogramUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
@@ -9867,6 +11614,12 @@ func (o OneDashboardPageWidgetHistogramUnitArrayOutput) ToOneDashboardPageWidget
 
 func (o OneDashboardPageWidgetHistogramUnitArrayOutput) ToOneDashboardPageWidgetHistogramUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramUnitArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHistogramUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogramUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogramUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHistogramUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHistogramUnitOutput {
@@ -9910,6 +11663,12 @@ func (i OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs) ToOneDashboardPag
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogramUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetHistogramUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramUnitSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetHistogramUnitSeriesOverrideArray and OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayInput` via:
 //
@@ -9935,6 +11694,12 @@ func (i OneDashboardPageWidgetHistogramUnitSeriesOverrideArray) ToOneDashboardPa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetHistogramUnitSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogramUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogramUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput) ElementType() reflect.Type {
@@ -9947,6 +11712,12 @@ func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput) ToOneDashboardP
 
 func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput) ToOneDashboardPageWidgetHistogramUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetHistogramUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetHistogramUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
@@ -9970,6 +11741,12 @@ func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput) ToOneDashb
 
 func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetHistogramUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetHistogramUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput {
@@ -10063,6 +11840,12 @@ func (i OneDashboardPageWidgetJsonArgs) ToOneDashboardPageWidgetJsonOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonOutput)
 }
 
+func (i OneDashboardPageWidgetJsonArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJson] {
+	return pulumix.Output[OneDashboardPageWidgetJson]{
+		OutputState: i.ToOneDashboardPageWidgetJsonOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetJsonArrayInput is an input type that accepts OneDashboardPageWidgetJsonArray and OneDashboardPageWidgetJsonArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetJsonArrayInput` via:
 //
@@ -10088,6 +11871,12 @@ func (i OneDashboardPageWidgetJsonArray) ToOneDashboardPageWidgetJsonArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonArrayOutput)
 }
 
+func (i OneDashboardPageWidgetJsonArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJson] {
+	return pulumix.Output[[]OneDashboardPageWidgetJson]{
+		OutputState: i.ToOneDashboardPageWidgetJsonArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetJsonOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetJsonOutput) ElementType() reflect.Type {
@@ -10100,6 +11889,12 @@ func (o OneDashboardPageWidgetJsonOutput) ToOneDashboardPageWidgetJsonOutput() O
 
 func (o OneDashboardPageWidgetJsonOutput) ToOneDashboardPageWidgetJsonOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetJsonOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJson] {
+	return pulumix.Output[OneDashboardPageWidgetJson]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -10189,6 +11984,12 @@ func (o OneDashboardPageWidgetJsonArrayOutput) ToOneDashboardPageWidgetJsonArray
 	return o
 }
 
+func (o OneDashboardPageWidgetJsonArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJson] {
+	return pulumix.Output[[]OneDashboardPageWidgetJson]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardPageWidgetJsonArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetJsonOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetJson {
 		return vs[0].([]OneDashboardPageWidgetJson)[vs[1].(int)]
@@ -10232,6 +12033,12 @@ func (i OneDashboardPageWidgetJsonColorArgs) ToOneDashboardPageWidgetJsonColorOu
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonColorOutput)
 }
 
+func (i OneDashboardPageWidgetJsonColorArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJsonColor] {
+	return pulumix.Output[OneDashboardPageWidgetJsonColor]{
+		OutputState: i.ToOneDashboardPageWidgetJsonColorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetJsonColorArrayInput is an input type that accepts OneDashboardPageWidgetJsonColorArray and OneDashboardPageWidgetJsonColorArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetJsonColorArrayInput` via:
 //
@@ -10257,6 +12064,12 @@ func (i OneDashboardPageWidgetJsonColorArray) ToOneDashboardPageWidgetJsonColorA
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonColorArrayOutput)
 }
 
+func (i OneDashboardPageWidgetJsonColorArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJsonColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetJsonColor]{
+		OutputState: i.ToOneDashboardPageWidgetJsonColorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetJsonColorOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetJsonColorOutput) ElementType() reflect.Type {
@@ -10269,6 +12082,12 @@ func (o OneDashboardPageWidgetJsonColorOutput) ToOneDashboardPageWidgetJsonColor
 
 func (o OneDashboardPageWidgetJsonColorOutput) ToOneDashboardPageWidgetJsonColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonColorOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetJsonColorOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJsonColor] {
+	return pulumix.Output[OneDashboardPageWidgetJsonColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -10295,6 +12114,12 @@ func (o OneDashboardPageWidgetJsonColorArrayOutput) ToOneDashboardPageWidgetJson
 
 func (o OneDashboardPageWidgetJsonColorArrayOutput) ToOneDashboardPageWidgetJsonColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonColorArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetJsonColorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJsonColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetJsonColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetJsonColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetJsonColorOutput {
@@ -10338,6 +12163,12 @@ func (i OneDashboardPageWidgetJsonColorSeriesOverrideArgs) ToOneDashboardPageWid
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonColorSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetJsonColorSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJsonColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetJsonColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetJsonColorSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetJsonColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetJsonColorSeriesOverrideArray and OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetJsonColorSeriesOverrideArrayInput` via:
 //
@@ -10363,6 +12194,12 @@ func (i OneDashboardPageWidgetJsonColorSeriesOverrideArray) ToOneDashboardPageWi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetJsonColorSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJsonColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetJsonColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetJsonColorSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetJsonColorSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetJsonColorSeriesOverrideOutput) ElementType() reflect.Type {
@@ -10375,6 +12212,12 @@ func (o OneDashboardPageWidgetJsonColorSeriesOverrideOutput) ToOneDashboardPageW
 
 func (o OneDashboardPageWidgetJsonColorSeriesOverrideOutput) ToOneDashboardPageWidgetJsonColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonColorSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetJsonColorSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJsonColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetJsonColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -10398,6 +12241,12 @@ func (o OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput) ToOneDashboard
 
 func (o OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetJsonColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJsonColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetJsonColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetJsonColorSeriesOverrideOutput {
@@ -10443,6 +12292,12 @@ func (i OneDashboardPageWidgetJsonNrqlQueryArgs) ToOneDashboardPageWidgetJsonNrq
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonNrqlQueryOutput)
 }
 
+func (i OneDashboardPageWidgetJsonNrqlQueryArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJsonNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetJsonNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetJsonNrqlQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetJsonNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetJsonNrqlQueryArray and OneDashboardPageWidgetJsonNrqlQueryArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetJsonNrqlQueryArrayInput` via:
 //
@@ -10468,6 +12323,12 @@ func (i OneDashboardPageWidgetJsonNrqlQueryArray) ToOneDashboardPageWidgetJsonNr
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonNrqlQueryArrayOutput)
 }
 
+func (i OneDashboardPageWidgetJsonNrqlQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJsonNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetJsonNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetJsonNrqlQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetJsonNrqlQueryOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetJsonNrqlQueryOutput) ElementType() reflect.Type {
@@ -10480,6 +12341,12 @@ func (o OneDashboardPageWidgetJsonNrqlQueryOutput) ToOneDashboardPageWidgetJsonN
 
 func (o OneDashboardPageWidgetJsonNrqlQueryOutput) ToOneDashboardPageWidgetJsonNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonNrqlQueryOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetJsonNrqlQueryOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJsonNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetJsonNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -10504,6 +12371,12 @@ func (o OneDashboardPageWidgetJsonNrqlQueryArrayOutput) ToOneDashboardPageWidget
 
 func (o OneDashboardPageWidgetJsonNrqlQueryArrayOutput) ToOneDashboardPageWidgetJsonNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonNrqlQueryArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetJsonNrqlQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJsonNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetJsonNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetJsonNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetJsonNrqlQueryOutput {
@@ -10549,6 +12422,12 @@ func (i OneDashboardPageWidgetJsonNullValueArgs) ToOneDashboardPageWidgetJsonNul
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonNullValueOutput)
 }
 
+func (i OneDashboardPageWidgetJsonNullValueArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJsonNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetJsonNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetJsonNullValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetJsonNullValueArrayInput is an input type that accepts OneDashboardPageWidgetJsonNullValueArray and OneDashboardPageWidgetJsonNullValueArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetJsonNullValueArrayInput` via:
 //
@@ -10574,6 +12453,12 @@ func (i OneDashboardPageWidgetJsonNullValueArray) ToOneDashboardPageWidgetJsonNu
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonNullValueArrayOutput)
 }
 
+func (i OneDashboardPageWidgetJsonNullValueArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJsonNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetJsonNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetJsonNullValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetJsonNullValueOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetJsonNullValueOutput) ElementType() reflect.Type {
@@ -10586,6 +12471,12 @@ func (o OneDashboardPageWidgetJsonNullValueOutput) ToOneDashboardPageWidgetJsonN
 
 func (o OneDashboardPageWidgetJsonNullValueOutput) ToOneDashboardPageWidgetJsonNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonNullValueOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetJsonNullValueOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJsonNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetJsonNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -10612,6 +12503,12 @@ func (o OneDashboardPageWidgetJsonNullValueArrayOutput) ToOneDashboardPageWidget
 
 func (o OneDashboardPageWidgetJsonNullValueArrayOutput) ToOneDashboardPageWidgetJsonNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonNullValueArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetJsonNullValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJsonNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetJsonNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetJsonNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetJsonNullValueOutput {
@@ -10655,6 +12552,12 @@ func (i OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs) ToOneDashboardPag
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJsonNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetJsonNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetJsonNullValueSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetJsonNullValueSeriesOverrideArray and OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayInput` via:
 //
@@ -10680,6 +12583,12 @@ func (i OneDashboardPageWidgetJsonNullValueSeriesOverrideArray) ToOneDashboardPa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetJsonNullValueSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJsonNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetJsonNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput) ElementType() reflect.Type {
@@ -10692,6 +12601,12 @@ func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput) ToOneDashboardP
 
 func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetJsonNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJsonNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetJsonNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -10715,6 +12630,12 @@ func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput) ToOneDashb
 
 func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJsonNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetJsonNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput {
@@ -10760,6 +12681,12 @@ func (i OneDashboardPageWidgetJsonUnitArgs) ToOneDashboardPageWidgetJsonUnitOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonUnitOutput)
 }
 
+func (i OneDashboardPageWidgetJsonUnitArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJsonUnit] {
+	return pulumix.Output[OneDashboardPageWidgetJsonUnit]{
+		OutputState: i.ToOneDashboardPageWidgetJsonUnitOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetJsonUnitArrayInput is an input type that accepts OneDashboardPageWidgetJsonUnitArray and OneDashboardPageWidgetJsonUnitArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetJsonUnitArrayInput` via:
 //
@@ -10785,6 +12712,12 @@ func (i OneDashboardPageWidgetJsonUnitArray) ToOneDashboardPageWidgetJsonUnitArr
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonUnitArrayOutput)
 }
 
+func (i OneDashboardPageWidgetJsonUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJsonUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetJsonUnit]{
+		OutputState: i.ToOneDashboardPageWidgetJsonUnitArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetJsonUnitOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetJsonUnitOutput) ElementType() reflect.Type {
@@ -10797,6 +12730,12 @@ func (o OneDashboardPageWidgetJsonUnitOutput) ToOneDashboardPageWidgetJsonUnitOu
 
 func (o OneDashboardPageWidgetJsonUnitOutput) ToOneDashboardPageWidgetJsonUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonUnitOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetJsonUnitOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJsonUnit] {
+	return pulumix.Output[OneDashboardPageWidgetJsonUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
@@ -10823,6 +12762,12 @@ func (o OneDashboardPageWidgetJsonUnitArrayOutput) ToOneDashboardPageWidgetJsonU
 
 func (o OneDashboardPageWidgetJsonUnitArrayOutput) ToOneDashboardPageWidgetJsonUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonUnitArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetJsonUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJsonUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetJsonUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetJsonUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetJsonUnitOutput {
@@ -10866,6 +12811,12 @@ func (i OneDashboardPageWidgetJsonUnitSeriesOverrideArgs) ToOneDashboardPageWidg
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonUnitSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetJsonUnitSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJsonUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetJsonUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetJsonUnitSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetJsonUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetJsonUnitSeriesOverrideArray and OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetJsonUnitSeriesOverrideArrayInput` via:
 //
@@ -10891,6 +12842,12 @@ func (i OneDashboardPageWidgetJsonUnitSeriesOverrideArray) ToOneDashboardPageWid
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetJsonUnitSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJsonUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetJsonUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetJsonUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetJsonUnitSeriesOverrideOutput) ElementType() reflect.Type {
@@ -10903,6 +12860,12 @@ func (o OneDashboardPageWidgetJsonUnitSeriesOverrideOutput) ToOneDashboardPageWi
 
 func (o OneDashboardPageWidgetJsonUnitSeriesOverrideOutput) ToOneDashboardPageWidgetJsonUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonUnitSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetJsonUnitSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetJsonUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetJsonUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetJsonUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
@@ -10926,6 +12889,12 @@ func (o OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput) ToOneDashboardP
 
 func (o OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetJsonUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetJsonUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetJsonUnitSeriesOverrideOutput {
@@ -11023,6 +12992,12 @@ func (i OneDashboardPageWidgetLineArgs) ToOneDashboardPageWidgetLineOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineOutput)
 }
 
+func (i OneDashboardPageWidgetLineArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLine] {
+	return pulumix.Output[OneDashboardPageWidgetLine]{
+		OutputState: i.ToOneDashboardPageWidgetLineOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLineArrayInput is an input type that accepts OneDashboardPageWidgetLineArray and OneDashboardPageWidgetLineArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLineArrayInput` via:
 //
@@ -11048,6 +13023,12 @@ func (i OneDashboardPageWidgetLineArray) ToOneDashboardPageWidgetLineArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLineArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLine] {
+	return pulumix.Output[[]OneDashboardPageWidgetLine]{
+		OutputState: i.ToOneDashboardPageWidgetLineArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLineOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLineOutput) ElementType() reflect.Type {
@@ -11060,6 +13041,12 @@ func (o OneDashboardPageWidgetLineOutput) ToOneDashboardPageWidgetLineOutput() O
 
 func (o OneDashboardPageWidgetLineOutput) ToOneDashboardPageWidgetLineOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLineOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLine] {
+	return pulumix.Output[OneDashboardPageWidgetLine]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -11154,6 +13141,12 @@ func (o OneDashboardPageWidgetLineArrayOutput) ToOneDashboardPageWidgetLineArray
 	return o
 }
 
+func (o OneDashboardPageWidgetLineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLine] {
+	return pulumix.Output[[]OneDashboardPageWidgetLine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardPageWidgetLineArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLine {
 		return vs[0].([]OneDashboardPageWidgetLine)[vs[1].(int)]
@@ -11197,6 +13190,12 @@ func (i OneDashboardPageWidgetLineColorArgs) ToOneDashboardPageWidgetLineColorOu
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineColorOutput)
 }
 
+func (i OneDashboardPageWidgetLineColorArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLineColor] {
+	return pulumix.Output[OneDashboardPageWidgetLineColor]{
+		OutputState: i.ToOneDashboardPageWidgetLineColorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLineColorArrayInput is an input type that accepts OneDashboardPageWidgetLineColorArray and OneDashboardPageWidgetLineColorArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLineColorArrayInput` via:
 //
@@ -11222,6 +13221,12 @@ func (i OneDashboardPageWidgetLineColorArray) ToOneDashboardPageWidgetLineColorA
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineColorArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLineColorArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLineColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetLineColor]{
+		OutputState: i.ToOneDashboardPageWidgetLineColorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLineColorOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLineColorOutput) ElementType() reflect.Type {
@@ -11234,6 +13239,12 @@ func (o OneDashboardPageWidgetLineColorOutput) ToOneDashboardPageWidgetLineColor
 
 func (o OneDashboardPageWidgetLineColorOutput) ToOneDashboardPageWidgetLineColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineColorOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLineColorOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLineColor] {
+	return pulumix.Output[OneDashboardPageWidgetLineColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -11260,6 +13271,12 @@ func (o OneDashboardPageWidgetLineColorArrayOutput) ToOneDashboardPageWidgetLine
 
 func (o OneDashboardPageWidgetLineColorArrayOutput) ToOneDashboardPageWidgetLineColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineColorArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLineColorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLineColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetLineColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLineColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineColorOutput {
@@ -11303,6 +13320,12 @@ func (i OneDashboardPageWidgetLineColorSeriesOverrideArgs) ToOneDashboardPageWid
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineColorSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetLineColorSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLineColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetLineColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetLineColorSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLineColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetLineColorSeriesOverrideArray and OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLineColorSeriesOverrideArrayInput` via:
 //
@@ -11328,6 +13351,12 @@ func (i OneDashboardPageWidgetLineColorSeriesOverrideArray) ToOneDashboardPageWi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLineColorSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLineColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetLineColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetLineColorSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLineColorSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLineColorSeriesOverrideOutput) ElementType() reflect.Type {
@@ -11340,6 +13369,12 @@ func (o OneDashboardPageWidgetLineColorSeriesOverrideOutput) ToOneDashboardPageW
 
 func (o OneDashboardPageWidgetLineColorSeriesOverrideOutput) ToOneDashboardPageWidgetLineColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineColorSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLineColorSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLineColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetLineColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -11363,6 +13398,12 @@ func (o OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput) ToOneDashboard
 
 func (o OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLineColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLineColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetLineColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineColorSeriesOverrideOutput {
@@ -11408,6 +13449,12 @@ func (i OneDashboardPageWidgetLineNrqlQueryArgs) ToOneDashboardPageWidgetLineNrq
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineNrqlQueryOutput)
 }
 
+func (i OneDashboardPageWidgetLineNrqlQueryArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLineNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetLineNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetLineNrqlQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLineNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetLineNrqlQueryArray and OneDashboardPageWidgetLineNrqlQueryArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLineNrqlQueryArrayInput` via:
 //
@@ -11433,6 +13480,12 @@ func (i OneDashboardPageWidgetLineNrqlQueryArray) ToOneDashboardPageWidgetLineNr
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineNrqlQueryArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLineNrqlQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLineNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetLineNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetLineNrqlQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLineNrqlQueryOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLineNrqlQueryOutput) ElementType() reflect.Type {
@@ -11445,6 +13498,12 @@ func (o OneDashboardPageWidgetLineNrqlQueryOutput) ToOneDashboardPageWidgetLineN
 
 func (o OneDashboardPageWidgetLineNrqlQueryOutput) ToOneDashboardPageWidgetLineNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNrqlQueryOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLineNrqlQueryOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLineNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetLineNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -11469,6 +13528,12 @@ func (o OneDashboardPageWidgetLineNrqlQueryArrayOutput) ToOneDashboardPageWidget
 
 func (o OneDashboardPageWidgetLineNrqlQueryArrayOutput) ToOneDashboardPageWidgetLineNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNrqlQueryArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLineNrqlQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLineNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetLineNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLineNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineNrqlQueryOutput {
@@ -11514,6 +13579,12 @@ func (i OneDashboardPageWidgetLineNullValueArgs) ToOneDashboardPageWidgetLineNul
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineNullValueOutput)
 }
 
+func (i OneDashboardPageWidgetLineNullValueArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLineNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetLineNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetLineNullValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLineNullValueArrayInput is an input type that accepts OneDashboardPageWidgetLineNullValueArray and OneDashboardPageWidgetLineNullValueArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLineNullValueArrayInput` via:
 //
@@ -11539,6 +13610,12 @@ func (i OneDashboardPageWidgetLineNullValueArray) ToOneDashboardPageWidgetLineNu
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineNullValueArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLineNullValueArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLineNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetLineNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetLineNullValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLineNullValueOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLineNullValueOutput) ElementType() reflect.Type {
@@ -11551,6 +13628,12 @@ func (o OneDashboardPageWidgetLineNullValueOutput) ToOneDashboardPageWidgetLineN
 
 func (o OneDashboardPageWidgetLineNullValueOutput) ToOneDashboardPageWidgetLineNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNullValueOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLineNullValueOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLineNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetLineNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -11577,6 +13660,12 @@ func (o OneDashboardPageWidgetLineNullValueArrayOutput) ToOneDashboardPageWidget
 
 func (o OneDashboardPageWidgetLineNullValueArrayOutput) ToOneDashboardPageWidgetLineNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNullValueArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLineNullValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLineNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetLineNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLineNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineNullValueOutput {
@@ -11620,6 +13709,12 @@ func (i OneDashboardPageWidgetLineNullValueSeriesOverrideArgs) ToOneDashboardPag
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineNullValueSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetLineNullValueSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLineNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetLineNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetLineNullValueSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLineNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetLineNullValueSeriesOverrideArray and OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLineNullValueSeriesOverrideArrayInput` via:
 //
@@ -11645,6 +13740,12 @@ func (i OneDashboardPageWidgetLineNullValueSeriesOverrideArray) ToOneDashboardPa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLineNullValueSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLineNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetLineNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLineNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLineNullValueSeriesOverrideOutput) ElementType() reflect.Type {
@@ -11657,6 +13758,12 @@ func (o OneDashboardPageWidgetLineNullValueSeriesOverrideOutput) ToOneDashboardP
 
 func (o OneDashboardPageWidgetLineNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetLineNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNullValueSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLineNullValueSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLineNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetLineNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -11680,6 +13787,12 @@ func (o OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput) ToOneDashb
 
 func (o OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLineNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetLineNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineNullValueSeriesOverrideOutput {
@@ -11725,6 +13838,12 @@ func (i OneDashboardPageWidgetLineUnitArgs) ToOneDashboardPageWidgetLineUnitOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineUnitOutput)
 }
 
+func (i OneDashboardPageWidgetLineUnitArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLineUnit] {
+	return pulumix.Output[OneDashboardPageWidgetLineUnit]{
+		OutputState: i.ToOneDashboardPageWidgetLineUnitOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLineUnitArrayInput is an input type that accepts OneDashboardPageWidgetLineUnitArray and OneDashboardPageWidgetLineUnitArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLineUnitArrayInput` via:
 //
@@ -11750,6 +13869,12 @@ func (i OneDashboardPageWidgetLineUnitArray) ToOneDashboardPageWidgetLineUnitArr
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineUnitArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLineUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLineUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetLineUnit]{
+		OutputState: i.ToOneDashboardPageWidgetLineUnitArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLineUnitOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLineUnitOutput) ElementType() reflect.Type {
@@ -11762,6 +13887,12 @@ func (o OneDashboardPageWidgetLineUnitOutput) ToOneDashboardPageWidgetLineUnitOu
 
 func (o OneDashboardPageWidgetLineUnitOutput) ToOneDashboardPageWidgetLineUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineUnitOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLineUnitOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLineUnit] {
+	return pulumix.Output[OneDashboardPageWidgetLineUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
@@ -11788,6 +13919,12 @@ func (o OneDashboardPageWidgetLineUnitArrayOutput) ToOneDashboardPageWidgetLineU
 
 func (o OneDashboardPageWidgetLineUnitArrayOutput) ToOneDashboardPageWidgetLineUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineUnitArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLineUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLineUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetLineUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLineUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineUnitOutput {
@@ -11831,6 +13968,12 @@ func (i OneDashboardPageWidgetLineUnitSeriesOverrideArgs) ToOneDashboardPageWidg
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineUnitSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetLineUnitSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLineUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetLineUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetLineUnitSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLineUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetLineUnitSeriesOverrideArray and OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLineUnitSeriesOverrideArrayInput` via:
 //
@@ -11856,6 +13999,12 @@ func (i OneDashboardPageWidgetLineUnitSeriesOverrideArray) ToOneDashboardPageWid
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLineUnitSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLineUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetLineUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetLineUnitSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLineUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLineUnitSeriesOverrideOutput) ElementType() reflect.Type {
@@ -11868,6 +14017,12 @@ func (o OneDashboardPageWidgetLineUnitSeriesOverrideOutput) ToOneDashboardPageWi
 
 func (o OneDashboardPageWidgetLineUnitSeriesOverrideOutput) ToOneDashboardPageWidgetLineUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineUnitSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLineUnitSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLineUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetLineUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLineUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
@@ -11891,6 +14046,12 @@ func (o OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput) ToOneDashboardP
 
 func (o OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLineUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLineUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetLineUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineUnitSeriesOverrideOutput {
@@ -11984,6 +14145,12 @@ func (i OneDashboardPageWidgetLogTableArgs) ToOneDashboardPageWidgetLogTableOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTable] {
+	return pulumix.Output[OneDashboardPageWidgetLogTable]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLogTableArrayInput is an input type that accepts OneDashboardPageWidgetLogTableArray and OneDashboardPageWidgetLogTableArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLogTableArrayInput` via:
 //
@@ -12009,6 +14176,12 @@ func (i OneDashboardPageWidgetLogTableArray) ToOneDashboardPageWidgetLogTableArr
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTable] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTable]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLogTableOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLogTableOutput) ElementType() reflect.Type {
@@ -12021,6 +14194,12 @@ func (o OneDashboardPageWidgetLogTableOutput) ToOneDashboardPageWidgetLogTableOu
 
 func (o OneDashboardPageWidgetLogTableOutput) ToOneDashboardPageWidgetLogTableOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLogTableOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTable] {
+	return pulumix.Output[OneDashboardPageWidgetLogTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -12110,6 +14289,12 @@ func (o OneDashboardPageWidgetLogTableArrayOutput) ToOneDashboardPageWidgetLogTa
 	return o
 }
 
+func (o OneDashboardPageWidgetLogTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTable] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardPageWidgetLogTableArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLogTable {
 		return vs[0].([]OneDashboardPageWidgetLogTable)[vs[1].(int)]
@@ -12153,6 +14338,12 @@ func (i OneDashboardPageWidgetLogTableColorArgs) ToOneDashboardPageWidgetLogTabl
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableColorOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableColorArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTableColor] {
+	return pulumix.Output[OneDashboardPageWidgetLogTableColor]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableColorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLogTableColorArrayInput is an input type that accepts OneDashboardPageWidgetLogTableColorArray and OneDashboardPageWidgetLogTableColorArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLogTableColorArrayInput` via:
 //
@@ -12178,6 +14369,12 @@ func (i OneDashboardPageWidgetLogTableColorArray) ToOneDashboardPageWidgetLogTab
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableColorArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableColorArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTableColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTableColor]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableColorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLogTableColorOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLogTableColorOutput) ElementType() reflect.Type {
@@ -12190,6 +14387,12 @@ func (o OneDashboardPageWidgetLogTableColorOutput) ToOneDashboardPageWidgetLogTa
 
 func (o OneDashboardPageWidgetLogTableColorOutput) ToOneDashboardPageWidgetLogTableColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableColorOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLogTableColorOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTableColor] {
+	return pulumix.Output[OneDashboardPageWidgetLogTableColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -12216,6 +14419,12 @@ func (o OneDashboardPageWidgetLogTableColorArrayOutput) ToOneDashboardPageWidget
 
 func (o OneDashboardPageWidgetLogTableColorArrayOutput) ToOneDashboardPageWidgetLogTableColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableColorArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLogTableColorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTableColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTableColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLogTableColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableColorOutput {
@@ -12259,6 +14468,12 @@ func (i OneDashboardPageWidgetLogTableColorSeriesOverrideArgs) ToOneDashboardPag
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableColorSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableColorSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTableColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetLogTableColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableColorSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLogTableColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetLogTableColorSeriesOverrideArray and OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLogTableColorSeriesOverrideArrayInput` via:
 //
@@ -12284,6 +14499,12 @@ func (i OneDashboardPageWidgetLogTableColorSeriesOverrideArray) ToOneDashboardPa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableColorSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTableColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTableColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLogTableColorSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLogTableColorSeriesOverrideOutput) ElementType() reflect.Type {
@@ -12296,6 +14517,12 @@ func (o OneDashboardPageWidgetLogTableColorSeriesOverrideOutput) ToOneDashboardP
 
 func (o OneDashboardPageWidgetLogTableColorSeriesOverrideOutput) ToOneDashboardPageWidgetLogTableColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableColorSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLogTableColorSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTableColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetLogTableColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -12319,6 +14546,12 @@ func (o OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput) ToOneDashb
 
 func (o OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTableColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTableColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableColorSeriesOverrideOutput {
@@ -12364,6 +14597,12 @@ func (i OneDashboardPageWidgetLogTableNrqlQueryArgs) ToOneDashboardPageWidgetLog
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableNrqlQueryOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableNrqlQueryArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTableNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetLogTableNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableNrqlQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLogTableNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetLogTableNrqlQueryArray and OneDashboardPageWidgetLogTableNrqlQueryArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLogTableNrqlQueryArrayInput` via:
 //
@@ -12389,6 +14628,12 @@ func (i OneDashboardPageWidgetLogTableNrqlQueryArray) ToOneDashboardPageWidgetLo
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableNrqlQueryArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableNrqlQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTableNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTableNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableNrqlQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLogTableNrqlQueryOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLogTableNrqlQueryOutput) ElementType() reflect.Type {
@@ -12401,6 +14646,12 @@ func (o OneDashboardPageWidgetLogTableNrqlQueryOutput) ToOneDashboardPageWidgetL
 
 func (o OneDashboardPageWidgetLogTableNrqlQueryOutput) ToOneDashboardPageWidgetLogTableNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNrqlQueryOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLogTableNrqlQueryOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTableNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetLogTableNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -12425,6 +14676,12 @@ func (o OneDashboardPageWidgetLogTableNrqlQueryArrayOutput) ToOneDashboardPageWi
 
 func (o OneDashboardPageWidgetLogTableNrqlQueryArrayOutput) ToOneDashboardPageWidgetLogTableNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNrqlQueryArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLogTableNrqlQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTableNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTableNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLogTableNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableNrqlQueryOutput {
@@ -12470,6 +14727,12 @@ func (i OneDashboardPageWidgetLogTableNullValueArgs) ToOneDashboardPageWidgetLog
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableNullValueOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableNullValueArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTableNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetLogTableNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableNullValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLogTableNullValueArrayInput is an input type that accepts OneDashboardPageWidgetLogTableNullValueArray and OneDashboardPageWidgetLogTableNullValueArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLogTableNullValueArrayInput` via:
 //
@@ -12495,6 +14758,12 @@ func (i OneDashboardPageWidgetLogTableNullValueArray) ToOneDashboardPageWidgetLo
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableNullValueArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableNullValueArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTableNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTableNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableNullValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLogTableNullValueOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLogTableNullValueOutput) ElementType() reflect.Type {
@@ -12507,6 +14776,12 @@ func (o OneDashboardPageWidgetLogTableNullValueOutput) ToOneDashboardPageWidgetL
 
 func (o OneDashboardPageWidgetLogTableNullValueOutput) ToOneDashboardPageWidgetLogTableNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNullValueOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLogTableNullValueOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTableNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetLogTableNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -12533,6 +14808,12 @@ func (o OneDashboardPageWidgetLogTableNullValueArrayOutput) ToOneDashboardPageWi
 
 func (o OneDashboardPageWidgetLogTableNullValueArrayOutput) ToOneDashboardPageWidgetLogTableNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNullValueArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLogTableNullValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTableNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTableNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLogTableNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableNullValueOutput {
@@ -12576,6 +14857,12 @@ func (i OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs) ToOneDashboar
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTableNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetLogTableNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetLogTableNullValueSeriesOverrideArray and OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayInput` via:
 //
@@ -12601,6 +14888,12 @@ func (i OneDashboardPageWidgetLogTableNullValueSeriesOverrideArray) ToOneDashboa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableNullValueSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTableNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTableNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput) ElementType() reflect.Type {
@@ -12613,6 +14906,12 @@ func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput) ToOneDashbo
 
 func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTableNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetLogTableNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -12636,6 +14935,12 @@ func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput) ToOneD
 
 func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTableNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTableNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput {
@@ -12681,6 +14986,12 @@ func (i OneDashboardPageWidgetLogTableUnitArgs) ToOneDashboardPageWidgetLogTable
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableUnitOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableUnitArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTableUnit] {
+	return pulumix.Output[OneDashboardPageWidgetLogTableUnit]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableUnitOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLogTableUnitArrayInput is an input type that accepts OneDashboardPageWidgetLogTableUnitArray and OneDashboardPageWidgetLogTableUnitArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLogTableUnitArrayInput` via:
 //
@@ -12706,6 +15017,12 @@ func (i OneDashboardPageWidgetLogTableUnitArray) ToOneDashboardPageWidgetLogTabl
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableUnitArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTableUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTableUnit]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableUnitArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLogTableUnitOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLogTableUnitOutput) ElementType() reflect.Type {
@@ -12718,6 +15035,12 @@ func (o OneDashboardPageWidgetLogTableUnitOutput) ToOneDashboardPageWidgetLogTab
 
 func (o OneDashboardPageWidgetLogTableUnitOutput) ToOneDashboardPageWidgetLogTableUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableUnitOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLogTableUnitOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTableUnit] {
+	return pulumix.Output[OneDashboardPageWidgetLogTableUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
@@ -12744,6 +15067,12 @@ func (o OneDashboardPageWidgetLogTableUnitArrayOutput) ToOneDashboardPageWidgetL
 
 func (o OneDashboardPageWidgetLogTableUnitArrayOutput) ToOneDashboardPageWidgetLogTableUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableUnitArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLogTableUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTableUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTableUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLogTableUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableUnitOutput {
@@ -12787,6 +15116,12 @@ func (i OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs) ToOneDashboardPage
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTableUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetLogTableUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableUnitSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetLogTableUnitSeriesOverrideArray and OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayInput` via:
 //
@@ -12812,6 +15147,12 @@ func (i OneDashboardPageWidgetLogTableUnitSeriesOverrideArray) ToOneDashboardPag
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetLogTableUnitSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTableUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTableUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput) ElementType() reflect.Type {
@@ -12824,6 +15165,12 @@ func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput) ToOneDashboardPa
 
 func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput) ToOneDashboardPageWidgetLogTableUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetLogTableUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetLogTableUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
@@ -12847,6 +15194,12 @@ func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput) ToOneDashbo
 
 func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetLogTableUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetLogTableUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput {
@@ -12940,6 +15293,12 @@ func (i OneDashboardPageWidgetMarkdownArgs) ToOneDashboardPageWidgetMarkdownOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownOutput)
 }
 
+func (i OneDashboardPageWidgetMarkdownArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetMarkdown] {
+	return pulumix.Output[OneDashboardPageWidgetMarkdown]{
+		OutputState: i.ToOneDashboardPageWidgetMarkdownOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetMarkdownArrayInput is an input type that accepts OneDashboardPageWidgetMarkdownArray and OneDashboardPageWidgetMarkdownArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetMarkdownArrayInput` via:
 //
@@ -12965,6 +15324,12 @@ func (i OneDashboardPageWidgetMarkdownArray) ToOneDashboardPageWidgetMarkdownArr
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownArrayOutput)
 }
 
+func (i OneDashboardPageWidgetMarkdownArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetMarkdown] {
+	return pulumix.Output[[]OneDashboardPageWidgetMarkdown]{
+		OutputState: i.ToOneDashboardPageWidgetMarkdownArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetMarkdownOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetMarkdownOutput) ElementType() reflect.Type {
@@ -12977,6 +15342,12 @@ func (o OneDashboardPageWidgetMarkdownOutput) ToOneDashboardPageWidgetMarkdownOu
 
 func (o OneDashboardPageWidgetMarkdownOutput) ToOneDashboardPageWidgetMarkdownOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetMarkdown] {
+	return pulumix.Output[OneDashboardPageWidgetMarkdown]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -13066,6 +15437,12 @@ func (o OneDashboardPageWidgetMarkdownArrayOutput) ToOneDashboardPageWidgetMarkd
 	return o
 }
 
+func (o OneDashboardPageWidgetMarkdownArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetMarkdown] {
+	return pulumix.Output[[]OneDashboardPageWidgetMarkdown]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardPageWidgetMarkdownArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetMarkdownOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetMarkdown {
 		return vs[0].([]OneDashboardPageWidgetMarkdown)[vs[1].(int)]
@@ -13109,6 +15486,12 @@ func (i OneDashboardPageWidgetMarkdownColorArgs) ToOneDashboardPageWidgetMarkdow
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownColorOutput)
 }
 
+func (i OneDashboardPageWidgetMarkdownColorArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetMarkdownColor] {
+	return pulumix.Output[OneDashboardPageWidgetMarkdownColor]{
+		OutputState: i.ToOneDashboardPageWidgetMarkdownColorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetMarkdownColorArrayInput is an input type that accepts OneDashboardPageWidgetMarkdownColorArray and OneDashboardPageWidgetMarkdownColorArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetMarkdownColorArrayInput` via:
 //
@@ -13134,6 +15517,12 @@ func (i OneDashboardPageWidgetMarkdownColorArray) ToOneDashboardPageWidgetMarkdo
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownColorArrayOutput)
 }
 
+func (i OneDashboardPageWidgetMarkdownColorArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetMarkdownColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetMarkdownColor]{
+		OutputState: i.ToOneDashboardPageWidgetMarkdownColorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetMarkdownColorOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetMarkdownColorOutput) ElementType() reflect.Type {
@@ -13146,6 +15535,12 @@ func (o OneDashboardPageWidgetMarkdownColorOutput) ToOneDashboardPageWidgetMarkd
 
 func (o OneDashboardPageWidgetMarkdownColorOutput) ToOneDashboardPageWidgetMarkdownColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownColorOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownColorOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetMarkdownColor] {
+	return pulumix.Output[OneDashboardPageWidgetMarkdownColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -13172,6 +15567,12 @@ func (o OneDashboardPageWidgetMarkdownColorArrayOutput) ToOneDashboardPageWidget
 
 func (o OneDashboardPageWidgetMarkdownColorArrayOutput) ToOneDashboardPageWidgetMarkdownColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownColorArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownColorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetMarkdownColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetMarkdownColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetMarkdownColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetMarkdownColorOutput {
@@ -13215,6 +15616,12 @@ func (i OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs) ToOneDashboardPag
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetMarkdownColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetMarkdownColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetMarkdownColorSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetMarkdownColorSeriesOverrideArray and OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayInput` via:
 //
@@ -13240,6 +15647,12 @@ func (i OneDashboardPageWidgetMarkdownColorSeriesOverrideArray) ToOneDashboardPa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetMarkdownColorSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetMarkdownColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetMarkdownColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput) ElementType() reflect.Type {
@@ -13252,6 +15665,12 @@ func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput) ToOneDashboardP
 
 func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput) ToOneDashboardPageWidgetMarkdownColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetMarkdownColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetMarkdownColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -13275,6 +15694,12 @@ func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput) ToOneDashb
 
 func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetMarkdownColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetMarkdownColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput {
@@ -13320,6 +15745,12 @@ func (i OneDashboardPageWidgetMarkdownNullValueArgs) ToOneDashboardPageWidgetMar
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownNullValueOutput)
 }
 
+func (i OneDashboardPageWidgetMarkdownNullValueArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetMarkdownNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetMarkdownNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetMarkdownNullValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetMarkdownNullValueArrayInput is an input type that accepts OneDashboardPageWidgetMarkdownNullValueArray and OneDashboardPageWidgetMarkdownNullValueArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetMarkdownNullValueArrayInput` via:
 //
@@ -13345,6 +15776,12 @@ func (i OneDashboardPageWidgetMarkdownNullValueArray) ToOneDashboardPageWidgetMa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownNullValueArrayOutput)
 }
 
+func (i OneDashboardPageWidgetMarkdownNullValueArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetMarkdownNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetMarkdownNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetMarkdownNullValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetMarkdownNullValueOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetMarkdownNullValueOutput) ElementType() reflect.Type {
@@ -13357,6 +15794,12 @@ func (o OneDashboardPageWidgetMarkdownNullValueOutput) ToOneDashboardPageWidgetM
 
 func (o OneDashboardPageWidgetMarkdownNullValueOutput) ToOneDashboardPageWidgetMarkdownNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownNullValueOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownNullValueOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetMarkdownNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetMarkdownNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -13383,6 +15826,12 @@ func (o OneDashboardPageWidgetMarkdownNullValueArrayOutput) ToOneDashboardPageWi
 
 func (o OneDashboardPageWidgetMarkdownNullValueArrayOutput) ToOneDashboardPageWidgetMarkdownNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownNullValueArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownNullValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetMarkdownNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetMarkdownNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetMarkdownNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetMarkdownNullValueOutput {
@@ -13426,6 +15875,12 @@ func (i OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs) ToOneDashboar
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetMarkdownNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetMarkdownNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArray and OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayInput` via:
 //
@@ -13451,6 +15906,12 @@ func (i OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArray) ToOneDashboa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetMarkdownNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetMarkdownNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput) ElementType() reflect.Type {
@@ -13463,6 +15924,12 @@ func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput) ToOneDashbo
 
 func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetMarkdownNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetMarkdownNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -13486,6 +15953,12 @@ func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput) ToOneD
 
 func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetMarkdownNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetMarkdownNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput {
@@ -13531,6 +16004,12 @@ func (i OneDashboardPageWidgetMarkdownUnitArgs) ToOneDashboardPageWidgetMarkdown
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownUnitOutput)
 }
 
+func (i OneDashboardPageWidgetMarkdownUnitArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetMarkdownUnit] {
+	return pulumix.Output[OneDashboardPageWidgetMarkdownUnit]{
+		OutputState: i.ToOneDashboardPageWidgetMarkdownUnitOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetMarkdownUnitArrayInput is an input type that accepts OneDashboardPageWidgetMarkdownUnitArray and OneDashboardPageWidgetMarkdownUnitArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetMarkdownUnitArrayInput` via:
 //
@@ -13556,6 +16035,12 @@ func (i OneDashboardPageWidgetMarkdownUnitArray) ToOneDashboardPageWidgetMarkdow
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownUnitArrayOutput)
 }
 
+func (i OneDashboardPageWidgetMarkdownUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetMarkdownUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetMarkdownUnit]{
+		OutputState: i.ToOneDashboardPageWidgetMarkdownUnitArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetMarkdownUnitOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetMarkdownUnitOutput) ElementType() reflect.Type {
@@ -13568,6 +16053,12 @@ func (o OneDashboardPageWidgetMarkdownUnitOutput) ToOneDashboardPageWidgetMarkdo
 
 func (o OneDashboardPageWidgetMarkdownUnitOutput) ToOneDashboardPageWidgetMarkdownUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownUnitOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownUnitOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetMarkdownUnit] {
+	return pulumix.Output[OneDashboardPageWidgetMarkdownUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
@@ -13594,6 +16085,12 @@ func (o OneDashboardPageWidgetMarkdownUnitArrayOutput) ToOneDashboardPageWidgetM
 
 func (o OneDashboardPageWidgetMarkdownUnitArrayOutput) ToOneDashboardPageWidgetMarkdownUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownUnitArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetMarkdownUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetMarkdownUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetMarkdownUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetMarkdownUnitOutput {
@@ -13637,6 +16134,12 @@ func (i OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs) ToOneDashboardPage
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetMarkdownUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetMarkdownUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetMarkdownUnitSeriesOverrideArray and OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayInput` via:
 //
@@ -13662,6 +16165,12 @@ func (i OneDashboardPageWidgetMarkdownUnitSeriesOverrideArray) ToOneDashboardPag
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetMarkdownUnitSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetMarkdownUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetMarkdownUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput) ElementType() reflect.Type {
@@ -13674,6 +16183,12 @@ func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput) ToOneDashboardPa
 
 func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput) ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetMarkdownUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetMarkdownUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
@@ -13697,6 +16212,12 @@ func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput) ToOneDashbo
 
 func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetMarkdownUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetMarkdownUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput {
@@ -13798,6 +16319,12 @@ func (i OneDashboardPageWidgetPyArgs) ToOneDashboardPageWidgetPyOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyOutput)
 }
 
+func (i OneDashboardPageWidgetPyArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPy] {
+	return pulumix.Output[OneDashboardPageWidgetPy]{
+		OutputState: i.ToOneDashboardPageWidgetPyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetPyArrayInput is an input type that accepts OneDashboardPageWidgetPyArray and OneDashboardPageWidgetPyArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetPyArrayInput` via:
 //
@@ -13823,6 +16350,12 @@ func (i OneDashboardPageWidgetPyArray) ToOneDashboardPageWidgetPyArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyArrayOutput)
 }
 
+func (i OneDashboardPageWidgetPyArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPy] {
+	return pulumix.Output[[]OneDashboardPageWidgetPy]{
+		OutputState: i.ToOneDashboardPageWidgetPyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetPyOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetPyOutput) ElementType() reflect.Type {
@@ -13835,6 +16368,12 @@ func (o OneDashboardPageWidgetPyOutput) ToOneDashboardPageWidgetPyOutput() OneDa
 
 func (o OneDashboardPageWidgetPyOutput) ToOneDashboardPageWidgetPyOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetPyOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPy] {
+	return pulumix.Output[OneDashboardPageWidgetPy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -13934,6 +16473,12 @@ func (o OneDashboardPageWidgetPyArrayOutput) ToOneDashboardPageWidgetPyArrayOutp
 	return o
 }
 
+func (o OneDashboardPageWidgetPyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPy] {
+	return pulumix.Output[[]OneDashboardPageWidgetPy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardPageWidgetPyArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPy {
 		return vs[0].([]OneDashboardPageWidgetPy)[vs[1].(int)]
@@ -13977,6 +16522,12 @@ func (i OneDashboardPageWidgetPyColorArgs) ToOneDashboardPageWidgetPyColorOutput
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyColorOutput)
 }
 
+func (i OneDashboardPageWidgetPyColorArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPyColor] {
+	return pulumix.Output[OneDashboardPageWidgetPyColor]{
+		OutputState: i.ToOneDashboardPageWidgetPyColorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetPyColorArrayInput is an input type that accepts OneDashboardPageWidgetPyColorArray and OneDashboardPageWidgetPyColorArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetPyColorArrayInput` via:
 //
@@ -14002,6 +16553,12 @@ func (i OneDashboardPageWidgetPyColorArray) ToOneDashboardPageWidgetPyColorArray
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyColorArrayOutput)
 }
 
+func (i OneDashboardPageWidgetPyColorArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPyColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetPyColor]{
+		OutputState: i.ToOneDashboardPageWidgetPyColorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetPyColorOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetPyColorOutput) ElementType() reflect.Type {
@@ -14014,6 +16571,12 @@ func (o OneDashboardPageWidgetPyColorOutput) ToOneDashboardPageWidgetPyColorOutp
 
 func (o OneDashboardPageWidgetPyColorOutput) ToOneDashboardPageWidgetPyColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyColorOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetPyColorOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPyColor] {
+	return pulumix.Output[OneDashboardPageWidgetPyColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -14040,6 +16603,12 @@ func (o OneDashboardPageWidgetPyColorArrayOutput) ToOneDashboardPageWidgetPyColo
 
 func (o OneDashboardPageWidgetPyColorArrayOutput) ToOneDashboardPageWidgetPyColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyColorArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetPyColorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPyColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetPyColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetPyColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyColorOutput {
@@ -14083,6 +16652,12 @@ func (i OneDashboardPageWidgetPyColorSeriesOverrideArgs) ToOneDashboardPageWidge
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyColorSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetPyColorSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPyColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetPyColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetPyColorSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetPyColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetPyColorSeriesOverrideArray and OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetPyColorSeriesOverrideArrayInput` via:
 //
@@ -14108,6 +16683,12 @@ func (i OneDashboardPageWidgetPyColorSeriesOverrideArray) ToOneDashboardPageWidg
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetPyColorSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPyColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetPyColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetPyColorSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetPyColorSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetPyColorSeriesOverrideOutput) ElementType() reflect.Type {
@@ -14120,6 +16701,12 @@ func (o OneDashboardPageWidgetPyColorSeriesOverrideOutput) ToOneDashboardPageWid
 
 func (o OneDashboardPageWidgetPyColorSeriesOverrideOutput) ToOneDashboardPageWidgetPyColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyColorSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetPyColorSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPyColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetPyColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -14143,6 +16730,12 @@ func (o OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput) ToOneDashboardPa
 
 func (o OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetPyColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPyColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetPyColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyColorSeriesOverrideOutput {
@@ -14188,6 +16781,12 @@ func (i OneDashboardPageWidgetPyNrqlQueryArgs) ToOneDashboardPageWidgetPyNrqlQue
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyNrqlQueryOutput)
 }
 
+func (i OneDashboardPageWidgetPyNrqlQueryArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPyNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetPyNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetPyNrqlQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetPyNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetPyNrqlQueryArray and OneDashboardPageWidgetPyNrqlQueryArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetPyNrqlQueryArrayInput` via:
 //
@@ -14213,6 +16812,12 @@ func (i OneDashboardPageWidgetPyNrqlQueryArray) ToOneDashboardPageWidgetPyNrqlQu
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyNrqlQueryArrayOutput)
 }
 
+func (i OneDashboardPageWidgetPyNrqlQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPyNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetPyNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetPyNrqlQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetPyNrqlQueryOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetPyNrqlQueryOutput) ElementType() reflect.Type {
@@ -14225,6 +16830,12 @@ func (o OneDashboardPageWidgetPyNrqlQueryOutput) ToOneDashboardPageWidgetPyNrqlQ
 
 func (o OneDashboardPageWidgetPyNrqlQueryOutput) ToOneDashboardPageWidgetPyNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNrqlQueryOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetPyNrqlQueryOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPyNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetPyNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -14249,6 +16860,12 @@ func (o OneDashboardPageWidgetPyNrqlQueryArrayOutput) ToOneDashboardPageWidgetPy
 
 func (o OneDashboardPageWidgetPyNrqlQueryArrayOutput) ToOneDashboardPageWidgetPyNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNrqlQueryArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetPyNrqlQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPyNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetPyNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetPyNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyNrqlQueryOutput {
@@ -14294,6 +16911,12 @@ func (i OneDashboardPageWidgetPyNullValueArgs) ToOneDashboardPageWidgetPyNullVal
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyNullValueOutput)
 }
 
+func (i OneDashboardPageWidgetPyNullValueArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPyNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetPyNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetPyNullValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetPyNullValueArrayInput is an input type that accepts OneDashboardPageWidgetPyNullValueArray and OneDashboardPageWidgetPyNullValueArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetPyNullValueArrayInput` via:
 //
@@ -14319,6 +16942,12 @@ func (i OneDashboardPageWidgetPyNullValueArray) ToOneDashboardPageWidgetPyNullVa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyNullValueArrayOutput)
 }
 
+func (i OneDashboardPageWidgetPyNullValueArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPyNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetPyNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetPyNullValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetPyNullValueOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetPyNullValueOutput) ElementType() reflect.Type {
@@ -14331,6 +16960,12 @@ func (o OneDashboardPageWidgetPyNullValueOutput) ToOneDashboardPageWidgetPyNullV
 
 func (o OneDashboardPageWidgetPyNullValueOutput) ToOneDashboardPageWidgetPyNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNullValueOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetPyNullValueOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPyNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetPyNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -14357,6 +16992,12 @@ func (o OneDashboardPageWidgetPyNullValueArrayOutput) ToOneDashboardPageWidgetPy
 
 func (o OneDashboardPageWidgetPyNullValueArrayOutput) ToOneDashboardPageWidgetPyNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNullValueArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetPyNullValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPyNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetPyNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetPyNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyNullValueOutput {
@@ -14400,6 +17041,12 @@ func (i OneDashboardPageWidgetPyNullValueSeriesOverrideArgs) ToOneDashboardPageW
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyNullValueSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetPyNullValueSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPyNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetPyNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetPyNullValueSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetPyNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetPyNullValueSeriesOverrideArray and OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetPyNullValueSeriesOverrideArrayInput` via:
 //
@@ -14425,6 +17072,12 @@ func (i OneDashboardPageWidgetPyNullValueSeriesOverrideArray) ToOneDashboardPage
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetPyNullValueSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPyNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetPyNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetPyNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetPyNullValueSeriesOverrideOutput) ElementType() reflect.Type {
@@ -14437,6 +17090,12 @@ func (o OneDashboardPageWidgetPyNullValueSeriesOverrideOutput) ToOneDashboardPag
 
 func (o OneDashboardPageWidgetPyNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetPyNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNullValueSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetPyNullValueSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPyNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetPyNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -14460,6 +17119,12 @@ func (o OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput) ToOneDashboa
 
 func (o OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPyNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetPyNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyNullValueSeriesOverrideOutput {
@@ -14505,6 +17170,12 @@ func (i OneDashboardPageWidgetPyUnitArgs) ToOneDashboardPageWidgetPyUnitOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyUnitOutput)
 }
 
+func (i OneDashboardPageWidgetPyUnitArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPyUnit] {
+	return pulumix.Output[OneDashboardPageWidgetPyUnit]{
+		OutputState: i.ToOneDashboardPageWidgetPyUnitOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetPyUnitArrayInput is an input type that accepts OneDashboardPageWidgetPyUnitArray and OneDashboardPageWidgetPyUnitArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetPyUnitArrayInput` via:
 //
@@ -14530,6 +17201,12 @@ func (i OneDashboardPageWidgetPyUnitArray) ToOneDashboardPageWidgetPyUnitArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyUnitArrayOutput)
 }
 
+func (i OneDashboardPageWidgetPyUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPyUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetPyUnit]{
+		OutputState: i.ToOneDashboardPageWidgetPyUnitArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetPyUnitOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetPyUnitOutput) ElementType() reflect.Type {
@@ -14542,6 +17219,12 @@ func (o OneDashboardPageWidgetPyUnitOutput) ToOneDashboardPageWidgetPyUnitOutput
 
 func (o OneDashboardPageWidgetPyUnitOutput) ToOneDashboardPageWidgetPyUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyUnitOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetPyUnitOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPyUnit] {
+	return pulumix.Output[OneDashboardPageWidgetPyUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
@@ -14568,6 +17251,12 @@ func (o OneDashboardPageWidgetPyUnitArrayOutput) ToOneDashboardPageWidgetPyUnitA
 
 func (o OneDashboardPageWidgetPyUnitArrayOutput) ToOneDashboardPageWidgetPyUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyUnitArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetPyUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPyUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetPyUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetPyUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyUnitOutput {
@@ -14611,6 +17300,12 @@ func (i OneDashboardPageWidgetPyUnitSeriesOverrideArgs) ToOneDashboardPageWidget
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyUnitSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetPyUnitSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPyUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetPyUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetPyUnitSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetPyUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetPyUnitSeriesOverrideArray and OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetPyUnitSeriesOverrideArrayInput` via:
 //
@@ -14636,6 +17331,12 @@ func (i OneDashboardPageWidgetPyUnitSeriesOverrideArray) ToOneDashboardPageWidge
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetPyUnitSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPyUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetPyUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetPyUnitSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetPyUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetPyUnitSeriesOverrideOutput) ElementType() reflect.Type {
@@ -14648,6 +17349,12 @@ func (o OneDashboardPageWidgetPyUnitSeriesOverrideOutput) ToOneDashboardPageWidg
 
 func (o OneDashboardPageWidgetPyUnitSeriesOverrideOutput) ToOneDashboardPageWidgetPyUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyUnitSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetPyUnitSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetPyUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetPyUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetPyUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
@@ -14671,6 +17378,12 @@ func (o OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput) ToOneDashboardPag
 
 func (o OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetPyUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetPyUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetPyUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyUnitSeriesOverrideOutput {
@@ -14764,6 +17477,12 @@ func (i OneDashboardPageWidgetStackedBarArgs) ToOneDashboardPageWidgetStackedBar
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBar] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBar]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetStackedBarArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarArray and OneDashboardPageWidgetStackedBarArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetStackedBarArrayInput` via:
 //
@@ -14789,6 +17508,12 @@ func (i OneDashboardPageWidgetStackedBarArray) ToOneDashboardPageWidgetStackedBa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarArrayOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBar] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBar]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetStackedBarOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetStackedBarOutput) ElementType() reflect.Type {
@@ -14801,6 +17526,12 @@ func (o OneDashboardPageWidgetStackedBarOutput) ToOneDashboardPageWidgetStackedB
 
 func (o OneDashboardPageWidgetStackedBarOutput) ToOneDashboardPageWidgetStackedBarOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBar] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBar]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -14894,6 +17625,12 @@ func (o OneDashboardPageWidgetStackedBarArrayOutput) ToOneDashboardPageWidgetSta
 	return o
 }
 
+func (o OneDashboardPageWidgetStackedBarArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBar] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBar]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardPageWidgetStackedBarArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetStackedBar {
 		return vs[0].([]OneDashboardPageWidgetStackedBar)[vs[1].(int)]
@@ -14937,6 +17674,12 @@ func (i OneDashboardPageWidgetStackedBarColorArgs) ToOneDashboardPageWidgetStack
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarColorOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarColorArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBarColor] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBarColor]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarColorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetStackedBarColorArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarColorArray and OneDashboardPageWidgetStackedBarColorArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetStackedBarColorArrayInput` via:
 //
@@ -14962,6 +17705,12 @@ func (i OneDashboardPageWidgetStackedBarColorArray) ToOneDashboardPageWidgetStac
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarColorArrayOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarColorArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBarColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBarColor]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarColorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetStackedBarColorOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetStackedBarColorOutput) ElementType() reflect.Type {
@@ -14974,6 +17723,12 @@ func (o OneDashboardPageWidgetStackedBarColorOutput) ToOneDashboardPageWidgetSta
 
 func (o OneDashboardPageWidgetStackedBarColorOutput) ToOneDashboardPageWidgetStackedBarColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarColorOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarColorOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBarColor] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBarColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -15000,6 +17755,12 @@ func (o OneDashboardPageWidgetStackedBarColorArrayOutput) ToOneDashboardPageWidg
 
 func (o OneDashboardPageWidgetStackedBarColorArrayOutput) ToOneDashboardPageWidgetStackedBarColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarColorArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarColorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBarColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBarColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetStackedBarColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarColorOutput {
@@ -15043,6 +17804,12 @@ func (i OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs) ToOneDashboardP
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBarColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBarColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarColorSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarColorSeriesOverrideArray and OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayInput` via:
 //
@@ -15068,6 +17835,12 @@ func (i OneDashboardPageWidgetStackedBarColorSeriesOverrideArray) ToOneDashboard
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarColorSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBarColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBarColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput) ElementType() reflect.Type {
@@ -15080,6 +17853,12 @@ func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput) ToOneDashboar
 
 func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput) ToOneDashboardPageWidgetStackedBarColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBarColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBarColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -15103,6 +17882,12 @@ func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput) ToOneDas
 
 func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBarColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBarColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput {
@@ -15148,6 +17933,12 @@ func (i OneDashboardPageWidgetStackedBarNrqlQueryArgs) ToOneDashboardPageWidgetS
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarNrqlQueryOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarNrqlQueryArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBarNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBarNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarNrqlQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetStackedBarNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarNrqlQueryArray and OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetStackedBarNrqlQueryArrayInput` via:
 //
@@ -15173,6 +17964,12 @@ func (i OneDashboardPageWidgetStackedBarNrqlQueryArray) ToOneDashboardPageWidget
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarNrqlQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBarNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBarNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarNrqlQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetStackedBarNrqlQueryOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetStackedBarNrqlQueryOutput) ElementType() reflect.Type {
@@ -15185,6 +17982,12 @@ func (o OneDashboardPageWidgetStackedBarNrqlQueryOutput) ToOneDashboardPageWidge
 
 func (o OneDashboardPageWidgetStackedBarNrqlQueryOutput) ToOneDashboardPageWidgetStackedBarNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNrqlQueryOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarNrqlQueryOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBarNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBarNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -15209,6 +18012,12 @@ func (o OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput) ToOneDashboardPage
 
 func (o OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput) ToOneDashboardPageWidgetStackedBarNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBarNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBarNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarNrqlQueryOutput {
@@ -15254,6 +18063,12 @@ func (i OneDashboardPageWidgetStackedBarNullValueArgs) ToOneDashboardPageWidgetS
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarNullValueOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarNullValueArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBarNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBarNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarNullValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetStackedBarNullValueArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarNullValueArray and OneDashboardPageWidgetStackedBarNullValueArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetStackedBarNullValueArrayInput` via:
 //
@@ -15279,6 +18094,12 @@ func (i OneDashboardPageWidgetStackedBarNullValueArray) ToOneDashboardPageWidget
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarNullValueArrayOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarNullValueArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBarNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBarNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarNullValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetStackedBarNullValueOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetStackedBarNullValueOutput) ElementType() reflect.Type {
@@ -15291,6 +18112,12 @@ func (o OneDashboardPageWidgetStackedBarNullValueOutput) ToOneDashboardPageWidge
 
 func (o OneDashboardPageWidgetStackedBarNullValueOutput) ToOneDashboardPageWidgetStackedBarNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNullValueOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarNullValueOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBarNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBarNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -15317,6 +18144,12 @@ func (o OneDashboardPageWidgetStackedBarNullValueArrayOutput) ToOneDashboardPage
 
 func (o OneDashboardPageWidgetStackedBarNullValueArrayOutput) ToOneDashboardPageWidgetStackedBarNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNullValueArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarNullValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBarNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBarNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetStackedBarNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarNullValueOutput {
@@ -15360,6 +18193,12 @@ func (i OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs) ToOneDashbo
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBarNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBarNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArray and OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayInput` via:
 //
@@ -15385,6 +18224,12 @@ func (i OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArray) ToOneDashb
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBarNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBarNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput) ElementType() reflect.Type {
@@ -15397,6 +18242,12 @@ func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput) ToOneDash
 
 func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBarNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBarNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -15420,6 +18271,12 @@ func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput) ToOn
 
 func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBarNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBarNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput {
@@ -15465,6 +18322,12 @@ func (i OneDashboardPageWidgetStackedBarUnitArgs) ToOneDashboardPageWidgetStacke
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarUnitOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarUnitArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBarUnit] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBarUnit]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarUnitOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetStackedBarUnitArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarUnitArray and OneDashboardPageWidgetStackedBarUnitArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetStackedBarUnitArrayInput` via:
 //
@@ -15490,6 +18353,12 @@ func (i OneDashboardPageWidgetStackedBarUnitArray) ToOneDashboardPageWidgetStack
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarUnitArrayOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBarUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBarUnit]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarUnitArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetStackedBarUnitOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetStackedBarUnitOutput) ElementType() reflect.Type {
@@ -15502,6 +18371,12 @@ func (o OneDashboardPageWidgetStackedBarUnitOutput) ToOneDashboardPageWidgetStac
 
 func (o OneDashboardPageWidgetStackedBarUnitOutput) ToOneDashboardPageWidgetStackedBarUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarUnitOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarUnitOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBarUnit] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBarUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
@@ -15528,6 +18403,12 @@ func (o OneDashboardPageWidgetStackedBarUnitArrayOutput) ToOneDashboardPageWidge
 
 func (o OneDashboardPageWidgetStackedBarUnitArrayOutput) ToOneDashboardPageWidgetStackedBarUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarUnitArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBarUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBarUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetStackedBarUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarUnitOutput {
@@ -15571,6 +18452,12 @@ func (i OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs) ToOneDashboardPa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBarUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBarUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarUnitSeriesOverrideArray and OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayInput` via:
 //
@@ -15596,6 +18483,12 @@ func (i OneDashboardPageWidgetStackedBarUnitSeriesOverrideArray) ToOneDashboardP
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetStackedBarUnitSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBarUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBarUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput) ElementType() reflect.Type {
@@ -15608,6 +18501,12 @@ func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput) ToOneDashboard
 
 func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput) ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetStackedBarUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetStackedBarUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
@@ -15631,6 +18530,12 @@ func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput) ToOneDash
 
 func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetStackedBarUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetStackedBarUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput {
@@ -15732,6 +18637,12 @@ func (i OneDashboardPageWidgetTableArgs) ToOneDashboardPageWidgetTableOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableOutput)
 }
 
+func (i OneDashboardPageWidgetTableArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTable] {
+	return pulumix.Output[OneDashboardPageWidgetTable]{
+		OutputState: i.ToOneDashboardPageWidgetTableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetTableArrayInput is an input type that accepts OneDashboardPageWidgetTableArray and OneDashboardPageWidgetTableArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetTableArrayInput` via:
 //
@@ -15757,6 +18668,12 @@ func (i OneDashboardPageWidgetTableArray) ToOneDashboardPageWidgetTableArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableArrayOutput)
 }
 
+func (i OneDashboardPageWidgetTableArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTable] {
+	return pulumix.Output[[]OneDashboardPageWidgetTable]{
+		OutputState: i.ToOneDashboardPageWidgetTableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetTableOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetTableOutput) ElementType() reflect.Type {
@@ -15769,6 +18686,12 @@ func (o OneDashboardPageWidgetTableOutput) ToOneDashboardPageWidgetTableOutput()
 
 func (o OneDashboardPageWidgetTableOutput) ToOneDashboardPageWidgetTableOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetTableOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTable] {
+	return pulumix.Output[OneDashboardPageWidgetTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -15868,6 +18791,12 @@ func (o OneDashboardPageWidgetTableArrayOutput) ToOneDashboardPageWidgetTableArr
 	return o
 }
 
+func (o OneDashboardPageWidgetTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTable] {
+	return pulumix.Output[[]OneDashboardPageWidgetTable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardPageWidgetTableArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTable {
 		return vs[0].([]OneDashboardPageWidgetTable)[vs[1].(int)]
@@ -15911,6 +18840,12 @@ func (i OneDashboardPageWidgetTableColorArgs) ToOneDashboardPageWidgetTableColor
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableColorOutput)
 }
 
+func (i OneDashboardPageWidgetTableColorArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTableColor] {
+	return pulumix.Output[OneDashboardPageWidgetTableColor]{
+		OutputState: i.ToOneDashboardPageWidgetTableColorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetTableColorArrayInput is an input type that accepts OneDashboardPageWidgetTableColorArray and OneDashboardPageWidgetTableColorArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetTableColorArrayInput` via:
 //
@@ -15936,6 +18871,12 @@ func (i OneDashboardPageWidgetTableColorArray) ToOneDashboardPageWidgetTableColo
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableColorArrayOutput)
 }
 
+func (i OneDashboardPageWidgetTableColorArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTableColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetTableColor]{
+		OutputState: i.ToOneDashboardPageWidgetTableColorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetTableColorOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetTableColorOutput) ElementType() reflect.Type {
@@ -15948,6 +18889,12 @@ func (o OneDashboardPageWidgetTableColorOutput) ToOneDashboardPageWidgetTableCol
 
 func (o OneDashboardPageWidgetTableColorOutput) ToOneDashboardPageWidgetTableColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableColorOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetTableColorOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTableColor] {
+	return pulumix.Output[OneDashboardPageWidgetTableColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -15974,6 +18921,12 @@ func (o OneDashboardPageWidgetTableColorArrayOutput) ToOneDashboardPageWidgetTab
 
 func (o OneDashboardPageWidgetTableColorArrayOutput) ToOneDashboardPageWidgetTableColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableColorArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetTableColorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTableColor] {
+	return pulumix.Output[[]OneDashboardPageWidgetTableColor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetTableColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableColorOutput {
@@ -16017,6 +18970,12 @@ func (i OneDashboardPageWidgetTableColorSeriesOverrideArgs) ToOneDashboardPageWi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableColorSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetTableColorSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTableColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetTableColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetTableColorSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetTableColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetTableColorSeriesOverrideArray and OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetTableColorSeriesOverrideArrayInput` via:
 //
@@ -16042,6 +19001,12 @@ func (i OneDashboardPageWidgetTableColorSeriesOverrideArray) ToOneDashboardPageW
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetTableColorSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTableColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetTableColorSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetTableColorSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetTableColorSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetTableColorSeriesOverrideOutput) ElementType() reflect.Type {
@@ -16054,6 +19019,12 @@ func (o OneDashboardPageWidgetTableColorSeriesOverrideOutput) ToOneDashboardPage
 
 func (o OneDashboardPageWidgetTableColorSeriesOverrideOutput) ToOneDashboardPageWidgetTableColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableColorSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetTableColorSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTableColorSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetTableColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -16077,6 +19048,12 @@ func (o OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput) ToOneDashboar
 
 func (o OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetTableColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTableColorSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetTableColorSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableColorSeriesOverrideOutput {
@@ -16122,6 +19099,12 @@ func (i OneDashboardPageWidgetTableNrqlQueryArgs) ToOneDashboardPageWidgetTableN
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableNrqlQueryOutput)
 }
 
+func (i OneDashboardPageWidgetTableNrqlQueryArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTableNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetTableNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetTableNrqlQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetTableNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetTableNrqlQueryArray and OneDashboardPageWidgetTableNrqlQueryArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetTableNrqlQueryArrayInput` via:
 //
@@ -16147,6 +19130,12 @@ func (i OneDashboardPageWidgetTableNrqlQueryArray) ToOneDashboardPageWidgetTable
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableNrqlQueryArrayOutput)
 }
 
+func (i OneDashboardPageWidgetTableNrqlQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTableNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetTableNrqlQuery]{
+		OutputState: i.ToOneDashboardPageWidgetTableNrqlQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetTableNrqlQueryOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetTableNrqlQueryOutput) ElementType() reflect.Type {
@@ -16159,6 +19148,12 @@ func (o OneDashboardPageWidgetTableNrqlQueryOutput) ToOneDashboardPageWidgetTabl
 
 func (o OneDashboardPageWidgetTableNrqlQueryOutput) ToOneDashboardPageWidgetTableNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNrqlQueryOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetTableNrqlQueryOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTableNrqlQuery] {
+	return pulumix.Output[OneDashboardPageWidgetTableNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -16183,6 +19178,12 @@ func (o OneDashboardPageWidgetTableNrqlQueryArrayOutput) ToOneDashboardPageWidge
 
 func (o OneDashboardPageWidgetTableNrqlQueryArrayOutput) ToOneDashboardPageWidgetTableNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNrqlQueryArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetTableNrqlQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTableNrqlQuery] {
+	return pulumix.Output[[]OneDashboardPageWidgetTableNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetTableNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableNrqlQueryOutput {
@@ -16228,6 +19229,12 @@ func (i OneDashboardPageWidgetTableNullValueArgs) ToOneDashboardPageWidgetTableN
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableNullValueOutput)
 }
 
+func (i OneDashboardPageWidgetTableNullValueArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTableNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetTableNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetTableNullValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetTableNullValueArrayInput is an input type that accepts OneDashboardPageWidgetTableNullValueArray and OneDashboardPageWidgetTableNullValueArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetTableNullValueArrayInput` via:
 //
@@ -16253,6 +19260,12 @@ func (i OneDashboardPageWidgetTableNullValueArray) ToOneDashboardPageWidgetTable
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableNullValueArrayOutput)
 }
 
+func (i OneDashboardPageWidgetTableNullValueArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTableNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetTableNullValue]{
+		OutputState: i.ToOneDashboardPageWidgetTableNullValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetTableNullValueOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetTableNullValueOutput) ElementType() reflect.Type {
@@ -16265,6 +19278,12 @@ func (o OneDashboardPageWidgetTableNullValueOutput) ToOneDashboardPageWidgetTabl
 
 func (o OneDashboardPageWidgetTableNullValueOutput) ToOneDashboardPageWidgetTableNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNullValueOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetTableNullValueOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTableNullValue] {
+	return pulumix.Output[OneDashboardPageWidgetTableNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -16291,6 +19310,12 @@ func (o OneDashboardPageWidgetTableNullValueArrayOutput) ToOneDashboardPageWidge
 
 func (o OneDashboardPageWidgetTableNullValueArrayOutput) ToOneDashboardPageWidgetTableNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNullValueArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetTableNullValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTableNullValue] {
+	return pulumix.Output[[]OneDashboardPageWidgetTableNullValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetTableNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableNullValueOutput {
@@ -16334,6 +19359,12 @@ func (i OneDashboardPageWidgetTableNullValueSeriesOverrideArgs) ToOneDashboardPa
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableNullValueSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetTableNullValueSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTableNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetTableNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetTableNullValueSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetTableNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetTableNullValueSeriesOverrideArray and OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetTableNullValueSeriesOverrideArrayInput` via:
 //
@@ -16359,6 +19390,12 @@ func (i OneDashboardPageWidgetTableNullValueSeriesOverrideArray) ToOneDashboardP
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetTableNullValueSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTableNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetTableNullValueSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetTableNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetTableNullValueSeriesOverrideOutput) ElementType() reflect.Type {
@@ -16371,6 +19408,12 @@ func (o OneDashboardPageWidgetTableNullValueSeriesOverrideOutput) ToOneDashboard
 
 func (o OneDashboardPageWidgetTableNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetTableNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNullValueSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetTableNullValueSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTableNullValueSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetTableNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
@@ -16394,6 +19437,12 @@ func (o OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput) ToOneDash
 
 func (o OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTableNullValueSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetTableNullValueSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableNullValueSeriesOverrideOutput {
@@ -16439,6 +19488,12 @@ func (i OneDashboardPageWidgetTableUnitArgs) ToOneDashboardPageWidgetTableUnitOu
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableUnitOutput)
 }
 
+func (i OneDashboardPageWidgetTableUnitArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTableUnit] {
+	return pulumix.Output[OneDashboardPageWidgetTableUnit]{
+		OutputState: i.ToOneDashboardPageWidgetTableUnitOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetTableUnitArrayInput is an input type that accepts OneDashboardPageWidgetTableUnitArray and OneDashboardPageWidgetTableUnitArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetTableUnitArrayInput` via:
 //
@@ -16464,6 +19519,12 @@ func (i OneDashboardPageWidgetTableUnitArray) ToOneDashboardPageWidgetTableUnitA
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableUnitArrayOutput)
 }
 
+func (i OneDashboardPageWidgetTableUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTableUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetTableUnit]{
+		OutputState: i.ToOneDashboardPageWidgetTableUnitArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetTableUnitOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetTableUnitOutput) ElementType() reflect.Type {
@@ -16476,6 +19537,12 @@ func (o OneDashboardPageWidgetTableUnitOutput) ToOneDashboardPageWidgetTableUnit
 
 func (o OneDashboardPageWidgetTableUnitOutput) ToOneDashboardPageWidgetTableUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableUnitOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetTableUnitOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTableUnit] {
+	return pulumix.Output[OneDashboardPageWidgetTableUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
@@ -16502,6 +19569,12 @@ func (o OneDashboardPageWidgetTableUnitArrayOutput) ToOneDashboardPageWidgetTabl
 
 func (o OneDashboardPageWidgetTableUnitArrayOutput) ToOneDashboardPageWidgetTableUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableUnitArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetTableUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTableUnit] {
+	return pulumix.Output[[]OneDashboardPageWidgetTableUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetTableUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableUnitOutput {
@@ -16545,6 +19618,12 @@ func (i OneDashboardPageWidgetTableUnitSeriesOverrideArgs) ToOneDashboardPageWid
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableUnitSeriesOverrideOutput)
 }
 
+func (i OneDashboardPageWidgetTableUnitSeriesOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTableUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetTableUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetTableUnitSeriesOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardPageWidgetTableUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetTableUnitSeriesOverrideArray and OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput values.
 // You can construct a concrete instance of `OneDashboardPageWidgetTableUnitSeriesOverrideArrayInput` via:
 //
@@ -16570,6 +19649,12 @@ func (i OneDashboardPageWidgetTableUnitSeriesOverrideArray) ToOneDashboardPageWi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput)
 }
 
+func (i OneDashboardPageWidgetTableUnitSeriesOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTableUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetTableUnitSeriesOverride]{
+		OutputState: i.ToOneDashboardPageWidgetTableUnitSeriesOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardPageWidgetTableUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardPageWidgetTableUnitSeriesOverrideOutput) ElementType() reflect.Type {
@@ -16582,6 +19667,12 @@ func (o OneDashboardPageWidgetTableUnitSeriesOverrideOutput) ToOneDashboardPageW
 
 func (o OneDashboardPageWidgetTableUnitSeriesOverrideOutput) ToOneDashboardPageWidgetTableUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableUnitSeriesOverrideOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetTableUnitSeriesOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardPageWidgetTableUnitSeriesOverride] {
+	return pulumix.Output[OneDashboardPageWidgetTableUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetTableUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
@@ -16605,6 +19696,12 @@ func (o OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput) ToOneDashboard
 
 func (o OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetTableUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput {
 	return o
+}
+
+func (o OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardPageWidgetTableUnitSeriesOverride] {
+	return pulumix.Output[[]OneDashboardPageWidgetTableUnitSeriesOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableUnitSeriesOverrideOutput {
@@ -16658,6 +19755,12 @@ func (i OneDashboardRawPageArgs) ToOneDashboardRawPageOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardRawPageOutput)
 }
 
+func (i OneDashboardRawPageArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardRawPage] {
+	return pulumix.Output[OneDashboardRawPage]{
+		OutputState: i.ToOneDashboardRawPageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardRawPageArrayInput is an input type that accepts OneDashboardRawPageArray and OneDashboardRawPageArrayOutput values.
 // You can construct a concrete instance of `OneDashboardRawPageArrayInput` via:
 //
@@ -16683,6 +19786,12 @@ func (i OneDashboardRawPageArray) ToOneDashboardRawPageArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardRawPageArrayOutput)
 }
 
+func (i OneDashboardRawPageArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardRawPage] {
+	return pulumix.Output[[]OneDashboardRawPage]{
+		OutputState: i.ToOneDashboardRawPageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardRawPageOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardRawPageOutput) ElementType() reflect.Type {
@@ -16695,6 +19804,12 @@ func (o OneDashboardRawPageOutput) ToOneDashboardRawPageOutput() OneDashboardRaw
 
 func (o OneDashboardRawPageOutput) ToOneDashboardRawPageOutputWithContext(ctx context.Context) OneDashboardRawPageOutput {
 	return o
+}
+
+func (o OneDashboardRawPageOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardRawPage] {
+	return pulumix.Output[OneDashboardRawPage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Brief text describing the dashboard.
@@ -16729,6 +19844,12 @@ func (o OneDashboardRawPageArrayOutput) ToOneDashboardRawPageArrayOutput() OneDa
 
 func (o OneDashboardRawPageArrayOutput) ToOneDashboardRawPageArrayOutputWithContext(ctx context.Context) OneDashboardRawPageArrayOutput {
 	return o
+}
+
+func (o OneDashboardRawPageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardRawPage] {
+	return pulumix.Output[[]OneDashboardRawPage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardRawPageArrayOutput) Index(i pulumi.IntInput) OneDashboardRawPageOutput {
@@ -16800,6 +19921,12 @@ func (i OneDashboardRawPageWidgetArgs) ToOneDashboardRawPageWidgetOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardRawPageWidgetOutput)
 }
 
+func (i OneDashboardRawPageWidgetArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardRawPageWidget] {
+	return pulumix.Output[OneDashboardRawPageWidget]{
+		OutputState: i.ToOneDashboardRawPageWidgetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardRawPageWidgetArrayInput is an input type that accepts OneDashboardRawPageWidgetArray and OneDashboardRawPageWidgetArrayOutput values.
 // You can construct a concrete instance of `OneDashboardRawPageWidgetArrayInput` via:
 //
@@ -16825,6 +19952,12 @@ func (i OneDashboardRawPageWidgetArray) ToOneDashboardRawPageWidgetArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardRawPageWidgetArrayOutput)
 }
 
+func (i OneDashboardRawPageWidgetArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardRawPageWidget] {
+	return pulumix.Output[[]OneDashboardRawPageWidget]{
+		OutputState: i.ToOneDashboardRawPageWidgetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardRawPageWidgetOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardRawPageWidgetOutput) ElementType() reflect.Type {
@@ -16837,6 +19970,12 @@ func (o OneDashboardRawPageWidgetOutput) ToOneDashboardRawPageWidgetOutput() One
 
 func (o OneDashboardRawPageWidgetOutput) ToOneDashboardRawPageWidgetOutputWithContext(ctx context.Context) OneDashboardRawPageWidgetOutput {
 	return o
+}
+
+func (o OneDashboardRawPageWidgetOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardRawPageWidget] {
+	return pulumix.Output[OneDashboardRawPageWidget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required) Column position of widget from top left, starting at `1`.
@@ -16895,6 +20034,12 @@ func (o OneDashboardRawPageWidgetArrayOutput) ToOneDashboardRawPageWidgetArrayOu
 
 func (o OneDashboardRawPageWidgetArrayOutput) ToOneDashboardRawPageWidgetArrayOutputWithContext(ctx context.Context) OneDashboardRawPageWidgetArrayOutput {
 	return o
+}
+
+func (o OneDashboardRawPageWidgetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardRawPageWidget] {
+	return pulumix.Output[[]OneDashboardRawPageWidget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardRawPageWidgetArrayOutput) Index(i pulumi.IntInput) OneDashboardRawPageWidgetOutput {
@@ -16964,6 +20109,12 @@ func (i OneDashboardVariableArgs) ToOneDashboardVariableOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardVariableOutput)
 }
 
+func (i OneDashboardVariableArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardVariable] {
+	return pulumix.Output[OneDashboardVariable]{
+		OutputState: i.ToOneDashboardVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardVariableArrayInput is an input type that accepts OneDashboardVariableArray and OneDashboardVariableArrayOutput values.
 // You can construct a concrete instance of `OneDashboardVariableArrayInput` via:
 //
@@ -16989,6 +20140,12 @@ func (i OneDashboardVariableArray) ToOneDashboardVariableArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardVariableArrayOutput)
 }
 
+func (i OneDashboardVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardVariable] {
+	return pulumix.Output[[]OneDashboardVariable]{
+		OutputState: i.ToOneDashboardVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardVariableOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardVariableOutput) ElementType() reflect.Type {
@@ -17001,6 +20158,12 @@ func (o OneDashboardVariableOutput) ToOneDashboardVariableOutput() OneDashboardV
 
 func (o OneDashboardVariableOutput) ToOneDashboardVariableOutputWithContext(ctx context.Context) OneDashboardVariableOutput {
 	return o
+}
+
+func (o OneDashboardVariableOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardVariable] {
+	return pulumix.Output[OneDashboardVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `["*"]`.
@@ -17057,6 +20220,12 @@ func (o OneDashboardVariableArrayOutput) ToOneDashboardVariableArrayOutputWithCo
 	return o
 }
 
+func (o OneDashboardVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardVariable] {
+	return pulumix.Output[[]OneDashboardVariable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardVariableArrayOutput) Index(i pulumi.IntInput) OneDashboardVariableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardVariable {
 		return vs[0].([]OneDashboardVariable)[vs[1].(int)]
@@ -17100,6 +20269,12 @@ func (i OneDashboardVariableItemArgs) ToOneDashboardVariableItemOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardVariableItemOutput)
 }
 
+func (i OneDashboardVariableItemArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardVariableItem] {
+	return pulumix.Output[OneDashboardVariableItem]{
+		OutputState: i.ToOneDashboardVariableItemOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OneDashboardVariableItemArrayInput is an input type that accepts OneDashboardVariableItemArray and OneDashboardVariableItemArrayOutput values.
 // You can construct a concrete instance of `OneDashboardVariableItemArrayInput` via:
 //
@@ -17125,6 +20300,12 @@ func (i OneDashboardVariableItemArray) ToOneDashboardVariableItemArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardVariableItemArrayOutput)
 }
 
+func (i OneDashboardVariableItemArray) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardVariableItem] {
+	return pulumix.Output[[]OneDashboardVariableItem]{
+		OutputState: i.ToOneDashboardVariableItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardVariableItemOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardVariableItemOutput) ElementType() reflect.Type {
@@ -17137,6 +20318,12 @@ func (o OneDashboardVariableItemOutput) ToOneDashboardVariableItemOutput() OneDa
 
 func (o OneDashboardVariableItemOutput) ToOneDashboardVariableItemOutputWithContext(ctx context.Context) OneDashboardVariableItemOutput {
 	return o
+}
+
+func (o OneDashboardVariableItemOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardVariableItem] {
+	return pulumix.Output[OneDashboardVariableItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) A human-friendly display string for this value.
@@ -17161,6 +20348,12 @@ func (o OneDashboardVariableItemArrayOutput) ToOneDashboardVariableItemArrayOutp
 
 func (o OneDashboardVariableItemArrayOutput) ToOneDashboardVariableItemArrayOutputWithContext(ctx context.Context) OneDashboardVariableItemArrayOutput {
 	return o
+}
+
+func (o OneDashboardVariableItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OneDashboardVariableItem] {
+	return pulumix.Output[[]OneDashboardVariableItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardVariableItemArrayOutput) Index(i pulumi.IntInput) OneDashboardVariableItemOutput {
@@ -17204,6 +20397,12 @@ func (i OneDashboardVariableNrqlQueryArgs) ToOneDashboardVariableNrqlQueryOutput
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardVariableNrqlQueryOutput)
 }
 
+func (i OneDashboardVariableNrqlQueryArgs) ToOutput(ctx context.Context) pulumix.Output[OneDashboardVariableNrqlQuery] {
+	return pulumix.Output[OneDashboardVariableNrqlQuery]{
+		OutputState: i.ToOneDashboardVariableNrqlQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OneDashboardVariableNrqlQueryArgs) ToOneDashboardVariableNrqlQueryPtrOutput() OneDashboardVariableNrqlQueryPtrOutput {
 	return i.ToOneDashboardVariableNrqlQueryPtrOutputWithContext(context.Background())
 }
@@ -17245,6 +20444,12 @@ func (i *oneDashboardVariableNrqlQueryPtrType) ToOneDashboardVariableNrqlQueryPt
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardVariableNrqlQueryPtrOutput)
 }
 
+func (i *oneDashboardVariableNrqlQueryPtrType) ToOutput(ctx context.Context) pulumix.Output[*OneDashboardVariableNrqlQuery] {
+	return pulumix.Output[*OneDashboardVariableNrqlQuery]{
+		OutputState: i.ToOneDashboardVariableNrqlQueryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OneDashboardVariableNrqlQueryOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardVariableNrqlQueryOutput) ElementType() reflect.Type {
@@ -17269,6 +20474,12 @@ func (o OneDashboardVariableNrqlQueryOutput) ToOneDashboardVariableNrqlQueryPtrO
 	}).(OneDashboardVariableNrqlQueryPtrOutput)
 }
 
+func (o OneDashboardVariableNrqlQueryOutput) ToOutput(ctx context.Context) pulumix.Output[OneDashboardVariableNrqlQuery] {
+	return pulumix.Output[OneDashboardVariableNrqlQuery]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OneDashboardVariableNrqlQueryOutput) AccountIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v OneDashboardVariableNrqlQuery) []int { return v.AccountIds }).(pulumi.IntArrayOutput)
 }
@@ -17290,6 +20501,12 @@ func (o OneDashboardVariableNrqlQueryPtrOutput) ToOneDashboardVariableNrqlQueryP
 
 func (o OneDashboardVariableNrqlQueryPtrOutput) ToOneDashboardVariableNrqlQueryPtrOutputWithContext(ctx context.Context) OneDashboardVariableNrqlQueryPtrOutput {
 	return o
+}
+
+func (o OneDashboardVariableNrqlQueryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OneDashboardVariableNrqlQuery] {
+	return pulumix.Output[*OneDashboardVariableNrqlQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OneDashboardVariableNrqlQueryPtrOutput) Elem() OneDashboardVariableNrqlQueryOutput {
@@ -17368,6 +20585,12 @@ func (i ServiceLevelEventsArgs) ToServiceLevelEventsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsOutput)
 }
 
+func (i ServiceLevelEventsArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelEvents] {
+	return pulumix.Output[ServiceLevelEvents]{
+		OutputState: i.ToServiceLevelEventsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceLevelEventsArgs) ToServiceLevelEventsPtrOutput() ServiceLevelEventsPtrOutput {
 	return i.ToServiceLevelEventsPtrOutputWithContext(context.Background())
 }
@@ -17409,6 +20632,12 @@ func (i *serviceLevelEventsPtrType) ToServiceLevelEventsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsPtrOutput)
 }
 
+func (i *serviceLevelEventsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelEvents] {
+	return pulumix.Output[*ServiceLevelEvents]{
+		OutputState: i.ToServiceLevelEventsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceLevelEventsOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelEventsOutput) ElementType() reflect.Type {
@@ -17431,6 +20660,12 @@ func (o ServiceLevelEventsOutput) ToServiceLevelEventsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelEvents) *ServiceLevelEvents {
 		return &v
 	}).(ServiceLevelEventsPtrOutput)
+}
+
+func (o ServiceLevelEventsOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelEvents] {
+	return pulumix.Output[ServiceLevelEvents]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
@@ -17466,6 +20701,12 @@ func (o ServiceLevelEventsPtrOutput) ToServiceLevelEventsPtrOutput() ServiceLeve
 
 func (o ServiceLevelEventsPtrOutput) ToServiceLevelEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsPtrOutput {
 	return o
+}
+
+func (o ServiceLevelEventsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelEvents] {
+	return pulumix.Output[*ServiceLevelEvents]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceLevelEventsPtrOutput) Elem() ServiceLevelEventsOutput {
@@ -17564,6 +20805,12 @@ func (i ServiceLevelEventsBadEventsArgs) ToServiceLevelEventsBadEventsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsBadEventsOutput)
 }
 
+func (i ServiceLevelEventsBadEventsArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelEventsBadEvents] {
+	return pulumix.Output[ServiceLevelEventsBadEvents]{
+		OutputState: i.ToServiceLevelEventsBadEventsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceLevelEventsBadEventsArgs) ToServiceLevelEventsBadEventsPtrOutput() ServiceLevelEventsBadEventsPtrOutput {
 	return i.ToServiceLevelEventsBadEventsPtrOutputWithContext(context.Background())
 }
@@ -17605,6 +20852,12 @@ func (i *serviceLevelEventsBadEventsPtrType) ToServiceLevelEventsBadEventsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsBadEventsPtrOutput)
 }
 
+func (i *serviceLevelEventsBadEventsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelEventsBadEvents] {
+	return pulumix.Output[*ServiceLevelEventsBadEvents]{
+		OutputState: i.ToServiceLevelEventsBadEventsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceLevelEventsBadEventsOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelEventsBadEventsOutput) ElementType() reflect.Type {
@@ -17627,6 +20880,12 @@ func (o ServiceLevelEventsBadEventsOutput) ToServiceLevelEventsBadEventsPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelEventsBadEvents) *ServiceLevelEventsBadEvents {
 		return &v
 	}).(ServiceLevelEventsBadEventsPtrOutput)
+}
+
+func (o ServiceLevelEventsBadEventsOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelEventsBadEvents] {
+	return pulumix.Output[ServiceLevelEventsBadEvents]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The event type where NRDB data will be fetched from.
@@ -17658,6 +20917,12 @@ func (o ServiceLevelEventsBadEventsPtrOutput) ToServiceLevelEventsBadEventsPtrOu
 
 func (o ServiceLevelEventsBadEventsPtrOutput) ToServiceLevelEventsBadEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsBadEventsPtrOutput {
 	return o
+}
+
+func (o ServiceLevelEventsBadEventsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelEventsBadEvents] {
+	return pulumix.Output[*ServiceLevelEventsBadEvents]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceLevelEventsBadEventsPtrOutput) Elem() ServiceLevelEventsBadEventsOutput {
@@ -17743,6 +21008,12 @@ func (i ServiceLevelEventsBadEventsSelectArgs) ToServiceLevelEventsBadEventsSele
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsBadEventsSelectOutput)
 }
 
+func (i ServiceLevelEventsBadEventsSelectArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelEventsBadEventsSelect] {
+	return pulumix.Output[ServiceLevelEventsBadEventsSelect]{
+		OutputState: i.ToServiceLevelEventsBadEventsSelectOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceLevelEventsBadEventsSelectArgs) ToServiceLevelEventsBadEventsSelectPtrOutput() ServiceLevelEventsBadEventsSelectPtrOutput {
 	return i.ToServiceLevelEventsBadEventsSelectPtrOutputWithContext(context.Background())
 }
@@ -17784,6 +21055,12 @@ func (i *serviceLevelEventsBadEventsSelectPtrType) ToServiceLevelEventsBadEvents
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsBadEventsSelectPtrOutput)
 }
 
+func (i *serviceLevelEventsBadEventsSelectPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelEventsBadEventsSelect] {
+	return pulumix.Output[*ServiceLevelEventsBadEventsSelect]{
+		OutputState: i.ToServiceLevelEventsBadEventsSelectPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceLevelEventsBadEventsSelectOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelEventsBadEventsSelectOutput) ElementType() reflect.Type {
@@ -17806,6 +21083,12 @@ func (o ServiceLevelEventsBadEventsSelectOutput) ToServiceLevelEventsBadEventsSe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelEventsBadEventsSelect) *ServiceLevelEventsBadEventsSelect {
 		return &v
 	}).(ServiceLevelEventsBadEventsSelectPtrOutput)
+}
+
+func (o ServiceLevelEventsBadEventsSelectOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelEventsBadEventsSelect] {
+	return pulumix.Output[ServiceLevelEventsBadEventsSelect]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The event attribute to use in the SELECT clause.
@@ -17835,6 +21118,12 @@ func (o ServiceLevelEventsBadEventsSelectPtrOutput) ToServiceLevelEventsBadEvent
 
 func (o ServiceLevelEventsBadEventsSelectPtrOutput) ToServiceLevelEventsBadEventsSelectPtrOutputWithContext(ctx context.Context) ServiceLevelEventsBadEventsSelectPtrOutput {
 	return o
+}
+
+func (o ServiceLevelEventsBadEventsSelectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelEventsBadEventsSelect] {
+	return pulumix.Output[*ServiceLevelEventsBadEventsSelect]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceLevelEventsBadEventsSelectPtrOutput) Elem() ServiceLevelEventsBadEventsSelectOutput {
@@ -17922,6 +21211,12 @@ func (i ServiceLevelEventsGoodEventsArgs) ToServiceLevelEventsGoodEventsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsGoodEventsOutput)
 }
 
+func (i ServiceLevelEventsGoodEventsArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelEventsGoodEvents] {
+	return pulumix.Output[ServiceLevelEventsGoodEvents]{
+		OutputState: i.ToServiceLevelEventsGoodEventsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceLevelEventsGoodEventsArgs) ToServiceLevelEventsGoodEventsPtrOutput() ServiceLevelEventsGoodEventsPtrOutput {
 	return i.ToServiceLevelEventsGoodEventsPtrOutputWithContext(context.Background())
 }
@@ -17963,6 +21258,12 @@ func (i *serviceLevelEventsGoodEventsPtrType) ToServiceLevelEventsGoodEventsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsGoodEventsPtrOutput)
 }
 
+func (i *serviceLevelEventsGoodEventsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelEventsGoodEvents] {
+	return pulumix.Output[*ServiceLevelEventsGoodEvents]{
+		OutputState: i.ToServiceLevelEventsGoodEventsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceLevelEventsGoodEventsOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelEventsGoodEventsOutput) ElementType() reflect.Type {
@@ -17985,6 +21286,12 @@ func (o ServiceLevelEventsGoodEventsOutput) ToServiceLevelEventsGoodEventsPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelEventsGoodEvents) *ServiceLevelEventsGoodEvents {
 		return &v
 	}).(ServiceLevelEventsGoodEventsPtrOutput)
+}
+
+func (o ServiceLevelEventsGoodEventsOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelEventsGoodEvents] {
+	return pulumix.Output[ServiceLevelEventsGoodEvents]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The event type where NRDB data will be fetched from.
@@ -18016,6 +21323,12 @@ func (o ServiceLevelEventsGoodEventsPtrOutput) ToServiceLevelEventsGoodEventsPtr
 
 func (o ServiceLevelEventsGoodEventsPtrOutput) ToServiceLevelEventsGoodEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsGoodEventsPtrOutput {
 	return o
+}
+
+func (o ServiceLevelEventsGoodEventsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelEventsGoodEvents] {
+	return pulumix.Output[*ServiceLevelEventsGoodEvents]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceLevelEventsGoodEventsPtrOutput) Elem() ServiceLevelEventsGoodEventsOutput {
@@ -18101,6 +21414,12 @@ func (i ServiceLevelEventsGoodEventsSelectArgs) ToServiceLevelEventsGoodEventsSe
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsGoodEventsSelectOutput)
 }
 
+func (i ServiceLevelEventsGoodEventsSelectArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelEventsGoodEventsSelect] {
+	return pulumix.Output[ServiceLevelEventsGoodEventsSelect]{
+		OutputState: i.ToServiceLevelEventsGoodEventsSelectOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceLevelEventsGoodEventsSelectArgs) ToServiceLevelEventsGoodEventsSelectPtrOutput() ServiceLevelEventsGoodEventsSelectPtrOutput {
 	return i.ToServiceLevelEventsGoodEventsSelectPtrOutputWithContext(context.Background())
 }
@@ -18142,6 +21461,12 @@ func (i *serviceLevelEventsGoodEventsSelectPtrType) ToServiceLevelEventsGoodEven
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsGoodEventsSelectPtrOutput)
 }
 
+func (i *serviceLevelEventsGoodEventsSelectPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelEventsGoodEventsSelect] {
+	return pulumix.Output[*ServiceLevelEventsGoodEventsSelect]{
+		OutputState: i.ToServiceLevelEventsGoodEventsSelectPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceLevelEventsGoodEventsSelectOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelEventsGoodEventsSelectOutput) ElementType() reflect.Type {
@@ -18164,6 +21489,12 @@ func (o ServiceLevelEventsGoodEventsSelectOutput) ToServiceLevelEventsGoodEvents
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelEventsGoodEventsSelect) *ServiceLevelEventsGoodEventsSelect {
 		return &v
 	}).(ServiceLevelEventsGoodEventsSelectPtrOutput)
+}
+
+func (o ServiceLevelEventsGoodEventsSelectOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelEventsGoodEventsSelect] {
+	return pulumix.Output[ServiceLevelEventsGoodEventsSelect]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The event attribute to use in the SELECT clause.
@@ -18193,6 +21524,12 @@ func (o ServiceLevelEventsGoodEventsSelectPtrOutput) ToServiceLevelEventsGoodEve
 
 func (o ServiceLevelEventsGoodEventsSelectPtrOutput) ToServiceLevelEventsGoodEventsSelectPtrOutputWithContext(ctx context.Context) ServiceLevelEventsGoodEventsSelectPtrOutput {
 	return o
+}
+
+func (o ServiceLevelEventsGoodEventsSelectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelEventsGoodEventsSelect] {
+	return pulumix.Output[*ServiceLevelEventsGoodEventsSelect]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceLevelEventsGoodEventsSelectPtrOutput) Elem() ServiceLevelEventsGoodEventsSelectOutput {
@@ -18280,6 +21617,12 @@ func (i ServiceLevelEventsValidEventsArgs) ToServiceLevelEventsValidEventsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsValidEventsOutput)
 }
 
+func (i ServiceLevelEventsValidEventsArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelEventsValidEvents] {
+	return pulumix.Output[ServiceLevelEventsValidEvents]{
+		OutputState: i.ToServiceLevelEventsValidEventsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceLevelEventsValidEventsArgs) ToServiceLevelEventsValidEventsPtrOutput() ServiceLevelEventsValidEventsPtrOutput {
 	return i.ToServiceLevelEventsValidEventsPtrOutputWithContext(context.Background())
 }
@@ -18321,6 +21664,12 @@ func (i *serviceLevelEventsValidEventsPtrType) ToServiceLevelEventsValidEventsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsValidEventsPtrOutput)
 }
 
+func (i *serviceLevelEventsValidEventsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelEventsValidEvents] {
+	return pulumix.Output[*ServiceLevelEventsValidEvents]{
+		OutputState: i.ToServiceLevelEventsValidEventsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceLevelEventsValidEventsOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelEventsValidEventsOutput) ElementType() reflect.Type {
@@ -18343,6 +21692,12 @@ func (o ServiceLevelEventsValidEventsOutput) ToServiceLevelEventsValidEventsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelEventsValidEvents) *ServiceLevelEventsValidEvents {
 		return &v
 	}).(ServiceLevelEventsValidEventsPtrOutput)
+}
+
+func (o ServiceLevelEventsValidEventsOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelEventsValidEvents] {
+	return pulumix.Output[ServiceLevelEventsValidEvents]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The event type where NRDB data will be fetched from.
@@ -18374,6 +21729,12 @@ func (o ServiceLevelEventsValidEventsPtrOutput) ToServiceLevelEventsValidEventsP
 
 func (o ServiceLevelEventsValidEventsPtrOutput) ToServiceLevelEventsValidEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsValidEventsPtrOutput {
 	return o
+}
+
+func (o ServiceLevelEventsValidEventsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelEventsValidEvents] {
+	return pulumix.Output[*ServiceLevelEventsValidEvents]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceLevelEventsValidEventsPtrOutput) Elem() ServiceLevelEventsValidEventsOutput {
@@ -18459,6 +21820,12 @@ func (i ServiceLevelEventsValidEventsSelectArgs) ToServiceLevelEventsValidEvents
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsValidEventsSelectOutput)
 }
 
+func (i ServiceLevelEventsValidEventsSelectArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelEventsValidEventsSelect] {
+	return pulumix.Output[ServiceLevelEventsValidEventsSelect]{
+		OutputState: i.ToServiceLevelEventsValidEventsSelectOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceLevelEventsValidEventsSelectArgs) ToServiceLevelEventsValidEventsSelectPtrOutput() ServiceLevelEventsValidEventsSelectPtrOutput {
 	return i.ToServiceLevelEventsValidEventsSelectPtrOutputWithContext(context.Background())
 }
@@ -18500,6 +21867,12 @@ func (i *serviceLevelEventsValidEventsSelectPtrType) ToServiceLevelEventsValidEv
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsValidEventsSelectPtrOutput)
 }
 
+func (i *serviceLevelEventsValidEventsSelectPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelEventsValidEventsSelect] {
+	return pulumix.Output[*ServiceLevelEventsValidEventsSelect]{
+		OutputState: i.ToServiceLevelEventsValidEventsSelectPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceLevelEventsValidEventsSelectOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelEventsValidEventsSelectOutput) ElementType() reflect.Type {
@@ -18522,6 +21895,12 @@ func (o ServiceLevelEventsValidEventsSelectOutput) ToServiceLevelEventsValidEven
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelEventsValidEventsSelect) *ServiceLevelEventsValidEventsSelect {
 		return &v
 	}).(ServiceLevelEventsValidEventsSelectPtrOutput)
+}
+
+func (o ServiceLevelEventsValidEventsSelectOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelEventsValidEventsSelect] {
+	return pulumix.Output[ServiceLevelEventsValidEventsSelect]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The event attribute to use in the SELECT clause.
@@ -18551,6 +21930,12 @@ func (o ServiceLevelEventsValidEventsSelectPtrOutput) ToServiceLevelEventsValidE
 
 func (o ServiceLevelEventsValidEventsSelectPtrOutput) ToServiceLevelEventsValidEventsSelectPtrOutputWithContext(ctx context.Context) ServiceLevelEventsValidEventsSelectPtrOutput {
 	return o
+}
+
+func (o ServiceLevelEventsValidEventsSelectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelEventsValidEventsSelect] {
+	return pulumix.Output[*ServiceLevelEventsValidEventsSelect]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceLevelEventsValidEventsSelectPtrOutput) Elem() ServiceLevelEventsValidEventsSelectOutput {
@@ -18638,6 +22023,12 @@ func (i ServiceLevelObjectiveArgs) ToServiceLevelObjectiveOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveOutput)
 }
 
+func (i ServiceLevelObjectiveArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelObjective] {
+	return pulumix.Output[ServiceLevelObjective]{
+		OutputState: i.ToServiceLevelObjectiveOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceLevelObjectiveArgs) ToServiceLevelObjectivePtrOutput() ServiceLevelObjectivePtrOutput {
 	return i.ToServiceLevelObjectivePtrOutputWithContext(context.Background())
 }
@@ -18679,6 +22070,12 @@ func (i *serviceLevelObjectivePtrType) ToServiceLevelObjectivePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectivePtrOutput)
 }
 
+func (i *serviceLevelObjectivePtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelObjective] {
+	return pulumix.Output[*ServiceLevelObjective]{
+		OutputState: i.ToServiceLevelObjectivePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceLevelObjectiveOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelObjectiveOutput) ElementType() reflect.Type {
@@ -18701,6 +22098,12 @@ func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectivePtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjective) *ServiceLevelObjective {
 		return &v
 	}).(ServiceLevelObjectivePtrOutput)
+}
+
+func (o ServiceLevelObjectiveOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelObjective] {
+	return pulumix.Output[ServiceLevelObjective]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the SLI.
@@ -18735,6 +22138,12 @@ func (o ServiceLevelObjectivePtrOutput) ToServiceLevelObjectivePtrOutput() Servi
 
 func (o ServiceLevelObjectivePtrOutput) ToServiceLevelObjectivePtrOutputWithContext(ctx context.Context) ServiceLevelObjectivePtrOutput {
 	return o
+}
+
+func (o ServiceLevelObjectivePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelObjective] {
+	return pulumix.Output[*ServiceLevelObjective]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceLevelObjectivePtrOutput) Elem() ServiceLevelObjectiveOutput {
@@ -18820,6 +22229,12 @@ func (i ServiceLevelObjectiveTimeWindowArgs) ToServiceLevelObjectiveTimeWindowOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveTimeWindowOutput)
 }
 
+func (i ServiceLevelObjectiveTimeWindowArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelObjectiveTimeWindow] {
+	return pulumix.Output[ServiceLevelObjectiveTimeWindow]{
+		OutputState: i.ToServiceLevelObjectiveTimeWindowOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceLevelObjectiveTimeWindowArgs) ToServiceLevelObjectiveTimeWindowPtrOutput() ServiceLevelObjectiveTimeWindowPtrOutput {
 	return i.ToServiceLevelObjectiveTimeWindowPtrOutputWithContext(context.Background())
 }
@@ -18861,6 +22276,12 @@ func (i *serviceLevelObjectiveTimeWindowPtrType) ToServiceLevelObjectiveTimeWind
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveTimeWindowPtrOutput)
 }
 
+func (i *serviceLevelObjectiveTimeWindowPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelObjectiveTimeWindow] {
+	return pulumix.Output[*ServiceLevelObjectiveTimeWindow]{
+		OutputState: i.ToServiceLevelObjectiveTimeWindowPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceLevelObjectiveTimeWindowOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelObjectiveTimeWindowOutput) ElementType() reflect.Type {
@@ -18885,6 +22306,12 @@ func (o ServiceLevelObjectiveTimeWindowOutput) ToServiceLevelObjectiveTimeWindow
 	}).(ServiceLevelObjectiveTimeWindowPtrOutput)
 }
 
+func (o ServiceLevelObjectiveTimeWindowOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelObjectiveTimeWindow] {
+	return pulumix.Output[ServiceLevelObjectiveTimeWindow]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Rolling window.
 func (o ServiceLevelObjectiveTimeWindowOutput) Rolling() ServiceLevelObjectiveTimeWindowRollingOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveTimeWindow) ServiceLevelObjectiveTimeWindowRolling { return v.Rolling }).(ServiceLevelObjectiveTimeWindowRollingOutput)
@@ -18902,6 +22329,12 @@ func (o ServiceLevelObjectiveTimeWindowPtrOutput) ToServiceLevelObjectiveTimeWin
 
 func (o ServiceLevelObjectiveTimeWindowPtrOutput) ToServiceLevelObjectiveTimeWindowPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveTimeWindowPtrOutput {
 	return o
+}
+
+func (o ServiceLevelObjectiveTimeWindowPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelObjectiveTimeWindow] {
+	return pulumix.Output[*ServiceLevelObjectiveTimeWindow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceLevelObjectiveTimeWindowPtrOutput) Elem() ServiceLevelObjectiveTimeWindowOutput {
@@ -18961,6 +22394,12 @@ func (i ServiceLevelObjectiveTimeWindowRollingArgs) ToServiceLevelObjectiveTimeW
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveTimeWindowRollingOutput)
 }
 
+func (i ServiceLevelObjectiveTimeWindowRollingArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelObjectiveTimeWindowRolling] {
+	return pulumix.Output[ServiceLevelObjectiveTimeWindowRolling]{
+		OutputState: i.ToServiceLevelObjectiveTimeWindowRollingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceLevelObjectiveTimeWindowRollingArgs) ToServiceLevelObjectiveTimeWindowRollingPtrOutput() ServiceLevelObjectiveTimeWindowRollingPtrOutput {
 	return i.ToServiceLevelObjectiveTimeWindowRollingPtrOutputWithContext(context.Background())
 }
@@ -19002,6 +22441,12 @@ func (i *serviceLevelObjectiveTimeWindowRollingPtrType) ToServiceLevelObjectiveT
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveTimeWindowRollingPtrOutput)
 }
 
+func (i *serviceLevelObjectiveTimeWindowRollingPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelObjectiveTimeWindowRolling] {
+	return pulumix.Output[*ServiceLevelObjectiveTimeWindowRolling]{
+		OutputState: i.ToServiceLevelObjectiveTimeWindowRollingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceLevelObjectiveTimeWindowRollingOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelObjectiveTimeWindowRollingOutput) ElementType() reflect.Type {
@@ -19026,6 +22471,12 @@ func (o ServiceLevelObjectiveTimeWindowRollingOutput) ToServiceLevelObjectiveTim
 	}).(ServiceLevelObjectiveTimeWindowRollingPtrOutput)
 }
 
+func (o ServiceLevelObjectiveTimeWindowRollingOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceLevelObjectiveTimeWindowRolling] {
+	return pulumix.Output[ServiceLevelObjectiveTimeWindowRolling]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Valid values are `1`, `7` and `28`.
 func (o ServiceLevelObjectiveTimeWindowRollingOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveTimeWindowRolling) int { return v.Count }).(pulumi.IntOutput)
@@ -19048,6 +22499,12 @@ func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) ToServiceLevelObjective
 
 func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) ToServiceLevelObjectiveTimeWindowRollingPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveTimeWindowRollingPtrOutput {
 	return o
+}
+
+func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelObjectiveTimeWindowRolling] {
+	return pulumix.Output[*ServiceLevelObjectiveTimeWindowRolling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Elem() ServiceLevelObjectiveTimeWindowRollingOutput {
@@ -19127,6 +22584,12 @@ func (i WorkflowDestinationArgs) ToWorkflowDestinationOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowDestinationOutput)
 }
 
+func (i WorkflowDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowDestination] {
+	return pulumix.Output[WorkflowDestination]{
+		OutputState: i.ToWorkflowDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkflowDestinationArrayInput is an input type that accepts WorkflowDestinationArray and WorkflowDestinationArrayOutput values.
 // You can construct a concrete instance of `WorkflowDestinationArrayInput` via:
 //
@@ -19152,6 +22615,12 @@ func (i WorkflowDestinationArray) ToWorkflowDestinationArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowDestinationArrayOutput)
 }
 
+func (i WorkflowDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowDestination] {
+	return pulumix.Output[[]WorkflowDestination]{
+		OutputState: i.ToWorkflowDestinationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowDestinationOutput struct{ *pulumi.OutputState }
 
 func (WorkflowDestinationOutput) ElementType() reflect.Type {
@@ -19164,6 +22633,12 @@ func (o WorkflowDestinationOutput) ToWorkflowDestinationOutput() WorkflowDestina
 
 func (o WorkflowDestinationOutput) ToWorkflowDestinationOutputWithContext(ctx context.Context) WorkflowDestinationOutput {
 	return o
+}
+
+func (o WorkflowDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowDestination] {
+	return pulumix.Output[WorkflowDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Id of a notificationChannel to use for notifications. Please note that you have to use a
@@ -19199,6 +22674,12 @@ func (o WorkflowDestinationArrayOutput) ToWorkflowDestinationArrayOutput() Workf
 
 func (o WorkflowDestinationArrayOutput) ToWorkflowDestinationArrayOutputWithContext(ctx context.Context) WorkflowDestinationArrayOutput {
 	return o
+}
+
+func (o WorkflowDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowDestination] {
+	return pulumix.Output[[]WorkflowDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowDestinationArrayOutput) Index(i pulumi.IntInput) WorkflowDestinationOutput {
@@ -19238,6 +22719,12 @@ func (i WorkflowEnrichmentsArgs) ToWorkflowEnrichmentsOutput() WorkflowEnrichmen
 
 func (i WorkflowEnrichmentsArgs) ToWorkflowEnrichmentsOutputWithContext(ctx context.Context) WorkflowEnrichmentsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnrichmentsOutput)
+}
+
+func (i WorkflowEnrichmentsArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowEnrichments] {
+	return pulumix.Output[WorkflowEnrichments]{
+		OutputState: i.ToWorkflowEnrichmentsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i WorkflowEnrichmentsArgs) ToWorkflowEnrichmentsPtrOutput() WorkflowEnrichmentsPtrOutput {
@@ -19281,6 +22768,12 @@ func (i *workflowEnrichmentsPtrType) ToWorkflowEnrichmentsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnrichmentsPtrOutput)
 }
 
+func (i *workflowEnrichmentsPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowEnrichments] {
+	return pulumix.Output[*WorkflowEnrichments]{
+		OutputState: i.ToWorkflowEnrichmentsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowEnrichmentsOutput struct{ *pulumi.OutputState }
 
 func (WorkflowEnrichmentsOutput) ElementType() reflect.Type {
@@ -19305,6 +22798,12 @@ func (o WorkflowEnrichmentsOutput) ToWorkflowEnrichmentsPtrOutputWithContext(ctx
 	}).(WorkflowEnrichmentsPtrOutput)
 }
 
+func (o WorkflowEnrichmentsOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowEnrichments] {
+	return pulumix.Output[WorkflowEnrichments]{
+		OutputState: o.OutputState,
+	}
+}
+
 // a wrapper block
 func (o WorkflowEnrichmentsOutput) Nrqls() WorkflowEnrichmentsNrqlArrayOutput {
 	return o.ApplyT(func(v WorkflowEnrichments) []WorkflowEnrichmentsNrql { return v.Nrqls }).(WorkflowEnrichmentsNrqlArrayOutput)
@@ -19322,6 +22821,12 @@ func (o WorkflowEnrichmentsPtrOutput) ToWorkflowEnrichmentsPtrOutput() WorkflowE
 
 func (o WorkflowEnrichmentsPtrOutput) ToWorkflowEnrichmentsPtrOutputWithContext(ctx context.Context) WorkflowEnrichmentsPtrOutput {
 	return o
+}
+
+func (o WorkflowEnrichmentsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowEnrichments] {
+	return pulumix.Output[*WorkflowEnrichments]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowEnrichmentsPtrOutput) Elem() WorkflowEnrichmentsOutput {
@@ -19391,6 +22896,12 @@ func (i WorkflowEnrichmentsNrqlArgs) ToWorkflowEnrichmentsNrqlOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnrichmentsNrqlOutput)
 }
 
+func (i WorkflowEnrichmentsNrqlArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowEnrichmentsNrql] {
+	return pulumix.Output[WorkflowEnrichmentsNrql]{
+		OutputState: i.ToWorkflowEnrichmentsNrqlOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkflowEnrichmentsNrqlArrayInput is an input type that accepts WorkflowEnrichmentsNrqlArray and WorkflowEnrichmentsNrqlArrayOutput values.
 // You can construct a concrete instance of `WorkflowEnrichmentsNrqlArrayInput` via:
 //
@@ -19416,6 +22927,12 @@ func (i WorkflowEnrichmentsNrqlArray) ToWorkflowEnrichmentsNrqlArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnrichmentsNrqlArrayOutput)
 }
 
+func (i WorkflowEnrichmentsNrqlArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowEnrichmentsNrql] {
+	return pulumix.Output[[]WorkflowEnrichmentsNrql]{
+		OutputState: i.ToWorkflowEnrichmentsNrqlArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowEnrichmentsNrqlOutput struct{ *pulumi.OutputState }
 
 func (WorkflowEnrichmentsNrqlOutput) ElementType() reflect.Type {
@@ -19428,6 +22945,12 @@ func (o WorkflowEnrichmentsNrqlOutput) ToWorkflowEnrichmentsNrqlOutput() Workflo
 
 func (o WorkflowEnrichmentsNrqlOutput) ToWorkflowEnrichmentsNrqlOutputWithContext(ctx context.Context) WorkflowEnrichmentsNrqlOutput {
 	return o
+}
+
+func (o WorkflowEnrichmentsNrqlOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowEnrichmentsNrql] {
+	return pulumix.Output[WorkflowEnrichmentsNrql]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
@@ -19466,6 +22989,12 @@ func (o WorkflowEnrichmentsNrqlArrayOutput) ToWorkflowEnrichmentsNrqlArrayOutput
 
 func (o WorkflowEnrichmentsNrqlArrayOutput) ToWorkflowEnrichmentsNrqlArrayOutputWithContext(ctx context.Context) WorkflowEnrichmentsNrqlArrayOutput {
 	return o
+}
+
+func (o WorkflowEnrichmentsNrqlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowEnrichmentsNrql] {
+	return pulumix.Output[[]WorkflowEnrichmentsNrql]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowEnrichmentsNrqlArrayOutput) Index(i pulumi.IntInput) WorkflowEnrichmentsNrqlOutput {
@@ -19507,6 +23036,12 @@ func (i WorkflowEnrichmentsNrqlConfigurationArgs) ToWorkflowEnrichmentsNrqlConfi
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnrichmentsNrqlConfigurationOutput)
 }
 
+func (i WorkflowEnrichmentsNrqlConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowEnrichmentsNrqlConfiguration] {
+	return pulumix.Output[WorkflowEnrichmentsNrqlConfiguration]{
+		OutputState: i.ToWorkflowEnrichmentsNrqlConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkflowEnrichmentsNrqlConfigurationArrayInput is an input type that accepts WorkflowEnrichmentsNrqlConfigurationArray and WorkflowEnrichmentsNrqlConfigurationArrayOutput values.
 // You can construct a concrete instance of `WorkflowEnrichmentsNrqlConfigurationArrayInput` via:
 //
@@ -19532,6 +23067,12 @@ func (i WorkflowEnrichmentsNrqlConfigurationArray) ToWorkflowEnrichmentsNrqlConf
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnrichmentsNrqlConfigurationArrayOutput)
 }
 
+func (i WorkflowEnrichmentsNrqlConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowEnrichmentsNrqlConfiguration] {
+	return pulumix.Output[[]WorkflowEnrichmentsNrqlConfiguration]{
+		OutputState: i.ToWorkflowEnrichmentsNrqlConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowEnrichmentsNrqlConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkflowEnrichmentsNrqlConfigurationOutput) ElementType() reflect.Type {
@@ -19544,6 +23085,12 @@ func (o WorkflowEnrichmentsNrqlConfigurationOutput) ToWorkflowEnrichmentsNrqlCon
 
 func (o WorkflowEnrichmentsNrqlConfigurationOutput) ToWorkflowEnrichmentsNrqlConfigurationOutputWithContext(ctx context.Context) WorkflowEnrichmentsNrqlConfigurationOutput {
 	return o
+}
+
+func (o WorkflowEnrichmentsNrqlConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowEnrichmentsNrqlConfiguration] {
+	return pulumix.Output[WorkflowEnrichmentsNrqlConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An NRQL query to run
@@ -19563,6 +23110,12 @@ func (o WorkflowEnrichmentsNrqlConfigurationArrayOutput) ToWorkflowEnrichmentsNr
 
 func (o WorkflowEnrichmentsNrqlConfigurationArrayOutput) ToWorkflowEnrichmentsNrqlConfigurationArrayOutputWithContext(ctx context.Context) WorkflowEnrichmentsNrqlConfigurationArrayOutput {
 	return o
+}
+
+func (o WorkflowEnrichmentsNrqlConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowEnrichmentsNrqlConfiguration] {
+	return pulumix.Output[[]WorkflowEnrichmentsNrqlConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowEnrichmentsNrqlConfigurationArrayOutput) Index(i pulumi.IntInput) WorkflowEnrichmentsNrqlConfigurationOutput {
@@ -19614,6 +23167,12 @@ func (i WorkflowIssuesFilterArgs) ToWorkflowIssuesFilterOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowIssuesFilterOutput)
 }
 
+func (i WorkflowIssuesFilterArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowIssuesFilter] {
+	return pulumix.Output[WorkflowIssuesFilter]{
+		OutputState: i.ToWorkflowIssuesFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowIssuesFilterArgs) ToWorkflowIssuesFilterPtrOutput() WorkflowIssuesFilterPtrOutput {
 	return i.ToWorkflowIssuesFilterPtrOutputWithContext(context.Background())
 }
@@ -19655,6 +23214,12 @@ func (i *workflowIssuesFilterPtrType) ToWorkflowIssuesFilterPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowIssuesFilterPtrOutput)
 }
 
+func (i *workflowIssuesFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowIssuesFilter] {
+	return pulumix.Output[*WorkflowIssuesFilter]{
+		OutputState: i.ToWorkflowIssuesFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowIssuesFilterOutput struct{ *pulumi.OutputState }
 
 func (WorkflowIssuesFilterOutput) ElementType() reflect.Type {
@@ -19677,6 +23242,12 @@ func (o WorkflowIssuesFilterOutput) ToWorkflowIssuesFilterPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowIssuesFilter) *WorkflowIssuesFilter {
 		return &v
 	}).(WorkflowIssuesFilterPtrOutput)
+}
+
+func (o WorkflowIssuesFilterOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowIssuesFilter] {
+	return pulumix.Output[WorkflowIssuesFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowIssuesFilterOutput) FilterId() pulumi.StringPtrOutput {
@@ -19710,6 +23281,12 @@ func (o WorkflowIssuesFilterPtrOutput) ToWorkflowIssuesFilterPtrOutput() Workflo
 
 func (o WorkflowIssuesFilterPtrOutput) ToWorkflowIssuesFilterPtrOutputWithContext(ctx context.Context) WorkflowIssuesFilterPtrOutput {
 	return o
+}
+
+func (o WorkflowIssuesFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowIssuesFilter] {
+	return pulumix.Output[*WorkflowIssuesFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowIssuesFilterPtrOutput) Elem() WorkflowIssuesFilterOutput {
@@ -19802,6 +23379,12 @@ func (i WorkflowIssuesFilterPredicateArgs) ToWorkflowIssuesFilterPredicateOutput
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowIssuesFilterPredicateOutput)
 }
 
+func (i WorkflowIssuesFilterPredicateArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowIssuesFilterPredicate] {
+	return pulumix.Output[WorkflowIssuesFilterPredicate]{
+		OutputState: i.ToWorkflowIssuesFilterPredicateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkflowIssuesFilterPredicateArrayInput is an input type that accepts WorkflowIssuesFilterPredicateArray and WorkflowIssuesFilterPredicateArrayOutput values.
 // You can construct a concrete instance of `WorkflowIssuesFilterPredicateArrayInput` via:
 //
@@ -19827,6 +23410,12 @@ func (i WorkflowIssuesFilterPredicateArray) ToWorkflowIssuesFilterPredicateArray
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowIssuesFilterPredicateArrayOutput)
 }
 
+func (i WorkflowIssuesFilterPredicateArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowIssuesFilterPredicate] {
+	return pulumix.Output[[]WorkflowIssuesFilterPredicate]{
+		OutputState: i.ToWorkflowIssuesFilterPredicateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowIssuesFilterPredicateOutput struct{ *pulumi.OutputState }
 
 func (WorkflowIssuesFilterPredicateOutput) ElementType() reflect.Type {
@@ -19839,6 +23428,12 @@ func (o WorkflowIssuesFilterPredicateOutput) ToWorkflowIssuesFilterPredicateOutp
 
 func (o WorkflowIssuesFilterPredicateOutput) ToWorkflowIssuesFilterPredicateOutputWithContext(ctx context.Context) WorkflowIssuesFilterPredicateOutput {
 	return o
+}
+
+func (o WorkflowIssuesFilterPredicateOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowIssuesFilterPredicate] {
+	return pulumix.Output[WorkflowIssuesFilterPredicate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Issue event attribute to check
@@ -19868,6 +23463,12 @@ func (o WorkflowIssuesFilterPredicateArrayOutput) ToWorkflowIssuesFilterPredicat
 
 func (o WorkflowIssuesFilterPredicateArrayOutput) ToWorkflowIssuesFilterPredicateArrayOutputWithContext(ctx context.Context) WorkflowIssuesFilterPredicateArrayOutput {
 	return o
+}
+
+func (o WorkflowIssuesFilterPredicateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowIssuesFilterPredicate] {
+	return pulumix.Output[[]WorkflowIssuesFilterPredicate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowIssuesFilterPredicateArrayOutput) Index(i pulumi.IntInput) WorkflowIssuesFilterPredicateOutput {
@@ -19945,6 +23546,12 @@ func (i GetAlertChannelConfigArgs) ToGetAlertChannelConfigOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertChannelConfigOutput)
 }
 
+func (i GetAlertChannelConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetAlertChannelConfig] {
+	return pulumix.Output[GetAlertChannelConfig]{
+		OutputState: i.ToGetAlertChannelConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAlertChannelConfigOutput struct{ *pulumi.OutputState }
 
 func (GetAlertChannelConfigOutput) ElementType() reflect.Type {
@@ -19957,6 +23564,12 @@ func (o GetAlertChannelConfigOutput) ToGetAlertChannelConfigOutput() GetAlertCha
 
 func (o GetAlertChannelConfigOutput) ToGetAlertChannelConfigOutputWithContext(ctx context.Context) GetAlertChannelConfigOutput {
 	return o
+}
+
+func (o GetAlertChannelConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetAlertChannelConfig] {
+	return pulumix.Output[GetAlertChannelConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAlertChannelConfigOutput) ApiKey() pulumi.StringPtrOutput {
@@ -20076,6 +23689,12 @@ func (i GetEntityTagArgs) ToGetEntityTagOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetEntityTagOutput)
 }
 
+func (i GetEntityTagArgs) ToOutput(ctx context.Context) pulumix.Output[GetEntityTag] {
+	return pulumix.Output[GetEntityTag]{
+		OutputState: i.ToGetEntityTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEntityTagArrayInput is an input type that accepts GetEntityTagArray and GetEntityTagArrayOutput values.
 // You can construct a concrete instance of `GetEntityTagArrayInput` via:
 //
@@ -20101,6 +23720,12 @@ func (i GetEntityTagArray) ToGetEntityTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetEntityTagArrayOutput)
 }
 
+func (i GetEntityTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEntityTag] {
+	return pulumix.Output[[]GetEntityTag]{
+		OutputState: i.ToGetEntityTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEntityTagOutput struct{ *pulumi.OutputState }
 
 func (GetEntityTagOutput) ElementType() reflect.Type {
@@ -20113,6 +23738,12 @@ func (o GetEntityTagOutput) ToGetEntityTagOutput() GetEntityTagOutput {
 
 func (o GetEntityTagOutput) ToGetEntityTagOutputWithContext(ctx context.Context) GetEntityTagOutput {
 	return o
+}
+
+func (o GetEntityTagOutput) ToOutput(ctx context.Context) pulumix.Output[GetEntityTag] {
+	return pulumix.Output[GetEntityTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The tag key.
@@ -20137,6 +23768,12 @@ func (o GetEntityTagArrayOutput) ToGetEntityTagArrayOutput() GetEntityTagArrayOu
 
 func (o GetEntityTagArrayOutput) ToGetEntityTagArrayOutputWithContext(ctx context.Context) GetEntityTagArrayOutput {
 	return o
+}
+
+func (o GetEntityTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEntityTag] {
+	return pulumix.Output[[]GetEntityTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEntityTagArrayOutput) Index(i pulumi.IntInput) GetEntityTagOutput {
@@ -20182,6 +23819,12 @@ func (i GetNotificationDestinationPropertyArgs) ToGetNotificationDestinationProp
 	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationPropertyOutput)
 }
 
+func (i GetNotificationDestinationPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[GetNotificationDestinationProperty] {
+	return pulumix.Output[GetNotificationDestinationProperty]{
+		OutputState: i.ToGetNotificationDestinationPropertyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetNotificationDestinationPropertyArrayInput is an input type that accepts GetNotificationDestinationPropertyArray and GetNotificationDestinationPropertyArrayOutput values.
 // You can construct a concrete instance of `GetNotificationDestinationPropertyArrayInput` via:
 //
@@ -20207,6 +23850,12 @@ func (i GetNotificationDestinationPropertyArray) ToGetNotificationDestinationPro
 	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationPropertyArrayOutput)
 }
 
+func (i GetNotificationDestinationPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNotificationDestinationProperty] {
+	return pulumix.Output[[]GetNotificationDestinationProperty]{
+		OutputState: i.ToGetNotificationDestinationPropertyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetNotificationDestinationPropertyOutput struct{ *pulumi.OutputState }
 
 func (GetNotificationDestinationPropertyOutput) ElementType() reflect.Type {
@@ -20219,6 +23868,12 @@ func (o GetNotificationDestinationPropertyOutput) ToGetNotificationDestinationPr
 
 func (o GetNotificationDestinationPropertyOutput) ToGetNotificationDestinationPropertyOutputWithContext(ctx context.Context) GetNotificationDestinationPropertyOutput {
 	return o
+}
+
+func (o GetNotificationDestinationPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[GetNotificationDestinationProperty] {
+	return pulumix.Output[GetNotificationDestinationProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNotificationDestinationPropertyOutput) DisplayValue() pulumi.StringPtrOutput {
@@ -20249,6 +23904,12 @@ func (o GetNotificationDestinationPropertyArrayOutput) ToGetNotificationDestinat
 
 func (o GetNotificationDestinationPropertyArrayOutput) ToGetNotificationDestinationPropertyArrayOutputWithContext(ctx context.Context) GetNotificationDestinationPropertyArrayOutput {
 	return o
+}
+
+func (o GetNotificationDestinationPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNotificationDestinationProperty] {
+	return pulumix.Output[[]GetNotificationDestinationProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNotificationDestinationPropertyArrayOutput) Index(i pulumi.IntInput) GetNotificationDestinationPropertyOutput {
@@ -20298,6 +23959,12 @@ func (i GetTestGrokPatternTestGrokArgs) ToGetTestGrokPatternTestGrokOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetTestGrokPatternTestGrokOutput)
 }
 
+func (i GetTestGrokPatternTestGrokArgs) ToOutput(ctx context.Context) pulumix.Output[GetTestGrokPatternTestGrok] {
+	return pulumix.Output[GetTestGrokPatternTestGrok]{
+		OutputState: i.ToGetTestGrokPatternTestGrokOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTestGrokPatternTestGrokArrayInput is an input type that accepts GetTestGrokPatternTestGrokArray and GetTestGrokPatternTestGrokArrayOutput values.
 // You can construct a concrete instance of `GetTestGrokPatternTestGrokArrayInput` via:
 //
@@ -20323,6 +23990,12 @@ func (i GetTestGrokPatternTestGrokArray) ToGetTestGrokPatternTestGrokArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetTestGrokPatternTestGrokArrayOutput)
 }
 
+func (i GetTestGrokPatternTestGrokArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTestGrokPatternTestGrok] {
+	return pulumix.Output[[]GetTestGrokPatternTestGrok]{
+		OutputState: i.ToGetTestGrokPatternTestGrokArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTestGrokPatternTestGrokOutput struct{ *pulumi.OutputState }
 
 func (GetTestGrokPatternTestGrokOutput) ElementType() reflect.Type {
@@ -20335,6 +24008,12 @@ func (o GetTestGrokPatternTestGrokOutput) ToGetTestGrokPatternTestGrokOutput() G
 
 func (o GetTestGrokPatternTestGrokOutput) ToGetTestGrokPatternTestGrokOutputWithContext(ctx context.Context) GetTestGrokPatternTestGrokOutput {
 	return o
+}
+
+func (o GetTestGrokPatternTestGrokOutput) ToOutput(ctx context.Context) pulumix.Output[GetTestGrokPatternTestGrok] {
+	return pulumix.Output[GetTestGrokPatternTestGrok]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Nested list containing information about any attributes that were extracted.
@@ -20364,6 +24043,12 @@ func (o GetTestGrokPatternTestGrokArrayOutput) ToGetTestGrokPatternTestGrokArray
 
 func (o GetTestGrokPatternTestGrokArrayOutput) ToGetTestGrokPatternTestGrokArrayOutputWithContext(ctx context.Context) GetTestGrokPatternTestGrokArrayOutput {
 	return o
+}
+
+func (o GetTestGrokPatternTestGrokArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTestGrokPatternTestGrok] {
+	return pulumix.Output[[]GetTestGrokPatternTestGrok]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTestGrokPatternTestGrokArrayOutput) Index(i pulumi.IntInput) GetTestGrokPatternTestGrokOutput {
@@ -20409,6 +24094,12 @@ func (i GetTestGrokPatternTestGrokAttributeArgs) ToGetTestGrokPatternTestGrokAtt
 	return pulumi.ToOutputWithContext(ctx, i).(GetTestGrokPatternTestGrokAttributeOutput)
 }
 
+func (i GetTestGrokPatternTestGrokAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[GetTestGrokPatternTestGrokAttribute] {
+	return pulumix.Output[GetTestGrokPatternTestGrokAttribute]{
+		OutputState: i.ToGetTestGrokPatternTestGrokAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTestGrokPatternTestGrokAttributeArrayInput is an input type that accepts GetTestGrokPatternTestGrokAttributeArray and GetTestGrokPatternTestGrokAttributeArrayOutput values.
 // You can construct a concrete instance of `GetTestGrokPatternTestGrokAttributeArrayInput` via:
 //
@@ -20434,6 +24125,12 @@ func (i GetTestGrokPatternTestGrokAttributeArray) ToGetTestGrokPatternTestGrokAt
 	return pulumi.ToOutputWithContext(ctx, i).(GetTestGrokPatternTestGrokAttributeArrayOutput)
 }
 
+func (i GetTestGrokPatternTestGrokAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTestGrokPatternTestGrokAttribute] {
+	return pulumix.Output[[]GetTestGrokPatternTestGrokAttribute]{
+		OutputState: i.ToGetTestGrokPatternTestGrokAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTestGrokPatternTestGrokAttributeOutput struct{ *pulumi.OutputState }
 
 func (GetTestGrokPatternTestGrokAttributeOutput) ElementType() reflect.Type {
@@ -20446,6 +24143,12 @@ func (o GetTestGrokPatternTestGrokAttributeOutput) ToGetTestGrokPatternTestGrokA
 
 func (o GetTestGrokPatternTestGrokAttributeOutput) ToGetTestGrokPatternTestGrokAttributeOutputWithContext(ctx context.Context) GetTestGrokPatternTestGrokAttributeOutput {
 	return o
+}
+
+func (o GetTestGrokPatternTestGrokAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[GetTestGrokPatternTestGrokAttribute] {
+	return pulumix.Output[GetTestGrokPatternTestGrokAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The attribute name.
@@ -20470,6 +24173,12 @@ func (o GetTestGrokPatternTestGrokAttributeArrayOutput) ToGetTestGrokPatternTest
 
 func (o GetTestGrokPatternTestGrokAttributeArrayOutput) ToGetTestGrokPatternTestGrokAttributeArrayOutputWithContext(ctx context.Context) GetTestGrokPatternTestGrokAttributeArrayOutput {
 	return o
+}
+
+func (o GetTestGrokPatternTestGrokAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTestGrokPatternTestGrokAttribute] {
+	return pulumix.Output[[]GetTestGrokPatternTestGrokAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTestGrokPatternTestGrokAttributeArrayOutput) Index(i pulumi.IntInput) GetTestGrokPatternTestGrokAttributeOutput {
