@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific alert policy in New Relic that already exists.
@@ -86,6 +87,12 @@ func (o LookupAlertPolicyResultOutput) ToLookupAlertPolicyResultOutput() LookupA
 
 func (o LookupAlertPolicyResultOutput) ToLookupAlertPolicyResultOutputWithContext(ctx context.Context) LookupAlertPolicyResultOutput {
 	return o
+}
+
+func (o LookupAlertPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAlertPolicyResult] {
+	return pulumix.Output[LookupAlertPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAlertPolicyResultOutput) AccountId() pulumi.IntOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create, update and delete New Relic Log Parsing Rule.
@@ -267,6 +268,12 @@ func (i *LogParsingRule) ToLogParsingRuleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(LogParsingRuleOutput)
 }
 
+func (i *LogParsingRule) ToOutput(ctx context.Context) pulumix.Output[*LogParsingRule] {
+	return pulumix.Output[*LogParsingRule]{
+		OutputState: i.ToLogParsingRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LogParsingRuleArrayInput is an input type that accepts LogParsingRuleArray and LogParsingRuleArrayOutput values.
 // You can construct a concrete instance of `LogParsingRuleArrayInput` via:
 //
@@ -290,6 +297,12 @@ func (i LogParsingRuleArray) ToLogParsingRuleArrayOutput() LogParsingRuleArrayOu
 
 func (i LogParsingRuleArray) ToLogParsingRuleArrayOutputWithContext(ctx context.Context) LogParsingRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogParsingRuleArrayOutput)
+}
+
+func (i LogParsingRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogParsingRule] {
+	return pulumix.Output[[]*LogParsingRule]{
+		OutputState: i.ToLogParsingRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LogParsingRuleMapInput is an input type that accepts LogParsingRuleMap and LogParsingRuleMapOutput values.
@@ -317,6 +330,12 @@ func (i LogParsingRuleMap) ToLogParsingRuleMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LogParsingRuleMapOutput)
 }
 
+func (i LogParsingRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogParsingRule] {
+	return pulumix.Output[map[string]*LogParsingRule]{
+		OutputState: i.ToLogParsingRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LogParsingRuleOutput struct{ *pulumi.OutputState }
 
 func (LogParsingRuleOutput) ElementType() reflect.Type {
@@ -329,6 +348,12 @@ func (o LogParsingRuleOutput) ToLogParsingRuleOutput() LogParsingRuleOutput {
 
 func (o LogParsingRuleOutput) ToLogParsingRuleOutputWithContext(ctx context.Context) LogParsingRuleOutput {
 	return o
+}
+
+func (o LogParsingRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*LogParsingRule] {
+	return pulumix.Output[*LogParsingRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The account id associated with the obfuscation rule.
@@ -390,6 +415,12 @@ func (o LogParsingRuleArrayOutput) ToLogParsingRuleArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o LogParsingRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogParsingRule] {
+	return pulumix.Output[[]*LogParsingRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LogParsingRuleArrayOutput) Index(i pulumi.IntInput) LogParsingRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogParsingRule {
 		return vs[0].([]*LogParsingRule)[vs[1].(int)]
@@ -408,6 +439,12 @@ func (o LogParsingRuleMapOutput) ToLogParsingRuleMapOutput() LogParsingRuleMapOu
 
 func (o LogParsingRuleMapOutput) ToLogParsingRuleMapOutputWithContext(ctx context.Context) LogParsingRuleMapOutput {
 	return o
+}
+
+func (o LogParsingRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogParsingRule] {
+	return pulumix.Output[map[string]*LogParsingRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LogParsingRuleMapOutput) MapIndex(k pulumi.StringInput) LogParsingRuleOutput {

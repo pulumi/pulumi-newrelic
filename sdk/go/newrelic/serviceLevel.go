@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create, update, and delete New Relic Service Level Indicators and Objectives.
@@ -362,6 +363,12 @@ func (i *ServiceLevel) ToServiceLevelOutputWithContext(ctx context.Context) Serv
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelOutput)
 }
 
+func (i *ServiceLevel) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevel] {
+	return pulumix.Output[*ServiceLevel]{
+		OutputState: i.ToServiceLevelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceLevelArrayInput is an input type that accepts ServiceLevelArray and ServiceLevelArrayOutput values.
 // You can construct a concrete instance of `ServiceLevelArrayInput` via:
 //
@@ -385,6 +392,12 @@ func (i ServiceLevelArray) ToServiceLevelArrayOutput() ServiceLevelArrayOutput {
 
 func (i ServiceLevelArray) ToServiceLevelArrayOutputWithContext(ctx context.Context) ServiceLevelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelArrayOutput)
+}
+
+func (i ServiceLevelArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceLevel] {
+	return pulumix.Output[[]*ServiceLevel]{
+		OutputState: i.ToServiceLevelArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceLevelMapInput is an input type that accepts ServiceLevelMap and ServiceLevelMapOutput values.
@@ -412,6 +425,12 @@ func (i ServiceLevelMap) ToServiceLevelMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelMapOutput)
 }
 
+func (i ServiceLevelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceLevel] {
+	return pulumix.Output[map[string]*ServiceLevel]{
+		OutputState: i.ToServiceLevelMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceLevelOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelOutput) ElementType() reflect.Type {
@@ -424,6 +443,12 @@ func (o ServiceLevelOutput) ToServiceLevelOutput() ServiceLevelOutput {
 
 func (o ServiceLevelOutput) ToServiceLevelOutputWithContext(ctx context.Context) ServiceLevelOutput {
 	return o
+}
+
+func (o ServiceLevelOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevel] {
+	return pulumix.Output[*ServiceLevel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the SLI.
@@ -477,6 +502,12 @@ func (o ServiceLevelArrayOutput) ToServiceLevelArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o ServiceLevelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceLevel] {
+	return pulumix.Output[[]*ServiceLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceLevelArrayOutput) Index(i pulumi.IntInput) ServiceLevelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceLevel {
 		return vs[0].([]*ServiceLevel)[vs[1].(int)]
@@ -495,6 +526,12 @@ func (o ServiceLevelMapOutput) ToServiceLevelMapOutput() ServiceLevelMapOutput {
 
 func (o ServiceLevelMapOutput) ToServiceLevelMapOutputWithContext(ctx context.Context) ServiceLevelMapOutput {
 	return o
+}
+
+func (o ServiceLevelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceLevel] {
+	return pulumix.Output[map[string]*ServiceLevel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceLevelMapOutput) MapIndex(k pulumi.StringInput) ServiceLevelOutput {

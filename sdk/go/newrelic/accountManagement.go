@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create and manage New Relic sub accounts.
@@ -149,6 +150,12 @@ func (i *AccountManagement) ToAccountManagementOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AccountManagementOutput)
 }
 
+func (i *AccountManagement) ToOutput(ctx context.Context) pulumix.Output[*AccountManagement] {
+	return pulumix.Output[*AccountManagement]{
+		OutputState: i.ToAccountManagementOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccountManagementArrayInput is an input type that accepts AccountManagementArray and AccountManagementArrayOutput values.
 // You can construct a concrete instance of `AccountManagementArrayInput` via:
 //
@@ -172,6 +179,12 @@ func (i AccountManagementArray) ToAccountManagementArrayOutput() AccountManageme
 
 func (i AccountManagementArray) ToAccountManagementArrayOutputWithContext(ctx context.Context) AccountManagementArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountManagementArrayOutput)
+}
+
+func (i AccountManagementArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccountManagement] {
+	return pulumix.Output[[]*AccountManagement]{
+		OutputState: i.ToAccountManagementArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AccountManagementMapInput is an input type that accepts AccountManagementMap and AccountManagementMapOutput values.
@@ -199,6 +212,12 @@ func (i AccountManagementMap) ToAccountManagementMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AccountManagementMapOutput)
 }
 
+func (i AccountManagementMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountManagement] {
+	return pulumix.Output[map[string]*AccountManagement]{
+		OutputState: i.ToAccountManagementMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountManagementOutput struct{ *pulumi.OutputState }
 
 func (AccountManagementOutput) ElementType() reflect.Type {
@@ -211,6 +230,12 @@ func (o AccountManagementOutput) ToAccountManagementOutput() AccountManagementOu
 
 func (o AccountManagementOutput) ToAccountManagementOutputWithContext(ctx context.Context) AccountManagementOutput {
 	return o
+}
+
+func (o AccountManagementOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountManagement] {
+	return pulumix.Output[*AccountManagement]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Account.
@@ -237,6 +262,12 @@ func (o AccountManagementArrayOutput) ToAccountManagementArrayOutputWithContext(
 	return o
 }
 
+func (o AccountManagementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccountManagement] {
+	return pulumix.Output[[]*AccountManagement]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AccountManagementArrayOutput) Index(i pulumi.IntInput) AccountManagementOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountManagement {
 		return vs[0].([]*AccountManagement)[vs[1].(int)]
@@ -255,6 +286,12 @@ func (o AccountManagementMapOutput) ToAccountManagementMapOutput() AccountManage
 
 func (o AccountManagementMapOutput) ToAccountManagementMapOutputWithContext(ctx context.Context) AccountManagementMapOutput {
 	return o
+}
+
+func (o AccountManagementMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountManagement] {
+	return pulumix.Output[map[string]*AccountManagement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountManagementMapOutput) MapIndex(k pulumi.StringInput) AccountManagementOutput {

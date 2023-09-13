@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create, update and delete New Relic Data partition rule.
@@ -208,6 +209,12 @@ func (i *DataPartitionRule) ToDataPartitionRuleOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DataPartitionRuleOutput)
 }
 
+func (i *DataPartitionRule) ToOutput(ctx context.Context) pulumix.Output[*DataPartitionRule] {
+	return pulumix.Output[*DataPartitionRule]{
+		OutputState: i.ToDataPartitionRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataPartitionRuleArrayInput is an input type that accepts DataPartitionRuleArray and DataPartitionRuleArrayOutput values.
 // You can construct a concrete instance of `DataPartitionRuleArrayInput` via:
 //
@@ -231,6 +238,12 @@ func (i DataPartitionRuleArray) ToDataPartitionRuleArrayOutput() DataPartitionRu
 
 func (i DataPartitionRuleArray) ToDataPartitionRuleArrayOutputWithContext(ctx context.Context) DataPartitionRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataPartitionRuleArrayOutput)
+}
+
+func (i DataPartitionRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataPartitionRule] {
+	return pulumix.Output[[]*DataPartitionRule]{
+		OutputState: i.ToDataPartitionRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataPartitionRuleMapInput is an input type that accepts DataPartitionRuleMap and DataPartitionRuleMapOutput values.
@@ -258,6 +271,12 @@ func (i DataPartitionRuleMap) ToDataPartitionRuleMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DataPartitionRuleMapOutput)
 }
 
+func (i DataPartitionRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataPartitionRule] {
+	return pulumix.Output[map[string]*DataPartitionRule]{
+		OutputState: i.ToDataPartitionRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataPartitionRuleOutput struct{ *pulumi.OutputState }
 
 func (DataPartitionRuleOutput) ElementType() reflect.Type {
@@ -270,6 +289,12 @@ func (o DataPartitionRuleOutput) ToDataPartitionRuleOutput() DataPartitionRuleOu
 
 func (o DataPartitionRuleOutput) ToDataPartitionRuleOutputWithContext(ctx context.Context) DataPartitionRuleOutput {
 	return o
+}
+
+func (o DataPartitionRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*DataPartitionRule] {
+	return pulumix.Output[*DataPartitionRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The account id associated with the data partition rule.
@@ -321,6 +346,12 @@ func (o DataPartitionRuleArrayOutput) ToDataPartitionRuleArrayOutputWithContext(
 	return o
 }
 
+func (o DataPartitionRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataPartitionRule] {
+	return pulumix.Output[[]*DataPartitionRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataPartitionRuleArrayOutput) Index(i pulumi.IntInput) DataPartitionRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataPartitionRule {
 		return vs[0].([]*DataPartitionRule)[vs[1].(int)]
@@ -339,6 +370,12 @@ func (o DataPartitionRuleMapOutput) ToDataPartitionRuleMapOutput() DataPartition
 
 func (o DataPartitionRuleMapOutput) ToDataPartitionRuleMapOutputWithContext(ctx context.Context) DataPartitionRuleMapOutput {
 	return o
+}
+
+func (o DataPartitionRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataPartitionRule] {
+	return pulumix.Output[map[string]*DataPartitionRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataPartitionRuleMapOutput) MapIndex(k pulumi.StringInput) DataPartitionRuleOutput {

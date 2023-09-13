@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupNotificationDestination(ctx *pulumi.Context, args *LookupNotificationDestinationArgs, opts ...pulumi.InvokeOption) (*LookupNotificationDestinationResult, error) {
@@ -91,6 +92,12 @@ func (o LookupNotificationDestinationResultOutput) ToLookupNotificationDestinati
 
 func (o LookupNotificationDestinationResultOutput) ToLookupNotificationDestinationResultOutputWithContext(ctx context.Context) LookupNotificationDestinationResultOutput {
 	return o
+}
+
+func (o LookupNotificationDestinationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNotificationDestinationResult] {
+	return pulumix.Output[LookupNotificationDestinationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupNotificationDestinationResultOutput) AccountId() pulumi.IntOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to integrate AWS services with New Relic.
@@ -1352,6 +1353,12 @@ func (i *AwsIntegrations) ToAwsIntegrationsOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsOutput)
 }
 
+func (i *AwsIntegrations) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrations] {
+	return pulumix.Output[*AwsIntegrations]{
+		OutputState: i.ToAwsIntegrationsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AwsIntegrationsArrayInput is an input type that accepts AwsIntegrationsArray and AwsIntegrationsArrayOutput values.
 // You can construct a concrete instance of `AwsIntegrationsArrayInput` via:
 //
@@ -1375,6 +1382,12 @@ func (i AwsIntegrationsArray) ToAwsIntegrationsArrayOutput() AwsIntegrationsArra
 
 func (i AwsIntegrationsArray) ToAwsIntegrationsArrayOutputWithContext(ctx context.Context) AwsIntegrationsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsArrayOutput)
+}
+
+func (i AwsIntegrationsArray) ToOutput(ctx context.Context) pulumix.Output[[]*AwsIntegrations] {
+	return pulumix.Output[[]*AwsIntegrations]{
+		OutputState: i.ToAwsIntegrationsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AwsIntegrationsMapInput is an input type that accepts AwsIntegrationsMap and AwsIntegrationsMapOutput values.
@@ -1402,6 +1415,12 @@ func (i AwsIntegrationsMap) ToAwsIntegrationsMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsMapOutput)
 }
 
+func (i AwsIntegrationsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AwsIntegrations] {
+	return pulumix.Output[map[string]*AwsIntegrations]{
+		OutputState: i.ToAwsIntegrationsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AwsIntegrationsOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsOutput) ElementType() reflect.Type {
@@ -1414,6 +1433,12 @@ func (o AwsIntegrationsOutput) ToAwsIntegrationsOutput() AwsIntegrationsOutput {
 
 func (o AwsIntegrationsOutput) ToAwsIntegrationsOutputWithContext(ctx context.Context) AwsIntegrationsOutput {
 	return o
+}
+
+func (o AwsIntegrationsOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsIntegrations] {
+	return pulumix.Output[*AwsIntegrations]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -1761,6 +1786,12 @@ func (o AwsIntegrationsArrayOutput) ToAwsIntegrationsArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o AwsIntegrationsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AwsIntegrations] {
+	return pulumix.Output[[]*AwsIntegrations]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AwsIntegrationsArrayOutput) Index(i pulumi.IntInput) AwsIntegrationsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AwsIntegrations {
 		return vs[0].([]*AwsIntegrations)[vs[1].(int)]
@@ -1779,6 +1810,12 @@ func (o AwsIntegrationsMapOutput) ToAwsIntegrationsMapOutput() AwsIntegrationsMa
 
 func (o AwsIntegrationsMapOutput) ToAwsIntegrationsMapOutputWithContext(ctx context.Context) AwsIntegrationsMapOutput {
 	return o
+}
+
+func (o AwsIntegrationsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AwsIntegrations] {
+	return pulumix.Output[map[string]*AwsIntegrations]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AwsIntegrationsMapOutput) MapIndex(k pulumi.StringInput) AwsIntegrationsOutput {

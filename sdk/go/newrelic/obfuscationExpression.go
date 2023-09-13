@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create, update and delete New Relic Obfuscation Expressions.
@@ -168,6 +169,12 @@ func (i *ObfuscationExpression) ToObfuscationExpressionOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ObfuscationExpressionOutput)
 }
 
+func (i *ObfuscationExpression) ToOutput(ctx context.Context) pulumix.Output[*ObfuscationExpression] {
+	return pulumix.Output[*ObfuscationExpression]{
+		OutputState: i.ToObfuscationExpressionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ObfuscationExpressionArrayInput is an input type that accepts ObfuscationExpressionArray and ObfuscationExpressionArrayOutput values.
 // You can construct a concrete instance of `ObfuscationExpressionArrayInput` via:
 //
@@ -191,6 +198,12 @@ func (i ObfuscationExpressionArray) ToObfuscationExpressionArrayOutput() Obfusca
 
 func (i ObfuscationExpressionArray) ToObfuscationExpressionArrayOutputWithContext(ctx context.Context) ObfuscationExpressionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ObfuscationExpressionArrayOutput)
+}
+
+func (i ObfuscationExpressionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ObfuscationExpression] {
+	return pulumix.Output[[]*ObfuscationExpression]{
+		OutputState: i.ToObfuscationExpressionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ObfuscationExpressionMapInput is an input type that accepts ObfuscationExpressionMap and ObfuscationExpressionMapOutput values.
@@ -218,6 +231,12 @@ func (i ObfuscationExpressionMap) ToObfuscationExpressionMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ObfuscationExpressionMapOutput)
 }
 
+func (i ObfuscationExpressionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObfuscationExpression] {
+	return pulumix.Output[map[string]*ObfuscationExpression]{
+		OutputState: i.ToObfuscationExpressionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ObfuscationExpressionOutput struct{ *pulumi.OutputState }
 
 func (ObfuscationExpressionOutput) ElementType() reflect.Type {
@@ -230,6 +249,12 @@ func (o ObfuscationExpressionOutput) ToObfuscationExpressionOutput() Obfuscation
 
 func (o ObfuscationExpressionOutput) ToObfuscationExpressionOutputWithContext(ctx context.Context) ObfuscationExpressionOutput {
 	return o
+}
+
+func (o ObfuscationExpressionOutput) ToOutput(ctx context.Context) pulumix.Output[*ObfuscationExpression] {
+	return pulumix.Output[*ObfuscationExpression]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The account id associated with the obfuscation expression.
@@ -266,6 +291,12 @@ func (o ObfuscationExpressionArrayOutput) ToObfuscationExpressionArrayOutputWith
 	return o
 }
 
+func (o ObfuscationExpressionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ObfuscationExpression] {
+	return pulumix.Output[[]*ObfuscationExpression]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ObfuscationExpressionArrayOutput) Index(i pulumi.IntInput) ObfuscationExpressionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ObfuscationExpression {
 		return vs[0].([]*ObfuscationExpression)[vs[1].(int)]
@@ -284,6 +315,12 @@ func (o ObfuscationExpressionMapOutput) ToObfuscationExpressionMapOutput() Obfus
 
 func (o ObfuscationExpressionMapOutput) ToObfuscationExpressionMapOutputWithContext(ctx context.Context) ObfuscationExpressionMapOutput {
 	return o
+}
+
+func (o ObfuscationExpressionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObfuscationExpression] {
+	return pulumix.Output[map[string]*ObfuscationExpression]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ObfuscationExpressionMapOutput) MapIndex(k pulumi.StringInput) ObfuscationExpressionOutput {

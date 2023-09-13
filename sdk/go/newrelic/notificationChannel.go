@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create and manage New Relic notification channels. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
@@ -643,6 +644,12 @@ func (i *NotificationChannel) ToNotificationChannelOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelOutput)
 }
 
+func (i *NotificationChannel) ToOutput(ctx context.Context) pulumix.Output[*NotificationChannel] {
+	return pulumix.Output[*NotificationChannel]{
+		OutputState: i.ToNotificationChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NotificationChannelArrayInput is an input type that accepts NotificationChannelArray and NotificationChannelArrayOutput values.
 // You can construct a concrete instance of `NotificationChannelArrayInput` via:
 //
@@ -666,6 +673,12 @@ func (i NotificationChannelArray) ToNotificationChannelArrayOutput() Notificatio
 
 func (i NotificationChannelArray) ToNotificationChannelArrayOutputWithContext(ctx context.Context) NotificationChannelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelArrayOutput)
+}
+
+func (i NotificationChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]*NotificationChannel] {
+	return pulumix.Output[[]*NotificationChannel]{
+		OutputState: i.ToNotificationChannelArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NotificationChannelMapInput is an input type that accepts NotificationChannelMap and NotificationChannelMapOutput values.
@@ -693,6 +706,12 @@ func (i NotificationChannelMap) ToNotificationChannelMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelMapOutput)
 }
 
+func (i NotificationChannelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotificationChannel] {
+	return pulumix.Output[map[string]*NotificationChannel]{
+		OutputState: i.ToNotificationChannelMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotificationChannelOutput struct{ *pulumi.OutputState }
 
 func (NotificationChannelOutput) ElementType() reflect.Type {
@@ -705,6 +724,12 @@ func (o NotificationChannelOutput) ToNotificationChannelOutput() NotificationCha
 
 func (o NotificationChannelOutput) ToNotificationChannelOutputWithContext(ctx context.Context) NotificationChannelOutput {
 	return o
+}
+
+func (o NotificationChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationChannel] {
+	return pulumix.Output[*NotificationChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
@@ -761,6 +786,12 @@ func (o NotificationChannelArrayOutput) ToNotificationChannelArrayOutputWithCont
 	return o
 }
 
+func (o NotificationChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NotificationChannel] {
+	return pulumix.Output[[]*NotificationChannel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NotificationChannelArrayOutput) Index(i pulumi.IntInput) NotificationChannelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NotificationChannel {
 		return vs[0].([]*NotificationChannel)[vs[1].(int)]
@@ -779,6 +810,12 @@ func (o NotificationChannelMapOutput) ToNotificationChannelMapOutput() Notificat
 
 func (o NotificationChannelMapOutput) ToNotificationChannelMapOutputWithContext(ctx context.Context) NotificationChannelMapOutput {
 	return o
+}
+
+func (o NotificationChannelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotificationChannel] {
+	return pulumix.Output[map[string]*NotificationChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationChannelMapOutput) MapIndex(k pulumi.StringInput) NotificationChannelOutput {
