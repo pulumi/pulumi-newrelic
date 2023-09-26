@@ -65,7 +65,7 @@ export class ApplicationSettings extends pulumi.CustomResource {
     }
 
     /**
-     * The appex threshold for the New Relic application.
+     * The apdex threshold for the New Relic application.
      */
     public readonly appApdexThreshold!: pulumi.Output<number>;
     /**
@@ -128,7 +128,7 @@ export class ApplicationSettings extends pulumi.CustomResource {
  */
 export interface ApplicationSettingsState {
     /**
-     * The appex threshold for the New Relic application.
+     * The apdex threshold for the New Relic application.
      */
     appApdexThreshold?: pulumi.Input<number>;
     /**
@@ -154,7 +154,7 @@ export interface ApplicationSettingsState {
  */
 export interface ApplicationSettingsArgs {
     /**
-     * The appex threshold for the New Relic application.
+     * The apdex threshold for the New Relic application.
      */
     appApdexThreshold: pulumi.Input<number>;
     /**

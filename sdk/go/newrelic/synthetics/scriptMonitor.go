@@ -233,11 +233,11 @@ type ScriptMonitor struct {
 
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
-	// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 	DeviceOrientation pulumi.StringPtrOutput `pulumi:"deviceOrientation"`
-	// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
 	DeviceType pulumi.StringPtrOutput `pulumi:"deviceType"`
-	// Capture a screenshot during job execution
+	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrOutput `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The unique identifier for the Synthetics private location in New Relic.
 	Guid pulumi.StringOutput `pulumi:"guid"`
@@ -310,11 +310,11 @@ func GetScriptMonitor(ctx *pulumi.Context,
 type scriptMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId *int `pulumi:"accountId"`
-	// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 	DeviceOrientation *string `pulumi:"deviceOrientation"`
-	// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
 	DeviceType *string `pulumi:"deviceType"`
-	// Capture a screenshot during job execution
+	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The unique identifier for the Synthetics private location in New Relic.
 	Guid *string `pulumi:"guid"`
@@ -349,11 +349,11 @@ type scriptMonitorState struct {
 type ScriptMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.IntPtrInput
-	// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 	DeviceOrientation pulumi.StringPtrInput
-	// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
 	DeviceType pulumi.StringPtrInput
-	// Capture a screenshot during job execution
+	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
 	// The unique identifier for the Synthetics private location in New Relic.
 	Guid pulumi.StringPtrInput
@@ -392,11 +392,11 @@ func (ScriptMonitorState) ElementType() reflect.Type {
 type scriptMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId *int `pulumi:"accountId"`
-	// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 	DeviceOrientation *string `pulumi:"deviceOrientation"`
-	// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
 	DeviceType *string `pulumi:"deviceType"`
-	// Capture a screenshot during job execution
+	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
 	LocationPrivates []ScriptMonitorLocationPrivate `pulumi:"locationPrivates"`
@@ -428,11 +428,11 @@ type scriptMonitorArgs struct {
 type ScriptMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.IntPtrInput
-	// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 	DeviceOrientation pulumi.StringPtrInput
-	// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
 	DeviceType pulumi.StringPtrInput
-	// Capture a screenshot during job execution
+	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
 	// The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
 	LocationPrivates ScriptMonitorLocationPrivateArrayInput
@@ -576,17 +576,17 @@ func (o ScriptMonitorOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
 
-// The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 func (o ScriptMonitorOutput) DeviceOrientation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringPtrOutput { return v.DeviceOrientation }).(pulumi.StringPtrOutput)
 }
 
-// The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
 func (o ScriptMonitorOutput) DeviceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringPtrOutput { return v.DeviceType }).(pulumi.StringPtrOutput)
 }
 
-// Capture a screenshot during job execution
+// Capture a screenshot during job execution.
 func (o ScriptMonitorOutput) EnableScreenshotOnFailureAndScript() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.BoolPtrOutput { return v.EnableScreenshotOnFailureAndScript }).(pulumi.BoolPtrOutput)
 }

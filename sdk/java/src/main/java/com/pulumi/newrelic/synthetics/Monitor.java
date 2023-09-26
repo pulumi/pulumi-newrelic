@@ -293,6 +293,34 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customHeaders);
     }
     /**
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     * 
+     */
+    @Export(name="deviceOrientation", type=String.class, parameters={})
+    private Output</* @Nullable */ String> deviceOrientation;
+
+    /**
+     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     * 
+     */
+    public Output<Optional<String>> deviceOrientation() {
+        return Codegen.optional(this.deviceOrientation);
+    }
+    /**
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     * 
+     */
+    @Export(name="deviceType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> deviceType;
+
+    /**
+     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     * 
+     */
+    public Output<Optional<String>> deviceType() {
+        return Codegen.optional(this.deviceType);
+    }
+    /**
      * Capture a screenshot during job execution.
      * 
      */

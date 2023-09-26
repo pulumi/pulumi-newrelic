@@ -12188,7 +12188,7 @@
             "properties": {
                 "appApdexThreshold": {
                     "type": "number",
-                    "description": "The appex threshold for the New Relic application.\n"
+                    "description": "The apdex threshold for the New Relic application.\n"
                 },
                 "enableRealUserMonitoring": {
                     "type": "boolean",
@@ -12212,7 +12212,7 @@
             "inputProperties": {
                 "appApdexThreshold": {
                     "type": "number",
-                    "description": "The appex threshold for the New Relic application.\n"
+                    "description": "The apdex threshold for the New Relic application.\n"
                 },
                 "enableRealUserMonitoring": {
                     "type": "boolean",
@@ -12237,7 +12237,7 @@
                 "properties": {
                     "appApdexThreshold": {
                         "type": "number",
-                        "description": "The appex threshold for the New Relic application.\n"
+                        "description": "The apdex threshold for the New Relic application.\n"
                     },
                     "enableRealUserMonitoring": {
                         "type": "boolean",
@@ -12881,6 +12881,14 @@
                     },
                     "description": "Custom headers to use in monitor job. See Nested custom_header blocks below for details.\n"
                 },
+                "deviceOrientation": {
+                    "type": "string",
+                    "description": "Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.\n"
+                },
+                "deviceType": {
+                    "type": "string",
+                    "description": "Device emulation type field. Valid values are `MOBILE` and `TABLET`.\n"
+                },
                 "enableScreenshotOnFailureAndScript": {
                     "type": "boolean",
                     "description": "Capture a screenshot during job execution.\n"
@@ -12979,6 +12987,14 @@
                     },
                     "description": "Custom headers to use in monitor job. See Nested custom_header blocks below for details.\n"
                 },
+                "deviceOrientation": {
+                    "type": "string",
+                    "description": "Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.\n"
+                },
+                "deviceType": {
+                    "type": "string",
+                    "description": "Device emulation type field. Valid values are `MOBILE` and `TABLET`.\n"
+                },
                 "enableScreenshotOnFailureAndScript": {
                     "type": "boolean",
                     "description": "Capture a screenshot during job execution.\n"
@@ -13071,6 +13087,14 @@
                             "$ref": "#/types/newrelic:synthetics/MonitorCustomHeader:MonitorCustomHeader"
                         },
                         "description": "Custom headers to use in monitor job. See Nested custom_header blocks below for details.\n"
+                    },
+                    "deviceOrientation": {
+                        "type": "string",
+                        "description": "Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.\n"
+                    },
+                    "deviceType": {
+                        "type": "string",
+                        "description": "Device emulation type field. Valid values are `MOBILE` and `TABLET`.\n"
                     },
                     "enableScreenshotOnFailureAndScript": {
                         "type": "boolean",
@@ -13408,15 +13432,15 @@
                 },
                 "deviceOrientation": {
                     "type": "string",
-                    "description": "The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.\n"
+                    "description": "Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.\n"
                 },
                 "deviceType": {
                     "type": "string",
-                    "description": "The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.\n"
+                    "description": "Device emulation type field. Valid values are `MOBILE` and `TABLET`.\n"
                 },
                 "enableScreenshotOnFailureAndScript": {
                     "type": "boolean",
-                    "description": "Capture a screenshot during job execution\n"
+                    "description": "Capture a screenshot during job execution.\n"
                 },
                 "guid": {
                     "type": "string",
@@ -13496,15 +13520,15 @@
                 },
                 "deviceOrientation": {
                     "type": "string",
-                    "description": "The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.\n"
+                    "description": "Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.\n"
                 },
                 "deviceType": {
                     "type": "string",
-                    "description": "The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.\n"
+                    "description": "Device emulation type field. Valid values are `MOBILE` and `TABLET`.\n"
                 },
                 "enableScreenshotOnFailureAndScript": {
                     "type": "boolean",
-                    "description": "Capture a screenshot during job execution\n"
+                    "description": "Capture a screenshot during job execution.\n"
                 },
                 "locationPrivates": {
                     "type": "array",
@@ -13575,15 +13599,15 @@
                     },
                     "deviceOrientation": {
                         "type": "string",
-                        "description": "The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.\n"
+                        "description": "Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.\n"
                     },
                     "deviceType": {
                         "type": "string",
-                        "description": "The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.\n"
+                        "description": "Device emulation type field. Valid values are `MOBILE` and `TABLET`.\n"
                     },
                     "enableScreenshotOnFailureAndScript": {
                         "type": "boolean",
-                        "description": "Capture a screenshot during job execution\n"
+                        "description": "Capture a screenshot during job execution.\n"
                     },
                     "guid": {
                         "type": "string",
@@ -14587,6 +14611,13 @@
                         "type": "integer",
                         "description": "The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.\n"
                     },
+                    "keys": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The key of the private location.\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "The name of the Synthetics monitor private location.\n"
@@ -14607,12 +14638,20 @@
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
+                    "keys": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The key of the private location.\n"
+                    },
                     "name": {
                         "type": "string"
                     }
                 },
                 "type": "object",
                 "required": [
+                    "keys",
                     "name",
                     "id"
                 ]

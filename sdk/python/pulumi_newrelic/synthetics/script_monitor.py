@@ -37,9 +37,9 @@ class ScriptMonitorArgs:
         :param pulumi.Input[str] status: The run state of the monitor: `ENABLED` or `DISABLED`
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
-        :param pulumi.Input[str] device_orientation: The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
-        :param pulumi.Input[str] device_type: The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
-        :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution
+        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+        :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[str] name: The name for the monitor.
@@ -131,7 +131,7 @@ class ScriptMonitorArgs:
     @pulumi.getter(name="deviceOrientation")
     def device_orientation(self) -> Optional[pulumi.Input[str]]:
         """
-        The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         """
         return pulumi.get(self, "device_orientation")
 
@@ -143,7 +143,7 @@ class ScriptMonitorArgs:
     @pulumi.getter(name="deviceType")
     def device_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+        Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         """
         return pulumi.get(self, "device_type")
 
@@ -155,7 +155,7 @@ class ScriptMonitorArgs:
     @pulumi.getter(name="enableScreenshotOnFailureAndScript")
     def enable_screenshot_on_failure_and_script(self) -> Optional[pulumi.Input[bool]]:
         """
-        Capture a screenshot during job execution
+        Capture a screenshot during job execution.
         """
         return pulumi.get(self, "enable_screenshot_on_failure_and_script")
 
@@ -285,9 +285,9 @@ class _ScriptMonitorState:
         """
         Input properties used for looking up and filtering ScriptMonitor resources.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
-        :param pulumi.Input[str] device_orientation: The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
-        :param pulumi.Input[str] device_type: The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
-        :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution
+        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+        :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
@@ -355,7 +355,7 @@ class _ScriptMonitorState:
     @pulumi.getter(name="deviceOrientation")
     def device_orientation(self) -> Optional[pulumi.Input[str]]:
         """
-        The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         """
         return pulumi.get(self, "device_orientation")
 
@@ -367,7 +367,7 @@ class _ScriptMonitorState:
     @pulumi.getter(name="deviceType")
     def device_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+        Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         """
         return pulumi.get(self, "device_type")
 
@@ -379,7 +379,7 @@ class _ScriptMonitorState:
     @pulumi.getter(name="enableScreenshotOnFailureAndScript")
     def enable_screenshot_on_failure_and_script(self) -> Optional[pulumi.Input[bool]]:
         """
-        Capture a screenshot during job execution
+        Capture a screenshot during job execution.
         """
         return pulumi.get(self, "enable_screenshot_on_failure_and_script")
 
@@ -693,9 +693,9 @@ class ScriptMonitor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
-        :param pulumi.Input[str] device_orientation: The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
-        :param pulumi.Input[str] device_type: The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
-        :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution
+        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+        :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[str] name: The name for the monitor.
@@ -936,9 +936,9 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
-        :param pulumi.Input[str] device_orientation: The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
-        :param pulumi.Input[str] device_type: The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
-        :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution
+        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+        :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
@@ -990,7 +990,7 @@ class ScriptMonitor(pulumi.CustomResource):
     @pulumi.getter(name="deviceOrientation")
     def device_orientation(self) -> pulumi.Output[Optional[str]]:
         """
-        The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         """
         return pulumi.get(self, "device_orientation")
 
@@ -998,7 +998,7 @@ class ScriptMonitor(pulumi.CustomResource):
     @pulumi.getter(name="deviceType")
     def device_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+        Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         """
         return pulumi.get(self, "device_type")
 
@@ -1006,7 +1006,7 @@ class ScriptMonitor(pulumi.CustomResource):
     @pulumi.getter(name="enableScreenshotOnFailureAndScript")
     def enable_screenshot_on_failure_and_script(self) -> pulumi.Output[Optional[bool]]:
         """
-        Capture a screenshot during job execution
+        Capture a screenshot during job execution.
         """
         return pulumi.get(self, "enable_screenshot_on_failure_and_script")
 

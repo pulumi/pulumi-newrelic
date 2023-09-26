@@ -151,6 +151,18 @@ namespace Pulumi.NewRelic.Synthetics
         [Input("accountId")]
         public int? AccountId { get; set; }
 
+        [Input("keys")]
+        private List<string>? _keys;
+
+        /// <summary>
+        /// The key of the private location.
+        /// </summary>
+        public List<string> Keys
+        {
+            get => _keys ?? (_keys = new List<string>());
+            set => _keys = value;
+        }
+
         /// <summary>
         /// The name of the Synthetics monitor private location.
         /// </summary>
@@ -170,6 +182,18 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
+
+        [Input("keys")]
+        private InputList<string>? _keys;
+
+        /// <summary>
+        /// The key of the private location.
+        /// </summary>
+        public InputList<string> Keys
+        {
+            get => _keys ?? (_keys = new InputList<string>());
+            set => _keys = value;
+        }
 
         /// <summary>
         /// The name of the Synthetics monitor private location.
@@ -192,6 +216,10 @@ namespace Pulumi.NewRelic.Synthetics
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The key of the private location.
+        /// </summary>
+        public readonly ImmutableArray<string> Keys;
         public readonly string Name;
 
         [OutputConstructor]
@@ -200,10 +228,13 @@ namespace Pulumi.NewRelic.Synthetics
 
             string id,
 
+            ImmutableArray<string> keys,
+
             string name)
         {
             AccountId = accountId;
             Id = id;
+            Keys = keys;
             Name = name;
         }
     }

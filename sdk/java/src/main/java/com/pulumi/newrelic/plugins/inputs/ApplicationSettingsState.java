@@ -18,14 +18,14 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
     public static final ApplicationSettingsState Empty = new ApplicationSettingsState();
 
     /**
-     * The appex threshold for the New Relic application.
+     * The apdex threshold for the New Relic application.
      * 
      */
     @Import(name="appApdexThreshold")
     private @Nullable Output<Double> appApdexThreshold;
 
     /**
-     * @return The appex threshold for the New Relic application.
+     * @return The apdex threshold for the New Relic application.
      * 
      */
     public Optional<Output<Double>> appApdexThreshold() {
@@ -149,7 +149,7 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param appApdexThreshold The appex threshold for the New Relic application.
+         * @param appApdexThreshold The apdex threshold for the New Relic application.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param appApdexThreshold The appex threshold for the New Relic application.
+         * @param appApdexThreshold The apdex threshold for the New Relic application.
          * 
          * @return builder
          * 

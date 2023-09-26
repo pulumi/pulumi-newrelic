@@ -252,42 +252,42 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
      * 
      */
     @Export(name="deviceOrientation", type=String.class, parameters={})
     private Output</* @Nullable */ String> deviceOrientation;
 
     /**
-     * @return The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
      * 
      */
     public Output<Optional<String>> deviceOrientation() {
         return Codegen.optional(this.deviceOrientation);
     }
     /**
-     * The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
      * 
      */
     @Export(name="deviceType", type=String.class, parameters={})
     private Output</* @Nullable */ String> deviceType;
 
     /**
-     * @return The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`.
      * 
      */
     public Output<Optional<String>> deviceType() {
         return Codegen.optional(this.deviceType);
     }
     /**
-     * Capture a screenshot during job execution
+     * Capture a screenshot during job execution.
      * 
      */
     @Export(name="enableScreenshotOnFailureAndScript", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableScreenshotOnFailureAndScript;
 
     /**
-     * @return Capture a screenshot during job execution
+     * @return Capture a screenshot during job execution.
      * 
      */
     public Output<Optional<Boolean>> enableScreenshotOnFailureAndScript() {

@@ -63,7 +63,7 @@ import (
 type ApplicationSettings struct {
 	pulumi.CustomResourceState
 
-	// The appex threshold for the New Relic application.
+	// The apdex threshold for the New Relic application.
 	AppApdexThreshold pulumi.Float64Output `pulumi:"appApdexThreshold"`
 	// Enable or disable real user monitoring for the New Relic application.
 	//
@@ -126,7 +126,7 @@ func GetApplicationSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationSettings resources.
 type applicationSettingsState struct {
-	// The appex threshold for the New Relic application.
+	// The apdex threshold for the New Relic application.
 	AppApdexThreshold *float64 `pulumi:"appApdexThreshold"`
 	// Enable or disable real user monitoring for the New Relic application.
 	//
@@ -151,7 +151,7 @@ type applicationSettingsState struct {
 }
 
 type ApplicationSettingsState struct {
-	// The appex threshold for the New Relic application.
+	// The apdex threshold for the New Relic application.
 	AppApdexThreshold pulumi.Float64PtrInput
 	// Enable or disable real user monitoring for the New Relic application.
 	//
@@ -180,7 +180,7 @@ func (ApplicationSettingsState) ElementType() reflect.Type {
 }
 
 type applicationSettingsArgs struct {
-	// The appex threshold for the New Relic application.
+	// The apdex threshold for the New Relic application.
 	AppApdexThreshold float64 `pulumi:"appApdexThreshold"`
 	// Enable or disable real user monitoring for the New Relic application.
 	//
@@ -206,7 +206,7 @@ type applicationSettingsArgs struct {
 
 // The set of arguments for constructing a ApplicationSettings resource.
 type ApplicationSettingsArgs struct {
-	// The appex threshold for the New Relic application.
+	// The apdex threshold for the New Relic application.
 	AppApdexThreshold pulumi.Float64Input
 	// Enable or disable real user monitoring for the New Relic application.
 	//
@@ -341,7 +341,7 @@ func (o ApplicationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[
 	}
 }
 
-// The appex threshold for the New Relic application.
+// The apdex threshold for the New Relic application.
 func (o ApplicationSettingsOutput) AppApdexThreshold() pulumi.Float64Output {
 	return o.ApplyT(func(v *ApplicationSettings) pulumi.Float64Output { return v.AppApdexThreshold }).(pulumi.Float64Output)
 }

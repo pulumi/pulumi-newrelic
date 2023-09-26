@@ -36,14 +36,14 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
      * 
      */
     @Import(name="deviceOrientation")
     private @Nullable Output<String> deviceOrientation;
 
     /**
-     * @return The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
      * 
      */
     public Optional<Output<String>> deviceOrientation() {
@@ -51,14 +51,14 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
      * 
      */
     @Import(name="deviceType")
     private @Nullable Output<String> deviceType;
 
     /**
-     * @return The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`.
      * 
      */
     public Optional<Output<String>> deviceType() {
@@ -66,14 +66,14 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Capture a screenshot during job execution
+     * Capture a screenshot during job execution.
      * 
      */
     @Import(name="enableScreenshotOnFailureAndScript")
     private @Nullable Output<Boolean> enableScreenshotOnFailureAndScript;
 
     /**
-     * @return Capture a screenshot during job execution
+     * @return Capture a screenshot during job execution.
      * 
      */
     public Optional<Output<Boolean>> enableScreenshotOnFailureAndScript() {
@@ -341,7 +341,7 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param deviceOrientation The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param deviceOrientation The device orientation the user would like to represent. Valid values are LANDSCAPE, PORTRAIT, or NONE.
+         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param deviceType The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param deviceType The device type that a user can select. Valid values are MOBILE, TABLET, or NONE.
+         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param enableScreenshotOnFailureAndScript Capture a screenshot during job execution
+         * @param enableScreenshotOnFailureAndScript Capture a screenshot during job execution.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param enableScreenshotOnFailureAndScript Capture a screenshot during job execution
+         * @param enableScreenshotOnFailureAndScript Capture a screenshot during job execution.
          * 
          * @return builder
          * 

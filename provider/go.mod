@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/newrelic/terraform-provider-newrelic/v2 v2.2.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.59.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.60.1
 	github.com/pulumi/pulumi/sdk/v3 v3.81.0
 )
 
@@ -177,7 +177,7 @@ require (
 	github.com/muesli/termenv v0.15.1 // indirect
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/newrelic/go-insights v1.0.3 // indirect
-	github.com/newrelic/newrelic-client-go/v2 v2.19.6 // indirect
+	github.com/newrelic/newrelic-client-go/v2 v2.21.1 // indirect
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect

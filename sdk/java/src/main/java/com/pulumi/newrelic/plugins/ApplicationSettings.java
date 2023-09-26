@@ -70,14 +70,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:plugins/applicationSettings:ApplicationSettings")
 public class ApplicationSettings extends com.pulumi.resources.CustomResource {
     /**
-     * The appex threshold for the New Relic application.
+     * The apdex threshold for the New Relic application.
      * 
      */
     @Export(name="appApdexThreshold", type=Double.class, parameters={})
     private Output<Double> appApdexThreshold;
 
     /**
-     * @return The appex threshold for the New Relic application.
+     * @return The apdex threshold for the New Relic application.
      * 
      */
     public Output<Double> appApdexThreshold() {
