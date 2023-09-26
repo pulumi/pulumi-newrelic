@@ -2332,7 +2332,12 @@
             },
             "newrelic_synthetics_private_location": {
                 "current": "newrelic:synthetics/getPrivateLocation:getPrivateLocation",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "key": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "newrelic_synthetics_secure_credential": {
                 "current": "newrelic:synthetics/getSecureCredential:getSecureCredential",
@@ -4001,7 +4006,8 @@
                 "tags": "tag"
             },
             "newrelic:synthetics/getPrivateLocation:getPrivateLocation": {
-                "accountId": "account_id"
+                "accountId": "account_id",
+                "keys": "key"
             },
             "newrelic:synthetics/getSecureCredential:getSecureCredential": {
                 "accountId": "account_id",
@@ -4011,6 +4017,8 @@
                 "accountId": "account_id",
                 "bypassHeadRequest": "bypass_head_request",
                 "customHeaders": "custom_header",
+                "deviceOrientation": "device_orientation",
+                "deviceType": "device_type",
                 "enableScreenshotOnFailureAndScript": "enable_screenshot_on_failure_and_script",
                 "locationsPrivates": "locations_private",
                 "locationsPublics": "locations_public",
