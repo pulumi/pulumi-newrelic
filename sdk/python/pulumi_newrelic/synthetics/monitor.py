@@ -21,6 +21,8 @@ class MonitorArgs:
                  account_id: Optional[pulumi.Input[int]] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]]] = None,
+                 device_orientation: Optional[pulumi.Input[str]] = None,
+                 device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
                  locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -43,6 +45,8 @@ class MonitorArgs:
                
                The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
@@ -67,6 +71,10 @@ class MonitorArgs:
             pulumi.set(__self__, "bypass_head_request", bypass_head_request)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
+        if device_orientation is not None:
+            pulumi.set(__self__, "device_orientation", device_orientation)
+        if device_type is not None:
+            pulumi.set(__self__, "device_type", device_type)
         if enable_screenshot_on_failure_and_script is not None:
             pulumi.set(__self__, "enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
         if locations_privates is not None:
@@ -155,6 +163,30 @@ class MonitorArgs:
     @custom_headers.setter
     def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]]]):
         pulumi.set(self, "custom_headers", value)
+
+    @property
+    @pulumi.getter(name="deviceOrientation")
+    def device_orientation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        """
+        return pulumi.get(self, "device_orientation")
+
+    @device_orientation.setter
+    def device_orientation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_orientation", value)
+
+    @property
+    @pulumi.getter(name="deviceType")
+    def device_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+        """
+        return pulumi.get(self, "device_type")
+
+    @device_type.setter
+    def device_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_type", value)
 
     @property
     @pulumi.getter(name="enableScreenshotOnFailureAndScript")
@@ -321,6 +353,8 @@ class _MonitorState:
                  account_id: Optional[pulumi.Input[int]] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]]] = None,
+                 device_orientation: Optional[pulumi.Input[str]] = None,
+                 device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
                  locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -344,6 +378,8 @@ class _MonitorState:
                
                The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
@@ -369,6 +405,10 @@ class _MonitorState:
             pulumi.set(__self__, "bypass_head_request", bypass_head_request)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
+        if device_orientation is not None:
+            pulumi.set(__self__, "device_orientation", device_orientation)
+        if device_type is not None:
+            pulumi.set(__self__, "device_type", device_type)
         if enable_screenshot_on_failure_and_script is not None:
             pulumi.set(__self__, "enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
         if locations_privates is not None:
@@ -439,6 +479,30 @@ class _MonitorState:
     @custom_headers.setter
     def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]]]):
         pulumi.set(self, "custom_headers", value)
+
+    @property
+    @pulumi.getter(name="deviceOrientation")
+    def device_orientation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        """
+        return pulumi.get(self, "device_orientation")
+
+    @device_orientation.setter
+    def device_orientation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_orientation", value)
+
+    @property
+    @pulumi.getter(name="deviceType")
+    def device_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+        """
+        return pulumi.get(self, "device_type")
+
+    @device_type.setter
+    def device_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_type", value)
 
     @property
     @pulumi.getter(name="enableScreenshotOnFailureAndScript")
@@ -643,6 +707,8 @@ class Monitor(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[int]] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]]] = None,
+                 device_orientation: Optional[pulumi.Input[str]] = None,
+                 device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
                  locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -794,6 +860,8 @@ class Monitor(pulumi.CustomResource):
                
                The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
@@ -964,6 +1032,8 @@ class Monitor(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[int]] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]]] = None,
+                 device_orientation: Optional[pulumi.Input[str]] = None,
+                 device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
                  locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -991,6 +1061,8 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["bypass_head_request"] = bypass_head_request
             __props__.__dict__["custom_headers"] = custom_headers
+            __props__.__dict__["device_orientation"] = device_orientation
+            __props__.__dict__["device_type"] = device_type
             __props__.__dict__["enable_screenshot_on_failure_and_script"] = enable_screenshot_on_failure_and_script
             __props__.__dict__["locations_privates"] = locations_privates
             __props__.__dict__["locations_publics"] = locations_publics
@@ -1024,6 +1096,8 @@ class Monitor(pulumi.CustomResource):
             account_id: Optional[pulumi.Input[int]] = None,
             bypass_head_request: Optional[pulumi.Input[bool]] = None,
             custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]]] = None,
+            device_orientation: Optional[pulumi.Input[str]] = None,
+            device_type: Optional[pulumi.Input[str]] = None,
             enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
             locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1052,6 +1126,8 @@ class Monitor(pulumi.CustomResource):
                
                The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
@@ -1078,6 +1154,8 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["bypass_head_request"] = bypass_head_request
         __props__.__dict__["custom_headers"] = custom_headers
+        __props__.__dict__["device_orientation"] = device_orientation
+        __props__.__dict__["device_type"] = device_type
         __props__.__dict__["enable_screenshot_on_failure_and_script"] = enable_screenshot_on_failure_and_script
         __props__.__dict__["locations_privates"] = locations_privates
         __props__.__dict__["locations_publics"] = locations_publics
@@ -1121,6 +1199,22 @@ class Monitor(pulumi.CustomResource):
         Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         """
         return pulumi.get(self, "custom_headers")
+
+    @property
+    @pulumi.getter(name="deviceOrientation")
+    def device_orientation(self) -> pulumi.Output[Optional[str]]:
+        """
+        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        """
+        return pulumi.get(self, "device_orientation")
+
+    @property
+    @pulumi.getter(name="deviceType")
+    def device_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+        """
+        return pulumi.get(self, "device_type")
 
     @property
     @pulumi.getter(name="enableScreenshotOnFailureAndScript")

@@ -256,6 +256,10 @@ type Monitor struct {
 	BypassHeadRequest pulumi.BoolPtrOutput `pulumi:"bypassHeadRequest"`
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayOutput `pulumi:"customHeaders"`
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	DeviceOrientation pulumi.StringPtrOutput `pulumi:"deviceOrientation"`
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	DeviceType pulumi.StringPtrOutput `pulumi:"deviceType"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrOutput `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -336,6 +340,10 @@ type monitorState struct {
 	BypassHeadRequest *bool `pulumi:"bypassHeadRequest"`
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	DeviceOrientation *string `pulumi:"deviceOrientation"`
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	DeviceType *string `pulumi:"deviceType"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -381,6 +389,10 @@ type MonitorState struct {
 	BypassHeadRequest pulumi.BoolPtrInput
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayInput
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	DeviceOrientation pulumi.StringPtrInput
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	DeviceType pulumi.StringPtrInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -430,6 +442,10 @@ type monitorArgs struct {
 	BypassHeadRequest *bool `pulumi:"bypassHeadRequest"`
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	DeviceOrientation *string `pulumi:"deviceOrientation"`
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	DeviceType *string `pulumi:"deviceType"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -474,6 +490,10 @@ type MonitorArgs struct {
 	BypassHeadRequest pulumi.BoolPtrInput
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayInput
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	DeviceOrientation pulumi.StringPtrInput
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	DeviceType pulumi.StringPtrInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -634,6 +654,16 @@ func (o MonitorOutput) BypassHeadRequest() pulumi.BoolPtrOutput {
 // Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 func (o MonitorOutput) CustomHeaders() MonitorCustomHeaderArrayOutput {
 	return o.ApplyT(func(v *Monitor) MonitorCustomHeaderArrayOutput { return v.CustomHeaders }).(MonitorCustomHeaderArrayOutput)
+}
+
+// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+func (o MonitorOutput) DeviceOrientation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.DeviceOrientation }).(pulumi.StringPtrOutput)
+}
+
+// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+func (o MonitorOutput) DeviceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.DeviceType }).(pulumi.StringPtrOutput)
 }
 
 // Capture a screenshot during job execution.

@@ -6,6 +6,7 @@ package com.pulumi.newrelic.synthetics.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -18,6 +19,11 @@ public final class GetPrivateLocationResult {
      * 
      */
     private String id;
+    /**
+     * @return The key of the private location.
+     * 
+     */
+    private List<String> keys;
     private String name;
 
     private GetPrivateLocationResult() {}
@@ -30,6 +36,13 @@ public final class GetPrivateLocationResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return The key of the private location.
+     * 
+     */
+    public List<String> keys() {
+        return this.keys;
     }
     public String name() {
         return this.name;
@@ -46,12 +59,14 @@ public final class GetPrivateLocationResult {
     public static final class Builder {
         private @Nullable Integer accountId;
         private String id;
+        private List<String> keys;
         private String name;
         public Builder() {}
         public Builder(GetPrivateLocationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
     	      this.id = defaults.id;
+    	      this.keys = defaults.keys;
     	      this.name = defaults.name;
         }
 
@@ -66,6 +81,14 @@ public final class GetPrivateLocationResult {
             return this;
         }
         @CustomType.Setter
+        public Builder keys(List<String> keys) {
+            this.keys = Objects.requireNonNull(keys);
+            return this;
+        }
+        public Builder keys(String... keys) {
+            return keys(List.of(keys));
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
@@ -74,6 +97,7 @@ public final class GetPrivateLocationResult {
             final var o = new GetPrivateLocationResult();
             o.accountId = accountId;
             o.id = id;
+            o.keys = keys;
             o.name = name;
             return o;
         }

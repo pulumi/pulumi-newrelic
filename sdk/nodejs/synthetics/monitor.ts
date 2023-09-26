@@ -183,6 +183,14 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly customHeaders!: pulumi.Output<outputs.synthetics.MonitorCustomHeader[] | undefined>;
     /**
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     */
+    public readonly deviceOrientation!: pulumi.Output<string | undefined>;
+    /**
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     */
+    public readonly deviceType!: pulumi.Output<string | undefined>;
+    /**
      * Capture a screenshot during job execution.
      */
     public readonly enableScreenshotOnFailureAndScript!: pulumi.Output<boolean | undefined>;
@@ -265,6 +273,8 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["bypassHeadRequest"] = state ? state.bypassHeadRequest : undefined;
             resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
+            resourceInputs["deviceOrientation"] = state ? state.deviceOrientation : undefined;
+            resourceInputs["deviceType"] = state ? state.deviceType : undefined;
             resourceInputs["enableScreenshotOnFailureAndScript"] = state ? state.enableScreenshotOnFailureAndScript : undefined;
             resourceInputs["locationsPrivates"] = state ? state.locationsPrivates : undefined;
             resourceInputs["locationsPublics"] = state ? state.locationsPublics : undefined;
@@ -292,6 +302,8 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["bypassHeadRequest"] = args ? args.bypassHeadRequest : undefined;
             resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
+            resourceInputs["deviceOrientation"] = args ? args.deviceOrientation : undefined;
+            resourceInputs["deviceType"] = args ? args.deviceType : undefined;
             resourceInputs["enableScreenshotOnFailureAndScript"] = args ? args.enableScreenshotOnFailureAndScript : undefined;
             resourceInputs["locationsPrivates"] = args ? args.locationsPrivates : undefined;
             resourceInputs["locationsPublics"] = args ? args.locationsPublics : undefined;
@@ -332,6 +344,14 @@ export interface MonitorState {
      * Custom headers to use in monitor job. See Nested customHeader blocks below for details.
      */
     customHeaders?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorCustomHeader>[]>;
+    /**
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     */
+    deviceOrientation?: pulumi.Input<string>;
+    /**
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     */
+    deviceType?: pulumi.Input<string>;
     /**
      * Capture a screenshot during job execution.
      */
@@ -418,6 +438,14 @@ export interface MonitorArgs {
      * Custom headers to use in monitor job. See Nested customHeader blocks below for details.
      */
     customHeaders?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorCustomHeader>[]>;
+    /**
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     */
+    deviceOrientation?: pulumi.Input<string>;
+    /**
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     */
+    deviceType?: pulumi.Input<string>;
     /**
      * Capture a screenshot during job execution.
      */

@@ -52,7 +52,7 @@ namespace Pulumi.NewRelic.Plugins
     public partial class ApplicationSettings : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The appex threshold for the New Relic application.
+        /// The apdex threshold for the New Relic application.
         /// </summary>
         [Output("appApdexThreshold")]
         public Output<double> AppApdexThreshold { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.NewRelic.Plugins
     public sealed class ApplicationSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The appex threshold for the New Relic application.
+        /// The apdex threshold for the New Relic application.
         /// </summary>
         [Input("appApdexThreshold", required: true)]
         public Input<double> AppApdexThreshold { get; set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.NewRelic.Plugins
     public sealed class ApplicationSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The appex threshold for the New Relic application.
+        /// The apdex threshold for the New Relic application.
         /// </summary>
         [Input("appApdexThreshold")]
         public Input<double>? AppApdexThreshold { get; set; }
