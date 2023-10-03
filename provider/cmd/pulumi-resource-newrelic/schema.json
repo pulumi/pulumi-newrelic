@@ -131,7 +131,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -158,7 +158,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -170,7 +170,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -189,7 +189,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -201,7 +201,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -217,7 +217,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -233,7 +233,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -249,7 +249,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -265,7 +265,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -285,7 +285,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -297,7 +297,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -313,7 +313,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -325,7 +325,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchIpAddresses": {
                     "type": "boolean",
@@ -341,7 +341,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -353,7 +353,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchNodes": {
                     "type": "boolean",
@@ -369,7 +369,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -381,7 +381,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -402,7 +402,7 @@
             "properties": {
                 "awsRegions": {
                     "type": "string",
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -418,7 +418,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -435,7 +435,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -447,7 +447,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -463,7 +463,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -475,7 +475,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -491,7 +491,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -503,7 +503,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -515,7 +515,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -553,7 +553,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -565,7 +565,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -585,7 +585,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -612,7 +612,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -624,7 +624,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -663,7 +663,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -694,7 +694,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -710,7 +710,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -726,7 +726,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -742,7 +742,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -758,7 +758,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -774,7 +774,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -790,7 +790,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -806,7 +806,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -822,7 +822,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -838,7 +838,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -854,7 +854,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -870,7 +870,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -886,7 +886,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -902,7 +902,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -918,7 +918,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -934,7 +934,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -950,7 +950,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -966,7 +966,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -982,7 +982,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -998,7 +998,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -1048,7 +1048,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -1064,7 +1064,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -1080,7 +1080,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -1112,7 +1112,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -1140,7 +1140,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "duplicateEc2Tags": {
                     "type": "boolean",
@@ -1172,7 +1172,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -1200,7 +1200,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -1228,7 +1228,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -1256,7 +1256,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -1288,7 +1288,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchNodes": {
                     "type": "boolean",
@@ -1316,7 +1316,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -1340,7 +1340,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -1394,7 +1394,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -1410,7 +1410,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchShards": {
                     "type": "boolean",
@@ -1442,7 +1442,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -1458,7 +1458,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -1486,7 +1486,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -1514,7 +1514,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -1576,7 +1576,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -1592,7 +1592,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -1612,7 +1612,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -1660,7 +1660,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchNatGateway": {
                     "type": "boolean",
@@ -1692,7 +1692,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -2572,7 +2572,7 @@
                 },
                 "recipients": {
                     "type": "string",
-                    "description": "Comma delimited list of email addresses.\n",
+                    "description": "A set of recipients for targeting notifications.  Multiple values are comma separated.\n",
                     "willReplaceOnChanges": true
                 },
                 "region": {
@@ -2604,7 +2604,7 @@
                 },
                 "url": {
                     "type": "string",
-                    "description": "[Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).\n",
+                    "description": "[Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).\n",
                     "secret": true,
                     "willReplaceOnChanges": true
                 },
@@ -6161,7 +6161,7 @@
                 },
                 "where": {
                     "type": "string",
-                    "description": "A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).\na particular entity and were successful).\na particular entity and returned an error).\n"
+                    "description": "A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to\na particular entity and returned an error).\n"
                 }
             },
             "type": "object",
@@ -6201,7 +6201,7 @@
                 },
                 "where": {
                     "type": "string",
-                    "description": "A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).\na particular entity and were successful).\na particular entity and returned an error).\n"
+                    "description": "A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to\na particular entity and returned an error).\n"
                 }
             },
             "type": "object",
@@ -6241,7 +6241,7 @@
                 },
                 "where": {
                     "type": "string",
-                    "description": "A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).\na particular entity and were successful).\na particular entity and returned an error).\n"
+                    "description": "A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to\na particular entity and returned an error).\n"
                 }
             },
             "type": "object",
@@ -6435,8 +6435,7 @@
                     "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "The name of the workflow.\n"
+                    "type": "string"
                 },
                 "predicates": {
                     "type": "array",
@@ -6728,7 +6727,7 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "description": "Whether the automatic status configuration is enabled or not.\n"
+                    "description": "Whether the static status configuration is enabled or not.\n"
                 },
                 "remainingEntitiesRule": {
                     "$ref": "#/types/newrelic:plugins/WorkloadStatusConfigAutomaticRemainingEntitiesRule:WorkloadStatusConfigAutomaticRemainingEntitiesRule",
@@ -6858,7 +6857,7 @@
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "Whether the automatic status configuration is enabled or not.\n"
+                    "description": "Whether the static status configuration is enabled or not.\n"
                 },
                 "status": {
                     "type": "string",
