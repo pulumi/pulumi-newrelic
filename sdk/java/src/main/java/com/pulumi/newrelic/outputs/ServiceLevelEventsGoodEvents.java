@@ -23,8 +23,7 @@ public final class ServiceLevelEventsGoodEvents {
      */
     private @Nullable ServiceLevelEventsGoodEventsSelect select;
     /**
-     * @return A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-     * a particular entity and were successful).
+     * @return A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
      * a particular entity and returned an error).
      * 
      */
@@ -46,8 +45,7 @@ public final class ServiceLevelEventsGoodEvents {
         return Optional.ofNullable(this.select);
     }
     /**
-     * @return A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-     * a particular entity and were successful).
+     * @return A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
      * a particular entity and returned an error).
      * 
      */

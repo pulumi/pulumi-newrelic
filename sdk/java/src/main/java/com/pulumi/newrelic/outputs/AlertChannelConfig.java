@@ -78,7 +78,7 @@ public final class AlertChannelConfig {
      */
     private @Nullable String payloadType;
     /**
-     * @return Comma delimited list of email addresses.
+     * @return A set of recipients for targeting notifications.  Multiple values are comma separated.
      * 
      */
     private @Nullable String recipients;
@@ -108,7 +108,7 @@ public final class AlertChannelConfig {
      */
     private @Nullable String teams;
     /**
-     * @return [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
+     * @return [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
      * 
      */
     private @Nullable String url;
@@ -207,7 +207,7 @@ public final class AlertChannelConfig {
         return Optional.ofNullable(this.payloadType);
     }
     /**
-     * @return Comma delimited list of email addresses.
+     * @return A set of recipients for targeting notifications.  Multiple values are comma separated.
      * 
      */
     public Optional<String> recipients() {
@@ -249,7 +249,7 @@ public final class AlertChannelConfig {
         return Optional.ofNullable(this.teams);
     }
     /**
-     * @return [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
+     * @return [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
      * 
      */
     public Optional<String> url() {

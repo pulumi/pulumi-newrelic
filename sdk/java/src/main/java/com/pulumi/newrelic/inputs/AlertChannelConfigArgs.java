@@ -212,14 +212,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Comma delimited list of email addresses.
+     * A set of recipients for targeting notifications.  Multiple values are comma separated.
      * 
      */
     @Import(name="recipients")
     private @Nullable Output<String> recipients;
 
     /**
-     * @return Comma delimited list of email addresses.
+     * @return A set of recipients for targeting notifications.  Multiple values are comma separated.
      * 
      */
     public Optional<Output<String>> recipients() {
@@ -302,14 +302,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
+     * [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
+     * @return [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
      * 
      */
     public Optional<Output<String>> url() {
@@ -641,7 +641,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param recipients Comma delimited list of email addresses.
+         * @param recipients A set of recipients for targeting notifications.  Multiple values are comma separated.
          * 
          * @return builder
          * 
@@ -652,7 +652,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param recipients Comma delimited list of email addresses.
+         * @param recipients A set of recipients for targeting notifications.  Multiple values are comma separated.
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param url [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
+         * @param url [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
          * 
          * @return builder
          * 
@@ -778,7 +778,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param url [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
+         * @param url [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
          * 
          * @return builder
          * 

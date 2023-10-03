@@ -20,8 +20,6 @@ public final class AwsGovcloudIntegrationsSnsArgs extends com.pulumi.resources.R
 
     /**
      * Specify each AWS region that includes the resources that you want to monitor.
-     * * `direct connect`
-     * * `aws states`
      * 
      */
     @Import(name="awsRegions")
@@ -29,8 +27,6 @@ public final class AwsGovcloudIntegrationsSnsArgs extends com.pulumi.resources.R
 
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * * `direct connect`
-     * * `aws states`
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
@@ -99,8 +95,6 @@ public final class AwsGovcloudIntegrationsSnsArgs extends com.pulumi.resources.R
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          * 
          * @return builder
          * 
@@ -112,8 +106,6 @@ public final class AwsGovcloudIntegrationsSnsArgs extends com.pulumi.resources.R
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          * 
          * @return builder
          * 
@@ -124,8 +116,6 @@ public final class AwsGovcloudIntegrationsSnsArgs extends com.pulumi.resources.R
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          * 
          * @return builder
          * 

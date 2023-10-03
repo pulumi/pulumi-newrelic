@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -183,8 +183,6 @@ class AwsGovcloudIntegrationsAlb(dict):
                  tag_value: Optional[str] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param Sequence[str] load_balancer_prefixes: Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
@@ -193,32 +191,48 @@ class AwsGovcloudIntegrationsAlb(dict):
                Some integration types support an additional set of arguments:
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-               * `api Gateway`
-               * `auto scaling`
-               * `elastic search`
         """
+        AwsGovcloudIntegrationsAlb._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_extended_inventory=fetch_extended_inventory,
+            fetch_tags=fetch_tags,
+            load_balancer_prefixes=load_balancer_prefixes,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_extended_inventory: Optional[bool] = None,
+             fetch_tags: Optional[bool] = None,
+             load_balancer_prefixes: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if load_balancer_prefixes is not None:
-            pulumi.set(__self__, "load_balancer_prefixes", load_balancer_prefixes)
+            _setter("load_balancer_prefixes", load_balancer_prefixes)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -269,9 +283,6 @@ class AwsGovcloudIntegrationsAlb(dict):
     def tag_value(self) -> Optional[str]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        * `api Gateway`
-        * `auto scaling`
-        * `elastic search`
         """
         return pulumi.get(self, "tag_value")
 
@@ -311,36 +322,46 @@ class AwsGovcloudIntegrationsApiGateway(dict):
                  tag_value: Optional[str] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                Some integration types support an additional set of arguments:
         :param Sequence[str] stage_prefixes: Specify each name or prefix for the Stages that you want to monitor. Filter values are case-sensitive.
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-               * `api Gateway`
-               * `auto scaling`
-               * `elastic search`
         """
+        AwsGovcloudIntegrationsApiGateway._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+            stage_prefixes=stage_prefixes,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             stage_prefixes: Optional[Sequence[str]] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if stage_prefixes is not None:
-            pulumi.set(__self__, "stage_prefixes", stage_prefixes)
+            _setter("stage_prefixes", stage_prefixes)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -375,9 +396,6 @@ class AwsGovcloudIntegrationsApiGateway(dict):
     def tag_value(self) -> Optional[str]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        * `api Gateway`
-        * `auto scaling`
-        * `elastic search`
         """
         return pulumi.get(self, "tag_value")
 
@@ -408,24 +426,31 @@ class AwsGovcloudIntegrationsAutoScaling(dict):
                  metrics_polling_interval: Optional[int] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                Some integration types support an additional set of arguments:
         """
+        AwsGovcloudIntegrationsAutoScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -466,24 +491,31 @@ class AwsGovcloudIntegrationsAwsDirectConnect(dict):
                  metrics_polling_interval: Optional[int] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                Some integration types support an additional set of arguments:
         """
+        AwsGovcloudIntegrationsAwsDirectConnect._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -524,24 +556,31 @@ class AwsGovcloudIntegrationsAwsStates(dict):
                  metrics_polling_interval: Optional[int] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                Some integration types support an additional set of arguments:
         """
+        AwsGovcloudIntegrationsAwsStates._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -582,24 +621,31 @@ class AwsGovcloudIntegrationsCloudtrail(dict):
                  metrics_polling_interval: Optional[int] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                Some integration types support an additional set of arguments:
         """
+        AwsGovcloudIntegrationsCloudtrail._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -652,8 +698,6 @@ class AwsGovcloudIntegrationsDynamoDb(dict):
                  tag_value: Optional[str] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param int metrics_polling_interval: The data polling interval in seconds.
@@ -661,30 +705,44 @@ class AwsGovcloudIntegrationsDynamoDb(dict):
                Some integration types support an additional set of arguments:
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-               * `api Gateway`
-               * `auto scaling`
-               * `elastic search`
         """
+        AwsGovcloudIntegrationsDynamoDb._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_extended_inventory=fetch_extended_inventory,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_extended_inventory: Optional[bool] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -727,9 +785,6 @@ class AwsGovcloudIntegrationsDynamoDb(dict):
     def tag_value(self) -> Optional[str]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        * `api Gateway`
-        * `auto scaling`
-        * `elastic search`
         """
         return pulumi.get(self, "tag_value")
 
@@ -769,36 +824,46 @@ class AwsGovcloudIntegrationsEbs(dict):
                  tag_value: Optional[str] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                Some integration types support an additional set of arguments:
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-               * `api Gateway`
-               * `auto scaling`
-               * `elastic search`
         """
+        AwsGovcloudIntegrationsEbs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_extended_inventory=fetch_extended_inventory,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_extended_inventory: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -833,9 +898,6 @@ class AwsGovcloudIntegrationsEbs(dict):
     def tag_value(self) -> Optional[str]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        * `api Gateway`
-        * `auto scaling`
-        * `elastic search`
         """
         return pulumi.get(self, "tag_value")
 
@@ -875,36 +937,46 @@ class AwsGovcloudIntegrationsEc2(dict):
                  tag_value: Optional[str] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param bool fetch_ip_addresses: Specify if IP addresses of ec2 instance should be collected
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                Some integration types support an additional set of arguments:
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-               * `api Gateway`
-               * `auto scaling`
-               * `elastic search`
         """
+        AwsGovcloudIntegrationsEc2._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_ip_addresses=fetch_ip_addresses,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_ip_addresses: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_ip_addresses is not None:
-            pulumi.set(__self__, "fetch_ip_addresses", fetch_ip_addresses)
+            _setter("fetch_ip_addresses", fetch_ip_addresses)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -939,9 +1011,6 @@ class AwsGovcloudIntegrationsEc2(dict):
     def tag_value(self) -> Optional[str]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        * `api Gateway`
-        * `auto scaling`
-        * `elastic search`
         """
         return pulumi.get(self, "tag_value")
 
@@ -981,36 +1050,46 @@ class AwsGovcloudIntegrationsElasticSearch(dict):
                  tag_value: Optional[str] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param bool fetch_nodes: Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                Some integration types support an additional set of arguments:
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-               * `api Gateway`
-               * `auto scaling`
-               * `elastic search`
         """
+        AwsGovcloudIntegrationsElasticSearch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_nodes=fetch_nodes,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_nodes: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_nodes is not None:
-            pulumi.set(__self__, "fetch_nodes", fetch_nodes)
+            _setter("fetch_nodes", fetch_nodes)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1045,9 +1124,6 @@ class AwsGovcloudIntegrationsElasticSearch(dict):
     def tag_value(self) -> Optional[str]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        * `api Gateway`
-        * `auto scaling`
-        * `elastic search`
         """
         return pulumi.get(self, "tag_value")
 
@@ -1084,30 +1160,41 @@ class AwsGovcloudIntegrationsElb(dict):
                  metrics_polling_interval: Optional[int] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                Some integration types support an additional set of arguments:
         """
+        AwsGovcloudIntegrationsElb._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_extended_inventory=fetch_extended_inventory,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_extended_inventory: Optional[bool] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1173,36 +1260,46 @@ class AwsGovcloudIntegrationsEmr(dict):
                  tag_value: Optional[str] = None):
         """
         :param str aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                Some integration types support an additional set of arguments:
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-               * `api Gateway`
-               * `auto scaling`
-               * `elastic search`
         """
+        AwsGovcloudIntegrationsEmr._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[str] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[str]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1237,9 +1334,6 @@ class AwsGovcloudIntegrationsEmr(dict):
     def tag_value(self) -> Optional[str]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        * `api Gateway`
-        * `auto scaling`
-        * `elastic search`
         """
         return pulumi.get(self, "tag_value")
 
@@ -1277,16 +1371,26 @@ class AwsGovcloudIntegrationsIam(dict):
                Some integration types support an additional set of arguments:
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-               * `api Gateway`
-               * `auto scaling`
-               * `elastic search`
         """
+        AwsGovcloudIntegrationsIam._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -1311,9 +1415,6 @@ class AwsGovcloudIntegrationsIam(dict):
     def tag_value(self) -> Optional[str]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        * `api Gateway`
-        * `auto scaling`
-        * `elastic search`
         """
         return pulumi.get(self, "tag_value")
 
@@ -1353,36 +1454,46 @@ class AwsGovcloudIntegrationsLambda(dict):
                  tag_value: Optional[str] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                Some integration types support an additional set of arguments:
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-               * `api Gateway`
-               * `auto scaling`
-               * `elastic search`
         """
+        AwsGovcloudIntegrationsLambda._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1417,9 +1528,6 @@ class AwsGovcloudIntegrationsLambda(dict):
     def tag_value(self) -> Optional[str]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        * `api Gateway`
-        * `auto scaling`
-        * `elastic search`
         """
         return pulumi.get(self, "tag_value")
 
@@ -1459,36 +1567,46 @@ class AwsGovcloudIntegrationsRds(dict):
                  tag_value: Optional[str] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                Some integration types support an additional set of arguments:
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-               * `api Gateway`
-               * `auto scaling`
-               * `elastic search`
         """
+        AwsGovcloudIntegrationsRds._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1523,9 +1641,6 @@ class AwsGovcloudIntegrationsRds(dict):
     def tag_value(self) -> Optional[str]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        * `api Gateway`
-        * `auto scaling`
-        * `elastic search`
         """
         return pulumi.get(self, "tag_value")
 
@@ -1562,33 +1677,41 @@ class AwsGovcloudIntegrationsRedShift(dict):
                  tag_value: Optional[str] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                Some integration types support an additional set of arguments:
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-               * `api Gateway`
-               * `auto scaling`
-               * `elastic search`
         """
+        AwsGovcloudIntegrationsRedShift._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1615,9 +1738,6 @@ class AwsGovcloudIntegrationsRedShift(dict):
     def tag_value(self) -> Optional[str]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        * `api Gateway`
-        * `auto scaling`
-        * `elastic search`
         """
         return pulumi.get(self, "tag_value")
 
@@ -1652,10 +1772,21 @@ class AwsGovcloudIntegrationsRoute53(dict):
                
                Some integration types support an additional set of arguments:
         """
+        AwsGovcloudIntegrationsRoute53._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fetch_extended_inventory=fetch_extended_inventory,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fetch_extended_inventory: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="fetchExtendedInventory")
@@ -1717,20 +1848,34 @@ class AwsGovcloudIntegrationsS3(dict):
                Some integration types support an additional set of arguments:
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-               * `api Gateway`
-               * `auto scaling`
-               * `elastic search`
         """
+        AwsGovcloudIntegrationsS3._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fetch_extended_inventory=fetch_extended_inventory,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fetch_extended_inventory: Optional[bool] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="fetchExtendedInventory")
@@ -1771,9 +1916,6 @@ class AwsGovcloudIntegrationsS3(dict):
     def tag_value(self) -> Optional[str]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        * `api Gateway`
-        * `auto scaling`
-        * `elastic search`
         """
         return pulumi.get(self, "tag_value")
 
@@ -1807,27 +1949,36 @@ class AwsGovcloudIntegrationsSns(dict):
                  metrics_polling_interval: Optional[int] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                Some integration types support an additional set of arguments:
         """
+        AwsGovcloudIntegrationsSns._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_extended_inventory=fetch_extended_inventory,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_extended_inventory: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1891,8 +2042,6 @@ class AwsGovcloudIntegrationsSqs(dict):
                  tag_value: Optional[str] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `direct connect`
-               * `aws states`
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param int metrics_polling_interval: The data polling interval in seconds.
@@ -1901,32 +2050,48 @@ class AwsGovcloudIntegrationsSqs(dict):
         :param Sequence[str] queue_prefixes: Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-               * `api Gateway`
-               * `auto scaling`
-               * `elastic search`
         """
+        AwsGovcloudIntegrationsSqs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_extended_inventory=fetch_extended_inventory,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            queue_prefixes=queue_prefixes,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_extended_inventory: Optional[bool] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             queue_prefixes: Optional[Sequence[str]] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if queue_prefixes is not None:
-            pulumi.set(__self__, "queue_prefixes", queue_prefixes)
+            _setter("queue_prefixes", queue_prefixes)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `direct connect`
-        * `aws states`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1977,9 +2142,6 @@ class AwsGovcloudIntegrationsSqs(dict):
     def tag_value(self) -> Optional[str]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        * `api Gateway`
-        * `auto scaling`
-        * `elastic search`
         """
         return pulumi.get(self, "tag_value")
 
@@ -2024,7 +2186,7 @@ class AwsIntegrationsAlb(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
                
@@ -2038,26 +2200,47 @@ class AwsIntegrationsAlb(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsAlb._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_extended_inventory=fetch_extended_inventory,
+            fetch_tags=fetch_tags,
+            load_balancer_prefixes=load_balancer_prefixes,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_extended_inventory: Optional[bool] = None,
+             fetch_tags: Optional[bool] = None,
+             load_balancer_prefixes: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if load_balancer_prefixes is not None:
-            pulumi.set(__self__, "load_balancer_prefixes", load_balancer_prefixes)
+            _setter("load_balancer_prefixes", load_balancer_prefixes)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -2150,7 +2333,7 @@ class AwsIntegrationsApiGateway(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
@@ -2160,22 +2343,39 @@ class AwsIntegrationsApiGateway(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsApiGateway._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+            stage_prefixes=stage_prefixes,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             stage_prefixes: Optional[Sequence[str]] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if stage_prefixes is not None:
-            pulumi.set(__self__, "stage_prefixes", stage_prefixes)
+            _setter("stage_prefixes", stage_prefixes)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -2241,23 +2441,34 @@ class AwsIntegrationsAutoScaling(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAutoScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -2299,23 +2510,34 @@ class AwsIntegrationsAwsAppSync(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsAppSync._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -2357,23 +2579,34 @@ class AwsIntegrationsAwsAthena(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsAthena._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -2415,23 +2648,34 @@ class AwsIntegrationsAwsCognito(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsCognito._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -2473,23 +2717,34 @@ class AwsIntegrationsAwsConnect(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsConnect._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -2531,23 +2786,34 @@ class AwsIntegrationsAwsDirectConnect(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsDirectConnect._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -2589,23 +2855,34 @@ class AwsIntegrationsAwsFsx(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsFsx._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -2647,23 +2924,34 @@ class AwsIntegrationsAwsGlue(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsGlue._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -2705,23 +2993,34 @@ class AwsIntegrationsAwsKinesisAnalytics(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsKinesisAnalytics._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -2763,23 +3062,34 @@ class AwsIntegrationsAwsMediaConvert(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsMediaConvert._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -2821,23 +3131,34 @@ class AwsIntegrationsAwsMediaPackageVod(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsMediaPackageVod._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -2879,23 +3200,34 @@ class AwsIntegrationsAwsMq(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsMq._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -2937,23 +3269,34 @@ class AwsIntegrationsAwsMsk(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsMsk._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -2995,23 +3338,34 @@ class AwsIntegrationsAwsNeptune(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsNeptune._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -3053,23 +3407,34 @@ class AwsIntegrationsAwsQldb(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsQldb._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -3111,23 +3476,34 @@ class AwsIntegrationsAwsRoute53resolver(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsRoute53resolver._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -3169,23 +3545,34 @@ class AwsIntegrationsAwsStates(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsStates._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -3227,23 +3614,34 @@ class AwsIntegrationsAwsTransitGateway(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsTransitGateway._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -3285,23 +3683,34 @@ class AwsIntegrationsAwsWaf(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsWaf._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -3343,23 +3752,34 @@ class AwsIntegrationsAwsWafv2(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsAwsWafv2._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -3403,8 +3823,17 @@ class AwsIntegrationsBilling(dict):
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsBilling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -3461,16 +3890,33 @@ class AwsIntegrationsCloudfront(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsCloudfront._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fetch_lambdas_at_edge=fetch_lambdas_at_edge,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fetch_lambdas_at_edge: Optional[bool] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fetch_lambdas_at_edge is not None:
-            pulumi.set(__self__, "fetch_lambdas_at_edge", fetch_lambdas_at_edge)
+            _setter("fetch_lambdas_at_edge", fetch_lambdas_at_edge)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="fetchLambdasAtEdge")
@@ -3541,23 +3987,34 @@ class AwsIntegrationsCloudtrail(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsCloudtrail._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -3599,23 +4056,34 @@ class AwsIntegrationsDocDb(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsDocDb._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -3669,7 +4137,7 @@ class AwsIntegrationsDynamodb(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
                
@@ -3682,24 +4150,43 @@ class AwsIntegrationsDynamodb(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsDynamodb._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_extended_inventory=fetch_extended_inventory,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_extended_inventory: Optional[bool] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -3784,7 +4271,7 @@ class AwsIntegrationsEbs(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
                
@@ -3796,22 +4283,39 @@ class AwsIntegrationsEbs(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsEbs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_extended_inventory=fetch_extended_inventory,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_extended_inventory: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -3891,7 +4395,7 @@ class AwsIntegrationsEc2(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool duplicate_ec2_tags: Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
         :param bool fetch_ip_addresses: Specify if IP addresses of ec2 instance should be collected.
@@ -3902,24 +4406,43 @@ class AwsIntegrationsEc2(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsEc2._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            duplicate_ec2_tags=duplicate_ec2_tags,
+            fetch_ip_addresses=fetch_ip_addresses,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             duplicate_ec2_tags: Optional[bool] = None,
+             fetch_ip_addresses: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if duplicate_ec2_tags is not None:
-            pulumi.set(__self__, "duplicate_ec2_tags", duplicate_ec2_tags)
+            _setter("duplicate_ec2_tags", duplicate_ec2_tags)
         if fetch_ip_addresses is not None:
-            pulumi.set(__self__, "fetch_ip_addresses", fetch_ip_addresses)
+            _setter("fetch_ip_addresses", fetch_ip_addresses)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -4002,7 +4525,7 @@ class AwsIntegrationsEcs(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param int metrics_polling_interval: The data polling interval in seconds.
@@ -4012,22 +4535,39 @@ class AwsIntegrationsEcs(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsEcs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -4102,7 +4642,7 @@ class AwsIntegrationsEfs(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param int metrics_polling_interval: The data polling interval in seconds.
@@ -4112,22 +4652,39 @@ class AwsIntegrationsEfs(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsEfs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -4202,7 +4759,7 @@ class AwsIntegrationsElasticache(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param int metrics_polling_interval: The data polling interval in seconds.
@@ -4212,22 +4769,39 @@ class AwsIntegrationsElasticache(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsElasticache._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -4305,7 +4879,7 @@ class AwsIntegrationsElasticbeanstalk(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
                
@@ -4318,24 +4892,43 @@ class AwsIntegrationsElasticbeanstalk(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsElasticbeanstalk._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_extended_inventory=fetch_extended_inventory,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_extended_inventory: Optional[bool] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -4420,7 +5013,7 @@ class AwsIntegrationsElasticsearch(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_nodes: Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
         :param int metrics_polling_interval: The data polling interval in seconds.
@@ -4430,22 +5023,39 @@ class AwsIntegrationsElasticsearch(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsElasticsearch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_nodes=fetch_nodes,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_nodes: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_nodes is not None:
-            pulumi.set(__self__, "fetch_nodes", fetch_nodes)
+            _setter("fetch_nodes", fetch_nodes)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -4517,7 +5127,7 @@ class AwsIntegrationsElb(dict):
                  fetch_tags: Optional[bool] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
                
@@ -4528,20 +5138,35 @@ class AwsIntegrationsElb(dict):
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsElb._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_extended_inventory=fetch_extended_inventory,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_extended_inventory: Optional[bool] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -4610,7 +5235,7 @@ class AwsIntegrationsEmr(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param int metrics_polling_interval: The data polling interval in seconds.
@@ -4620,22 +5245,39 @@ class AwsIntegrationsEmr(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsEmr._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -4703,8 +5345,17 @@ class AwsIntegrationsHealth(dict):
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsHealth._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -4753,12 +5404,25 @@ class AwsIntegrationsIam(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsIam._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -4813,23 +5477,34 @@ class AwsIntegrationsIot(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsIot._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -4883,7 +5558,7 @@ class AwsIntegrationsKinesis(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_shards: Specify if Shards should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -4894,24 +5569,43 @@ class AwsIntegrationsKinesis(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsKinesis._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_shards=fetch_shards,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_shards: Optional[bool] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_shards is not None:
-            pulumi.set(__self__, "fetch_shards", fetch_shards)
+            _setter("fetch_shards", fetch_shards)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -4985,23 +5679,34 @@ class AwsIntegrationsKinesisFirehose(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsKinesisFirehose._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -5052,7 +5757,7 @@ class AwsIntegrationsLambda(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param int metrics_polling_interval: The data polling interval in seconds.
@@ -5062,22 +5767,39 @@ class AwsIntegrationsLambda(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsLambda._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -5152,7 +5874,7 @@ class AwsIntegrationsRds(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param int metrics_polling_interval: The data polling interval in seconds.
@@ -5162,22 +5884,39 @@ class AwsIntegrationsRds(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsRds._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -5249,7 +5988,7 @@ class AwsIntegrationsRedshift(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
@@ -5258,20 +5997,35 @@ class AwsIntegrationsRedshift(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsRedshift._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -5337,10 +6091,21 @@ class AwsIntegrationsRoute53(dict):
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsRoute53._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fetch_extended_inventory=fetch_extended_inventory,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fetch_extended_inventory: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="fetchExtendedInventory")
@@ -5409,16 +6174,33 @@ class AwsIntegrationsS3(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsS3._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fetch_extended_inventory=fetch_extended_inventory,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fetch_extended_inventory: Optional[bool] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="fetchExtendedInventory")
@@ -5491,23 +6273,34 @@ class AwsIntegrationsSes(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsSes._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -5552,7 +6345,7 @@ class AwsIntegrationsSns(dict):
                  fetch_extended_inventory: Optional[bool] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
                
@@ -5562,18 +6355,31 @@ class AwsIntegrationsSns(dict):
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsSns._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_extended_inventory=fetch_extended_inventory,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_extended_inventory: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -5640,7 +6446,7 @@ class AwsIntegrationsSqs(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
                
@@ -5654,26 +6460,47 @@ class AwsIntegrationsSqs(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsSqs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_extended_inventory=fetch_extended_inventory,
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            queue_prefixes=queue_prefixes,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_extended_inventory: Optional[bool] = None,
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             queue_prefixes: Optional[Sequence[str]] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
-            pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
+            _setter("fetch_extended_inventory", fetch_extended_inventory)
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if queue_prefixes is not None:
-            pulumi.set(__self__, "queue_prefixes", queue_prefixes)
+            _setter("queue_prefixes", queue_prefixes)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -5759,8 +6586,17 @@ class AwsIntegrationsTrustedAdvisor(dict):
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsTrustedAdvisor._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -5811,7 +6647,7 @@ class AwsIntegrationsVpc(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param bool fetch_nat_gateway: Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param bool fetch_vpn: Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -5822,24 +6658,43 @@ class AwsIntegrationsVpc(dict):
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AwsIntegrationsVpc._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            fetch_nat_gateway=fetch_nat_gateway,
+            fetch_vpn=fetch_vpn,
+            metrics_polling_interval=metrics_polling_interval,
+            tag_key=tag_key,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             fetch_nat_gateway: Optional[bool] = None,
+             fetch_vpn: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             tag_key: Optional[str] = None,
+             tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if fetch_nat_gateway is not None:
-            pulumi.set(__self__, "fetch_nat_gateway", fetch_nat_gateway)
+            _setter("fetch_nat_gateway", fetch_nat_gateway)
         if fetch_vpn is not None:
-            pulumi.set(__self__, "fetch_vpn", fetch_vpn)
+            _setter("fetch_vpn", fetch_vpn)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
+            _setter("tag_key", tag_key)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -5913,23 +6768,34 @@ class AwsIntegrationsXRay(dict):
                  aws_regions: Optional[Sequence[str]] = None,
                  metrics_polling_interval: Optional[int] = None):
         """
-        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
                </details>
         :param int metrics_polling_interval: The data polling interval in seconds.
                
                <details>
                <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
         """
+        AwsIntegrationsXRay._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_regions=aws_regions,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_regions: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_regions is not None:
-            pulumi.set(__self__, "aws_regions", aws_regions)
+            _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.
+        Specify each AWS region that includes the resources that you want to monitor.  
         </details>
         """
         return pulumi.get(self, "aws_regions")
@@ -5976,10 +6842,21 @@ class AzureIntegrationsApiManagement(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsApiManagement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6030,10 +6907,21 @@ class AzureIntegrationsAppGateway(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsAppGateway._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6084,10 +6972,21 @@ class AzureIntegrationsAppService(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsAppService._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6138,10 +7037,21 @@ class AzureIntegrationsContainers(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsContainers._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6192,10 +7102,21 @@ class AzureIntegrationsCosmosDb(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsCosmosDb._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6244,10 +7165,21 @@ class AzureIntegrationsCostManagement(dict):
         :param int metrics_polling_interval: The data polling interval in seconds.
         :param Sequence[str] tag_keys: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
+        AzureIntegrationsCostManagement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            tag_keys=tag_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             tag_keys: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_keys is not None:
-            pulumi.set(__self__, "tag_keys", tag_keys)
+            _setter("tag_keys", tag_keys)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6296,10 +7228,21 @@ class AzureIntegrationsDataFactory(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsDataFactory._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6350,10 +7293,21 @@ class AzureIntegrationsEventHub(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsEventHub._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6404,10 +7358,21 @@ class AzureIntegrationsExpressRoute(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsExpressRoute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6458,10 +7423,21 @@ class AzureIntegrationsFirewalls(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsFirewalls._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6512,10 +7488,21 @@ class AzureIntegrationsFrontDoor(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsFrontDoor._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6566,10 +7553,21 @@ class AzureIntegrationsFunctions(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsFunctions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6620,10 +7618,21 @@ class AzureIntegrationsKeyVault(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsKeyVault._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6674,10 +7683,21 @@ class AzureIntegrationsLoadBalancer(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsLoadBalancer._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6728,10 +7748,21 @@ class AzureIntegrationsLogicApps(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsLogicApps._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6782,10 +7813,21 @@ class AzureIntegrationsMachineLearning(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsMachineLearning._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6836,10 +7878,21 @@ class AzureIntegrationsMariaDb(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsMariaDb._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -6904,18 +7957,37 @@ class AzureIntegrationsMonitor(dict):
                Other integration type support an additional argument:
         :param Sequence[str] resource_types: A list of Azure resource types that need to be monitored.
         """
+        AzureIntegrationsMonitor._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            exclude_tags=exclude_tags,
+            include_tags=include_tags,
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+            resource_types=resource_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             exclude_tags: Optional[Sequence[str]] = None,
+             include_tags: Optional[Sequence[str]] = None,
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             resource_types: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if exclude_tags is not None:
-            pulumi.set(__self__, "exclude_tags", exclude_tags)
+            _setter("exclude_tags", exclude_tags)
         if include_tags is not None:
-            pulumi.set(__self__, "include_tags", include_tags)
+            _setter("include_tags", include_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
         if resource_types is not None:
-            pulumi.set(__self__, "resource_types", resource_types)
+            _setter("resource_types", resource_types)
 
     @property
     @pulumi.getter
@@ -6998,10 +8070,21 @@ class AzureIntegrationsMysql(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsMysql._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7052,10 +8135,21 @@ class AzureIntegrationsMysqlFlexible(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsMysqlFlexible._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7106,10 +8200,21 @@ class AzureIntegrationsPostgresql(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsPostgresql._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7160,10 +8265,21 @@ class AzureIntegrationsPostgresqlFlexible(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsPostgresqlFlexible._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7214,10 +8330,21 @@ class AzureIntegrationsPowerBiDedicated(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsPowerBiDedicated._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7268,10 +8395,21 @@ class AzureIntegrationsRedisCache(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsRedisCache._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7322,10 +8460,21 @@ class AzureIntegrationsServiceBus(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsServiceBus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7376,10 +8525,21 @@ class AzureIntegrationsSql(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsSql._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7430,10 +8590,21 @@ class AzureIntegrationsSqlManaged(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsSqlManaged._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7484,10 +8655,21 @@ class AzureIntegrationsStorage(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsStorage._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7538,10 +8720,21 @@ class AzureIntegrationsVirtualMachine(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsVirtualMachine._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7592,10 +8785,21 @@ class AzureIntegrationsVirtualNetworks(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsVirtualNetworks._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7646,10 +8850,21 @@ class AzureIntegrationsVms(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsVms._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7700,10 +8915,21 @@ class AzureIntegrationsVpnGateway(dict):
                
                Other integration type support an additional argument:
         """
+        AzureIntegrationsVpnGateway._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7750,8 +8976,17 @@ class GcpIntegrationsAlloyDb(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsAlloyDb._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7790,8 +9025,17 @@ class GcpIntegrationsAppEngine(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsAppEngine._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7834,10 +9078,21 @@ class GcpIntegrationsBigQuery(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsBigQuery._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="fetchTags")
@@ -7884,8 +9139,17 @@ class GcpIntegrationsBigTable(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsBigTable._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7924,8 +9188,17 @@ class GcpIntegrationsComposer(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsComposer._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -7964,8 +9237,17 @@ class GcpIntegrationsDataFlow(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsDataFlow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8004,8 +9286,17 @@ class GcpIntegrationsDataProc(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsDataProc._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8044,8 +9335,17 @@ class GcpIntegrationsDataStore(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsDataStore._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8084,8 +9384,17 @@ class GcpIntegrationsFireBaseDatabase(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsFireBaseDatabase._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8124,8 +9433,17 @@ class GcpIntegrationsFireBaseHosting(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsFireBaseHosting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8164,8 +9482,17 @@ class GcpIntegrationsFireBaseStorage(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsFireBaseStorage._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8204,8 +9531,17 @@ class GcpIntegrationsFireStore(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsFireStore._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8244,8 +9580,17 @@ class GcpIntegrationsFunctions(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsFunctions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8284,8 +9629,17 @@ class GcpIntegrationsInterconnect(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsInterconnect._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8324,8 +9678,17 @@ class GcpIntegrationsKubernetes(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsKubernetes._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8364,8 +9727,17 @@ class GcpIntegrationsLoadBalancing(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsLoadBalancing._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8404,8 +9776,17 @@ class GcpIntegrationsMemCache(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsMemCache._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8448,10 +9829,21 @@ class GcpIntegrationsPubSub(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsPubSub._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="fetchTags")
@@ -8498,8 +9890,17 @@ class GcpIntegrationsRedis(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsRedis._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8538,8 +9939,17 @@ class GcpIntegrationsRouter(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsRouter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8578,8 +9988,17 @@ class GcpIntegrationsRun(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsRun._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8622,10 +10041,21 @@ class GcpIntegrationsSpanner(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsSpanner._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="fetchTags")
@@ -8672,8 +10102,17 @@ class GcpIntegrationsSql(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsSql._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8716,10 +10155,21 @@ class GcpIntegrationsStorage(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsStorage._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fetch_tags=fetch_tags,
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fetch_tags: Optional[bool] = None,
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fetch_tags is not None:
-            pulumi.set(__self__, "fetch_tags", fetch_tags)
+            _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="fetchTags")
@@ -8766,8 +10216,17 @@ class GcpIntegrationsVirtualMachines(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsVirtualMachines._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")
@@ -8806,8 +10265,17 @@ class GcpIntegrationsVpcAccess(dict):
                
                Other integration supports an additional argument:
         """
+        GcpIntegrationsVpcAccess._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metrics_polling_interval=metrics_polling_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metrics_polling_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+            _setter("metrics_polling_interval", metrics_polling_interval)
 
     @property
     @pulumi.getter(name="metricsPollingInterval")

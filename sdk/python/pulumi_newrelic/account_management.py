@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AccountManagementArgs', 'AccountManagement']
@@ -21,9 +21,20 @@ class AccountManagementArgs:
         :param pulumi.Input[str] region: The region code of the account.  One of: `us01`, `eu01`.
         :param pulumi.Input[str] name: The name of the Account.
         """
-        pulumi.set(__self__, "region", region)
+        AccountManagementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            region=region,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             region: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("region", region)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -60,10 +71,21 @@ class _AccountManagementState:
         :param pulumi.Input[str] name: The name of the Account.
         :param pulumi.Input[str] region: The region code of the account.  One of: `us01`, `eu01`.
         """
+        _AccountManagementState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter
@@ -165,6 +187,10 @@ class AccountManagement(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountManagementArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

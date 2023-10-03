@@ -17,8 +17,6 @@ namespace Pulumi.NewRelic.Cloud.Inputs
 
         /// <summary>
         /// Specify each AWS region that includes the resources that you want to monitor.
-        /// * `direct connect`
-        /// * `aws states`
         /// </summary>
         public InputList<string> AwsRegions
         {

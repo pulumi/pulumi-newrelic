@@ -16,8 +16,6 @@ import javax.annotation.Nullable;
 public final class AwsGovcloudIntegrationsEc2 {
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * * `direct connect`
-     * * `aws states`
      * 
      */
     private @Nullable List<String> awsRegions;
@@ -40,9 +38,6 @@ public final class AwsGovcloudIntegrationsEc2 {
     private @Nullable String tagKey;
     /**
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * * `api Gateway`
-     * * `auto scaling`
-     * * `elastic search`
      * 
      */
     private @Nullable String tagValue;
@@ -50,8 +45,6 @@ public final class AwsGovcloudIntegrationsEc2 {
     private AwsGovcloudIntegrationsEc2() {}
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * * `direct connect`
-     * * `aws states`
      * 
      */
     public List<String> awsRegions() {
@@ -82,9 +75,6 @@ public final class AwsGovcloudIntegrationsEc2 {
     }
     /**
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * * `api Gateway`
-     * * `auto scaling`
-     * * `elastic search`
      * 
      */
     public Optional<String> tagValue() {

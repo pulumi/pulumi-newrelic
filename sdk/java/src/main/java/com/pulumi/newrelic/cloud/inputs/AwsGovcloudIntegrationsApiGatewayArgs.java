@@ -19,8 +19,6 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
 
     /**
      * Specify each AWS region that includes the resources that you want to monitor.
-     * * `direct connect`
-     * * `aws states`
      * 
      */
     @Import(name="awsRegions")
@@ -28,8 +26,6 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
 
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * * `direct connect`
-     * * `aws states`
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
@@ -87,9 +83,6 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
 
     /**
      * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * * `api Gateway`
-     * * `auto scaling`
-     * * `elastic search`
      * 
      */
     @Import(name="tagValue")
@@ -97,9 +90,6 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
 
     /**
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * * `api Gateway`
-     * * `auto scaling`
-     * * `elastic search`
      * 
      */
     public Optional<Output<String>> tagValue() {
@@ -136,8 +126,6 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          * 
          * @return builder
          * 
@@ -149,8 +137,6 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          * 
          * @return builder
          * 
@@ -161,8 +147,6 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          * 
          * @return builder
          * 
@@ -250,9 +234,6 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
 
         /**
          * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          * 
          * @return builder
          * 
@@ -264,9 +245,6 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
 
         /**
          * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          * 
          * @return builder
          * 

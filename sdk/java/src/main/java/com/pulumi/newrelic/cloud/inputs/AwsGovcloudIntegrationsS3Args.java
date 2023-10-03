@@ -83,9 +83,6 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
 
     /**
      * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * * `api Gateway`
-     * * `auto scaling`
-     * * `elastic search`
      * 
      */
     @Import(name="tagValue")
@@ -93,9 +90,6 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
 
     /**
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * * `api Gateway`
-     * * `auto scaling`
-     * * `elastic search`
      * 
      */
     public Optional<Output<String>> tagValue() {
@@ -220,9 +214,6 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
 
         /**
          * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          * 
          * @return builder
          * 
@@ -234,9 +225,6 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
 
         /**
          * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          * 
          * @return builder
          * 

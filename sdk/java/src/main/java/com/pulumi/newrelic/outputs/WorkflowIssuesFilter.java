@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkflowIssuesFilter {
     private @Nullable String filterId;
-    /**
-     * @return The name of the workflow.
-     * 
-     */
     private String name;
     /**
      * @return A condition an issue event should satisfy to be processed by the workflow
@@ -34,10 +30,6 @@ public final class WorkflowIssuesFilter {
     public Optional<String> filterId() {
         return Optional.ofNullable(this.filterId);
     }
-    /**
-     * @return The name of the workflow.
-     * 
-     */
     public String name() {
         return this.name;
     }
