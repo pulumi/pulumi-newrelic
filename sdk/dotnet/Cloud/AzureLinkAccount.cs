@@ -74,7 +74,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<string> ClientSecret { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the application in New Relic APM.
+        /// Name of the linked account
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.NewRelic.Cloud
         }
 
         /// <summary>
-        /// The name of the application in New Relic APM.
+        /// Name of the linked account
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.NewRelic.Cloud
         }
 
         /// <summary>
-        /// The name of the application in New Relic APM.
+        /// Name of the linked account
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

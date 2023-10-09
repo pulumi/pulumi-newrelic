@@ -220,14 +220,18 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The run state of the monitor.
+     * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+     * 
+     * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The run state of the monitor.
+     * @return The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+     * 
+     * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
      * 
      */
     public Output<String> status() {
@@ -679,7 +683,9 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The run state of the monitor.
+         * @param status The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+         * 
+         * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
          * 
          * @return builder
          * 
@@ -690,7 +696,9 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The run state of the monitor.
+         * @param status The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+         * 
+         * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
          * 
          * @return builder
          * 

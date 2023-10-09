@@ -116,14 +116,14 @@ public class AzureLinkAccount extends com.pulumi.resources.CustomResource {
         return this.clientSecret;
     }
     /**
-     * The name of the application in New Relic APM.
+     * Name of the linked account
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the application in New Relic APM.
+     * @return Name of the linked account
      * 
      */
     public Output<String> name() {

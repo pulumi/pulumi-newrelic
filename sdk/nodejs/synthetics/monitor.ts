@@ -227,7 +227,9 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly scriptLanguage!: pulumi.Output<string | undefined>;
     /**
-     * The run state of the monitor.
+     * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+     *
+     * > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
      */
     public readonly status!: pulumi.Output<string>;
     /**
@@ -389,7 +391,9 @@ export interface MonitorState {
      */
     scriptLanguage?: pulumi.Input<string>;
     /**
-     * The run state of the monitor.
+     * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+     *
+     * > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
      */
     status?: pulumi.Input<string>;
     /**
@@ -479,7 +483,9 @@ export interface MonitorArgs {
      */
     scriptLanguage?: pulumi.Input<string>;
     /**
-     * The run state of the monitor.
+     * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+     *
+     * > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
      */
     status: pulumi.Input<string>;
     /**

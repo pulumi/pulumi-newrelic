@@ -38,6 +38,10 @@ import * as utilities from "./utilities";
  * - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
  * - `timeFunction` - (Optional) **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
  *
+ * > **NOTE:** When a `critical` or `warning` block is added to this resource, using either `duration` or `thresholdDuration` (one of the two) is mandatory. Both of these should not be specified.
+ *
+ * > **NOTE:** When a `critical` or `warning` block is added to this resource, using either `timeFunction` or `thresholdOccurrences` (one of the two) is mandatory. Both of these should not be specified.
+ *
  * ## Additional Examples
  *
  * ##### Type: `baseline`
@@ -200,7 +204,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly aggregationTimer!: pulumi.Output<string | undefined>;
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
      */
     public readonly aggregationWindow!: pulumi.Output<number>;
     /**
@@ -394,7 +398,7 @@ export interface NrqlAlertConditionState {
      */
     aggregationTimer?: pulumi.Input<string>;
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
      */
     aggregationWindow?: pulumi.Input<number>;
     /**
@@ -510,7 +514,7 @@ export interface NrqlAlertConditionArgs {
      */
     aggregationTimer?: pulumi.Input<string>;
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
      */
     aggregationWindow?: pulumi.Input<number>;
     /**

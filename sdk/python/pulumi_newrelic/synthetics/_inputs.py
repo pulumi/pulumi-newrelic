@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -32,8 +32,19 @@ class BrokenLinksMonitorTagArgs:
         :param pulumi.Input[str] key: Name of the tag key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Values associated with the tag key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        BrokenLinksMonitorTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -69,8 +80,19 @@ class CertCheckMonitorTagArgs:
         :param pulumi.Input[str] key: Name of the tag key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Values associated with the tag key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        CertCheckMonitorTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -106,10 +128,21 @@ class MonitorCustomHeaderArgs:
         :param pulumi.Input[str] name: Header name.
         :param pulumi.Input[str] value: Header Value.
         """
+        MonitorCustomHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -145,8 +178,19 @@ class MonitorTagArgs:
         :param pulumi.Input[str] key: Name of the tag key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Values associated with the tag key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        MonitorTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -177,7 +221,16 @@ class MonitorTagArgs:
 class MultiLocationAlertConditionCriticalArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[int]):
-        pulumi.set(__self__, "threshold", threshold)
+        MultiLocationAlertConditionCriticalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            threshold=threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             threshold: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("threshold", threshold)
 
     @property
     @pulumi.getter
@@ -193,7 +246,16 @@ class MultiLocationAlertConditionCriticalArgs:
 class MultiLocationAlertConditionWarningArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[int]):
-        pulumi.set(__self__, "threshold", threshold)
+        MultiLocationAlertConditionWarningArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            threshold=threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             threshold: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("threshold", threshold)
 
     @property
     @pulumi.getter
@@ -214,9 +276,20 @@ class ScriptMonitorLocationPrivateArgs:
         :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
         :param pulumi.Input[str] vse_password: The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
         """
-        pulumi.set(__self__, "guid", guid)
+        ScriptMonitorLocationPrivateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            guid=guid,
+            vse_password=vse_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             guid: pulumi.Input[str],
+             vse_password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("guid", guid)
         if vse_password is not None:
-            pulumi.set(__self__, "vse_password", vse_password)
+            _setter("vse_password", vse_password)
 
     @property
     @pulumi.getter
@@ -252,8 +325,19 @@ class ScriptMonitorTagArgs:
         :param pulumi.Input[str] key: Name of the tag key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Values associated with the tag key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        ScriptMonitorTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -289,9 +373,20 @@ class StepMonitorLocationPrivateArgs:
         :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
         :param pulumi.Input[str] vse_password: The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
         """
-        pulumi.set(__self__, "guid", guid)
+        StepMonitorLocationPrivateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            guid=guid,
+            vse_password=vse_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             guid: pulumi.Input[str],
+             vse_password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("guid", guid)
         if vse_password is not None:
-            pulumi.set(__self__, "vse_password", vse_password)
+            _setter("vse_password", vse_password)
 
     @property
     @pulumi.getter
@@ -329,10 +424,23 @@ class StepMonitorStepArgs:
         :param pulumi.Input[str] type: Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The metadata values related to the step.
         """
-        pulumi.set(__self__, "ordinal", ordinal)
-        pulumi.set(__self__, "type", type)
+        StepMonitorStepArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ordinal=ordinal,
+            type=type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ordinal: pulumi.Input[int],
+             type: pulumi.Input[str],
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ordinal", ordinal)
+        _setter("type", type)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter
@@ -380,8 +488,19 @@ class StepMonitorTagArgs:
         :param pulumi.Input[str] key: Name of the tag key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Values associated with the tag key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        StepMonitorTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter

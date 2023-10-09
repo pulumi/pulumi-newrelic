@@ -41,7 +41,7 @@ type AlertChannelConfig struct {
 	PayloadString *string `pulumi:"payloadString"`
 	// Can either be `application/json` or `application/x-www-form-urlencoded`. The `payloadType` argument is _required_ if `payload` is set.
 	PayloadType *string `pulumi:"payloadType"`
-	// Comma delimited list of email addresses.
+	// A set of recipients for targeting notifications.  Multiple values are comma separated.
 	Recipients *string `pulumi:"recipients"`
 	// The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
 	Region *string `pulumi:"region"`
@@ -53,7 +53,7 @@ type AlertChannelConfig struct {
 	Tags *string `pulumi:"tags"`
 	// A set of teams for targeting notifications. Multiple values are comma separated.
 	Teams *string `pulumi:"teams"`
-	// [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
+	// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
 	Url    *string `pulumi:"url"`
 	UserId *string `pulumi:"userId"`
 }
@@ -96,7 +96,7 @@ type AlertChannelConfigArgs struct {
 	PayloadString pulumi.StringPtrInput `pulumi:"payloadString"`
 	// Can either be `application/json` or `application/x-www-form-urlencoded`. The `payloadType` argument is _required_ if `payload` is set.
 	PayloadType pulumi.StringPtrInput `pulumi:"payloadType"`
-	// Comma delimited list of email addresses.
+	// A set of recipients for targeting notifications.  Multiple values are comma separated.
 	Recipients pulumi.StringPtrInput `pulumi:"recipients"`
 	// The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -108,7 +108,7 @@ type AlertChannelConfigArgs struct {
 	Tags pulumi.StringPtrInput `pulumi:"tags"`
 	// A set of teams for targeting notifications. Multiple values are comma separated.
 	Teams pulumi.StringPtrInput `pulumi:"teams"`
-	// [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
+	// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
 	Url    pulumi.StringPtrInput `pulumi:"url"`
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
 }
@@ -273,7 +273,7 @@ func (o AlertChannelConfigOutput) PayloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.PayloadType }).(pulumi.StringPtrOutput)
 }
 
-// Comma delimited list of email addresses.
+// A set of recipients for targeting notifications.  Multiple values are comma separated.
 func (o AlertChannelConfigOutput) Recipients() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Recipients }).(pulumi.StringPtrOutput)
 }
@@ -303,7 +303,7 @@ func (o AlertChannelConfigOutput) Teams() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Teams }).(pulumi.StringPtrOutput)
 }
 
-// [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
+// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
 func (o AlertChannelConfigOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -472,7 +472,7 @@ func (o AlertChannelConfigPtrOutput) PayloadType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Comma delimited list of email addresses.
+// A set of recipients for targeting notifications.  Multiple values are comma separated.
 func (o AlertChannelConfigPtrOutput) Recipients() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {
@@ -532,7 +532,7 @@ func (o AlertChannelConfigPtrOutput) Teams() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
+// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
 func (o AlertChannelConfigPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {
@@ -20765,8 +20765,7 @@ type ServiceLevelEventsBadEvents struct {
 	From string `pulumi:"from"`
 	// The NRQL SELECT clause to aggregate events.
 	Select *ServiceLevelEventsBadEventsSelect `pulumi:"select"`
-	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-	// a particular entity and were successful).
+	// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
 	// a particular entity and returned an error).
 	Where *string `pulumi:"where"`
 }
@@ -20787,8 +20786,7 @@ type ServiceLevelEventsBadEventsArgs struct {
 	From pulumi.StringInput `pulumi:"from"`
 	// The NRQL SELECT clause to aggregate events.
 	Select ServiceLevelEventsBadEventsSelectPtrInput `pulumi:"select"`
-	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-	// a particular entity and were successful).
+	// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
 	// a particular entity and returned an error).
 	Where pulumi.StringPtrInput `pulumi:"where"`
 }
@@ -20898,8 +20896,7 @@ func (o ServiceLevelEventsBadEventsOutput) Select() ServiceLevelEventsBadEventsS
 	return o.ApplyT(func(v ServiceLevelEventsBadEvents) *ServiceLevelEventsBadEventsSelect { return v.Select }).(ServiceLevelEventsBadEventsSelectPtrOutput)
 }
 
-// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-// a particular entity and were successful).
+// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
 // a particular entity and returned an error).
 func (o ServiceLevelEventsBadEventsOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsBadEvents) *string { return v.Where }).(pulumi.StringPtrOutput)
@@ -20955,8 +20952,7 @@ func (o ServiceLevelEventsBadEventsPtrOutput) Select() ServiceLevelEventsBadEven
 	}).(ServiceLevelEventsBadEventsSelectPtrOutput)
 }
 
-// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-// a particular entity and were successful).
+// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
 // a particular entity and returned an error).
 func (o ServiceLevelEventsBadEventsPtrOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsBadEvents) *string {
@@ -21171,8 +21167,7 @@ type ServiceLevelEventsGoodEvents struct {
 	From string `pulumi:"from"`
 	// The NRQL SELECT clause to aggregate events.
 	Select *ServiceLevelEventsGoodEventsSelect `pulumi:"select"`
-	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-	// a particular entity and were successful).
+	// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
 	// a particular entity and returned an error).
 	Where *string `pulumi:"where"`
 }
@@ -21193,8 +21188,7 @@ type ServiceLevelEventsGoodEventsArgs struct {
 	From pulumi.StringInput `pulumi:"from"`
 	// The NRQL SELECT clause to aggregate events.
 	Select ServiceLevelEventsGoodEventsSelectPtrInput `pulumi:"select"`
-	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-	// a particular entity and were successful).
+	// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
 	// a particular entity and returned an error).
 	Where pulumi.StringPtrInput `pulumi:"where"`
 }
@@ -21304,8 +21298,7 @@ func (o ServiceLevelEventsGoodEventsOutput) Select() ServiceLevelEventsGoodEvent
 	return o.ApplyT(func(v ServiceLevelEventsGoodEvents) *ServiceLevelEventsGoodEventsSelect { return v.Select }).(ServiceLevelEventsGoodEventsSelectPtrOutput)
 }
 
-// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-// a particular entity and were successful).
+// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
 // a particular entity and returned an error).
 func (o ServiceLevelEventsGoodEventsOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsGoodEvents) *string { return v.Where }).(pulumi.StringPtrOutput)
@@ -21361,8 +21354,7 @@ func (o ServiceLevelEventsGoodEventsPtrOutput) Select() ServiceLevelEventsGoodEv
 	}).(ServiceLevelEventsGoodEventsSelectPtrOutput)
 }
 
-// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-// a particular entity and were successful).
+// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
 // a particular entity and returned an error).
 func (o ServiceLevelEventsGoodEventsPtrOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsGoodEvents) *string {
@@ -21577,8 +21569,7 @@ type ServiceLevelEventsValidEvents struct {
 	From string `pulumi:"from"`
 	// The NRQL SELECT clause to aggregate events.
 	Select *ServiceLevelEventsValidEventsSelect `pulumi:"select"`
-	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-	// a particular entity and were successful).
+	// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
 	// a particular entity and returned an error).
 	Where *string `pulumi:"where"`
 }
@@ -21599,8 +21590,7 @@ type ServiceLevelEventsValidEventsArgs struct {
 	From pulumi.StringInput `pulumi:"from"`
 	// The NRQL SELECT clause to aggregate events.
 	Select ServiceLevelEventsValidEventsSelectPtrInput `pulumi:"select"`
-	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-	// a particular entity and were successful).
+	// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
 	// a particular entity and returned an error).
 	Where pulumi.StringPtrInput `pulumi:"where"`
 }
@@ -21710,8 +21700,7 @@ func (o ServiceLevelEventsValidEventsOutput) Select() ServiceLevelEventsValidEve
 	return o.ApplyT(func(v ServiceLevelEventsValidEvents) *ServiceLevelEventsValidEventsSelect { return v.Select }).(ServiceLevelEventsValidEventsSelectPtrOutput)
 }
 
-// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-// a particular entity and were successful).
+// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
 // a particular entity and returned an error).
 func (o ServiceLevelEventsValidEventsOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsValidEvents) *string { return v.Where }).(pulumi.StringPtrOutput)
@@ -21767,8 +21756,7 @@ func (o ServiceLevelEventsValidEventsPtrOutput) Select() ServiceLevelEventsValid
 	}).(ServiceLevelEventsValidEventsSelectPtrOutput)
 }
 
-// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-// a particular entity and were successful).
+// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
 // a particular entity and returned an error).
 func (o ServiceLevelEventsValidEventsPtrOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsValidEvents) *string {
@@ -23126,8 +23114,7 @@ func (o WorkflowEnrichmentsNrqlConfigurationArrayOutput) Index(i pulumi.IntInput
 
 type WorkflowIssuesFilter struct {
 	FilterId *string `pulumi:"filterId"`
-	// The name of the workflow.
-	Name string `pulumi:"name"`
+	Name     string  `pulumi:"name"`
 	// A condition an issue event should satisfy to be processed by the workflow
 	Predicates []WorkflowIssuesFilterPredicate `pulumi:"predicates"`
 	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
@@ -23147,8 +23134,7 @@ type WorkflowIssuesFilterInput interface {
 
 type WorkflowIssuesFilterArgs struct {
 	FilterId pulumi.StringPtrInput `pulumi:"filterId"`
-	// The name of the workflow.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name     pulumi.StringInput    `pulumi:"name"`
 	// A condition an issue event should satisfy to be processed by the workflow
 	Predicates WorkflowIssuesFilterPredicateArrayInput `pulumi:"predicates"`
 	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
@@ -23254,7 +23240,6 @@ func (o WorkflowIssuesFilterOutput) FilterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilter) *string { return v.FilterId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the workflow.
 func (o WorkflowIssuesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -23308,7 +23293,6 @@ func (o WorkflowIssuesFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the workflow.
 func (o WorkflowIssuesFilterPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowIssuesFilter) *string {
 		if v == nil {

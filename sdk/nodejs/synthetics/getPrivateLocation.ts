@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     accountId: 123456,
  *     name: "My private location",
  * });
- * const foo = new newrelic.synthetics.Monitor("foo", {locationsPrivates: [data.newrelic_synthetics_monitor_location.example.id]});
+ * const foo = new newrelic.synthetics.Monitor("foo", {locationsPrivates: [example.then(example => example.id)]});
  * ```
  *
  * ```typescript
@@ -89,7 +89,7 @@ export interface GetPrivateLocationResult {
  *     accountId: 123456,
  *     name: "My private location",
  * });
- * const foo = new newrelic.synthetics.Monitor("foo", {locationsPrivates: [data.newrelic_synthetics_monitor_location.example.id]});
+ * const foo = new newrelic.synthetics.Monitor("foo", {locationsPrivates: [example.then(example => example.id)]});
  * ```
  *
  * ```typescript

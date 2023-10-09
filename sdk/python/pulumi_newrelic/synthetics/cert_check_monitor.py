@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,27 +30,54 @@ class CertCheckMonitorArgs:
         :param pulumi.Input[int] certificate_expiration: The desired number of remaining days until the certificate expires to trigger a monitor failure.
         :param pulumi.Input[str] domain: The domain of the host that will have its certificate checked.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
-        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+               
+               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
-        pulumi.set(__self__, "certificate_expiration", certificate_expiration)
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "period", period)
-        pulumi.set(__self__, "status", status)
+        CertCheckMonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_expiration=certificate_expiration,
+            domain=domain,
+            period=period,
+            status=status,
+            account_id=account_id,
+            locations_privates=locations_privates,
+            locations_publics=locations_publics,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_expiration: pulumi.Input[int],
+             domain: pulumi.Input[str],
+             period: pulumi.Input[str],
+             status: pulumi.Input[str],
+             account_id: Optional[pulumi.Input[int]] = None,
+             locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_expiration", certificate_expiration)
+        _setter("domain", domain)
+        _setter("period", period)
+        _setter("status", status)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if locations_privates is not None:
-            pulumi.set(__self__, "locations_privates", locations_privates)
+            _setter("locations_privates", locations_privates)
         if locations_publics is not None:
-            pulumi.set(__self__, "locations_publics", locations_publics)
+            _setter("locations_publics", locations_publics)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="certificateExpiration")
@@ -92,7 +119,9 @@ class CertCheckMonitorArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
         """
-        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+
+        > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         """
         return pulumi.get(self, "status")
 
@@ -184,29 +213,58 @@ class _CertCheckMonitorState:
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
-        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+               
+               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
+        _CertCheckMonitorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            certificate_expiration=certificate_expiration,
+            domain=domain,
+            locations_privates=locations_privates,
+            locations_publics=locations_publics,
+            name=name,
+            period=period,
+            period_in_minutes=period_in_minutes,
+            status=status,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[int]] = None,
+             certificate_expiration: Optional[pulumi.Input[int]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             period: Optional[pulumi.Input[str]] = None,
+             period_in_minutes: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if certificate_expiration is not None:
-            pulumi.set(__self__, "certificate_expiration", certificate_expiration)
+            _setter("certificate_expiration", certificate_expiration)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if locations_privates is not None:
-            pulumi.set(__self__, "locations_privates", locations_privates)
+            _setter("locations_privates", locations_privates)
         if locations_publics is not None:
-            pulumi.set(__self__, "locations_publics", locations_publics)
+            _setter("locations_publics", locations_publics)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
         if period_in_minutes is not None:
-            pulumi.set(__self__, "period_in_minutes", period_in_minutes)
+            _setter("period_in_minutes", period_in_minutes)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accountId")
@@ -308,7 +366,9 @@ class _CertCheckMonitorState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+
+        > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         """
         return pulumi.get(self, "status")
 
@@ -408,7 +468,9 @@ class CertCheckMonitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
-        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+               
+               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         ...
@@ -482,6 +544,10 @@ class CertCheckMonitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertCheckMonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -558,7 +624,9 @@ class CertCheckMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
-        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+               
+               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -645,7 +713,9 @@ class CertCheckMonitor(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+
+        > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         """
         return pulumi.get(self, "status")
 

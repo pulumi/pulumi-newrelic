@@ -16,8 +16,6 @@ import javax.annotation.Nullable;
 public final class AwsGovcloudIntegrationsSns {
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * * `direct connect`
-     * * `aws states`
      * 
      */
     private @Nullable List<String> awsRegions;
@@ -37,8 +35,6 @@ public final class AwsGovcloudIntegrationsSns {
     private AwsGovcloudIntegrationsSns() {}
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * * `direct connect`
-     * * `aws states`
      * 
      */
     public List<String> awsRegions() {

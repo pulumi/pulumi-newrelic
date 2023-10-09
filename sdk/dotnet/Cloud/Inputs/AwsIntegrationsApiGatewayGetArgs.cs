@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         private InputList<string>? _awsRegions;
 
         /// <summary>
-        /// Specify each AWS region that includes the resources that you want to monitor.
+        /// Specify each AWS region that includes the resources that you want to monitor.  
         /// &lt;/details&gt;
         /// </summary>
         public InputList<string> AwsRegions

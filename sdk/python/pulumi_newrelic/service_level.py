@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,13 +31,30 @@ class ServiceLevelArgs:
         :param pulumi.Input[str] description: The description of the SLI.
         :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
         """
-        pulumi.set(__self__, "events", events)
-        pulumi.set(__self__, "guid", guid)
-        pulumi.set(__self__, "objective", objective)
+        ServiceLevelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            events=events,
+            guid=guid,
+            objective=objective,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             events: pulumi.Input['ServiceLevelEventsArgs'],
+             guid: pulumi.Input[str],
+             objective: pulumi.Input['ServiceLevelObjectiveArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("events", events)
+        _setter("guid", guid)
+        _setter("objective", objective)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -124,20 +141,41 @@ class _ServiceLevelState:
         :param pulumi.Input[str] sli_guid: The unique entity identifier of the Service Level Indicator in New Relic.
         :param pulumi.Input[str] sli_id: The unique entity identifier of the Service Level Indicator.
         """
+        _ServiceLevelState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            events=events,
+            guid=guid,
+            name=name,
+            objective=objective,
+            sli_guid=sli_guid,
+            sli_id=sli_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             events: Optional[pulumi.Input['ServiceLevelEventsArgs']] = None,
+             guid: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             objective: Optional[pulumi.Input['ServiceLevelObjectiveArgs']] = None,
+             sli_guid: Optional[pulumi.Input[str]] = None,
+             sli_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
         if guid is not None:
-            pulumi.set(__self__, "guid", guid)
+            _setter("guid", guid)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if objective is not None:
-            pulumi.set(__self__, "objective", objective)
+            _setter("objective", objective)
         if sli_guid is not None:
-            pulumi.set(__self__, "sli_guid", sli_guid)
+            _setter("sli_guid", sli_guid)
         if sli_id is not None:
-            pulumi.set(__self__, "sli_id", sli_id)
+            _setter("sli_id", sli_id)
 
     @property
     @pulumi.getter
@@ -545,6 +583,10 @@ class ServiceLevel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceLevelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -565,6 +607,11 @@ class ServiceLevel(pulumi.CustomResource):
             __props__ = ServiceLevelArgs.__new__(ServiceLevelArgs)
 
             __props__.__dict__["description"] = description
+            if events is not None and not isinstance(events, ServiceLevelEventsArgs):
+                events = events or {}
+                def _setter(key, value):
+                    events[key] = value
+                ServiceLevelEventsArgs._configure(_setter, **events)
             if events is None and not opts.urn:
                 raise TypeError("Missing required property 'events'")
             __props__.__dict__["events"] = events
@@ -572,6 +619,11 @@ class ServiceLevel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'guid'")
             __props__.__dict__["guid"] = guid
             __props__.__dict__["name"] = name
+            if objective is not None and not isinstance(objective, ServiceLevelObjectiveArgs):
+                objective = objective or {}
+                def _setter(key, value):
+                    objective[key] = value
+                ServiceLevelObjectiveArgs._configure(_setter, **objective)
             if objective is None and not opts.urn:
                 raise TypeError("Missing required property 'objective'")
             __props__.__dict__["objective"] = objective

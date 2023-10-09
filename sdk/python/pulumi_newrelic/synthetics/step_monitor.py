@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,6 +29,8 @@ class StepMonitorArgs:
         The set of arguments for constructing a StepMonitor resource.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+               
+               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
@@ -37,21 +39,46 @@ class StepMonitorArgs:
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         """
-        pulumi.set(__self__, "period", period)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "steps", steps)
+        StepMonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            period=period,
+            status=status,
+            steps=steps,
+            account_id=account_id,
+            enable_screenshot_on_failure_and_script=enable_screenshot_on_failure_and_script,
+            location_privates=location_privates,
+            locations_publics=locations_publics,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             period: pulumi.Input[str],
+             status: pulumi.Input[str],
+             steps: pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]],
+             account_id: Optional[pulumi.Input[int]] = None,
+             enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
+             location_privates: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorLocationPrivateArgs']]]] = None,
+             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("period", period)
+        _setter("status", status)
+        _setter("steps", steps)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if enable_screenshot_on_failure_and_script is not None:
-            pulumi.set(__self__, "enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
+            _setter("enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
         if location_privates is not None:
-            pulumi.set(__self__, "location_privates", location_privates)
+            _setter("location_privates", location_privates)
         if locations_publics is not None:
-            pulumi.set(__self__, "locations_publics", locations_publics)
+            _setter("locations_publics", locations_publics)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -70,6 +97,8 @@ class StepMonitorArgs:
     def status(self) -> pulumi.Input[str]:
         """
         The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+
+        > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         """
         return pulumi.get(self, "status")
 
@@ -187,31 +216,62 @@ class _StepMonitorState:
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+               
+               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         """
+        _StepMonitorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            enable_screenshot_on_failure_and_script=enable_screenshot_on_failure_and_script,
+            guid=guid,
+            location_privates=location_privates,
+            locations_publics=locations_publics,
+            name=name,
+            period=period,
+            period_in_minutes=period_in_minutes,
+            status=status,
+            steps=steps,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[int]] = None,
+             enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
+             guid: Optional[pulumi.Input[str]] = None,
+             location_privates: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorLocationPrivateArgs']]]] = None,
+             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             period: Optional[pulumi.Input[str]] = None,
+             period_in_minutes: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             steps: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if enable_screenshot_on_failure_and_script is not None:
-            pulumi.set(__self__, "enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
+            _setter("enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
         if guid is not None:
-            pulumi.set(__self__, "guid", guid)
+            _setter("guid", guid)
         if location_privates is not None:
-            pulumi.set(__self__, "location_privates", location_privates)
+            _setter("location_privates", location_privates)
         if locations_publics is not None:
-            pulumi.set(__self__, "locations_publics", locations_publics)
+            _setter("locations_publics", locations_publics)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
         if period_in_minutes is not None:
-            pulumi.set(__self__, "period_in_minutes", period_in_minutes)
+            _setter("period_in_minutes", period_in_minutes)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if steps is not None:
-            pulumi.set(__self__, "steps", steps)
+            _setter("steps", steps)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accountId")
@@ -314,6 +374,8 @@ class _StepMonitorState:
     def status(self) -> Optional[pulumi.Input[str]]:
         """
         The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+
+        > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         """
         return pulumi.get(self, "status")
 
@@ -408,6 +470,8 @@ class StepMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+               
+               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorStepArgs']]]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         """
@@ -465,6 +529,10 @@ class StepMonitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StepMonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -542,6 +610,8 @@ class StepMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+               
+               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorStepArgs']]]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         """
@@ -631,6 +701,8 @@ class StepMonitor(pulumi.CustomResource):
     def status(self) -> pulumi.Output[str]:
         """
         The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+
+        > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         """
         return pulumi.get(self, "status")
 

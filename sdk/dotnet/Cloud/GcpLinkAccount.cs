@@ -63,7 +63,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the GCP account in New Relic.
+        /// name of the linked account
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// The name of the GCP account in New Relic.
+        /// name of the linked account
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -153,7 +153,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// The name of the GCP account in New Relic.
+        /// name of the linked account
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

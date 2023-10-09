@@ -321,7 +321,9 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string?> ScriptLanguage { get; private set; } = null!;
 
         /// <summary>
-        /// The run state of the monitor.
+        /// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+        /// 
+        /// &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -509,7 +511,9 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? ScriptLanguage { get; set; }
 
         /// <summary>
-        /// The run state of the monitor.
+        /// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+        /// 
+        /// &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
@@ -671,7 +675,9 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? ScriptLanguage { get; set; }
 
         /// <summary>
-        /// The run state of the monitor.
+        /// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+        /// 
+        /// &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

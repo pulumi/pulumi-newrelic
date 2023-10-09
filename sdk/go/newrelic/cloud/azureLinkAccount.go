@@ -73,7 +73,7 @@ type AzureLinkAccount struct {
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// Secret Value of the client.
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
-	// The name of the application in New Relic APM.
+	// Name of the linked account
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Subscription ID of the Azure cloud account.
 	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
@@ -136,7 +136,7 @@ type azureLinkAccountState struct {
 	ApplicationId *string `pulumi:"applicationId"`
 	// Secret Value of the client.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// The name of the application in New Relic APM.
+	// Name of the linked account
 	Name *string `pulumi:"name"`
 	// Subscription ID of the Azure cloud account.
 	SubscriptionId *string `pulumi:"subscriptionId"`
@@ -151,7 +151,7 @@ type AzureLinkAccountState struct {
 	ApplicationId pulumi.StringPtrInput
 	// Secret Value of the client.
 	ClientSecret pulumi.StringPtrInput
-	// The name of the application in New Relic APM.
+	// Name of the linked account
 	Name pulumi.StringPtrInput
 	// Subscription ID of the Azure cloud account.
 	SubscriptionId pulumi.StringPtrInput
@@ -170,7 +170,7 @@ type azureLinkAccountArgs struct {
 	ApplicationId string `pulumi:"applicationId"`
 	// Secret Value of the client.
 	ClientSecret string `pulumi:"clientSecret"`
-	// The name of the application in New Relic APM.
+	// Name of the linked account
 	Name *string `pulumi:"name"`
 	// Subscription ID of the Azure cloud account.
 	SubscriptionId string `pulumi:"subscriptionId"`
@@ -186,7 +186,7 @@ type AzureLinkAccountArgs struct {
 	ApplicationId pulumi.StringInput
 	// Secret Value of the client.
 	ClientSecret pulumi.StringInput
-	// The name of the application in New Relic APM.
+	// Name of the linked account
 	Name pulumi.StringPtrInput
 	// Subscription ID of the Azure cloud account.
 	SubscriptionId pulumi.StringInput
@@ -320,7 +320,7 @@ func (o AzureLinkAccountOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *AzureLinkAccount) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-// The name of the application in New Relic APM.
+// Name of the linked account
 func (o AzureLinkAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AzureLinkAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

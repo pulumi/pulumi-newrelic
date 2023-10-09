@@ -28,9 +28,6 @@ namespace Pulumi.NewRelic.Cloud.Inputs
 
         /// <summary>
         /// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        /// * `api Gateway`
-        /// * `auto scaling`
-        /// * `elastic search`
         /// </summary>
         [Input("tagValue")]
         public Input<string>? TagValue { get; set; }

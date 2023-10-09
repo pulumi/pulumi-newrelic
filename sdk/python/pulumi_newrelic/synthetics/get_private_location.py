@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -89,7 +89,7 @@ def get_private_location(account_id: Optional[int] = None,
 
     example = newrelic.synthetics.get_private_location(account_id=123456,
         name="My private location")
-    foo = newrelic.synthetics.Monitor("foo", locations_privates=[data["newrelic_synthetics_monitor_location"]["example"]["id"]])
+    foo = newrelic.synthetics.Monitor("foo", locations_privates=[example.id])
     ```
 
     ```python
@@ -138,7 +138,7 @@ def get_private_location_output(account_id: Optional[pulumi.Input[Optional[int]]
 
     example = newrelic.synthetics.get_private_location(account_id=123456,
         name="My private location")
-    foo = newrelic.synthetics.Monitor("foo", locations_privates=[data["newrelic_synthetics_monitor_location"]["example"]["id"]])
+    foo = newrelic.synthetics.Monitor("foo", locations_privates=[example.id])
     ```
 
     ```python

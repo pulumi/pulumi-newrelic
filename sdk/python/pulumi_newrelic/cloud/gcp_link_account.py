@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GcpLinkAccountArgs', 'GcpLinkAccount']
@@ -21,13 +21,26 @@ class GcpLinkAccountArgs:
         The set of arguments for constructing a GcpLinkAccount resource.
         :param pulumi.Input[str] project_id: Project ID of the GCP account.
         :param pulumi.Input[int] account_id: Account ID of the New Relic account.
-        :param pulumi.Input[str] name: The name of the GCP account in New Relic.
+        :param pulumi.Input[str] name: name of the linked account
         """
-        pulumi.set(__self__, "project_id", project_id)
+        GcpLinkAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            account_id=account_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: pulumi.Input[str],
+             account_id: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("project_id", project_id)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="projectId")
@@ -57,7 +70,7 @@ class GcpLinkAccountArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the GCP account in New Relic.
+        name of the linked account
         """
         return pulumi.get(self, "name")
 
@@ -75,15 +88,28 @@ class _GcpLinkAccountState:
         """
         Input properties used for looking up and filtering GcpLinkAccount resources.
         :param pulumi.Input[int] account_id: Account ID of the New Relic account.
-        :param pulumi.Input[str] name: The name of the GCP account in New Relic.
+        :param pulumi.Input[str] name: name of the linked account
         :param pulumi.Input[str] project_id: Project ID of the GCP account.
         """
+        _GcpLinkAccountState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            name=name,
+            project_id=project_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -101,7 +127,7 @@ class _GcpLinkAccountState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the GCP account in New Relic.
+        name of the linked account
         """
         return pulumi.get(self, "name")
 
@@ -170,7 +196,7 @@ class GcpLinkAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: Account ID of the New Relic account.
-        :param pulumi.Input[str] name: The name of the GCP account in New Relic.
+        :param pulumi.Input[str] name: name of the linked account
         :param pulumi.Input[str] project_id: Project ID of the GCP account.
         """
         ...
@@ -225,6 +251,10 @@ class GcpLinkAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GcpLinkAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -268,7 +298,7 @@ class GcpLinkAccount(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: Account ID of the New Relic account.
-        :param pulumi.Input[str] name: The name of the GCP account in New Relic.
+        :param pulumi.Input[str] name: name of the linked account
         :param pulumi.Input[str] project_id: Project ID of the GCP account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -292,7 +322,7 @@ class GcpLinkAccount(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the GCP account in New Relic.
+        name of the linked account
         """
         return pulumi.get(self, "name")
 

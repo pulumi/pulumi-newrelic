@@ -36,7 +36,7 @@ namespace Pulumi.NewRelic.Synthetics
         ///     {
         ///         LocationsPrivates = new[]
         ///         {
-        ///             data.Newrelic_synthetics_monitor_location.Example.Id,
+        ///             example.Apply(getPrivateLocationResult =&gt; getPrivateLocationResult.Id),
         ///         },
         ///     });
         /// 
@@ -101,7 +101,7 @@ namespace Pulumi.NewRelic.Synthetics
         ///     {
         ///         LocationsPrivates = new[]
         ///         {
-        ///             data.Newrelic_synthetics_monitor_location.Example.Id,
+        ///             example.Apply(getPrivateLocationResult =&gt; getPrivateLocationResult.Id),
         ///         },
         ///     });
         /// 

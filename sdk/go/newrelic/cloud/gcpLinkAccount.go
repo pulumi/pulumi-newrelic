@@ -70,7 +70,7 @@ type GcpLinkAccount struct {
 
 	// Account ID of the New Relic account.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
-	// The name of the GCP account in New Relic.
+	// name of the linked account
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Project ID of the GCP account.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
@@ -111,7 +111,7 @@ func GetGcpLinkAccount(ctx *pulumi.Context,
 type gcpLinkAccountState struct {
 	// Account ID of the New Relic account.
 	AccountId *int `pulumi:"accountId"`
-	// The name of the GCP account in New Relic.
+	// name of the linked account
 	Name *string `pulumi:"name"`
 	// Project ID of the GCP account.
 	ProjectId *string `pulumi:"projectId"`
@@ -120,7 +120,7 @@ type gcpLinkAccountState struct {
 type GcpLinkAccountState struct {
 	// Account ID of the New Relic account.
 	AccountId pulumi.IntPtrInput
-	// The name of the GCP account in New Relic.
+	// name of the linked account
 	Name pulumi.StringPtrInput
 	// Project ID of the GCP account.
 	ProjectId pulumi.StringPtrInput
@@ -133,7 +133,7 @@ func (GcpLinkAccountState) ElementType() reflect.Type {
 type gcpLinkAccountArgs struct {
 	// Account ID of the New Relic account.
 	AccountId *int `pulumi:"accountId"`
-	// The name of the GCP account in New Relic.
+	// name of the linked account
 	Name *string `pulumi:"name"`
 	// Project ID of the GCP account.
 	ProjectId string `pulumi:"projectId"`
@@ -143,7 +143,7 @@ type gcpLinkAccountArgs struct {
 type GcpLinkAccountArgs struct {
 	// Account ID of the New Relic account.
 	AccountId pulumi.IntPtrInput
-	// The name of the GCP account in New Relic.
+	// name of the linked account
 	Name pulumi.StringPtrInput
 	// Project ID of the GCP account.
 	ProjectId pulumi.StringInput
@@ -265,7 +265,7 @@ func (o GcpLinkAccountOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *GcpLinkAccount) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
 
-// The name of the GCP account in New Relic.
+// name of the linked account
 func (o GcpLinkAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GcpLinkAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

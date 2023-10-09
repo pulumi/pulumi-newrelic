@@ -66,7 +66,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? PayloadType;
         /// <summary>
-        /// Comma delimited list of email addresses.
+        /// A set of recipients for targeting notifications.  Multiple values are comma separated.
         /// </summary>
         public readonly string? Recipients;
         /// <summary>
@@ -90,7 +90,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? Teams;
         /// <summary>
-        /// [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
+        /// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
         /// </summary>
         public readonly string? Url;
         public readonly string? UserId;

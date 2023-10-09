@@ -126,12 +126,16 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
     /**
      * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
      * 
+     * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+     * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
      * @return The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+     * 
+     * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
      * 
      */
     public Optional<Output<String>> status() {
@@ -371,6 +375,8 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
         /**
          * @param status The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
          * 
+         * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+         * 
          * @return builder
          * 
          */
@@ -381,6 +387,8 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
 
         /**
          * @param status The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+         * 
+         * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
          * 
          * @return builder
          * 

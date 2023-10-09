@@ -84,14 +84,14 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
      * 
      */
     @Import(name="aggregationWindow")
     private @Nullable Output<Integer> aggregationWindow;
 
     /**
-     * @return The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
+     * @return The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
      * 
      */
     public Optional<Output<Integer>> aggregationWindow() {
@@ -551,7 +551,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param aggregationWindow The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
+         * @param aggregationWindow The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param aggregationWindow The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
+         * @param aggregationWindow The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
          * 
          * @return builder
          * 

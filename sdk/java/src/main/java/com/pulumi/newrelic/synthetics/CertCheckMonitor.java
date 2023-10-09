@@ -236,12 +236,16 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
     /**
      * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
      * 
+     * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+     * 
      */
     @Export(name="status", type=String.class, parameters={})
     private Output<String> status;
 
     /**
      * @return The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+     * 
+     * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
      * 
      */
     public Output<String> status() {

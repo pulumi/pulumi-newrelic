@@ -16,8 +16,6 @@ var _ = internal.GetEnvOrDefault
 
 type AwsGovcloudIntegrationsAlb struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchExtendedInventory *bool `pulumi:"fetchExtendedInventory"`
@@ -32,9 +30,6 @@ type AwsGovcloudIntegrationsAlb struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue *string `pulumi:"tagValue"`
 }
 
@@ -51,8 +46,6 @@ type AwsGovcloudIntegrationsAlbInput interface {
 
 type AwsGovcloudIntegrationsAlbArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchExtendedInventory pulumi.BoolPtrInput `pulumi:"fetchExtendedInventory"`
@@ -67,9 +60,6 @@ type AwsGovcloudIntegrationsAlbArgs struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
@@ -169,8 +159,6 @@ func (o AwsGovcloudIntegrationsAlbOutput) ToOutput(ctx context.Context) pulumix.
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsAlbOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsAlb) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -203,9 +191,6 @@ func (o AwsGovcloudIntegrationsAlbOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsAlbOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsAlb) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -241,8 +226,6 @@ func (o AwsGovcloudIntegrationsAlbPtrOutput) Elem() AwsGovcloudIntegrationsAlbOu
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsAlbPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsAlb) []string {
 		if v == nil {
@@ -305,9 +288,6 @@ func (o AwsGovcloudIntegrationsAlbPtrOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsAlbPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsAlb) *string {
 		if v == nil {
@@ -319,8 +299,6 @@ func (o AwsGovcloudIntegrationsAlbPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsGovcloudIntegrationsApiGateway struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
@@ -331,9 +309,6 @@ type AwsGovcloudIntegrationsApiGateway struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue *string `pulumi:"tagValue"`
 }
 
@@ -350,8 +325,6 @@ type AwsGovcloudIntegrationsApiGatewayInput interface {
 
 type AwsGovcloudIntegrationsApiGatewayArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
@@ -362,9 +335,6 @@ type AwsGovcloudIntegrationsApiGatewayArgs struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
@@ -464,8 +434,6 @@ func (o AwsGovcloudIntegrationsApiGatewayOutput) ToOutput(ctx context.Context) p
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsApiGatewayOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsApiGateway) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -488,9 +456,6 @@ func (o AwsGovcloudIntegrationsApiGatewayOutput) TagKey() pulumi.StringPtrOutput
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsApiGatewayOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsApiGateway) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -526,8 +491,6 @@ func (o AwsGovcloudIntegrationsApiGatewayPtrOutput) Elem() AwsGovcloudIntegratio
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsApiGatewayPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsApiGateway) []string {
 		if v == nil {
@@ -570,9 +533,6 @@ func (o AwsGovcloudIntegrationsApiGatewayPtrOutput) TagKey() pulumi.StringPtrOut
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsApiGatewayPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsApiGateway) *string {
 		if v == nil {
@@ -584,8 +544,6 @@ func (o AwsGovcloudIntegrationsApiGatewayPtrOutput) TagValue() pulumi.StringPtrO
 
 type AwsGovcloudIntegrationsAutoScaling struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
@@ -606,8 +564,6 @@ type AwsGovcloudIntegrationsAutoScalingInput interface {
 
 type AwsGovcloudIntegrationsAutoScalingArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
@@ -711,8 +667,6 @@ func (o AwsGovcloudIntegrationsAutoScalingOutput) ToOutput(ctx context.Context) 
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsAutoScalingOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsAutoScaling) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -755,8 +709,6 @@ func (o AwsGovcloudIntegrationsAutoScalingPtrOutput) Elem() AwsGovcloudIntegrati
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsAutoScalingPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsAutoScaling) []string {
 		if v == nil {
@@ -780,8 +732,6 @@ func (o AwsGovcloudIntegrationsAutoScalingPtrOutput) MetricsPollingInterval() pu
 
 type AwsGovcloudIntegrationsAwsDirectConnect struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
@@ -802,8 +752,6 @@ type AwsGovcloudIntegrationsAwsDirectConnectInput interface {
 
 type AwsGovcloudIntegrationsAwsDirectConnectArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
@@ -907,8 +855,6 @@ func (o AwsGovcloudIntegrationsAwsDirectConnectOutput) ToOutput(ctx context.Cont
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsAwsDirectConnectOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsAwsDirectConnect) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -951,8 +897,6 @@ func (o AwsGovcloudIntegrationsAwsDirectConnectPtrOutput) Elem() AwsGovcloudInte
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsAwsDirectConnectPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsAwsDirectConnect) []string {
 		if v == nil {
@@ -976,8 +920,6 @@ func (o AwsGovcloudIntegrationsAwsDirectConnectPtrOutput) MetricsPollingInterval
 
 type AwsGovcloudIntegrationsAwsStates struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
@@ -998,8 +940,6 @@ type AwsGovcloudIntegrationsAwsStatesInput interface {
 
 type AwsGovcloudIntegrationsAwsStatesArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
@@ -1103,8 +1043,6 @@ func (o AwsGovcloudIntegrationsAwsStatesOutput) ToOutput(ctx context.Context) pu
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsAwsStatesOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsAwsStates) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -1147,8 +1085,6 @@ func (o AwsGovcloudIntegrationsAwsStatesPtrOutput) Elem() AwsGovcloudIntegration
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsAwsStatesPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsAwsStates) []string {
 		if v == nil {
@@ -1172,8 +1108,6 @@ func (o AwsGovcloudIntegrationsAwsStatesPtrOutput) MetricsPollingInterval() pulu
 
 type AwsGovcloudIntegrationsCloudtrail struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
@@ -1194,8 +1128,6 @@ type AwsGovcloudIntegrationsCloudtrailInput interface {
 
 type AwsGovcloudIntegrationsCloudtrailArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
@@ -1299,8 +1231,6 @@ func (o AwsGovcloudIntegrationsCloudtrailOutput) ToOutput(ctx context.Context) p
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsCloudtrailOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsCloudtrail) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -1343,8 +1273,6 @@ func (o AwsGovcloudIntegrationsCloudtrailPtrOutput) Elem() AwsGovcloudIntegratio
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsCloudtrailPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsCloudtrail) []string {
 		if v == nil {
@@ -1368,8 +1296,6 @@ func (o AwsGovcloudIntegrationsCloudtrailPtrOutput) MetricsPollingInterval() pul
 
 type AwsGovcloudIntegrationsDynamoDb struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchExtendedInventory *bool `pulumi:"fetchExtendedInventory"`
@@ -1382,9 +1308,6 @@ type AwsGovcloudIntegrationsDynamoDb struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue *string `pulumi:"tagValue"`
 }
 
@@ -1401,8 +1324,6 @@ type AwsGovcloudIntegrationsDynamoDbInput interface {
 
 type AwsGovcloudIntegrationsDynamoDbArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchExtendedInventory pulumi.BoolPtrInput `pulumi:"fetchExtendedInventory"`
@@ -1415,9 +1336,6 @@ type AwsGovcloudIntegrationsDynamoDbArgs struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
@@ -1517,8 +1435,6 @@ func (o AwsGovcloudIntegrationsDynamoDbOutput) ToOutput(ctx context.Context) pul
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsDynamoDbOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsDynamoDb) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -1546,9 +1462,6 @@ func (o AwsGovcloudIntegrationsDynamoDbOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsDynamoDbOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsDynamoDb) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -1584,8 +1497,6 @@ func (o AwsGovcloudIntegrationsDynamoDbPtrOutput) Elem() AwsGovcloudIntegrations
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsDynamoDbPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsDynamoDb) []string {
 		if v == nil {
@@ -1638,9 +1549,6 @@ func (o AwsGovcloudIntegrationsDynamoDbPtrOutput) TagKey() pulumi.StringPtrOutpu
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsDynamoDbPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsDynamoDb) *string {
 		if v == nil {
@@ -1652,8 +1560,6 @@ func (o AwsGovcloudIntegrationsDynamoDbPtrOutput) TagValue() pulumi.StringPtrOut
 
 type AwsGovcloudIntegrationsEbs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchExtendedInventory *bool `pulumi:"fetchExtendedInventory"`
@@ -1664,9 +1570,6 @@ type AwsGovcloudIntegrationsEbs struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue *string `pulumi:"tagValue"`
 }
 
@@ -1683,8 +1586,6 @@ type AwsGovcloudIntegrationsEbsInput interface {
 
 type AwsGovcloudIntegrationsEbsArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchExtendedInventory pulumi.BoolPtrInput `pulumi:"fetchExtendedInventory"`
@@ -1695,9 +1596,6 @@ type AwsGovcloudIntegrationsEbsArgs struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
@@ -1797,8 +1695,6 @@ func (o AwsGovcloudIntegrationsEbsOutput) ToOutput(ctx context.Context) pulumix.
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsEbsOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsEbs) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -1821,9 +1717,6 @@ func (o AwsGovcloudIntegrationsEbsOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsEbsOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsEbs) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -1859,8 +1752,6 @@ func (o AwsGovcloudIntegrationsEbsPtrOutput) Elem() AwsGovcloudIntegrationsEbsOu
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsEbsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsEbs) []string {
 		if v == nil {
@@ -1903,9 +1794,6 @@ func (o AwsGovcloudIntegrationsEbsPtrOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsEbsPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsEbs) *string {
 		if v == nil {
@@ -1917,8 +1805,6 @@ func (o AwsGovcloudIntegrationsEbsPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsGovcloudIntegrationsEc2 struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// Specify if IP addresses of ec2 instance should be collected
 	FetchIpAddresses *bool `pulumi:"fetchIpAddresses"`
@@ -1929,9 +1815,6 @@ type AwsGovcloudIntegrationsEc2 struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue *string `pulumi:"tagValue"`
 }
 
@@ -1948,8 +1831,6 @@ type AwsGovcloudIntegrationsEc2Input interface {
 
 type AwsGovcloudIntegrationsEc2Args struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// Specify if IP addresses of ec2 instance should be collected
 	FetchIpAddresses pulumi.BoolPtrInput `pulumi:"fetchIpAddresses"`
@@ -1960,9 +1841,6 @@ type AwsGovcloudIntegrationsEc2Args struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
@@ -2062,8 +1940,6 @@ func (o AwsGovcloudIntegrationsEc2Output) ToOutput(ctx context.Context) pulumix.
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsEc2Output) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsEc2) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -2086,9 +1962,6 @@ func (o AwsGovcloudIntegrationsEc2Output) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsEc2Output) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsEc2) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -2124,8 +1997,6 @@ func (o AwsGovcloudIntegrationsEc2PtrOutput) Elem() AwsGovcloudIntegrationsEc2Ou
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsEc2PtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsEc2) []string {
 		if v == nil {
@@ -2168,9 +2039,6 @@ func (o AwsGovcloudIntegrationsEc2PtrOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsEc2PtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsEc2) *string {
 		if v == nil {
@@ -2182,8 +2050,6 @@ func (o AwsGovcloudIntegrationsEc2PtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsGovcloudIntegrationsElasticSearch struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
 	FetchNodes *bool `pulumi:"fetchNodes"`
@@ -2194,9 +2060,6 @@ type AwsGovcloudIntegrationsElasticSearch struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue *string `pulumi:"tagValue"`
 }
 
@@ -2213,8 +2076,6 @@ type AwsGovcloudIntegrationsElasticSearchInput interface {
 
 type AwsGovcloudIntegrationsElasticSearchArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
 	FetchNodes pulumi.BoolPtrInput `pulumi:"fetchNodes"`
@@ -2225,9 +2086,6 @@ type AwsGovcloudIntegrationsElasticSearchArgs struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
@@ -2327,8 +2185,6 @@ func (o AwsGovcloudIntegrationsElasticSearchOutput) ToOutput(ctx context.Context
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsElasticSearchOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsElasticSearch) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -2351,9 +2207,6 @@ func (o AwsGovcloudIntegrationsElasticSearchOutput) TagKey() pulumi.StringPtrOut
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsElasticSearchOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsElasticSearch) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -2389,8 +2242,6 @@ func (o AwsGovcloudIntegrationsElasticSearchPtrOutput) Elem() AwsGovcloudIntegra
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsElasticSearchPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsElasticSearch) []string {
 		if v == nil {
@@ -2433,9 +2284,6 @@ func (o AwsGovcloudIntegrationsElasticSearchPtrOutput) TagKey() pulumi.StringPtr
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsElasticSearchPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsElasticSearch) *string {
 		if v == nil {
@@ -2447,8 +2295,6 @@ func (o AwsGovcloudIntegrationsElasticSearchPtrOutput) TagValue() pulumi.StringP
 
 type AwsGovcloudIntegrationsElb struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchExtendedInventory *bool `pulumi:"fetchExtendedInventory"`
@@ -2473,8 +2319,6 @@ type AwsGovcloudIntegrationsElbInput interface {
 
 type AwsGovcloudIntegrationsElbArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchExtendedInventory pulumi.BoolPtrInput `pulumi:"fetchExtendedInventory"`
@@ -2582,8 +2426,6 @@ func (o AwsGovcloudIntegrationsElbOutput) ToOutput(ctx context.Context) pulumix.
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsElbOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsElb) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -2636,8 +2478,6 @@ func (o AwsGovcloudIntegrationsElbPtrOutput) Elem() AwsGovcloudIntegrationsElbOu
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsElbPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsElb) []string {
 		if v == nil {
@@ -2681,8 +2521,6 @@ func (o AwsGovcloudIntegrationsElbPtrOutput) MetricsPollingInterval() pulumi.Int
 
 type AwsGovcloudIntegrationsEmr struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions *string `pulumi:"awsRegions"`
 	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchTags *bool `pulumi:"fetchTags"`
@@ -2693,9 +2531,6 @@ type AwsGovcloudIntegrationsEmr struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue *string `pulumi:"tagValue"`
 }
 
@@ -2712,8 +2547,6 @@ type AwsGovcloudIntegrationsEmrInput interface {
 
 type AwsGovcloudIntegrationsEmrArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringPtrInput `pulumi:"awsRegions"`
 	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
@@ -2724,9 +2557,6 @@ type AwsGovcloudIntegrationsEmrArgs struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
@@ -2826,8 +2656,6 @@ func (o AwsGovcloudIntegrationsEmrOutput) ToOutput(ctx context.Context) pulumix.
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsEmrOutput) AwsRegions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsEmr) *string { return v.AwsRegions }).(pulumi.StringPtrOutput)
 }
@@ -2850,9 +2678,6 @@ func (o AwsGovcloudIntegrationsEmrOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsEmrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsEmr) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -2888,8 +2713,6 @@ func (o AwsGovcloudIntegrationsEmrPtrOutput) Elem() AwsGovcloudIntegrationsEmrOu
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsEmrPtrOutput) AwsRegions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsEmr) *string {
 		if v == nil {
@@ -2932,9 +2755,6 @@ func (o AwsGovcloudIntegrationsEmrPtrOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsEmrPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsEmr) *string {
 		if v == nil {
@@ -2952,9 +2772,6 @@ type AwsGovcloudIntegrationsIam struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue *string `pulumi:"tagValue"`
 }
 
@@ -2977,9 +2794,6 @@ type AwsGovcloudIntegrationsIamArgs struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
@@ -3091,9 +2905,6 @@ func (o AwsGovcloudIntegrationsIamOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsIamOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsIam) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -3151,9 +2962,6 @@ func (o AwsGovcloudIntegrationsIamPtrOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsIamPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsIam) *string {
 		if v == nil {
@@ -3165,8 +2973,6 @@ func (o AwsGovcloudIntegrationsIamPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsGovcloudIntegrationsLambda struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchTags *bool `pulumi:"fetchTags"`
@@ -3177,9 +2983,6 @@ type AwsGovcloudIntegrationsLambda struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue *string `pulumi:"tagValue"`
 }
 
@@ -3196,8 +2999,6 @@ type AwsGovcloudIntegrationsLambdaInput interface {
 
 type AwsGovcloudIntegrationsLambdaArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
@@ -3208,9 +3009,6 @@ type AwsGovcloudIntegrationsLambdaArgs struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
@@ -3310,8 +3108,6 @@ func (o AwsGovcloudIntegrationsLambdaOutput) ToOutput(ctx context.Context) pulum
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsLambdaOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsLambda) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -3334,9 +3130,6 @@ func (o AwsGovcloudIntegrationsLambdaOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsLambdaOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsLambda) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -3372,8 +3165,6 @@ func (o AwsGovcloudIntegrationsLambdaPtrOutput) Elem() AwsGovcloudIntegrationsLa
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsLambdaPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsLambda) []string {
 		if v == nil {
@@ -3416,9 +3207,6 @@ func (o AwsGovcloudIntegrationsLambdaPtrOutput) TagKey() pulumi.StringPtrOutput 
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsLambdaPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsLambda) *string {
 		if v == nil {
@@ -3430,8 +3218,6 @@ func (o AwsGovcloudIntegrationsLambdaPtrOutput) TagValue() pulumi.StringPtrOutpu
 
 type AwsGovcloudIntegrationsRds struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchTags *bool `pulumi:"fetchTags"`
@@ -3442,9 +3228,6 @@ type AwsGovcloudIntegrationsRds struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue *string `pulumi:"tagValue"`
 }
 
@@ -3461,8 +3244,6 @@ type AwsGovcloudIntegrationsRdsInput interface {
 
 type AwsGovcloudIntegrationsRdsArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
@@ -3473,9 +3254,6 @@ type AwsGovcloudIntegrationsRdsArgs struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
@@ -3575,8 +3353,6 @@ func (o AwsGovcloudIntegrationsRdsOutput) ToOutput(ctx context.Context) pulumix.
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsRdsOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsRds) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -3599,9 +3375,6 @@ func (o AwsGovcloudIntegrationsRdsOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsRdsOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsRds) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -3637,8 +3410,6 @@ func (o AwsGovcloudIntegrationsRdsPtrOutput) Elem() AwsGovcloudIntegrationsRdsOu
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsRdsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsRds) []string {
 		if v == nil {
@@ -3681,9 +3452,6 @@ func (o AwsGovcloudIntegrationsRdsPtrOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsRdsPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsRds) *string {
 		if v == nil {
@@ -3695,8 +3463,6 @@ func (o AwsGovcloudIntegrationsRdsPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsGovcloudIntegrationsRedShift struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
@@ -3705,9 +3471,6 @@ type AwsGovcloudIntegrationsRedShift struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue *string `pulumi:"tagValue"`
 }
 
@@ -3724,8 +3487,6 @@ type AwsGovcloudIntegrationsRedShiftInput interface {
 
 type AwsGovcloudIntegrationsRedShiftArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
@@ -3734,9 +3495,6 @@ type AwsGovcloudIntegrationsRedShiftArgs struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
@@ -3836,8 +3594,6 @@ func (o AwsGovcloudIntegrationsRedShiftOutput) ToOutput(ctx context.Context) pul
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsRedShiftOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsRedShift) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -3855,9 +3611,6 @@ func (o AwsGovcloudIntegrationsRedShiftOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsRedShiftOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsRedShift) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -3893,8 +3646,6 @@ func (o AwsGovcloudIntegrationsRedShiftPtrOutput) Elem() AwsGovcloudIntegrations
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsRedShiftPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsRedShift) []string {
 		if v == nil {
@@ -3927,9 +3678,6 @@ func (o AwsGovcloudIntegrationsRedShiftPtrOutput) TagKey() pulumi.StringPtrOutpu
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsRedShiftPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsRedShift) *string {
 		if v == nil {
@@ -4139,9 +3887,6 @@ type AwsGovcloudIntegrationsS3 struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue *string `pulumi:"tagValue"`
 }
 
@@ -4168,9 +3913,6 @@ type AwsGovcloudIntegrationsS3Args struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
@@ -4292,9 +4034,6 @@ func (o AwsGovcloudIntegrationsS3Output) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsS3Output) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsS3) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -4372,9 +4111,6 @@ func (o AwsGovcloudIntegrationsS3PtrOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsS3PtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsS3) *string {
 		if v == nil {
@@ -4386,8 +4122,6 @@ func (o AwsGovcloudIntegrationsS3PtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsGovcloudIntegrationsSns struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchExtendedInventory *bool `pulumi:"fetchExtendedInventory"`
@@ -4410,8 +4144,6 @@ type AwsGovcloudIntegrationsSnsInput interface {
 
 type AwsGovcloudIntegrationsSnsArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchExtendedInventory pulumi.BoolPtrInput `pulumi:"fetchExtendedInventory"`
@@ -4517,8 +4249,6 @@ func (o AwsGovcloudIntegrationsSnsOutput) ToOutput(ctx context.Context) pulumix.
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsSnsOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsSns) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -4566,8 +4296,6 @@ func (o AwsGovcloudIntegrationsSnsPtrOutput) Elem() AwsGovcloudIntegrationsSnsOu
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsSnsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsSns) []string {
 		if v == nil {
@@ -4601,8 +4329,6 @@ func (o AwsGovcloudIntegrationsSnsPtrOutput) MetricsPollingInterval() pulumi.Int
 
 type AwsGovcloudIntegrationsSqs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions []string `pulumi:"awsRegions"`
 	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchExtendedInventory *bool `pulumi:"fetchExtendedInventory"`
@@ -4617,9 +4343,6 @@ type AwsGovcloudIntegrationsSqs struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey *string `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue *string `pulumi:"tagValue"`
 }
 
@@ -4636,8 +4359,6 @@ type AwsGovcloudIntegrationsSqsInput interface {
 
 type AwsGovcloudIntegrationsSqsArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// * `direct connect`
-	// * `aws states`
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchExtendedInventory pulumi.BoolPtrInput `pulumi:"fetchExtendedInventory"`
@@ -4652,9 +4373,6 @@ type AwsGovcloudIntegrationsSqsArgs struct {
 	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	// * `api Gateway`
-	// * `auto scaling`
-	// * `elastic search`
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
@@ -4754,8 +4472,6 @@ func (o AwsGovcloudIntegrationsSqsOutput) ToOutput(ctx context.Context) pulumix.
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsSqsOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsSqs) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -4788,9 +4504,6 @@ func (o AwsGovcloudIntegrationsSqsOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsSqsOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsGovcloudIntegrationsSqs) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -4826,8 +4539,6 @@ func (o AwsGovcloudIntegrationsSqsPtrOutput) Elem() AwsGovcloudIntegrationsSqsOu
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// * `direct connect`
-// * `aws states`
 func (o AwsGovcloudIntegrationsSqsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsSqs) []string {
 		if v == nil {
@@ -4890,9 +4601,6 @@ func (o AwsGovcloudIntegrationsSqsPtrOutput) TagKey() pulumi.StringPtrOutput {
 }
 
 // Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-// * `api Gateway`
-// * `auto scaling`
-// * `elastic search`
 func (o AwsGovcloudIntegrationsSqsPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsGovcloudIntegrationsSqs) *string {
 		if v == nil {

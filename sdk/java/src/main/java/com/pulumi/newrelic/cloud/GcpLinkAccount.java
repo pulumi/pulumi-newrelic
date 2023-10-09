@@ -88,14 +88,14 @@ public class GcpLinkAccount extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * The name of the GCP account in New Relic.
+     * name of the linked account
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the GCP account in New Relic.
+     * @return name of the linked account
      * 
      */
     public Output<String> name() {

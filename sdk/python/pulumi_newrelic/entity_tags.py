@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,19 @@ class EntityTagsArgs:
         :param pulumi.Input[str] guid: The guid of the entity to tag.
         :param pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
         """
-        pulumi.set(__self__, "guid", guid)
-        pulumi.set(__self__, "tags", tags)
+        EntityTagsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            guid=guid,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             guid: pulumi.Input[str],
+             tags: pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("guid", guid)
+        _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -61,10 +72,21 @@ class _EntityTagsState:
         :param pulumi.Input[str] guid: The guid of the entity to tag.
         :param pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
         """
+        _EntityTagsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            guid=guid,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             guid: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if guid is not None:
-            pulumi.set(__self__, "guid", guid)
+            _setter("guid", guid)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -142,6 +164,10 @@ class EntityTags(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EntityTagsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

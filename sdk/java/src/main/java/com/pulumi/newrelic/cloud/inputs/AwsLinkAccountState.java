@@ -62,14 +62,14 @@ public final class AwsLinkAccountState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The linked account name
+     * The name of the linked account.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The linked account name
+     * @return The name of the linked account.
      * 
      */
     public Optional<Output<String>> name() {
@@ -167,7 +167,7 @@ public final class AwsLinkAccountState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The linked account name
+         * @param name The name of the linked account.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class AwsLinkAccountState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The linked account name
+         * @param name The name of the linked account.
          * 
          * @return builder
          * 

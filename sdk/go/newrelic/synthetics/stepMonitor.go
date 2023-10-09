@@ -95,6 +95,8 @@ type StepMonitor struct {
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntOutput `pulumi:"periodInMinutes"`
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+	//
+	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps StepMonitorStepArrayOutput `pulumi:"steps"`
@@ -158,6 +160,8 @@ type stepMonitorState struct {
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes *int `pulumi:"periodInMinutes"`
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+	//
+	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
 	Status *string `pulumi:"status"`
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps []StepMonitorStep `pulumi:"steps"`
@@ -183,6 +187,8 @@ type StepMonitorState struct {
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntPtrInput
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+	//
+	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
 	Status pulumi.StringPtrInput
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps StepMonitorStepArrayInput
@@ -208,6 +214,8 @@ type stepMonitorArgs struct {
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period string `pulumi:"period"`
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+	//
+	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
 	Status string `pulumi:"status"`
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps []StepMonitorStep `pulumi:"steps"`
@@ -230,6 +238,8 @@ type StepMonitorArgs struct {
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period pulumi.StringInput
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+	//
+	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
 	Status pulumi.StringInput
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps StepMonitorStepArrayInput
@@ -389,6 +399,8 @@ func (o StepMonitorOutput) PeriodInMinutes() pulumi.IntOutput {
 }
 
 // The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+//
+// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
 func (o StepMonitorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
