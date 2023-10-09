@@ -434,14 +434,18 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.scriptLanguage);
     }
     /**
-     * The run state of the monitor: `ENABLED` or `DISABLED`
+     * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+     * 
+     * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
      * 
      */
     @Export(name="status", type=String.class, parameters={})
     private Output<String> status;
 
     /**
-     * @return The run state of the monitor: `ENABLED` or `DISABLED`
+     * @return The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+     * 
+     * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
      * 
      */
     public Output<String> status() {

@@ -78,7 +78,7 @@ export class AwsLinkAccount extends pulumi.CustomResource {
      */
     public readonly metricCollectionMode!: pulumi.Output<string | undefined>;
     /**
-     * The linked account name
+     * The name of the linked account.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -131,7 +131,7 @@ export interface AwsLinkAccountState {
      */
     metricCollectionMode?: pulumi.Input<string>;
     /**
-     * The linked account name
+     * The name of the linked account.
      */
     name?: pulumi.Input<string>;
 }
@@ -153,7 +153,7 @@ export interface AwsLinkAccountArgs {
      */
     metricCollectionMode?: pulumi.Input<string>;
     /**
-     * The linked account name
+     * The name of the linked account.
      */
     name?: pulumi.Input<string>;
 }

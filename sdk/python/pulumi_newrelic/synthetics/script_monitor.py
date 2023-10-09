@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,7 +34,9 @@ class ScriptMonitorArgs:
         """
         The set of arguments for constructing a ScriptMonitor resource.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
-        :param pulumi.Input[str] status: The run state of the monitor: `ENABLED` or `DISABLED`
+        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+               
+               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
@@ -51,33 +53,70 @@ class ScriptMonitorArgs:
                
                The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
         """
-        pulumi.set(__self__, "period", period)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "type", type)
+        ScriptMonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            period=period,
+            status=status,
+            type=type,
+            account_id=account_id,
+            device_orientation=device_orientation,
+            device_type=device_type,
+            enable_screenshot_on_failure_and_script=enable_screenshot_on_failure_and_script,
+            location_privates=location_privates,
+            locations_publics=locations_publics,
+            name=name,
+            runtime_type=runtime_type,
+            runtime_type_version=runtime_type_version,
+            script=script,
+            script_language=script_language,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             period: pulumi.Input[str],
+             status: pulumi.Input[str],
+             type: pulumi.Input[str],
+             account_id: Optional[pulumi.Input[int]] = None,
+             device_orientation: Optional[pulumi.Input[str]] = None,
+             device_type: Optional[pulumi.Input[str]] = None,
+             enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
+             location_privates: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]] = None,
+             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             runtime_type: Optional[pulumi.Input[str]] = None,
+             runtime_type_version: Optional[pulumi.Input[str]] = None,
+             script: Optional[pulumi.Input[str]] = None,
+             script_language: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("period", period)
+        _setter("status", status)
+        _setter("type", type)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if device_orientation is not None:
-            pulumi.set(__self__, "device_orientation", device_orientation)
+            _setter("device_orientation", device_orientation)
         if device_type is not None:
-            pulumi.set(__self__, "device_type", device_type)
+            _setter("device_type", device_type)
         if enable_screenshot_on_failure_and_script is not None:
-            pulumi.set(__self__, "enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
+            _setter("enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
         if location_privates is not None:
-            pulumi.set(__self__, "location_privates", location_privates)
+            _setter("location_privates", location_privates)
         if locations_publics is not None:
-            pulumi.set(__self__, "locations_publics", locations_publics)
+            _setter("locations_publics", locations_publics)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if runtime_type is not None:
-            pulumi.set(__self__, "runtime_type", runtime_type)
+            _setter("runtime_type", runtime_type)
         if runtime_type_version is not None:
-            pulumi.set(__self__, "runtime_type_version", runtime_type_version)
+            _setter("runtime_type_version", runtime_type_version)
         if script is not None:
-            pulumi.set(__self__, "script", script)
+            _setter("script", script)
         if script_language is not None:
-            pulumi.set(__self__, "script_language", script_language)
+            _setter("script_language", script_language)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -95,7 +134,9 @@ class ScriptMonitorArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
         """
-        The run state of the monitor: `ENABLED` or `DISABLED`
+        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+
+        > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         """
         return pulumi.get(self, "status")
 
@@ -298,46 +339,89 @@ class _ScriptMonitorState:
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
         :param pulumi.Input[str] script: The script that the monitor runs.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The run state of the monitor: `ENABLED` or `DISABLED`
+        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+               
+               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         """
+        _ScriptMonitorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            device_orientation=device_orientation,
+            device_type=device_type,
+            enable_screenshot_on_failure_and_script=enable_screenshot_on_failure_and_script,
+            guid=guid,
+            location_privates=location_privates,
+            locations_publics=locations_publics,
+            name=name,
+            period=period,
+            period_in_minutes=period_in_minutes,
+            runtime_type=runtime_type,
+            runtime_type_version=runtime_type_version,
+            script=script,
+            script_language=script_language,
+            status=status,
+            tags=tags,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[int]] = None,
+             device_orientation: Optional[pulumi.Input[str]] = None,
+             device_type: Optional[pulumi.Input[str]] = None,
+             enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
+             guid: Optional[pulumi.Input[str]] = None,
+             location_privates: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]] = None,
+             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             period: Optional[pulumi.Input[str]] = None,
+             period_in_minutes: Optional[pulumi.Input[int]] = None,
+             runtime_type: Optional[pulumi.Input[str]] = None,
+             runtime_type_version: Optional[pulumi.Input[str]] = None,
+             script: Optional[pulumi.Input[str]] = None,
+             script_language: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if device_orientation is not None:
-            pulumi.set(__self__, "device_orientation", device_orientation)
+            _setter("device_orientation", device_orientation)
         if device_type is not None:
-            pulumi.set(__self__, "device_type", device_type)
+            _setter("device_type", device_type)
         if enable_screenshot_on_failure_and_script is not None:
-            pulumi.set(__self__, "enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
+            _setter("enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
         if guid is not None:
-            pulumi.set(__self__, "guid", guid)
+            _setter("guid", guid)
         if location_privates is not None:
-            pulumi.set(__self__, "location_privates", location_privates)
+            _setter("location_privates", location_privates)
         if locations_publics is not None:
-            pulumi.set(__self__, "locations_publics", locations_publics)
+            _setter("locations_publics", locations_publics)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
         if period_in_minutes is not None:
-            pulumi.set(__self__, "period_in_minutes", period_in_minutes)
+            _setter("period_in_minutes", period_in_minutes)
         if runtime_type is not None:
-            pulumi.set(__self__, "runtime_type", runtime_type)
+            _setter("runtime_type", runtime_type)
         if runtime_type_version is not None:
-            pulumi.set(__self__, "runtime_type_version", runtime_type_version)
+            _setter("runtime_type_version", runtime_type_version)
         if script is not None:
-            pulumi.set(__self__, "script", script)
+            _setter("script", script)
         if script_language is not None:
-            pulumi.set(__self__, "script_language", script_language)
+            _setter("script_language", script_language)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="accountId")
@@ -511,7 +595,9 @@ class _ScriptMonitorState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The run state of the monitor: `ENABLED` or `DISABLED`
+        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+
+        > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         """
         return pulumi.get(self, "status")
 
@@ -704,7 +790,9 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
         :param pulumi.Input[str] script: The script that the monitor runs.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The run state of the monitor: `ENABLED` or `DISABLED`
+        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+               
+               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
@@ -849,6 +937,10 @@ class ScriptMonitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScriptMonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -949,7 +1041,9 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
         :param pulumi.Input[str] script: The script that the monitor runs.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The run state of the monitor: `ENABLED` or `DISABLED`
+        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+               
+               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
@@ -1094,7 +1188,9 @@ class ScriptMonitor(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The run state of the monitor: `ENABLED` or `DISABLED`
+        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+
+        > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         """
         return pulumi.get(self, "status")
 

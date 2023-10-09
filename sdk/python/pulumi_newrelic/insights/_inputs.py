@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -20,10 +20,23 @@ class EventEventArgs:
                  attributes: pulumi.Input[Sequence[pulumi.Input['EventEventAttributeArgs']]],
                  type: pulumi.Input[str],
                  timestamp: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "type", type)
+        EventEventArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            type=type,
+            timestamp=timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: pulumi.Input[Sequence[pulumi.Input['EventEventAttributeArgs']]],
+             type: pulumi.Input[str],
+             timestamp: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attributes", attributes)
+        _setter("type", type)
         if timestamp is not None:
-            pulumi.set(__self__, "timestamp", timestamp)
+            _setter("timestamp", timestamp)
 
     @property
     @pulumi.getter
@@ -59,10 +72,23 @@ class EventEventAttributeArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  type: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EventEventAttributeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter

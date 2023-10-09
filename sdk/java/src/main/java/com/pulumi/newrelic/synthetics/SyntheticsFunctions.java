@@ -50,7 +50,7 @@ public final class SyntheticsFunctions {
      *             .build());
      * 
      *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationsPrivates(data.newrelic_synthetics_monitor_location().example().id())
+     *             .locationsPrivates(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
      *             .build());
      * 
      *     }
@@ -132,7 +132,7 @@ public final class SyntheticsFunctions {
      *             .build());
      * 
      *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationsPrivates(data.newrelic_synthetics_monitor_location().example().id())
+     *             .locationsPrivates(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
      *             .build());
      * 
      *     }
@@ -214,7 +214,7 @@ public final class SyntheticsFunctions {
      *             .build());
      * 
      *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationsPrivates(data.newrelic_synthetics_monitor_location().example().id())
+     *             .locationsPrivates(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
      *             .build());
      * 
      *     }
@@ -296,7 +296,7 @@ public final class SyntheticsFunctions {
      *             .build());
      * 
      *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationsPrivates(data.newrelic_synthetics_monitor_location().example().id())
+     *             .locationsPrivates(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
      *             .build());
      * 
      *     }

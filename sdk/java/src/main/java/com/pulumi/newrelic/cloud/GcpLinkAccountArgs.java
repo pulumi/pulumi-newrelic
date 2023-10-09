@@ -32,14 +32,14 @@ public final class GcpLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the GCP account in New Relic.
+     * name of the linked account
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the GCP account in New Relic.
+     * @return name of the linked account
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,7 +109,7 @@ public final class GcpLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the GCP account in New Relic.
+         * @param name name of the linked account
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GcpLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the GCP account in New Relic.
+         * @param name name of the linked account
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     public sealed class AwsIntegrationsEc2
     {
         /// <summary>
-        /// Specify each AWS region that includes the resources that you want to monitor.
+        /// Specify each AWS region that includes the resources that you want to monitor.  
         /// &lt;/details&gt;
         /// </summary>
         public readonly ImmutableArray<string> AwsRegions;

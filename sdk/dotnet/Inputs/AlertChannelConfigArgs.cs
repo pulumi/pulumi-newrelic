@@ -181,7 +181,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? PayloadType { get; set; }
 
         /// <summary>
-        /// Comma delimited list of email addresses.
+        /// A set of recipients for targeting notifications.  Multiple values are comma separated.
         /// </summary>
         [Input("recipients")]
         public Input<string>? Recipients { get; set; }
@@ -240,7 +240,7 @@ namespace Pulumi.NewRelic.Inputs
         private Input<string>? _url;
 
         /// <summary>
-        /// [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
+        /// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
         /// </summary>
         public Input<string>? Url
         {

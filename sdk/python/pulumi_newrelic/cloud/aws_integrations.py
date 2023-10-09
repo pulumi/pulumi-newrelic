@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -188,113 +188,228 @@ class AwsIntegrationsArgs:
         :param pulumi.Input['AwsIntegrationsVpcArgs'] vpc: VPC integration
         :param pulumi.Input['AwsIntegrationsXRayArgs'] x_ray: X-Ray integration
         """
-        pulumi.set(__self__, "linked_account_id", linked_account_id)
+        AwsIntegrationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_account_id=linked_account_id,
+            account_id=account_id,
+            alb=alb,
+            api_gateway=api_gateway,
+            auto_scaling=auto_scaling,
+            aws_app_sync=aws_app_sync,
+            aws_athena=aws_athena,
+            aws_cognito=aws_cognito,
+            aws_connect=aws_connect,
+            aws_direct_connect=aws_direct_connect,
+            aws_fsx=aws_fsx,
+            aws_glue=aws_glue,
+            aws_kinesis_analytics=aws_kinesis_analytics,
+            aws_media_convert=aws_media_convert,
+            aws_media_package_vod=aws_media_package_vod,
+            aws_mq=aws_mq,
+            aws_msk=aws_msk,
+            aws_neptune=aws_neptune,
+            aws_qldb=aws_qldb,
+            aws_route53resolver=aws_route53resolver,
+            aws_states=aws_states,
+            aws_transit_gateway=aws_transit_gateway,
+            aws_waf=aws_waf,
+            aws_wafv2=aws_wafv2,
+            billing=billing,
+            cloudfront=cloudfront,
+            cloudtrail=cloudtrail,
+            doc_db=doc_db,
+            dynamodb=dynamodb,
+            ebs=ebs,
+            ec2=ec2,
+            ecs=ecs,
+            efs=efs,
+            elasticache=elasticache,
+            elasticbeanstalk=elasticbeanstalk,
+            elasticsearch=elasticsearch,
+            elb=elb,
+            emr=emr,
+            health=health,
+            iam=iam,
+            iot=iot,
+            kinesis=kinesis,
+            kinesis_firehose=kinesis_firehose,
+            lambda_=lambda_,
+            rds=rds,
+            redshift=redshift,
+            route53=route53,
+            s3=s3,
+            ses=ses,
+            sns=sns,
+            sqs=sqs,
+            trusted_advisor=trusted_advisor,
+            vpc=vpc,
+            x_ray=x_ray,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_account_id: pulumi.Input[int],
+             account_id: Optional[pulumi.Input[int]] = None,
+             alb: Optional[pulumi.Input['AwsIntegrationsAlbArgs']] = None,
+             api_gateway: Optional[pulumi.Input['AwsIntegrationsApiGatewayArgs']] = None,
+             auto_scaling: Optional[pulumi.Input['AwsIntegrationsAutoScalingArgs']] = None,
+             aws_app_sync: Optional[pulumi.Input['AwsIntegrationsAwsAppSyncArgs']] = None,
+             aws_athena: Optional[pulumi.Input['AwsIntegrationsAwsAthenaArgs']] = None,
+             aws_cognito: Optional[pulumi.Input['AwsIntegrationsAwsCognitoArgs']] = None,
+             aws_connect: Optional[pulumi.Input['AwsIntegrationsAwsConnectArgs']] = None,
+             aws_direct_connect: Optional[pulumi.Input['AwsIntegrationsAwsDirectConnectArgs']] = None,
+             aws_fsx: Optional[pulumi.Input['AwsIntegrationsAwsFsxArgs']] = None,
+             aws_glue: Optional[pulumi.Input['AwsIntegrationsAwsGlueArgs']] = None,
+             aws_kinesis_analytics: Optional[pulumi.Input['AwsIntegrationsAwsKinesisAnalyticsArgs']] = None,
+             aws_media_convert: Optional[pulumi.Input['AwsIntegrationsAwsMediaConvertArgs']] = None,
+             aws_media_package_vod: Optional[pulumi.Input['AwsIntegrationsAwsMediaPackageVodArgs']] = None,
+             aws_mq: Optional[pulumi.Input['AwsIntegrationsAwsMqArgs']] = None,
+             aws_msk: Optional[pulumi.Input['AwsIntegrationsAwsMskArgs']] = None,
+             aws_neptune: Optional[pulumi.Input['AwsIntegrationsAwsNeptuneArgs']] = None,
+             aws_qldb: Optional[pulumi.Input['AwsIntegrationsAwsQldbArgs']] = None,
+             aws_route53resolver: Optional[pulumi.Input['AwsIntegrationsAwsRoute53resolverArgs']] = None,
+             aws_states: Optional[pulumi.Input['AwsIntegrationsAwsStatesArgs']] = None,
+             aws_transit_gateway: Optional[pulumi.Input['AwsIntegrationsAwsTransitGatewayArgs']] = None,
+             aws_waf: Optional[pulumi.Input['AwsIntegrationsAwsWafArgs']] = None,
+             aws_wafv2: Optional[pulumi.Input['AwsIntegrationsAwsWafv2Args']] = None,
+             billing: Optional[pulumi.Input['AwsIntegrationsBillingArgs']] = None,
+             cloudfront: Optional[pulumi.Input['AwsIntegrationsCloudfrontArgs']] = None,
+             cloudtrail: Optional[pulumi.Input['AwsIntegrationsCloudtrailArgs']] = None,
+             doc_db: Optional[pulumi.Input['AwsIntegrationsDocDbArgs']] = None,
+             dynamodb: Optional[pulumi.Input['AwsIntegrationsDynamodbArgs']] = None,
+             ebs: Optional[pulumi.Input['AwsIntegrationsEbsArgs']] = None,
+             ec2: Optional[pulumi.Input['AwsIntegrationsEc2Args']] = None,
+             ecs: Optional[pulumi.Input['AwsIntegrationsEcsArgs']] = None,
+             efs: Optional[pulumi.Input['AwsIntegrationsEfsArgs']] = None,
+             elasticache: Optional[pulumi.Input['AwsIntegrationsElasticacheArgs']] = None,
+             elasticbeanstalk: Optional[pulumi.Input['AwsIntegrationsElasticbeanstalkArgs']] = None,
+             elasticsearch: Optional[pulumi.Input['AwsIntegrationsElasticsearchArgs']] = None,
+             elb: Optional[pulumi.Input['AwsIntegrationsElbArgs']] = None,
+             emr: Optional[pulumi.Input['AwsIntegrationsEmrArgs']] = None,
+             health: Optional[pulumi.Input['AwsIntegrationsHealthArgs']] = None,
+             iam: Optional[pulumi.Input['AwsIntegrationsIamArgs']] = None,
+             iot: Optional[pulumi.Input['AwsIntegrationsIotArgs']] = None,
+             kinesis: Optional[pulumi.Input['AwsIntegrationsKinesisArgs']] = None,
+             kinesis_firehose: Optional[pulumi.Input['AwsIntegrationsKinesisFirehoseArgs']] = None,
+             lambda_: Optional[pulumi.Input['AwsIntegrationsLambdaArgs']] = None,
+             rds: Optional[pulumi.Input['AwsIntegrationsRdsArgs']] = None,
+             redshift: Optional[pulumi.Input['AwsIntegrationsRedshiftArgs']] = None,
+             route53: Optional[pulumi.Input['AwsIntegrationsRoute53Args']] = None,
+             s3: Optional[pulumi.Input['AwsIntegrationsS3Args']] = None,
+             ses: Optional[pulumi.Input['AwsIntegrationsSesArgs']] = None,
+             sns: Optional[pulumi.Input['AwsIntegrationsSnsArgs']] = None,
+             sqs: Optional[pulumi.Input['AwsIntegrationsSqsArgs']] = None,
+             trusted_advisor: Optional[pulumi.Input['AwsIntegrationsTrustedAdvisorArgs']] = None,
+             vpc: Optional[pulumi.Input['AwsIntegrationsVpcArgs']] = None,
+             x_ray: Optional[pulumi.Input['AwsIntegrationsXRayArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_account_id", linked_account_id)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if alb is not None:
-            pulumi.set(__self__, "alb", alb)
+            _setter("alb", alb)
         if api_gateway is not None:
-            pulumi.set(__self__, "api_gateway", api_gateway)
+            _setter("api_gateway", api_gateway)
         if auto_scaling is not None:
-            pulumi.set(__self__, "auto_scaling", auto_scaling)
+            _setter("auto_scaling", auto_scaling)
         if aws_app_sync is not None:
-            pulumi.set(__self__, "aws_app_sync", aws_app_sync)
+            _setter("aws_app_sync", aws_app_sync)
         if aws_athena is not None:
-            pulumi.set(__self__, "aws_athena", aws_athena)
+            _setter("aws_athena", aws_athena)
         if aws_cognito is not None:
-            pulumi.set(__self__, "aws_cognito", aws_cognito)
+            _setter("aws_cognito", aws_cognito)
         if aws_connect is not None:
-            pulumi.set(__self__, "aws_connect", aws_connect)
+            _setter("aws_connect", aws_connect)
         if aws_direct_connect is not None:
-            pulumi.set(__self__, "aws_direct_connect", aws_direct_connect)
+            _setter("aws_direct_connect", aws_direct_connect)
         if aws_fsx is not None:
-            pulumi.set(__self__, "aws_fsx", aws_fsx)
+            _setter("aws_fsx", aws_fsx)
         if aws_glue is not None:
-            pulumi.set(__self__, "aws_glue", aws_glue)
+            _setter("aws_glue", aws_glue)
         if aws_kinesis_analytics is not None:
-            pulumi.set(__self__, "aws_kinesis_analytics", aws_kinesis_analytics)
+            _setter("aws_kinesis_analytics", aws_kinesis_analytics)
         if aws_media_convert is not None:
-            pulumi.set(__self__, "aws_media_convert", aws_media_convert)
+            _setter("aws_media_convert", aws_media_convert)
         if aws_media_package_vod is not None:
-            pulumi.set(__self__, "aws_media_package_vod", aws_media_package_vod)
+            _setter("aws_media_package_vod", aws_media_package_vod)
         if aws_mq is not None:
-            pulumi.set(__self__, "aws_mq", aws_mq)
+            _setter("aws_mq", aws_mq)
         if aws_msk is not None:
-            pulumi.set(__self__, "aws_msk", aws_msk)
+            _setter("aws_msk", aws_msk)
         if aws_neptune is not None:
-            pulumi.set(__self__, "aws_neptune", aws_neptune)
+            _setter("aws_neptune", aws_neptune)
         if aws_qldb is not None:
-            pulumi.set(__self__, "aws_qldb", aws_qldb)
+            _setter("aws_qldb", aws_qldb)
         if aws_route53resolver is not None:
-            pulumi.set(__self__, "aws_route53resolver", aws_route53resolver)
+            _setter("aws_route53resolver", aws_route53resolver)
         if aws_states is not None:
-            pulumi.set(__self__, "aws_states", aws_states)
+            _setter("aws_states", aws_states)
         if aws_transit_gateway is not None:
-            pulumi.set(__self__, "aws_transit_gateway", aws_transit_gateway)
+            _setter("aws_transit_gateway", aws_transit_gateway)
         if aws_waf is not None:
-            pulumi.set(__self__, "aws_waf", aws_waf)
+            _setter("aws_waf", aws_waf)
         if aws_wafv2 is not None:
-            pulumi.set(__self__, "aws_wafv2", aws_wafv2)
+            _setter("aws_wafv2", aws_wafv2)
         if billing is not None:
-            pulumi.set(__self__, "billing", billing)
+            _setter("billing", billing)
         if cloudfront is not None:
-            pulumi.set(__self__, "cloudfront", cloudfront)
+            _setter("cloudfront", cloudfront)
         if cloudtrail is not None:
-            pulumi.set(__self__, "cloudtrail", cloudtrail)
+            _setter("cloudtrail", cloudtrail)
         if doc_db is not None:
-            pulumi.set(__self__, "doc_db", doc_db)
+            _setter("doc_db", doc_db)
         if dynamodb is not None:
-            pulumi.set(__self__, "dynamodb", dynamodb)
+            _setter("dynamodb", dynamodb)
         if ebs is not None:
-            pulumi.set(__self__, "ebs", ebs)
+            _setter("ebs", ebs)
         if ec2 is not None:
-            pulumi.set(__self__, "ec2", ec2)
+            _setter("ec2", ec2)
         if ecs is not None:
-            pulumi.set(__self__, "ecs", ecs)
+            _setter("ecs", ecs)
         if efs is not None:
-            pulumi.set(__self__, "efs", efs)
+            _setter("efs", efs)
         if elasticache is not None:
-            pulumi.set(__self__, "elasticache", elasticache)
+            _setter("elasticache", elasticache)
         if elasticbeanstalk is not None:
-            pulumi.set(__self__, "elasticbeanstalk", elasticbeanstalk)
+            _setter("elasticbeanstalk", elasticbeanstalk)
         if elasticsearch is not None:
-            pulumi.set(__self__, "elasticsearch", elasticsearch)
+            _setter("elasticsearch", elasticsearch)
         if elb is not None:
-            pulumi.set(__self__, "elb", elb)
+            _setter("elb", elb)
         if emr is not None:
-            pulumi.set(__self__, "emr", emr)
+            _setter("emr", emr)
         if health is not None:
-            pulumi.set(__self__, "health", health)
+            _setter("health", health)
         if iam is not None:
-            pulumi.set(__self__, "iam", iam)
+            _setter("iam", iam)
         if iot is not None:
-            pulumi.set(__self__, "iot", iot)
+            _setter("iot", iot)
         if kinesis is not None:
-            pulumi.set(__self__, "kinesis", kinesis)
+            _setter("kinesis", kinesis)
         if kinesis_firehose is not None:
-            pulumi.set(__self__, "kinesis_firehose", kinesis_firehose)
+            _setter("kinesis_firehose", kinesis_firehose)
         if lambda_ is not None:
-            pulumi.set(__self__, "lambda_", lambda_)
+            _setter("lambda_", lambda_)
         if rds is not None:
-            pulumi.set(__self__, "rds", rds)
+            _setter("rds", rds)
         if redshift is not None:
-            pulumi.set(__self__, "redshift", redshift)
+            _setter("redshift", redshift)
         if route53 is not None:
-            pulumi.set(__self__, "route53", route53)
+            _setter("route53", route53)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
         if ses is not None:
-            pulumi.set(__self__, "ses", ses)
+            _setter("ses", ses)
         if sns is not None:
-            pulumi.set(__self__, "sns", sns)
+            _setter("sns", sns)
         if sqs is not None:
-            pulumi.set(__self__, "sqs", sqs)
+            _setter("sqs", sqs)
         if trusted_advisor is not None:
-            pulumi.set(__self__, "trusted_advisor", trusted_advisor)
+            _setter("trusted_advisor", trusted_advisor)
         if vpc is not None:
-            pulumi.set(__self__, "vpc", vpc)
+            _setter("vpc", vpc)
         if x_ray is not None:
-            pulumi.set(__self__, "x_ray", x_ray)
+            _setter("x_ray", x_ray)
 
     @property
     @pulumi.getter(name="linkedAccountId")
@@ -1181,114 +1296,229 @@ class _AwsIntegrationsState:
         :param pulumi.Input['AwsIntegrationsVpcArgs'] vpc: VPC integration
         :param pulumi.Input['AwsIntegrationsXRayArgs'] x_ray: X-Ray integration
         """
+        _AwsIntegrationsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            alb=alb,
+            api_gateway=api_gateway,
+            auto_scaling=auto_scaling,
+            aws_app_sync=aws_app_sync,
+            aws_athena=aws_athena,
+            aws_cognito=aws_cognito,
+            aws_connect=aws_connect,
+            aws_direct_connect=aws_direct_connect,
+            aws_fsx=aws_fsx,
+            aws_glue=aws_glue,
+            aws_kinesis_analytics=aws_kinesis_analytics,
+            aws_media_convert=aws_media_convert,
+            aws_media_package_vod=aws_media_package_vod,
+            aws_mq=aws_mq,
+            aws_msk=aws_msk,
+            aws_neptune=aws_neptune,
+            aws_qldb=aws_qldb,
+            aws_route53resolver=aws_route53resolver,
+            aws_states=aws_states,
+            aws_transit_gateway=aws_transit_gateway,
+            aws_waf=aws_waf,
+            aws_wafv2=aws_wafv2,
+            billing=billing,
+            cloudfront=cloudfront,
+            cloudtrail=cloudtrail,
+            doc_db=doc_db,
+            dynamodb=dynamodb,
+            ebs=ebs,
+            ec2=ec2,
+            ecs=ecs,
+            efs=efs,
+            elasticache=elasticache,
+            elasticbeanstalk=elasticbeanstalk,
+            elasticsearch=elasticsearch,
+            elb=elb,
+            emr=emr,
+            health=health,
+            iam=iam,
+            iot=iot,
+            kinesis=kinesis,
+            kinesis_firehose=kinesis_firehose,
+            lambda_=lambda_,
+            linked_account_id=linked_account_id,
+            rds=rds,
+            redshift=redshift,
+            route53=route53,
+            s3=s3,
+            ses=ses,
+            sns=sns,
+            sqs=sqs,
+            trusted_advisor=trusted_advisor,
+            vpc=vpc,
+            x_ray=x_ray,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[int]] = None,
+             alb: Optional[pulumi.Input['AwsIntegrationsAlbArgs']] = None,
+             api_gateway: Optional[pulumi.Input['AwsIntegrationsApiGatewayArgs']] = None,
+             auto_scaling: Optional[pulumi.Input['AwsIntegrationsAutoScalingArgs']] = None,
+             aws_app_sync: Optional[pulumi.Input['AwsIntegrationsAwsAppSyncArgs']] = None,
+             aws_athena: Optional[pulumi.Input['AwsIntegrationsAwsAthenaArgs']] = None,
+             aws_cognito: Optional[pulumi.Input['AwsIntegrationsAwsCognitoArgs']] = None,
+             aws_connect: Optional[pulumi.Input['AwsIntegrationsAwsConnectArgs']] = None,
+             aws_direct_connect: Optional[pulumi.Input['AwsIntegrationsAwsDirectConnectArgs']] = None,
+             aws_fsx: Optional[pulumi.Input['AwsIntegrationsAwsFsxArgs']] = None,
+             aws_glue: Optional[pulumi.Input['AwsIntegrationsAwsGlueArgs']] = None,
+             aws_kinesis_analytics: Optional[pulumi.Input['AwsIntegrationsAwsKinesisAnalyticsArgs']] = None,
+             aws_media_convert: Optional[pulumi.Input['AwsIntegrationsAwsMediaConvertArgs']] = None,
+             aws_media_package_vod: Optional[pulumi.Input['AwsIntegrationsAwsMediaPackageVodArgs']] = None,
+             aws_mq: Optional[pulumi.Input['AwsIntegrationsAwsMqArgs']] = None,
+             aws_msk: Optional[pulumi.Input['AwsIntegrationsAwsMskArgs']] = None,
+             aws_neptune: Optional[pulumi.Input['AwsIntegrationsAwsNeptuneArgs']] = None,
+             aws_qldb: Optional[pulumi.Input['AwsIntegrationsAwsQldbArgs']] = None,
+             aws_route53resolver: Optional[pulumi.Input['AwsIntegrationsAwsRoute53resolverArgs']] = None,
+             aws_states: Optional[pulumi.Input['AwsIntegrationsAwsStatesArgs']] = None,
+             aws_transit_gateway: Optional[pulumi.Input['AwsIntegrationsAwsTransitGatewayArgs']] = None,
+             aws_waf: Optional[pulumi.Input['AwsIntegrationsAwsWafArgs']] = None,
+             aws_wafv2: Optional[pulumi.Input['AwsIntegrationsAwsWafv2Args']] = None,
+             billing: Optional[pulumi.Input['AwsIntegrationsBillingArgs']] = None,
+             cloudfront: Optional[pulumi.Input['AwsIntegrationsCloudfrontArgs']] = None,
+             cloudtrail: Optional[pulumi.Input['AwsIntegrationsCloudtrailArgs']] = None,
+             doc_db: Optional[pulumi.Input['AwsIntegrationsDocDbArgs']] = None,
+             dynamodb: Optional[pulumi.Input['AwsIntegrationsDynamodbArgs']] = None,
+             ebs: Optional[pulumi.Input['AwsIntegrationsEbsArgs']] = None,
+             ec2: Optional[pulumi.Input['AwsIntegrationsEc2Args']] = None,
+             ecs: Optional[pulumi.Input['AwsIntegrationsEcsArgs']] = None,
+             efs: Optional[pulumi.Input['AwsIntegrationsEfsArgs']] = None,
+             elasticache: Optional[pulumi.Input['AwsIntegrationsElasticacheArgs']] = None,
+             elasticbeanstalk: Optional[pulumi.Input['AwsIntegrationsElasticbeanstalkArgs']] = None,
+             elasticsearch: Optional[pulumi.Input['AwsIntegrationsElasticsearchArgs']] = None,
+             elb: Optional[pulumi.Input['AwsIntegrationsElbArgs']] = None,
+             emr: Optional[pulumi.Input['AwsIntegrationsEmrArgs']] = None,
+             health: Optional[pulumi.Input['AwsIntegrationsHealthArgs']] = None,
+             iam: Optional[pulumi.Input['AwsIntegrationsIamArgs']] = None,
+             iot: Optional[pulumi.Input['AwsIntegrationsIotArgs']] = None,
+             kinesis: Optional[pulumi.Input['AwsIntegrationsKinesisArgs']] = None,
+             kinesis_firehose: Optional[pulumi.Input['AwsIntegrationsKinesisFirehoseArgs']] = None,
+             lambda_: Optional[pulumi.Input['AwsIntegrationsLambdaArgs']] = None,
+             linked_account_id: Optional[pulumi.Input[int]] = None,
+             rds: Optional[pulumi.Input['AwsIntegrationsRdsArgs']] = None,
+             redshift: Optional[pulumi.Input['AwsIntegrationsRedshiftArgs']] = None,
+             route53: Optional[pulumi.Input['AwsIntegrationsRoute53Args']] = None,
+             s3: Optional[pulumi.Input['AwsIntegrationsS3Args']] = None,
+             ses: Optional[pulumi.Input['AwsIntegrationsSesArgs']] = None,
+             sns: Optional[pulumi.Input['AwsIntegrationsSnsArgs']] = None,
+             sqs: Optional[pulumi.Input['AwsIntegrationsSqsArgs']] = None,
+             trusted_advisor: Optional[pulumi.Input['AwsIntegrationsTrustedAdvisorArgs']] = None,
+             vpc: Optional[pulumi.Input['AwsIntegrationsVpcArgs']] = None,
+             x_ray: Optional[pulumi.Input['AwsIntegrationsXRayArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if alb is not None:
-            pulumi.set(__self__, "alb", alb)
+            _setter("alb", alb)
         if api_gateway is not None:
-            pulumi.set(__self__, "api_gateway", api_gateway)
+            _setter("api_gateway", api_gateway)
         if auto_scaling is not None:
-            pulumi.set(__self__, "auto_scaling", auto_scaling)
+            _setter("auto_scaling", auto_scaling)
         if aws_app_sync is not None:
-            pulumi.set(__self__, "aws_app_sync", aws_app_sync)
+            _setter("aws_app_sync", aws_app_sync)
         if aws_athena is not None:
-            pulumi.set(__self__, "aws_athena", aws_athena)
+            _setter("aws_athena", aws_athena)
         if aws_cognito is not None:
-            pulumi.set(__self__, "aws_cognito", aws_cognito)
+            _setter("aws_cognito", aws_cognito)
         if aws_connect is not None:
-            pulumi.set(__self__, "aws_connect", aws_connect)
+            _setter("aws_connect", aws_connect)
         if aws_direct_connect is not None:
-            pulumi.set(__self__, "aws_direct_connect", aws_direct_connect)
+            _setter("aws_direct_connect", aws_direct_connect)
         if aws_fsx is not None:
-            pulumi.set(__self__, "aws_fsx", aws_fsx)
+            _setter("aws_fsx", aws_fsx)
         if aws_glue is not None:
-            pulumi.set(__self__, "aws_glue", aws_glue)
+            _setter("aws_glue", aws_glue)
         if aws_kinesis_analytics is not None:
-            pulumi.set(__self__, "aws_kinesis_analytics", aws_kinesis_analytics)
+            _setter("aws_kinesis_analytics", aws_kinesis_analytics)
         if aws_media_convert is not None:
-            pulumi.set(__self__, "aws_media_convert", aws_media_convert)
+            _setter("aws_media_convert", aws_media_convert)
         if aws_media_package_vod is not None:
-            pulumi.set(__self__, "aws_media_package_vod", aws_media_package_vod)
+            _setter("aws_media_package_vod", aws_media_package_vod)
         if aws_mq is not None:
-            pulumi.set(__self__, "aws_mq", aws_mq)
+            _setter("aws_mq", aws_mq)
         if aws_msk is not None:
-            pulumi.set(__self__, "aws_msk", aws_msk)
+            _setter("aws_msk", aws_msk)
         if aws_neptune is not None:
-            pulumi.set(__self__, "aws_neptune", aws_neptune)
+            _setter("aws_neptune", aws_neptune)
         if aws_qldb is not None:
-            pulumi.set(__self__, "aws_qldb", aws_qldb)
+            _setter("aws_qldb", aws_qldb)
         if aws_route53resolver is not None:
-            pulumi.set(__self__, "aws_route53resolver", aws_route53resolver)
+            _setter("aws_route53resolver", aws_route53resolver)
         if aws_states is not None:
-            pulumi.set(__self__, "aws_states", aws_states)
+            _setter("aws_states", aws_states)
         if aws_transit_gateway is not None:
-            pulumi.set(__self__, "aws_transit_gateway", aws_transit_gateway)
+            _setter("aws_transit_gateway", aws_transit_gateway)
         if aws_waf is not None:
-            pulumi.set(__self__, "aws_waf", aws_waf)
+            _setter("aws_waf", aws_waf)
         if aws_wafv2 is not None:
-            pulumi.set(__self__, "aws_wafv2", aws_wafv2)
+            _setter("aws_wafv2", aws_wafv2)
         if billing is not None:
-            pulumi.set(__self__, "billing", billing)
+            _setter("billing", billing)
         if cloudfront is not None:
-            pulumi.set(__self__, "cloudfront", cloudfront)
+            _setter("cloudfront", cloudfront)
         if cloudtrail is not None:
-            pulumi.set(__self__, "cloudtrail", cloudtrail)
+            _setter("cloudtrail", cloudtrail)
         if doc_db is not None:
-            pulumi.set(__self__, "doc_db", doc_db)
+            _setter("doc_db", doc_db)
         if dynamodb is not None:
-            pulumi.set(__self__, "dynamodb", dynamodb)
+            _setter("dynamodb", dynamodb)
         if ebs is not None:
-            pulumi.set(__self__, "ebs", ebs)
+            _setter("ebs", ebs)
         if ec2 is not None:
-            pulumi.set(__self__, "ec2", ec2)
+            _setter("ec2", ec2)
         if ecs is not None:
-            pulumi.set(__self__, "ecs", ecs)
+            _setter("ecs", ecs)
         if efs is not None:
-            pulumi.set(__self__, "efs", efs)
+            _setter("efs", efs)
         if elasticache is not None:
-            pulumi.set(__self__, "elasticache", elasticache)
+            _setter("elasticache", elasticache)
         if elasticbeanstalk is not None:
-            pulumi.set(__self__, "elasticbeanstalk", elasticbeanstalk)
+            _setter("elasticbeanstalk", elasticbeanstalk)
         if elasticsearch is not None:
-            pulumi.set(__self__, "elasticsearch", elasticsearch)
+            _setter("elasticsearch", elasticsearch)
         if elb is not None:
-            pulumi.set(__self__, "elb", elb)
+            _setter("elb", elb)
         if emr is not None:
-            pulumi.set(__self__, "emr", emr)
+            _setter("emr", emr)
         if health is not None:
-            pulumi.set(__self__, "health", health)
+            _setter("health", health)
         if iam is not None:
-            pulumi.set(__self__, "iam", iam)
+            _setter("iam", iam)
         if iot is not None:
-            pulumi.set(__self__, "iot", iot)
+            _setter("iot", iot)
         if kinesis is not None:
-            pulumi.set(__self__, "kinesis", kinesis)
+            _setter("kinesis", kinesis)
         if kinesis_firehose is not None:
-            pulumi.set(__self__, "kinesis_firehose", kinesis_firehose)
+            _setter("kinesis_firehose", kinesis_firehose)
         if lambda_ is not None:
-            pulumi.set(__self__, "lambda_", lambda_)
+            _setter("lambda_", lambda_)
         if linked_account_id is not None:
-            pulumi.set(__self__, "linked_account_id", linked_account_id)
+            _setter("linked_account_id", linked_account_id)
         if rds is not None:
-            pulumi.set(__self__, "rds", rds)
+            _setter("rds", rds)
         if redshift is not None:
-            pulumi.set(__self__, "redshift", redshift)
+            _setter("redshift", redshift)
         if route53 is not None:
-            pulumi.set(__self__, "route53", route53)
+            _setter("route53", route53)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
         if ses is not None:
-            pulumi.set(__self__, "ses", ses)
+            _setter("ses", ses)
         if sns is not None:
-            pulumi.set(__self__, "sns", sns)
+            _setter("sns", sns)
         if sqs is not None:
-            pulumi.set(__self__, "sqs", sqs)
+            _setter("sqs", sqs)
         if trusted_advisor is not None:
-            pulumi.set(__self__, "trusted_advisor", trusted_advisor)
+            _setter("trusted_advisor", trusted_advisor)
         if vpc is not None:
-            pulumi.set(__self__, "vpc", vpc)
+            _setter("vpc", vpc)
         if x_ray is not None:
-            pulumi.set(__self__, "x_ray", x_ray)
+            _setter("x_ray", x_ray)
 
     @property
     @pulumi.getter(name="accountId")
@@ -2814,6 +3044,10 @@ class AwsIntegrations(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AwsIntegrationsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -2883,60 +3117,320 @@ class AwsIntegrations(pulumi.CustomResource):
             __props__ = AwsIntegrationsArgs.__new__(AwsIntegrationsArgs)
 
             __props__.__dict__["account_id"] = account_id
+            if alb is not None and not isinstance(alb, AwsIntegrationsAlbArgs):
+                alb = alb or {}
+                def _setter(key, value):
+                    alb[key] = value
+                AwsIntegrationsAlbArgs._configure(_setter, **alb)
             __props__.__dict__["alb"] = alb
+            if api_gateway is not None and not isinstance(api_gateway, AwsIntegrationsApiGatewayArgs):
+                api_gateway = api_gateway or {}
+                def _setter(key, value):
+                    api_gateway[key] = value
+                AwsIntegrationsApiGatewayArgs._configure(_setter, **api_gateway)
             __props__.__dict__["api_gateway"] = api_gateway
+            if auto_scaling is not None and not isinstance(auto_scaling, AwsIntegrationsAutoScalingArgs):
+                auto_scaling = auto_scaling or {}
+                def _setter(key, value):
+                    auto_scaling[key] = value
+                AwsIntegrationsAutoScalingArgs._configure(_setter, **auto_scaling)
             __props__.__dict__["auto_scaling"] = auto_scaling
+            if aws_app_sync is not None and not isinstance(aws_app_sync, AwsIntegrationsAwsAppSyncArgs):
+                aws_app_sync = aws_app_sync or {}
+                def _setter(key, value):
+                    aws_app_sync[key] = value
+                AwsIntegrationsAwsAppSyncArgs._configure(_setter, **aws_app_sync)
             __props__.__dict__["aws_app_sync"] = aws_app_sync
+            if aws_athena is not None and not isinstance(aws_athena, AwsIntegrationsAwsAthenaArgs):
+                aws_athena = aws_athena or {}
+                def _setter(key, value):
+                    aws_athena[key] = value
+                AwsIntegrationsAwsAthenaArgs._configure(_setter, **aws_athena)
             __props__.__dict__["aws_athena"] = aws_athena
+            if aws_cognito is not None and not isinstance(aws_cognito, AwsIntegrationsAwsCognitoArgs):
+                aws_cognito = aws_cognito or {}
+                def _setter(key, value):
+                    aws_cognito[key] = value
+                AwsIntegrationsAwsCognitoArgs._configure(_setter, **aws_cognito)
             __props__.__dict__["aws_cognito"] = aws_cognito
+            if aws_connect is not None and not isinstance(aws_connect, AwsIntegrationsAwsConnectArgs):
+                aws_connect = aws_connect or {}
+                def _setter(key, value):
+                    aws_connect[key] = value
+                AwsIntegrationsAwsConnectArgs._configure(_setter, **aws_connect)
             __props__.__dict__["aws_connect"] = aws_connect
+            if aws_direct_connect is not None and not isinstance(aws_direct_connect, AwsIntegrationsAwsDirectConnectArgs):
+                aws_direct_connect = aws_direct_connect or {}
+                def _setter(key, value):
+                    aws_direct_connect[key] = value
+                AwsIntegrationsAwsDirectConnectArgs._configure(_setter, **aws_direct_connect)
             __props__.__dict__["aws_direct_connect"] = aws_direct_connect
+            if aws_fsx is not None and not isinstance(aws_fsx, AwsIntegrationsAwsFsxArgs):
+                aws_fsx = aws_fsx or {}
+                def _setter(key, value):
+                    aws_fsx[key] = value
+                AwsIntegrationsAwsFsxArgs._configure(_setter, **aws_fsx)
             __props__.__dict__["aws_fsx"] = aws_fsx
+            if aws_glue is not None and not isinstance(aws_glue, AwsIntegrationsAwsGlueArgs):
+                aws_glue = aws_glue or {}
+                def _setter(key, value):
+                    aws_glue[key] = value
+                AwsIntegrationsAwsGlueArgs._configure(_setter, **aws_glue)
             __props__.__dict__["aws_glue"] = aws_glue
+            if aws_kinesis_analytics is not None and not isinstance(aws_kinesis_analytics, AwsIntegrationsAwsKinesisAnalyticsArgs):
+                aws_kinesis_analytics = aws_kinesis_analytics or {}
+                def _setter(key, value):
+                    aws_kinesis_analytics[key] = value
+                AwsIntegrationsAwsKinesisAnalyticsArgs._configure(_setter, **aws_kinesis_analytics)
             __props__.__dict__["aws_kinesis_analytics"] = aws_kinesis_analytics
+            if aws_media_convert is not None and not isinstance(aws_media_convert, AwsIntegrationsAwsMediaConvertArgs):
+                aws_media_convert = aws_media_convert or {}
+                def _setter(key, value):
+                    aws_media_convert[key] = value
+                AwsIntegrationsAwsMediaConvertArgs._configure(_setter, **aws_media_convert)
             __props__.__dict__["aws_media_convert"] = aws_media_convert
+            if aws_media_package_vod is not None and not isinstance(aws_media_package_vod, AwsIntegrationsAwsMediaPackageVodArgs):
+                aws_media_package_vod = aws_media_package_vod or {}
+                def _setter(key, value):
+                    aws_media_package_vod[key] = value
+                AwsIntegrationsAwsMediaPackageVodArgs._configure(_setter, **aws_media_package_vod)
             __props__.__dict__["aws_media_package_vod"] = aws_media_package_vod
+            if aws_mq is not None and not isinstance(aws_mq, AwsIntegrationsAwsMqArgs):
+                aws_mq = aws_mq or {}
+                def _setter(key, value):
+                    aws_mq[key] = value
+                AwsIntegrationsAwsMqArgs._configure(_setter, **aws_mq)
             __props__.__dict__["aws_mq"] = aws_mq
+            if aws_msk is not None and not isinstance(aws_msk, AwsIntegrationsAwsMskArgs):
+                aws_msk = aws_msk or {}
+                def _setter(key, value):
+                    aws_msk[key] = value
+                AwsIntegrationsAwsMskArgs._configure(_setter, **aws_msk)
             __props__.__dict__["aws_msk"] = aws_msk
+            if aws_neptune is not None and not isinstance(aws_neptune, AwsIntegrationsAwsNeptuneArgs):
+                aws_neptune = aws_neptune or {}
+                def _setter(key, value):
+                    aws_neptune[key] = value
+                AwsIntegrationsAwsNeptuneArgs._configure(_setter, **aws_neptune)
             __props__.__dict__["aws_neptune"] = aws_neptune
+            if aws_qldb is not None and not isinstance(aws_qldb, AwsIntegrationsAwsQldbArgs):
+                aws_qldb = aws_qldb or {}
+                def _setter(key, value):
+                    aws_qldb[key] = value
+                AwsIntegrationsAwsQldbArgs._configure(_setter, **aws_qldb)
             __props__.__dict__["aws_qldb"] = aws_qldb
+            if aws_route53resolver is not None and not isinstance(aws_route53resolver, AwsIntegrationsAwsRoute53resolverArgs):
+                aws_route53resolver = aws_route53resolver or {}
+                def _setter(key, value):
+                    aws_route53resolver[key] = value
+                AwsIntegrationsAwsRoute53resolverArgs._configure(_setter, **aws_route53resolver)
             __props__.__dict__["aws_route53resolver"] = aws_route53resolver
+            if aws_states is not None and not isinstance(aws_states, AwsIntegrationsAwsStatesArgs):
+                aws_states = aws_states or {}
+                def _setter(key, value):
+                    aws_states[key] = value
+                AwsIntegrationsAwsStatesArgs._configure(_setter, **aws_states)
             __props__.__dict__["aws_states"] = aws_states
+            if aws_transit_gateway is not None and not isinstance(aws_transit_gateway, AwsIntegrationsAwsTransitGatewayArgs):
+                aws_transit_gateway = aws_transit_gateway or {}
+                def _setter(key, value):
+                    aws_transit_gateway[key] = value
+                AwsIntegrationsAwsTransitGatewayArgs._configure(_setter, **aws_transit_gateway)
             __props__.__dict__["aws_transit_gateway"] = aws_transit_gateway
+            if aws_waf is not None and not isinstance(aws_waf, AwsIntegrationsAwsWafArgs):
+                aws_waf = aws_waf or {}
+                def _setter(key, value):
+                    aws_waf[key] = value
+                AwsIntegrationsAwsWafArgs._configure(_setter, **aws_waf)
             __props__.__dict__["aws_waf"] = aws_waf
+            if aws_wafv2 is not None and not isinstance(aws_wafv2, AwsIntegrationsAwsWafv2Args):
+                aws_wafv2 = aws_wafv2 or {}
+                def _setter(key, value):
+                    aws_wafv2[key] = value
+                AwsIntegrationsAwsWafv2Args._configure(_setter, **aws_wafv2)
             __props__.__dict__["aws_wafv2"] = aws_wafv2
+            if billing is not None and not isinstance(billing, AwsIntegrationsBillingArgs):
+                billing = billing or {}
+                def _setter(key, value):
+                    billing[key] = value
+                AwsIntegrationsBillingArgs._configure(_setter, **billing)
             __props__.__dict__["billing"] = billing
+            if cloudfront is not None and not isinstance(cloudfront, AwsIntegrationsCloudfrontArgs):
+                cloudfront = cloudfront or {}
+                def _setter(key, value):
+                    cloudfront[key] = value
+                AwsIntegrationsCloudfrontArgs._configure(_setter, **cloudfront)
             __props__.__dict__["cloudfront"] = cloudfront
+            if cloudtrail is not None and not isinstance(cloudtrail, AwsIntegrationsCloudtrailArgs):
+                cloudtrail = cloudtrail or {}
+                def _setter(key, value):
+                    cloudtrail[key] = value
+                AwsIntegrationsCloudtrailArgs._configure(_setter, **cloudtrail)
             __props__.__dict__["cloudtrail"] = cloudtrail
+            if doc_db is not None and not isinstance(doc_db, AwsIntegrationsDocDbArgs):
+                doc_db = doc_db or {}
+                def _setter(key, value):
+                    doc_db[key] = value
+                AwsIntegrationsDocDbArgs._configure(_setter, **doc_db)
             __props__.__dict__["doc_db"] = doc_db
+            if dynamodb is not None and not isinstance(dynamodb, AwsIntegrationsDynamodbArgs):
+                dynamodb = dynamodb or {}
+                def _setter(key, value):
+                    dynamodb[key] = value
+                AwsIntegrationsDynamodbArgs._configure(_setter, **dynamodb)
             __props__.__dict__["dynamodb"] = dynamodb
+            if ebs is not None and not isinstance(ebs, AwsIntegrationsEbsArgs):
+                ebs = ebs or {}
+                def _setter(key, value):
+                    ebs[key] = value
+                AwsIntegrationsEbsArgs._configure(_setter, **ebs)
             __props__.__dict__["ebs"] = ebs
+            if ec2 is not None and not isinstance(ec2, AwsIntegrationsEc2Args):
+                ec2 = ec2 or {}
+                def _setter(key, value):
+                    ec2[key] = value
+                AwsIntegrationsEc2Args._configure(_setter, **ec2)
             __props__.__dict__["ec2"] = ec2
+            if ecs is not None and not isinstance(ecs, AwsIntegrationsEcsArgs):
+                ecs = ecs or {}
+                def _setter(key, value):
+                    ecs[key] = value
+                AwsIntegrationsEcsArgs._configure(_setter, **ecs)
             __props__.__dict__["ecs"] = ecs
+            if efs is not None and not isinstance(efs, AwsIntegrationsEfsArgs):
+                efs = efs or {}
+                def _setter(key, value):
+                    efs[key] = value
+                AwsIntegrationsEfsArgs._configure(_setter, **efs)
             __props__.__dict__["efs"] = efs
+            if elasticache is not None and not isinstance(elasticache, AwsIntegrationsElasticacheArgs):
+                elasticache = elasticache or {}
+                def _setter(key, value):
+                    elasticache[key] = value
+                AwsIntegrationsElasticacheArgs._configure(_setter, **elasticache)
             __props__.__dict__["elasticache"] = elasticache
+            if elasticbeanstalk is not None and not isinstance(elasticbeanstalk, AwsIntegrationsElasticbeanstalkArgs):
+                elasticbeanstalk = elasticbeanstalk or {}
+                def _setter(key, value):
+                    elasticbeanstalk[key] = value
+                AwsIntegrationsElasticbeanstalkArgs._configure(_setter, **elasticbeanstalk)
             __props__.__dict__["elasticbeanstalk"] = elasticbeanstalk
+            if elasticsearch is not None and not isinstance(elasticsearch, AwsIntegrationsElasticsearchArgs):
+                elasticsearch = elasticsearch or {}
+                def _setter(key, value):
+                    elasticsearch[key] = value
+                AwsIntegrationsElasticsearchArgs._configure(_setter, **elasticsearch)
             __props__.__dict__["elasticsearch"] = elasticsearch
+            if elb is not None and not isinstance(elb, AwsIntegrationsElbArgs):
+                elb = elb or {}
+                def _setter(key, value):
+                    elb[key] = value
+                AwsIntegrationsElbArgs._configure(_setter, **elb)
             __props__.__dict__["elb"] = elb
+            if emr is not None and not isinstance(emr, AwsIntegrationsEmrArgs):
+                emr = emr or {}
+                def _setter(key, value):
+                    emr[key] = value
+                AwsIntegrationsEmrArgs._configure(_setter, **emr)
             __props__.__dict__["emr"] = emr
+            if health is not None and not isinstance(health, AwsIntegrationsHealthArgs):
+                health = health or {}
+                def _setter(key, value):
+                    health[key] = value
+                AwsIntegrationsHealthArgs._configure(_setter, **health)
             __props__.__dict__["health"] = health
+            if iam is not None and not isinstance(iam, AwsIntegrationsIamArgs):
+                iam = iam or {}
+                def _setter(key, value):
+                    iam[key] = value
+                AwsIntegrationsIamArgs._configure(_setter, **iam)
             __props__.__dict__["iam"] = iam
+            if iot is not None and not isinstance(iot, AwsIntegrationsIotArgs):
+                iot = iot or {}
+                def _setter(key, value):
+                    iot[key] = value
+                AwsIntegrationsIotArgs._configure(_setter, **iot)
             __props__.__dict__["iot"] = iot
+            if kinesis is not None and not isinstance(kinesis, AwsIntegrationsKinesisArgs):
+                kinesis = kinesis or {}
+                def _setter(key, value):
+                    kinesis[key] = value
+                AwsIntegrationsKinesisArgs._configure(_setter, **kinesis)
             __props__.__dict__["kinesis"] = kinesis
+            if kinesis_firehose is not None and not isinstance(kinesis_firehose, AwsIntegrationsKinesisFirehoseArgs):
+                kinesis_firehose = kinesis_firehose or {}
+                def _setter(key, value):
+                    kinesis_firehose[key] = value
+                AwsIntegrationsKinesisFirehoseArgs._configure(_setter, **kinesis_firehose)
             __props__.__dict__["kinesis_firehose"] = kinesis_firehose
+            if lambda_ is not None and not isinstance(lambda_, AwsIntegrationsLambdaArgs):
+                lambda_ = lambda_ or {}
+                def _setter(key, value):
+                    lambda_[key] = value
+                AwsIntegrationsLambdaArgs._configure(_setter, **lambda_)
             __props__.__dict__["lambda_"] = lambda_
             if linked_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_account_id'")
             __props__.__dict__["linked_account_id"] = linked_account_id
+            if rds is not None and not isinstance(rds, AwsIntegrationsRdsArgs):
+                rds = rds or {}
+                def _setter(key, value):
+                    rds[key] = value
+                AwsIntegrationsRdsArgs._configure(_setter, **rds)
             __props__.__dict__["rds"] = rds
+            if redshift is not None and not isinstance(redshift, AwsIntegrationsRedshiftArgs):
+                redshift = redshift or {}
+                def _setter(key, value):
+                    redshift[key] = value
+                AwsIntegrationsRedshiftArgs._configure(_setter, **redshift)
             __props__.__dict__["redshift"] = redshift
+            if route53 is not None and not isinstance(route53, AwsIntegrationsRoute53Args):
+                route53 = route53 or {}
+                def _setter(key, value):
+                    route53[key] = value
+                AwsIntegrationsRoute53Args._configure(_setter, **route53)
             __props__.__dict__["route53"] = route53
+            if s3 is not None and not isinstance(s3, AwsIntegrationsS3Args):
+                s3 = s3 or {}
+                def _setter(key, value):
+                    s3[key] = value
+                AwsIntegrationsS3Args._configure(_setter, **s3)
             __props__.__dict__["s3"] = s3
+            if ses is not None and not isinstance(ses, AwsIntegrationsSesArgs):
+                ses = ses or {}
+                def _setter(key, value):
+                    ses[key] = value
+                AwsIntegrationsSesArgs._configure(_setter, **ses)
             __props__.__dict__["ses"] = ses
+            if sns is not None and not isinstance(sns, AwsIntegrationsSnsArgs):
+                sns = sns or {}
+                def _setter(key, value):
+                    sns[key] = value
+                AwsIntegrationsSnsArgs._configure(_setter, **sns)
             __props__.__dict__["sns"] = sns
+            if sqs is not None and not isinstance(sqs, AwsIntegrationsSqsArgs):
+                sqs = sqs or {}
+                def _setter(key, value):
+                    sqs[key] = value
+                AwsIntegrationsSqsArgs._configure(_setter, **sqs)
             __props__.__dict__["sqs"] = sqs
+            if trusted_advisor is not None and not isinstance(trusted_advisor, AwsIntegrationsTrustedAdvisorArgs):
+                trusted_advisor = trusted_advisor or {}
+                def _setter(key, value):
+                    trusted_advisor[key] = value
+                AwsIntegrationsTrustedAdvisorArgs._configure(_setter, **trusted_advisor)
             __props__.__dict__["trusted_advisor"] = trusted_advisor
+            if vpc is not None and not isinstance(vpc, AwsIntegrationsVpcArgs):
+                vpc = vpc or {}
+                def _setter(key, value):
+                    vpc[key] = value
+                AwsIntegrationsVpcArgs._configure(_setter, **vpc)
             __props__.__dict__["vpc"] = vpc
+            if x_ray is not None and not isinstance(x_ray, AwsIntegrationsXRayArgs):
+                x_ray = x_ray or {}
+                def _setter(key, value):
+                    x_ray[key] = value
+                AwsIntegrationsXRayArgs._configure(_setter, **x_ray)
             __props__.__dict__["x_ray"] = x_ray
         super(AwsIntegrations, __self__).__init__(
             'newrelic:cloud/awsIntegrations:AwsIntegrations',

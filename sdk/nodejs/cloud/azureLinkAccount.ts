@@ -81,7 +81,7 @@ export class AzureLinkAccount extends pulumi.CustomResource {
      */
     public readonly clientSecret!: pulumi.Output<string>;
     /**
-     * The name of the application in New Relic APM.
+     * Name of the linked account
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -157,7 +157,7 @@ export interface AzureLinkAccountState {
      */
     clientSecret?: pulumi.Input<string>;
     /**
-     * The name of the application in New Relic APM.
+     * Name of the linked account
      */
     name?: pulumi.Input<string>;
     /**
@@ -187,7 +187,7 @@ export interface AzureLinkAccountArgs {
      */
     clientSecret: pulumi.Input<string>;
     /**
-     * The name of the application in New Relic APM.
+     * Name of the linked account
      */
     name?: pulumi.Input<string>;
     /**

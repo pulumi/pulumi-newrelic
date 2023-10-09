@@ -18,7 +18,7 @@ namespace Pulumi.NewRelic.Plugins.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Whether the automatic status configuration is enabled or not.
+        /// Whether the static status configuration is enabled or not.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

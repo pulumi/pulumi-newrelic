@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkloadStatusConfigAutomatic {
     /**
-     * @return Whether the automatic status configuration is enabled or not.
+     * @return Whether the static status configuration is enabled or not.
      * 
      */
     private Boolean enabled;
@@ -32,7 +32,7 @@ public final class WorkloadStatusConfigAutomatic {
 
     private WorkloadStatusConfigAutomatic() {}
     /**
-     * @return Whether the automatic status configuration is enabled or not.
+     * @return Whether the static status configuration is enabled or not.
      * 
      */
     public Boolean enabled() {

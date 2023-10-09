@@ -59,7 +59,7 @@ export interface AlertChannelConfig {
      */
     payloadType?: string;
     /**
-     * Comma delimited list of email addresses.
+     * A set of recipients for targeting notifications.  Multiple values are comma separated.
      */
     recipients?: string;
     /**
@@ -83,7 +83,7 @@ export interface AlertChannelConfig {
      */
     teams?: string;
     /**
-     * [Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).
+     * [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
      */
     url?: string;
     userId?: string;
@@ -2330,8 +2330,7 @@ export interface ServiceLevelEventsBadEvents {
      */
     select?: outputs.ServiceLevelEventsBadEventsSelect;
     /**
-     * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-     * a particular entity and were successful).
+     * A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
      * a particular entity and returned an error).
      */
     where?: string;
@@ -2362,8 +2361,7 @@ export interface ServiceLevelEventsGoodEvents {
      */
     select?: outputs.ServiceLevelEventsGoodEventsSelect;
     /**
-     * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-     * a particular entity and were successful).
+     * A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
      * a particular entity and returned an error).
      */
     where?: string;
@@ -2394,8 +2392,7 @@ export interface ServiceLevelEventsValidEvents {
      */
     select?: outputs.ServiceLevelEventsValidEventsSelect;
     /**
-     * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
-     * a particular entity and were successful).
+     * A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
      * a particular entity and returned an error).
      */
     where?: string;
@@ -2509,9 +2506,6 @@ export interface WorkflowEnrichmentsNrqlConfiguration {
 
 export interface WorkflowIssuesFilter {
     filterId: string;
-    /**
-     * The name of the workflow.
-     */
     name: string;
     /**
      * A condition an issue event should satisfy to be processed by the workflow
@@ -2542,8 +2536,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsAlb {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -2570,9 +2562,6 @@ export namespace cloud {
         tagKey?: string;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          */
         tagValue?: string;
     }
@@ -2580,8 +2569,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsApiGateway {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -2600,9 +2587,6 @@ export namespace cloud {
         tagKey?: string;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          */
         tagValue?: string;
     }
@@ -2610,8 +2594,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsAutoScaling {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -2625,8 +2607,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsAwsDirectConnect {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -2640,8 +2620,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsAwsStates {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -2655,8 +2633,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsCloudtrail {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -2670,8 +2646,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsDynamoDb {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -2694,9 +2668,6 @@ export namespace cloud {
         tagKey?: string;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          */
         tagValue?: string;
     }
@@ -2704,8 +2675,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsEbs {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -2724,9 +2693,6 @@ export namespace cloud {
         tagKey?: string;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          */
         tagValue?: string;
     }
@@ -2734,8 +2700,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsEc2 {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -2754,9 +2718,6 @@ export namespace cloud {
         tagKey?: string;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          */
         tagValue?: string;
     }
@@ -2764,8 +2725,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsElasticSearch {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -2784,9 +2743,6 @@ export namespace cloud {
         tagKey?: string;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          */
         tagValue?: string;
     }
@@ -2794,8 +2750,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsElb {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -2817,8 +2771,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsEmr {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string;
         /**
@@ -2837,9 +2789,6 @@ export namespace cloud {
         tagKey?: string;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          */
         tagValue?: string;
     }
@@ -2857,9 +2806,6 @@ export namespace cloud {
         tagKey?: string;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          */
         tagValue?: string;
     }
@@ -2867,8 +2813,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsLambda {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -2887,9 +2831,6 @@ export namespace cloud {
         tagKey?: string;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          */
         tagValue?: string;
     }
@@ -2897,8 +2838,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsRds {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -2917,9 +2856,6 @@ export namespace cloud {
         tagKey?: string;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          */
         tagValue?: string;
     }
@@ -2927,8 +2863,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsRedShift {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -2943,9 +2877,6 @@ export namespace cloud {
         tagKey?: string;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          */
         tagValue?: string;
     }
@@ -2984,9 +2915,6 @@ export namespace cloud {
         tagKey?: string;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          */
         tagValue?: string;
     }
@@ -2994,8 +2922,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsSns {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -3013,8 +2939,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsSqs {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `direct connect`
-         * * `aws states`
          */
         awsRegions?: string[];
         /**
@@ -3041,16 +2965,13 @@ export namespace cloud {
         tagKey?: string;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `api Gateway`
-         * * `auto scaling`
-         * * `elastic search`
          */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsAlb {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3087,7 +3008,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsApiGateway {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3114,7 +3035,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAutoScaling {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3129,7 +3050,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsAppSync {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3144,7 +3065,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsAthena {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3159,7 +3080,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsCognito {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3174,7 +3095,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsConnect {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3189,7 +3110,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsDirectConnect {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3204,7 +3125,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsFsx {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3219,7 +3140,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsGlue {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3234,7 +3155,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsKinesisAnalytics {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3249,7 +3170,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsMediaConvert {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3264,7 +3185,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsMediaPackageVod {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3279,7 +3200,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsMq {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3294,7 +3215,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsMsk {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3309,7 +3230,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsNeptune {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3324,7 +3245,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsQldb {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3339,7 +3260,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsRoute53resolver {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3354,7 +3275,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsStates {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3369,7 +3290,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsTransitGateway {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3384,7 +3305,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsWaf {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3399,7 +3320,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsAwsWafv2 {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3450,7 +3371,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsCloudtrail {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3465,7 +3386,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsDocDb {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3480,7 +3401,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsDynamodb {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3513,7 +3434,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsEbs {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3542,7 +3463,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsEc2 {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3573,7 +3494,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsEcs {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3600,7 +3521,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsEfs {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3627,7 +3548,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsElasticache {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3654,7 +3575,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsElasticbeanstalk {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3687,7 +3608,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsElasticsearch {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3714,7 +3635,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsElb {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3739,7 +3660,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsEmr {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3794,7 +3715,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsIot {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3809,7 +3730,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsKinesis {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3840,7 +3761,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsKinesisFirehose {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3855,7 +3776,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsLambda {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3882,7 +3803,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsRds {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3909,7 +3830,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsRedshift {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3976,7 +3897,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsSes {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -3991,7 +3912,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsSns {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -4012,7 +3933,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsSqs {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -4059,7 +3980,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsVpc {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -4090,7 +4011,7 @@ export namespace cloud {
 
     export interface AwsIntegrationsXRay {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.
+         * Specify each AWS region that includes the resources that you want to monitor.  
          * </details>
          */
         awsRegions?: string[];
@@ -4810,7 +4731,7 @@ export namespace plugins {
 
     export interface WorkloadStatusConfigAutomatic {
         /**
-         * Whether the automatic status configuration is enabled or not.
+         * Whether the static status configuration is enabled or not.
          */
         enabled: boolean;
         /**
@@ -4892,7 +4813,7 @@ export namespace plugins {
          */
         description?: string;
         /**
-         * Whether the automatic status configuration is enabled or not.
+         * Whether the static status configuration is enabled or not.
          */
         enabled: boolean;
         /**

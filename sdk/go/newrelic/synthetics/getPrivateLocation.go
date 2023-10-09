@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.LookupPrivateLocation(ctx, &synthetics.LookupPrivateLocationArgs{
+//			example, err := synthetics.LookupPrivateLocation(ctx, &synthetics.LookupPrivateLocationArgs{
 //				AccountId: pulumi.IntRef(123456),
 //				Name:      "My private location",
 //			}, nil)
@@ -37,7 +37,7 @@ import (
 //			}
 //			_, err = synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
 //				LocationsPrivates: pulumi.StringArray{
-//					data.Newrelic_synthetics_monitor_location.Example.Id,
+//					*pulumi.String(example.Id),
 //				},
 //			})
 //			if err != nil {

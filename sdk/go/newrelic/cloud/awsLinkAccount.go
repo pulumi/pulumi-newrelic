@@ -70,7 +70,7 @@ type AwsLinkAccount struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
 	MetricCollectionMode pulumi.StringPtrOutput `pulumi:"metricCollectionMode"`
-	// The linked account name
+	// The name of the linked account.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -113,7 +113,7 @@ type awsLinkAccountState struct {
 	Arn *string `pulumi:"arn"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
 	MetricCollectionMode *string `pulumi:"metricCollectionMode"`
-	// The linked account name
+	// The name of the linked account.
 	Name *string `pulumi:"name"`
 }
 
@@ -124,7 +124,7 @@ type AwsLinkAccountState struct {
 	Arn pulumi.StringPtrInput
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
 	MetricCollectionMode pulumi.StringPtrInput
-	// The linked account name
+	// The name of the linked account.
 	Name pulumi.StringPtrInput
 }
 
@@ -139,7 +139,7 @@ type awsLinkAccountArgs struct {
 	Arn string `pulumi:"arn"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
 	MetricCollectionMode *string `pulumi:"metricCollectionMode"`
-	// The linked account name
+	// The name of the linked account.
 	Name *string `pulumi:"name"`
 }
 
@@ -151,7 +151,7 @@ type AwsLinkAccountArgs struct {
 	Arn pulumi.StringInput
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
 	MetricCollectionMode pulumi.StringPtrInput
-	// The linked account name
+	// The name of the linked account.
 	Name pulumi.StringPtrInput
 }
 
@@ -281,7 +281,7 @@ func (o AwsLinkAccountOutput) MetricCollectionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsLinkAccount) pulumi.StringPtrOutput { return v.MetricCollectionMode }).(pulumi.StringPtrOutput)
 }
 
-// The linked account name
+// The name of the linked account.
 func (o AwsLinkAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AwsLinkAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

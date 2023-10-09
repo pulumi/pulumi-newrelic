@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -27,7 +27,16 @@ class WorkloadEntitySearchQueryArgs:
         """
         :param pulumi.Input[str] query: The query.
         """
-        pulumi.set(__self__, "query", query)
+        WorkloadEntitySearchQueryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query=query,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("query", query)
 
     @property
     @pulumi.getter
@@ -49,21 +58,34 @@ class WorkloadStatusConfigAutomaticArgs:
                  remaining_entities_rule: Optional[pulumi.Input['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs']] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgs']]]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether the automatic status configuration is enabled or not.
+        :param pulumi.Input[bool] enabled: Whether the static status configuration is enabled or not.
         :param pulumi.Input['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs'] remaining_entities_rule: An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remaining_entities_rule blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgs']]] rules: The input object used to represent a rollup strategy. See Nested rule blocks below for details.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        WorkloadStatusConfigAutomaticArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            remaining_entities_rule=remaining_entities_rule,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             remaining_entities_rule: Optional[pulumi.Input['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs']] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if remaining_entities_rule is not None:
-            pulumi.set(__self__, "remaining_entities_rule", remaining_entities_rule)
+            _setter("remaining_entities_rule", remaining_entities_rule)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether the automatic status configuration is enabled or not.
+        Whether the static status configuration is enabled or not.
         """
         return pulumi.get(self, "enabled")
 
@@ -103,7 +125,16 @@ class WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs:
         """
         :param pulumi.Input['WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs'] remaining_entities_rule_rollup: The input object used to represent a rollup strategy. See Nested remaining_entities_rule_rollup blocks below for details.
         """
-        pulumi.set(__self__, "remaining_entities_rule_rollup", remaining_entities_rule_rollup)
+        WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            remaining_entities_rule_rollup=remaining_entities_rule_rollup,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             remaining_entities_rule_rollup: pulumi.Input['WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("remaining_entities_rule_rollup", remaining_entities_rule_rollup)
 
     @property
     @pulumi.getter(name="remainingEntitiesRuleRollup")
@@ -131,12 +162,27 @@ class WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRol
         :param pulumi.Input[str] threshold_type: Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
         :param pulumi.Input[int] threshold_value: Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
         """
-        pulumi.set(__self__, "group_by", group_by)
-        pulumi.set(__self__, "strategy", strategy)
+        WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_by=group_by,
+            strategy=strategy,
+            threshold_type=threshold_type,
+            threshold_value=threshold_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_by: pulumi.Input[str],
+             strategy: pulumi.Input[str],
+             threshold_type: Optional[pulumi.Input[str]] = None,
+             threshold_value: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_by", group_by)
+        _setter("strategy", strategy)
         if threshold_type is not None:
-            pulumi.set(__self__, "threshold_type", threshold_type)
+            _setter("threshold_type", threshold_type)
         if threshold_value is not None:
-            pulumi.set(__self__, "threshold_value", threshold_value)
+            _setter("threshold_value", threshold_value)
 
     @property
     @pulumi.getter(name="groupBy")
@@ -198,11 +244,24 @@ class WorkloadStatusConfigAutomaticRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] entity_guids: A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
         :param pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleNrqlQueryArgs']]] nrql_queries: A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
         """
-        pulumi.set(__self__, "rollup", rollup)
+        WorkloadStatusConfigAutomaticRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rollup=rollup,
+            entity_guids=entity_guids,
+            nrql_queries=nrql_queries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rollup: pulumi.Input['WorkloadStatusConfigAutomaticRuleRollupArgs'],
+             entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             nrql_queries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleNrqlQueryArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rollup", rollup)
         if entity_guids is not None:
-            pulumi.set(__self__, "entity_guids", entity_guids)
+            _setter("entity_guids", entity_guids)
         if nrql_queries is not None:
-            pulumi.set(__self__, "nrql_queries", nrql_queries)
+            _setter("nrql_queries", nrql_queries)
 
     @property
     @pulumi.getter
@@ -248,7 +307,16 @@ class WorkloadStatusConfigAutomaticRuleNrqlQueryArgs:
         """
         :param pulumi.Input[str] query: The entity search query that is used to perform the search of a group of entities.
         """
-        pulumi.set(__self__, "query", query)
+        WorkloadStatusConfigAutomaticRuleNrqlQueryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query=query,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("query", query)
 
     @property
     @pulumi.getter
@@ -274,11 +342,24 @@ class WorkloadStatusConfigAutomaticRuleRollupArgs:
         :param pulumi.Input[str] threshold_type: Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
         :param pulumi.Input[int] threshold_value: Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
         """
-        pulumi.set(__self__, "strategy", strategy)
+        WorkloadStatusConfigAutomaticRuleRollupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            strategy=strategy,
+            threshold_type=threshold_type,
+            threshold_value=threshold_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             strategy: pulumi.Input[str],
+             threshold_type: Optional[pulumi.Input[str]] = None,
+             threshold_value: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("strategy", strategy)
         if threshold_type is not None:
-            pulumi.set(__self__, "threshold_type", threshold_type)
+            _setter("threshold_type", threshold_type)
         if threshold_value is not None:
-            pulumi.set(__self__, "threshold_value", threshold_value)
+            _setter("threshold_value", threshold_value)
 
     @property
     @pulumi.getter
@@ -325,23 +406,38 @@ class WorkloadStatusConfigStaticArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  summary: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether the automatic status configuration is enabled or not.
+        :param pulumi.Input[bool] enabled: Whether the static status configuration is enabled or not.
         :param pulumi.Input[str] status: The status of the workload.
         :param pulumi.Input[str] description: Relevant information about the workload.
         :param pulumi.Input[str] summary: A short description of the status of the workload.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "status", status)
+        WorkloadStatusConfigStaticArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            status=status,
+            description=description,
+            summary=summary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             status: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             summary: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("status", status)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether the automatic status configuration is enabled or not.
+        Whether the static status configuration is enabled or not.
         """
         return pulumi.get(self, "enabled")
 

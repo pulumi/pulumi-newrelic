@@ -136,7 +136,7 @@ func (o WorkloadEntitySearchQueryArrayOutput) Index(i pulumi.IntInput) WorkloadE
 }
 
 type WorkloadStatusConfigAutomatic struct {
-	// Whether the automatic status configuration is enabled or not.
+	// Whether the static status configuration is enabled or not.
 	Enabled bool `pulumi:"enabled"`
 	// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remainingEntitiesRule blocks below for details.
 	RemainingEntitiesRule *WorkloadStatusConfigAutomaticRemainingEntitiesRule `pulumi:"remainingEntitiesRule"`
@@ -156,7 +156,7 @@ type WorkloadStatusConfigAutomaticInput interface {
 }
 
 type WorkloadStatusConfigAutomaticArgs struct {
-	// Whether the automatic status configuration is enabled or not.
+	// Whether the static status configuration is enabled or not.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remainingEntitiesRule blocks below for details.
 	RemainingEntitiesRule WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrInput `pulumi:"remainingEntitiesRule"`
@@ -259,7 +259,7 @@ func (o WorkloadStatusConfigAutomaticOutput) ToOutput(ctx context.Context) pulum
 	}
 }
 
-// Whether the automatic status configuration is enabled or not.
+// Whether the static status configuration is enabled or not.
 func (o WorkloadStatusConfigAutomaticOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v WorkloadStatusConfigAutomatic) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -306,7 +306,7 @@ func (o WorkloadStatusConfigAutomaticPtrOutput) Elem() WorkloadStatusConfigAutom
 	}).(WorkloadStatusConfigAutomaticOutput)
 }
 
-// Whether the automatic status configuration is enabled or not.
+// Whether the static status configuration is enabled or not.
 func (o WorkloadStatusConfigAutomaticPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkloadStatusConfigAutomatic) *bool {
 		if v == nil {
@@ -1072,7 +1072,7 @@ func (o WorkloadStatusConfigAutomaticRuleRollupOutput) ThresholdValue() pulumi.I
 type WorkloadStatusConfigStatic struct {
 	// Relevant information about the workload.
 	Description *string `pulumi:"description"`
-	// Whether the automatic status configuration is enabled or not.
+	// Whether the static status configuration is enabled or not.
 	Enabled bool `pulumi:"enabled"`
 	// The status of the workload.
 	Status string `pulumi:"status"`
@@ -1094,7 +1094,7 @@ type WorkloadStatusConfigStaticInput interface {
 type WorkloadStatusConfigStaticArgs struct {
 	// Relevant information about the workload.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Whether the automatic status configuration is enabled or not.
+	// Whether the static status configuration is enabled or not.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The status of the workload.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -1202,7 +1202,7 @@ func (o WorkloadStatusConfigStaticOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadStatusConfigStatic) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Whether the automatic status configuration is enabled or not.
+// Whether the static status configuration is enabled or not.
 func (o WorkloadStatusConfigStaticOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v WorkloadStatusConfigStatic) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -1257,7 +1257,7 @@ func (o WorkloadStatusConfigStaticPtrOutput) Description() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether the automatic status configuration is enabled or not.
+// Whether the static status configuration is enabled or not.
 func (o WorkloadStatusConfigStaticPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkloadStatusConfigStatic) *bool {
 		if v == nil {

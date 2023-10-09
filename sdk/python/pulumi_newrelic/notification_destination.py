@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,18 +34,39 @@ class NotificationDestinationArgs:
         :param pulumi.Input['NotificationDestinationAuthTokenArgs'] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
         :param pulumi.Input[str] name: The name of the destination.
         """
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "type", type)
+        NotificationDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            type=type,
+            account_id=account_id,
+            active=active,
+            auth_basic=auth_basic,
+            auth_token=auth_token,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]],
+             type: pulumi.Input[str],
+             account_id: Optional[pulumi.Input[int]] = None,
+             active: Optional[pulumi.Input[bool]] = None,
+             auth_basic: Optional[pulumi.Input['NotificationDestinationAuthBasicArgs']] = None,
+             auth_token: Optional[pulumi.Input['NotificationDestinationAuthTokenArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
+        _setter("type", type)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if active is not None:
-            pulumi.set(__self__, "active", active)
+            _setter("active", active)
         if auth_basic is not None:
-            pulumi.set(__self__, "auth_basic", auth_basic)
+            _setter("auth_basic", auth_basic)
         if auth_token is not None:
-            pulumi.set(__self__, "auth_token", auth_token)
+            _setter("auth_token", auth_token)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -158,24 +179,49 @@ class _NotificationDestinationState:
         :param pulumi.Input[str] type: (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
                PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
         """
+        _NotificationDestinationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            active=active,
+            auth_basic=auth_basic,
+            auth_token=auth_token,
+            last_sent=last_sent,
+            name=name,
+            properties=properties,
+            status=status,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[int]] = None,
+             active: Optional[pulumi.Input[bool]] = None,
+             auth_basic: Optional[pulumi.Input['NotificationDestinationAuthBasicArgs']] = None,
+             auth_token: Optional[pulumi.Input['NotificationDestinationAuthTokenArgs']] = None,
+             last_sent: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if active is not None:
-            pulumi.set(__self__, "active", active)
+            _setter("active", active)
         if auth_basic is not None:
-            pulumi.set(__self__, "auth_basic", auth_basic)
+            _setter("auth_basic", auth_basic)
         if auth_token is not None:
-            pulumi.set(__self__, "auth_token", auth_token)
+            _setter("auth_token", auth_token)
         if last_sent is not None:
-            pulumi.set(__self__, "last_sent", last_sent)
+            _setter("last_sent", last_sent)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="accountId")
@@ -331,6 +377,10 @@ class NotificationDestination(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotificationDestinationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -354,7 +404,17 @@ class NotificationDestination(pulumi.CustomResource):
 
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["active"] = active
+            if auth_basic is not None and not isinstance(auth_basic, NotificationDestinationAuthBasicArgs):
+                auth_basic = auth_basic or {}
+                def _setter(key, value):
+                    auth_basic[key] = value
+                NotificationDestinationAuthBasicArgs._configure(_setter, **auth_basic)
             __props__.__dict__["auth_basic"] = auth_basic
+            if auth_token is not None and not isinstance(auth_token, NotificationDestinationAuthTokenArgs):
+                auth_token = auth_token or {}
+                def _setter(key, value):
+                    auth_token[key] = value
+                NotificationDestinationAuthTokenArgs._configure(_setter, **auth_token)
             __props__.__dict__["auth_token"] = auth_token
             __props__.__dict__["name"] = name
             if properties is None and not opts.urn:

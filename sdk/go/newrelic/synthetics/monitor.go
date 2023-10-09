@@ -278,7 +278,9 @@ type Monitor struct {
 	RuntimeTypeVersion pulumi.StringPtrOutput `pulumi:"runtimeTypeVersion"`
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrOutput `pulumi:"scriptLanguage"`
-	// The run state of the monitor.
+	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+	//
+	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -362,7 +364,9 @@ type monitorState struct {
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The programing language that should execute the script.
 	ScriptLanguage *string `pulumi:"scriptLanguage"`
-	// The run state of the monitor.
+	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+	//
+	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
 	Status *string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -411,7 +415,9 @@ type MonitorState struct {
 	RuntimeTypeVersion pulumi.StringPtrInput
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrInput
-	// The run state of the monitor.
+	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+	//
+	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
 	Status pulumi.StringPtrInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -462,7 +468,9 @@ type monitorArgs struct {
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The programing language that should execute the script.
 	ScriptLanguage *string `pulumi:"scriptLanguage"`
-	// The run state of the monitor.
+	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+	//
+	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
 	Status string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -510,7 +518,9 @@ type MonitorArgs struct {
 	RuntimeTypeVersion pulumi.StringPtrInput
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrInput
-	// The run state of the monitor.
+	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+	//
+	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
 	Status pulumi.StringInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -711,7 +721,9 @@ func (o MonitorOutput) ScriptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.ScriptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// The run state of the monitor.
+// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
+//
+// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
 func (o MonitorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

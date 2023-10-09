@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -21,10 +21,23 @@ class EventEvent(dict):
                  attributes: Sequence['outputs.EventEventAttribute'],
                  type: str,
                  timestamp: Optional[int] = None):
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "type", type)
+        EventEvent._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            type=type,
+            timestamp=timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Sequence['outputs.EventEventAttribute'],
+             type: str,
+             timestamp: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attributes", attributes)
+        _setter("type", type)
         if timestamp is not None:
-            pulumi.set(__self__, "timestamp", timestamp)
+            _setter("timestamp", timestamp)
 
     @property
     @pulumi.getter
@@ -48,10 +61,23 @@ class EventEventAttribute(dict):
                  key: str,
                  value: str,
                  type: Optional[str] = None):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EventEventAttribute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter

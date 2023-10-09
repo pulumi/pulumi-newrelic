@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,34 @@ class ObfuscationRuleArgs:
         :param pulumi.Input[str] description: Description of rule.
         :param pulumi.Input[str] name: Name of rule.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "filter", filter)
+        ObfuscationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            enabled=enabled,
+            filter=filter,
+            account_id=account_id,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: pulumi.Input[Sequence[pulumi.Input['ObfuscationRuleActionArgs']]],
+             enabled: pulumi.Input[bool],
+             filter: pulumi.Input[str],
+             account_id: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("enabled", enabled)
+        _setter("filter", filter)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -132,18 +151,37 @@ class _ObfuscationRuleState:
         :param pulumi.Input[str] filter: NRQL for determining whether a given log record should have obfuscation actions applied.
         :param pulumi.Input[str] name: Name of rule.
         """
+        _ObfuscationRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            actions=actions,
+            description=description,
+            enabled=enabled,
+            filter=filter,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[int]] = None,
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['ObfuscationRuleActionArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             filter: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="accountId")
@@ -317,6 +355,10 @@ class ObfuscationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ObfuscationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

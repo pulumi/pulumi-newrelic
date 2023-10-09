@@ -26,9 +26,6 @@ public final class AwsGovcloudIntegrationsIam {
     private @Nullable String tagKey;
     /**
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * * `api Gateway`
-     * * `auto scaling`
-     * * `elastic search`
      * 
      */
     private @Nullable String tagValue;
@@ -52,9 +49,6 @@ public final class AwsGovcloudIntegrationsIam {
     }
     /**
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * * `api Gateway`
-     * * `auto scaling`
-     * * `elastic search`
      * 
      */
     public Optional<String> tagValue() {

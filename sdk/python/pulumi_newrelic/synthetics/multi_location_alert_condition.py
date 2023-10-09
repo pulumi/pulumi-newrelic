@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,18 +39,41 @@ class MultiLocationAlertConditionArgs:
                import pulumi
                ```
         """
-        pulumi.set(__self__, "critical", critical)
-        pulumi.set(__self__, "entities", entities)
-        pulumi.set(__self__, "policy_id", policy_id)
-        pulumi.set(__self__, "violation_time_limit_seconds", violation_time_limit_seconds)
+        MultiLocationAlertConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            critical=critical,
+            entities=entities,
+            policy_id=policy_id,
+            violation_time_limit_seconds=violation_time_limit_seconds,
+            enabled=enabled,
+            name=name,
+            runbook_url=runbook_url,
+            warning=warning,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             critical: pulumi.Input['MultiLocationAlertConditionCriticalArgs'],
+             entities: pulumi.Input[Sequence[pulumi.Input[str]]],
+             policy_id: pulumi.Input[int],
+             violation_time_limit_seconds: pulumi.Input[int],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             runbook_url: Optional[pulumi.Input[str]] = None,
+             warning: Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("critical", critical)
+        _setter("entities", entities)
+        _setter("policy_id", policy_id)
+        _setter("violation_time_limit_seconds", violation_time_limit_seconds)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if runbook_url is not None:
-            pulumi.set(__self__, "runbook_url", runbook_url)
+            _setter("runbook_url", runbook_url)
         if warning is not None:
-            pulumi.set(__self__, "warning", warning)
+            _setter("warning", warning)
 
     @property
     @pulumi.getter
@@ -181,24 +204,49 @@ class _MultiLocationAlertConditionState:
                import pulumi
                ```
         """
+        _MultiLocationAlertConditionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            critical=critical,
+            enabled=enabled,
+            entities=entities,
+            entity_guid=entity_guid,
+            name=name,
+            policy_id=policy_id,
+            runbook_url=runbook_url,
+            violation_time_limit_seconds=violation_time_limit_seconds,
+            warning=warning,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             critical: Optional[pulumi.Input['MultiLocationAlertConditionCriticalArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             entity_guid: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_id: Optional[pulumi.Input[int]] = None,
+             runbook_url: Optional[pulumi.Input[str]] = None,
+             violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
+             warning: Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if critical is not None:
-            pulumi.set(__self__, "critical", critical)
+            _setter("critical", critical)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if entities is not None:
-            pulumi.set(__self__, "entities", entities)
+            _setter("entities", entities)
         if entity_guid is not None:
-            pulumi.set(__self__, "entity_guid", entity_guid)
+            _setter("entity_guid", entity_guid)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if runbook_url is not None:
-            pulumi.set(__self__, "runbook_url", runbook_url)
+            _setter("runbook_url", runbook_url)
         if violation_time_limit_seconds is not None:
-            pulumi.set(__self__, "violation_time_limit_seconds", violation_time_limit_seconds)
+            _setter("violation_time_limit_seconds", violation_time_limit_seconds)
         if warning is not None:
-            pulumi.set(__self__, "warning", warning)
+            _setter("warning", warning)
 
     @property
     @pulumi.getter
@@ -552,6 +600,10 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MultiLocationAlertConditionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -574,6 +626,11 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MultiLocationAlertConditionArgs.__new__(MultiLocationAlertConditionArgs)
 
+            if critical is not None and not isinstance(critical, MultiLocationAlertConditionCriticalArgs):
+                critical = critical or {}
+                def _setter(key, value):
+                    critical[key] = value
+                MultiLocationAlertConditionCriticalArgs._configure(_setter, **critical)
             if critical is None and not opts.urn:
                 raise TypeError("Missing required property 'critical'")
             __props__.__dict__["critical"] = critical
@@ -589,6 +646,11 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
             if violation_time_limit_seconds is None and not opts.urn:
                 raise TypeError("Missing required property 'violation_time_limit_seconds'")
             __props__.__dict__["violation_time_limit_seconds"] = violation_time_limit_seconds
+            if warning is not None and not isinstance(warning, MultiLocationAlertConditionWarningArgs):
+                warning = warning or {}
+                def _setter(key, value):
+                    warning[key] = value
+                MultiLocationAlertConditionWarningArgs._configure(_setter, **warning)
             __props__.__dict__["warning"] = warning
             __props__.__dict__["entity_guid"] = None
         super(MultiLocationAlertCondition, __self__).__init__(

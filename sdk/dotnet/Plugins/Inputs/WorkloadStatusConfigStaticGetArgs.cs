@@ -19,7 +19,7 @@ namespace Pulumi.NewRelic.Plugins.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether the automatic status configuration is enabled or not.
+        /// Whether the static status configuration is enabled or not.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
