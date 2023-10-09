@@ -131,7 +131,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -158,7 +158,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -170,7 +170,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -189,7 +189,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -201,7 +201,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -217,7 +217,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -233,7 +233,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -249,7 +249,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -265,7 +265,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -285,7 +285,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -297,7 +297,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -313,7 +313,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -325,7 +325,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchIpAddresses": {
                     "type": "boolean",
@@ -341,7 +341,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -353,7 +353,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchNodes": {
                     "type": "boolean",
@@ -369,7 +369,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -381,7 +381,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -402,7 +402,7 @@
             "properties": {
                 "awsRegions": {
                     "type": "string",
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -418,7 +418,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -435,7 +435,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -447,7 +447,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -463,7 +463,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -475,7 +475,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -491,7 +491,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -503,7 +503,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -515,7 +515,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -553,7 +553,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -565,7 +565,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -585,7 +585,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n* `direct connect`\n* `aws states`\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -612,7 +612,7 @@
                 },
                 "tagValue": {
                     "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n* `api Gateway`\n* `auto scaling`\n* `elastic search`\n"
+                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
                 }
             },
             "type": "object"
@@ -624,7 +624,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -663,7 +663,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -694,7 +694,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -710,7 +710,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -726,7 +726,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -742,7 +742,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -758,7 +758,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -774,7 +774,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -790,7 +790,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -806,7 +806,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -822,7 +822,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -838,7 +838,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -854,7 +854,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -870,7 +870,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -886,7 +886,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -902,7 +902,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -918,7 +918,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -934,7 +934,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -950,7 +950,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -966,7 +966,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -982,7 +982,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -998,7 +998,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -1048,7 +1048,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -1064,7 +1064,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -1080,7 +1080,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -1112,7 +1112,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -1140,7 +1140,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "duplicateEc2Tags": {
                     "type": "boolean",
@@ -1172,7 +1172,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -1200,7 +1200,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -1228,7 +1228,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -1256,7 +1256,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -1288,7 +1288,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchNodes": {
                     "type": "boolean",
@@ -1316,7 +1316,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -1340,7 +1340,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -1394,7 +1394,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -1410,7 +1410,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchShards": {
                     "type": "boolean",
@@ -1442,7 +1442,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -1458,7 +1458,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -1486,7 +1486,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchTags": {
                     "type": "boolean",
@@ -1514,7 +1514,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -1576,7 +1576,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -1592,7 +1592,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -1612,7 +1612,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchExtendedInventory": {
                     "type": "boolean",
@@ -1660,7 +1660,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "fetchNatGateway": {
                     "type": "boolean",
@@ -1692,7 +1692,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
@@ -2572,7 +2572,7 @@
                 },
                 "recipients": {
                     "type": "string",
-                    "description": "Comma delimited list of email addresses.\n",
+                    "description": "A set of recipients for targeting notifications.  Multiple values are comma separated.\n",
                     "willReplaceOnChanges": true
                 },
                 "region": {
@@ -2604,7 +2604,7 @@
                 },
                 "url": {
                     "type": "string",
-                    "description": "[Slack Webhook URL](https://api.slack.com/messaging/webhooks#create_a_webhook).\n",
+                    "description": "[Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).\n",
                     "secret": true,
                     "willReplaceOnChanges": true
                 },
@@ -6161,7 +6161,7 @@
                 },
                 "where": {
                     "type": "string",
-                    "description": "A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).\na particular entity and were successful).\na particular entity and returned an error).\n"
+                    "description": "A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to\na particular entity and returned an error).\n"
                 }
             },
             "type": "object",
@@ -6201,7 +6201,7 @@
                 },
                 "where": {
                     "type": "string",
-                    "description": "A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).\na particular entity and were successful).\na particular entity and returned an error).\n"
+                    "description": "A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to\na particular entity and returned an error).\n"
                 }
             },
             "type": "object",
@@ -6241,7 +6241,7 @@
                 },
                 "where": {
                     "type": "string",
-                    "description": "A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).\na particular entity and were successful).\na particular entity and returned an error).\n"
+                    "description": "A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to\na particular entity and returned an error).\n"
                 }
             },
             "type": "object",
@@ -6435,8 +6435,7 @@
                     "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "The name of the workflow.\n"
+                    "type": "string"
                 },
                 "predicates": {
                     "type": "array",
@@ -6728,7 +6727,7 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "description": "Whether the automatic status configuration is enabled or not.\n"
+                    "description": "Whether the static status configuration is enabled or not.\n"
                 },
                 "remainingEntitiesRule": {
                     "$ref": "#/types/newrelic:plugins/WorkloadStatusConfigAutomaticRemainingEntitiesRule:WorkloadStatusConfigAutomaticRemainingEntitiesRule",
@@ -6858,7 +6857,7 @@
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "Whether the automatic status configuration is enabled or not.\n"
+                    "description": "Whether the static status configuration is enabled or not.\n"
                 },
                 "status": {
                     "type": "string",
@@ -7976,7 +7975,8 @@
                 },
                 "linkedAccountId": {
                     "type": "integer",
-                    "description": "The ID of the linked AWS account in New Relic.\n\nAll other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**\n\u003cdetails\u003e\n\u003csummary\u003eExpand this section to view all supported AWS services supported, that may be integrated via this resource.\u003c/summary\u003e\n\n| Block                   | Description                   |\n|-------------------------|-------------------------------|\n| `alb`                   | ALB Integration               |\n| `api_gateway`           | API Gateway Integration       |\n| `auto_scaling`          | Auto Scaling Integration      |\n| `aws_app_sync`          | AppSync Integration           |\n| `aws_athena`            | Athena Integration            |\n| `aws_cognito`           | Cognito Integration           |\n| `aws_connect`           | Connect Integration           |\n| `aws_direct_connect`    | Direct Connect Integration    |\n| `aws_fsx`               | FSx Integration               |\n| `aws_glue`              | Glue Integration              |\n| `aws_kinesis_analytics` | Kinesis Analytics Integration |\n| `aws_media_convert`     | MediaConvert Integration      |\n| `aws_media_package_vod` | Media Package VOD Integration |\n| `aws_mq`                | MQ Integration                |\n| `aws_msk`               | MSK Integration               |\n| `aws_neptune`           | Neptune Integration           |\n| `aws_qldb`              | QLDB Integration              |\n| `aws_route53resolver`   | Route53 Resolver Integration  |\n| `aws_states`            | States Integration            |\n| `aws_transit_gateway`   | Transit Gateway Integration   |\n| `aws_waf`               | WAF Integration               |\n| `aws_wafv2`             | WAFv2 Integration             |\n| `billing`               | Billing Integration           |\n| `cloudfront`            | CloudFront Integration        |\n| `cloudtrail`            | CloudTrail Integration        |\n| `doc_db`                | DocumentDB Integration        |\n| `dynamodb`              | DynamoDB Integration          |\n| `ebs`                   | EBS Integration               |\n| `ec2`                   | EC2 Integration               |\n| `ecs`                   | ECS Integration               |\n| `efs`                   | EFS Integration               |\n| `elasticache`           | ElastiCache Integration       |\n| `elasticbeanstalk`      | Elastic Beanstalk Integration |\n| `elasticsearch`         | Elasticsearch Integration     |\n| `elb`                   | ELB Integration               |\n| `emr`                   | EMR Integration               |\n| `health`                | Health Integration            |\n| `iam`                   | IAM Integration               |\n| `iot`                   | IoT Integration               |\n| `kinesis`               | Kinesis Integration           |\n| `kinesis_firehose`      | Kinesis Firehose Integration  |\n| `lambda`                | Lambda Integration            |\n| `rds`                   | RDS Integration               |\n| `redshift`              | Redshift Integration          |\n| `route53`               | Route53 Integration           |\n| `s3`                    | S3 Integration                |\n| `ses`                   | SES Integration               |\n| `sns`                   | SNS Integration               |\n| `sqs`                   | SQS Integration               |\n| `trusted_advisor`       | Trusted Advisor Integration   |\n| `vpc`                   | VPC Integration               |\n| `x_ray`                 | X-Ray Integration             |\n\n\u003c/details\u003e\n"
+                    "description": "The ID of the linked AWS account in New Relic.\n\nAll other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**\n\u003cdetails\u003e\n\u003csummary\u003eExpand this section to view all supported AWS services supported, that may be integrated via this resource.\u003c/summary\u003e\n\n| Block                   | Description                   |\n|-------------------------|-------------------------------|\n| `alb`                   | ALB Integration               |\n| `api_gateway`           | API Gateway Integration       |\n| `auto_scaling`          | Auto Scaling Integration      |\n| `aws_app_sync`          | AppSync Integration           |\n| `aws_athena`            | Athena Integration            |\n| `aws_cognito`           | Cognito Integration           |\n| `aws_connect`           | Connect Integration           |\n| `aws_direct_connect`    | Direct Connect Integration    |\n| `aws_fsx`               | FSx Integration               |\n| `aws_glue`              | Glue Integration              |\n| `aws_kinesis_analytics` | Kinesis Analytics Integration |\n| `aws_media_convert`     | MediaConvert Integration      |\n| `aws_media_package_vod` | Media Package VOD Integration |\n| `aws_mq`                | MQ Integration                |\n| `aws_msk`               | MSK Integration               |\n| `aws_neptune`           | Neptune Integration           |\n| `aws_qldb`              | QLDB Integration              |\n| `aws_route53resolver`   | Route53 Resolver Integration  |\n| `aws_states`            | States Integration            |\n| `aws_transit_gateway`   | Transit Gateway Integration   |\n| `aws_waf`               | WAF Integration               |\n| `aws_wafv2`             | WAFv2 Integration             |\n| `billing`               | Billing Integration           |\n| `cloudfront`            | CloudFront Integration        |\n| `cloudtrail`            | CloudTrail Integration        |\n| `doc_db`                | DocumentDB Integration        |\n| `dynamodb`              | DynamoDB Integration          |\n| `ebs`                   | EBS Integration               |\n| `ec2`                   | EC2 Integration               |\n| `ecs`                   | ECS Integration               |\n| `efs`                   | EFS Integration               |\n| `elasticache`           | ElastiCache Integration       |\n| `elasticbeanstalk`      | Elastic Beanstalk Integration |\n| `elasticsearch`         | Elasticsearch Integration     |\n| `elb`                   | ELB Integration               |\n| `emr`                   | EMR Integration               |\n| `health`                | Health Integration            |\n| `iam`                   | IAM Integration               |\n| `iot`                   | IoT Integration               |\n| `kinesis`               | Kinesis Integration           |\n| `kinesis_firehose`      | Kinesis Firehose Integration  |\n| `lambda`                | Lambda Integration            |\n| `rds`                   | RDS Integration               |\n| `redshift`              | Redshift Integration          |\n| `route53`               | Route53 Integration           |\n| `s3`                    | S3 Integration                |\n| `ses`                   | SES Integration               |\n| `sns`                   | SNS Integration               |\n| `sqs`                   | SQS Integration               |\n| `trusted_advisor`       | Trusted Advisor Integration   |\n| `vpc`                   | VPC Integration               |\n| `x_ray`                 | X-Ray Integration             |\n\n\u003c/details\u003e\n",
+                    "willReplaceOnChanges": true
                 },
                 "rds": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsRds:AwsIntegrationsRds",
@@ -8199,7 +8199,8 @@
                     },
                     "linkedAccountId": {
                         "type": "integer",
-                        "description": "The ID of the linked AWS account in New Relic.\n\nAll other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**\n\u003cdetails\u003e\n\u003csummary\u003eExpand this section to view all supported AWS services supported, that may be integrated via this resource.\u003c/summary\u003e\n\n| Block                   | Description                   |\n|-------------------------|-------------------------------|\n| `alb`                   | ALB Integration               |\n| `api_gateway`           | API Gateway Integration       |\n| `auto_scaling`          | Auto Scaling Integration      |\n| `aws_app_sync`          | AppSync Integration           |\n| `aws_athena`            | Athena Integration            |\n| `aws_cognito`           | Cognito Integration           |\n| `aws_connect`           | Connect Integration           |\n| `aws_direct_connect`    | Direct Connect Integration    |\n| `aws_fsx`               | FSx Integration               |\n| `aws_glue`              | Glue Integration              |\n| `aws_kinesis_analytics` | Kinesis Analytics Integration |\n| `aws_media_convert`     | MediaConvert Integration      |\n| `aws_media_package_vod` | Media Package VOD Integration |\n| `aws_mq`                | MQ Integration                |\n| `aws_msk`               | MSK Integration               |\n| `aws_neptune`           | Neptune Integration           |\n| `aws_qldb`              | QLDB Integration              |\n| `aws_route53resolver`   | Route53 Resolver Integration  |\n| `aws_states`            | States Integration            |\n| `aws_transit_gateway`   | Transit Gateway Integration   |\n| `aws_waf`               | WAF Integration               |\n| `aws_wafv2`             | WAFv2 Integration             |\n| `billing`               | Billing Integration           |\n| `cloudfront`            | CloudFront Integration        |\n| `cloudtrail`            | CloudTrail Integration        |\n| `doc_db`                | DocumentDB Integration        |\n| `dynamodb`              | DynamoDB Integration          |\n| `ebs`                   | EBS Integration               |\n| `ec2`                   | EC2 Integration               |\n| `ecs`                   | ECS Integration               |\n| `efs`                   | EFS Integration               |\n| `elasticache`           | ElastiCache Integration       |\n| `elasticbeanstalk`      | Elastic Beanstalk Integration |\n| `elasticsearch`         | Elasticsearch Integration     |\n| `elb`                   | ELB Integration               |\n| `emr`                   | EMR Integration               |\n| `health`                | Health Integration            |\n| `iam`                   | IAM Integration               |\n| `iot`                   | IoT Integration               |\n| `kinesis`               | Kinesis Integration           |\n| `kinesis_firehose`      | Kinesis Firehose Integration  |\n| `lambda`                | Lambda Integration            |\n| `rds`                   | RDS Integration               |\n| `redshift`              | Redshift Integration          |\n| `route53`               | Route53 Integration           |\n| `s3`                    | S3 Integration                |\n| `ses`                   | SES Integration               |\n| `sns`                   | SNS Integration               |\n| `sqs`                   | SQS Integration               |\n| `trusted_advisor`       | Trusted Advisor Integration   |\n| `vpc`                   | VPC Integration               |\n| `x_ray`                 | X-Ray Integration             |\n\n\u003c/details\u003e\n"
+                        "description": "The ID of the linked AWS account in New Relic.\n\nAll other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**\n\u003cdetails\u003e\n\u003csummary\u003eExpand this section to view all supported AWS services supported, that may be integrated via this resource.\u003c/summary\u003e\n\n| Block                   | Description                   |\n|-------------------------|-------------------------------|\n| `alb`                   | ALB Integration               |\n| `api_gateway`           | API Gateway Integration       |\n| `auto_scaling`          | Auto Scaling Integration      |\n| `aws_app_sync`          | AppSync Integration           |\n| `aws_athena`            | Athena Integration            |\n| `aws_cognito`           | Cognito Integration           |\n| `aws_connect`           | Connect Integration           |\n| `aws_direct_connect`    | Direct Connect Integration    |\n| `aws_fsx`               | FSx Integration               |\n| `aws_glue`              | Glue Integration              |\n| `aws_kinesis_analytics` | Kinesis Analytics Integration |\n| `aws_media_convert`     | MediaConvert Integration      |\n| `aws_media_package_vod` | Media Package VOD Integration |\n| `aws_mq`                | MQ Integration                |\n| `aws_msk`               | MSK Integration               |\n| `aws_neptune`           | Neptune Integration           |\n| `aws_qldb`              | QLDB Integration              |\n| `aws_route53resolver`   | Route53 Resolver Integration  |\n| `aws_states`            | States Integration            |\n| `aws_transit_gateway`   | Transit Gateway Integration   |\n| `aws_waf`               | WAF Integration               |\n| `aws_wafv2`             | WAFv2 Integration             |\n| `billing`               | Billing Integration           |\n| `cloudfront`            | CloudFront Integration        |\n| `cloudtrail`            | CloudTrail Integration        |\n| `doc_db`                | DocumentDB Integration        |\n| `dynamodb`              | DynamoDB Integration          |\n| `ebs`                   | EBS Integration               |\n| `ec2`                   | EC2 Integration               |\n| `ecs`                   | ECS Integration               |\n| `efs`                   | EFS Integration               |\n| `elasticache`           | ElastiCache Integration       |\n| `elasticbeanstalk`      | Elastic Beanstalk Integration |\n| `elasticsearch`         | Elasticsearch Integration     |\n| `elb`                   | ELB Integration               |\n| `emr`                   | EMR Integration               |\n| `health`                | Health Integration            |\n| `iam`                   | IAM Integration               |\n| `iot`                   | IoT Integration               |\n| `kinesis`               | Kinesis Integration           |\n| `kinesis_firehose`      | Kinesis Firehose Integration  |\n| `lambda`                | Lambda Integration            |\n| `rds`                   | RDS Integration               |\n| `redshift`              | Redshift Integration          |\n| `route53`               | Route53 Integration           |\n| `s3`                    | S3 Integration                |\n| `ses`                   | SES Integration               |\n| `sns`                   | SNS Integration               |\n| `sqs`                   | SQS Integration               |\n| `trusted_advisor`       | Trusted Advisor Integration   |\n| `vpc`                   | VPC Integration               |\n| `x_ray`                 | X-Ray Integration             |\n\n\u003c/details\u003e\n",
+                        "willReplaceOnChanges": true
                     },
                     "rds": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsRds:AwsIntegrationsRds",
@@ -8262,7 +8263,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The linked account name\n"
+                    "description": "The name of the linked account.\n"
                 }
             },
             "required": [
@@ -8273,19 +8274,22 @@
             "inputProperties": {
                 "accountId": {
                     "type": "integer",
-                    "description": "The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.\n"
+                    "description": "The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.\n",
+                    "willReplaceOnChanges": true
                 },
                 "arn": {
                     "type": "string",
-                    "description": "The Amazon Resource Name (ARN) of the IAM role.\n"
+                    "description": "The Amazon Resource Name (ARN) of the IAM role.\n",
+                    "willReplaceOnChanges": true
                 },
                 "metricCollectionMode": {
                     "type": "string",
-                    "description": "How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.\n"
+                    "description": "How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.\n",
+                    "willReplaceOnChanges": true
                 },
                 "name": {
                     "type": "string",
-                    "description": "The linked account name\n"
+                    "description": "The name of the linked account.\n"
                 }
             },
             "requiredInputs": [
@@ -8296,19 +8300,22 @@
                 "properties": {
                     "accountId": {
                         "type": "integer",
-                        "description": "The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.\n"
+                        "description": "The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.\n",
+                        "willReplaceOnChanges": true
                     },
                     "arn": {
                         "type": "string",
-                        "description": "The Amazon Resource Name (ARN) of the IAM role.\n"
+                        "description": "The Amazon Resource Name (ARN) of the IAM role.\n",
+                        "willReplaceOnChanges": true
                     },
                     "metricCollectionMode": {
                         "type": "string",
-                        "description": "How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.\n"
+                        "description": "How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.\n",
+                        "willReplaceOnChanges": true
                     },
                     "name": {
                         "type": "string",
-                        "description": "The linked account name\n"
+                        "description": "The name of the linked account.\n"
                     }
                 },
                 "type": "object"
@@ -8517,7 +8524,8 @@
                 },
                 "linkedAccountId": {
                     "type": "integer",
-                    "description": "The ID of the linked Azure account in New Relic.\n"
+                    "description": "The ID of the linked Azure account in New Relic.\n",
+                    "willReplaceOnChanges": true
                 },
                 "loadBalancer": {
                     "$ref": "#/types/newrelic:cloud/AzureIntegrationsLoadBalancer:AzureIntegrationsLoadBalancer",
@@ -8660,7 +8668,8 @@
                     },
                     "linkedAccountId": {
                         "type": "integer",
-                        "description": "The ID of the linked Azure account in New Relic.\n"
+                        "description": "The ID of the linked Azure account in New Relic.\n",
+                        "willReplaceOnChanges": true
                     },
                     "loadBalancer": {
                         "$ref": "#/types/newrelic:cloud/AzureIntegrationsLoadBalancer:AzureIntegrationsLoadBalancer",
@@ -8760,7 +8769,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the application in New Relic APM.\n"
+                    "description": "Name of the linked account\n"
                 },
                 "subscriptionId": {
                     "type": "string",
@@ -8782,28 +8791,33 @@
             "inputProperties": {
                 "accountId": {
                     "type": "integer",
-                    "description": "Account ID of the New Relic.\n"
+                    "description": "Account ID of the New Relic.\n",
+                    "willReplaceOnChanges": true
                 },
                 "applicationId": {
                     "type": "string",
-                    "description": "Application ID of the App.\n"
+                    "description": "Application ID of the App.\n",
+                    "willReplaceOnChanges": true
                 },
                 "clientSecret": {
                     "type": "string",
                     "description": "Secret Value of the client.\n",
-                    "secret": true
+                    "secret": true,
+                    "willReplaceOnChanges": true
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the application in New Relic APM.\n"
+                    "description": "Name of the linked account\n"
                 },
                 "subscriptionId": {
                     "type": "string",
-                    "description": "Subscription ID of the Azure cloud account.\n"
+                    "description": "Subscription ID of the Azure cloud account.\n",
+                    "willReplaceOnChanges": true
                 },
                 "tenantId": {
                     "type": "string",
-                    "description": "Tenant ID of the Azure cloud account.\n"
+                    "description": "Tenant ID of the Azure cloud account.\n",
+                    "willReplaceOnChanges": true
                 }
             },
             "requiredInputs": [
@@ -8817,28 +8831,33 @@
                 "properties": {
                     "accountId": {
                         "type": "integer",
-                        "description": "Account ID of the New Relic.\n"
+                        "description": "Account ID of the New Relic.\n",
+                        "willReplaceOnChanges": true
                     },
                     "applicationId": {
                         "type": "string",
-                        "description": "Application ID of the App.\n"
+                        "description": "Application ID of the App.\n",
+                        "willReplaceOnChanges": true
                     },
                     "clientSecret": {
                         "type": "string",
                         "description": "Secret Value of the client.\n",
-                        "secret": true
+                        "secret": true,
+                        "willReplaceOnChanges": true
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the application in New Relic APM.\n"
+                        "description": "Name of the linked account\n"
                     },
                     "subscriptionId": {
                         "type": "string",
-                        "description": "Subscription ID of the Azure cloud account.\n"
+                        "description": "Subscription ID of the Azure cloud account.\n",
+                        "willReplaceOnChanges": true
                     },
                     "tenantId": {
                         "type": "string",
-                        "description": "Tenant ID of the Azure cloud account.\n"
+                        "description": "Tenant ID of the Azure cloud account.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
@@ -9031,7 +9050,8 @@
                 },
                 "linkedAccountId": {
                     "type": "integer",
-                    "description": "The ID of the linked GCP account in New Relic.\n"
+                    "description": "The ID of the linked GCP account in New Relic.\n",
+                    "willReplaceOnChanges": true
                 },
                 "loadBalancing": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsLoadBalancing:GcpIntegrationsLoadBalancing",
@@ -9150,7 +9170,8 @@
                     },
                     "linkedAccountId": {
                         "type": "integer",
-                        "description": "The ID of the linked GCP account in New Relic.\n"
+                        "description": "The ID of the linked GCP account in New Relic.\n",
+                        "willReplaceOnChanges": true
                     },
                     "loadBalancing": {
                         "$ref": "#/types/newrelic:cloud/GcpIntegrationsLoadBalancing:GcpIntegrationsLoadBalancing",
@@ -9209,7 +9230,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the GCP account in New Relic.\n"
+                    "description": "name of the linked account\n"
                 },
                 "projectId": {
                     "type": "string",
@@ -9224,15 +9245,17 @@
             "inputProperties": {
                 "accountId": {
                     "type": "integer",
-                    "description": "Account ID of the New Relic account.\n"
+                    "description": "Account ID of the New Relic account.\n",
+                    "willReplaceOnChanges": true
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the GCP account in New Relic.\n"
+                    "description": "name of the linked account\n"
                 },
                 "projectId": {
                     "type": "string",
-                    "description": "Project ID of the GCP account.\n"
+                    "description": "Project ID of the GCP account.\n",
+                    "willReplaceOnChanges": true
                 }
             },
             "requiredInputs": [
@@ -9243,15 +9266,17 @@
                 "properties": {
                     "accountId": {
                         "type": "integer",
-                        "description": "Account ID of the New Relic account.\n"
+                        "description": "Account ID of the New Relic account.\n",
+                        "willReplaceOnChanges": true
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the GCP account in New Relic.\n"
+                        "description": "name of the linked account\n"
                     },
                     "projectId": {
                         "type": "string",
-                        "description": "Project ID of the GCP account.\n"
+                        "description": "Project ID of the GCP account.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
@@ -10945,7 +10970,7 @@
             }
         },
         "newrelic:index/nrqlAlertCondition:NrqlAlertCondition": {
-            "description": "Use this resource to create and manage NRQL alert conditions in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% /examples %}}\n## NRQL\n\nThe `nrql` block supports the following arguments:\n\n- `query` - (Required) The NRQL query to execute for the condition.\n- `evaluation_offset` - (Optional) **DEPRECATED:** Use `aggregation_method` instead. Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated based on their `aggregation_window` size. The start time depends on this value. It's recommended to set this to 3 windows. An offset of less than 3 windows will trigger incidents sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 windows and an `aggregation_window` of 60 seconds, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`. `evaluation_offset` cannot be set with `aggregation_method`, `aggregation_delay`, or `aggregation_timer`.\u003cbr\u003e\n- `since_value` - (Optional)  **DEPRECATED:** Use `aggregation_method` instead. The value to be used in the `SINCE \u003cX\u003e minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). \u003cbr\u003e\n\n## Terms\n\n\u003e **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed. At least one `critical` or `warning` term must be defined.\n\nNRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.\n\nThe `term` block supports the following arguments:\n\n- `operator` - (Optional) Valid values are `above`, `above_or_equals`, `below`, `below_or_equals`, `equals`, or `not_equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `baseline`, the only valid option here is `above`.\n- `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.\n- `threshold` - (Required) The value which will trigger an incident.\n\u003cbr\u003eFor _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.\n- `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).\n\u003cbr\u003eFor _baseline_ NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).\n\u003cbr\u003eFor _static_ NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).\n\n- `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).\n- `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).\n- `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.\n\n## Additional Examples\n\n##### Type: `baseline`\n\n[Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst fooAlertPolicy = new newrelic.AlertPolicy(\"fooAlertPolicy\", {});\nconst fooIndex_alertPolicyAlertPolicy = new newrelic.AlertPolicy(\"fooIndex/alertPolicyAlertPolicy\", {});\nconst fooNrqlAlertCondition = new newrelic.NrqlAlertCondition(\"fooNrqlAlertCondition\", {\n    accountId: \"your_account_id\",\n    policyId: fooAlertPolicy.id,\n    type: \"static\",\n    description: \"Alert when transactions are taking too long\",\n    runbookUrl: \"https://www.example.com\",\n    enabled: true,\n    violationTimeLimitSeconds: 3600,\n    fillOption: \"static\",\n    fillValue: 1,\n    aggregationWindow: 60,\n    aggregationMethod: \"event_flow\",\n    aggregationDelay: \"120\",\n    expirationDuration: 120,\n    openViolationOnExpiration: true,\n    closeViolationsOnExpiration: true,\n    slideBy: 30,\n    nrql: {\n        query: \"SELECT average(duration) FROM Transaction where appName = 'Your App'\",\n    },\n    critical: {\n        operator: \"above\",\n        threshold: 5.5,\n        thresholdDuration: 300,\n        thresholdOccurrences: \"ALL\",\n    },\n    warning: {\n        operator: \"above\",\n        threshold: 3.5,\n        thresholdDuration: 600,\n        thresholdOccurrences: \"ALL\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo_alert_policy = newrelic.AlertPolicy(\"fooAlertPolicy\")\nfoo_index_alert_policy_alert_policy = newrelic.AlertPolicy(\"fooIndex/alertPolicyAlertPolicy\")\nfoo_nrql_alert_condition = newrelic.NrqlAlertCondition(\"fooNrqlAlertCondition\",\n    account_id=\"your_account_id\",\n    policy_id=foo_alert_policy.id,\n    type=\"static\",\n    description=\"Alert when transactions are taking too long\",\n    runbook_url=\"https://www.example.com\",\n    enabled=True,\n    violation_time_limit_seconds=3600,\n    fill_option=\"static\",\n    fill_value=1,\n    aggregation_window=60,\n    aggregation_method=\"event_flow\",\n    aggregation_delay=\"120\",\n    expiration_duration=120,\n    open_violation_on_expiration=True,\n    close_violations_on_expiration=True,\n    slide_by=30,\n    nrql=newrelic.NrqlAlertConditionNrqlArgs(\n        query=\"SELECT average(duration) FROM Transaction where appName = 'Your App'\",\n    ),\n    critical=newrelic.NrqlAlertConditionCriticalArgs(\n        operator=\"above\",\n        threshold=5.5,\n        threshold_duration=300,\n        threshold_occurrences=\"ALL\",\n    ),\n    warning=newrelic.NrqlAlertConditionWarningArgs(\n        operator=\"above\",\n        threshold=3.5,\n        threshold_duration=600,\n        threshold_occurrences=\"ALL\",\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var fooAlertPolicy = new NewRelic.AlertPolicy(\"fooAlertPolicy\");\n\n    var fooIndex_alertPolicyAlertPolicy = new NewRelic.AlertPolicy(\"fooIndex/alertPolicyAlertPolicy\");\n\n    var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition(\"fooNrqlAlertCondition\", new()\n    {\n        AccountId = \"your_account_id\",\n        PolicyId = fooAlertPolicy.Id,\n        Type = \"static\",\n        Description = \"Alert when transactions are taking too long\",\n        RunbookUrl = \"https://www.example.com\",\n        Enabled = true,\n        ViolationTimeLimitSeconds = 3600,\n        FillOption = \"static\",\n        FillValue = 1,\n        AggregationWindow = 60,\n        AggregationMethod = \"event_flow\",\n        AggregationDelay = \"120\",\n        ExpirationDuration = 120,\n        OpenViolationOnExpiration = true,\n        CloseViolationsOnExpiration = true,\n        SlideBy = 30,\n        Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs\n        {\n            Query = \"SELECT average(duration) FROM Transaction where appName = 'Your App'\",\n        },\n        Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs\n        {\n            Operator = \"above\",\n            Threshold = 5.5,\n            ThresholdDuration = 300,\n            ThresholdOccurrences = \"ALL\",\n        },\n        Warning = new NewRelic.Inputs.NrqlAlertConditionWarningArgs\n        {\n            Operator = \"above\",\n            Threshold = 3.5,\n            ThresholdDuration = 600,\n            ThresholdOccurrences = \"ALL\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tfooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, \"fooAlertPolicy\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = newrelic.NewAlertPolicy(ctx, \"fooIndex/alertPolicyAlertPolicy\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = newrelic.NewNrqlAlertCondition(ctx, \"fooNrqlAlertCondition\", \u0026newrelic.NrqlAlertConditionArgs{\n\t\t\tAccountId:                   pulumi.Int(\"your_account_id\"),\n\t\t\tPolicyId:                    fooAlertPolicy.ID(),\n\t\t\tType:                        pulumi.String(\"static\"),\n\t\t\tDescription:                 pulumi.String(\"Alert when transactions are taking too long\"),\n\t\t\tRunbookUrl:                  pulumi.String(\"https://www.example.com\"),\n\t\t\tEnabled:                     pulumi.Bool(true),\n\t\t\tViolationTimeLimitSeconds:   pulumi.Int(3600),\n\t\t\tFillOption:                  pulumi.String(\"static\"),\n\t\t\tFillValue:                   pulumi.Float64(1),\n\t\t\tAggregationWindow:           pulumi.Int(60),\n\t\t\tAggregationMethod:           pulumi.String(\"event_flow\"),\n\t\t\tAggregationDelay:            pulumi.String(\"120\"),\n\t\t\tExpirationDuration:          pulumi.Int(120),\n\t\t\tOpenViolationOnExpiration:   pulumi.Bool(true),\n\t\t\tCloseViolationsOnExpiration: pulumi.Bool(true),\n\t\t\tSlideBy:                     pulumi.Int(30),\n\t\t\tNrql: \u0026newrelic.NrqlAlertConditionNrqlArgs{\n\t\t\t\tQuery: pulumi.String(\"SELECT average(duration) FROM Transaction where appName = 'Your App'\"),\n\t\t\t},\n\t\t\tCritical: \u0026newrelic.NrqlAlertConditionCriticalArgs{\n\t\t\t\tOperator:             pulumi.String(\"above\"),\n\t\t\t\tThreshold:            pulumi.Float64(5.5),\n\t\t\t\tThresholdDuration:    pulumi.Int(300),\n\t\t\t\tThresholdOccurrences: pulumi.String(\"ALL\"),\n\t\t\t},\n\t\t\tWarning: \u0026newrelic.NrqlAlertConditionWarningArgs{\n\t\t\t\tOperator:             pulumi.String(\"above\"),\n\t\t\t\tThreshold:            pulumi.Float64(3.5),\n\t\t\t\tThresholdDuration:    pulumi.Int(600),\n\t\t\t\tThresholdOccurrences: pulumi.String(\"ALL\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.AlertPolicy;\nimport com.pulumi.newrelic.NrqlAlertCondition;\nimport com.pulumi.newrelic.NrqlAlertConditionArgs;\nimport com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;\nimport com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;\nimport com.pulumi.newrelic.inputs.NrqlAlertConditionWarningArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var fooAlertPolicy = new AlertPolicy(\"fooAlertPolicy\");\n\n        var fooIndex_alertPolicyAlertPolicy = new AlertPolicy(\"fooIndex/alertPolicyAlertPolicy\");\n\n        var fooNrqlAlertCondition = new NrqlAlertCondition(\"fooNrqlAlertCondition\", NrqlAlertConditionArgs.builder()        \n            .accountId(\"your_account_id\")\n            .policyId(fooAlertPolicy.id())\n            .type(\"static\")\n            .description(\"Alert when transactions are taking too long\")\n            .runbookUrl(\"https://www.example.com\")\n            .enabled(true)\n            .violationTimeLimitSeconds(3600)\n            .fillOption(\"static\")\n            .fillValue(1)\n            .aggregationWindow(60)\n            .aggregationMethod(\"event_flow\")\n            .aggregationDelay(120)\n            .expirationDuration(120)\n            .openViolationOnExpiration(true)\n            .closeViolationsOnExpiration(true)\n            .slideBy(30)\n            .nrql(NrqlAlertConditionNrqlArgs.builder()\n                .query(\"SELECT average(duration) FROM Transaction where appName = 'Your App'\")\n                .build())\n            .critical(NrqlAlertConditionCriticalArgs.builder()\n                .operator(\"above\")\n                .threshold(5.5)\n                .thresholdDuration(300)\n                .thresholdOccurrences(\"ALL\")\n                .build())\n            .warning(NrqlAlertConditionWarningArgs.builder()\n                .operator(\"above\")\n                .threshold(3.5)\n                .thresholdDuration(600)\n                .thresholdOccurrences(\"ALL\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  fooAlertPolicy:\n    type: newrelic:AlertPolicy\n  fooIndex/alertPolicyAlertPolicy:\n    type: newrelic:AlertPolicy\n  fooNrqlAlertCondition:\n    type: newrelic:NrqlAlertCondition\n    properties:\n      accountId: your_account_id\n      policyId: ${fooAlertPolicy.id}\n      type: static\n      description: Alert when transactions are taking too long\n      runbookUrl: https://www.example.com\n      enabled: true\n      violationTimeLimitSeconds: 3600\n      fillOption: static\n      fillValue: 1\n      aggregationWindow: 60\n      aggregationMethod: event_flow\n      aggregationDelay: 120\n      expirationDuration: 120\n      openViolationOnExpiration: true\n      closeViolationsOnExpiration: true\n      slideBy: 30\n      nrql:\n        query: SELECT average(duration) FROM Transaction where appName = 'Your App'\n      critical:\n        operator: above\n        threshold: 5.5\n        thresholdDuration: 300\n        thresholdOccurrences: ALL\n      warning:\n        operator: above\n        threshold: 3.5\n        thresholdDuration: 600\n        thresholdOccurrences: ALL\n```\n\n## Upgrade from 1.x to 2.x\n\nThere have been several deprecations in the `newrelic.NrqlAlertCondition`\nresource. Users will need to make some updates in order to have a smooth\nupgrade.\n\nAn example resource from 1.x might look like the following.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst nrqlAlertCondition = new newrelic.NrqlAlertCondition(\"nrqlAlertCondition\", {\n    policyId: newrelic_alert_policy.z.id,\n    type: \"static\",\n    runbookUrl: \"https://localhost\",\n    enabled: true,\n    violationTimeLimit: \"TWENTY_FOUR_HOURS\",\n    critical: {\n        operator: \"above\",\n        thresholdDuration: 120,\n        threshold: 3,\n        thresholdOccurrences: \"AT_LEAST_ONCE\",\n    },\n    nrql: {\n        query: \"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nnrql_alert_condition = newrelic.NrqlAlertCondition(\"nrqlAlertCondition\",\n    policy_id=newrelic_alert_policy[\"z\"][\"id\"],\n    type=\"static\",\n    runbook_url=\"https://localhost\",\n    enabled=True,\n    violation_time_limit=\"TWENTY_FOUR_HOURS\",\n    critical=newrelic.NrqlAlertConditionCriticalArgs(\n        operator=\"above\",\n        threshold_duration=120,\n        threshold=3,\n        threshold_occurrences=\"AT_LEAST_ONCE\",\n    ),\n    nrql=newrelic.NrqlAlertConditionNrqlArgs(\n        query=\"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\",\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var nrqlAlertCondition = new NewRelic.NrqlAlertCondition(\"nrqlAlertCondition\", new()\n    {\n        PolicyId = newrelic_alert_policy.Z.Id,\n        Type = \"static\",\n        RunbookUrl = \"https://localhost\",\n        Enabled = true,\n        ViolationTimeLimit = \"TWENTY_FOUR_HOURS\",\n        Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs\n        {\n            Operator = \"above\",\n            ThresholdDuration = 120,\n            Threshold = 3,\n            ThresholdOccurrences = \"AT_LEAST_ONCE\",\n        },\n        Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs\n        {\n            Query = \"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewNrqlAlertCondition(ctx, \"nrqlAlertCondition\", \u0026newrelic.NrqlAlertConditionArgs{\n\t\t\tPolicyId:           pulumi.Any(newrelic_alert_policy.Z.Id),\n\t\t\tType:               pulumi.String(\"static\"),\n\t\t\tRunbookUrl:         pulumi.String(\"https://localhost\"),\n\t\t\tEnabled:            pulumi.Bool(true),\n\t\t\tViolationTimeLimit: pulumi.String(\"TWENTY_FOUR_HOURS\"),\n\t\t\tCritical: \u0026newrelic.NrqlAlertConditionCriticalArgs{\n\t\t\t\tOperator:             pulumi.String(\"above\"),\n\t\t\t\tThresholdDuration:    pulumi.Int(120),\n\t\t\t\tThreshold:            pulumi.Float64(3),\n\t\t\t\tThresholdOccurrences: pulumi.String(\"AT_LEAST_ONCE\"),\n\t\t\t},\n\t\t\tNrql: \u0026newrelic.NrqlAlertConditionNrqlArgs{\n\t\t\t\tQuery: pulumi.String(\"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.NrqlAlertCondition;\nimport com.pulumi.newrelic.NrqlAlertConditionArgs;\nimport com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;\nimport com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var nrqlAlertCondition = new NrqlAlertCondition(\"nrqlAlertCondition\", NrqlAlertConditionArgs.builder()        \n            .policyId(newrelic_alert_policy.z().id())\n            .type(\"static\")\n            .runbookUrl(\"https://localhost\")\n            .enabled(true)\n            .violationTimeLimit(\"TWENTY_FOUR_HOURS\")\n            .critical(NrqlAlertConditionCriticalArgs.builder()\n                .operator(\"above\")\n                .thresholdDuration(120)\n                .threshold(3)\n                .thresholdOccurrences(\"AT_LEAST_ONCE\")\n                .build())\n            .nrql(NrqlAlertConditionNrqlArgs.builder()\n                .query(\"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  nrqlAlertCondition:\n    type: newrelic:NrqlAlertCondition\n    properties:\n      policyId: ${newrelic_alert_policy.z.id}\n      type: static\n      runbookUrl: https://localhost\n      enabled: true\n      violationTimeLimit: TWENTY_FOUR_HOURS\n      critical:\n        operator: above\n        thresholdDuration: 120\n        threshold: 3\n        thresholdOccurrences: AT_LEAST_ONCE\n      nrql:\n        query: SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\n```\n\nAfter making the appropriate adjustments mentioned in the deprecation warnings,\nthe resource now looks like the following.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst nrqlAlertCondition = new newrelic.NrqlAlertCondition(\"nrqlAlertCondition\", {\n    policyId: newrelic_alert_policy.z.id,\n    type: \"static\",\n    runbookUrl: \"https://localhost\",\n    enabled: true,\n    violationTimeLimitSeconds: 86400,\n    terms: [{\n        priority: \"critical\",\n        operator: \"above\",\n        threshold: 3,\n        duration: 5,\n        timeFunction: \"any\",\n    }],\n    nrql: {\n        query: \"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nnrql_alert_condition = newrelic.NrqlAlertCondition(\"nrqlAlertCondition\",\n    policy_id=newrelic_alert_policy[\"z\"][\"id\"],\n    type=\"static\",\n    runbook_url=\"https://localhost\",\n    enabled=True,\n    violation_time_limit_seconds=86400,\n    terms=[newrelic.NrqlAlertConditionTermArgs(\n        priority=\"critical\",\n        operator=\"above\",\n        threshold=3,\n        duration=5,\n        time_function=\"any\",\n    )],\n    nrql=newrelic.NrqlAlertConditionNrqlArgs(\n        query=\"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\",\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var nrqlAlertCondition = new NewRelic.NrqlAlertCondition(\"nrqlAlertCondition\", new()\n    {\n        PolicyId = newrelic_alert_policy.Z.Id,\n        Type = \"static\",\n        RunbookUrl = \"https://localhost\",\n        Enabled = true,\n        ViolationTimeLimitSeconds = 86400,\n        Terms = new[]\n        {\n            new NewRelic.Inputs.NrqlAlertConditionTermArgs\n            {\n                Priority = \"critical\",\n                Operator = \"above\",\n                Threshold = 3,\n                Duration = 5,\n                TimeFunction = \"any\",\n            },\n        },\n        Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs\n        {\n            Query = \"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewNrqlAlertCondition(ctx, \"nrqlAlertCondition\", \u0026newrelic.NrqlAlertConditionArgs{\n\t\t\tPolicyId:                  pulumi.Any(newrelic_alert_policy.Z.Id),\n\t\t\tType:                      pulumi.String(\"static\"),\n\t\t\tRunbookUrl:                pulumi.String(\"https://localhost\"),\n\t\t\tEnabled:                   pulumi.Bool(true),\n\t\t\tViolationTimeLimitSeconds: pulumi.Int(86400),\n\t\t\tTerms: newrelic.NrqlAlertConditionTermArray{\n\t\t\t\t\u0026newrelic.NrqlAlertConditionTermArgs{\n\t\t\t\t\tPriority:     pulumi.String(\"critical\"),\n\t\t\t\t\tOperator:     pulumi.String(\"above\"),\n\t\t\t\t\tThreshold:    pulumi.Float64(3),\n\t\t\t\t\tDuration:     pulumi.Int(5),\n\t\t\t\t\tTimeFunction: pulumi.String(\"any\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tNrql: \u0026newrelic.NrqlAlertConditionNrqlArgs{\n\t\t\t\tQuery: pulumi.String(\"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.NrqlAlertCondition;\nimport com.pulumi.newrelic.NrqlAlertConditionArgs;\nimport com.pulumi.newrelic.inputs.NrqlAlertConditionTermArgs;\nimport com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var nrqlAlertCondition = new NrqlAlertCondition(\"nrqlAlertCondition\", NrqlAlertConditionArgs.builder()        \n            .policyId(newrelic_alert_policy.z().id())\n            .type(\"static\")\n            .runbookUrl(\"https://localhost\")\n            .enabled(true)\n            .violationTimeLimitSeconds(86400)\n            .terms(NrqlAlertConditionTermArgs.builder()\n                .priority(\"critical\")\n                .operator(\"above\")\n                .threshold(3)\n                .duration(5)\n                .timeFunction(\"any\")\n                .build())\n            .nrql(NrqlAlertConditionNrqlArgs.builder()\n                .query(\"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  nrqlAlertCondition:\n    type: newrelic:NrqlAlertCondition\n    properties:\n      policyId: ${newrelic_alert_policy.z.id}\n      type: static\n      runbookUrl: https://localhost\n      enabled: true\n      violationTimeLimitSeconds: 86400\n      terms:\n        - priority: critical\n          operator: above\n          threshold: 3\n          duration: 5\n          timeFunction: any\n      nrql:\n        query: SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\n```\n\n\n## Import\n\nNRQL alert conditions can be imported using a composite ID of `\u003cpolicy_id\u003e:\u003ccondition_id\u003e:\u003cconditionType\u003e`, e.g. // For `baseline` conditions\n\n```sh\n $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline\n```\n\n // For `static` conditions\n\n```sh\n $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static\n```\n\n ",
+            "description": "Use this resource to create and manage NRQL alert conditions in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% /examples %}}\n## NRQL\n\nThe `nrql` block supports the following arguments:\n\n- `query` - (Required) The NRQL query to execute for the condition.\n- `evaluation_offset` - (Optional) **DEPRECATED:** Use `aggregation_method` instead. Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated based on their `aggregation_window` size. The start time depends on this value. It's recommended to set this to 3 windows. An offset of less than 3 windows will trigger incidents sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 windows and an `aggregation_window` of 60 seconds, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`. `evaluation_offset` cannot be set with `aggregation_method`, `aggregation_delay`, or `aggregation_timer`.\u003cbr\u003e\n- `since_value` - (Optional)  **DEPRECATED:** Use `aggregation_method` instead. The value to be used in the `SINCE \u003cX\u003e minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). \u003cbr\u003e\n\n## Terms\n\n\u003e **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed. At least one `critical` or `warning` term must be defined.\n\nNRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.\n\nThe `term` block supports the following arguments:\n\n- `operator` - (Optional) Valid values are `above`, `above_or_equals`, `below`, `below_or_equals`, `equals`, or `not_equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `baseline`, the only valid option here is `above`.\n- `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.\n- `threshold` - (Required) The value which will trigger an incident.\n\u003cbr\u003eFor _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.\n- `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).\n\u003cbr\u003eFor _baseline_ NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).\n\u003cbr\u003eFor _static_ NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).\n\n- `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).\n- `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).\n- `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.\n\n\u003e **NOTE:** When a `critical` or `warning` block is added to this resource, using either `duration` or `threshold_duration` (one of the two) is mandatory. Both of these should not be specified.\n\n\u003e **NOTE:** When a `critical` or `warning` block is added to this resource, using either `time_function` or `threshold_occurrences` (one of the two) is mandatory. Both of these should not be specified.\n\n## Additional Examples\n\n##### Type: `baseline`\n\n[Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst fooAlertPolicy = new newrelic.AlertPolicy(\"fooAlertPolicy\", {});\nconst fooIndex_alertPolicyAlertPolicy = new newrelic.AlertPolicy(\"fooIndex/alertPolicyAlertPolicy\", {});\nconst fooNrqlAlertCondition = new newrelic.NrqlAlertCondition(\"fooNrqlAlertCondition\", {\n    accountId: \"your_account_id\",\n    policyId: fooAlertPolicy.id,\n    type: \"static\",\n    description: \"Alert when transactions are taking too long\",\n    runbookUrl: \"https://www.example.com\",\n    enabled: true,\n    violationTimeLimitSeconds: 3600,\n    fillOption: \"static\",\n    fillValue: 1,\n    aggregationWindow: 60,\n    aggregationMethod: \"event_flow\",\n    aggregationDelay: \"120\",\n    expirationDuration: 120,\n    openViolationOnExpiration: true,\n    closeViolationsOnExpiration: true,\n    slideBy: 30,\n    nrql: {\n        query: \"SELECT average(duration) FROM Transaction where appName = 'Your App'\",\n    },\n    critical: {\n        operator: \"above\",\n        threshold: 5.5,\n        thresholdDuration: 300,\n        thresholdOccurrences: \"ALL\",\n    },\n    warning: {\n        operator: \"above\",\n        threshold: 3.5,\n        thresholdDuration: 600,\n        thresholdOccurrences: \"ALL\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo_alert_policy = newrelic.AlertPolicy(\"fooAlertPolicy\")\nfoo_index_alert_policy_alert_policy = newrelic.AlertPolicy(\"fooIndex/alertPolicyAlertPolicy\")\nfoo_nrql_alert_condition = newrelic.NrqlAlertCondition(\"fooNrqlAlertCondition\",\n    account_id=\"your_account_id\",\n    policy_id=foo_alert_policy.id,\n    type=\"static\",\n    description=\"Alert when transactions are taking too long\",\n    runbook_url=\"https://www.example.com\",\n    enabled=True,\n    violation_time_limit_seconds=3600,\n    fill_option=\"static\",\n    fill_value=1,\n    aggregation_window=60,\n    aggregation_method=\"event_flow\",\n    aggregation_delay=\"120\",\n    expiration_duration=120,\n    open_violation_on_expiration=True,\n    close_violations_on_expiration=True,\n    slide_by=30,\n    nrql=newrelic.NrqlAlertConditionNrqlArgs(\n        query=\"SELECT average(duration) FROM Transaction where appName = 'Your App'\",\n    ),\n    critical=newrelic.NrqlAlertConditionCriticalArgs(\n        operator=\"above\",\n        threshold=5.5,\n        threshold_duration=300,\n        threshold_occurrences=\"ALL\",\n    ),\n    warning=newrelic.NrqlAlertConditionWarningArgs(\n        operator=\"above\",\n        threshold=3.5,\n        threshold_duration=600,\n        threshold_occurrences=\"ALL\",\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var fooAlertPolicy = new NewRelic.AlertPolicy(\"fooAlertPolicy\");\n\n    var fooIndex_alertPolicyAlertPolicy = new NewRelic.AlertPolicy(\"fooIndex/alertPolicyAlertPolicy\");\n\n    var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition(\"fooNrqlAlertCondition\", new()\n    {\n        AccountId = \"your_account_id\",\n        PolicyId = fooAlertPolicy.Id,\n        Type = \"static\",\n        Description = \"Alert when transactions are taking too long\",\n        RunbookUrl = \"https://www.example.com\",\n        Enabled = true,\n        ViolationTimeLimitSeconds = 3600,\n        FillOption = \"static\",\n        FillValue = 1,\n        AggregationWindow = 60,\n        AggregationMethod = \"event_flow\",\n        AggregationDelay = \"120\",\n        ExpirationDuration = 120,\n        OpenViolationOnExpiration = true,\n        CloseViolationsOnExpiration = true,\n        SlideBy = 30,\n        Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs\n        {\n            Query = \"SELECT average(duration) FROM Transaction where appName = 'Your App'\",\n        },\n        Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs\n        {\n            Operator = \"above\",\n            Threshold = 5.5,\n            ThresholdDuration = 300,\n            ThresholdOccurrences = \"ALL\",\n        },\n        Warning = new NewRelic.Inputs.NrqlAlertConditionWarningArgs\n        {\n            Operator = \"above\",\n            Threshold = 3.5,\n            ThresholdDuration = 600,\n            ThresholdOccurrences = \"ALL\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tfooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, \"fooAlertPolicy\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = newrelic.NewAlertPolicy(ctx, \"fooIndex/alertPolicyAlertPolicy\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = newrelic.NewNrqlAlertCondition(ctx, \"fooNrqlAlertCondition\", \u0026newrelic.NrqlAlertConditionArgs{\n\t\t\tAccountId:                   pulumi.Int(\"your_account_id\"),\n\t\t\tPolicyId:                    fooAlertPolicy.ID(),\n\t\t\tType:                        pulumi.String(\"static\"),\n\t\t\tDescription:                 pulumi.String(\"Alert when transactions are taking too long\"),\n\t\t\tRunbookUrl:                  pulumi.String(\"https://www.example.com\"),\n\t\t\tEnabled:                     pulumi.Bool(true),\n\t\t\tViolationTimeLimitSeconds:   pulumi.Int(3600),\n\t\t\tFillOption:                  pulumi.String(\"static\"),\n\t\t\tFillValue:                   pulumi.Float64(1),\n\t\t\tAggregationWindow:           pulumi.Int(60),\n\t\t\tAggregationMethod:           pulumi.String(\"event_flow\"),\n\t\t\tAggregationDelay:            pulumi.String(\"120\"),\n\t\t\tExpirationDuration:          pulumi.Int(120),\n\t\t\tOpenViolationOnExpiration:   pulumi.Bool(true),\n\t\t\tCloseViolationsOnExpiration: pulumi.Bool(true),\n\t\t\tSlideBy:                     pulumi.Int(30),\n\t\t\tNrql: \u0026newrelic.NrqlAlertConditionNrqlArgs{\n\t\t\t\tQuery: pulumi.String(\"SELECT average(duration) FROM Transaction where appName = 'Your App'\"),\n\t\t\t},\n\t\t\tCritical: \u0026newrelic.NrqlAlertConditionCriticalArgs{\n\t\t\t\tOperator:             pulumi.String(\"above\"),\n\t\t\t\tThreshold:            pulumi.Float64(5.5),\n\t\t\t\tThresholdDuration:    pulumi.Int(300),\n\t\t\t\tThresholdOccurrences: pulumi.String(\"ALL\"),\n\t\t\t},\n\t\t\tWarning: \u0026newrelic.NrqlAlertConditionWarningArgs{\n\t\t\t\tOperator:             pulumi.String(\"above\"),\n\t\t\t\tThreshold:            pulumi.Float64(3.5),\n\t\t\t\tThresholdDuration:    pulumi.Int(600),\n\t\t\t\tThresholdOccurrences: pulumi.String(\"ALL\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.AlertPolicy;\nimport com.pulumi.newrelic.NrqlAlertCondition;\nimport com.pulumi.newrelic.NrqlAlertConditionArgs;\nimport com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;\nimport com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;\nimport com.pulumi.newrelic.inputs.NrqlAlertConditionWarningArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var fooAlertPolicy = new AlertPolicy(\"fooAlertPolicy\");\n\n        var fooIndex_alertPolicyAlertPolicy = new AlertPolicy(\"fooIndex/alertPolicyAlertPolicy\");\n\n        var fooNrqlAlertCondition = new NrqlAlertCondition(\"fooNrqlAlertCondition\", NrqlAlertConditionArgs.builder()        \n            .accountId(\"your_account_id\")\n            .policyId(fooAlertPolicy.id())\n            .type(\"static\")\n            .description(\"Alert when transactions are taking too long\")\n            .runbookUrl(\"https://www.example.com\")\n            .enabled(true)\n            .violationTimeLimitSeconds(3600)\n            .fillOption(\"static\")\n            .fillValue(1)\n            .aggregationWindow(60)\n            .aggregationMethod(\"event_flow\")\n            .aggregationDelay(120)\n            .expirationDuration(120)\n            .openViolationOnExpiration(true)\n            .closeViolationsOnExpiration(true)\n            .slideBy(30)\n            .nrql(NrqlAlertConditionNrqlArgs.builder()\n                .query(\"SELECT average(duration) FROM Transaction where appName = 'Your App'\")\n                .build())\n            .critical(NrqlAlertConditionCriticalArgs.builder()\n                .operator(\"above\")\n                .threshold(5.5)\n                .thresholdDuration(300)\n                .thresholdOccurrences(\"ALL\")\n                .build())\n            .warning(NrqlAlertConditionWarningArgs.builder()\n                .operator(\"above\")\n                .threshold(3.5)\n                .thresholdDuration(600)\n                .thresholdOccurrences(\"ALL\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  fooAlertPolicy:\n    type: newrelic:AlertPolicy\n  fooIndex/alertPolicyAlertPolicy:\n    type: newrelic:AlertPolicy\n  fooNrqlAlertCondition:\n    type: newrelic:NrqlAlertCondition\n    properties:\n      accountId: your_account_id\n      policyId: ${fooAlertPolicy.id}\n      type: static\n      description: Alert when transactions are taking too long\n      runbookUrl: https://www.example.com\n      enabled: true\n      violationTimeLimitSeconds: 3600\n      fillOption: static\n      fillValue: 1\n      aggregationWindow: 60\n      aggregationMethod: event_flow\n      aggregationDelay: 120\n      expirationDuration: 120\n      openViolationOnExpiration: true\n      closeViolationsOnExpiration: true\n      slideBy: 30\n      nrql:\n        query: SELECT average(duration) FROM Transaction where appName = 'Your App'\n      critical:\n        operator: above\n        threshold: 5.5\n        thresholdDuration: 300\n        thresholdOccurrences: ALL\n      warning:\n        operator: above\n        threshold: 3.5\n        thresholdDuration: 600\n        thresholdOccurrences: ALL\n```\n\n## Upgrade from 1.x to 2.x\n\nThere have been several deprecations in the `newrelic.NrqlAlertCondition`\nresource. Users will need to make some updates in order to have a smooth\nupgrade.\n\nAn example resource from 1.x might look like the following.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst nrqlAlertCondition = new newrelic.NrqlAlertCondition(\"nrqlAlertCondition\", {\n    policyId: newrelic_alert_policy.z.id,\n    type: \"static\",\n    runbookUrl: \"https://localhost\",\n    enabled: true,\n    violationTimeLimit: \"TWENTY_FOUR_HOURS\",\n    critical: {\n        operator: \"above\",\n        thresholdDuration: 120,\n        threshold: 3,\n        thresholdOccurrences: \"AT_LEAST_ONCE\",\n    },\n    nrql: {\n        query: \"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nnrql_alert_condition = newrelic.NrqlAlertCondition(\"nrqlAlertCondition\",\n    policy_id=newrelic_alert_policy[\"z\"][\"id\"],\n    type=\"static\",\n    runbook_url=\"https://localhost\",\n    enabled=True,\n    violation_time_limit=\"TWENTY_FOUR_HOURS\",\n    critical=newrelic.NrqlAlertConditionCriticalArgs(\n        operator=\"above\",\n        threshold_duration=120,\n        threshold=3,\n        threshold_occurrences=\"AT_LEAST_ONCE\",\n    ),\n    nrql=newrelic.NrqlAlertConditionNrqlArgs(\n        query=\"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\",\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var nrqlAlertCondition = new NewRelic.NrqlAlertCondition(\"nrqlAlertCondition\", new()\n    {\n        PolicyId = newrelic_alert_policy.Z.Id,\n        Type = \"static\",\n        RunbookUrl = \"https://localhost\",\n        Enabled = true,\n        ViolationTimeLimit = \"TWENTY_FOUR_HOURS\",\n        Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs\n        {\n            Operator = \"above\",\n            ThresholdDuration = 120,\n            Threshold = 3,\n            ThresholdOccurrences = \"AT_LEAST_ONCE\",\n        },\n        Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs\n        {\n            Query = \"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewNrqlAlertCondition(ctx, \"nrqlAlertCondition\", \u0026newrelic.NrqlAlertConditionArgs{\n\t\t\tPolicyId:           pulumi.Any(newrelic_alert_policy.Z.Id),\n\t\t\tType:               pulumi.String(\"static\"),\n\t\t\tRunbookUrl:         pulumi.String(\"https://localhost\"),\n\t\t\tEnabled:            pulumi.Bool(true),\n\t\t\tViolationTimeLimit: pulumi.String(\"TWENTY_FOUR_HOURS\"),\n\t\t\tCritical: \u0026newrelic.NrqlAlertConditionCriticalArgs{\n\t\t\t\tOperator:             pulumi.String(\"above\"),\n\t\t\t\tThresholdDuration:    pulumi.Int(120),\n\t\t\t\tThreshold:            pulumi.Float64(3),\n\t\t\t\tThresholdOccurrences: pulumi.String(\"AT_LEAST_ONCE\"),\n\t\t\t},\n\t\t\tNrql: \u0026newrelic.NrqlAlertConditionNrqlArgs{\n\t\t\t\tQuery: pulumi.String(\"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.NrqlAlertCondition;\nimport com.pulumi.newrelic.NrqlAlertConditionArgs;\nimport com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;\nimport com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var nrqlAlertCondition = new NrqlAlertCondition(\"nrqlAlertCondition\", NrqlAlertConditionArgs.builder()        \n            .policyId(newrelic_alert_policy.z().id())\n            .type(\"static\")\n            .runbookUrl(\"https://localhost\")\n            .enabled(true)\n            .violationTimeLimit(\"TWENTY_FOUR_HOURS\")\n            .critical(NrqlAlertConditionCriticalArgs.builder()\n                .operator(\"above\")\n                .thresholdDuration(120)\n                .threshold(3)\n                .thresholdOccurrences(\"AT_LEAST_ONCE\")\n                .build())\n            .nrql(NrqlAlertConditionNrqlArgs.builder()\n                .query(\"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  nrqlAlertCondition:\n    type: newrelic:NrqlAlertCondition\n    properties:\n      policyId: ${newrelic_alert_policy.z.id}\n      type: static\n      runbookUrl: https://localhost\n      enabled: true\n      violationTimeLimit: TWENTY_FOUR_HOURS\n      critical:\n        operator: above\n        thresholdDuration: 120\n        threshold: 3\n        thresholdOccurrences: AT_LEAST_ONCE\n      nrql:\n        query: SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\n```\n\nAfter making the appropriate adjustments mentioned in the deprecation warnings,\nthe resource now looks like the following.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst nrqlAlertCondition = new newrelic.NrqlAlertCondition(\"nrqlAlertCondition\", {\n    policyId: newrelic_alert_policy.z.id,\n    type: \"static\",\n    runbookUrl: \"https://localhost\",\n    enabled: true,\n    violationTimeLimitSeconds: 86400,\n    terms: [{\n        priority: \"critical\",\n        operator: \"above\",\n        threshold: 3,\n        duration: 5,\n        timeFunction: \"any\",\n    }],\n    nrql: {\n        query: \"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nnrql_alert_condition = newrelic.NrqlAlertCondition(\"nrqlAlertCondition\",\n    policy_id=newrelic_alert_policy[\"z\"][\"id\"],\n    type=\"static\",\n    runbook_url=\"https://localhost\",\n    enabled=True,\n    violation_time_limit_seconds=86400,\n    terms=[newrelic.NrqlAlertConditionTermArgs(\n        priority=\"critical\",\n        operator=\"above\",\n        threshold=3,\n        duration=5,\n        time_function=\"any\",\n    )],\n    nrql=newrelic.NrqlAlertConditionNrqlArgs(\n        query=\"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\",\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var nrqlAlertCondition = new NewRelic.NrqlAlertCondition(\"nrqlAlertCondition\", new()\n    {\n        PolicyId = newrelic_alert_policy.Z.Id,\n        Type = \"static\",\n        RunbookUrl = \"https://localhost\",\n        Enabled = true,\n        ViolationTimeLimitSeconds = 86400,\n        Terms = new[]\n        {\n            new NewRelic.Inputs.NrqlAlertConditionTermArgs\n            {\n                Priority = \"critical\",\n                Operator = \"above\",\n                Threshold = 3,\n                Duration = 5,\n                TimeFunction = \"any\",\n            },\n        },\n        Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs\n        {\n            Query = \"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewNrqlAlertCondition(ctx, \"nrqlAlertCondition\", \u0026newrelic.NrqlAlertConditionArgs{\n\t\t\tPolicyId:                  pulumi.Any(newrelic_alert_policy.Z.Id),\n\t\t\tType:                      pulumi.String(\"static\"),\n\t\t\tRunbookUrl:                pulumi.String(\"https://localhost\"),\n\t\t\tEnabled:                   pulumi.Bool(true),\n\t\t\tViolationTimeLimitSeconds: pulumi.Int(86400),\n\t\t\tTerms: newrelic.NrqlAlertConditionTermArray{\n\t\t\t\t\u0026newrelic.NrqlAlertConditionTermArgs{\n\t\t\t\t\tPriority:     pulumi.String(\"critical\"),\n\t\t\t\t\tOperator:     pulumi.String(\"above\"),\n\t\t\t\t\tThreshold:    pulumi.Float64(3),\n\t\t\t\t\tDuration:     pulumi.Int(5),\n\t\t\t\t\tTimeFunction: pulumi.String(\"any\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tNrql: \u0026newrelic.NrqlAlertConditionNrqlArgs{\n\t\t\t\tQuery: pulumi.String(\"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.NrqlAlertCondition;\nimport com.pulumi.newrelic.NrqlAlertConditionArgs;\nimport com.pulumi.newrelic.inputs.NrqlAlertConditionTermArgs;\nimport com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var nrqlAlertCondition = new NrqlAlertCondition(\"nrqlAlertCondition\", NrqlAlertConditionArgs.builder()        \n            .policyId(newrelic_alert_policy.z().id())\n            .type(\"static\")\n            .runbookUrl(\"https://localhost\")\n            .enabled(true)\n            .violationTimeLimitSeconds(86400)\n            .terms(NrqlAlertConditionTermArgs.builder()\n                .priority(\"critical\")\n                .operator(\"above\")\n                .threshold(3)\n                .duration(5)\n                .timeFunction(\"any\")\n                .build())\n            .nrql(NrqlAlertConditionNrqlArgs.builder()\n                .query(\"SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  nrqlAlertCondition:\n    type: newrelic:NrqlAlertCondition\n    properties:\n      policyId: ${newrelic_alert_policy.z.id}\n      type: static\n      runbookUrl: https://localhost\n      enabled: true\n      violationTimeLimitSeconds: 86400\n      terms:\n        - priority: critical\n          operator: above\n          threshold: 3\n          duration: 5\n          timeFunction: any\n      nrql:\n        query: SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName\n```\n\n\n## Import\n\nNRQL alert conditions can be imported using a composite ID of `\u003cpolicy_id\u003e:\u003ccondition_id\u003e:\u003cconditionType\u003e`, e.g. // For `baseline` conditions\n\n```sh\n $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline\n```\n\n // For `static` conditions\n\n```sh\n $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static\n```\n\n ",
             "properties": {
                 "accountId": {
                     "type": "integer",
@@ -10965,7 +10990,7 @@
                 },
                 "aggregationWindow": {
                     "type": "integer",
-                    "description": "The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.\n"
+                    "description": "The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.\n"
                 },
                 "baselineDirection": {
                     "type": "string",
@@ -11085,7 +11110,7 @@
                 },
                 "aggregationWindow": {
                     "type": "integer",
-                    "description": "The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.\n"
+                    "description": "The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.\n"
                 },
                 "baselineDirection": {
                     "type": "string",
@@ -11200,7 +11225,7 @@
                     },
                     "aggregationWindow": {
                         "type": "integer",
-                        "description": "The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.\n"
+                        "description": "The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.\n"
                     },
                     "baselineDirection": {
                         "type": "string",
@@ -12567,7 +12592,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n"
+                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -12619,7 +12644,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n"
+                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -12677,7 +12702,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n"
+                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -12737,7 +12762,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n"
+                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -12793,7 +12818,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n"
+                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -12852,7 +12877,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n"
+                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -12935,7 +12960,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor.\n"
+                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -13037,7 +13062,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor.\n"
+                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -13142,7 +13167,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The run state of the monitor.\n"
+                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -13492,7 +13517,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor: `ENABLED` or `DISABLED`\n"
+                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -13572,7 +13597,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor: `ENABLED` or `DISABLED`\n"
+                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -13659,7 +13684,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The run state of the monitor: `ENABLED` or `DISABLED`\n"
+                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -13808,7 +13833,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n"
+                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                 },
                 "steps": {
                     "type": "array",
@@ -13867,7 +13892,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n"
+                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                 },
                 "steps": {
                     "type": "array",
@@ -13932,7 +13957,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n"
+                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                     },
                     "steps": {
                         "type": "array",
@@ -14605,7 +14630,7 @@
             }
         },
         "newrelic:synthetics/getPrivateLocation:getPrivateLocation": {
-            "description": "Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst example = newrelic.synthetics.getPrivateLocation({\n    accountId: 123456,\n    name: \"My private location\",\n});\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {locationsPrivates: [data.newrelic_synthetics_monitor_location.example.id]});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nexample = newrelic.synthetics.get_private_location(account_id=123456,\n    name=\"My private location\")\nfoo = newrelic.synthetics.Monitor(\"foo\", locations_privates=[data[\"newrelic_synthetics_monitor_location\"][\"example\"][\"id\"]])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()\n    {\n        AccountId = 123456,\n        Name = \"My private location\",\n    });\n\n    var foo = new NewRelic.Synthetics.Monitor(\"foo\", new()\n    {\n        LocationsPrivates = new[]\n        {\n            data.Newrelic_synthetics_monitor_location.Example.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := synthetics.LookupPrivateLocation(ctx, \u0026synthetics.LookupPrivateLocationArgs{\n\t\t\tAccountId: pulumi.IntRef(123456),\n\t\t\tName:      \"My private location\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = synthetics.NewMonitor(ctx, \"foo\", \u0026synthetics.MonitorArgs{\n\t\t\tLocationsPrivates: pulumi.StringArray{\n\t\t\t\tdata.Newrelic_synthetics_monitor_location.Example.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.synthetics.SyntheticsFunctions;\nimport com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;\nimport com.pulumi.newrelic.synthetics.Monitor;\nimport com.pulumi.newrelic.synthetics.MonitorArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()\n            .accountId(123456)\n            .name(\"My private location\")\n            .build());\n\n        var foo = new Monitor(\"foo\", MonitorArgs.builder()        \n            .locationsPrivates(data.newrelic_synthetics_monitor_location().example().id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: newrelic:synthetics:Monitor\n    properties:\n      # Reference the private location data source in the monitor resource\n      locationsPrivates:\n        - ${data.newrelic_synthetics_monitor_location.example.id}\nvariables:\n  example:\n    fn::invoke:\n      Function: newrelic:synthetics:getPrivateLocation\n      Arguments:\n        accountId: 123456\n        name: My private location\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst example = newrelic.synthetics.getPrivateLocation({\n    accountId: 123456,\n    name: \"My private location\",\n});\nconst foo = new newrelic.synthetics.StepMonitor(\"foo\", {locationPrivates: [{\n    guid: example.then(example =\u003e example.id),\n}]});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nexample = newrelic.synthetics.get_private_location(account_id=123456,\n    name=\"My private location\")\nfoo = newrelic.synthetics.StepMonitor(\"foo\", location_privates=[newrelic.synthetics.StepMonitorLocationPrivateArgs(\n    guid=example.id,\n)])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()\n    {\n        AccountId = 123456,\n        Name = \"My private location\",\n    });\n\n    var foo = new NewRelic.Synthetics.StepMonitor(\"foo\", new()\n    {\n        LocationPrivates = new[]\n        {\n            new NewRelic.Synthetics.Inputs.StepMonitorLocationPrivateArgs\n            {\n                Guid = example.Apply(getPrivateLocationResult =\u003e getPrivateLocationResult.Id),\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := synthetics.LookupPrivateLocation(ctx, \u0026synthetics.LookupPrivateLocationArgs{\n\t\t\tAccountId: pulumi.IntRef(123456),\n\t\t\tName:      \"My private location\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = synthetics.NewStepMonitor(ctx, \"foo\", \u0026synthetics.StepMonitorArgs{\n\t\t\tLocationPrivates: synthetics.StepMonitorLocationPrivateArray{\n\t\t\t\t\u0026synthetics.StepMonitorLocationPrivateArgs{\n\t\t\t\t\tGuid: *pulumi.String(example.Id),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.synthetics.SyntheticsFunctions;\nimport com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;\nimport com.pulumi.newrelic.synthetics.StepMonitor;\nimport com.pulumi.newrelic.synthetics.StepMonitorArgs;\nimport com.pulumi.newrelic.synthetics.inputs.StepMonitorLocationPrivateArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()\n            .accountId(123456)\n            .name(\"My private location\")\n            .build());\n\n        var foo = new StepMonitor(\"foo\", StepMonitorArgs.builder()        \n            .locationPrivates(StepMonitorLocationPrivateArgs.builder()\n                .guid(example.applyValue(getPrivateLocationResult -\u003e getPrivateLocationResult.id()))\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: newrelic:synthetics:StepMonitor\n    properties:\n      # Reference the private location data source in the monitor resource\n      locationPrivates:\n        - guid: ${example.id}\nvariables:\n  example:\n    fn::invoke:\n      Function: newrelic:synthetics:getPrivateLocation\n      Arguments:\n        accountId: 123456\n        name: My private location\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst example = newrelic.synthetics.getPrivateLocation({\n    accountId: 123456,\n    name: \"My private location\",\n});\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {locationsPrivates: [example.then(example =\u003e example.id)]});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nexample = newrelic.synthetics.get_private_location(account_id=123456,\n    name=\"My private location\")\nfoo = newrelic.synthetics.Monitor(\"foo\", locations_privates=[example.id])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()\n    {\n        AccountId = 123456,\n        Name = \"My private location\",\n    });\n\n    var foo = new NewRelic.Synthetics.Monitor(\"foo\", new()\n    {\n        LocationsPrivates = new[]\n        {\n            example.Apply(getPrivateLocationResult =\u003e getPrivateLocationResult.Id),\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := synthetics.LookupPrivateLocation(ctx, \u0026synthetics.LookupPrivateLocationArgs{\n\t\t\tAccountId: pulumi.IntRef(123456),\n\t\t\tName:      \"My private location\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = synthetics.NewMonitor(ctx, \"foo\", \u0026synthetics.MonitorArgs{\n\t\t\tLocationsPrivates: pulumi.StringArray{\n\t\t\t\t*pulumi.String(example.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.synthetics.SyntheticsFunctions;\nimport com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;\nimport com.pulumi.newrelic.synthetics.Monitor;\nimport com.pulumi.newrelic.synthetics.MonitorArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()\n            .accountId(123456)\n            .name(\"My private location\")\n            .build());\n\n        var foo = new Monitor(\"foo\", MonitorArgs.builder()        \n            .locationsPrivates(example.applyValue(getPrivateLocationResult -\u003e getPrivateLocationResult.id()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: newrelic:synthetics:Monitor\n    properties:\n      # Reference the private location data source in the monitor resource\n      locationsPrivates:\n        - ${example.id}\nvariables:\n  example:\n    fn::invoke:\n      Function: newrelic:synthetics:getPrivateLocation\n      Arguments:\n        accountId: 123456\n        name: My private location\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst example = newrelic.synthetics.getPrivateLocation({\n    accountId: 123456,\n    name: \"My private location\",\n});\nconst foo = new newrelic.synthetics.StepMonitor(\"foo\", {locationPrivates: [{\n    guid: example.then(example =\u003e example.id),\n}]});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nexample = newrelic.synthetics.get_private_location(account_id=123456,\n    name=\"My private location\")\nfoo = newrelic.synthetics.StepMonitor(\"foo\", location_privates=[newrelic.synthetics.StepMonitorLocationPrivateArgs(\n    guid=example.id,\n)])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()\n    {\n        AccountId = 123456,\n        Name = \"My private location\",\n    });\n\n    var foo = new NewRelic.Synthetics.StepMonitor(\"foo\", new()\n    {\n        LocationPrivates = new[]\n        {\n            new NewRelic.Synthetics.Inputs.StepMonitorLocationPrivateArgs\n            {\n                Guid = example.Apply(getPrivateLocationResult =\u003e getPrivateLocationResult.Id),\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := synthetics.LookupPrivateLocation(ctx, \u0026synthetics.LookupPrivateLocationArgs{\n\t\t\tAccountId: pulumi.IntRef(123456),\n\t\t\tName:      \"My private location\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = synthetics.NewStepMonitor(ctx, \"foo\", \u0026synthetics.StepMonitorArgs{\n\t\t\tLocationPrivates: synthetics.StepMonitorLocationPrivateArray{\n\t\t\t\t\u0026synthetics.StepMonitorLocationPrivateArgs{\n\t\t\t\t\tGuid: *pulumi.String(example.Id),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.synthetics.SyntheticsFunctions;\nimport com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;\nimport com.pulumi.newrelic.synthetics.StepMonitor;\nimport com.pulumi.newrelic.synthetics.StepMonitorArgs;\nimport com.pulumi.newrelic.synthetics.inputs.StepMonitorLocationPrivateArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()\n            .accountId(123456)\n            .name(\"My private location\")\n            .build());\n\n        var foo = new StepMonitor(\"foo\", StepMonitorArgs.builder()        \n            .locationPrivates(StepMonitorLocationPrivateArgs.builder()\n                .guid(example.applyValue(getPrivateLocationResult -\u003e getPrivateLocationResult.id()))\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: newrelic:synthetics:StepMonitor\n    properties:\n      # Reference the private location data source in the monitor resource\n      locationPrivates:\n        - guid: ${example.id}\nvariables:\n  example:\n    fn::invoke:\n      Function: newrelic:synthetics:getPrivateLocation\n      Arguments:\n        accountId: 123456\n        name: My private location\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getPrivateLocation.\n",
                 "properties": {
