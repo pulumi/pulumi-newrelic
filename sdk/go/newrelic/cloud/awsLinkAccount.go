@@ -23,35 +23,6 @@ import (
 //
 // To pull data from AWS instead, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-new-relic-infrastructure-monitoring#connect).
 //
-// ## Example Usage
-//
-// You can also use the full example, including the AWS set up, found in our guides.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/cloud"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloud.NewAwsLinkAccount(ctx, "foo", &cloud.AwsLinkAccountArgs{
-//				Arn:                  pulumi.String("arn:aws:service:region:account-id:resource-id"),
-//				MetricCollectionMode: pulumi.String("PUSH"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Linked AWS accounts can be imported using the `id`, e.g. bash

@@ -28,8 +28,12 @@ class EventArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             events: pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             events: Optional[pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if events is None:
+            raise TypeError("Missing 'events' argument")
+
         _setter("events", events)
 
     @property
@@ -61,7 +65,9 @@ class _EventState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              events: Optional[pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if events is not None:
             _setter("events", events)
 
@@ -88,33 +94,6 @@ class Event(pulumi.CustomResource):
         """
         Use this resource to create one or more Insights events.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.insights.Event("foo", events=[newrelic.insights.EventEventArgs(
-            attributes=[
-                newrelic.insights.EventEventAttributeArgs(
-                    key="a_string_attribute",
-                    value="a string",
-                ),
-                newrelic.insights.EventEventAttributeArgs(
-                    key="an_integer_attribute",
-                    type="int",
-                    value="42",
-                ),
-                newrelic.insights.EventEventAttributeArgs(
-                    key="a_float_attribute",
-                    type="float",
-                    value="101.1",
-                ),
-            ],
-            timestamp=1232471100,
-            type="MyEvent",
-        )])
-        ```
         ## Events
 
         The `event` mapping supports the following arguments:
@@ -144,33 +123,6 @@ class Event(pulumi.CustomResource):
         """
         Use this resource to create one or more Insights events.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.insights.Event("foo", events=[newrelic.insights.EventEventArgs(
-            attributes=[
-                newrelic.insights.EventEventAttributeArgs(
-                    key="a_string_attribute",
-                    value="a string",
-                ),
-                newrelic.insights.EventEventAttributeArgs(
-                    key="an_integer_attribute",
-                    type="int",
-                    value="42",
-                ),
-                newrelic.insights.EventEventAttributeArgs(
-                    key="a_float_attribute",
-                    type="float",
-                    value="101.1",
-                ),
-            ],
-            timestamp=1232471100,
-            type="MyEvent",
-        )])
-        ```
         ## Events
 
         The `event` mapping supports the following arguments:

@@ -9,32 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const monitor = new newrelic.synthetics.StepMonitor("monitor", {
- *     enableScreenshotOnFailureAndScript: true,
- *     locationsPublics: [
- *         "US_EAST_1",
- *         "US_EAST_2",
- *     ],
- *     period: "EVERY_6_HOURS",
- *     status: "ENABLED",
- *     steps: [{
- *         ordinal: 0,
- *         type: "NAVIGATE",
- *         values: ["https://www.newrelic.com"],
- *     }],
- *     tags: [{
- *         key: "some_key",
- *         values: ["some_value"],
- *     }],
- * });
- * ```
- * See additional examples.
  * ## Additional Examples
  *
  * ## Import

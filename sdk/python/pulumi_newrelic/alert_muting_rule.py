@@ -43,13 +43,21 @@ class AlertMutingRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             condition: pulumi.Input['AlertMutingRuleConditionArgs'],
-             enabled: pulumi.Input[bool],
+             condition: Optional[pulumi.Input['AlertMutingRuleConditionArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              schedule: Optional[pulumi.Input['AlertMutingRuleScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if condition is None:
+            raise TypeError("Missing 'condition' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("condition", condition)
         _setter("enabled", enabled)
         if account_id is not None:
@@ -170,7 +178,11 @@ class _AlertMutingRuleState:
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              schedule: Optional[pulumi.Input['AlertMutingRuleScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if condition is not None:
@@ -270,44 +282,6 @@ class AlertMutingRule(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleScheduleArgs']]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.AlertMutingRule("foo",
-            condition=newrelic.AlertMutingRuleConditionArgs(
-                conditions=[
-                    newrelic.AlertMutingRuleConditionConditionArgs(
-                        attribute="product",
-                        operator="EQUALS",
-                        values=["APM"],
-                    ),
-                    newrelic.AlertMutingRuleConditionConditionArgs(
-                        attribute="targetId",
-                        operator="EQUALS",
-                        values=["Muted"],
-                    ),
-                ],
-                operator="AND",
-            ),
-            description="muting rule test.",
-            enabled=True,
-            schedule=newrelic.AlertMutingRuleScheduleArgs(
-                end_time="2021-01-28T16:30:00",
-                repeat="WEEKLY",
-                repeat_count=42,
-                start_time="2021-01-28T15:30:00",
-                time_zone="America/Los_Angeles",
-                weekly_repeat_days=[
-                    "MONDAY",
-                    "WEDNESDAY",
-                    "FRIDAY",
-                ],
-            ))
-        ```
-
         ## Import
 
         Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
@@ -332,44 +306,6 @@ class AlertMutingRule(pulumi.CustomResource):
                  args: AlertMutingRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.AlertMutingRule("foo",
-            condition=newrelic.AlertMutingRuleConditionArgs(
-                conditions=[
-                    newrelic.AlertMutingRuleConditionConditionArgs(
-                        attribute="product",
-                        operator="EQUALS",
-                        values=["APM"],
-                    ),
-                    newrelic.AlertMutingRuleConditionConditionArgs(
-                        attribute="targetId",
-                        operator="EQUALS",
-                        values=["Muted"],
-                    ),
-                ],
-                operator="AND",
-            ),
-            description="muting rule test.",
-            enabled=True,
-            schedule=newrelic.AlertMutingRuleScheduleArgs(
-                end_time="2021-01-28T16:30:00",
-                repeat="WEEKLY",
-                repeat_count=42,
-                start_time="2021-01-28T15:30:00",
-                time_zone="America/Los_Angeles",
-                weekly_repeat_days=[
-                    "MONDAY",
-                    "WEDNESDAY",
-                    "FRIDAY",
-                ],
-            ))
-        ```
-
         ## Import
 
         Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
@@ -413,11 +349,7 @@ class AlertMutingRule(pulumi.CustomResource):
             __props__ = AlertMutingRuleArgs.__new__(AlertMutingRuleArgs)
 
             __props__.__dict__["account_id"] = account_id
-            if condition is not None and not isinstance(condition, AlertMutingRuleConditionArgs):
-                condition = condition or {}
-                def _setter(key, value):
-                    condition[key] = value
-                AlertMutingRuleConditionArgs._configure(_setter, **condition)
+            condition = _utilities.configure(condition, AlertMutingRuleConditionArgs, True)
             if condition is None and not opts.urn:
                 raise TypeError("Missing required property 'condition'")
             __props__.__dict__["condition"] = condition
@@ -426,11 +358,7 @@ class AlertMutingRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["name"] = name
-            if schedule is not None and not isinstance(schedule, AlertMutingRuleScheduleArgs):
-                schedule = schedule or {}
-                def _setter(key, value):
-                    schedule[key] = value
-                AlertMutingRuleScheduleArgs._configure(_setter, **schedule)
+            schedule = _utilities.configure(schedule, AlertMutingRuleScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
         super(AlertMutingRule, __self__).__init__(
             'newrelic:index/alertMutingRule:AlertMutingRule',

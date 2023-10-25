@@ -51,15 +51,29 @@ class BrokenLinksMonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             period: pulumi.Input[str],
-             status: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             period: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if period is None:
+            raise TypeError("Missing 'period' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if locations_privates is None and 'locationsPrivates' in kwargs:
+            locations_privates = kwargs['locationsPrivates']
+        if locations_publics is None and 'locationsPublics' in kwargs:
+            locations_publics = kwargs['locationsPublics']
+
         _setter("period", period)
         _setter("status", status)
         _setter("uri", uri)
@@ -227,7 +241,17 @@ class _BrokenLinksMonitorState:
              status: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]]] = None,
              uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if locations_privates is None and 'locationsPrivates' in kwargs:
+            locations_privates = kwargs['locationsPrivates']
+        if locations_publics is None and 'locationsPublics' in kwargs:
+            locations_publics = kwargs['locationsPublics']
+        if period_in_minutes is None and 'periodInMinutes' in kwargs:
+            period_in_minutes = kwargs['periodInMinutes']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if guid is not None:
@@ -389,48 +413,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Synthetics Broken Links monitor in New Relic.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        monitor = newrelic.synthetics.BrokenLinksMonitor("monitor",
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_6_HOURS",
-            status="ENABLED",
-            tags=[newrelic.synthetics.BrokenLinksMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )],
-            uri="https://www.one.example.com")
-        ```
-        See additional examples.
         ## Additional Examples
-
-        ### Create a monitor with a private location
-
-        The below example shows how you can define a private location and attach it to a monitor.
-
-        > **NOTE:** It can take up to 10 minutes for a private location to become available.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        location = newrelic.synthetics.PrivateLocation("location",
-            description="Test Description",
-            verified_script_execution=False)
-        monitor = newrelic.synthetics.BrokenLinksMonitor("monitor",
-            uri="https://www.one.example.com",
-            locations_privates=[location.id],
-            period="EVERY_6_HOURS",
-            status="ENABLED",
-            tags=[newrelic.synthetics.BrokenLinksMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
 
         ## Import
 
@@ -462,48 +445,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Synthetics Broken Links monitor in New Relic.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        monitor = newrelic.synthetics.BrokenLinksMonitor("monitor",
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_6_HOURS",
-            status="ENABLED",
-            tags=[newrelic.synthetics.BrokenLinksMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )],
-            uri="https://www.one.example.com")
-        ```
-        See additional examples.
         ## Additional Examples
-
-        ### Create a monitor with a private location
-
-        The below example shows how you can define a private location and attach it to a monitor.
-
-        > **NOTE:** It can take up to 10 minutes for a private location to become available.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        location = newrelic.synthetics.PrivateLocation("location",
-            description="Test Description",
-            verified_script_execution=False)
-        monitor = newrelic.synthetics.BrokenLinksMonitor("monitor",
-            uri="https://www.one.example.com",
-            locations_privates=[location.id],
-            period="EVERY_6_HOURS",
-            status="ENABLED",
-            tags=[newrelic.synthetics.BrokenLinksMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
 
         ## Import
 

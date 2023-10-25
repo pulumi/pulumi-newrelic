@@ -183,7 +183,23 @@ class AwsGovcloudIntegrationsAlbArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if load_balancer_prefixes is None and 'loadBalancerPrefixes' in kwargs:
+            load_balancer_prefixes = kwargs['loadBalancerPrefixes']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
@@ -319,7 +335,19 @@ class AwsGovcloudIntegrationsApiGatewayArgs:
              stage_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if stage_prefixes is None and 'stagePrefixes' in kwargs:
+            stage_prefixes = kwargs['stagePrefixes']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -415,7 +443,13 @@ class AwsGovcloudIntegrationsAutoScalingArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -469,7 +503,13 @@ class AwsGovcloudIntegrationsAwsDirectConnectArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -523,7 +563,13 @@ class AwsGovcloudIntegrationsAwsStatesArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -577,7 +623,13 @@ class AwsGovcloudIntegrationsCloudtrailArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -647,7 +699,21 @@ class AwsGovcloudIntegrationsDynamoDbArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
@@ -769,7 +835,19 @@ class AwsGovcloudIntegrationsEbsArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
@@ -877,7 +955,19 @@ class AwsGovcloudIntegrationsEc2Args:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_ip_addresses is None and 'fetchIpAddresses' in kwargs:
+            fetch_ip_addresses = kwargs['fetchIpAddresses']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_ip_addresses is not None:
@@ -985,7 +1075,19 @@ class AwsGovcloudIntegrationsElasticSearchArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_nodes is None and 'fetchNodes' in kwargs:
+            fetch_nodes = kwargs['fetchNodes']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_nodes is not None:
@@ -1089,7 +1191,17 @@ class AwsGovcloudIntegrationsElbArgs:
              fetch_extended_inventory: Optional[pulumi.Input[bool]] = None,
              fetch_tags: Optional[pulumi.Input[bool]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
@@ -1183,7 +1295,19 @@ class AwsGovcloudIntegrationsEmrArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
@@ -1283,7 +1407,15 @@ class AwsGovcloudIntegrationsIamArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
@@ -1363,7 +1495,19 @@ class AwsGovcloudIntegrationsLambdaArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
@@ -1471,7 +1615,19 @@ class AwsGovcloudIntegrationsRdsArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
@@ -1575,7 +1731,17 @@ class AwsGovcloudIntegrationsRedShiftArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -1657,7 +1823,13 @@ class AwsGovcloudIntegrationsRoute53Args:
              _setter: Callable[[Any, Any], None],
              fetch_extended_inventory: Optional[pulumi.Input[bool]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if fetch_extended_inventory is not None:
             _setter("fetch_extended_inventory", fetch_extended_inventory)
         if metrics_polling_interval is not None:
@@ -1723,7 +1895,19 @@ class AwsGovcloudIntegrationsS3Args:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if fetch_extended_inventory is not None:
             _setter("fetch_extended_inventory", fetch_extended_inventory)
         if fetch_tags is not None:
@@ -1823,7 +2007,15 @@ class AwsGovcloudIntegrationsSnsArgs:
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              fetch_extended_inventory: Optional[pulumi.Input[bool]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
@@ -1911,7 +2103,23 @@ class AwsGovcloudIntegrationsSqsArgs:
              queue_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if queue_prefixes is None and 'queuePrefixes' in kwargs:
+            queue_prefixes = kwargs['queuePrefixes']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
@@ -2059,7 +2267,23 @@ class AwsIntegrationsAlbArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if load_balancer_prefixes is None and 'loadBalancerPrefixes' in kwargs:
+            load_balancer_prefixes = kwargs['loadBalancerPrefixes']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
@@ -2201,7 +2425,19 @@ class AwsIntegrationsApiGatewayArgs:
              stage_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if stage_prefixes is None and 'stagePrefixes' in kwargs:
+            stage_prefixes = kwargs['stagePrefixes']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -2301,7 +2537,13 @@ class AwsIntegrationsAutoScalingArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -2359,7 +2601,13 @@ class AwsIntegrationsAwsAppSyncArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -2417,7 +2665,13 @@ class AwsIntegrationsAwsAthenaArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -2475,7 +2729,13 @@ class AwsIntegrationsAwsCognitoArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -2533,7 +2793,13 @@ class AwsIntegrationsAwsConnectArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -2591,7 +2857,13 @@ class AwsIntegrationsAwsDirectConnectArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -2649,7 +2921,13 @@ class AwsIntegrationsAwsFsxArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -2707,7 +2985,13 @@ class AwsIntegrationsAwsGlueArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -2765,7 +3049,13 @@ class AwsIntegrationsAwsKinesisAnalyticsArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -2823,7 +3113,13 @@ class AwsIntegrationsAwsMediaConvertArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -2881,7 +3177,13 @@ class AwsIntegrationsAwsMediaPackageVodArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -2939,7 +3241,13 @@ class AwsIntegrationsAwsMqArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -2997,7 +3305,13 @@ class AwsIntegrationsAwsMskArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -3055,7 +3369,13 @@ class AwsIntegrationsAwsNeptuneArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -3113,7 +3433,13 @@ class AwsIntegrationsAwsQldbArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -3171,7 +3497,13 @@ class AwsIntegrationsAwsRoute53resolverArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -3229,7 +3561,13 @@ class AwsIntegrationsAwsStatesArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -3287,7 +3625,13 @@ class AwsIntegrationsAwsTransitGatewayArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -3345,7 +3689,13 @@ class AwsIntegrationsAwsWafArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -3403,7 +3753,13 @@ class AwsIntegrationsAwsWafv2Args:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -3456,7 +3812,11 @@ class AwsIntegrationsBillingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -3510,7 +3870,19 @@ class AwsIntegrationsCloudfrontArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fetch_lambdas_at_edge is None and 'fetchLambdasAtEdge' in kwargs:
+            fetch_lambdas_at_edge = kwargs['fetchLambdasAtEdge']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if fetch_lambdas_at_edge is not None:
             _setter("fetch_lambdas_at_edge", fetch_lambdas_at_edge)
         if fetch_tags is not None:
@@ -3609,7 +3981,13 @@ class AwsIntegrationsCloudtrailArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -3667,7 +4045,13 @@ class AwsIntegrationsDocDbArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -3743,7 +4127,21 @@ class AwsIntegrationsDynamodbArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
@@ -3873,7 +4271,19 @@ class AwsIntegrationsEbsArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
@@ -3991,7 +4401,21 @@ class AwsIntegrationsEc2Args:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if duplicate_ec2_tags is None and 'duplicateEc2Tags' in kwargs:
+            duplicate_ec2_tags = kwargs['duplicateEc2Tags']
+        if fetch_ip_addresses is None and 'fetchIpAddresses' in kwargs:
+            fetch_ip_addresses = kwargs['fetchIpAddresses']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if duplicate_ec2_tags is not None:
@@ -4117,7 +4541,19 @@ class AwsIntegrationsEcsArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
@@ -4229,7 +4665,19 @@ class AwsIntegrationsEfsArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
@@ -4341,7 +4789,19 @@ class AwsIntegrationsElasticacheArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
@@ -4459,7 +4919,21 @@ class AwsIntegrationsElasticbeanstalkArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
@@ -4587,7 +5061,19 @@ class AwsIntegrationsElasticsearchArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_nodes is None and 'fetchNodes' in kwargs:
+            fetch_nodes = kwargs['fetchNodes']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_nodes is not None:
@@ -4697,7 +5183,17 @@ class AwsIntegrationsElbArgs:
              fetch_extended_inventory: Optional[pulumi.Input[bool]] = None,
              fetch_tags: Optional[pulumi.Input[bool]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
@@ -4797,7 +5293,19 @@ class AwsIntegrationsEmrArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
@@ -4892,7 +5400,11 @@ class AwsIntegrationsHealthArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -4938,7 +5450,15 @@ class AwsIntegrationsIamArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_key is not None:
@@ -5009,7 +5529,13 @@ class AwsIntegrationsIotArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -5083,7 +5609,21 @@ class AwsIntegrationsKinesisArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_shards is None and 'fetchShards' in kwargs:
+            fetch_shards = kwargs['fetchShards']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_shards is not None:
@@ -5197,7 +5737,13 @@ class AwsIntegrationsKinesisFirehoseArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -5267,7 +5813,19 @@ class AwsIntegrationsLambdaArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
@@ -5379,7 +5937,19 @@ class AwsIntegrationsRdsArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_tags is not None:
@@ -5487,7 +6057,17 @@ class AwsIntegrationsRedshiftArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -5574,7 +6154,13 @@ class AwsIntegrationsRoute53Args:
              _setter: Callable[[Any, Any], None],
              fetch_extended_inventory: Optional[pulumi.Input[bool]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if fetch_extended_inventory is not None:
             _setter("fetch_extended_inventory", fetch_extended_inventory)
         if metrics_polling_interval is not None:
@@ -5646,7 +6232,19 @@ class AwsIntegrationsS3Args:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if fetch_extended_inventory is not None:
             _setter("fetch_extended_inventory", fetch_extended_inventory)
         if fetch_tags is not None:
@@ -5747,7 +6345,13 @@ class AwsIntegrationsSesArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -5811,7 +6415,15 @@ class AwsIntegrationsSnsArgs:
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              fetch_extended_inventory: Optional[pulumi.Input[bool]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
@@ -5907,7 +6519,23 @@ class AwsIntegrationsSqsArgs:
              queue_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_extended_inventory is None and 'fetchExtendedInventory' in kwargs:
+            fetch_extended_inventory = kwargs['fetchExtendedInventory']
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if queue_prefixes is None and 'queuePrefixes' in kwargs:
+            queue_prefixes = kwargs['queuePrefixes']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_extended_inventory is not None:
@@ -6032,7 +6660,11 @@ class AwsIntegrationsTrustedAdvisorArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -6091,7 +6723,21 @@ class AwsIntegrationsVpcArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if fetch_nat_gateway is None and 'fetchNatGateway' in kwargs:
+            fetch_nat_gateway = kwargs['fetchNatGateway']
+        if fetch_vpn is None and 'fetchVpn' in kwargs:
+            fetch_vpn = kwargs['fetchVpn']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if fetch_nat_gateway is not None:
@@ -6205,7 +6851,13 @@ class AwsIntegrationsXRayArgs:
              _setter: Callable[[Any, Any], None],
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if aws_regions is not None:
             _setter("aws_regions", aws_regions)
         if metrics_polling_interval is not None:
@@ -6261,7 +6913,13 @@ class AzureIntegrationsApiManagementArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -6315,7 +6973,13 @@ class AzureIntegrationsAppGatewayArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -6369,7 +7033,13 @@ class AzureIntegrationsAppServiceArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -6423,7 +7093,13 @@ class AzureIntegrationsContainersArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -6477,7 +7153,13 @@ class AzureIntegrationsCosmosDbArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -6529,7 +7211,13 @@ class AzureIntegrationsCostManagementArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              tag_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if tag_keys is None and 'tagKeys' in kwargs:
+            tag_keys = kwargs['tagKeys']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if tag_keys is not None:
@@ -6581,7 +7269,13 @@ class AzureIntegrationsDataFactoryArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -6635,7 +7329,13 @@ class AzureIntegrationsEventHubArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -6689,7 +7389,13 @@ class AzureIntegrationsExpressRouteArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -6743,7 +7449,13 @@ class AzureIntegrationsFirewallsArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -6797,7 +7509,13 @@ class AzureIntegrationsFrontDoorArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -6851,7 +7569,13 @@ class AzureIntegrationsFunctionsArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -6905,7 +7629,13 @@ class AzureIntegrationsKeyVaultArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -6959,7 +7689,13 @@ class AzureIntegrationsLoadBalancerArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7013,7 +7749,13 @@ class AzureIntegrationsLogicAppsArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7067,7 +7809,13 @@ class AzureIntegrationsMachineLearningArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7121,7 +7869,13 @@ class AzureIntegrationsMariaDbArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7191,7 +7945,19 @@ class AzureIntegrationsMonitorArgs:
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if exclude_tags is None and 'excludeTags' in kwargs:
+            exclude_tags = kwargs['excludeTags']
+        if include_tags is None and 'includeTags' in kwargs:
+            include_tags = kwargs['includeTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+        if resource_types is None and 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if exclude_tags is not None:
@@ -7301,7 +8067,13 @@ class AzureIntegrationsMysqlArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7355,7 +8127,13 @@ class AzureIntegrationsMysqlFlexibleArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7409,7 +8187,13 @@ class AzureIntegrationsPostgresqlArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7463,7 +8247,13 @@ class AzureIntegrationsPostgresqlFlexibleArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7517,7 +8307,13 @@ class AzureIntegrationsPowerBiDedicatedArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7571,7 +8367,13 @@ class AzureIntegrationsRedisCacheArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7625,7 +8427,13 @@ class AzureIntegrationsServiceBusArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7679,7 +8487,13 @@ class AzureIntegrationsSqlArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7733,7 +8547,13 @@ class AzureIntegrationsSqlManagedArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7787,7 +8607,13 @@ class AzureIntegrationsStorageArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7841,7 +8667,13 @@ class AzureIntegrationsVirtualMachineArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7895,7 +8727,13 @@ class AzureIntegrationsVirtualNetworksArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -7949,7 +8787,13 @@ class AzureIntegrationsVmsArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -8003,7 +8847,13 @@ class AzureIntegrationsVpnGatewayArgs:
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
              resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
         if resource_groups is not None:
@@ -8053,7 +8903,11 @@ class GcpIntegrationsAlloyDbArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8089,7 +8943,11 @@ class GcpIntegrationsAppEngineArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8129,7 +8987,13 @@ class GcpIntegrationsBigQueryArgs:
              _setter: Callable[[Any, Any], None],
              fetch_tags: Optional[pulumi.Input[bool]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if fetch_tags is not None:
             _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
@@ -8179,7 +9043,11 @@ class GcpIntegrationsBigTableArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8215,7 +9083,11 @@ class GcpIntegrationsComposerArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8251,7 +9123,11 @@ class GcpIntegrationsDataFlowArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8287,7 +9163,11 @@ class GcpIntegrationsDataProcArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8323,7 +9203,11 @@ class GcpIntegrationsDataStoreArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8359,7 +9243,11 @@ class GcpIntegrationsFireBaseDatabaseArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8395,7 +9283,11 @@ class GcpIntegrationsFireBaseHostingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8431,7 +9323,11 @@ class GcpIntegrationsFireBaseStorageArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8467,7 +9363,11 @@ class GcpIntegrationsFireStoreArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8503,7 +9403,11 @@ class GcpIntegrationsFunctionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8539,7 +9443,11 @@ class GcpIntegrationsInterconnectArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8575,7 +9483,11 @@ class GcpIntegrationsKubernetesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8611,7 +9523,11 @@ class GcpIntegrationsLoadBalancingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8647,7 +9563,11 @@ class GcpIntegrationsMemCacheArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8687,7 +9607,13 @@ class GcpIntegrationsPubSubArgs:
              _setter: Callable[[Any, Any], None],
              fetch_tags: Optional[pulumi.Input[bool]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if fetch_tags is not None:
             _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
@@ -8737,7 +9663,11 @@ class GcpIntegrationsRedisArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8773,7 +9703,11 @@ class GcpIntegrationsRouterArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8809,7 +9743,11 @@ class GcpIntegrationsRunArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8849,7 +9787,13 @@ class GcpIntegrationsSpannerArgs:
              _setter: Callable[[Any, Any], None],
              fetch_tags: Optional[pulumi.Input[bool]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if fetch_tags is not None:
             _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
@@ -8899,7 +9843,11 @@ class GcpIntegrationsSqlArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -8939,7 +9887,13 @@ class GcpIntegrationsStorageArgs:
              _setter: Callable[[Any, Any], None],
              fetch_tags: Optional[pulumi.Input[bool]] = None,
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fetch_tags is None and 'fetchTags' in kwargs:
+            fetch_tags = kwargs['fetchTags']
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if fetch_tags is not None:
             _setter("fetch_tags", fetch_tags)
         if metrics_polling_interval is not None:
@@ -8989,7 +9943,11 @@ class GcpIntegrationsVirtualMachinesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 
@@ -9025,7 +9983,11 @@ class GcpIntegrationsVpcAccessArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metrics_polling_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metrics_polling_interval is None and 'metricsPollingInterval' in kwargs:
+            metrics_polling_interval = kwargs['metricsPollingInterval']
+
         if metrics_polling_interval is not None:
             _setter("metrics_polling_interval", metrics_polling_interval)
 

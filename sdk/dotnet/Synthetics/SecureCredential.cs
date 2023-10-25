@@ -12,26 +12,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// <summary>
     /// Use this resource to create and manage New Relic Synthetic secure credentials.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.Synthetics.SecureCredential("foo", new()
-    ///     {
-    ///         Description = "My description",
-    ///         Key = "MY_KEY",
-    ///         Value = "My value",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// A Synthetics secure credential can be imported using its `key`:

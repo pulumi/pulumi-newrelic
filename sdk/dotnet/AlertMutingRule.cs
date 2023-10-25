@@ -10,64 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.AlertMutingRule("foo", new()
-    ///     {
-    ///         Condition = new NewRelic.Inputs.AlertMutingRuleConditionArgs
-    ///         {
-    ///             Conditions = new[]
-    ///             {
-    ///                 new NewRelic.Inputs.AlertMutingRuleConditionConditionArgs
-    ///                 {
-    ///                     Attribute = "product",
-    ///                     Operator = "EQUALS",
-    ///                     Values = new[]
-    ///                     {
-    ///                         "APM",
-    ///                     },
-    ///                 },
-    ///                 new NewRelic.Inputs.AlertMutingRuleConditionConditionArgs
-    ///                 {
-    ///                     Attribute = "targetId",
-    ///                     Operator = "EQUALS",
-    ///                     Values = new[]
-    ///                     {
-    ///                         "Muted",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Operator = "AND",
-    ///         },
-    ///         Description = "muting rule test.",
-    ///         Enabled = true,
-    ///         Schedule = new NewRelic.Inputs.AlertMutingRuleScheduleArgs
-    ///         {
-    ///             EndTime = "2021-01-28T16:30:00",
-    ///             Repeat = "WEEKLY",
-    ///             RepeatCount = 42,
-    ///             StartTime = "2021-01-28T15:30:00",
-    ///             TimeZone = "America/Los_Angeles",
-    ///             WeeklyRepeatDays = new[]
-    ///             {
-    ///                 "MONDAY",
-    ///                 "WEDNESDAY",
-    ///                 "FRIDAY",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Alert conditions can be imported using a composite ID of `&lt;account_id&gt;:&lt;muting_rule_id&gt;`, e.g.

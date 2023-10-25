@@ -17,53 +17,6 @@ namespace Pulumi.NewRelic
         /// ## Additional Examples
         /// 
         /// &gt; If the entities are not found please try again without providing the `types` field.
-        /// 
-        /// ### Query for an OTEL entity
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
-        ///     {
-        ///         Domain = "EXT",
-        ///         Name = "my-otel-app",
-        ///         Tags = new[]
-        ///         {
-        ///             new NewRelic.Inputs.GetEntityTagInputArgs
-        ///             {
-        ///                 Key = "accountID",
-        ///                 Value = "12345",
-        ///             },
-        ///         },
-        ///         Type = "SERVICE",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Query for an entity by type (AWS Lambda entity in this example)
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
-        ///     {
-        ///         Name = "my_lambda_trace",
-        ///         Type = "AWSLAMBDAFUNCTION",
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("newrelic:index/getEntity:getEntity", args ?? new GetEntityArgs(), options.WithDefaults());
@@ -74,53 +27,6 @@ namespace Pulumi.NewRelic
         /// ## Additional Examples
         /// 
         /// &gt; If the entities are not found please try again without providing the `types` field.
-        /// 
-        /// ### Query for an OTEL entity
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
-        ///     {
-        ///         Domain = "EXT",
-        ///         Name = "my-otel-app",
-        ///         Tags = new[]
-        ///         {
-        ///             new NewRelic.Inputs.GetEntityTagInputArgs
-        ///             {
-        ///                 Key = "accountID",
-        ///                 Value = "12345",
-        ///             },
-        ///         },
-        ///         Type = "SERVICE",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Query for an entity by type (AWS Lambda entity in this example)
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
-        ///     {
-        ///         Name = "my_lambda_trace",
-        ///         Type = "AWSLAMBDAFUNCTION",
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntityResult>("newrelic:index/getEntity:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());

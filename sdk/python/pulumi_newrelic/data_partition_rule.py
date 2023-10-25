@@ -41,13 +41,29 @@ class DataPartitionRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             nrql: pulumi.Input[str],
-             retention_policy: pulumi.Input[str],
-             target_data_partition: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             nrql: Optional[pulumi.Input[str]] = None,
+             retention_policy: Optional[pulumi.Input[str]] = None,
+             target_data_partition: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if nrql is None:
+            raise TypeError("Missing 'nrql' argument")
+        if retention_policy is None and 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if retention_policy is None:
+            raise TypeError("Missing 'retention_policy' argument")
+        if target_data_partition is None and 'targetDataPartition' in kwargs:
+            target_data_partition = kwargs['targetDataPartition']
+        if target_data_partition is None:
+            raise TypeError("Missing 'target_data_partition' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("enabled", enabled)
         _setter("nrql", nrql)
         _setter("retention_policy", retention_policy)
@@ -170,7 +186,15 @@ class _DataPartitionRuleState:
              nrql: Optional[pulumi.Input[str]] = None,
              retention_policy: Optional[pulumi.Input[str]] = None,
              target_data_partition: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if retention_policy is None and 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if target_data_partition is None and 'targetDataPartition' in kwargs:
+            target_data_partition = kwargs['targetDataPartition']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if deleted is not None:
@@ -286,19 +310,6 @@ class DataPartitionRule(pulumi.CustomResource):
         """
         Use this resource to create, update and delete New Relic Data partition rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.DataPartitionRule("foo",
-            description="description",
-            enabled=True,
-            nrql="logtype='node'",
-            retention_policy="STANDARD",
-            target_data_partition="Log_name")
-        ```
         ## Additional Information
 
         More details about the data partition can be found [here](https://docs.newrelic.com/docs/logs/ui-data/data-partitions/)
@@ -329,19 +340,6 @@ class DataPartitionRule(pulumi.CustomResource):
         """
         Use this resource to create, update and delete New Relic Data partition rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.DataPartitionRule("foo",
-            description="description",
-            enabled=True,
-            nrql="logtype='node'",
-            retention_policy="STANDARD",
-            target_data_partition="Log_name")
-        ```
         ## Additional Information
 
         More details about the data partition can be found [here](https://docs.newrelic.com/docs/logs/ui-data/data-partitions/)

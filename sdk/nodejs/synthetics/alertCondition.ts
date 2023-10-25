@@ -9,69 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.synthetics.AlertCondition("foo", {
- *     policyId: newrelic_alert_policy.foo.id,
- *     monitorId: newrelic_synthetics_monitor.foo.id,
- *     runbookUrl: "https://www.example.com",
- * });
- * ```
- * ## Tags
- *
- * Manage synthetics alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooMonitor = new newrelic.synthetics.Monitor("fooMonitor", {
- *     status: "ENABLED",
- *     period: "EVERY_MINUTE",
- *     uri: "https://www.one.newrelic.com",
- *     type: "SIMPLE",
- *     locationsPublics: ["AP_EAST_1"],
- *     customHeaders: [{
- *         name: "some_name",
- *         value: "some_value",
- *     }],
- *     treatRedirectAsFailure: true,
- *     validationString: "success",
- *     bypassHeadRequest: true,
- *     verifySsl: true,
- *     tags: [{
- *         key: "some_key",
- *         values: ["some_value"],
- *     }],
- * });
- * const fooAlertCondition = new newrelic.synthetics.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
- *     monitorId: fooMonitor.id,
- *     runbookUrl: "https://www.example.com",
- * });
- * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
- *     guid: fooAlertCondition.entityGuid,
- *     tags: [
- *         {
- *             key: "my-key",
- *             values: [
- *                 "my-value",
- *                 "my-other-value",
- *             ],
- *         },
- *         {
- *             key: "my-key-2",
- *             values: ["my-value-2"],
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
@@ -110,10 +47,6 @@ export class AlertCondition extends pulumi.CustomResource {
 
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -182,10 +115,6 @@ export class AlertCondition extends pulumi.CustomResource {
 export interface AlertConditionState {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -216,10 +145,6 @@ export interface AlertConditionState {
 export interface AlertConditionArgs {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     enabled?: pulumi.Input<boolean>;
     /**

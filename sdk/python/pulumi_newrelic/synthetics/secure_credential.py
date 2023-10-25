@@ -38,12 +38,22 @@ class SecureCredentialArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              description: Optional[pulumi.Input[str]] = None,
              last_updated: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if last_updated is None and 'lastUpdated' in kwargs:
+            last_updated = kwargs['lastUpdated']
+
         _setter("key", key)
         _setter("value", value)
         if account_id is not None:
@@ -146,7 +156,13 @@ class _SecureCredentialState:
              key: Optional[pulumi.Input[str]] = None,
              last_updated: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if last_updated is None and 'lastUpdated' in kwargs:
+            last_updated = kwargs['lastUpdated']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if description is not None:
@@ -233,18 +249,6 @@ class SecureCredential(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic Synthetic secure credentials.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.synthetics.SecureCredential("foo",
-            description="My description",
-            key="MY_KEY",
-            value="My value")
-        ```
-
         ## Import
 
         A Synthetics secure credential can be imported using its `key`:
@@ -269,18 +273,6 @@ class SecureCredential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to create and manage New Relic Synthetic secure credentials.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.synthetics.SecureCredential("foo",
-            description="My description",
-            key="MY_KEY",
-            value="My value")
-        ```
 
         ## Import
 

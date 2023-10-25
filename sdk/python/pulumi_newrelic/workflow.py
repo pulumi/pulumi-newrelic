@@ -53,16 +53,34 @@ class WorkflowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destinations: pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]],
-             issues_filter: pulumi.Input['WorkflowIssuesFilterArgs'],
-             muting_rules_handling: pulumi.Input[str],
+             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]]] = None,
+             issues_filter: Optional[pulumi.Input['WorkflowIssuesFilterArgs']] = None,
+             muting_rules_handling: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              destinations_enabled: Optional[pulumi.Input[bool]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              enrichments: Optional[pulumi.Input['WorkflowEnrichmentsArgs']] = None,
              enrichments_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destinations is None:
+            raise TypeError("Missing 'destinations' argument")
+        if issues_filter is None and 'issuesFilter' in kwargs:
+            issues_filter = kwargs['issuesFilter']
+        if issues_filter is None:
+            raise TypeError("Missing 'issues_filter' argument")
+        if muting_rules_handling is None and 'mutingRulesHandling' in kwargs:
+            muting_rules_handling = kwargs['mutingRulesHandling']
+        if muting_rules_handling is None:
+            raise TypeError("Missing 'muting_rules_handling' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if destinations_enabled is None and 'destinationsEnabled' in kwargs:
+            destinations_enabled = kwargs['destinationsEnabled']
+        if enrichments_enabled is None and 'enrichmentsEnabled' in kwargs:
+            enrichments_enabled = kwargs['enrichmentsEnabled']
+
         _setter("destinations", destinations)
         _setter("issues_filter", issues_filter)
         _setter("muting_rules_handling", muting_rules_handling)
@@ -256,7 +274,23 @@ class _WorkflowState:
              muting_rules_handling: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              workflow_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if destinations_enabled is None and 'destinationsEnabled' in kwargs:
+            destinations_enabled = kwargs['destinationsEnabled']
+        if enrichments_enabled is None and 'enrichmentsEnabled' in kwargs:
+            enrichments_enabled = kwargs['enrichmentsEnabled']
+        if issues_filter is None and 'issuesFilter' in kwargs:
+            issues_filter = kwargs['issuesFilter']
+        if last_run is None and 'lastRun' in kwargs:
+            last_run = kwargs['lastRun']
+        if muting_rules_handling is None and 'mutingRulesHandling' in kwargs:
+            muting_rules_handling = kwargs['mutingRulesHandling']
+        if workflow_id is None and 'workflowId' in kwargs:
+            workflow_id = kwargs['workflowId']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if destinations is not None:
@@ -452,129 +486,6 @@ class Workflow(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic workflows.
 
-        ## Example Usage
-
-        ##### Workflow
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.Workflow("foo",
-            muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.tag.team",
-                    operator="EXACTLY_MATCHES",
-                    values=["growth"],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["some_channel"]["id"],
-            )])
-        ```
-        ## Policy-Based Workflow Example
-
-        This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        # Create a policy to track
-        my_policy = newrelic.AlertPolicy("my-policy")
-        # Create a reusable notification destination
-        webhook_destination = newrelic.NotificationDestination("webhook-destination",
-            type="WEBHOOK",
-            properties=[newrelic.NotificationDestinationPropertyArgs(
-                key="url",
-                value="https://example.com",
-            )],
-            auth_basic=newrelic.NotificationDestinationAuthBasicArgs(
-                user="username",
-                password="password",
-            ))
-        # Create a notification channel to use in the workflow
-        webhook_channel = newrelic.NotificationChannel("webhook-channel",
-            type="WEBHOOK",
-            destination_id=webhook_destination.id,
-            product="IINT",
-            properties=[newrelic.NotificationChannelPropertyArgs(
-                key="payload",
-                value="{}",
-                label="Payload Template",
-            )])
-        # A workflow that matches issues that include incidents triggered by the policy
-        workflow_example = newrelic.Workflow("workflow-example",
-            muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="Filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="labels.policyIds",
-                    operator="EXACTLY_MATCHES",
-                    values=[my_policy.id],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=webhook_channel.id,
-            )])
-        ```
-
-        ### An example of a workflow with enrichments
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        workflow_example = newrelic.Workflow("workflow-example",
-            muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="Filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.tag.team",
-                    operator="EXACTLY_MATCHES",
-                    values=["my_team"],
-                )],
-            ),
-            enrichments=newrelic.WorkflowEnrichmentsArgs(
-                nrqls=[newrelic.WorkflowEnrichmentsNrqlArgs(
-                    name="Log Count",
-                    configurations=[newrelic.WorkflowEnrichmentsNrqlConfigurationArgs(
-                        query="SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago",
-                    )],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
-            )])
-        ```
-
-        ### An example of a workflow with notification triggers
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        workflow_example = newrelic.Workflow("workflow-example",
-            muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="Filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.tag.team",
-                    operator="EXACTLY_MATCHES",
-                    values=["my_team"],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
-                notification_triggers=["ACTIVATED"],
-            )])
-        ```
-
         ## Additional Information
 
         More details about the workflows can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/applied-intelligence/incident-workflows/incident-workflows/).
@@ -619,129 +530,6 @@ class Workflow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to create and manage New Relic workflows.
-
-        ## Example Usage
-
-        ##### Workflow
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.Workflow("foo",
-            muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.tag.team",
-                    operator="EXACTLY_MATCHES",
-                    values=["growth"],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["some_channel"]["id"],
-            )])
-        ```
-        ## Policy-Based Workflow Example
-
-        This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        # Create a policy to track
-        my_policy = newrelic.AlertPolicy("my-policy")
-        # Create a reusable notification destination
-        webhook_destination = newrelic.NotificationDestination("webhook-destination",
-            type="WEBHOOK",
-            properties=[newrelic.NotificationDestinationPropertyArgs(
-                key="url",
-                value="https://example.com",
-            )],
-            auth_basic=newrelic.NotificationDestinationAuthBasicArgs(
-                user="username",
-                password="password",
-            ))
-        # Create a notification channel to use in the workflow
-        webhook_channel = newrelic.NotificationChannel("webhook-channel",
-            type="WEBHOOK",
-            destination_id=webhook_destination.id,
-            product="IINT",
-            properties=[newrelic.NotificationChannelPropertyArgs(
-                key="payload",
-                value="{}",
-                label="Payload Template",
-            )])
-        # A workflow that matches issues that include incidents triggered by the policy
-        workflow_example = newrelic.Workflow("workflow-example",
-            muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="Filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="labels.policyIds",
-                    operator="EXACTLY_MATCHES",
-                    values=[my_policy.id],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=webhook_channel.id,
-            )])
-        ```
-
-        ### An example of a workflow with enrichments
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        workflow_example = newrelic.Workflow("workflow-example",
-            muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="Filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.tag.team",
-                    operator="EXACTLY_MATCHES",
-                    values=["my_team"],
-                )],
-            ),
-            enrichments=newrelic.WorkflowEnrichmentsArgs(
-                nrqls=[newrelic.WorkflowEnrichmentsNrqlArgs(
-                    name="Log Count",
-                    configurations=[newrelic.WorkflowEnrichmentsNrqlConfigurationArgs(
-                        query="SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago",
-                    )],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
-            )])
-        ```
-
-        ### An example of a workflow with notification triggers
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        workflow_example = newrelic.Workflow("workflow-example",
-            muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="Filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.tag.team",
-                    operator="EXACTLY_MATCHES",
-                    values=["my_team"],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
-                notification_triggers=["ACTIVATED"],
-            )])
-        ```
 
         ## Additional Information
 
@@ -809,18 +597,10 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["destinations"] = destinations
             __props__.__dict__["destinations_enabled"] = destinations_enabled
             __props__.__dict__["enabled"] = enabled
-            if enrichments is not None and not isinstance(enrichments, WorkflowEnrichmentsArgs):
-                enrichments = enrichments or {}
-                def _setter(key, value):
-                    enrichments[key] = value
-                WorkflowEnrichmentsArgs._configure(_setter, **enrichments)
+            enrichments = _utilities.configure(enrichments, WorkflowEnrichmentsArgs, True)
             __props__.__dict__["enrichments"] = enrichments
             __props__.__dict__["enrichments_enabled"] = enrichments_enabled
-            if issues_filter is not None and not isinstance(issues_filter, WorkflowIssuesFilterArgs):
-                issues_filter = issues_filter or {}
-                def _setter(key, value):
-                    issues_filter[key] = value
-                WorkflowIssuesFilterArgs._configure(_setter, **issues_filter)
+            issues_filter = _utilities.configure(issues_filter, WorkflowIssuesFilterArgs, True)
             if issues_filter is None and not opts.urn:
                 raise TypeError("Missing required property 'issues_filter'")
             __props__.__dict__["issues_filter"] = issues_filter

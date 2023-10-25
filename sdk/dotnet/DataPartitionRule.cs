@@ -12,27 +12,6 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create, update and delete New Relic Data partition rule.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.DataPartitionRule("foo", new()
-    ///     {
-    ///         Description = "description",
-    ///         Enabled = true,
-    ///         Nrql = "logtype='node'",
-    ///         RetentionPolicy = "STANDARD",
-    ///         TargetDataPartition = "Log_name",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Additional Information
     /// 
     /// More details about the data partition can be found [here](https://docs.newrelic.com/docs/logs/ui-data/data-partitions/)

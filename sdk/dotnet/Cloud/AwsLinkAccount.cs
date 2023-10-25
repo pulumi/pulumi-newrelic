@@ -20,27 +20,6 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// To pull data from AWS instead, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-new-relic-infrastructure-monitoring#connect).
     /// 
-    /// ## Example Usage
-    /// 
-    /// You can also use the full example, including the AWS set up, found in our guides.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.Cloud.AwsLinkAccount("foo", new()
-    ///     {
-    ///         Arn = "arn:aws:service:region:account-id:resource-id",
-    ///         MetricCollectionMode = "PUSH",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Linked AWS accounts can be imported using the `id`, e.g. bash

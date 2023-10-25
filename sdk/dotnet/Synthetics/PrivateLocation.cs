@@ -12,24 +12,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// <summary>
     /// Use this resource to create and manage New Relic Synthetic private location.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
-    ///     {
-    ///         Description = "The private location description",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// A Synthetics private location can be imported using the `guid`

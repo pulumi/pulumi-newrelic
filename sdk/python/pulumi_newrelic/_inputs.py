@@ -257,7 +257,33 @@ class AlertChannelConfigArgs:
              teams: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if auth_password is None and 'authPassword' in kwargs:
+            auth_password = kwargs['authPassword']
+        if auth_type is None and 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if auth_username is None and 'authUsername' in kwargs:
+            auth_username = kwargs['authUsername']
+        if base_url is None and 'baseUrl' in kwargs:
+            base_url = kwargs['baseUrl']
+        if headers_string is None and 'headersString' in kwargs:
+            headers_string = kwargs['headersString']
+        if include_json_attachment is None and 'includeJsonAttachment' in kwargs:
+            include_json_attachment = kwargs['includeJsonAttachment']
+        if payload_string is None and 'payloadString' in kwargs:
+            payload_string = kwargs['payloadString']
+        if payload_type is None and 'payloadType' in kwargs:
+            payload_type = kwargs['payloadType']
+        if route_key is None and 'routeKey' in kwargs:
+            route_key = kwargs['routeKey']
+        if service_key is None and 'serviceKey' in kwargs:
+            service_key = kwargs['serviceKey']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if api_key is not None:
             _setter("api_key", api_key)
         if auth_password is not None:
@@ -570,12 +596,22 @@ class AlertConditionTermArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             duration: pulumi.Input[int],
-             threshold: pulumi.Input[float],
-             time_function: pulumi.Input[str],
+             duration: Optional[pulumi.Input[int]] = None,
+             threshold: Optional[pulumi.Input[float]] = None,
+             time_function: Optional[pulumi.Input[str]] = None,
              operator: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if time_function is None and 'timeFunction' in kwargs:
+            time_function = kwargs['timeFunction']
+        if time_function is None:
+            raise TypeError("Missing 'time_function' argument")
+
         _setter("duration", duration)
         _setter("threshold", threshold)
         _setter("time_function", time_function)
@@ -647,9 +683,15 @@ class AlertMutingRuleConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             conditions: pulumi.Input[Sequence[pulumi.Input['AlertMutingRuleConditionConditionArgs']]],
-             operator: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertMutingRuleConditionConditionArgs']]]] = None,
+             operator: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if conditions is None:
+            raise TypeError("Missing 'conditions' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+
         _setter("conditions", conditions)
         _setter("operator", operator)
 
@@ -698,10 +740,18 @@ class AlertMutingRuleConditionConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute: pulumi.Input[str],
-             operator: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             attribute: Optional[pulumi.Input[str]] = None,
+             operator: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute is None:
+            raise TypeError("Missing 'attribute' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("attribute", attribute)
         _setter("operator", operator)
         _setter("values", values)
@@ -774,14 +824,30 @@ class AlertMutingRuleScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             time_zone: pulumi.Input[str],
+             time_zone: Optional[pulumi.Input[str]] = None,
              end_repeat: Optional[pulumi.Input[str]] = None,
              end_time: Optional[pulumi.Input[str]] = None,
              repeat: Optional[pulumi.Input[str]] = None,
              repeat_count: Optional[pulumi.Input[int]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              weekly_repeat_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+        if end_repeat is None and 'endRepeat' in kwargs:
+            end_repeat = kwargs['endRepeat']
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if repeat_count is None and 'repeatCount' in kwargs:
+            repeat_count = kwargs['repeatCount']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if weekly_repeat_days is None and 'weeklyRepeatDays' in kwargs:
+            weekly_repeat_days = kwargs['weeklyRepeatDays']
+
         _setter("time_zone", time_zone)
         if end_repeat is not None:
             _setter("end_repeat", end_repeat)
@@ -895,9 +961,15 @@ class EntityTagsTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 
@@ -941,10 +1013,16 @@ class InfraAlertConditionCriticalArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             duration: pulumi.Input[int],
+             duration: Optional[pulumi.Input[int]] = None,
              time_function: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if time_function is None and 'timeFunction' in kwargs:
+            time_function = kwargs['timeFunction']
+
         _setter("duration", duration)
         if time_function is not None:
             _setter("time_function", time_function)
@@ -994,10 +1072,16 @@ class InfraAlertConditionWarningArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             duration: pulumi.Input[int],
+             duration: Optional[pulumi.Input[int]] = None,
              time_function: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if time_function is None and 'timeFunction' in kwargs:
+            time_function = kwargs['timeFunction']
+
         _setter("duration", duration)
         if time_function is not None:
             _setter("time_function", time_function)
@@ -1057,11 +1141,19 @@ class NotificationChannelPropertyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              display_value: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if display_value is None and 'displayValue' in kwargs:
+            display_value = kwargs['displayValue']
+
         _setter("key", key)
         _setter("value", value)
         if display_value is not None:
@@ -1137,9 +1229,15 @@ class NotificationDestinationAuthBasicArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: pulumi.Input[str],
-             user: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             password: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+
         _setter("password", password)
         _setter("user", user)
 
@@ -1184,9 +1282,13 @@ class NotificationDestinationAuthTokenArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             token: pulumi.Input[str],
+             token: Optional[pulumi.Input[str]] = None,
              prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+
         _setter("token", token)
         if prefix is not None:
             _setter("prefix", prefix)
@@ -1238,11 +1340,19 @@ class NotificationDestinationPropertyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              display_value: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if display_value is None and 'displayValue' in kwargs:
+            display_value = kwargs['displayValue']
+
         _setter("key", key)
         _setter("value", value)
         if display_value is not None:
@@ -1322,13 +1432,23 @@ class NrqlAlertConditionCriticalArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             threshold: pulumi.Input[float],
+             threshold: Optional[pulumi.Input[float]] = None,
              duration: Optional[pulumi.Input[int]] = None,
              operator: Optional[pulumi.Input[str]] = None,
              threshold_duration: Optional[pulumi.Input[int]] = None,
              threshold_occurrences: Optional[pulumi.Input[str]] = None,
              time_function: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if threshold_duration is None and 'thresholdDuration' in kwargs:
+            threshold_duration = kwargs['thresholdDuration']
+        if threshold_occurrences is None and 'thresholdOccurrences' in kwargs:
+            threshold_occurrences = kwargs['thresholdOccurrences']
+        if time_function is None and 'timeFunction' in kwargs:
+            time_function = kwargs['timeFunction']
+
         _setter("threshold", threshold)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
@@ -1423,10 +1543,18 @@ class NrqlAlertConditionNrqlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
+             query: Optional[pulumi.Input[str]] = None,
              evaluation_offset: Optional[pulumi.Input[int]] = None,
              since_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if evaluation_offset is None and 'evaluationOffset' in kwargs:
+            evaluation_offset = kwargs['evaluationOffset']
+        if since_value is None and 'sinceValue' in kwargs:
+            since_value = kwargs['sinceValue']
+
         _setter("query", query)
         if evaluation_offset is not None:
             warnings.warn("""use `aggregation_method` attribute instead""", DeprecationWarning)
@@ -1496,14 +1624,24 @@ class NrqlAlertConditionTermArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             threshold: pulumi.Input[float],
+             threshold: Optional[pulumi.Input[float]] = None,
              duration: Optional[pulumi.Input[int]] = None,
              operator: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[str]] = None,
              threshold_duration: Optional[pulumi.Input[int]] = None,
              threshold_occurrences: Optional[pulumi.Input[str]] = None,
              time_function: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if threshold_duration is None and 'thresholdDuration' in kwargs:
+            threshold_duration = kwargs['thresholdDuration']
+        if threshold_occurrences is None and 'thresholdOccurrences' in kwargs:
+            threshold_occurrences = kwargs['thresholdOccurrences']
+        if time_function is None and 'timeFunction' in kwargs:
+            time_function = kwargs['timeFunction']
+
         _setter("threshold", threshold)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
@@ -1615,13 +1753,23 @@ class NrqlAlertConditionWarningArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             threshold: pulumi.Input[float],
+             threshold: Optional[pulumi.Input[float]] = None,
              duration: Optional[pulumi.Input[int]] = None,
              operator: Optional[pulumi.Input[str]] = None,
              threshold_duration: Optional[pulumi.Input[int]] = None,
              threshold_occurrences: Optional[pulumi.Input[str]] = None,
              time_function: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if threshold_duration is None and 'thresholdDuration' in kwargs:
+            threshold_duration = kwargs['thresholdDuration']
+        if threshold_occurrences is None and 'thresholdOccurrences' in kwargs:
+            threshold_occurrences = kwargs['thresholdOccurrences']
+        if time_function is None and 'timeFunction' in kwargs:
+            time_function = kwargs['timeFunction']
+
         _setter("threshold", threshold)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
@@ -1721,10 +1869,20 @@ class ObfuscationRuleActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attributes: pulumi.Input[Sequence[pulumi.Input[str]]],
-             expression_id: pulumi.Input[str],
-             method: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             expression_id: Optional[pulumi.Input[str]] = None,
+             method: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if expression_id is None and 'expressionId' in kwargs:
+            expression_id = kwargs['expressionId']
+        if expression_id is None:
+            raise TypeError("Missing 'expression_id' argument")
+        if method is None:
+            raise TypeError("Missing 'method' argument")
+
         _setter("attributes", attributes)
         _setter("expression_id", expression_id)
         _setter("method", method)
@@ -1814,7 +1972,7 @@ class OneDashboardPageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              guid: Optional[pulumi.Input[str]] = None,
              widget_areas: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaArgs']]]] = None,
@@ -1831,7 +1989,39 @@ class OneDashboardPageArgs:
              widget_pies: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyArgs']]]] = None,
              widget_stacked_bars: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarArgs']]]] = None,
              widget_tables: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if widget_areas is None and 'widgetAreas' in kwargs:
+            widget_areas = kwargs['widgetAreas']
+        if widget_bars is None and 'widgetBars' in kwargs:
+            widget_bars = kwargs['widgetBars']
+        if widget_billboards is None and 'widgetBillboards' in kwargs:
+            widget_billboards = kwargs['widgetBillboards']
+        if widget_bullets is None and 'widgetBullets' in kwargs:
+            widget_bullets = kwargs['widgetBullets']
+        if widget_funnels is None and 'widgetFunnels' in kwargs:
+            widget_funnels = kwargs['widgetFunnels']
+        if widget_heatmaps is None and 'widgetHeatmaps' in kwargs:
+            widget_heatmaps = kwargs['widgetHeatmaps']
+        if widget_histograms is None and 'widgetHistograms' in kwargs:
+            widget_histograms = kwargs['widgetHistograms']
+        if widget_jsons is None and 'widgetJsons' in kwargs:
+            widget_jsons = kwargs['widgetJsons']
+        if widget_lines is None and 'widgetLines' in kwargs:
+            widget_lines = kwargs['widgetLines']
+        if widget_log_tables is None and 'widgetLogTables' in kwargs:
+            widget_log_tables = kwargs['widgetLogTables']
+        if widget_markdowns is None and 'widgetMarkdowns' in kwargs:
+            widget_markdowns = kwargs['widgetMarkdowns']
+        if widget_pies is None and 'widgetPies' in kwargs:
+            widget_pies = kwargs['widgetPies']
+        if widget_stacked_bars is None and 'widgetStackedBars' in kwargs:
+            widget_stacked_bars = kwargs['widgetStackedBars']
+        if widget_tables is None and 'widgetTables' in kwargs:
+            widget_tables = kwargs['widgetTables']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -2083,10 +2273,10 @@ class OneDashboardPageWidgetAreaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[int],
-             nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNrqlQueryArgs']]],
-             row: pulumi.Input[int],
-             title: pulumi.Input[str],
+             column: Optional[pulumi.Input[int]] = None,
+             nrql_queries: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNrqlQueryArgs']]]] = None,
+             row: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaColorArgs']]]] = None,
              facet_show_other_series: Optional[pulumi.Input[bool]] = None,
              height: Optional[pulumi.Input[int]] = None,
@@ -2098,7 +2288,31 @@ class OneDashboardPageWidgetAreaArgs:
              width: Optional[pulumi.Input[int]] = None,
              y_axis_left_max: Optional[pulumi.Input[float]] = None,
              y_axis_left_min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -2320,7 +2534,11 @@ class OneDashboardPageWidgetAreaColorArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaColorSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -2369,7 +2587,11 @@ class OneDashboardPageWidgetAreaColorSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -2414,9 +2636,15 @@ class OneDashboardPageWidgetAreaNrqlQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
+             query: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -2465,7 +2693,13 @@ class OneDashboardPageWidgetAreaNullValueArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -2514,7 +2748,13 @@ class OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -2561,7 +2801,11 @@ class OneDashboardPageWidgetAreaUnitArgs:
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaUnitSeriesOverrideArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -2610,7 +2854,11 @@ class OneDashboardPageWidgetAreaUnitSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              series_name: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -2698,10 +2946,10 @@ class OneDashboardPageWidgetBarArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[int],
-             nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNrqlQueryArgs']]],
-             row: pulumi.Input[int],
-             title: pulumi.Input[str],
+             column: Optional[pulumi.Input[int]] = None,
+             nrql_queries: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNrqlQueryArgs']]]] = None,
+             row: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarColorArgs']]]] = None,
              facet_show_other_series: Optional[pulumi.Input[bool]] = None,
              filter_current_dashboard: Optional[pulumi.Input[bool]] = None,
@@ -2715,7 +2963,35 @@ class OneDashboardPageWidgetBarArgs:
              width: Optional[pulumi.Input[int]] = None,
              y_axis_left_max: Optional[pulumi.Input[float]] = None,
              y_axis_left_min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if filter_current_dashboard is None and 'filterCurrentDashboard' in kwargs:
+            filter_current_dashboard = kwargs['filterCurrentDashboard']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if linked_entity_guids is None and 'linkedEntityGuids' in kwargs:
+            linked_entity_guids = kwargs['linkedEntityGuids']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -2965,7 +3241,11 @@ class OneDashboardPageWidgetBarColorArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarColorSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -3014,7 +3294,11 @@ class OneDashboardPageWidgetBarColorSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -3059,9 +3343,15 @@ class OneDashboardPageWidgetBarNrqlQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
+             query: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -3110,7 +3400,13 @@ class OneDashboardPageWidgetBarNullValueArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNullValueSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -3159,7 +3455,13 @@ class OneDashboardPageWidgetBarNullValueSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -3206,7 +3508,11 @@ class OneDashboardPageWidgetBarUnitArgs:
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarUnitSeriesOverrideArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -3255,7 +3561,11 @@ class OneDashboardPageWidgetBarUnitSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              series_name: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -3343,10 +3653,10 @@ class OneDashboardPageWidgetBillboardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[int],
-             nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNrqlQueryArgs']]],
-             row: pulumi.Input[int],
-             title: pulumi.Input[str],
+             column: Optional[pulumi.Input[int]] = None,
+             nrql_queries: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNrqlQueryArgs']]]] = None,
+             row: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardColorArgs']]]] = None,
              critical: Optional[pulumi.Input[str]] = None,
              facet_show_other_series: Optional[pulumi.Input[bool]] = None,
@@ -3360,7 +3670,31 @@ class OneDashboardPageWidgetBillboardArgs:
              width: Optional[pulumi.Input[int]] = None,
              y_axis_left_max: Optional[pulumi.Input[float]] = None,
              y_axis_left_min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -3610,7 +3944,11 @@ class OneDashboardPageWidgetBillboardColorArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardColorSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -3659,7 +3997,11 @@ class OneDashboardPageWidgetBillboardColorSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -3704,9 +4046,15 @@ class OneDashboardPageWidgetBillboardNrqlQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
+             query: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -3755,7 +4103,13 @@ class OneDashboardPageWidgetBillboardNullValueArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -3804,7 +4158,13 @@ class OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -3851,7 +4211,11 @@ class OneDashboardPageWidgetBillboardUnitArgs:
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -3900,7 +4264,11 @@ class OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              series_name: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -3985,11 +4353,11 @@ class OneDashboardPageWidgetBulletArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[int],
-             limit: pulumi.Input[float],
-             nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNrqlQueryArgs']]],
-             row: pulumi.Input[int],
-             title: pulumi.Input[str],
+             column: Optional[pulumi.Input[int]] = None,
+             limit: Optional[pulumi.Input[float]] = None,
+             nrql_queries: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNrqlQueryArgs']]]] = None,
+             row: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletColorArgs']]]] = None,
              facet_show_other_series: Optional[pulumi.Input[bool]] = None,
              height: Optional[pulumi.Input[int]] = None,
@@ -4001,7 +4369,33 @@ class OneDashboardPageWidgetBulletArgs:
              width: Optional[pulumi.Input[int]] = None,
              y_axis_left_max: Optional[pulumi.Input[float]] = None,
              y_axis_left_min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if limit is None:
+            raise TypeError("Missing 'limit' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("limit", limit)
         _setter("nrql_queries", nrql_queries)
@@ -4236,7 +4630,11 @@ class OneDashboardPageWidgetBulletColorArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletColorSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -4285,7 +4683,11 @@ class OneDashboardPageWidgetBulletColorSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -4330,9 +4732,15 @@ class OneDashboardPageWidgetBulletNrqlQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
+             query: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -4381,7 +4789,13 @@ class OneDashboardPageWidgetBulletNullValueArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -4430,7 +4844,13 @@ class OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -4477,7 +4897,11 @@ class OneDashboardPageWidgetBulletUnitArgs:
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletUnitSeriesOverrideArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -4526,7 +4950,11 @@ class OneDashboardPageWidgetBulletUnitSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              series_name: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -4608,10 +5036,10 @@ class OneDashboardPageWidgetFunnelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[int],
-             nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNrqlQueryArgs']]],
-             row: pulumi.Input[int],
-             title: pulumi.Input[str],
+             column: Optional[pulumi.Input[int]] = None,
+             nrql_queries: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNrqlQueryArgs']]]] = None,
+             row: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelColorArgs']]]] = None,
              facet_show_other_series: Optional[pulumi.Input[bool]] = None,
              height: Optional[pulumi.Input[int]] = None,
@@ -4623,7 +5051,31 @@ class OneDashboardPageWidgetFunnelArgs:
              width: Optional[pulumi.Input[int]] = None,
              y_axis_left_max: Optional[pulumi.Input[float]] = None,
              y_axis_left_min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -4845,7 +5297,11 @@ class OneDashboardPageWidgetFunnelColorArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelColorSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -4894,7 +5350,11 @@ class OneDashboardPageWidgetFunnelColorSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -4939,9 +5399,15 @@ class OneDashboardPageWidgetFunnelNrqlQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
+             query: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -4990,7 +5456,13 @@ class OneDashboardPageWidgetFunnelNullValueArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -5039,7 +5511,13 @@ class OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -5086,7 +5564,11 @@ class OneDashboardPageWidgetFunnelUnitArgs:
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -5135,7 +5617,11 @@ class OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              series_name: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -5223,10 +5709,10 @@ class OneDashboardPageWidgetHeatmapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[int],
-             nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNrqlQueryArgs']]],
-             row: pulumi.Input[int],
-             title: pulumi.Input[str],
+             column: Optional[pulumi.Input[int]] = None,
+             nrql_queries: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNrqlQueryArgs']]]] = None,
+             row: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapColorArgs']]]] = None,
              facet_show_other_series: Optional[pulumi.Input[bool]] = None,
              filter_current_dashboard: Optional[pulumi.Input[bool]] = None,
@@ -5240,7 +5726,35 @@ class OneDashboardPageWidgetHeatmapArgs:
              width: Optional[pulumi.Input[int]] = None,
              y_axis_left_max: Optional[pulumi.Input[float]] = None,
              y_axis_left_min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if filter_current_dashboard is None and 'filterCurrentDashboard' in kwargs:
+            filter_current_dashboard = kwargs['filterCurrentDashboard']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if linked_entity_guids is None and 'linkedEntityGuids' in kwargs:
+            linked_entity_guids = kwargs['linkedEntityGuids']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -5490,7 +6004,11 @@ class OneDashboardPageWidgetHeatmapColorArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -5539,7 +6057,11 @@ class OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -5584,9 +6106,15 @@ class OneDashboardPageWidgetHeatmapNrqlQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
+             query: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -5635,7 +6163,13 @@ class OneDashboardPageWidgetHeatmapNullValueArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -5684,7 +6218,13 @@ class OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -5731,7 +6271,11 @@ class OneDashboardPageWidgetHeatmapUnitArgs:
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -5780,7 +6324,11 @@ class OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              series_name: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -5862,10 +6410,10 @@ class OneDashboardPageWidgetHistogramArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[int],
-             nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNrqlQueryArgs']]],
-             row: pulumi.Input[int],
-             title: pulumi.Input[str],
+             column: Optional[pulumi.Input[int]] = None,
+             nrql_queries: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNrqlQueryArgs']]]] = None,
+             row: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramColorArgs']]]] = None,
              facet_show_other_series: Optional[pulumi.Input[bool]] = None,
              height: Optional[pulumi.Input[int]] = None,
@@ -5877,7 +6425,31 @@ class OneDashboardPageWidgetHistogramArgs:
              width: Optional[pulumi.Input[int]] = None,
              y_axis_left_max: Optional[pulumi.Input[float]] = None,
              y_axis_left_min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -6099,7 +6671,11 @@ class OneDashboardPageWidgetHistogramColorArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramColorSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -6148,7 +6724,11 @@ class OneDashboardPageWidgetHistogramColorSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -6193,9 +6773,15 @@ class OneDashboardPageWidgetHistogramNrqlQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
+             query: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -6244,7 +6830,13 @@ class OneDashboardPageWidgetHistogramNullValueArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -6293,7 +6885,13 @@ class OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -6340,7 +6938,11 @@ class OneDashboardPageWidgetHistogramUnitArgs:
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -6389,7 +6991,11 @@ class OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              series_name: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -6471,10 +7077,10 @@ class OneDashboardPageWidgetJsonArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[int],
-             nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNrqlQueryArgs']]],
-             row: pulumi.Input[int],
-             title: pulumi.Input[str],
+             column: Optional[pulumi.Input[int]] = None,
+             nrql_queries: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNrqlQueryArgs']]]] = None,
+             row: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonColorArgs']]]] = None,
              facet_show_other_series: Optional[pulumi.Input[bool]] = None,
              height: Optional[pulumi.Input[int]] = None,
@@ -6486,7 +7092,31 @@ class OneDashboardPageWidgetJsonArgs:
              width: Optional[pulumi.Input[int]] = None,
              y_axis_left_max: Optional[pulumi.Input[float]] = None,
              y_axis_left_min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -6708,7 +7338,11 @@ class OneDashboardPageWidgetJsonColorArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonColorSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -6757,7 +7391,11 @@ class OneDashboardPageWidgetJsonColorSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -6802,9 +7440,15 @@ class OneDashboardPageWidgetJsonNrqlQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
+             query: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -6853,7 +7497,13 @@ class OneDashboardPageWidgetJsonNullValueArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -6902,7 +7552,13 @@ class OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -6949,7 +7605,11 @@ class OneDashboardPageWidgetJsonUnitArgs:
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonUnitSeriesOverrideArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -6998,7 +7658,11 @@ class OneDashboardPageWidgetJsonUnitSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              series_name: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -7083,10 +7747,10 @@ class OneDashboardPageWidgetLineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[int],
-             nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgs']]],
-             row: pulumi.Input[int],
-             title: pulumi.Input[str],
+             column: Optional[pulumi.Input[int]] = None,
+             nrql_queries: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgs']]]] = None,
+             row: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineColorArgs']]]] = None,
              facet_show_other_series: Optional[pulumi.Input[bool]] = None,
              height: Optional[pulumi.Input[int]] = None,
@@ -7099,7 +7763,33 @@ class OneDashboardPageWidgetLineArgs:
              y_axis_left_max: Optional[pulumi.Input[float]] = None,
              y_axis_left_min: Optional[pulumi.Input[float]] = None,
              y_axis_left_zero: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+        if y_axis_left_zero is None and 'yAxisLeftZero' in kwargs:
+            y_axis_left_zero = kwargs['yAxisLeftZero']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -7335,7 +8025,11 @@ class OneDashboardPageWidgetLineColorArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineColorSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -7384,7 +8078,11 @@ class OneDashboardPageWidgetLineColorSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -7429,9 +8127,15 @@ class OneDashboardPageWidgetLineNrqlQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
+             query: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -7480,7 +8184,13 @@ class OneDashboardPageWidgetLineNullValueArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNullValueSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -7529,7 +8239,13 @@ class OneDashboardPageWidgetLineNullValueSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -7576,7 +8292,11 @@ class OneDashboardPageWidgetLineUnitArgs:
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineUnitSeriesOverrideArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -7625,7 +8345,11 @@ class OneDashboardPageWidgetLineUnitSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              series_name: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -7707,10 +8431,10 @@ class OneDashboardPageWidgetLogTableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[int],
-             nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNrqlQueryArgs']]],
-             row: pulumi.Input[int],
-             title: pulumi.Input[str],
+             column: Optional[pulumi.Input[int]] = None,
+             nrql_queries: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNrqlQueryArgs']]]] = None,
+             row: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableColorArgs']]]] = None,
              facet_show_other_series: Optional[pulumi.Input[bool]] = None,
              height: Optional[pulumi.Input[int]] = None,
@@ -7722,7 +8446,31 @@ class OneDashboardPageWidgetLogTableArgs:
              width: Optional[pulumi.Input[int]] = None,
              y_axis_left_max: Optional[pulumi.Input[float]] = None,
              y_axis_left_min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -7944,7 +8692,11 @@ class OneDashboardPageWidgetLogTableColorArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableColorSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -7993,7 +8745,11 @@ class OneDashboardPageWidgetLogTableColorSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -8038,9 +8794,15 @@ class OneDashboardPageWidgetLogTableNrqlQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
+             query: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -8089,7 +8851,13 @@ class OneDashboardPageWidgetLogTableNullValueArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -8138,7 +8906,13 @@ class OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -8185,7 +8959,11 @@ class OneDashboardPageWidgetLogTableUnitArgs:
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -8234,7 +9012,11 @@ class OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              series_name: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -8316,10 +9098,10 @@ class OneDashboardPageWidgetMarkdownArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[int],
-             row: pulumi.Input[int],
-             text: pulumi.Input[str],
-             title: pulumi.Input[str],
+             column: Optional[pulumi.Input[int]] = None,
+             row: Optional[pulumi.Input[int]] = None,
+             text: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownColorArgs']]]] = None,
              facet_show_other_series: Optional[pulumi.Input[bool]] = None,
              height: Optional[pulumi.Input[int]] = None,
@@ -8331,7 +9113,29 @@ class OneDashboardPageWidgetMarkdownArgs:
              width: Optional[pulumi.Input[int]] = None,
              y_axis_left_max: Optional[pulumi.Input[float]] = None,
              y_axis_left_min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if text is None:
+            raise TypeError("Missing 'text' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("row", row)
         _setter("text", text)
@@ -8553,7 +9357,11 @@ class OneDashboardPageWidgetMarkdownColorArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -8602,7 +9410,11 @@ class OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -8649,7 +9461,13 @@ class OneDashboardPageWidgetMarkdownNullValueArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -8698,7 +9516,13 @@ class OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -8745,7 +9569,11 @@ class OneDashboardPageWidgetMarkdownUnitArgs:
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -8794,7 +9622,11 @@ class OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              series_name: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -8882,10 +9714,10 @@ class OneDashboardPageWidgetPyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[int],
-             nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNrqlQueryArgs']]],
-             row: pulumi.Input[int],
-             title: pulumi.Input[str],
+             column: Optional[pulumi.Input[int]] = None,
+             nrql_queries: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNrqlQueryArgs']]]] = None,
+             row: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyColorArgs']]]] = None,
              facet_show_other_series: Optional[pulumi.Input[bool]] = None,
              filter_current_dashboard: Optional[pulumi.Input[bool]] = None,
@@ -8899,7 +9731,35 @@ class OneDashboardPageWidgetPyArgs:
              width: Optional[pulumi.Input[int]] = None,
              y_axis_left_max: Optional[pulumi.Input[float]] = None,
              y_axis_left_min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if filter_current_dashboard is None and 'filterCurrentDashboard' in kwargs:
+            filter_current_dashboard = kwargs['filterCurrentDashboard']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if linked_entity_guids is None and 'linkedEntityGuids' in kwargs:
+            linked_entity_guids = kwargs['linkedEntityGuids']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -9149,7 +10009,11 @@ class OneDashboardPageWidgetPyColorArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyColorSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -9198,7 +10062,11 @@ class OneDashboardPageWidgetPyColorSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -9243,9 +10111,15 @@ class OneDashboardPageWidgetPyNrqlQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
+             query: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -9294,7 +10168,13 @@ class OneDashboardPageWidgetPyNullValueArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNullValueSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -9343,7 +10223,13 @@ class OneDashboardPageWidgetPyNullValueSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -9390,7 +10276,11 @@ class OneDashboardPageWidgetPyUnitArgs:
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyUnitSeriesOverrideArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -9439,7 +10329,11 @@ class OneDashboardPageWidgetPyUnitSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              series_name: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -9521,10 +10415,10 @@ class OneDashboardPageWidgetStackedBarArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[int],
-             nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNrqlQueryArgs']]],
-             row: pulumi.Input[int],
-             title: pulumi.Input[str],
+             column: Optional[pulumi.Input[int]] = None,
+             nrql_queries: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNrqlQueryArgs']]]] = None,
+             row: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarColorArgs']]]] = None,
              facet_show_other_series: Optional[pulumi.Input[bool]] = None,
              height: Optional[pulumi.Input[int]] = None,
@@ -9536,7 +10430,31 @@ class OneDashboardPageWidgetStackedBarArgs:
              width: Optional[pulumi.Input[int]] = None,
              y_axis_left_max: Optional[pulumi.Input[float]] = None,
              y_axis_left_min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -9758,7 +10676,11 @@ class OneDashboardPageWidgetStackedBarColorArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -9807,7 +10729,11 @@ class OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -9852,9 +10778,15 @@ class OneDashboardPageWidgetStackedBarNrqlQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
+             query: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -9903,7 +10835,13 @@ class OneDashboardPageWidgetStackedBarNullValueArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -9952,7 +10890,13 @@ class OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -9999,7 +10943,11 @@ class OneDashboardPageWidgetStackedBarUnitArgs:
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -10048,7 +10996,11 @@ class OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              series_name: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -10136,10 +11088,10 @@ class OneDashboardPageWidgetTableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[int],
-             nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNrqlQueryArgs']]],
-             row: pulumi.Input[int],
-             title: pulumi.Input[str],
+             column: Optional[pulumi.Input[int]] = None,
+             nrql_queries: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNrqlQueryArgs']]]] = None,
+             row: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableColorArgs']]]] = None,
              facet_show_other_series: Optional[pulumi.Input[bool]] = None,
              filter_current_dashboard: Optional[pulumi.Input[bool]] = None,
@@ -10153,7 +11105,35 @@ class OneDashboardPageWidgetTableArgs:
              width: Optional[pulumi.Input[int]] = None,
              y_axis_left_max: Optional[pulumi.Input[float]] = None,
              y_axis_left_min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if filter_current_dashboard is None and 'filterCurrentDashboard' in kwargs:
+            filter_current_dashboard = kwargs['filterCurrentDashboard']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if linked_entity_guids is None and 'linkedEntityGuids' in kwargs:
+            linked_entity_guids = kwargs['linkedEntityGuids']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -10403,7 +11383,11 @@ class OneDashboardPageWidgetTableColorArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableColorSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -10452,7 +11436,11 @@ class OneDashboardPageWidgetTableColorSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              color: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -10497,9 +11485,15 @@ class OneDashboardPageWidgetTableNrqlQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
+             query: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -10548,7 +11542,13 @@ class OneDashboardPageWidgetTableNullValueArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNullValueSeriesOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -10597,7 +11597,13 @@ class OneDashboardPageWidgetTableNullValueSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              null_value: Optional[pulumi.Input[str]] = None,
              series_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -10644,7 +11650,11 @@ class OneDashboardPageWidgetTableUnitArgs:
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableUnitSeriesOverrideArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -10693,7 +11703,11 @@ class OneDashboardPageWidgetTableUnitSeriesOverrideArgs:
              _setter: Callable[[Any, Any], None],
              series_name: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -10744,11 +11758,15 @@ class OneDashboardRawPageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              guid: Optional[pulumi.Input[str]] = None,
              widgets: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardRawPageWidgetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -10843,16 +11861,32 @@ class OneDashboardRawPageWidgetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[int],
-             configuration: pulumi.Input[str],
-             row: pulumi.Input[int],
-             title: pulumi.Input[str],
-             visualization_id: pulumi.Input[str],
+             column: Optional[pulumi.Input[int]] = None,
+             configuration: Optional[pulumi.Input[str]] = None,
+             row: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             visualization_id: Optional[pulumi.Input[str]] = None,
              height: Optional[pulumi.Input[int]] = None,
              id: Optional[pulumi.Input[str]] = None,
              linked_entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              width: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if configuration is None:
+            raise TypeError("Missing 'configuration' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if visualization_id is None and 'visualizationId' in kwargs:
+            visualization_id = kwargs['visualizationId']
+        if visualization_id is None:
+            raise TypeError("Missing 'visualization_id' argument")
+        if linked_entity_guids is None and 'linkedEntityGuids' in kwargs:
+            linked_entity_guids = kwargs['linkedEntityGuids']
+
         _setter("column", column)
         _setter("configuration", configuration)
         _setter("row", row)
@@ -11008,15 +12042,33 @@ class OneDashboardVariableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             replacement_strategy: pulumi.Input[str],
-             title: pulumi.Input[str],
-             type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             replacement_strategy: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              default_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              is_multi_selection: Optional[pulumi.Input[bool]] = None,
              items: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableItemArgs']]]] = None,
              nrql_query: Optional[pulumi.Input['OneDashboardVariableNrqlQueryArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if replacement_strategy is None and 'replacementStrategy' in kwargs:
+            replacement_strategy = kwargs['replacementStrategy']
+        if replacement_strategy is None:
+            raise TypeError("Missing 'replacement_strategy' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if default_values is None and 'defaultValues' in kwargs:
+            default_values = kwargs['defaultValues']
+        if is_multi_selection is None and 'isMultiSelection' in kwargs:
+            is_multi_selection = kwargs['isMultiSelection']
+        if nrql_query is None and 'nrqlQuery' in kwargs:
+            nrql_query = kwargs['nrqlQuery']
+
         _setter("name", name)
         _setter("replacement_strategy", replacement_strategy)
         _setter("title", title)
@@ -11144,9 +12196,13 @@ class OneDashboardVariableItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("value", value)
         if title is not None:
             _setter("title", title)
@@ -11192,9 +12248,15 @@ class OneDashboardVariableNrqlQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
+             query: Optional[pulumi.Input[str]] = None,
              account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_ids is None and 'accountIds' in kwargs:
+            account_ids = kwargs['accountIds']
+
         _setter("query", query)
         if account_ids is not None:
             _setter("account_ids", account_ids)
@@ -11245,11 +12307,25 @@ class ServiceLevelEventsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_id: pulumi.Input[int],
-             valid_events: pulumi.Input['ServiceLevelEventsValidEventsArgs'],
+             account_id: Optional[pulumi.Input[int]] = None,
+             valid_events: Optional[pulumi.Input['ServiceLevelEventsValidEventsArgs']] = None,
              bad_events: Optional[pulumi.Input['ServiceLevelEventsBadEventsArgs']] = None,
              good_events: Optional[pulumi.Input['ServiceLevelEventsGoodEventsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if valid_events is None and 'validEvents' in kwargs:
+            valid_events = kwargs['validEvents']
+        if valid_events is None:
+            raise TypeError("Missing 'valid_events' argument")
+        if bad_events is None and 'badEvents' in kwargs:
+            bad_events = kwargs['badEvents']
+        if good_events is None and 'goodEvents' in kwargs:
+            good_events = kwargs['goodEvents']
+
         _setter("account_id", account_id)
         _setter("valid_events", valid_events)
         if bad_events is not None:
@@ -11328,10 +12404,16 @@ class ServiceLevelEventsBadEventsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             from_: pulumi.Input[str],
+             from_: Optional[pulumi.Input[str]] = None,
              select: Optional[pulumi.Input['ServiceLevelEventsBadEventsSelectArgs']] = None,
              where: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if from_ is None:
+            raise TypeError("Missing 'from_' argument")
+
         _setter("from_", from_)
         if select is not None:
             _setter("select", select)
@@ -11396,10 +12478,14 @@ class ServiceLevelEventsBadEventsSelectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function: pulumi.Input[str],
+             function: Optional[pulumi.Input[str]] = None,
              attribute: Optional[pulumi.Input[str]] = None,
              threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function is None:
+            raise TypeError("Missing 'function' argument")
+
         _setter("function", function)
         if attribute is not None:
             _setter("attribute", attribute)
@@ -11464,10 +12550,16 @@ class ServiceLevelEventsGoodEventsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             from_: pulumi.Input[str],
+             from_: Optional[pulumi.Input[str]] = None,
              select: Optional[pulumi.Input['ServiceLevelEventsGoodEventsSelectArgs']] = None,
              where: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if from_ is None:
+            raise TypeError("Missing 'from_' argument")
+
         _setter("from_", from_)
         if select is not None:
             _setter("select", select)
@@ -11532,10 +12624,14 @@ class ServiceLevelEventsGoodEventsSelectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function: pulumi.Input[str],
+             function: Optional[pulumi.Input[str]] = None,
              attribute: Optional[pulumi.Input[str]] = None,
              threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function is None:
+            raise TypeError("Missing 'function' argument")
+
         _setter("function", function)
         if attribute is not None:
             _setter("attribute", attribute)
@@ -11600,10 +12696,16 @@ class ServiceLevelEventsValidEventsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             from_: pulumi.Input[str],
+             from_: Optional[pulumi.Input[str]] = None,
              select: Optional[pulumi.Input['ServiceLevelEventsValidEventsSelectArgs']] = None,
              where: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if from_ is None:
+            raise TypeError("Missing 'from_' argument")
+
         _setter("from_", from_)
         if select is not None:
             _setter("select", select)
@@ -11668,10 +12770,14 @@ class ServiceLevelEventsValidEventsSelectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function: pulumi.Input[str],
+             function: Optional[pulumi.Input[str]] = None,
              attribute: Optional[pulumi.Input[str]] = None,
              threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function is None:
+            raise TypeError("Missing 'function' argument")
+
         _setter("function", function)
         if attribute is not None:
             _setter("attribute", attribute)
@@ -11738,11 +12844,19 @@ class ServiceLevelObjectiveArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target: pulumi.Input[float],
-             time_window: pulumi.Input['ServiceLevelObjectiveTimeWindowArgs'],
+             target: Optional[pulumi.Input[float]] = None,
+             time_window: Optional[pulumi.Input['ServiceLevelObjectiveTimeWindowArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if time_window is None and 'timeWindow' in kwargs:
+            time_window = kwargs['timeWindow']
+        if time_window is None:
+            raise TypeError("Missing 'time_window' argument")
+
         _setter("target", target)
         _setter("time_window", time_window)
         if description is not None:
@@ -11813,8 +12927,12 @@ class ServiceLevelObjectiveTimeWindowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rolling: pulumi.Input['ServiceLevelObjectiveTimeWindowRollingArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             rolling: Optional[pulumi.Input['ServiceLevelObjectiveTimeWindowRollingArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rolling is None:
+            raise TypeError("Missing 'rolling' argument")
+
         _setter("rolling", rolling)
 
     @property
@@ -11847,9 +12965,15 @@ class ServiceLevelObjectiveTimeWindowRollingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: pulumi.Input[int],
-             unit: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             count: Optional[pulumi.Input[int]] = None,
+             unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if unit is None:
+            raise TypeError("Missing 'unit' argument")
+
         _setter("count", count)
         _setter("unit", unit)
 
@@ -11902,11 +13026,19 @@ class WorkflowDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel_id: pulumi.Input[str],
+             channel_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              notification_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_id is None and 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+        if channel_id is None:
+            raise TypeError("Missing 'channel_id' argument")
+        if notification_triggers is None and 'notificationTriggers' in kwargs:
+            notification_triggers = kwargs['notificationTriggers']
+
         _setter("channel_id", channel_id)
         if name is not None:
             _setter("name", name)
@@ -11979,8 +13111,12 @@ class WorkflowEnrichmentsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             nrqls: pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             nrqls: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if nrqls is None:
+            raise TypeError("Missing 'nrqls' argument")
+
         _setter("nrqls", nrqls)
 
     @property
@@ -12021,12 +13157,22 @@ class WorkflowEnrichmentsNrqlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             configurations: pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlConfigurationArgs']]],
-             name: pulumi.Input[str],
+             configurations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlConfigurationArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              enrichment_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configurations is None:
+            raise TypeError("Missing 'configurations' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if enrichment_id is None and 'enrichmentId' in kwargs:
+            enrichment_id = kwargs['enrichmentId']
+
         _setter("configurations", configurations)
         _setter("name", name)
         if account_id is not None:
@@ -12108,8 +13254,12 @@ class WorkflowEnrichmentsNrqlConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             query: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+
         _setter("query", query)
 
     @property
@@ -12146,11 +13296,19 @@ class WorkflowIssuesFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              filter_id: Optional[pulumi.Input[str]] = None,
              predicates: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowIssuesFilterPredicateArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if filter_id is None and 'filterId' in kwargs:
+            filter_id = kwargs['filterId']
+
         _setter("name", name)
         _setter("type", type)
         if filter_id is not None:
@@ -12221,10 +13379,18 @@ class WorkflowIssuesFilterPredicateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute: pulumi.Input[str],
-             operator: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             attribute: Optional[pulumi.Input[str]] = None,
+             operator: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute is None:
+            raise TypeError("Missing 'attribute' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("attribute", attribute)
         _setter("operator", operator)
         _setter("values", values)
@@ -12283,9 +13449,15 @@ class GetEntityTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

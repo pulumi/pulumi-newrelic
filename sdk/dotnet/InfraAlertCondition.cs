@@ -14,88 +14,6 @@ namespace Pulumi.NewRelic
     /// 
     /// &gt; **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.AlertPolicy("foo");
-    /// 
-    ///     var highDiskUsage = new NewRelic.InfraAlertCondition("highDiskUsage", new()
-    ///     {
-    ///         PolicyId = foo.Id,
-    ///         Description = "Warning if disk usage goes above 80% and critical alert if goes above 90%",
-    ///         Type = "infra_metric",
-    ///         Event = "StorageSample",
-    ///         Select = "diskUsedPercent",
-    ///         Comparison = "above",
-    ///         Where = "(hostname LIKE '%frontend%')",
-    ///         Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
-    ///         {
-    ///             Duration = 25,
-    ///             Value = 90,
-    ///             TimeFunction = "all",
-    ///         },
-    ///         Warning = new NewRelic.Inputs.InfraAlertConditionWarningArgs
-    ///         {
-    ///             Duration = 10,
-    ///             Value = 80,
-    ///             TimeFunction = "all",
-    ///         },
-    ///     });
-    /// 
-    ///     var highDbConnCount = new NewRelic.InfraAlertCondition("highDbConnCount", new()
-    ///     {
-    ///         PolicyId = foo.Id,
-    ///         Description = "Critical alert when the number of database connections goes above 90",
-    ///         Type = "infra_metric",
-    ///         Event = "DatastoreSample",
-    ///         Select = "provider.databaseConnections.Average",
-    ///         Comparison = "above",
-    ///         Where = "(hostname LIKE '%db%')",
-    ///         IntegrationProvider = "RdsDbInstance",
-    ///         Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
-    ///         {
-    ///             Duration = 25,
-    ///             Value = 90,
-    ///             TimeFunction = "all",
-    ///         },
-    ///     });
-    /// 
-    ///     var processNotRunning = new NewRelic.InfraAlertCondition("processNotRunning", new()
-    ///     {
-    ///         PolicyId = foo.Id,
-    ///         Description = "Critical alert when ruby isn't running",
-    ///         Type = "infra_process_running",
-    ///         Comparison = "equal",
-    ///         Where = "hostname = 'web01'",
-    ///         ProcessWhere = "commandName = '/usr/bin/ruby'",
-    ///         Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
-    ///         {
-    ///             Duration = 5,
-    ///             Value = 0,
-    ///         },
-    ///     });
-    /// 
-    ///     var hostNotReporting = new NewRelic.InfraAlertCondition("hostNotReporting", new()
-    ///     {
-    ///         PolicyId = foo.Id,
-    ///         Description = "Critical alert when the host is not reporting",
-    ///         Type = "infra_host_not_reporting",
-    ///         Where = "(hostname LIKE '%frontend%')",
-    ///         Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
-    ///         {
-    ///             Duration = 5,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Thresholds
     /// 
     /// The `critical` and `warning` threshold mapping supports the following arguments:
@@ -103,71 +21,6 @@ namespace Pulumi.NewRelic
     ///   * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
     ///   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infra_metric` and `infra_process_running` alert condition types.
     ///   * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infra_metric` alert condition type.
-    /// 
-    /// ## Tags
-    /// 
-    /// Manage infra alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-    /// 
-    ///     var fooInfraAlertCondition = new NewRelic.InfraAlertCondition("fooInfraAlertCondition", new()
-    ///     {
-    ///         PolicyId = fooAlertPolicy.Id,
-    ///         Description = "Warning if disk usage goes above 80% and critical alert if goes above 90%",
-    ///         Type = "infra_metric",
-    ///         Event = "StorageSample",
-    ///         Select = "diskUsedPercent",
-    ///         Comparison = "above",
-    ///         Where = "(hostname LIKE '%frontend%')",
-    ///         Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
-    ///         {
-    ///             Duration = 25,
-    ///             Value = 90,
-    ///             TimeFunction = "all",
-    ///         },
-    ///         Warning = new NewRelic.Inputs.InfraAlertConditionWarningArgs
-    ///         {
-    ///             Duration = 10,
-    ///             Value = 80,
-    ///             TimeFunction = "all",
-    ///         },
-    ///     });
-    /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
-    ///     {
-    ///         Guid = fooInfraAlertCondition.EntityGuid,
-    ///         Tags = new[]
-    ///         {
-    ///             new NewRelic.Inputs.EntityTagsTagArgs
-    ///             {
-    ///                 Key = "my-key",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "my-value",
-    ///                     "my-other-value",
-    ///                 },
-    ///             },
-    ///             new NewRelic.Inputs.EntityTagsTagArgs
-    ///             {
-    ///                 Key = "my-key-2",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "my-value-2",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
@@ -272,16 +125,6 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Output("violationCloseTimer")]
         public Output<int?> ViolationCloseTimer { get; private set; } = null!;
@@ -418,16 +261,6 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Input("violationCloseTimer")]
         public Input<int>? ViolationCloseTimer { get; set; }
@@ -544,16 +377,6 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Input("violationCloseTimer")]
         public Input<int>? ViolationCloseTimer { get; set; }

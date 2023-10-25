@@ -248,7 +248,7 @@ class AwsIntegrationsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_account_id: pulumi.Input[int],
+             linked_account_id: Optional[pulumi.Input[int]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              alb: Optional[pulumi.Input['AwsIntegrationsAlbArgs']] = None,
              api_gateway: Optional[pulumi.Input['AwsIntegrationsApiGatewayArgs']] = None,
@@ -302,7 +302,67 @@ class AwsIntegrationsArgs:
              trusted_advisor: Optional[pulumi.Input['AwsIntegrationsTrustedAdvisorArgs']] = None,
              vpc: Optional[pulumi.Input['AwsIntegrationsVpcArgs']] = None,
              x_ray: Optional[pulumi.Input['AwsIntegrationsXRayArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if linked_account_id is None and 'linkedAccountId' in kwargs:
+            linked_account_id = kwargs['linkedAccountId']
+        if linked_account_id is None:
+            raise TypeError("Missing 'linked_account_id' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if api_gateway is None and 'apiGateway' in kwargs:
+            api_gateway = kwargs['apiGateway']
+        if auto_scaling is None and 'autoScaling' in kwargs:
+            auto_scaling = kwargs['autoScaling']
+        if aws_app_sync is None and 'awsAppSync' in kwargs:
+            aws_app_sync = kwargs['awsAppSync']
+        if aws_athena is None and 'awsAthena' in kwargs:
+            aws_athena = kwargs['awsAthena']
+        if aws_cognito is None and 'awsCognito' in kwargs:
+            aws_cognito = kwargs['awsCognito']
+        if aws_connect is None and 'awsConnect' in kwargs:
+            aws_connect = kwargs['awsConnect']
+        if aws_direct_connect is None and 'awsDirectConnect' in kwargs:
+            aws_direct_connect = kwargs['awsDirectConnect']
+        if aws_fsx is None and 'awsFsx' in kwargs:
+            aws_fsx = kwargs['awsFsx']
+        if aws_glue is None and 'awsGlue' in kwargs:
+            aws_glue = kwargs['awsGlue']
+        if aws_kinesis_analytics is None and 'awsKinesisAnalytics' in kwargs:
+            aws_kinesis_analytics = kwargs['awsKinesisAnalytics']
+        if aws_media_convert is None and 'awsMediaConvert' in kwargs:
+            aws_media_convert = kwargs['awsMediaConvert']
+        if aws_media_package_vod is None and 'awsMediaPackageVod' in kwargs:
+            aws_media_package_vod = kwargs['awsMediaPackageVod']
+        if aws_mq is None and 'awsMq' in kwargs:
+            aws_mq = kwargs['awsMq']
+        if aws_msk is None and 'awsMsk' in kwargs:
+            aws_msk = kwargs['awsMsk']
+        if aws_neptune is None and 'awsNeptune' in kwargs:
+            aws_neptune = kwargs['awsNeptune']
+        if aws_qldb is None and 'awsQldb' in kwargs:
+            aws_qldb = kwargs['awsQldb']
+        if aws_route53resolver is None and 'awsRoute53resolver' in kwargs:
+            aws_route53resolver = kwargs['awsRoute53resolver']
+        if aws_states is None and 'awsStates' in kwargs:
+            aws_states = kwargs['awsStates']
+        if aws_transit_gateway is None and 'awsTransitGateway' in kwargs:
+            aws_transit_gateway = kwargs['awsTransitGateway']
+        if aws_waf is None and 'awsWaf' in kwargs:
+            aws_waf = kwargs['awsWaf']
+        if aws_wafv2 is None and 'awsWafv2' in kwargs:
+            aws_wafv2 = kwargs['awsWafv2']
+        if doc_db is None and 'docDb' in kwargs:
+            doc_db = kwargs['docDb']
+        if kinesis_firehose is None and 'kinesisFirehose' in kwargs:
+            kinesis_firehose = kwargs['kinesisFirehose']
+        if lambda_ is None and 'lambda' in kwargs:
+            lambda_ = kwargs['lambda']
+        if trusted_advisor is None and 'trustedAdvisor' in kwargs:
+            trusted_advisor = kwargs['trustedAdvisor']
+        if x_ray is None and 'xRay' in kwargs:
+            x_ray = kwargs['xRay']
+
         _setter("linked_account_id", linked_account_id)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -1410,7 +1470,65 @@ class _AwsIntegrationsState:
              trusted_advisor: Optional[pulumi.Input['AwsIntegrationsTrustedAdvisorArgs']] = None,
              vpc: Optional[pulumi.Input['AwsIntegrationsVpcArgs']] = None,
              x_ray: Optional[pulumi.Input['AwsIntegrationsXRayArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if api_gateway is None and 'apiGateway' in kwargs:
+            api_gateway = kwargs['apiGateway']
+        if auto_scaling is None and 'autoScaling' in kwargs:
+            auto_scaling = kwargs['autoScaling']
+        if aws_app_sync is None and 'awsAppSync' in kwargs:
+            aws_app_sync = kwargs['awsAppSync']
+        if aws_athena is None and 'awsAthena' in kwargs:
+            aws_athena = kwargs['awsAthena']
+        if aws_cognito is None and 'awsCognito' in kwargs:
+            aws_cognito = kwargs['awsCognito']
+        if aws_connect is None and 'awsConnect' in kwargs:
+            aws_connect = kwargs['awsConnect']
+        if aws_direct_connect is None and 'awsDirectConnect' in kwargs:
+            aws_direct_connect = kwargs['awsDirectConnect']
+        if aws_fsx is None and 'awsFsx' in kwargs:
+            aws_fsx = kwargs['awsFsx']
+        if aws_glue is None and 'awsGlue' in kwargs:
+            aws_glue = kwargs['awsGlue']
+        if aws_kinesis_analytics is None and 'awsKinesisAnalytics' in kwargs:
+            aws_kinesis_analytics = kwargs['awsKinesisAnalytics']
+        if aws_media_convert is None and 'awsMediaConvert' in kwargs:
+            aws_media_convert = kwargs['awsMediaConvert']
+        if aws_media_package_vod is None and 'awsMediaPackageVod' in kwargs:
+            aws_media_package_vod = kwargs['awsMediaPackageVod']
+        if aws_mq is None and 'awsMq' in kwargs:
+            aws_mq = kwargs['awsMq']
+        if aws_msk is None and 'awsMsk' in kwargs:
+            aws_msk = kwargs['awsMsk']
+        if aws_neptune is None and 'awsNeptune' in kwargs:
+            aws_neptune = kwargs['awsNeptune']
+        if aws_qldb is None and 'awsQldb' in kwargs:
+            aws_qldb = kwargs['awsQldb']
+        if aws_route53resolver is None and 'awsRoute53resolver' in kwargs:
+            aws_route53resolver = kwargs['awsRoute53resolver']
+        if aws_states is None and 'awsStates' in kwargs:
+            aws_states = kwargs['awsStates']
+        if aws_transit_gateway is None and 'awsTransitGateway' in kwargs:
+            aws_transit_gateway = kwargs['awsTransitGateway']
+        if aws_waf is None and 'awsWaf' in kwargs:
+            aws_waf = kwargs['awsWaf']
+        if aws_wafv2 is None and 'awsWafv2' in kwargs:
+            aws_wafv2 = kwargs['awsWafv2']
+        if doc_db is None and 'docDb' in kwargs:
+            doc_db = kwargs['docDb']
+        if kinesis_firehose is None and 'kinesisFirehose' in kwargs:
+            kinesis_firehose = kwargs['kinesisFirehose']
+        if lambda_ is None and 'lambda' in kwargs:
+            lambda_ = kwargs['lambda']
+        if linked_account_id is None and 'linkedAccountId' in kwargs:
+            linked_account_id = kwargs['linkedAccountId']
+        if trusted_advisor is None and 'trustedAdvisor' in kwargs:
+            trusted_advisor = kwargs['trustedAdvisor']
+        if x_ray is None and 'xRay' in kwargs:
+            x_ray = kwargs['xRay']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if alb is not None:
@@ -2301,297 +2419,6 @@ class AwsIntegrations(pulumi.CustomResource):
 
         Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.
 
-        ## Example Usage
-
-        Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.cloud.AwsLinkAccount("foo",
-            arn=aws_iam_role["newrelic_aws_role"]["arn"],
-            metric_collection_mode="PULL")
-        bar = newrelic.cloud.AwsIntegrations("bar",
-            linked_account_id=foo.id,
-            billing=newrelic.cloud.AwsIntegrationsBillingArgs(),
-            cloudtrail=newrelic.cloud.AwsIntegrationsCloudtrailArgs(
-                metrics_polling_interval=6000,
-                aws_regions=[
-                    "us-east-1",
-                    "us-east-2",
-                ],
-            ),
-            health=newrelic.cloud.AwsIntegrationsHealthArgs(
-                metrics_polling_interval=6000,
-            ),
-            trusted_advisor=newrelic.cloud.AwsIntegrationsTrustedAdvisorArgs(
-                metrics_polling_interval=6000,
-            ),
-            vpc=newrelic.cloud.AwsIntegrationsVpcArgs(
-                metrics_polling_interval=6000,
-                aws_regions=[
-                    "us-east-1",
-                    "us-east-2",
-                ],
-                fetch_nat_gateway=True,
-                fetch_vpn=False,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            x_ray=newrelic.cloud.AwsIntegrationsXRayArgs(
-                metrics_polling_interval=6000,
-                aws_regions=[
-                    "us-east-1",
-                    "us-east-2",
-                ],
-            ),
-            s3=newrelic.cloud.AwsIntegrationsS3Args(
-                metrics_polling_interval=6000,
-            ),
-            doc_db=newrelic.cloud.AwsIntegrationsDocDbArgs(
-                metrics_polling_interval=6000,
-            ),
-            sqs=newrelic.cloud.AwsIntegrationsSqsArgs(
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                queue_prefixes=["queue prefix"],
-                metrics_polling_interval=6000,
-                aws_regions=["us-east-1"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            ebs=newrelic.cloud.AwsIntegrationsEbsArgs(
-                metrics_polling_interval=6000,
-                fetch_extended_inventory=True,
-                aws_regions=["us-east-1"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            alb=newrelic.cloud.AwsIntegrationsAlbArgs(
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                load_balancer_prefixes=["load balancer prefix"],
-                metrics_polling_interval=6000,
-                aws_regions=["us-east-1"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elasticache=newrelic.cloud.AwsIntegrationsElasticacheArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            api_gateway=newrelic.cloud.AwsIntegrationsApiGatewayArgs(
-                metrics_polling_interval=6000,
-                aws_regions=["us-east-1"],
-                stage_prefixes=["stage prefix"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            auto_scaling=newrelic.cloud.AwsIntegrationsAutoScalingArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_app_sync=newrelic.cloud.AwsIntegrationsAwsAppSyncArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_athena=newrelic.cloud.AwsIntegrationsAwsAthenaArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_cognito=newrelic.cloud.AwsIntegrationsAwsCognitoArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_connect=newrelic.cloud.AwsIntegrationsAwsConnectArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_direct_connect=newrelic.cloud.AwsIntegrationsAwsDirectConnectArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_fsx=newrelic.cloud.AwsIntegrationsAwsFsxArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_glue=newrelic.cloud.AwsIntegrationsAwsGlueArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_kinesis_analytics=newrelic.cloud.AwsIntegrationsAwsKinesisAnalyticsArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_media_convert=newrelic.cloud.AwsIntegrationsAwsMediaConvertArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_media_package_vod=newrelic.cloud.AwsIntegrationsAwsMediaPackageVodArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_mq=newrelic.cloud.AwsIntegrationsAwsMqArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_msk=newrelic.cloud.AwsIntegrationsAwsMskArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_neptune=newrelic.cloud.AwsIntegrationsAwsNeptuneArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_qldb=newrelic.cloud.AwsIntegrationsAwsQldbArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_route53resolver=newrelic.cloud.AwsIntegrationsAwsRoute53resolverArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_states=newrelic.cloud.AwsIntegrationsAwsStatesArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_transit_gateway=newrelic.cloud.AwsIntegrationsAwsTransitGatewayArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_waf=newrelic.cloud.AwsIntegrationsAwsWafArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_wafv2=newrelic.cloud.AwsIntegrationsAwsWafv2Args(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            cloudfront=newrelic.cloud.AwsIntegrationsCloudfrontArgs(
-                fetch_lambdas_at_edge=True,
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            dynamodb=newrelic.cloud.AwsIntegrationsDynamodbArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            ec2=newrelic.cloud.AwsIntegrationsEc2Args(
-                aws_regions=["us-east-1"],
-                duplicate_ec2_tags=True,
-                fetch_ip_addresses=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            ecs=newrelic.cloud.AwsIntegrationsEcsArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            efs=newrelic.cloud.AwsIntegrationsEfsArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elasticbeanstalk=newrelic.cloud.AwsIntegrationsElasticbeanstalkArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elasticsearch=newrelic.cloud.AwsIntegrationsElasticsearchArgs(
-                aws_regions=["us-east-1"],
-                fetch_nodes=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elb=newrelic.cloud.AwsIntegrationsElbArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-            ),
-            emr=newrelic.cloud.AwsIntegrationsEmrArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            iam=newrelic.cloud.AwsIntegrationsIamArgs(
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            iot=newrelic.cloud.AwsIntegrationsIotArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            kinesis=newrelic.cloud.AwsIntegrationsKinesisArgs(
-                aws_regions=["us-east-1"],
-                fetch_shards=True,
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            kinesis_firehose=newrelic.cloud.AwsIntegrationsKinesisFirehoseArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            lambda_=newrelic.cloud.AwsIntegrationsLambdaArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            rds=newrelic.cloud.AwsIntegrationsRdsArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            redshift=newrelic.cloud.AwsIntegrationsRedshiftArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            route53=newrelic.cloud.AwsIntegrationsRoute53Args(
-                fetch_extended_inventory=True,
-                metrics_polling_interval=6000,
-            ),
-            ses=newrelic.cloud.AwsIntegrationsSesArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            sns=newrelic.cloud.AwsIntegrationsSnsArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                metrics_polling_interval=6000,
-            ))
-        ```
-
         ## Import
 
         Linked AWS account integrations can be imported using the `id`, e.g. bash
@@ -2735,297 +2562,6 @@ class AwsIntegrations(pulumi.CustomResource):
 
         Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.
 
-        ## Example Usage
-
-        Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.cloud.AwsLinkAccount("foo",
-            arn=aws_iam_role["newrelic_aws_role"]["arn"],
-            metric_collection_mode="PULL")
-        bar = newrelic.cloud.AwsIntegrations("bar",
-            linked_account_id=foo.id,
-            billing=newrelic.cloud.AwsIntegrationsBillingArgs(),
-            cloudtrail=newrelic.cloud.AwsIntegrationsCloudtrailArgs(
-                metrics_polling_interval=6000,
-                aws_regions=[
-                    "us-east-1",
-                    "us-east-2",
-                ],
-            ),
-            health=newrelic.cloud.AwsIntegrationsHealthArgs(
-                metrics_polling_interval=6000,
-            ),
-            trusted_advisor=newrelic.cloud.AwsIntegrationsTrustedAdvisorArgs(
-                metrics_polling_interval=6000,
-            ),
-            vpc=newrelic.cloud.AwsIntegrationsVpcArgs(
-                metrics_polling_interval=6000,
-                aws_regions=[
-                    "us-east-1",
-                    "us-east-2",
-                ],
-                fetch_nat_gateway=True,
-                fetch_vpn=False,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            x_ray=newrelic.cloud.AwsIntegrationsXRayArgs(
-                metrics_polling_interval=6000,
-                aws_regions=[
-                    "us-east-1",
-                    "us-east-2",
-                ],
-            ),
-            s3=newrelic.cloud.AwsIntegrationsS3Args(
-                metrics_polling_interval=6000,
-            ),
-            doc_db=newrelic.cloud.AwsIntegrationsDocDbArgs(
-                metrics_polling_interval=6000,
-            ),
-            sqs=newrelic.cloud.AwsIntegrationsSqsArgs(
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                queue_prefixes=["queue prefix"],
-                metrics_polling_interval=6000,
-                aws_regions=["us-east-1"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            ebs=newrelic.cloud.AwsIntegrationsEbsArgs(
-                metrics_polling_interval=6000,
-                fetch_extended_inventory=True,
-                aws_regions=["us-east-1"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            alb=newrelic.cloud.AwsIntegrationsAlbArgs(
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                load_balancer_prefixes=["load balancer prefix"],
-                metrics_polling_interval=6000,
-                aws_regions=["us-east-1"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elasticache=newrelic.cloud.AwsIntegrationsElasticacheArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            api_gateway=newrelic.cloud.AwsIntegrationsApiGatewayArgs(
-                metrics_polling_interval=6000,
-                aws_regions=["us-east-1"],
-                stage_prefixes=["stage prefix"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            auto_scaling=newrelic.cloud.AwsIntegrationsAutoScalingArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_app_sync=newrelic.cloud.AwsIntegrationsAwsAppSyncArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_athena=newrelic.cloud.AwsIntegrationsAwsAthenaArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_cognito=newrelic.cloud.AwsIntegrationsAwsCognitoArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_connect=newrelic.cloud.AwsIntegrationsAwsConnectArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_direct_connect=newrelic.cloud.AwsIntegrationsAwsDirectConnectArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_fsx=newrelic.cloud.AwsIntegrationsAwsFsxArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_glue=newrelic.cloud.AwsIntegrationsAwsGlueArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_kinesis_analytics=newrelic.cloud.AwsIntegrationsAwsKinesisAnalyticsArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_media_convert=newrelic.cloud.AwsIntegrationsAwsMediaConvertArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_media_package_vod=newrelic.cloud.AwsIntegrationsAwsMediaPackageVodArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_mq=newrelic.cloud.AwsIntegrationsAwsMqArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_msk=newrelic.cloud.AwsIntegrationsAwsMskArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_neptune=newrelic.cloud.AwsIntegrationsAwsNeptuneArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_qldb=newrelic.cloud.AwsIntegrationsAwsQldbArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_route53resolver=newrelic.cloud.AwsIntegrationsAwsRoute53resolverArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_states=newrelic.cloud.AwsIntegrationsAwsStatesArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_transit_gateway=newrelic.cloud.AwsIntegrationsAwsTransitGatewayArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_waf=newrelic.cloud.AwsIntegrationsAwsWafArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            aws_wafv2=newrelic.cloud.AwsIntegrationsAwsWafv2Args(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            cloudfront=newrelic.cloud.AwsIntegrationsCloudfrontArgs(
-                fetch_lambdas_at_edge=True,
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            dynamodb=newrelic.cloud.AwsIntegrationsDynamodbArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            ec2=newrelic.cloud.AwsIntegrationsEc2Args(
-                aws_regions=["us-east-1"],
-                duplicate_ec2_tags=True,
-                fetch_ip_addresses=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            ecs=newrelic.cloud.AwsIntegrationsEcsArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            efs=newrelic.cloud.AwsIntegrationsEfsArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elasticbeanstalk=newrelic.cloud.AwsIntegrationsElasticbeanstalkArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elasticsearch=newrelic.cloud.AwsIntegrationsElasticsearchArgs(
-                aws_regions=["us-east-1"],
-                fetch_nodes=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elb=newrelic.cloud.AwsIntegrationsElbArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-            ),
-            emr=newrelic.cloud.AwsIntegrationsEmrArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            iam=newrelic.cloud.AwsIntegrationsIamArgs(
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            iot=newrelic.cloud.AwsIntegrationsIotArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            kinesis=newrelic.cloud.AwsIntegrationsKinesisArgs(
-                aws_regions=["us-east-1"],
-                fetch_shards=True,
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            kinesis_firehose=newrelic.cloud.AwsIntegrationsKinesisFirehoseArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            lambda_=newrelic.cloud.AwsIntegrationsLambdaArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            rds=newrelic.cloud.AwsIntegrationsRdsArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            redshift=newrelic.cloud.AwsIntegrationsRedshiftArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            route53=newrelic.cloud.AwsIntegrationsRoute53Args(
-                fetch_extended_inventory=True,
-                metrics_polling_interval=6000,
-            ),
-            ses=newrelic.cloud.AwsIntegrationsSesArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=6000,
-            ),
-            sns=newrelic.cloud.AwsIntegrationsSnsArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                metrics_polling_interval=6000,
-            ))
-        ```
-
         ## Import
 
         Linked AWS account integrations can be imported using the `id`, e.g. bash
@@ -3117,320 +2653,112 @@ class AwsIntegrations(pulumi.CustomResource):
             __props__ = AwsIntegrationsArgs.__new__(AwsIntegrationsArgs)
 
             __props__.__dict__["account_id"] = account_id
-            if alb is not None and not isinstance(alb, AwsIntegrationsAlbArgs):
-                alb = alb or {}
-                def _setter(key, value):
-                    alb[key] = value
-                AwsIntegrationsAlbArgs._configure(_setter, **alb)
+            alb = _utilities.configure(alb, AwsIntegrationsAlbArgs, True)
             __props__.__dict__["alb"] = alb
-            if api_gateway is not None and not isinstance(api_gateway, AwsIntegrationsApiGatewayArgs):
-                api_gateway = api_gateway or {}
-                def _setter(key, value):
-                    api_gateway[key] = value
-                AwsIntegrationsApiGatewayArgs._configure(_setter, **api_gateway)
+            api_gateway = _utilities.configure(api_gateway, AwsIntegrationsApiGatewayArgs, True)
             __props__.__dict__["api_gateway"] = api_gateway
-            if auto_scaling is not None and not isinstance(auto_scaling, AwsIntegrationsAutoScalingArgs):
-                auto_scaling = auto_scaling or {}
-                def _setter(key, value):
-                    auto_scaling[key] = value
-                AwsIntegrationsAutoScalingArgs._configure(_setter, **auto_scaling)
+            auto_scaling = _utilities.configure(auto_scaling, AwsIntegrationsAutoScalingArgs, True)
             __props__.__dict__["auto_scaling"] = auto_scaling
-            if aws_app_sync is not None and not isinstance(aws_app_sync, AwsIntegrationsAwsAppSyncArgs):
-                aws_app_sync = aws_app_sync or {}
-                def _setter(key, value):
-                    aws_app_sync[key] = value
-                AwsIntegrationsAwsAppSyncArgs._configure(_setter, **aws_app_sync)
+            aws_app_sync = _utilities.configure(aws_app_sync, AwsIntegrationsAwsAppSyncArgs, True)
             __props__.__dict__["aws_app_sync"] = aws_app_sync
-            if aws_athena is not None and not isinstance(aws_athena, AwsIntegrationsAwsAthenaArgs):
-                aws_athena = aws_athena or {}
-                def _setter(key, value):
-                    aws_athena[key] = value
-                AwsIntegrationsAwsAthenaArgs._configure(_setter, **aws_athena)
+            aws_athena = _utilities.configure(aws_athena, AwsIntegrationsAwsAthenaArgs, True)
             __props__.__dict__["aws_athena"] = aws_athena
-            if aws_cognito is not None and not isinstance(aws_cognito, AwsIntegrationsAwsCognitoArgs):
-                aws_cognito = aws_cognito or {}
-                def _setter(key, value):
-                    aws_cognito[key] = value
-                AwsIntegrationsAwsCognitoArgs._configure(_setter, **aws_cognito)
+            aws_cognito = _utilities.configure(aws_cognito, AwsIntegrationsAwsCognitoArgs, True)
             __props__.__dict__["aws_cognito"] = aws_cognito
-            if aws_connect is not None and not isinstance(aws_connect, AwsIntegrationsAwsConnectArgs):
-                aws_connect = aws_connect or {}
-                def _setter(key, value):
-                    aws_connect[key] = value
-                AwsIntegrationsAwsConnectArgs._configure(_setter, **aws_connect)
+            aws_connect = _utilities.configure(aws_connect, AwsIntegrationsAwsConnectArgs, True)
             __props__.__dict__["aws_connect"] = aws_connect
-            if aws_direct_connect is not None and not isinstance(aws_direct_connect, AwsIntegrationsAwsDirectConnectArgs):
-                aws_direct_connect = aws_direct_connect or {}
-                def _setter(key, value):
-                    aws_direct_connect[key] = value
-                AwsIntegrationsAwsDirectConnectArgs._configure(_setter, **aws_direct_connect)
+            aws_direct_connect = _utilities.configure(aws_direct_connect, AwsIntegrationsAwsDirectConnectArgs, True)
             __props__.__dict__["aws_direct_connect"] = aws_direct_connect
-            if aws_fsx is not None and not isinstance(aws_fsx, AwsIntegrationsAwsFsxArgs):
-                aws_fsx = aws_fsx or {}
-                def _setter(key, value):
-                    aws_fsx[key] = value
-                AwsIntegrationsAwsFsxArgs._configure(_setter, **aws_fsx)
+            aws_fsx = _utilities.configure(aws_fsx, AwsIntegrationsAwsFsxArgs, True)
             __props__.__dict__["aws_fsx"] = aws_fsx
-            if aws_glue is not None and not isinstance(aws_glue, AwsIntegrationsAwsGlueArgs):
-                aws_glue = aws_glue or {}
-                def _setter(key, value):
-                    aws_glue[key] = value
-                AwsIntegrationsAwsGlueArgs._configure(_setter, **aws_glue)
+            aws_glue = _utilities.configure(aws_glue, AwsIntegrationsAwsGlueArgs, True)
             __props__.__dict__["aws_glue"] = aws_glue
-            if aws_kinesis_analytics is not None and not isinstance(aws_kinesis_analytics, AwsIntegrationsAwsKinesisAnalyticsArgs):
-                aws_kinesis_analytics = aws_kinesis_analytics or {}
-                def _setter(key, value):
-                    aws_kinesis_analytics[key] = value
-                AwsIntegrationsAwsKinesisAnalyticsArgs._configure(_setter, **aws_kinesis_analytics)
+            aws_kinesis_analytics = _utilities.configure(aws_kinesis_analytics, AwsIntegrationsAwsKinesisAnalyticsArgs, True)
             __props__.__dict__["aws_kinesis_analytics"] = aws_kinesis_analytics
-            if aws_media_convert is not None and not isinstance(aws_media_convert, AwsIntegrationsAwsMediaConvertArgs):
-                aws_media_convert = aws_media_convert or {}
-                def _setter(key, value):
-                    aws_media_convert[key] = value
-                AwsIntegrationsAwsMediaConvertArgs._configure(_setter, **aws_media_convert)
+            aws_media_convert = _utilities.configure(aws_media_convert, AwsIntegrationsAwsMediaConvertArgs, True)
             __props__.__dict__["aws_media_convert"] = aws_media_convert
-            if aws_media_package_vod is not None and not isinstance(aws_media_package_vod, AwsIntegrationsAwsMediaPackageVodArgs):
-                aws_media_package_vod = aws_media_package_vod or {}
-                def _setter(key, value):
-                    aws_media_package_vod[key] = value
-                AwsIntegrationsAwsMediaPackageVodArgs._configure(_setter, **aws_media_package_vod)
+            aws_media_package_vod = _utilities.configure(aws_media_package_vod, AwsIntegrationsAwsMediaPackageVodArgs, True)
             __props__.__dict__["aws_media_package_vod"] = aws_media_package_vod
-            if aws_mq is not None and not isinstance(aws_mq, AwsIntegrationsAwsMqArgs):
-                aws_mq = aws_mq or {}
-                def _setter(key, value):
-                    aws_mq[key] = value
-                AwsIntegrationsAwsMqArgs._configure(_setter, **aws_mq)
+            aws_mq = _utilities.configure(aws_mq, AwsIntegrationsAwsMqArgs, True)
             __props__.__dict__["aws_mq"] = aws_mq
-            if aws_msk is not None and not isinstance(aws_msk, AwsIntegrationsAwsMskArgs):
-                aws_msk = aws_msk or {}
-                def _setter(key, value):
-                    aws_msk[key] = value
-                AwsIntegrationsAwsMskArgs._configure(_setter, **aws_msk)
+            aws_msk = _utilities.configure(aws_msk, AwsIntegrationsAwsMskArgs, True)
             __props__.__dict__["aws_msk"] = aws_msk
-            if aws_neptune is not None and not isinstance(aws_neptune, AwsIntegrationsAwsNeptuneArgs):
-                aws_neptune = aws_neptune or {}
-                def _setter(key, value):
-                    aws_neptune[key] = value
-                AwsIntegrationsAwsNeptuneArgs._configure(_setter, **aws_neptune)
+            aws_neptune = _utilities.configure(aws_neptune, AwsIntegrationsAwsNeptuneArgs, True)
             __props__.__dict__["aws_neptune"] = aws_neptune
-            if aws_qldb is not None and not isinstance(aws_qldb, AwsIntegrationsAwsQldbArgs):
-                aws_qldb = aws_qldb or {}
-                def _setter(key, value):
-                    aws_qldb[key] = value
-                AwsIntegrationsAwsQldbArgs._configure(_setter, **aws_qldb)
+            aws_qldb = _utilities.configure(aws_qldb, AwsIntegrationsAwsQldbArgs, True)
             __props__.__dict__["aws_qldb"] = aws_qldb
-            if aws_route53resolver is not None and not isinstance(aws_route53resolver, AwsIntegrationsAwsRoute53resolverArgs):
-                aws_route53resolver = aws_route53resolver or {}
-                def _setter(key, value):
-                    aws_route53resolver[key] = value
-                AwsIntegrationsAwsRoute53resolverArgs._configure(_setter, **aws_route53resolver)
+            aws_route53resolver = _utilities.configure(aws_route53resolver, AwsIntegrationsAwsRoute53resolverArgs, True)
             __props__.__dict__["aws_route53resolver"] = aws_route53resolver
-            if aws_states is not None and not isinstance(aws_states, AwsIntegrationsAwsStatesArgs):
-                aws_states = aws_states or {}
-                def _setter(key, value):
-                    aws_states[key] = value
-                AwsIntegrationsAwsStatesArgs._configure(_setter, **aws_states)
+            aws_states = _utilities.configure(aws_states, AwsIntegrationsAwsStatesArgs, True)
             __props__.__dict__["aws_states"] = aws_states
-            if aws_transit_gateway is not None and not isinstance(aws_transit_gateway, AwsIntegrationsAwsTransitGatewayArgs):
-                aws_transit_gateway = aws_transit_gateway or {}
-                def _setter(key, value):
-                    aws_transit_gateway[key] = value
-                AwsIntegrationsAwsTransitGatewayArgs._configure(_setter, **aws_transit_gateway)
+            aws_transit_gateway = _utilities.configure(aws_transit_gateway, AwsIntegrationsAwsTransitGatewayArgs, True)
             __props__.__dict__["aws_transit_gateway"] = aws_transit_gateway
-            if aws_waf is not None and not isinstance(aws_waf, AwsIntegrationsAwsWafArgs):
-                aws_waf = aws_waf or {}
-                def _setter(key, value):
-                    aws_waf[key] = value
-                AwsIntegrationsAwsWafArgs._configure(_setter, **aws_waf)
+            aws_waf = _utilities.configure(aws_waf, AwsIntegrationsAwsWafArgs, True)
             __props__.__dict__["aws_waf"] = aws_waf
-            if aws_wafv2 is not None and not isinstance(aws_wafv2, AwsIntegrationsAwsWafv2Args):
-                aws_wafv2 = aws_wafv2 or {}
-                def _setter(key, value):
-                    aws_wafv2[key] = value
-                AwsIntegrationsAwsWafv2Args._configure(_setter, **aws_wafv2)
+            aws_wafv2 = _utilities.configure(aws_wafv2, AwsIntegrationsAwsWafv2Args, True)
             __props__.__dict__["aws_wafv2"] = aws_wafv2
-            if billing is not None and not isinstance(billing, AwsIntegrationsBillingArgs):
-                billing = billing or {}
-                def _setter(key, value):
-                    billing[key] = value
-                AwsIntegrationsBillingArgs._configure(_setter, **billing)
+            billing = _utilities.configure(billing, AwsIntegrationsBillingArgs, True)
             __props__.__dict__["billing"] = billing
-            if cloudfront is not None and not isinstance(cloudfront, AwsIntegrationsCloudfrontArgs):
-                cloudfront = cloudfront or {}
-                def _setter(key, value):
-                    cloudfront[key] = value
-                AwsIntegrationsCloudfrontArgs._configure(_setter, **cloudfront)
+            cloudfront = _utilities.configure(cloudfront, AwsIntegrationsCloudfrontArgs, True)
             __props__.__dict__["cloudfront"] = cloudfront
-            if cloudtrail is not None and not isinstance(cloudtrail, AwsIntegrationsCloudtrailArgs):
-                cloudtrail = cloudtrail or {}
-                def _setter(key, value):
-                    cloudtrail[key] = value
-                AwsIntegrationsCloudtrailArgs._configure(_setter, **cloudtrail)
+            cloudtrail = _utilities.configure(cloudtrail, AwsIntegrationsCloudtrailArgs, True)
             __props__.__dict__["cloudtrail"] = cloudtrail
-            if doc_db is not None and not isinstance(doc_db, AwsIntegrationsDocDbArgs):
-                doc_db = doc_db or {}
-                def _setter(key, value):
-                    doc_db[key] = value
-                AwsIntegrationsDocDbArgs._configure(_setter, **doc_db)
+            doc_db = _utilities.configure(doc_db, AwsIntegrationsDocDbArgs, True)
             __props__.__dict__["doc_db"] = doc_db
-            if dynamodb is not None and not isinstance(dynamodb, AwsIntegrationsDynamodbArgs):
-                dynamodb = dynamodb or {}
-                def _setter(key, value):
-                    dynamodb[key] = value
-                AwsIntegrationsDynamodbArgs._configure(_setter, **dynamodb)
+            dynamodb = _utilities.configure(dynamodb, AwsIntegrationsDynamodbArgs, True)
             __props__.__dict__["dynamodb"] = dynamodb
-            if ebs is not None and not isinstance(ebs, AwsIntegrationsEbsArgs):
-                ebs = ebs or {}
-                def _setter(key, value):
-                    ebs[key] = value
-                AwsIntegrationsEbsArgs._configure(_setter, **ebs)
+            ebs = _utilities.configure(ebs, AwsIntegrationsEbsArgs, True)
             __props__.__dict__["ebs"] = ebs
-            if ec2 is not None and not isinstance(ec2, AwsIntegrationsEc2Args):
-                ec2 = ec2 or {}
-                def _setter(key, value):
-                    ec2[key] = value
-                AwsIntegrationsEc2Args._configure(_setter, **ec2)
+            ec2 = _utilities.configure(ec2, AwsIntegrationsEc2Args, True)
             __props__.__dict__["ec2"] = ec2
-            if ecs is not None and not isinstance(ecs, AwsIntegrationsEcsArgs):
-                ecs = ecs or {}
-                def _setter(key, value):
-                    ecs[key] = value
-                AwsIntegrationsEcsArgs._configure(_setter, **ecs)
+            ecs = _utilities.configure(ecs, AwsIntegrationsEcsArgs, True)
             __props__.__dict__["ecs"] = ecs
-            if efs is not None and not isinstance(efs, AwsIntegrationsEfsArgs):
-                efs = efs or {}
-                def _setter(key, value):
-                    efs[key] = value
-                AwsIntegrationsEfsArgs._configure(_setter, **efs)
+            efs = _utilities.configure(efs, AwsIntegrationsEfsArgs, True)
             __props__.__dict__["efs"] = efs
-            if elasticache is not None and not isinstance(elasticache, AwsIntegrationsElasticacheArgs):
-                elasticache = elasticache or {}
-                def _setter(key, value):
-                    elasticache[key] = value
-                AwsIntegrationsElasticacheArgs._configure(_setter, **elasticache)
+            elasticache = _utilities.configure(elasticache, AwsIntegrationsElasticacheArgs, True)
             __props__.__dict__["elasticache"] = elasticache
-            if elasticbeanstalk is not None and not isinstance(elasticbeanstalk, AwsIntegrationsElasticbeanstalkArgs):
-                elasticbeanstalk = elasticbeanstalk or {}
-                def _setter(key, value):
-                    elasticbeanstalk[key] = value
-                AwsIntegrationsElasticbeanstalkArgs._configure(_setter, **elasticbeanstalk)
+            elasticbeanstalk = _utilities.configure(elasticbeanstalk, AwsIntegrationsElasticbeanstalkArgs, True)
             __props__.__dict__["elasticbeanstalk"] = elasticbeanstalk
-            if elasticsearch is not None and not isinstance(elasticsearch, AwsIntegrationsElasticsearchArgs):
-                elasticsearch = elasticsearch or {}
-                def _setter(key, value):
-                    elasticsearch[key] = value
-                AwsIntegrationsElasticsearchArgs._configure(_setter, **elasticsearch)
+            elasticsearch = _utilities.configure(elasticsearch, AwsIntegrationsElasticsearchArgs, True)
             __props__.__dict__["elasticsearch"] = elasticsearch
-            if elb is not None and not isinstance(elb, AwsIntegrationsElbArgs):
-                elb = elb or {}
-                def _setter(key, value):
-                    elb[key] = value
-                AwsIntegrationsElbArgs._configure(_setter, **elb)
+            elb = _utilities.configure(elb, AwsIntegrationsElbArgs, True)
             __props__.__dict__["elb"] = elb
-            if emr is not None and not isinstance(emr, AwsIntegrationsEmrArgs):
-                emr = emr or {}
-                def _setter(key, value):
-                    emr[key] = value
-                AwsIntegrationsEmrArgs._configure(_setter, **emr)
+            emr = _utilities.configure(emr, AwsIntegrationsEmrArgs, True)
             __props__.__dict__["emr"] = emr
-            if health is not None and not isinstance(health, AwsIntegrationsHealthArgs):
-                health = health or {}
-                def _setter(key, value):
-                    health[key] = value
-                AwsIntegrationsHealthArgs._configure(_setter, **health)
+            health = _utilities.configure(health, AwsIntegrationsHealthArgs, True)
             __props__.__dict__["health"] = health
-            if iam is not None and not isinstance(iam, AwsIntegrationsIamArgs):
-                iam = iam or {}
-                def _setter(key, value):
-                    iam[key] = value
-                AwsIntegrationsIamArgs._configure(_setter, **iam)
+            iam = _utilities.configure(iam, AwsIntegrationsIamArgs, True)
             __props__.__dict__["iam"] = iam
-            if iot is not None and not isinstance(iot, AwsIntegrationsIotArgs):
-                iot = iot or {}
-                def _setter(key, value):
-                    iot[key] = value
-                AwsIntegrationsIotArgs._configure(_setter, **iot)
+            iot = _utilities.configure(iot, AwsIntegrationsIotArgs, True)
             __props__.__dict__["iot"] = iot
-            if kinesis is not None and not isinstance(kinesis, AwsIntegrationsKinesisArgs):
-                kinesis = kinesis or {}
-                def _setter(key, value):
-                    kinesis[key] = value
-                AwsIntegrationsKinesisArgs._configure(_setter, **kinesis)
+            kinesis = _utilities.configure(kinesis, AwsIntegrationsKinesisArgs, True)
             __props__.__dict__["kinesis"] = kinesis
-            if kinesis_firehose is not None and not isinstance(kinesis_firehose, AwsIntegrationsKinesisFirehoseArgs):
-                kinesis_firehose = kinesis_firehose or {}
-                def _setter(key, value):
-                    kinesis_firehose[key] = value
-                AwsIntegrationsKinesisFirehoseArgs._configure(_setter, **kinesis_firehose)
+            kinesis_firehose = _utilities.configure(kinesis_firehose, AwsIntegrationsKinesisFirehoseArgs, True)
             __props__.__dict__["kinesis_firehose"] = kinesis_firehose
-            if lambda_ is not None and not isinstance(lambda_, AwsIntegrationsLambdaArgs):
-                lambda_ = lambda_ or {}
-                def _setter(key, value):
-                    lambda_[key] = value
-                AwsIntegrationsLambdaArgs._configure(_setter, **lambda_)
+            lambda_ = _utilities.configure(lambda_, AwsIntegrationsLambdaArgs, True)
             __props__.__dict__["lambda_"] = lambda_
             if linked_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_account_id'")
             __props__.__dict__["linked_account_id"] = linked_account_id
-            if rds is not None and not isinstance(rds, AwsIntegrationsRdsArgs):
-                rds = rds or {}
-                def _setter(key, value):
-                    rds[key] = value
-                AwsIntegrationsRdsArgs._configure(_setter, **rds)
+            rds = _utilities.configure(rds, AwsIntegrationsRdsArgs, True)
             __props__.__dict__["rds"] = rds
-            if redshift is not None and not isinstance(redshift, AwsIntegrationsRedshiftArgs):
-                redshift = redshift or {}
-                def _setter(key, value):
-                    redshift[key] = value
-                AwsIntegrationsRedshiftArgs._configure(_setter, **redshift)
+            redshift = _utilities.configure(redshift, AwsIntegrationsRedshiftArgs, True)
             __props__.__dict__["redshift"] = redshift
-            if route53 is not None and not isinstance(route53, AwsIntegrationsRoute53Args):
-                route53 = route53 or {}
-                def _setter(key, value):
-                    route53[key] = value
-                AwsIntegrationsRoute53Args._configure(_setter, **route53)
+            route53 = _utilities.configure(route53, AwsIntegrationsRoute53Args, True)
             __props__.__dict__["route53"] = route53
-            if s3 is not None and not isinstance(s3, AwsIntegrationsS3Args):
-                s3 = s3 or {}
-                def _setter(key, value):
-                    s3[key] = value
-                AwsIntegrationsS3Args._configure(_setter, **s3)
+            s3 = _utilities.configure(s3, AwsIntegrationsS3Args, True)
             __props__.__dict__["s3"] = s3
-            if ses is not None and not isinstance(ses, AwsIntegrationsSesArgs):
-                ses = ses or {}
-                def _setter(key, value):
-                    ses[key] = value
-                AwsIntegrationsSesArgs._configure(_setter, **ses)
+            ses = _utilities.configure(ses, AwsIntegrationsSesArgs, True)
             __props__.__dict__["ses"] = ses
-            if sns is not None and not isinstance(sns, AwsIntegrationsSnsArgs):
-                sns = sns or {}
-                def _setter(key, value):
-                    sns[key] = value
-                AwsIntegrationsSnsArgs._configure(_setter, **sns)
+            sns = _utilities.configure(sns, AwsIntegrationsSnsArgs, True)
             __props__.__dict__["sns"] = sns
-            if sqs is not None and not isinstance(sqs, AwsIntegrationsSqsArgs):
-                sqs = sqs or {}
-                def _setter(key, value):
-                    sqs[key] = value
-                AwsIntegrationsSqsArgs._configure(_setter, **sqs)
+            sqs = _utilities.configure(sqs, AwsIntegrationsSqsArgs, True)
             __props__.__dict__["sqs"] = sqs
-            if trusted_advisor is not None and not isinstance(trusted_advisor, AwsIntegrationsTrustedAdvisorArgs):
-                trusted_advisor = trusted_advisor or {}
-                def _setter(key, value):
-                    trusted_advisor[key] = value
-                AwsIntegrationsTrustedAdvisorArgs._configure(_setter, **trusted_advisor)
+            trusted_advisor = _utilities.configure(trusted_advisor, AwsIntegrationsTrustedAdvisorArgs, True)
             __props__.__dict__["trusted_advisor"] = trusted_advisor
-            if vpc is not None and not isinstance(vpc, AwsIntegrationsVpcArgs):
-                vpc = vpc or {}
-                def _setter(key, value):
-                    vpc[key] = value
-                AwsIntegrationsVpcArgs._configure(_setter, **vpc)
+            vpc = _utilities.configure(vpc, AwsIntegrationsVpcArgs, True)
             __props__.__dict__["vpc"] = vpc
-            if x_ray is not None and not isinstance(x_ray, AwsIntegrationsXRayArgs):
-                x_ray = x_ray or {}
-                def _setter(key, value):
-                    x_ray[key] = value
-                AwsIntegrationsXRayArgs._configure(_setter, **x_ray)
+            x_ray = _utilities.configure(x_ray, AwsIntegrationsXRayArgs, True)
             __props__.__dict__["x_ray"] = x_ray
         super(AwsIntegrations, __self__).__init__(
             'newrelic:cloud/awsIntegrations:AwsIntegrations',

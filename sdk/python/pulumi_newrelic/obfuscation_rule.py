@@ -43,13 +43,23 @@ class ObfuscationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input[Sequence[pulumi.Input['ObfuscationRuleActionArgs']]],
-             enabled: pulumi.Input[bool],
-             filter: pulumi.Input[str],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['ObfuscationRuleActionArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             filter: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("actions", actions)
         _setter("enabled", enabled)
         _setter("filter", filter)
@@ -169,7 +179,11 @@ class _ObfuscationRuleState:
              enabled: Optional[pulumi.Input[bool]] = None,
              filter: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if actions is not None:
@@ -271,26 +285,6 @@ class ObfuscationRule(pulumi.CustomResource):
         """
         Use this resource to create, update and delete New Relic Obfuscation Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        bar = newrelic.ObfuscationExpression("bar",
-            description="description of the expression",
-            regex="(^http)")
-        foo = newrelic.ObfuscationRule("foo",
-            description="description of the rule",
-            filter="hostStatus=running",
-            enabled=True,
-            actions=[newrelic.ObfuscationRuleActionArgs(
-                attributes=["message"],
-                expression_id=bar.id,
-                method="MASK",
-            )])
-        ```
-
         ## Import
 
         New Relic obfuscation rule can be imported using the rule ID, e.g. bash
@@ -316,26 +310,6 @@ class ObfuscationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to create, update and delete New Relic Obfuscation Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        bar = newrelic.ObfuscationExpression("bar",
-            description="description of the expression",
-            regex="(^http)")
-        foo = newrelic.ObfuscationRule("foo",
-            description="description of the rule",
-            filter="hostStatus=running",
-            enabled=True,
-            actions=[newrelic.ObfuscationRuleActionArgs(
-                attributes=["message"],
-                expression_id=bar.id,
-                method="MASK",
-            )])
-        ```
 
         ## Import
 

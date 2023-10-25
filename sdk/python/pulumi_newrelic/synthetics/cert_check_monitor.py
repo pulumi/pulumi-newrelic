@@ -54,16 +54,34 @@ class CertCheckMonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_expiration: pulumi.Input[int],
-             domain: pulumi.Input[str],
-             period: pulumi.Input[str],
-             status: pulumi.Input[str],
+             certificate_expiration: Optional[pulumi.Input[int]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             period: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_expiration is None and 'certificateExpiration' in kwargs:
+            certificate_expiration = kwargs['certificateExpiration']
+        if certificate_expiration is None:
+            raise TypeError("Missing 'certificate_expiration' argument")
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if period is None:
+            raise TypeError("Missing 'period' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if locations_privates is None and 'locationsPrivates' in kwargs:
+            locations_privates = kwargs['locationsPrivates']
+        if locations_publics is None and 'locationsPublics' in kwargs:
+            locations_publics = kwargs['locationsPublics']
+
         _setter("certificate_expiration", certificate_expiration)
         _setter("domain", domain)
         _setter("period", period)
@@ -244,7 +262,19 @@ class _CertCheckMonitorState:
              period_in_minutes: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if certificate_expiration is None and 'certificateExpiration' in kwargs:
+            certificate_expiration = kwargs['certificateExpiration']
+        if locations_privates is None and 'locationsPrivates' in kwargs:
+            locations_privates = kwargs['locationsPrivates']
+        if locations_publics is None and 'locationsPublics' in kwargs:
+            locations_publics = kwargs['locationsPublics']
+        if period_in_minutes is None and 'periodInMinutes' in kwargs:
+            period_in_minutes = kwargs['periodInMinutes']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if certificate_expiration is not None:
@@ -407,49 +437,7 @@ class CertCheckMonitor(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        cert_check_monitor = newrelic.synthetics.CertCheckMonitor("cert-check-monitor",
-            certificate_expiration=10,
-            domain="www.example.com",
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_6_HOURS",
-            status="ENABLED",
-            tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
-        See additional examples.
         ## Additional Examples
-
-        ### Create a monitor with a private location
-
-        The below example shows how you can define a private location and attach it to a monitor.
-
-        > **NOTE:** It can take up to 10 minutes for a private location to become available.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        location = newrelic.synthetics.PrivateLocation("location",
-            description="Test Description",
-            verified_script_execution=False)
-        monitor = newrelic.synthetics.CertCheckMonitor("monitor",
-            domain="https://www.one.example.com",
-            locations_privates=[location.id],
-            period="EVERY_6_HOURS",
-            status="ENABLED",
-            tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
 
         ## Import
 
@@ -482,49 +470,7 @@ class CertCheckMonitor(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        cert_check_monitor = newrelic.synthetics.CertCheckMonitor("cert-check-monitor",
-            certificate_expiration=10,
-            domain="www.example.com",
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_6_HOURS",
-            status="ENABLED",
-            tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
-        See additional examples.
         ## Additional Examples
-
-        ### Create a monitor with a private location
-
-        The below example shows how you can define a private location and attach it to a monitor.
-
-        > **NOTE:** It can take up to 10 minutes for a private location to become available.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        location = newrelic.synthetics.PrivateLocation("location",
-            description="Test Description",
-            verified_script_execution=False)
-        monitor = newrelic.synthetics.CertCheckMonitor("monitor",
-            domain="https://www.one.example.com",
-            locations_privates=[location.id],
-            period="EVERY_6_HOURS",
-            status="ENABLED",
-            tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
 
         ## Import
 

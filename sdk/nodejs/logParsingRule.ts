@@ -7,43 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create, update and delete New Relic Log Parsing Rule.
  *
- * ## Example Usage
- *
- * Use this example to create the log parse rule.
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.LogParsingRule("foo", {
- *     attribute: "message",
- *     enabled: true,
- *     grok: "sampleattribute='%%{NUMBER:test:int}'",
- *     lucene: "logtype:linux_messages",
- *     nrql: "SELECT * FROM Log WHERE logtype = 'linux_messages'",
- * });
- * ```
- * ## Additional Example
- *
- * Use this example to validate a grok pattern and create the log parse rule.  More
- * information on grok pattern can be found [here](https://docs.newrelic.com/docs/logs/ui-data/parsing/#grok)
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const grok = newrelic.getTestGrokPattern({
- *     grok: "%{IP:host_ip}",
- *     logLines: ["host_ip: 43.3.120.2"],
- * });
- * const foo = new newrelic.LogParsingRule("foo", {
- *     attribute: "message",
- *     enabled: true,
- *     grok: grok.then(grok => grok.grok),
- *     lucene: "logtype:linux_messages",
- *     nrql: "SELECT * FROM Log WHERE logtype = 'linux_messages'",
- *     matched: grok.then(grok => grok.testGroks?.[0]?.matched),
- * });
- * ```
- *
  * ## Import
  *
  * New Relic log parsing rule can be imported using the rule ID, e.g. bash

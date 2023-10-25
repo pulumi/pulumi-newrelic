@@ -40,9 +40,15 @@ class BrokenLinksMonitorTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 
@@ -88,9 +94,15 @@ class CertCheckMonitorTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 
@@ -138,7 +150,9 @@ class MonitorCustomHeaderArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if value is not None:
@@ -186,9 +200,15 @@ class MonitorTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 
@@ -228,8 +248,12 @@ class MultiLocationAlertConditionCriticalArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             threshold: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             threshold: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+
         _setter("threshold", threshold)
 
     @property
@@ -253,8 +277,12 @@ class MultiLocationAlertConditionWarningArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             threshold: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             threshold: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+
         _setter("threshold", threshold)
 
     @property
@@ -284,9 +312,15 @@ class ScriptMonitorLocationPrivateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             guid: pulumi.Input[str],
+             guid: Optional[pulumi.Input[str]] = None,
              vse_password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if guid is None:
+            raise TypeError("Missing 'guid' argument")
+        if vse_password is None and 'vsePassword' in kwargs:
+            vse_password = kwargs['vsePassword']
+
         _setter("guid", guid)
         if vse_password is not None:
             _setter("vse_password", vse_password)
@@ -333,9 +367,15 @@ class ScriptMonitorTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 
@@ -381,9 +421,15 @@ class StepMonitorLocationPrivateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             guid: pulumi.Input[str],
+             guid: Optional[pulumi.Input[str]] = None,
              vse_password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if guid is None:
+            raise TypeError("Missing 'guid' argument")
+        if vse_password is None and 'vsePassword' in kwargs:
+            vse_password = kwargs['vsePassword']
+
         _setter("guid", guid)
         if vse_password is not None:
             _setter("vse_password", vse_password)
@@ -433,10 +479,16 @@ class StepMonitorStepArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ordinal: pulumi.Input[int],
-             type: pulumi.Input[str],
+             ordinal: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ordinal is None:
+            raise TypeError("Missing 'ordinal' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("ordinal", ordinal)
         _setter("type", type)
         if values is not None:
@@ -496,9 +548,15 @@ class StepMonitorTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 

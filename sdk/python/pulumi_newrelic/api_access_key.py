@@ -41,13 +41,27 @@ class ApiAccessKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_id: pulumi.Input[int],
-             key_type: pulumi.Input[str],
+             account_id: Optional[pulumi.Input[int]] = None,
+             key_type: Optional[pulumi.Input[str]] = None,
              ingest_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              notes: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if key_type is None and 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if key_type is None:
+            raise TypeError("Missing 'key_type' argument")
+        if ingest_type is None and 'ingestType' in kwargs:
+            ingest_type = kwargs['ingestType']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         _setter("account_id", account_id)
         _setter("key_type", key_type)
         if ingest_type is not None:
@@ -172,7 +186,17 @@ class _ApiAccessKeyState:
              name: Optional[pulumi.Input[str]] = None,
              notes: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if ingest_type is None and 'ingestType' in kwargs:
+            ingest_type = kwargs['ingestType']
+        if key_type is None and 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if ingest_type is not None:
@@ -300,21 +324,6 @@ class ApiAccessKey(pulumi.CustomResource):
         and `newrelic_api_access_key.notes` are updatable. All other resource attributes will force a resource recreation which will
         invalidate the previous API key(s).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foobar = newrelic.ApiAccessKey("foobar",
-            account_id=1234567,
-            ingest_type="LICENSE",
-            key_type="INGEST",
-            notes="To be used with service X")
-        ```
-
-        > **WARNING:** Creating 'Ingest - License' and 'Ingest - Browser' keys using this resource is restricted to 'core' or 'full platform' New Relic user accounts. If you've signed up as a 'basic' user with New Relic, or have been added as a 'basic' user to your organization on New Relic, you would not be able to use your account to create 'Ingest' keys. If you see the message `"You do not have permission to create this key"` in the response of the API called by this resource, it could be owing to the aforementioned. For more insights into user account types on New Relic and associated privileges, please check out this [page](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/user-type/#api-access).
-
         ## Import
 
         Existing API access keys can be imported using a composite ID of `<api_access_key_id>:<key_type>`. `<key_type>` will be either `INGEST` or `USER`.
@@ -354,21 +363,6 @@ class ApiAccessKey(pulumi.CustomResource):
         Please be very careful when updating existing `ApiAccessKey` resources as only `newrelic_api_access_key.name`
         and `newrelic_api_access_key.notes` are updatable. All other resource attributes will force a resource recreation which will
         invalidate the previous API key(s).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foobar = newrelic.ApiAccessKey("foobar",
-            account_id=1234567,
-            ingest_type="LICENSE",
-            key_type="INGEST",
-            notes="To be used with service X")
-        ```
-
-        > **WARNING:** Creating 'Ingest - License' and 'Ingest - Browser' keys using this resource is restricted to 'core' or 'full platform' New Relic user accounts. If you've signed up as a 'basic' user with New Relic, or have been added as a 'basic' user to your organization on New Relic, you would not be able to use your account to create 'Ingest' keys. If you see the message `"You do not have permission to create this key"` in the response of the API called by this resource, it could be owing to the aforementioned. For more insights into user account types on New Relic and associated privileges, please check out this [page](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/user-type/#api-access).
 
         ## Import
 

@@ -23,38 +23,6 @@ import (
 //
 // Setup is required in Azure for this resource to work properly. You can find instructions on how to set up Azure on [our documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/activate-azure-integrations/).
 //
-// ## Example Usage
-//
-// You can also use the full example, including the Azure set up, found in our guides.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/cloud"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloud.NewAzureLinkAccount(ctx, "foo", &cloud.AzureLinkAccountArgs{
-//				AccountId:      pulumi.Int("The New Relic account ID where you want to link the Azure account"),
-//				ApplicationId:  pulumi.String("ID of the application"),
-//				ClientSecret:   pulumi.String("Secret value of client's Azure account"),
-//				SubscriptionId: pulumi.String("Subscription ID of Azure"),
-//				TenantId:       pulumi.String("Tenant ID of the Azure"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // # Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic bash

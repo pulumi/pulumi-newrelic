@@ -46,14 +46,28 @@ class NotificationChannelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_id: pulumi.Input[str],
-             product: pulumi.Input[str],
-             properties: pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]],
-             type: pulumi.Input[str],
+             destination_id: Optional[pulumi.Input[str]] = None,
+             product: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              active: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_id is None and 'destinationId' in kwargs:
+            destination_id = kwargs['destinationId']
+        if destination_id is None:
+            raise TypeError("Missing 'destination_id' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("destination_id", destination_id)
         _setter("product", product)
         _setter("properties", properties)
@@ -194,7 +208,13 @@ class _NotificationChannelState:
              properties: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]]] = None,
              status: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if destination_id is None and 'destinationId' in kwargs:
+            destination_id = kwargs['destinationId']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if active is not None:
@@ -327,281 +347,9 @@ class NotificationChannel(pulumi.CustomResource):
 
         A channel is an entity that is used to configure notifications. It is also called a message template. It is a separate entity from workflows, but a channel is required in order to create a workflow.
 
-        ## Example Usage
-
-        ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            properties=[newrelic.NotificationChannelPropertyArgs(
-                key="payload",
-                label="Payload Template",
-                value="name: {{ foo }}",
-            )],
-            type="WEBHOOK")
-        ```
-        See additional examples.
-        ## Additional Examples
-
-        > **NOTE:** We support all properties. The mentioned properties are just an example.
-
-        ##### [ServiceNow](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenow)
-        To see the properties’ keys for your account, check ServiceNow incidents table.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            properties=[
-                newrelic.NotificationChannelPropertyArgs(
-                    key="description",
-                    value="General description",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="short_description",
-                    value="Short description",
-                ),
-            ],
-            type="SERVICENOW_INCIDENTS")
-        ```
-
-        ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            properties=[
-                newrelic.NotificationChannelPropertyArgs(
-                    key="subject",
-                    value="New Subject Title",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="customDetailsEmail",
-                    value="issue id - {{issueId}}",
-                ),
-            ],
-            type="EMAIL")
-        ```
-
-        ##### [Jira Classic](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#jira)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="ERROR_TRACKING",
-            properties=[
-                newrelic.NotificationChannelPropertyArgs(
-                    key="project",
-                    value="10000",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="issuetype",
-                    value="10004",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="description",
-                    value="Issue ID: {{ issueId }}",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="summary",
-                    value="{{ annotations.title.[0] }}",
-                ),
-            ],
-            type="JIRA_CLASSIC")
-        ```
-
-        ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            properties=[
-                newrelic.NotificationChannelPropertyArgs(
-                    key="summary",
-                    value="General summary",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="service",
-                    value="PTQK3FM",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="email",
-                    value="example@email.com",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="customDetails",
-                    value=\"\"\"    {
-            "id":{{json issueId}},
-            "IssueURL":{{json issuePageUrl}},
-            "NewRelic priority":{{json priority}},
-            "Total Incidents":{{json totalIncidents}},
-            "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "isCorrelated":{{json isCorrelated}},
-            "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Workflow Name":{{json workflowName}}
-            }
-
-        \"\"\",
-                ),
-            ],
-            type="PAGERDUTY_ACCOUNT_INTEGRATION")
-        ```
-
-        ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            properties=[
-                newrelic.NotificationChannelPropertyArgs(
-                    key="summary",
-                    value="General summary",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="customDetails",
-                    value=\"\"\"    {
-            "id":{{json issueId}},
-            "IssueURL":{{json issuePageUrl}},
-            "NewRelic priority":{{json priority}},
-            "Total Incidents":{{json totalIncidents}},
-            "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "isCorrelated":{{json isCorrelated}},
-            "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Workflow Name":{{json workflowName}}
-            }
-
-        \"\"\",
-                ),
-            ],
-            type="PAGERDUTY_SERVICE_INTEGRATION")
-        ```
-
-        #### Mobile Push
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            type="MOBILE_PUSH")
-        ```
-
-        #### [AWS Event Bridge](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#eventBridge)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            properties=[
-                newrelic.NotificationChannelPropertyArgs(
-                    key="eventSource",
-                    value="aws.partner/mydomain/myaccountid/name",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="eventContent",
-                    value="{ id: {{ json issueId }} }",
-                ),
-            ],
-            type="EVENT_BRIDGE")
-        ```
-
-        #### [SLACK](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#slack)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            properties=[
-                newrelic.NotificationChannelPropertyArgs(
-                    key="channelId",
-                    value="123456",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="customDetailsSlack",
-                    value="issue id - {{issueId}}",
-                ),
-            ],
-            type="SLACK")
-        ```
-
-        > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
-
         ## Full Scenario Example
 
         Create a destination resource and reference that destination to the channel resource:
-
-        ### Create a destination
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        webhook_destination = newrelic.NotificationDestination("webhook-destination",
-            account_id=12345678,
-            auth_basic=newrelic.NotificationDestinationAuthBasicArgs(
-                password="password",
-                user="username",
-            ),
-            properties=[newrelic.NotificationDestinationPropertyArgs(
-                key="url",
-                value="https://webhook.mywebhook.com",
-            )],
-            type="WEBHOOK")
-        ```
-
-        ### Create a channel
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        webhook_channel = newrelic.NotificationChannel("webhook-channel",
-            account_id=12345678,
-            type="WEBHOOK",
-            destination_id=newrelic_notification_destination["webhook-destination"]["id"],
-            product="IINT",
-            properties=[newrelic.NotificationChannelPropertyArgs(
-                key="payload",
-                value="{name: foo}",
-                label="Payload Template",
-            )])
-        ```
 
         ## Additional Information
 
@@ -630,281 +378,9 @@ class NotificationChannel(pulumi.CustomResource):
 
         A channel is an entity that is used to configure notifications. It is also called a message template. It is a separate entity from workflows, but a channel is required in order to create a workflow.
 
-        ## Example Usage
-
-        ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            properties=[newrelic.NotificationChannelPropertyArgs(
-                key="payload",
-                label="Payload Template",
-                value="name: {{ foo }}",
-            )],
-            type="WEBHOOK")
-        ```
-        See additional examples.
-        ## Additional Examples
-
-        > **NOTE:** We support all properties. The mentioned properties are just an example.
-
-        ##### [ServiceNow](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenow)
-        To see the properties’ keys for your account, check ServiceNow incidents table.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            properties=[
-                newrelic.NotificationChannelPropertyArgs(
-                    key="description",
-                    value="General description",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="short_description",
-                    value="Short description",
-                ),
-            ],
-            type="SERVICENOW_INCIDENTS")
-        ```
-
-        ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            properties=[
-                newrelic.NotificationChannelPropertyArgs(
-                    key="subject",
-                    value="New Subject Title",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="customDetailsEmail",
-                    value="issue id - {{issueId}}",
-                ),
-            ],
-            type="EMAIL")
-        ```
-
-        ##### [Jira Classic](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#jira)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="ERROR_TRACKING",
-            properties=[
-                newrelic.NotificationChannelPropertyArgs(
-                    key="project",
-                    value="10000",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="issuetype",
-                    value="10004",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="description",
-                    value="Issue ID: {{ issueId }}",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="summary",
-                    value="{{ annotations.title.[0] }}",
-                ),
-            ],
-            type="JIRA_CLASSIC")
-        ```
-
-        ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            properties=[
-                newrelic.NotificationChannelPropertyArgs(
-                    key="summary",
-                    value="General summary",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="service",
-                    value="PTQK3FM",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="email",
-                    value="example@email.com",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="customDetails",
-                    value=\"\"\"    {
-            "id":{{json issueId}},
-            "IssueURL":{{json issuePageUrl}},
-            "NewRelic priority":{{json priority}},
-            "Total Incidents":{{json totalIncidents}},
-            "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "isCorrelated":{{json isCorrelated}},
-            "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Workflow Name":{{json workflowName}}
-            }
-
-        \"\"\",
-                ),
-            ],
-            type="PAGERDUTY_ACCOUNT_INTEGRATION")
-        ```
-
-        ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            properties=[
-                newrelic.NotificationChannelPropertyArgs(
-                    key="summary",
-                    value="General summary",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="customDetails",
-                    value=\"\"\"    {
-            "id":{{json issueId}},
-            "IssueURL":{{json issuePageUrl}},
-            "NewRelic priority":{{json priority}},
-            "Total Incidents":{{json totalIncidents}},
-            "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "isCorrelated":{{json isCorrelated}},
-            "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Workflow Name":{{json workflowName}}
-            }
-
-        \"\"\",
-                ),
-            ],
-            type="PAGERDUTY_SERVICE_INTEGRATION")
-        ```
-
-        #### Mobile Push
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            type="MOBILE_PUSH")
-        ```
-
-        #### [AWS Event Bridge](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#eventBridge)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            properties=[
-                newrelic.NotificationChannelPropertyArgs(
-                    key="eventSource",
-                    value="aws.partner/mydomain/myaccountid/name",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="eventContent",
-                    value="{ id: {{ json issueId }} }",
-                ),
-            ],
-            type="EVENT_BRIDGE")
-        ```
-
-        #### [SLACK](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#slack)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NotificationChannel("foo",
-            account_id=12345678,
-            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            properties=[
-                newrelic.NotificationChannelPropertyArgs(
-                    key="channelId",
-                    value="123456",
-                ),
-                newrelic.NotificationChannelPropertyArgs(
-                    key="customDetailsSlack",
-                    value="issue id - {{issueId}}",
-                ),
-            ],
-            type="SLACK")
-        ```
-
-        > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
-
         ## Full Scenario Example
 
         Create a destination resource and reference that destination to the channel resource:
-
-        ### Create a destination
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        webhook_destination = newrelic.NotificationDestination("webhook-destination",
-            account_id=12345678,
-            auth_basic=newrelic.NotificationDestinationAuthBasicArgs(
-                password="password",
-                user="username",
-            ),
-            properties=[newrelic.NotificationDestinationPropertyArgs(
-                key="url",
-                value="https://webhook.mywebhook.com",
-            )],
-            type="WEBHOOK")
-        ```
-
-        ### Create a channel
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        webhook_channel = newrelic.NotificationChannel("webhook-channel",
-            account_id=12345678,
-            type="WEBHOOK",
-            destination_id=newrelic_notification_destination["webhook-destination"]["id"],
-            product="IINT",
-            properties=[newrelic.NotificationChannelPropertyArgs(
-                key="payload",
-                value="{name: foo}",
-                label="Payload Template",
-            )])
-        ```
 
         ## Additional Information
 

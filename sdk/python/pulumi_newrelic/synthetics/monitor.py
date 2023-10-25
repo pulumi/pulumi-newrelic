@@ -91,8 +91,8 @@ class MonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status: pulumi.Input[str],
-             type: pulumi.Input[str],
+             status: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              bypass_head_request: Optional[pulumi.Input[bool]] = None,
              custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]]] = None,
@@ -111,7 +111,41 @@ class MonitorArgs:
              uri: Optional[pulumi.Input[str]] = None,
              validation_string: Optional[pulumi.Input[str]] = None,
              verify_ssl: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if bypass_head_request is None and 'bypassHeadRequest' in kwargs:
+            bypass_head_request = kwargs['bypassHeadRequest']
+        if custom_headers is None and 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if device_orientation is None and 'deviceOrientation' in kwargs:
+            device_orientation = kwargs['deviceOrientation']
+        if device_type is None and 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+        if enable_screenshot_on_failure_and_script is None and 'enableScreenshotOnFailureAndScript' in kwargs:
+            enable_screenshot_on_failure_and_script = kwargs['enableScreenshotOnFailureAndScript']
+        if locations_privates is None and 'locationsPrivates' in kwargs:
+            locations_privates = kwargs['locationsPrivates']
+        if locations_publics is None and 'locationsPublics' in kwargs:
+            locations_publics = kwargs['locationsPublics']
+        if runtime_type is None and 'runtimeType' in kwargs:
+            runtime_type = kwargs['runtimeType']
+        if runtime_type_version is None and 'runtimeTypeVersion' in kwargs:
+            runtime_type_version = kwargs['runtimeTypeVersion']
+        if script_language is None and 'scriptLanguage' in kwargs:
+            script_language = kwargs['scriptLanguage']
+        if treat_redirect_as_failure is None and 'treatRedirectAsFailure' in kwargs:
+            treat_redirect_as_failure = kwargs['treatRedirectAsFailure']
+        if validation_string is None and 'validationString' in kwargs:
+            validation_string = kwargs['validationString']
+        if verify_ssl is None and 'verifySsl' in kwargs:
+            verify_ssl = kwargs['verifySsl']
+
         _setter("status", status)
         _setter("type", type)
         if account_id is not None:
@@ -500,7 +534,39 @@ class _MonitorState:
              uri: Optional[pulumi.Input[str]] = None,
              validation_string: Optional[pulumi.Input[str]] = None,
              verify_ssl: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if bypass_head_request is None and 'bypassHeadRequest' in kwargs:
+            bypass_head_request = kwargs['bypassHeadRequest']
+        if custom_headers is None and 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if device_orientation is None and 'deviceOrientation' in kwargs:
+            device_orientation = kwargs['deviceOrientation']
+        if device_type is None and 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+        if enable_screenshot_on_failure_and_script is None and 'enableScreenshotOnFailureAndScript' in kwargs:
+            enable_screenshot_on_failure_and_script = kwargs['enableScreenshotOnFailureAndScript']
+        if locations_privates is None and 'locationsPrivates' in kwargs:
+            locations_privates = kwargs['locationsPrivates']
+        if locations_publics is None and 'locationsPublics' in kwargs:
+            locations_publics = kwargs['locationsPublics']
+        if period_in_minutes is None and 'periodInMinutes' in kwargs:
+            period_in_minutes = kwargs['periodInMinutes']
+        if runtime_type is None and 'runtimeType' in kwargs:
+            runtime_type = kwargs['runtimeType']
+        if runtime_type_version is None and 'runtimeTypeVersion' in kwargs:
+            runtime_type_version = kwargs['runtimeTypeVersion']
+        if script_language is None and 'scriptLanguage' in kwargs:
+            script_language = kwargs['scriptLanguage']
+        if treat_redirect_as_failure is None and 'treatRedirectAsFailure' in kwargs:
+            treat_redirect_as_failure = kwargs['treatRedirectAsFailure']
+        if validation_string is None and 'validationString' in kwargs:
+            validation_string = kwargs['validationString']
+        if verify_ssl is None and 'verifySsl' in kwargs:
+            verify_ssl = kwargs['verifySsl']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if bypass_head_request is not None:
@@ -832,122 +898,7 @@ class Monitor(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        monitor = newrelic.synthetics.Monitor("monitor",
-            bypass_head_request=True,
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_MINUTE",
-            status="ENABLED",
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )],
-            treat_redirect_as_failure=True,
-            type="SIMPLE",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
-        ```
-        ##### Type: `SIMPLE BROWSER`
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        monitor = newrelic.synthetics.Monitor("monitor",
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
-            enable_screenshot_on_failure_and_script=True,
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_MINUTE",
-            status="ENABLED",
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )],
-            type="BROWSER",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
-        ```
-        See additional examples.
         ## Additional Examples
-
-        ### Create a monitor with a private location
-
-        The below example shows how you can define a private location and attach it to a monitor.
-
-        > **NOTE:** It can take up to 10 minutes for a private location to become available.
-
-        ##### Type: `SIMPLE`
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        location = newrelic.synthetics.PrivateLocation("location",
-            description="Example private location",
-            verified_script_execution=False)
-        monitor = newrelic.synthetics.Monitor("monitor",
-            status="ENABLED",
-            period="EVERY_MINUTE",
-            uri="https://www.one.newrelic.com",
-            type="SIMPLE",
-            locations_privates=[location.id],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
-            treat_redirect_as_failure=True,
-            validation_string="success",
-            bypass_head_request=True,
-            verify_ssl=True,
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
-        ##### Type: `BROWSER`
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        location = newrelic.synthetics.PrivateLocation("location",
-            description="Example private location",
-            verified_script_execution=False)
-        monitor = newrelic.synthetics.Monitor("monitor",
-            status="ENABLED",
-            type="BROWSER",
-            uri="https://www.one.newrelic.com",
-            period="EVERY_MINUTE",
-            locations_privates=[location.id],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
-            enable_screenshot_on_failure_and_script=True,
-            validation_string="success",
-            verify_ssl=True,
-            runtime_type_version="100",
-            runtime_type="CHROME_BROWSER",
-            script_language="JAVASCRIPT",
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
 
         ## Import
 
@@ -995,122 +946,7 @@ class Monitor(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        monitor = newrelic.synthetics.Monitor("monitor",
-            bypass_head_request=True,
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_MINUTE",
-            status="ENABLED",
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )],
-            treat_redirect_as_failure=True,
-            type="SIMPLE",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
-        ```
-        ##### Type: `SIMPLE BROWSER`
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        monitor = newrelic.synthetics.Monitor("monitor",
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
-            enable_screenshot_on_failure_and_script=True,
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_MINUTE",
-            status="ENABLED",
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )],
-            type="BROWSER",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
-        ```
-        See additional examples.
         ## Additional Examples
-
-        ### Create a monitor with a private location
-
-        The below example shows how you can define a private location and attach it to a monitor.
-
-        > **NOTE:** It can take up to 10 minutes for a private location to become available.
-
-        ##### Type: `SIMPLE`
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        location = newrelic.synthetics.PrivateLocation("location",
-            description="Example private location",
-            verified_script_execution=False)
-        monitor = newrelic.synthetics.Monitor("monitor",
-            status="ENABLED",
-            period="EVERY_MINUTE",
-            uri="https://www.one.newrelic.com",
-            type="SIMPLE",
-            locations_privates=[location.id],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
-            treat_redirect_as_failure=True,
-            validation_string="success",
-            bypass_head_request=True,
-            verify_ssl=True,
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
-        ##### Type: `BROWSER`
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        location = newrelic.synthetics.PrivateLocation("location",
-            description="Example private location",
-            verified_script_execution=False)
-        monitor = newrelic.synthetics.Monitor("monitor",
-            status="ENABLED",
-            type="BROWSER",
-            uri="https://www.one.newrelic.com",
-            period="EVERY_MINUTE",
-            locations_privates=[location.id],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
-            enable_screenshot_on_failure_and_script=True,
-            validation_string="success",
-            verify_ssl=True,
-            runtime_type_version="100",
-            runtime_type="CHROME_BROWSER",
-            script_language="JAVASCRIPT",
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
 
         ## Import
 

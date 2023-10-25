@@ -12,26 +12,6 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create, update and delete New Relic Obfuscation Expressions.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.ObfuscationExpression("foo", new()
-    ///     {
-    ///         AccountId = 12345,
-    ///         Description = "The description",
-    ///         Regex = "(regex.*)",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// New Relic obfuscation expression can be imported using the expression ID, e.g. bash

@@ -41,13 +41,31 @@ class AwsGovcloudLinkAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_key_id: pulumi.Input[str],
-             aws_account_id: pulumi.Input[str],
-             secret_access_key: pulumi.Input[str],
+             access_key_id: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             secret_access_key: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              metric_collection_mode: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_key_id is None and 'accessKeyId' in kwargs:
+            access_key_id = kwargs['accessKeyId']
+        if access_key_id is None:
+            raise TypeError("Missing 'access_key_id' argument")
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if aws_account_id is None:
+            raise TypeError("Missing 'aws_account_id' argument")
+        if secret_access_key is None and 'secretAccessKey' in kwargs:
+            secret_access_key = kwargs['secretAccessKey']
+        if secret_access_key is None:
+            raise TypeError("Missing 'secret_access_key' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if metric_collection_mode is None and 'metricCollectionMode' in kwargs:
+            metric_collection_mode = kwargs['metricCollectionMode']
+
         _setter("access_key_id", access_key_id)
         _setter("aws_account_id", aws_account_id)
         _setter("secret_access_key", secret_access_key)
@@ -167,7 +185,19 @@ class _AwsGovcloudLinkAccountState:
              metric_collection_mode: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              secret_access_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_key_id is None and 'accessKeyId' in kwargs:
+            access_key_id = kwargs['accessKeyId']
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if metric_collection_mode is None and 'metricCollectionMode' in kwargs:
+            metric_collection_mode = kwargs['metricCollectionMode']
+        if secret_access_key is None and 'secretAccessKey' in kwargs:
+            secret_access_key = kwargs['secretAccessKey']
+
         if access_key_id is not None:
             _setter("access_key_id", access_key_id)
         if account_id is not None:
@@ -267,20 +297,6 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
                  secret_access_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.cloud.AwsGovcloudLinkAccount("foo",
-            access_key_id="access-key-id of aws govcloud account",
-            account_id="The New Relic account ID where you want to link the AWS GovCloud account",
-            aws_account_id="aws govcloud account id",
-            metric_collection_mode="PULL",
-            secret_access_key="secret access key of the aws govcloud account")
-        ```
-
         ## Import
 
         Linked AWSGovCloud accounts can be imported using the `id`, e.g. bash
@@ -305,20 +321,6 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
                  args: AwsGovcloudLinkAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.cloud.AwsGovcloudLinkAccount("foo",
-            access_key_id="access-key-id of aws govcloud account",
-            account_id="The New Relic account ID where you want to link the AWS GovCloud account",
-            aws_account_id="aws govcloud account id",
-            metric_collection_mode="PULL",
-            secret_access_key="secret access key of the aws govcloud account")
-        ```
-
         ## Import
 
         Linked AWSGovCloud accounts can be imported using the `id`, e.g. bash

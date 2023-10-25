@@ -14,51 +14,6 @@ namespace Pulumi.NewRelic
     /// 
     /// &gt; **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var app = NewRelic.GetEntity.Invoke(new()
-    ///     {
-    ///         Name = "my-app",
-    ///         Type = "APPLICATION",
-    ///         Domain = "APM",
-    ///     });
-    /// 
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-    /// 
-    ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
-    ///     {
-    ///         PolicyId = fooAlertPolicy.Id,
-    ///         Type = "apm_app_metric",
-    ///         Entities = new[]
-    ///         {
-    ///             app.Apply(getEntityResult =&gt; getEntityResult.ApplicationId),
-    ///         },
-    ///         Metric = "apdex",
-    ///         RunbookUrl = "https://www.example.com",
-    ///         ConditionScope = "application",
-    ///         Terms = new[]
-    ///         {
-    ///             new NewRelic.Inputs.AlertConditionTermArgs
-    ///             {
-    ///                 Duration = 5,
-    ///                 Operator = "below",
-    ///                 Priority = "critical",
-    ///                 Threshold = 0.75,
-    ///                 TimeFunction = "all",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Terms
     /// 
     /// The `term` mapping supports the following arguments:
@@ -68,77 +23,6 @@ namespace Pulumi.NewRelic
     ///   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
     ///   * `threshold` - (Required) Must be 0 or greater.
     ///   * `time_function` - (Required) `all` or `any`.
-    /// 
-    /// ## Tags
-    /// 
-    /// Manage alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fooEntity = NewRelic.GetEntity.Invoke(new()
-    ///     {
-    ///         Name = "foo entitiy",
-    ///     });
-    /// 
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-    /// 
-    ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
-    ///     {
-    ///         PolicyId = fooAlertPolicy.Id,
-    ///         Type = "apm_app_metric",
-    ///         Entities = new[]
-    ///         {
-    ///             fooEntity.Apply(getEntityResult =&gt; getEntityResult.ApplicationId),
-    ///         },
-    ///         Metric = "apdex",
-    ///         RunbookUrl = "https://www.example.com",
-    ///         ConditionScope = "application",
-    ///         Terms = new[]
-    ///         {
-    ///             new NewRelic.Inputs.AlertConditionTermArgs
-    ///             {
-    ///                 Duration = 5,
-    ///                 Operator = "below",
-    ///                 Priority = "critical",
-    ///                 Threshold = 0.75,
-    ///                 TimeFunction = "all",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
-    ///     {
-    ///         Guid = fooAlertCondition.EntityGuid,
-    ///         Tags = new[]
-    ///         {
-    ///             new NewRelic.Inputs.EntityTagsTagArgs
-    ///             {
-    ///                 Key = "my-key",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "my-value",
-    ///                     "my-other-value",
-    ///                 },
-    ///             },
-    ///             new NewRelic.Inputs.EntityTagsTagArgs
-    ///             {
-    ///                 Key = "my-key-2",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "my-value-2",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
@@ -227,16 +111,6 @@ namespace Pulumi.NewRelic
         /// One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
         /// 
         /// &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Output("userDefinedValueFunction")]
         public Output<string?> UserDefinedValueFunction { get; private set; } = null!;
@@ -377,16 +251,6 @@ namespace Pulumi.NewRelic
         /// One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
         /// 
         /// &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Input("userDefinedValueFunction")]
         public Input<string>? UserDefinedValueFunction { get; set; }
@@ -495,16 +359,6 @@ namespace Pulumi.NewRelic
         /// One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
         /// 
         /// &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Input("userDefinedValueFunction")]
         public Input<string>? UserDefinedValueFunction { get; set; }

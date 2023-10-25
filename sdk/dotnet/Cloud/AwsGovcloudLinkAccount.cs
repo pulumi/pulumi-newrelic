@@ -10,28 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.Cloud.AwsGovcloudLinkAccount("foo", new()
-    ///     {
-    ///         AccessKeyId = "access-key-id of aws govcloud account",
-    ///         AccountId = "The New Relic account ID where you want to link the AWS GovCloud account",
-    ///         AwsAccountId = "aws govcloud account id",
-    ///         MetricCollectionMode = "PULL",
-    ///         SecretAccessKey = "secret access key of the aws govcloud account",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Linked AWSGovCloud accounts can be imported using the `id`, e.g. bash

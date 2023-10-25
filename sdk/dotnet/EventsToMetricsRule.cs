@@ -12,26 +12,6 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create, update, and delete New Relic Events to Metrics rules.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.EventsToMetricsRule("foo", new()
-    ///     {
-    ///         AccountId = 12345,
-    ///         Description = "Example description",
-    ///         Nrql = "SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// New Relic Events to Metrics rules can be imported using a concatenated string of the format
