@@ -23,6 +23,180 @@ import (
 // - Only roles that provide [permissions](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/new-relic-one-user-model-understand-user-structure/) to create events to metric rules can create SLI/SLOs.
 // - Only [Full users](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/new-relic-one-user-model-understand-user-structure/#user-type) can view SLI/SLOs.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewServiceLevel(ctx, "foo", &newrelic.ServiceLevelArgs{
+//				Description: pulumi.String("Proportion of requests that are served faster than a threshold."),
+//				Events: &newrelic.ServiceLevelEventsArgs{
+//					AccountId: pulumi.Int(12345678),
+//					GoodEvents: &newrelic.ServiceLevelEventsGoodEventsArgs{
+//						From:  pulumi.String("Transaction"),
+//						Where: pulumi.String("appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1"),
+//					},
+//					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
+//						From:  pulumi.String("Transaction"),
+//						Where: pulumi.String("appName = 'Example application' AND (transactionType='Web')"),
+//					},
+//				},
+//				Guid: pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
+//				Objective: &newrelic.ServiceLevelObjectiveArgs{
+//					Target: pulumi.Float64(99),
+//					TimeWindow: &newrelic.ServiceLevelObjectiveTimeWindowArgs{
+//						Rolling: &newrelic.ServiceLevelObjectiveTimeWindowRollingArgs{
+//							Count: pulumi.Int(7),
+//							Unit:  pulumi.String("DAY"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Additional Example
+//
+// Service level with tags:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mySyntheticMonitorServiceLevel, err := newrelic.NewServiceLevel(ctx, "mySyntheticMonitorServiceLevel", &newrelic.ServiceLevelArgs{
+//				Guid:        pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
+//				Description: pulumi.String("Proportion of successful synthetic checks."),
+//				Events: &newrelic.ServiceLevelEventsArgs{
+//					AccountId: pulumi.Int(12345678),
+//					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
+//						From:  pulumi.String("SyntheticCheck"),
+//						Where: pulumi.String("entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'"),
+//					},
+//					GoodEvents: &newrelic.ServiceLevelEventsGoodEventsArgs{
+//						From:  pulumi.String("SyntheticCheck"),
+//						Where: pulumi.String("entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'"),
+//					},
+//				},
+//				Objective: &newrelic.ServiceLevelObjectiveArgs{
+//					Target: pulumi.Float64(99),
+//					TimeWindow: &newrelic.ServiceLevelObjectiveTimeWindowArgs{
+//						Rolling: &newrelic.ServiceLevelObjectiveTimeWindowRollingArgs{
+//							Count: pulumi.Int(7),
+//							Unit:  pulumi.String("DAY"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewEntityTags(ctx, "mySyntheticMonitorServiceLevelTags", &newrelic.EntityTagsArgs{
+//				Guid: mySyntheticMonitorServiceLevel.SliGuid,
+//				Tags: newrelic.EntityTagsTagArray{
+//					&newrelic.EntityTagsTagArgs{
+//						Key: pulumi.String("user_journey"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("authentication"),
+//							pulumi.String("sso"),
+//						},
+//					},
+//					&newrelic.EntityTagsTagArgs{
+//						Key: pulumi.String("owner"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("identityTeam"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// # Using `select` for events
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewServiceLevel(ctx, "mySyntheticMonitorDurationServiceLevel", &newrelic.ServiceLevelArgs{
+//				Description: pulumi.String("Monitor created to test concurrent request from terraform"),
+//				Events: &newrelic.ServiceLevelEventsArgs{
+//					AccountId: pulumi.Int(313870),
+//					GoodEvents: &newrelic.ServiceLevelEventsGoodEventsArgs{
+//						From: pulumi.String("Metric"),
+//						Select: &newrelic.ServiceLevelEventsGoodEventsSelectArgs{
+//							Attribute: pulumi.String("`query.wallClockTime.negative.distribution`"),
+//							Function:  pulumi.String("GET_CDF_COUNT"),
+//							Threshold: pulumi.Float64(7),
+//						},
+//						Where: pulumi.String("metricName = 'query.wallClockTime.negative.distribution'"),
+//					},
+//					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
+//						From: pulumi.String("Metric"),
+//						Select: &newrelic.ServiceLevelEventsValidEventsSelectArgs{
+//							Attribute: pulumi.String("`query.wallClockTime.negative.distribution`"),
+//							Function:  pulumi.String("GET_FIELD"),
+//						},
+//						Where: pulumi.String("metricName = 'query.wallClockTime.negative.distribution'"),
+//					},
+//				},
+//				Guid: pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
+//				Objective: &newrelic.ServiceLevelObjectiveArgs{
+//					Target: pulumi.Float64(49),
+//					TimeWindow: &newrelic.ServiceLevelObjectiveTimeWindowArgs{
+//						Rolling: &newrelic.ServiceLevelObjectiveTimeWindowRollingArgs{
+//							Count: pulumi.Int(7),
+//							Unit:  pulumi.String("DAY"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// # For up-to-date documentation about the tagging resource, please check EntityTags
+//
 // ## Import
 //
 // # New Relic Service Levels can be imported using a concatenated string of the format

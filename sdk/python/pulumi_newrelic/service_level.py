@@ -300,6 +300,126 @@ class ServiceLevel(pulumi.CustomResource):
         - Only roles that provide [permissions](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/new-relic-one-user-model-understand-user-structure/) to create events to metric rules can create SLI/SLOs.
         - Only [Full users](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/new-relic-one-user-model-understand-user-structure/#user-type) can view SLI/SLOs.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.ServiceLevel("foo",
+            description="Proportion of requests that are served faster than a threshold.",
+            events=newrelic.ServiceLevelEventsArgs(
+                account_id=12345678,
+                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+                    from_="Transaction",
+                    where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
+                ),
+                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
+                    from_="Transaction",
+                    where="appName = 'Example application' AND (transactionType='Web')",
+                ),
+            ),
+            guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            objective=newrelic.ServiceLevelObjectiveArgs(
+                target=99,
+                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
+                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
+                        count=7,
+                        unit="DAY",
+                    ),
+                ),
+            ))
+        ```
+        ## Additional Example
+
+        Service level with tags:
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        my_synthetic_monitor_service_level = newrelic.ServiceLevel("mySyntheticMonitorServiceLevel",
+            guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            description="Proportion of successful synthetic checks.",
+            events=newrelic.ServiceLevelEventsArgs(
+                account_id=12345678,
+                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
+                    from_="SyntheticCheck",
+                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
+                ),
+                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+                    from_="SyntheticCheck",
+                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'",
+                ),
+            ),
+            objective=newrelic.ServiceLevelObjectiveArgs(
+                target=99,
+                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
+                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
+                        count=7,
+                        unit="DAY",
+                    ),
+                ),
+            ))
+        my_synthetic_monitor_service_level_tags = newrelic.EntityTags("mySyntheticMonitorServiceLevelTags",
+            guid=my_synthetic_monitor_service_level.sli_guid,
+            tags=[
+                newrelic.EntityTagsTagArgs(
+                    key="user_journey",
+                    values=[
+                        "authentication",
+                        "sso",
+                    ],
+                ),
+                newrelic.EntityTagsTagArgs(
+                    key="owner",
+                    values=["identityTeam"],
+                ),
+            ])
+        ```
+
+        Using `select` for events
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        my_synthetic_monitor_duration_service_level = newrelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel",
+            description="Monitor created to test concurrent request from terraform",
+            events=newrelic.ServiceLevelEventsArgs(
+                account_id=313870,
+                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+                    from_="Metric",
+                    select=newrelic.ServiceLevelEventsGoodEventsSelectArgs(
+                        attribute="`query.wallClockTime.negative.distribution`",
+                        function="GET_CDF_COUNT",
+                        threshold=7,
+                    ),
+                    where="metricName = 'query.wallClockTime.negative.distribution'",
+                ),
+                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
+                    from_="Metric",
+                    select=newrelic.ServiceLevelEventsValidEventsSelectArgs(
+                        attribute="`query.wallClockTime.negative.distribution`",
+                        function="GET_FIELD",
+                    ),
+                    where="metricName = 'query.wallClockTime.negative.distribution'",
+                ),
+            ),
+            guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            objective=newrelic.ServiceLevelObjectiveArgs(
+                target=49,
+                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
+                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
+                        count=7,
+                        unit="DAY",
+                    ),
+                ),
+            ))
+        ```
+
+        For up-to-date documentation about the tagging resource, please check EntityTags
+
         ## Import
 
         New Relic Service Levels can be imported using a concatenated string of the format
@@ -336,6 +456,126 @@ class ServiceLevel(pulumi.CustomResource):
         Important:
         - Only roles that provide [permissions](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/new-relic-one-user-model-understand-user-structure/) to create events to metric rules can create SLI/SLOs.
         - Only [Full users](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/new-relic-one-user-model-understand-user-structure/#user-type) can view SLI/SLOs.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.ServiceLevel("foo",
+            description="Proportion of requests that are served faster than a threshold.",
+            events=newrelic.ServiceLevelEventsArgs(
+                account_id=12345678,
+                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+                    from_="Transaction",
+                    where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
+                ),
+                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
+                    from_="Transaction",
+                    where="appName = 'Example application' AND (transactionType='Web')",
+                ),
+            ),
+            guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            objective=newrelic.ServiceLevelObjectiveArgs(
+                target=99,
+                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
+                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
+                        count=7,
+                        unit="DAY",
+                    ),
+                ),
+            ))
+        ```
+        ## Additional Example
+
+        Service level with tags:
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        my_synthetic_monitor_service_level = newrelic.ServiceLevel("mySyntheticMonitorServiceLevel",
+            guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            description="Proportion of successful synthetic checks.",
+            events=newrelic.ServiceLevelEventsArgs(
+                account_id=12345678,
+                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
+                    from_="SyntheticCheck",
+                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
+                ),
+                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+                    from_="SyntheticCheck",
+                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'",
+                ),
+            ),
+            objective=newrelic.ServiceLevelObjectiveArgs(
+                target=99,
+                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
+                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
+                        count=7,
+                        unit="DAY",
+                    ),
+                ),
+            ))
+        my_synthetic_monitor_service_level_tags = newrelic.EntityTags("mySyntheticMonitorServiceLevelTags",
+            guid=my_synthetic_monitor_service_level.sli_guid,
+            tags=[
+                newrelic.EntityTagsTagArgs(
+                    key="user_journey",
+                    values=[
+                        "authentication",
+                        "sso",
+                    ],
+                ),
+                newrelic.EntityTagsTagArgs(
+                    key="owner",
+                    values=["identityTeam"],
+                ),
+            ])
+        ```
+
+        Using `select` for events
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        my_synthetic_monitor_duration_service_level = newrelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel",
+            description="Monitor created to test concurrent request from terraform",
+            events=newrelic.ServiceLevelEventsArgs(
+                account_id=313870,
+                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+                    from_="Metric",
+                    select=newrelic.ServiceLevelEventsGoodEventsSelectArgs(
+                        attribute="`query.wallClockTime.negative.distribution`",
+                        function="GET_CDF_COUNT",
+                        threshold=7,
+                    ),
+                    where="metricName = 'query.wallClockTime.negative.distribution'",
+                ),
+                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
+                    from_="Metric",
+                    select=newrelic.ServiceLevelEventsValidEventsSelectArgs(
+                        attribute="`query.wallClockTime.negative.distribution`",
+                        function="GET_FIELD",
+                    ),
+                    where="metricName = 'query.wallClockTime.negative.distribution'",
+                ),
+            ),
+            guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            objective=newrelic.ServiceLevelObjectiveArgs(
+                target=49,
+                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
+                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
+                        count=7,
+                        unit="DAY",
+                    ),
+                ),
+            ))
+        ```
+
+        For up-to-date documentation about the tagging resource, please check EntityTags
 
         ## Import
 

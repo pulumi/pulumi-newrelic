@@ -15,6 +15,34 @@ import (
 
 // Use this resource to create and manage New Relic Synthetic secure credentials.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewSecureCredential(ctx, "foo", &synthetics.SecureCredentialArgs{
+//				Description: pulumi.String("My description"),
+//				Key:         pulumi.String("MY_KEY"),
+//				Value:       pulumi.String("My value"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // A Synthetics secure credential can be imported using its `key`:

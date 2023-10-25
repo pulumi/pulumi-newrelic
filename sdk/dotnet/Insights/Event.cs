@@ -12,6 +12,50 @@ namespace Pulumi.NewRelic.Insights
     /// <summary>
     /// Use this resource to create one or more Insights events.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.Insights.Event("foo", new()
+    ///     {
+    ///         Events = new[]
+    ///         {
+    ///             new NewRelic.Insights.Inputs.EventEventArgs
+    ///             {
+    ///                 Attributes = new[]
+    ///                 {
+    ///                     new NewRelic.Insights.Inputs.EventEventAttributeArgs
+    ///                     {
+    ///                         Key = "a_string_attribute",
+    ///                         Value = "a string",
+    ///                     },
+    ///                     new NewRelic.Insights.Inputs.EventEventAttributeArgs
+    ///                     {
+    ///                         Key = "an_integer_attribute",
+    ///                         Type = "int",
+    ///                         Value = "42",
+    ///                     },
+    ///                     new NewRelic.Insights.Inputs.EventEventAttributeArgs
+    ///                     {
+    ///                         Key = "a_float_attribute",
+    ///                         Type = "float",
+    ///                         Value = "101.1",
+    ///                     },
+    ///                 },
+    ///                 Timestamp = 1232471100,
+    ///                 Type = "MyEvent",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Events
     /// 
     /// The `event` mapping supports the following arguments:

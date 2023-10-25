@@ -8,6 +8,17 @@ import * as utilities from "../utilities";
  * Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
  *
  * Note that the secure credential's value is not returned as an attribute for security reasons.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = newrelic.synthetics.getSecureCredential({
+ *     key: "MY_KEY",
+ * });
+ * ```
  */
 export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetSecureCredentialResult> {
 
@@ -55,6 +66,17 @@ export interface GetSecureCredentialResult {
  * Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
  *
  * Note that the secure credential's value is not returned as an attribute for security reasons.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = newrelic.synthetics.getSecureCredential({
+ *     key: "MY_KEY",
+ * });
+ * ```
  */
 export function getSecureCredentialOutput(args: GetSecureCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecureCredentialResult> {
     return pulumi.output(args).apply((a: any) => getSecureCredential(a, opts))

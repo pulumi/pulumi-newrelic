@@ -94,6 +94,15 @@ def get_secure_credential(account_id: Optional[int] = None,
 
     Note that the secure credential's value is not returned as an attribute for security reasons.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    foo = newrelic.synthetics.get_secure_credential(key="MY_KEY")
+    ```
+
 
     :param int account_id: The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
     :param str key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -120,6 +129,15 @@ def get_secure_credential_output(account_id: Optional[pulumi.Input[Optional[int]
     Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
 
     Note that the secure credential's value is not returned as an attribute for security reasons.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    foo = newrelic.synthetics.get_secure_credential(key="MY_KEY")
+    ```
 
 
     :param int account_id: The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.

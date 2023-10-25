@@ -7,6 +7,20 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create, update and delete New Relic Data partition rule.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.DataPartitionRule("foo", {
+ *     description: "description",
+ *     enabled: true,
+ *     nrql: "logtype='node'",
+ *     retentionPolicy: "STANDARD",
+ *     targetDataPartition: "Log_name",
+ * });
+ * ```
  * ## Additional Information
  *
  * More details about the data partition can be found [here](https://docs.newrelic.com/docs/logs/ui-data/data-partitions/)

@@ -17,6 +17,130 @@ import * as utilities from "./utilities";
  * - Only roles that provide [permissions](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/new-relic-one-user-model-understand-user-structure/) to create events to metric rules can create SLI/SLOs.
  * - Only [Full users](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/new-relic-one-user-model-understand-user-structure/#user-type) can view SLI/SLOs.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.ServiceLevel("foo", {
+ *     description: "Proportion of requests that are served faster than a threshold.",
+ *     events: {
+ *         accountId: 12345678,
+ *         goodEvents: {
+ *             from: "Transaction",
+ *             where: "appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
+ *         },
+ *         validEvents: {
+ *             from: "Transaction",
+ *             where: "appName = 'Example application' AND (transactionType='Web')",
+ *         },
+ *     },
+ *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
+ *     objective: {
+ *         target: 99,
+ *         timeWindow: {
+ *             rolling: {
+ *                 count: 7,
+ *                 unit: "DAY",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * ## Additional Example
+ *
+ * Service level with tags:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const mySyntheticMonitorServiceLevel = new newrelic.ServiceLevel("mySyntheticMonitorServiceLevel", {
+ *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
+ *     description: "Proportion of successful synthetic checks.",
+ *     events: {
+ *         accountId: 12345678,
+ *         validEvents: {
+ *             from: "SyntheticCheck",
+ *             where: "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
+ *         },
+ *         goodEvents: {
+ *             from: "SyntheticCheck",
+ *             where: "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'",
+ *         },
+ *     },
+ *     objective: {
+ *         target: 99,
+ *         timeWindow: {
+ *             rolling: {
+ *                 count: 7,
+ *                 unit: "DAY",
+ *             },
+ *         },
+ *     },
+ * });
+ * const mySyntheticMonitorServiceLevelTags = new newrelic.EntityTags("mySyntheticMonitorServiceLevelTags", {
+ *     guid: mySyntheticMonitorServiceLevel.sliGuid,
+ *     tags: [
+ *         {
+ *             key: "user_journey",
+ *             values: [
+ *                 "authentication",
+ *                 "sso",
+ *             ],
+ *         },
+ *         {
+ *             key: "owner",
+ *             values: ["identityTeam"],
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * Using `select` for events
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const mySyntheticMonitorDurationServiceLevel = new newrelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel", {
+ *     description: "Monitor created to test concurrent request from terraform",
+ *     events: {
+ *         accountId: 313870,
+ *         goodEvents: {
+ *             from: "Metric",
+ *             select: {
+ *                 attribute: "`query.wallClockTime.negative.distribution`",
+ *                 "function": "GET_CDF_COUNT",
+ *                 threshold: 7,
+ *             },
+ *             where: "metricName = 'query.wallClockTime.negative.distribution'",
+ *         },
+ *         validEvents: {
+ *             from: "Metric",
+ *             select: {
+ *                 attribute: "`query.wallClockTime.negative.distribution`",
+ *                 "function": "GET_FIELD",
+ *             },
+ *             where: "metricName = 'query.wallClockTime.negative.distribution'",
+ *         },
+ *     },
+ *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
+ *     objective: {
+ *         target: 49,
+ *         timeWindow: {
+ *             rolling: {
+ *                 count: 7,
+ *                 unit: "DAY",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
+ *
  * ## Import
  *
  * New Relic Service Levels can be imported using a concatenated string of the format

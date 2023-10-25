@@ -6,6 +6,32 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const example = newrelic.synthetics.getPrivateLocation({
+ *     accountId: 123456,
+ *     name: "My private location",
+ * });
+ * const foo = new newrelic.synthetics.Monitor("foo", {locationsPrivates: [example.then(example => example.id)]});
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const example = newrelic.synthetics.getPrivateLocation({
+ *     accountId: 123456,
+ *     name: "My private location",
+ * });
+ * const foo = new newrelic.synthetics.StepMonitor("foo", {locationPrivates: [{
+ *     guid: example.then(example => example.id),
+ * }]});
+ * ```
  */
 export function getPrivateLocation(args: GetPrivateLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLocationResult> {
 
@@ -52,6 +78,32 @@ export interface GetPrivateLocationResult {
 }
 /**
  * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const example = newrelic.synthetics.getPrivateLocation({
+ *     accountId: 123456,
+ *     name: "My private location",
+ * });
+ * const foo = new newrelic.synthetics.Monitor("foo", {locationsPrivates: [example.then(example => example.id)]});
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const example = newrelic.synthetics.getPrivateLocation({
+ *     accountId: 123456,
+ *     name: "My private location",
+ * });
+ * const foo = new newrelic.synthetics.StepMonitor("foo", {locationPrivates: [{
+ *     guid: example.then(example => example.id),
+ * }]});
+ * ```
  */
 export function getPrivateLocationOutput(args: GetPrivateLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLocationResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLocation(a, opts))

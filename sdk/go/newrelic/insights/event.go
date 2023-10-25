@@ -15,6 +15,52 @@ import (
 
 // Use this resource to create one or more Insights events.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/insights"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := insights.NewEvent(ctx, "foo", &insights.EventArgs{
+//				Events: insights.EventEventArray{
+//					&insights.EventEventArgs{
+//						Attributes: insights.EventEventAttributeArray{
+//							&insights.EventEventAttributeArgs{
+//								Key:   pulumi.String("a_string_attribute"),
+//								Value: pulumi.String("a string"),
+//							},
+//							&insights.EventEventAttributeArgs{
+//								Key:   pulumi.String("an_integer_attribute"),
+//								Type:  pulumi.String("int"),
+//								Value: pulumi.String("42"),
+//							},
+//							&insights.EventEventAttributeArgs{
+//								Key:   pulumi.String("a_float_attribute"),
+//								Type:  pulumi.String("float"),
+//								Value: pulumi.String("101.1"),
+//							},
+//						},
+//						Timestamp: pulumi.Int(1232471100),
+//						Type:      pulumi.String("MyEvent"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Events
 //
 // The `event` mapping supports the following arguments:

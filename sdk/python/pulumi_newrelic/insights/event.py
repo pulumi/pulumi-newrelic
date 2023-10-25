@@ -94,6 +94,33 @@ class Event(pulumi.CustomResource):
         """
         Use this resource to create one or more Insights events.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.insights.Event("foo", events=[newrelic.insights.EventEventArgs(
+            attributes=[
+                newrelic.insights.EventEventAttributeArgs(
+                    key="a_string_attribute",
+                    value="a string",
+                ),
+                newrelic.insights.EventEventAttributeArgs(
+                    key="an_integer_attribute",
+                    type="int",
+                    value="42",
+                ),
+                newrelic.insights.EventEventAttributeArgs(
+                    key="a_float_attribute",
+                    type="float",
+                    value="101.1",
+                ),
+            ],
+            timestamp=1232471100,
+            type="MyEvent",
+        )])
+        ```
         ## Events
 
         The `event` mapping supports the following arguments:
@@ -123,6 +150,33 @@ class Event(pulumi.CustomResource):
         """
         Use this resource to create one or more Insights events.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.insights.Event("foo", events=[newrelic.insights.EventEventArgs(
+            attributes=[
+                newrelic.insights.EventEventAttributeArgs(
+                    key="a_string_attribute",
+                    value="a string",
+                ),
+                newrelic.insights.EventEventAttributeArgs(
+                    key="an_integer_attribute",
+                    type="int",
+                    value="42",
+                ),
+                newrelic.insights.EventEventAttributeArgs(
+                    key="a_float_attribute",
+                    type="float",
+                    value="101.1",
+                ),
+            ],
+            timestamp=1232471100,
+            type="MyEvent",
+        )])
+        ```
         ## Events
 
         The `event` mapping supports the following arguments:

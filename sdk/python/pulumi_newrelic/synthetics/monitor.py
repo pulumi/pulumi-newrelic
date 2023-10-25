@@ -898,7 +898,122 @@ class Monitor(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        monitor = newrelic.synthetics.Monitor("monitor",
+            bypass_head_request=True,
+            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
+                name="some_name",
+                value="some_value",
+            )],
+            locations_publics=["AP_SOUTH_1"],
+            period="EVERY_MINUTE",
+            status="ENABLED",
+            tags=[newrelic.synthetics.MonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )],
+            treat_redirect_as_failure=True,
+            type="SIMPLE",
+            uri="https://www.one.newrelic.com",
+            validation_string="success",
+            verify_ssl=True)
+        ```
+        ##### Type: `SIMPLE BROWSER`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        monitor = newrelic.synthetics.Monitor("monitor",
+            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
+                name="some_name",
+                value="some_value",
+            )],
+            enable_screenshot_on_failure_and_script=True,
+            locations_publics=["AP_SOUTH_1"],
+            period="EVERY_MINUTE",
+            status="ENABLED",
+            tags=[newrelic.synthetics.MonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )],
+            type="BROWSER",
+            uri="https://www.one.newrelic.com",
+            validation_string="success",
+            verify_ssl=True)
+        ```
+        See additional examples.
         ## Additional Examples
+
+        ### Create a monitor with a private location
+
+        The below example shows how you can define a private location and attach it to a monitor.
+
+        > **NOTE:** It can take up to 10 minutes for a private location to become available.
+
+        ##### Type: `SIMPLE`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Example private location",
+            verified_script_execution=False)
+        monitor = newrelic.synthetics.Monitor("monitor",
+            status="ENABLED",
+            period="EVERY_MINUTE",
+            uri="https://www.one.newrelic.com",
+            type="SIMPLE",
+            locations_privates=[location.id],
+            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
+                name="some_name",
+                value="some_value",
+            )],
+            treat_redirect_as_failure=True,
+            validation_string="success",
+            bypass_head_request=True,
+            verify_ssl=True,
+            tags=[newrelic.synthetics.MonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )])
+        ```
+        ##### Type: `BROWSER`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Example private location",
+            verified_script_execution=False)
+        monitor = newrelic.synthetics.Monitor("monitor",
+            status="ENABLED",
+            type="BROWSER",
+            uri="https://www.one.newrelic.com",
+            period="EVERY_MINUTE",
+            locations_privates=[location.id],
+            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
+                name="some_name",
+                value="some_value",
+            )],
+            enable_screenshot_on_failure_and_script=True,
+            validation_string="success",
+            verify_ssl=True,
+            runtime_type_version="100",
+            runtime_type="CHROME_BROWSER",
+            script_language="JAVASCRIPT",
+            tags=[newrelic.synthetics.MonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )])
+        ```
 
         ## Import
 
@@ -946,7 +1061,122 @@ class Monitor(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        monitor = newrelic.synthetics.Monitor("monitor",
+            bypass_head_request=True,
+            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
+                name="some_name",
+                value="some_value",
+            )],
+            locations_publics=["AP_SOUTH_1"],
+            period="EVERY_MINUTE",
+            status="ENABLED",
+            tags=[newrelic.synthetics.MonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )],
+            treat_redirect_as_failure=True,
+            type="SIMPLE",
+            uri="https://www.one.newrelic.com",
+            validation_string="success",
+            verify_ssl=True)
+        ```
+        ##### Type: `SIMPLE BROWSER`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        monitor = newrelic.synthetics.Monitor("monitor",
+            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
+                name="some_name",
+                value="some_value",
+            )],
+            enable_screenshot_on_failure_and_script=True,
+            locations_publics=["AP_SOUTH_1"],
+            period="EVERY_MINUTE",
+            status="ENABLED",
+            tags=[newrelic.synthetics.MonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )],
+            type="BROWSER",
+            uri="https://www.one.newrelic.com",
+            validation_string="success",
+            verify_ssl=True)
+        ```
+        See additional examples.
         ## Additional Examples
+
+        ### Create a monitor with a private location
+
+        The below example shows how you can define a private location and attach it to a monitor.
+
+        > **NOTE:** It can take up to 10 minutes for a private location to become available.
+
+        ##### Type: `SIMPLE`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Example private location",
+            verified_script_execution=False)
+        monitor = newrelic.synthetics.Monitor("monitor",
+            status="ENABLED",
+            period="EVERY_MINUTE",
+            uri="https://www.one.newrelic.com",
+            type="SIMPLE",
+            locations_privates=[location.id],
+            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
+                name="some_name",
+                value="some_value",
+            )],
+            treat_redirect_as_failure=True,
+            validation_string="success",
+            bypass_head_request=True,
+            verify_ssl=True,
+            tags=[newrelic.synthetics.MonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )])
+        ```
+        ##### Type: `BROWSER`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Example private location",
+            verified_script_execution=False)
+        monitor = newrelic.synthetics.Monitor("monitor",
+            status="ENABLED",
+            type="BROWSER",
+            uri="https://www.one.newrelic.com",
+            period="EVERY_MINUTE",
+            locations_privates=[location.id],
+            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
+                name="some_name",
+                value="some_value",
+            )],
+            enable_screenshot_on_failure_and_script=True,
+            validation_string="success",
+            verify_ssl=True,
+            runtime_type_version="100",
+            runtime_type="CHROME_BROWSER",
+            script_language="JAVASCRIPT",
+            tags=[newrelic.synthetics.MonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )])
+        ```
 
         ## Import
 

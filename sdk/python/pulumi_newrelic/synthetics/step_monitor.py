@@ -454,6 +454,31 @@ class StepMonitor(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        monitor = newrelic.synthetics.StepMonitor("monitor",
+            enable_screenshot_on_failure_and_script=True,
+            locations_publics=[
+                "US_EAST_1",
+                "US_EAST_2",
+            ],
+            period="EVERY_6_HOURS",
+            status="ENABLED",
+            steps=[newrelic.synthetics.StepMonitorStepArgs(
+                ordinal=0,
+                type="NAVIGATE",
+                values=["https://www.newrelic.com"],
+            )],
+            tags=[newrelic.synthetics.StepMonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )])
+        ```
+        See additional examples.
         ## Additional Examples
 
         ## Import
@@ -487,6 +512,31 @@ class StepMonitor(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        monitor = newrelic.synthetics.StepMonitor("monitor",
+            enable_screenshot_on_failure_and_script=True,
+            locations_publics=[
+                "US_EAST_1",
+                "US_EAST_2",
+            ],
+            period="EVERY_6_HOURS",
+            status="ENABLED",
+            steps=[newrelic.synthetics.StepMonitorStepArgs(
+                ordinal=0,
+                type="NAVIGATE",
+                values=["https://www.newrelic.com"],
+            )],
+            tags=[newrelic.synthetics.StepMonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )])
+        ```
+        See additional examples.
         ## Additional Examples
 
         ## Import

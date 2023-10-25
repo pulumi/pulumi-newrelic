@@ -249,6 +249,18 @@ class SecureCredential(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic Synthetic secure credentials.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.SecureCredential("foo",
+            description="My description",
+            key="MY_KEY",
+            value="My value")
+        ```
+
         ## Import
 
         A Synthetics secure credential can be imported using its `key`:
@@ -273,6 +285,18 @@ class SecureCredential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to create and manage New Relic Synthetic secure credentials.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.SecureCredential("foo",
+            description="My description",
+            key="MY_KEY",
+            value="My value")
+        ```
 
         ## Import
 

@@ -20,6 +20,30 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// Setup is required in Azure for this resource to work properly. You can find instructions on how to set up Azure on [our documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/activate-azure-integrations/).
     /// 
+    /// ## Example Usage
+    /// 
+    /// You can also use the full example, including the Azure set up, found in our guides.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.Cloud.AzureLinkAccount("foo", new()
+    ///     {
+    ///         AccountId = "The New Relic account ID where you want to link the Azure account",
+    ///         ApplicationId = "ID of the application",
+    ///         ClientSecret = "Secret value of client's Azure account",
+    ///         SubscriptionId = "Subscription ID of Azure",
+    ///         TenantId = "Tenant ID of the Azure",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic bash

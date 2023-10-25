@@ -8,6 +8,65 @@ import * as utilities from "./utilities";
  * Use this resource to create and manage New Relic alert policies.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.AlertPolicy("foo", {incidentPreference: "PER_POLICY"});
+ * ```
+ * ### Provision multiple notification channels and add those channels to a policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * // Provision a Slack notification channel.
+ * const slackChannel = new newrelic.AlertChannel("slackChannel", {
+ *     type: "slack",
+ *     config: {
+ *         url: "https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
+ *         channel: "example-alerts-channel",
+ *     },
+ * });
+ * // Provision an email notification channel.
+ * const emailChannel = new newrelic.AlertChannel("emailChannel", {
+ *     type: "email",
+ *     config: {
+ *         recipients: "example@testing.com",
+ *         includeJsonAttachment: "1",
+ *     },
+ * });
+ * // Provision the alert policy.
+ * const policyWithChannels = new newrelic.AlertPolicy("policyWithChannels", {
+ *     incidentPreference: "PER_CONDITION",
+ *     channelIds: [
+ *         slackChannel.id,
+ *         emailChannel.id,
+ *     ],
+ * });
+ * ```
+ * ### Reference existing notification channels and add those channel to a policy
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const slackChannel = newrelic.getAlertChannel({
+ *     name: "slack-channel-notification",
+ * });
+ * const emailChannel = newrelic.getAlertChannel({
+ *     name: "test@example.com",
+ * });
+ * // Provision the alert policy.
+ * const policyWithChannels = new newrelic.AlertPolicy("policyWithChannels", {
+ *     incidentPreference: "PER_CONDITION",
+ *     channelIds: [
+ *         slackChannel.then(slackChannel => slackChannel.id),
+ *         emailChannel.then(emailChannel => emailChannel.id),
+ *     ],
+ * });
+ * ```
  *
  * ## Import
  *

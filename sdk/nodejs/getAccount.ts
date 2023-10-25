@@ -8,6 +8,17 @@ import * as utilities from "./utilities";
  * Use this data source to get information about a specific account in New Relic.
  * Accounts can be located by ID or name.  At most one of the two attributes can
  * be provided. If neither are provided, the provider's `accountId` will be used.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const acc = newrelic.getAccount({
+ *     scope: "global",
+ * });
+ * ```
  */
 export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     args = args || {};
@@ -54,6 +65,17 @@ export interface GetAccountResult {
  * Use this data source to get information about a specific account in New Relic.
  * Accounts can be located by ID or name.  At most one of the two attributes can
  * be provided. If neither are provided, the provider's `accountId` will be used.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const acc = newrelic.getAccount({
+ *     scope: "global",
+ * });
+ * ```
  */
 export function getAccountOutput(args?: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

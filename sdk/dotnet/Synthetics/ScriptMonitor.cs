@@ -12,7 +12,193 @@ namespace Pulumi.NewRelic.Synthetics
     /// <summary>
     /// Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ##### Type: `SCRIPT_API`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var monitor = new NewRelic.Synthetics.ScriptMonitor("monitor", new()
+    ///     {
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "AP_SOUTH_1",
+    ///             "AP_EAST_1",
+    ///         },
+    ///         Period = "EVERY_6_HOURS",
+    ///         RuntimeType = "NODE_API",
+    ///         RuntimeTypeVersion = "16.10",
+    ///         Script = "console.log('it works!')",
+    ///         ScriptLanguage = "JAVASCRIPT",
+    ///         Status = "ENABLED",
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.ScriptMonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Type = "SCRIPT_API",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ##### Type: `SCRIPT_BROWSER`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var monitor = new NewRelic.Synthetics.ScriptMonitor("monitor", new()
+    ///     {
+    ///         EnableScreenshotOnFailureAndScript = false,
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "AP_SOUTH_1",
+    ///             "AP_EAST_1",
+    ///         },
+    ///         Period = "EVERY_HOUR",
+    ///         RuntimeType = "CHROME_BROWSER",
+    ///         RuntimeTypeVersion = "100",
+    ///         Script = "$browser.get('https://one.newrelic.com')",
+    ///         ScriptLanguage = "JAVASCRIPT",
+    ///         Status = "ENABLED",
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.ScriptMonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Type = "SCRIPT_BROWSER",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// See additional examples.
     /// ## Additional Examples
+    /// 
+    /// ### Create a monitor with a private location
+    /// 
+    /// The below example shows how you can define a private location and attach it to a monitor.
+    /// 
+    /// &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
+    /// 
+    /// ##### Type: `SCRIPT_API`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
+    ///     {
+    ///         Description = "Example private location",
+    ///         VerifiedScriptExecution = true,
+    ///     });
+    /// 
+    ///     var monitor = new NewRelic.Synthetics.ScriptMonitor("monitor", new()
+    ///     {
+    ///         Status = "ENABLED",
+    ///         Type = "SCRIPT_API",
+    ///         LocationPrivates = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.ScriptMonitorLocationPrivateArgs
+    ///             {
+    ///                 Guid = location.Id,
+    ///                 VsePassword = "secret",
+    ///             },
+    ///         },
+    ///         Period = "EVERY_6_HOURS",
+    ///         Script = "console.log('terraform integration test updated')",
+    ///         ScriptLanguage = "JAVASCRIPT",
+    ///         RuntimeType = "NODE_API",
+    ///         RuntimeTypeVersion = "16.10",
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.ScriptMonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ##### Type: `SCRIPT_BROWSER`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
+    ///     {
+    ///         Description = "Test Description",
+    ///         VerifiedScriptExecution = true,
+    ///     });
+    /// 
+    ///     var monitor = new NewRelic.Synthetics.ScriptMonitor("monitor", new()
+    ///     {
+    ///         Status = "ENABLED",
+    ///         Type = "SCRIPT_BROWSER",
+    ///         Period = "EVERY_HOUR",
+    ///         Script = "$browser.get('https://one.newrelic.com')",
+    ///         EnableScreenshotOnFailureAndScript = false,
+    ///         LocationPrivates = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.ScriptMonitorLocationPrivateArgs
+    ///             {
+    ///                 Guid = location.Id,
+    ///                 VsePassword = "secret",
+    ///             },
+    ///         },
+    ///         RuntimeTypeVersion = "100",
+    ///         RuntimeType = "CHROME_BROWSER",
+    ///         ScriptLanguage = "JAVASCRIPT",
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.ScriptMonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

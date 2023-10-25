@@ -9,6 +9,33 @@ import * as utilities from "../utilities";
 /**
  * Use this resource to create one or more Insights events.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.insights.Event("foo", {events: [{
+ *     attributes: [
+ *         {
+ *             key: "a_string_attribute",
+ *             value: "a string",
+ *         },
+ *         {
+ *             key: "an_integer_attribute",
+ *             type: "int",
+ *             value: "42",
+ *         },
+ *         {
+ *             key: "a_float_attribute",
+ *             type: "float",
+ *             value: "101.1",
+ *         },
+ *     ],
+ *     timestamp: 1232471100,
+ *     type: "MyEvent",
+ * }]});
+ * ```
  * ## Events
  *
  * The `event` mapping supports the following arguments:

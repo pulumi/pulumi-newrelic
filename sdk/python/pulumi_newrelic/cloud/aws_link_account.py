@@ -219,6 +219,19 @@ class AwsLinkAccount(pulumi.CustomResource):
 
         To pull data from AWS instead, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-new-relic-infrastructure-monitoring#connect).
 
+        ## Example Usage
+
+        You can also use the full example, including the AWS set up, found in our guides.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.cloud.AwsLinkAccount("foo",
+            arn="arn:aws:service:region:account-id:resource-id",
+            metric_collection_mode="PUSH")
+        ```
+
         ## Import
 
         Linked AWS accounts can be imported using the `id`, e.g. bash
@@ -250,6 +263,19 @@ class AwsLinkAccount(pulumi.CustomResource):
         Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream.
 
         To pull data from AWS instead, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-new-relic-infrastructure-monitoring#connect).
+
+        ## Example Usage
+
+        You can also use the full example, including the AWS set up, found in our guides.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.cloud.AwsLinkAccount("foo",
+            arn="arn:aws:service:region:account-id:resource-id",
+            metric_collection_mode="PUSH")
+        ```
 
         ## Import
 

@@ -14,6 +14,60 @@ namespace Pulumi.NewRelic
     /// 
     /// &gt; **WARNING:** The `newrelic.AlertPolicyChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `newrelic.NotificationChannel`.
     /// 
+    /// ## Example Usage
+    /// 
+    /// The example below will apply multiple alert channels to an existing New Relic alert policy.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var examplePolicy = NewRelic.GetAlertPolicy.Invoke(new()
+    ///     {
+    ///         Name = "my-alert-policy",
+    ///     });
+    /// 
+    ///     // Creates an email alert channel.
+    ///     var emailChannel = new NewRelic.AlertChannel("emailChannel", new()
+    ///     {
+    ///         Type = "email",
+    ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
+    ///         {
+    ///             Recipients = "foo@example.com",
+    ///             IncludeJsonAttachment = "1",
+    ///         },
+    ///     });
+    /// 
+    ///     // Creates a Slack alert channel.
+    ///     var slackChannel = new NewRelic.AlertChannel("slackChannel", new()
+    ///     {
+    ///         Type = "slack",
+    ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
+    ///         {
+    ///             Channel = "#example-channel",
+    ///             Url = "http://example-org.slack.com",
+    ///         },
+    ///     });
+    /// 
+    ///     // Applies the created channels above to the alert policy
+    ///     // referenced at the top of the config.
+    ///     var foo = new NewRelic.AlertPolicyChannel("foo", new()
+    ///     {
+    ///         PolicyId = examplePolicy.Apply(getAlertPolicyResult =&gt; getAlertPolicyResult.Id),
+    ///         ChannelIds = new[]
+    ///         {
+    ///             emailChannel.Id,
+    ///             slackChannel.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Alert policy channels can be imported using the following notation`&lt;policyID&gt;:&lt;channelID&gt;:&lt;channelID&gt;`, e.g.

@@ -6,6 +6,81 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alertType in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fastBurn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+ *
+ * ## Example Usage
+ *
+ * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooTarget = 99.9;
+ * const fooPeriod = 28;
+ * const foo = new newrelic.ServiceLevel("foo", {
+ *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
+ *     description: "Proportion of requests that are served faster than a threshold.",
+ *     events: {
+ *         accountId: 12345678,
+ *         validEvents: {
+ *             from: "Transaction",
+ *             where: "appName = 'Example application' AND (transactionType='Web')",
+ *         },
+ *         badEvents: {
+ *             from: "Transaction",
+ *             where: "appName = 'Example application' AND (transactionType= 'Web') AND duration > 0.1",
+ *         },
+ *     },
+ *     objective: {
+ *         target: fooTarget,
+ *         timeWindow: {
+ *             rolling: {
+ *                 count: fooPeriod,
+ *                 unit: "DAY",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+ * Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
+ * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooCustom = newrelic.getServiceLevelAlertHelper({
+ *     alertType: "custom",
+ *     sliGuid: newrelic_service_level.foo.sli_guid,
+ *     sloTarget: local.foo_target,
+ *     sloPeriod: local.foo_period,
+ *     customToleratedBudgetConsumption: 5,
+ *     customEvaluationPeriod: 90,
+ *     isBadEvents: true,
+ * });
+ * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
+ *     accountId: 12345678,
+ *     policyId: 67890,
+ *     type: "static",
+ *     enabled: true,
+ *     violationTimeLimitSeconds: 259200,
+ *     nrql: {
+ *         query: fooCustom.then(fooCustom => fooCustom.nrql),
+ *     },
+ *     critical: {
+ *         operator: "above_or_equals",
+ *         threshold: fooCustom.then(fooCustom => fooCustom.threshold),
+ *         thresholdDuration: fooCustom.then(fooCustom => fooCustom.evaluationPeriod),
+ *         thresholdOccurrences: "at_least_once",
+ *     },
+ *     fillOption: "none",
+ *     aggregationWindow: 3600,
+ *     aggregationMethod: "event_flow",
+ *     aggregationDelay: "120",
+ *     slideBy: 60,
+ * });
+ * ```
  */
 export function getServiceLevelAlertHelper(args: GetServiceLevelAlertHelperArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLevelAlertHelperResult> {
 
@@ -89,6 +164,81 @@ export interface GetServiceLevelAlertHelperResult {
 }
 /**
  * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alertType in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fastBurn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+ *
+ * ## Example Usage
+ *
+ * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooTarget = 99.9;
+ * const fooPeriod = 28;
+ * const foo = new newrelic.ServiceLevel("foo", {
+ *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
+ *     description: "Proportion of requests that are served faster than a threshold.",
+ *     events: {
+ *         accountId: 12345678,
+ *         validEvents: {
+ *             from: "Transaction",
+ *             where: "appName = 'Example application' AND (transactionType='Web')",
+ *         },
+ *         badEvents: {
+ *             from: "Transaction",
+ *             where: "appName = 'Example application' AND (transactionType= 'Web') AND duration > 0.1",
+ *         },
+ *     },
+ *     objective: {
+ *         target: fooTarget,
+ *         timeWindow: {
+ *             rolling: {
+ *                 count: fooPeriod,
+ *                 unit: "DAY",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+ * Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
+ * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooCustom = newrelic.getServiceLevelAlertHelper({
+ *     alertType: "custom",
+ *     sliGuid: newrelic_service_level.foo.sli_guid,
+ *     sloTarget: local.foo_target,
+ *     sloPeriod: local.foo_period,
+ *     customToleratedBudgetConsumption: 5,
+ *     customEvaluationPeriod: 90,
+ *     isBadEvents: true,
+ * });
+ * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
+ *     accountId: 12345678,
+ *     policyId: 67890,
+ *     type: "static",
+ *     enabled: true,
+ *     violationTimeLimitSeconds: 259200,
+ *     nrql: {
+ *         query: fooCustom.then(fooCustom => fooCustom.nrql),
+ *     },
+ *     critical: {
+ *         operator: "above_or_equals",
+ *         threshold: fooCustom.then(fooCustom => fooCustom.threshold),
+ *         thresholdDuration: fooCustom.then(fooCustom => fooCustom.evaluationPeriod),
+ *         thresholdOccurrences: "at_least_once",
+ *     },
+ *     fillOption: "none",
+ *     aggregationWindow: 3600,
+ *     aggregationMethod: "event_flow",
+ *     aggregationDelay: "120",
+ *     slideBy: 60,
+ * });
+ * ```
  */
 export function getServiceLevelAlertHelperOutput(args: GetServiceLevelAlertHelperOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLevelAlertHelperResult> {
     return pulumi.output(args).apply((a: any) => getServiceLevelAlertHelper(a, opts))

@@ -13,6 +13,57 @@ import (
 )
 
 // Use this data source to get information about a specific key transaction in New Relic that already exists.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			txn, err := newrelic.GetKeyTransaction(ctx, &newrelic.GetKeyTransactionArgs{
+//				Name: "txn",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
+//				PolicyId: fooAlertPolicy.ID(),
+//				Type:     pulumi.String("apm_kt_metric"),
+//				Entities: pulumi.IntArray{
+//					*pulumi.String(txn.Id),
+//				},
+//				Metric:     pulumi.String("error_percentage"),
+//				RunbookUrl: pulumi.String("https://www.example.com"),
+//				Terms: newrelic.AlertConditionTermArray{
+//					&newrelic.AlertConditionTermArgs{
+//						Duration:     pulumi.Int(5),
+//						Operator:     pulumi.String("below"),
+//						Priority:     pulumi.String("critical"),
+//						Threshold:    pulumi.Float64(0.75),
+//						TimeFunction: pulumi.String("all"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetKeyTransaction(ctx *pulumi.Context, args *GetKeyTransactionArgs, opts ...pulumi.InvokeOption) (*GetKeyTransactionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetKeyTransactionResult

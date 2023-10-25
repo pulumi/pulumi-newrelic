@@ -13,6 +13,100 @@ namespace Pulumi.NewRelic
     /// Use this resource to create and manage New Relic alert policies.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     {
+    ///         IncidentPreference = "PER_POLICY",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Provision multiple notification channels and add those channels to a policy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Provision a Slack notification channel.
+    ///     var slackChannel = new NewRelic.AlertChannel("slackChannel", new()
+    ///     {
+    ///         Type = "slack",
+    ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
+    ///         {
+    ///             Url = "https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
+    ///             Channel = "example-alerts-channel",
+    ///         },
+    ///     });
+    /// 
+    ///     // Provision an email notification channel.
+    ///     var emailChannel = new NewRelic.AlertChannel("emailChannel", new()
+    ///     {
+    ///         Type = "email",
+    ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
+    ///         {
+    ///             Recipients = "example@testing.com",
+    ///             IncludeJsonAttachment = "1",
+    ///         },
+    ///     });
+    /// 
+    ///     // Provision the alert policy.
+    ///     var policyWithChannels = new NewRelic.AlertPolicy("policyWithChannels", new()
+    ///     {
+    ///         IncidentPreference = "PER_CONDITION",
+    ///         ChannelIds = new[]
+    ///         {
+    ///             slackChannel.Id,
+    ///             emailChannel.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Reference existing notification channels and add those channel to a policy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var slackChannel = NewRelic.GetAlertChannel.Invoke(new()
+    ///     {
+    ///         Name = "slack-channel-notification",
+    ///     });
+    /// 
+    ///     var emailChannel = NewRelic.GetAlertChannel.Invoke(new()
+    ///     {
+    ///         Name = "test@example.com",
+    ///     });
+    /// 
+    ///     // Provision the alert policy.
+    ///     var policyWithChannels = new NewRelic.AlertPolicy("policyWithChannels", new()
+    ///     {
+    ///         IncidentPreference = "PER_CONDITION",
+    ///         ChannelIds = new[]
+    ///         {
+    ///             slackChannel.Apply(getAlertChannelResult =&gt; getAlertChannelResult.Id),
+    ///             emailChannel.Apply(getAlertChannelResult =&gt; getAlertChannelResult.Id),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

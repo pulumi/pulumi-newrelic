@@ -12,6 +12,35 @@ import * as utilities from "./utilities";
  * ## Additional Examples
  *
  * > If the entities are not found please try again without providing the `types` field.
+ *
+ * ### Query for an OTEL entity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     domain: "EXT",
+ *     name: "my-otel-app",
+ *     tags: [{
+ *         key: "accountID",
+ *         value: "12345",
+ *     }],
+ *     type: "SERVICE",
+ * });
+ * ```
+ *
+ * ### Query for an entity by type (AWS Lambda entity in this example)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     name: "my_lambda_trace",
+ *     type: "AWSLAMBDAFUNCTION",
+ * });
+ * ```
  */
 export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
 
@@ -89,6 +118,35 @@ export interface GetEntityResult {
  * ## Additional Examples
  *
  * > If the entities are not found please try again without providing the `types` field.
+ *
+ * ### Query for an OTEL entity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     domain: "EXT",
+ *     name: "my-otel-app",
+ *     tags: [{
+ *         key: "accountID",
+ *         value: "12345",
+ *     }],
+ *     type: "SERVICE",
+ * });
+ * ```
+ *
+ * ### Query for an entity by type (AWS Lambda entity in this example)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     name: "my_lambda_trace",
+ *     type: "AWSLAMBDAFUNCTION",
+ * });
+ * ```
  */
 export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
     return pulumi.output(args).apply((a: any) => getEntity(a, opts))

@@ -207,6 +207,18 @@ class ObfuscationExpression(pulumi.CustomResource):
         """
         Use this resource to create, update and delete New Relic Obfuscation Expressions.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.ObfuscationExpression("foo",
+            account_id=12345,
+            description="The description",
+            regex="(regex.*)")
+        ```
+
         ## Import
 
         New Relic obfuscation expression can be imported using the expression ID, e.g. bash
@@ -230,6 +242,18 @@ class ObfuscationExpression(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to create, update and delete New Relic Obfuscation Expressions.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.ObfuscationExpression("foo",
+            account_id=12345,
+            description="The description",
+            regex="(regex.*)")
+        ```
 
         ## Import
 

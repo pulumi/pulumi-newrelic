@@ -15,6 +15,28 @@ namespace Pulumi.NewRelic
         /// Use this data source to get information about a specific account in New Relic.
         /// Accounts can be located by ID or name.  At most one of the two attributes can
         /// be provided. If neither are provided, the provider's `account_id` will be used.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var acc = NewRelic.GetAccount.Invoke(new()
+        ///     {
+        ///         Scope = "global",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("newrelic:index/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
@@ -23,6 +45,28 @@ namespace Pulumi.NewRelic
         /// Use this data source to get information about a specific account in New Relic.
         /// Accounts can be located by ID or name.  At most one of the two attributes can
         /// be provided. If neither are provided, the provider's `account_id` will be used.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var acc = NewRelic.GetAccount.Invoke(new()
+        ///     {
+        ///         Scope = "global",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("newrelic:index/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

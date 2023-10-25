@@ -7,6 +7,19 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create, update and delete New Relic Obfuscation Expressions.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.ObfuscationExpression("foo", {
+ *     accountId: 12345,
+ *     description: "The description",
+ *     regex: "(regex.*)",
+ * });
+ * ```
+ *
  * ## Import
  *
  * New Relic obfuscation expression can be imported using the expression ID, e.g. bash

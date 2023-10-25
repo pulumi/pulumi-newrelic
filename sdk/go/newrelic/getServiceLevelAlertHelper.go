@@ -13,6 +13,114 @@ import (
 )
 
 // Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alertType in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fastBurn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+//
+// ## Example Usage
+//
+// Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooTarget := 99.9
+//			fooPeriod := 28
+//			_, err := newrelic.NewServiceLevel(ctx, "foo", &newrelic.ServiceLevelArgs{
+//				Guid:        pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
+//				Description: pulumi.String("Proportion of requests that are served faster than a threshold."),
+//				Events: &newrelic.ServiceLevelEventsArgs{
+//					AccountId: pulumi.Int(12345678),
+//					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
+//						From:  pulumi.String("Transaction"),
+//						Where: pulumi.String("appName = 'Example application' AND (transactionType='Web')"),
+//					},
+//					BadEvents: &newrelic.ServiceLevelEventsBadEventsArgs{
+//						From:  pulumi.String("Transaction"),
+//						Where: pulumi.String("appName = 'Example application' AND (transactionType= 'Web') AND duration > 0.1"),
+//					},
+//				},
+//				Objective: &newrelic.ServiceLevelObjectiveArgs{
+//					Target: pulumi.Float64(fooTarget),
+//					TimeWindow: &newrelic.ServiceLevelObjectiveTimeWindowArgs{
+//						Rolling: &newrelic.ServiceLevelObjectiveTimeWindowRollingArgs{
+//							Count: pulumi.Float64(fooPeriod),
+//							Unit:  pulumi.String("DAY"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+// Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
+// If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooCustom, err := newrelic.GetServiceLevelAlertHelper(ctx, &newrelic.GetServiceLevelAlertHelperArgs{
+//				AlertType:                        "custom",
+//				SliGuid:                          newrelic_service_level.Foo.Sli_guid,
+//				SloTarget:                        local.Foo_target,
+//				SloPeriod:                        local.Foo_period,
+//				CustomToleratedBudgetConsumption: pulumi.Float64Ref(5),
+//				CustomEvaluationPeriod:           pulumi.IntRef(90),
+//				IsBadEvents:                      pulumi.BoolRef(true),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewNrqlAlertCondition(ctx, "yourCondition", &newrelic.NrqlAlertConditionArgs{
+//				AccountId:                 pulumi.Int(12345678),
+//				PolicyId:                  pulumi.Int(67890),
+//				Type:                      pulumi.String("static"),
+//				Enabled:                   pulumi.Bool(true),
+//				ViolationTimeLimitSeconds: pulumi.Int(259200),
+//				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
+//					Query: *pulumi.String(fooCustom.Nrql),
+//				},
+//				Critical: &newrelic.NrqlAlertConditionCriticalArgs{
+//					Operator:             pulumi.String("above_or_equals"),
+//					Threshold:            *pulumi.Float64(fooCustom.Threshold),
+//					ThresholdDuration:    *pulumi.Int(fooCustom.EvaluationPeriod),
+//					ThresholdOccurrences: pulumi.String("at_least_once"),
+//				},
+//				FillOption:        pulumi.String("none"),
+//				AggregationWindow: pulumi.Int(3600),
+//				AggregationMethod: pulumi.String("event_flow"),
+//				AggregationDelay:  pulumi.String("120"),
+//				SlideBy:           pulumi.Int(60),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetServiceLevelAlertHelper(ctx *pulumi.Context, args *GetServiceLevelAlertHelperArgs, opts ...pulumi.InvokeOption) (*GetServiceLevelAlertHelperResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceLevelAlertHelperResult

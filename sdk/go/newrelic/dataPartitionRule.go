@@ -15,6 +15,35 @@ import (
 
 // Use this resource to create, update and delete New Relic Data partition rule.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewDataPartitionRule(ctx, "foo", &newrelic.DataPartitionRuleArgs{
+//				Description:         pulumi.String("description"),
+//				Enabled:             pulumi.Bool(true),
+//				Nrql:                pulumi.String("logtype='node'"),
+//				RetentionPolicy:     pulumi.String("STANDARD"),
+//				TargetDataPartition: pulumi.String("Log_name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Additional Information
 //
 // More details about the data partition can be found [here](https://docs.newrelic.com/docs/logs/ui-data/data-partitions/)

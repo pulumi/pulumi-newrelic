@@ -15,6 +15,34 @@ import (
 
 // Use this resource to create, update and delete New Relic Obfuscation Expressions.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewObfuscationExpression(ctx, "foo", &newrelic.ObfuscationExpressionArgs{
+//				AccountId:   pulumi.Int(12345),
+//				Description: pulumi.String("The description"),
+//				Regex:       pulumi.String("(regex.*)"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // New Relic obfuscation expression can be imported using the expression ID, e.g. bash

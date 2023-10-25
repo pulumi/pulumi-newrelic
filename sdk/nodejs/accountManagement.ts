@@ -9,6 +9,16 @@ import * as utilities from "./utilities";
  *
  * > **WARNING:** The `newrelic.AccountManagement` resource will only create/update but won't delete a sub account. Please visit our documentation on  [`Account Management`](https://docs.newrelic.com/docs/apis/nerdgraph/examples/manage-accounts-nerdgraph/#delete) for more information .
  *
+ * ## Example Usage
+ *
+ * ##### Create Account
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.AccountManagement("foo", {region: "us01"});
+ * ```
+ *
  * ## Import
  *
  * Accounts can be imported using the `id`, e.g. bash

@@ -285,6 +285,26 @@ class ObfuscationRule(pulumi.CustomResource):
         """
         Use this resource to create, update and delete New Relic Obfuscation Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        bar = newrelic.ObfuscationExpression("bar",
+            description="description of the expression",
+            regex="(^http)")
+        foo = newrelic.ObfuscationRule("foo",
+            description="description of the rule",
+            filter="hostStatus=running",
+            enabled=True,
+            actions=[newrelic.ObfuscationRuleActionArgs(
+                attributes=["message"],
+                expression_id=bar.id,
+                method="MASK",
+            )])
+        ```
+
         ## Import
 
         New Relic obfuscation rule can be imported using the rule ID, e.g. bash
@@ -310,6 +330,26 @@ class ObfuscationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to create, update and delete New Relic Obfuscation Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        bar = newrelic.ObfuscationExpression("bar",
+            description="description of the expression",
+            regex="(^http)")
+        foo = newrelic.ObfuscationRule("foo",
+            description="description of the rule",
+            filter="hostStatus=running",
+            enabled=True,
+            actions=[newrelic.ObfuscationRuleActionArgs(
+                attributes=["message"],
+                expression_id=bar.id,
+                method="MASK",
+            )])
+        ```
 
         ## Import
 

@@ -15,6 +15,32 @@ import (
 // Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
 //
 // Note that the secure credential's value is not returned as an attribute for security reasons.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.LookupSecureCredential(ctx, &synthetics.LookupSecureCredentialArgs{
+//				Key: "MY_KEY",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupSecureCredential(ctx *pulumi.Context, args *LookupSecureCredentialArgs, opts ...pulumi.InvokeOption) (*LookupSecureCredentialResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecureCredentialResult

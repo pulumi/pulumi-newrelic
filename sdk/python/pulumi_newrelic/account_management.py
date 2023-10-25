@@ -131,6 +131,16 @@ class AccountManagement(pulumi.CustomResource):
 
         > **WARNING:** The `AccountManagement` resource will only create/update but won't delete a sub account. Please visit our documentation on  [`Account Management`](https://docs.newrelic.com/docs/apis/nerdgraph/examples/manage-accounts-nerdgraph/#delete) for more information .
 
+        ## Example Usage
+
+        ##### Create Account
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AccountManagement("foo", region="us01")
+        ```
+
         ## Import
 
         Accounts can be imported using the `id`, e.g. bash
@@ -154,6 +164,16 @@ class AccountManagement(pulumi.CustomResource):
         Use this resource to create and manage New Relic sub accounts.
 
         > **WARNING:** The `AccountManagement` resource will only create/update but won't delete a sub account. Please visit our documentation on  [`Account Management`](https://docs.newrelic.com/docs/apis/nerdgraph/examples/manage-accounts-nerdgraph/#delete) for more information .
+
+        ## Example Usage
+
+        ##### Create Account
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AccountManagement("foo", region="us01")
+        ```
 
         ## Import
 

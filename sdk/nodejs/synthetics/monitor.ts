@@ -9,7 +9,128 @@ import * as utilities from "../utilities";
 /**
  * Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const monitor = new newrelic.synthetics.Monitor("monitor", {
+ *     bypassHeadRequest: true,
+ *     customHeaders: [{
+ *         name: "some_name",
+ *         value: "some_value",
+ *     }],
+ *     locationsPublics: ["AP_SOUTH_1"],
+ *     period: "EVERY_MINUTE",
+ *     status: "ENABLED",
+ *     tags: [{
+ *         key: "some_key",
+ *         values: ["some_value"],
+ *     }],
+ *     treatRedirectAsFailure: true,
+ *     type: "SIMPLE",
+ *     uri: "https://www.one.newrelic.com",
+ *     validationString: "success",
+ *     verifySsl: true,
+ * });
+ * ```
+ * ##### Type: `SIMPLE BROWSER`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const monitor = new newrelic.synthetics.Monitor("monitor", {
+ *     customHeaders: [{
+ *         name: "some_name",
+ *         value: "some_value",
+ *     }],
+ *     enableScreenshotOnFailureAndScript: true,
+ *     locationsPublics: ["AP_SOUTH_1"],
+ *     period: "EVERY_MINUTE",
+ *     status: "ENABLED",
+ *     tags: [{
+ *         key: "some_key",
+ *         values: ["some_value"],
+ *     }],
+ *     type: "BROWSER",
+ *     uri: "https://www.one.newrelic.com",
+ *     validationString: "success",
+ *     verifySsl: true,
+ * });
+ * ```
+ * See additional examples.
  * ## Additional Examples
+ *
+ * ### Create a monitor with a private location
+ *
+ * The below example shows how you can define a private location and attach it to a monitor.
+ *
+ * > **NOTE:** It can take up to 10 minutes for a private location to become available.
+ *
+ * ##### Type: `SIMPLE`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const location = new newrelic.synthetics.PrivateLocation("location", {
+ *     description: "Example private location",
+ *     verifiedScriptExecution: false,
+ * });
+ * const monitor = new newrelic.synthetics.Monitor("monitor", {
+ *     status: "ENABLED",
+ *     period: "EVERY_MINUTE",
+ *     uri: "https://www.one.newrelic.com",
+ *     type: "SIMPLE",
+ *     locationsPrivates: [location.id],
+ *     customHeaders: [{
+ *         name: "some_name",
+ *         value: "some_value",
+ *     }],
+ *     treatRedirectAsFailure: true,
+ *     validationString: "success",
+ *     bypassHeadRequest: true,
+ *     verifySsl: true,
+ *     tags: [{
+ *         key: "some_key",
+ *         values: ["some_value"],
+ *     }],
+ * });
+ * ```
+ * ##### Type: `BROWSER`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const location = new newrelic.synthetics.PrivateLocation("location", {
+ *     description: "Example private location",
+ *     verifiedScriptExecution: false,
+ * });
+ * const monitor = new newrelic.synthetics.Monitor("monitor", {
+ *     status: "ENABLED",
+ *     type: "BROWSER",
+ *     uri: "https://www.one.newrelic.com",
+ *     period: "EVERY_MINUTE",
+ *     locationsPrivates: [location.id],
+ *     customHeaders: [{
+ *         name: "some_name",
+ *         value: "some_value",
+ *     }],
+ *     enableScreenshotOnFailureAndScript: true,
+ *     validationString: "success",
+ *     verifySsl: true,
+ *     runtimeTypeVersion: "100",
+ *     runtimeType: "CHROME_BROWSER",
+ *     scriptLanguage: "JAVASCRIPT",
+ *     tags: [{
+ *         key: "some_key",
+ *         values: ["some_value"],
+ *     }],
+ * });
+ * ```
  *
  * ## Import
  *

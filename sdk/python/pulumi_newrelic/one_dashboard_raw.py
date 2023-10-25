@@ -283,6 +283,79 @@ class OneDashboardRaw(pulumi.CustomResource):
         > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will receive less investment compared to newrelic_one_dashboard_json.
 
         ## Example Usage
+        ### Create A New Relic One Dashboard With RawConfiguration
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_newrelic as newrelic
+
+        exampledash = newrelic.OneDashboardRaw("exampledash", pages=[newrelic.OneDashboardRawPageArgs(
+            name="Page Name",
+            widgets=[
+                newrelic.OneDashboardRawPageWidgetArgs(
+                    title="Custom widget",
+                    row=1,
+                    column=1,
+                    width=1,
+                    height=1,
+                    visualization_id="viz.custom",
+                    configuration=\"\"\"      {
+                "legend": {
+                  "enabled": false
+                },
+                "nrqlQueries": [
+                  {
+                    "accountId": ` + accountID + `,
+                    "query": "SELECT average(loadAverageOneMinute), average(loadAverageFiveMinute), average(loadAverageFifteenMinute) from SystemSample SINCE 60 minutes ago    TIMESERIES"
+                  }
+                ],
+                "yAxisLeft": {
+                  "max": 100,
+                  "min": 50,
+                  "zero": false
+                }
+              }
+        \"\"\",
+                ),
+                newrelic.OneDashboardRawPageWidgetArgs(
+                    title="Server CPU",
+                    row=1,
+                    column=2,
+                    width=1,
+                    height=1,
+                    visualization_id="viz.testing",
+                    configuration=\"\"\"      {
+                "nrqlQueries": [
+                  {
+                    "accountId": ` + accountID + `,
+                    "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400"
+                  }
+                ]
+              }
+        \"\"\",
+                ),
+                newrelic.OneDashboardRawPageWidgetArgs(
+                    title="Docker Server CPU",
+                    row=1,
+                    column=3,
+                    height=1,
+                    width=1,
+                    visualization_id="viz.bar",
+                    configuration=json.dumps({
+                        "facet": {
+                            "showOtherSeries": False,
+                        },
+                        "nrqlQueries": [{
+                            "accountId": local["accountID"],
+                            "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
+                        }],
+                    }),
+                    linked_entity_guids=["MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc"],
+                ),
+            ],
+        )])
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -302,6 +375,79 @@ class OneDashboardRaw(pulumi.CustomResource):
         > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will receive less investment compared to newrelic_one_dashboard_json.
 
         ## Example Usage
+        ### Create A New Relic One Dashboard With RawConfiguration
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_newrelic as newrelic
+
+        exampledash = newrelic.OneDashboardRaw("exampledash", pages=[newrelic.OneDashboardRawPageArgs(
+            name="Page Name",
+            widgets=[
+                newrelic.OneDashboardRawPageWidgetArgs(
+                    title="Custom widget",
+                    row=1,
+                    column=1,
+                    width=1,
+                    height=1,
+                    visualization_id="viz.custom",
+                    configuration=\"\"\"      {
+                "legend": {
+                  "enabled": false
+                },
+                "nrqlQueries": [
+                  {
+                    "accountId": ` + accountID + `,
+                    "query": "SELECT average(loadAverageOneMinute), average(loadAverageFiveMinute), average(loadAverageFifteenMinute) from SystemSample SINCE 60 minutes ago    TIMESERIES"
+                  }
+                ],
+                "yAxisLeft": {
+                  "max": 100,
+                  "min": 50,
+                  "zero": false
+                }
+              }
+        \"\"\",
+                ),
+                newrelic.OneDashboardRawPageWidgetArgs(
+                    title="Server CPU",
+                    row=1,
+                    column=2,
+                    width=1,
+                    height=1,
+                    visualization_id="viz.testing",
+                    configuration=\"\"\"      {
+                "nrqlQueries": [
+                  {
+                    "accountId": ` + accountID + `,
+                    "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400"
+                  }
+                ]
+              }
+        \"\"\",
+                ),
+                newrelic.OneDashboardRawPageWidgetArgs(
+                    title="Docker Server CPU",
+                    row=1,
+                    column=3,
+                    height=1,
+                    width=1,
+                    visualization_id="viz.bar",
+                    configuration=json.dumps({
+                        "facet": {
+                            "showOtherSeries": False,
+                        },
+                        "nrqlQueries": [{
+                            "accountId": local["accountID"],
+                            "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
+                        }],
+                    }),
+                    linked_entity_guids=["MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc"],
+                ),
+            ],
+        )])
+        ```
 
         :param str resource_name: The name of the resource.
         :param OneDashboardRawArgs args: The arguments to use to populate this resource's properties.

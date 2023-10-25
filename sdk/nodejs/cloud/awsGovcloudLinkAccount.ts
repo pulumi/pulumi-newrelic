@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.cloud.AwsGovcloudLinkAccount("foo", {
+ *     accessKeyId: "access-key-id of aws govcloud account",
+ *     accountId: "The New Relic account ID where you want to link the AWS GovCloud account",
+ *     awsAccountId: "aws govcloud account id",
+ *     metricCollectionMode: "PULL",
+ *     secretAccessKey: "secret access key of the aws govcloud account",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Linked AWSGovCloud accounts can be imported using the `id`, e.g. bash
