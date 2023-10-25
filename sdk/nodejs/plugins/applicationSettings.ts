@@ -11,18 +11,6 @@ import * as utilities from "../utilities";
  * Use this resource to manage configuration for an application that already
  * exists in New Relic.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const app = new newrelic.plugins.ApplicationSettings("app", {
- *     appApdexThreshold: 0.7,
- *     enableRealUserMonitoring: false,
- *     endUserApdexThreshold: 0.8,
- * });
- * ```
  * ## Notes
  *
  * > **NOTE:** Applications that have reported data in the last twelve hours
@@ -70,10 +58,6 @@ export class ApplicationSettings extends pulumi.CustomResource {
     public readonly appApdexThreshold!: pulumi.Output<number>;
     /**
      * Enable or disable real user monitoring for the New Relic application.
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     public readonly enableRealUserMonitoring!: pulumi.Output<boolean>;
     /**
@@ -133,10 +117,6 @@ export interface ApplicationSettingsState {
     appApdexThreshold?: pulumi.Input<number>;
     /**
      * Enable or disable real user monitoring for the New Relic application.
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     enableRealUserMonitoring?: pulumi.Input<boolean>;
     /**
@@ -159,10 +139,6 @@ export interface ApplicationSettingsArgs {
     appApdexThreshold: pulumi.Input<number>;
     /**
      * Enable or disable real user monitoring for the New Relic application.
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     enableRealUserMonitoring: pulumi.Input<boolean>;
     /**

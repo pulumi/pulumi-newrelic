@@ -14,109 +14,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// &gt; **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.Synthetics.AlertCondition("foo", new()
-    ///     {
-    ///         PolicyId = newrelic_alert_policy.Foo.Id,
-    ///         MonitorId = newrelic_synthetics_monitor.Foo.Id,
-    ///         RunbookUrl = "https://www.example.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ## Tags
-    /// 
-    /// Manage synthetics alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-    /// 
-    ///     var fooMonitor = new NewRelic.Synthetics.Monitor("fooMonitor", new()
-    ///     {
-    ///         Status = "ENABLED",
-    ///         Period = "EVERY_MINUTE",
-    ///         Uri = "https://www.one.newrelic.com",
-    ///         Type = "SIMPLE",
-    ///         LocationsPublics = new[]
-    ///         {
-    ///             "AP_EAST_1",
-    ///         },
-    ///         CustomHeaders = new[]
-    ///         {
-    ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
-    ///             {
-    ///                 Name = "some_name",
-    ///                 Value = "some_value",
-    ///             },
-    ///         },
-    ///         TreatRedirectAsFailure = true,
-    ///         ValidationString = "success",
-    ///         BypassHeadRequest = true,
-    ///         VerifySsl = true,
-    ///         Tags = new[]
-    ///         {
-    ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
-    ///             {
-    ///                 Key = "some_key",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "some_value",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var fooAlertCondition = new NewRelic.Synthetics.AlertCondition("fooAlertCondition", new()
-    ///     {
-    ///         PolicyId = fooAlertPolicy.Id,
-    ///         MonitorId = fooMonitor.Id,
-    ///         RunbookUrl = "https://www.example.com",
-    ///     });
-    /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
-    ///     {
-    ///         Guid = fooAlertCondition.EntityGuid,
-    ///         Tags = new[]
-    ///         {
-    ///             new NewRelic.Inputs.EntityTagsTagArgs
-    ///             {
-    ///                 Key = "my-key",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "my-value",
-    ///                     "my-other-value",
-    ///                 },
-    ///             },
-    ///             new NewRelic.Inputs.EntityTagsTagArgs
-    ///             {
-    ///                 Key = "my-key-2",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "my-value-2",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Synthetics alert conditions can be imported using a composite ID of `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g.
@@ -130,16 +27,6 @@ namespace Pulumi.NewRelic.Synthetics
     {
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -222,16 +109,6 @@ namespace Pulumi.NewRelic.Synthetics
     {
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -270,16 +147,6 @@ namespace Pulumi.NewRelic.Synthetics
     {
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

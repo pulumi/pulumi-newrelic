@@ -17,33 +17,6 @@ import (
 //
 // > **WARNING:** The `AccountManagement` resource will only create/update but won't delete a sub account. Please visit our documentation on  [`Account Management`](https://docs.newrelic.com/docs/apis/nerdgraph/examples/manage-accounts-nerdgraph/#delete) for more information .
 //
-// ## Example Usage
-//
-// ##### Create Account
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewAccountManagement(ctx, "foo", &newrelic.AccountManagementArgs{
-//				Region: pulumi.String("us01"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Accounts can be imported using the `id`, e.g. bash

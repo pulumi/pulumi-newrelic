@@ -14,34 +14,6 @@ import (
 
 // Use this data source to get information about a specific cloud account linked to New Relic.
 // Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no accountId is specified on the resource the provider level accountId will be used.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.GetCloudAccount(ctx, &newrelic.GetCloudAccountArgs{
-//				AccountId:     pulumi.IntRef(12345),
-//				CloudProvider: "aws",
-//				Name:          "my aws account",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCloudAccount(ctx *pulumi.Context, args *GetCloudAccountArgs, opts ...pulumi.InvokeOption) (*GetCloudAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCloudAccountResult

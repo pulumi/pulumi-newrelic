@@ -35,11 +35,17 @@ class ObfuscationExpressionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             regex: pulumi.Input[str],
+             regex: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if regex is None:
+            raise TypeError("Missing 'regex' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("regex", regex)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -125,7 +131,11 @@ class _ObfuscationExpressionState:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              regex: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if description is not None:
@@ -197,18 +207,6 @@ class ObfuscationExpression(pulumi.CustomResource):
         """
         Use this resource to create, update and delete New Relic Obfuscation Expressions.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.ObfuscationExpression("foo",
-            account_id=12345,
-            description="The description",
-            regex="(regex.*)")
-        ```
-
         ## Import
 
         New Relic obfuscation expression can be imported using the expression ID, e.g. bash
@@ -232,18 +230,6 @@ class ObfuscationExpression(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to create, update and delete New Relic Obfuscation Expressions.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.ObfuscationExpression("foo",
-            account_id=12345,
-            description="The description",
-            regex="(regex.*)")
-        ```
 
         ## Import
 

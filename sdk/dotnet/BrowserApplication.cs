@@ -12,27 +12,6 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create, update, and delete a standalone New Relic browser application.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage to create a standalone browser application.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.BrowserApplication("foo", new()
-    ///     {
-    ///         CookiesEnabled = true,
-    ///         DistributedTracingEnabled = true,
-    ///         LoaderType = "SPA",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Browser applications can be imported using the GUID of the browser application. bash

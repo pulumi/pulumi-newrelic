@@ -40,9 +40,15 @@ class BrokenLinksMonitorTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 
@@ -80,9 +86,15 @@ class CertCheckMonitorTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 
@@ -122,7 +134,9 @@ class MonitorCustomHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if value is not None:
@@ -162,9 +176,15 @@ class MonitorTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 
@@ -196,8 +216,12 @@ class MultiLocationAlertConditionCritical(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             threshold: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             threshold: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+
         _setter("threshold", threshold)
 
     @property
@@ -217,8 +241,12 @@ class MultiLocationAlertConditionWarning(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             threshold: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             threshold: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+
         _setter("threshold", threshold)
 
     @property
@@ -261,9 +289,15 @@ class ScriptMonitorLocationPrivate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             guid: str,
+             guid: Optional[str] = None,
              vse_password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if guid is None:
+            raise TypeError("Missing 'guid' argument")
+        if vse_password is None and 'vsePassword' in kwargs:
+            vse_password = kwargs['vsePassword']
+
         _setter("guid", guid)
         if vse_password is not None:
             _setter("vse_password", vse_password)
@@ -302,9 +336,15 @@ class ScriptMonitorTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 
@@ -359,9 +399,15 @@ class StepMonitorLocationPrivate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             guid: str,
+             guid: Optional[str] = None,
              vse_password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if guid is None:
+            raise TypeError("Missing 'guid' argument")
+        if vse_password is None and 'vsePassword' in kwargs:
+            vse_password = kwargs['vsePassword']
+
         _setter("guid", guid)
         if vse_password is not None:
             _setter("vse_password", vse_password)
@@ -403,10 +449,16 @@ class StepMonitorStep(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ordinal: int,
-             type: str,
+             ordinal: Optional[int] = None,
+             type: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ordinal is None:
+            raise TypeError("Missing 'ordinal' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("ordinal", ordinal)
         _setter("type", type)
         if values is not None:
@@ -454,9 +506,15 @@ class StepMonitorTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 

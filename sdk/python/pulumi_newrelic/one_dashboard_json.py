@@ -29,9 +29,15 @@ class OneDashboardJsonArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             json: pulumi.Input[str],
+             json: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if json is None:
+            raise TypeError("Missing 'json' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("json", json)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -93,7 +99,13 @@ class _OneDashboardJsonState:
              json: Optional[pulumi.Input[str]] = None,
              permalink: Optional[pulumi.Input[str]] = None,
              updated_at: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if guid is not None:

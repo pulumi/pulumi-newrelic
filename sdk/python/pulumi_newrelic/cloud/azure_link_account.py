@@ -41,13 +41,33 @@ class AzureLinkAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             client_secret: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             application_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("application_id", application_id)
         _setter("client_secret", client_secret)
         _setter("subscription_id", subscription_id)
@@ -166,7 +186,19 @@ class _AzureLinkAccountState:
              name: Optional[pulumi.Input[str]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if application_id is not None:
@@ -276,22 +308,6 @@ class AzureLinkAccount(pulumi.CustomResource):
 
         Setup is required in Azure for this resource to work properly. You can find instructions on how to set up Azure on [our documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/activate-azure-integrations/).
 
-        ## Example Usage
-
-        You can also use the full example, including the Azure set up, found in our guides.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.cloud.AzureLinkAccount("foo",
-            account_id="The New Relic account ID where you want to link the Azure account",
-            application_id="ID of the application",
-            client_secret="Secret value of client's Azure account",
-            subscription_id="Subscription ID of Azure",
-            tenant_id="Tenant ID of the Azure")
-        ```
-
         ## Import
 
         Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic bash
@@ -325,22 +341,6 @@ class AzureLinkAccount(pulumi.CustomResource):
         To start receiving Azure data with New Relic Azure integrations, connect your Azure account to New Relic infrastructure monitoring. If you don't have one already, create a New Relic account. It's free, forever.
 
         Setup is required in Azure for this resource to work properly. You can find instructions on how to set up Azure on [our documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/activate-azure-integrations/).
-
-        ## Example Usage
-
-        You can also use the full example, including the Azure set up, found in our guides.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.cloud.AzureLinkAccount("foo",
-            account_id="The New Relic account ID where you want to link the Azure account",
-            application_id="ID of the application",
-            client_secret="Secret value of client's Azure account",
-            subscription_id="Subscription ID of Azure",
-            tenant_id="Tenant ID of the Azure")
-        ```
 
         ## Import
 

@@ -30,10 +30,16 @@ class EventEvent(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attributes: Sequence['outputs.EventEventAttribute'],
-             type: str,
+             attributes: Optional[Sequence['outputs.EventEventAttribute']] = None,
+             type: Optional[str] = None,
              timestamp: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("attributes", attributes)
         _setter("type", type)
         if timestamp is not None:
@@ -70,10 +76,16 @@ class EventEventAttribute(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
+             key: Optional[str] = None,
+             value: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
         if type is not None:

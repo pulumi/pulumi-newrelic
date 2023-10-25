@@ -35,11 +35,19 @@ class AwsLinkAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: pulumi.Input[str],
+             arn: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              metric_collection_mode: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if metric_collection_mode is None and 'metricCollectionMode' in kwargs:
+            metric_collection_mode = kwargs['metricCollectionMode']
+
         _setter("arn", arn)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -125,7 +133,13 @@ class _AwsLinkAccountState:
              arn: Optional[pulumi.Input[str]] = None,
              metric_collection_mode: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if metric_collection_mode is None and 'metricCollectionMode' in kwargs:
+            metric_collection_mode = kwargs['metricCollectionMode']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if arn is not None:
@@ -205,19 +219,6 @@ class AwsLinkAccount(pulumi.CustomResource):
 
         To pull data from AWS instead, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-new-relic-infrastructure-monitoring#connect).
 
-        ## Example Usage
-
-        You can also use the full example, including the AWS set up, found in our guides.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.cloud.AwsLinkAccount("foo",
-            arn="arn:aws:service:region:account-id:resource-id",
-            metric_collection_mode="PUSH")
-        ```
-
         ## Import
 
         Linked AWS accounts can be imported using the `id`, e.g. bash
@@ -249,19 +250,6 @@ class AwsLinkAccount(pulumi.CustomResource):
         Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream.
 
         To pull data from AWS instead, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-new-relic-infrastructure-monitoring#connect).
-
-        ## Example Usage
-
-        You can also use the full example, including the AWS set up, found in our guides.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.cloud.AwsLinkAccount("foo",
-            arn="arn:aws:service:region:account-id:resource-id",
-            metric_collection_mode="PUSH")
-        ```
 
         ## Import
 

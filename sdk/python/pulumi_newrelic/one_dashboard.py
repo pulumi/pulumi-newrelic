@@ -43,13 +43,19 @@ class OneDashboardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             pages: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]],
+             pages: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              permissions: Optional[pulumi.Input[str]] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pages is None:
+            raise TypeError("Missing 'pages' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("pages", pages)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -179,7 +185,11 @@ class _OneDashboardState:
              permalink: Optional[pulumi.Input[str]] = None,
              permissions: Optional[pulumi.Input[str]] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if description is not None:

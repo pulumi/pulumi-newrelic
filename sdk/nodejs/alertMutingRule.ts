@@ -7,45 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.AlertMutingRule("foo", {
- *     condition: {
- *         conditions: [
- *             {
- *                 attribute: "product",
- *                 operator: "EQUALS",
- *                 values: ["APM"],
- *             },
- *             {
- *                 attribute: "targetId",
- *                 operator: "EQUALS",
- *                 values: ["Muted"],
- *             },
- *         ],
- *         operator: "AND",
- *     },
- *     description: "muting rule test.",
- *     enabled: true,
- *     schedule: {
- *         endTime: "2021-01-28T16:30:00",
- *         repeat: "WEEKLY",
- *         repeatCount: 42,
- *         startTime: "2021-01-28T15:30:00",
- *         timeZone: "America/Los_Angeles",
- *         weeklyRepeatDays: [
- *             "MONDAY",
- *             "WEDNESDAY",
- *             "FRIDAY",
- *         ],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.

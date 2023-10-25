@@ -43,7 +43,17 @@ class BrowserApplicationArgs:
              distributed_tracing_enabled: Optional[pulumi.Input[bool]] = None,
              loader_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if cookies_enabled is None and 'cookiesEnabled' in kwargs:
+            cookies_enabled = kwargs['cookiesEnabled']
+        if distributed_tracing_enabled is None and 'distributedTracingEnabled' in kwargs:
+            distributed_tracing_enabled = kwargs['distributedTracingEnabled']
+        if loader_type is None and 'loaderType' in kwargs:
+            loader_type = kwargs['loaderType']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if cookies_enabled is not None:
@@ -152,7 +162,17 @@ class _BrowserApplicationState:
              guid: Optional[pulumi.Input[str]] = None,
              loader_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if cookies_enabled is None and 'cookiesEnabled' in kwargs:
+            cookies_enabled = kwargs['cookiesEnabled']
+        if distributed_tracing_enabled is None and 'distributedTracingEnabled' in kwargs:
+            distributed_tracing_enabled = kwargs['distributedTracingEnabled']
+        if loader_type is None and 'loaderType' in kwargs:
+            loader_type = kwargs['loaderType']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if cookies_enabled is not None:
@@ -253,19 +273,6 @@ class BrowserApplication(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a standalone New Relic browser application.
 
-        ## Example Usage
-
-        Basic usage to create a standalone browser application.
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.BrowserApplication("foo",
-            cookies_enabled=True,
-            distributed_tracing_enabled=True,
-            loader_type="SPA")
-        ```
-
         ## Import
 
         Browser applications can be imported using the GUID of the browser application. bash
@@ -290,19 +297,6 @@ class BrowserApplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to create, update, and delete a standalone New Relic browser application.
-
-        ## Example Usage
-
-        Basic usage to create a standalone browser application.
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.BrowserApplication("foo",
-            cookies_enabled=True,
-            distributed_tracing_enabled=True,
-            loader_type="SPA")
-        ```
 
         ## Import
 

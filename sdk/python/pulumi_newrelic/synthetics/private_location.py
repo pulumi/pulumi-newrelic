@@ -35,11 +35,19 @@ class PrivateLocationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              verified_script_execution: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if verified_script_execution is None and 'verifiedScriptExecution' in kwargs:
+            verified_script_execution = kwargs['verifiedScriptExecution']
+
         _setter("description", description)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -141,7 +149,17 @@ class _PrivateLocationState:
              location_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              verified_script_execution: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if domain_id is None and 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if location_id is None and 'locationId' in kwargs:
+            location_id = kwargs['locationId']
+        if verified_script_execution is None and 'verifiedScriptExecution' in kwargs:
+            verified_script_execution = kwargs['verifiedScriptExecution']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if description is not None:
@@ -269,15 +287,6 @@ class PrivateLocation(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic Synthetic private location.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        location = newrelic.synthetics.PrivateLocation("location", description="The private location description")
-        ```
-
         ## Import
 
         A Synthetics private location can be imported using the `guid`
@@ -301,15 +310,6 @@ class PrivateLocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to create and manage New Relic Synthetic private location.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        location = newrelic.synthetics.PrivateLocation("location", description="The private location description")
-        ```
 
         ## Import
 

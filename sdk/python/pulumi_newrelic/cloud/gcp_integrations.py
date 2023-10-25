@@ -109,7 +109,7 @@ class GcpIntegrationsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_account_id: pulumi.Input[int],
+             linked_account_id: Optional[pulumi.Input[int]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              alloy_db: Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']] = None,
              app_engine: Optional[pulumi.Input['GcpIntegrationsAppEngineArgs']] = None,
@@ -137,7 +137,47 @@ class GcpIntegrationsArgs:
              storage: Optional[pulumi.Input['GcpIntegrationsStorageArgs']] = None,
              virtual_machines: Optional[pulumi.Input['GcpIntegrationsVirtualMachinesArgs']] = None,
              vpc_access: Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if linked_account_id is None and 'linkedAccountId' in kwargs:
+            linked_account_id = kwargs['linkedAccountId']
+        if linked_account_id is None:
+            raise TypeError("Missing 'linked_account_id' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if alloy_db is None and 'alloyDb' in kwargs:
+            alloy_db = kwargs['alloyDb']
+        if app_engine is None and 'appEngine' in kwargs:
+            app_engine = kwargs['appEngine']
+        if big_query is None and 'bigQuery' in kwargs:
+            big_query = kwargs['bigQuery']
+        if big_table is None and 'bigTable' in kwargs:
+            big_table = kwargs['bigTable']
+        if data_flow is None and 'dataFlow' in kwargs:
+            data_flow = kwargs['dataFlow']
+        if data_proc is None and 'dataProc' in kwargs:
+            data_proc = kwargs['dataProc']
+        if data_store is None and 'dataStore' in kwargs:
+            data_store = kwargs['dataStore']
+        if fire_base_database is None and 'fireBaseDatabase' in kwargs:
+            fire_base_database = kwargs['fireBaseDatabase']
+        if fire_base_hosting is None and 'fireBaseHosting' in kwargs:
+            fire_base_hosting = kwargs['fireBaseHosting']
+        if fire_base_storage is None and 'fireBaseStorage' in kwargs:
+            fire_base_storage = kwargs['fireBaseStorage']
+        if fire_store is None and 'fireStore' in kwargs:
+            fire_store = kwargs['fireStore']
+        if load_balancing is None and 'loadBalancing' in kwargs:
+            load_balancing = kwargs['loadBalancing']
+        if mem_cache is None and 'memCache' in kwargs:
+            mem_cache = kwargs['memCache']
+        if pub_sub is None and 'pubSub' in kwargs:
+            pub_sub = kwargs['pubSub']
+        if virtual_machines is None and 'virtualMachines' in kwargs:
+            virtual_machines = kwargs['virtualMachines']
+        if vpc_access is None and 'vpcAccess' in kwargs:
+            vpc_access = kwargs['vpcAccess']
+
         _setter("linked_account_id", linked_account_id)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -655,7 +695,45 @@ class _GcpIntegrationsState:
              storage: Optional[pulumi.Input['GcpIntegrationsStorageArgs']] = None,
              virtual_machines: Optional[pulumi.Input['GcpIntegrationsVirtualMachinesArgs']] = None,
              vpc_access: Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if alloy_db is None and 'alloyDb' in kwargs:
+            alloy_db = kwargs['alloyDb']
+        if app_engine is None and 'appEngine' in kwargs:
+            app_engine = kwargs['appEngine']
+        if big_query is None and 'bigQuery' in kwargs:
+            big_query = kwargs['bigQuery']
+        if big_table is None and 'bigTable' in kwargs:
+            big_table = kwargs['bigTable']
+        if data_flow is None and 'dataFlow' in kwargs:
+            data_flow = kwargs['dataFlow']
+        if data_proc is None and 'dataProc' in kwargs:
+            data_proc = kwargs['dataProc']
+        if data_store is None and 'dataStore' in kwargs:
+            data_store = kwargs['dataStore']
+        if fire_base_database is None and 'fireBaseDatabase' in kwargs:
+            fire_base_database = kwargs['fireBaseDatabase']
+        if fire_base_hosting is None and 'fireBaseHosting' in kwargs:
+            fire_base_hosting = kwargs['fireBaseHosting']
+        if fire_base_storage is None and 'fireBaseStorage' in kwargs:
+            fire_base_storage = kwargs['fireBaseStorage']
+        if fire_store is None and 'fireStore' in kwargs:
+            fire_store = kwargs['fireStore']
+        if linked_account_id is None and 'linkedAccountId' in kwargs:
+            linked_account_id = kwargs['linkedAccountId']
+        if load_balancing is None and 'loadBalancing' in kwargs:
+            load_balancing = kwargs['loadBalancing']
+        if mem_cache is None and 'memCache' in kwargs:
+            mem_cache = kwargs['memCache']
+        if pub_sub is None and 'pubSub' in kwargs:
+            pub_sub = kwargs['pubSub']
+        if virtual_machines is None and 'virtualMachines' in kwargs:
+            virtual_machines = kwargs['virtualMachines']
+        if vpc_access is None and 'vpcAccess' in kwargs:
+            vpc_access = kwargs['vpcAccess']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if alloy_db is not None:
@@ -1093,98 +1171,6 @@ class GcpIntegrations(pulumi.CustomResource):
 
         New Relic doesn't automatically receive metrics from GCP services, so this resource can be used to configure integrations to those services.
 
-        ## Example Usage
-
-        Leave an integration block empty to use its default configuration. You can also use the full example, including the GCP set up, found in our guides.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.cloud.GcpLinkAccount("foo", project_id="<Your GCP project ID>")
-        foo1 = newrelic.cloud.GcpIntegrations("foo1",
-            linked_account_id=foo.id,
-            app_engine=newrelic.cloud.GcpIntegrationsAppEngineArgs(
-                metrics_polling_interval=400,
-            ),
-            big_query=newrelic.cloud.GcpIntegrationsBigQueryArgs(
-                metrics_polling_interval=400,
-                fetch_tags=True,
-            ),
-            big_table=newrelic.cloud.GcpIntegrationsBigTableArgs(
-                metrics_polling_interval=400,
-            ),
-            composer=newrelic.cloud.GcpIntegrationsComposerArgs(
-                metrics_polling_interval=400,
-            ),
-            data_flow=newrelic.cloud.GcpIntegrationsDataFlowArgs(
-                metrics_polling_interval=400,
-            ),
-            data_proc=newrelic.cloud.GcpIntegrationsDataProcArgs(
-                metrics_polling_interval=400,
-            ),
-            data_store=newrelic.cloud.GcpIntegrationsDataStoreArgs(
-                metrics_polling_interval=400,
-            ),
-            fire_base_database=newrelic.cloud.GcpIntegrationsFireBaseDatabaseArgs(
-                metrics_polling_interval=400,
-            ),
-            fire_base_hosting=newrelic.cloud.GcpIntegrationsFireBaseHostingArgs(
-                metrics_polling_interval=400,
-            ),
-            fire_base_storage=newrelic.cloud.GcpIntegrationsFireBaseStorageArgs(
-                metrics_polling_interval=400,
-            ),
-            fire_store=newrelic.cloud.GcpIntegrationsFireStoreArgs(
-                metrics_polling_interval=400,
-            ),
-            functions=newrelic.cloud.GcpIntegrationsFunctionsArgs(
-                metrics_polling_interval=400,
-            ),
-            interconnect=newrelic.cloud.GcpIntegrationsInterconnectArgs(
-                metrics_polling_interval=400,
-            ),
-            kubernetes=newrelic.cloud.GcpIntegrationsKubernetesArgs(
-                metrics_polling_interval=400,
-            ),
-            load_balancing=newrelic.cloud.GcpIntegrationsLoadBalancingArgs(
-                metrics_polling_interval=400,
-            ),
-            mem_cache=newrelic.cloud.GcpIntegrationsMemCacheArgs(
-                metrics_polling_interval=400,
-            ),
-            pub_sub=newrelic.cloud.GcpIntegrationsPubSubArgs(
-                metrics_polling_interval=400,
-                fetch_tags=True,
-            ),
-            redis=newrelic.cloud.GcpIntegrationsRedisArgs(
-                metrics_polling_interval=400,
-            ),
-            router=newrelic.cloud.GcpIntegrationsRouterArgs(
-                metrics_polling_interval=400,
-            ),
-            run=newrelic.cloud.GcpIntegrationsRunArgs(
-                metrics_polling_interval=400,
-            ),
-            spanner=newrelic.cloud.GcpIntegrationsSpannerArgs(
-                metrics_polling_interval=400,
-                fetch_tags=True,
-            ),
-            sql=newrelic.cloud.GcpIntegrationsSqlArgs(
-                metrics_polling_interval=400,
-            ),
-            storage=newrelic.cloud.GcpIntegrationsStorageArgs(
-                metrics_polling_interval=400,
-                fetch_tags=True,
-            ),
-            virtual_machines=newrelic.cloud.GcpIntegrationsVirtualMachinesArgs(
-                metrics_polling_interval=400,
-            ),
-            vpc_access=newrelic.cloud.GcpIntegrationsVpcAccessArgs(
-                metrics_polling_interval=400,
-            ))
-        ```
-
         ## Import
 
         Linked GCP account integrations can be imported using the `id`, e.g. bash
@@ -1238,98 +1224,6 @@ class GcpIntegrations(pulumi.CustomResource):
         Setup is required for this resource to work properly. This resource assumes you have linked a GCP account to New Relic and configured it to pull metrics from GCP.
 
         New Relic doesn't automatically receive metrics from GCP services, so this resource can be used to configure integrations to those services.
-
-        ## Example Usage
-
-        Leave an integration block empty to use its default configuration. You can also use the full example, including the GCP set up, found in our guides.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.cloud.GcpLinkAccount("foo", project_id="<Your GCP project ID>")
-        foo1 = newrelic.cloud.GcpIntegrations("foo1",
-            linked_account_id=foo.id,
-            app_engine=newrelic.cloud.GcpIntegrationsAppEngineArgs(
-                metrics_polling_interval=400,
-            ),
-            big_query=newrelic.cloud.GcpIntegrationsBigQueryArgs(
-                metrics_polling_interval=400,
-                fetch_tags=True,
-            ),
-            big_table=newrelic.cloud.GcpIntegrationsBigTableArgs(
-                metrics_polling_interval=400,
-            ),
-            composer=newrelic.cloud.GcpIntegrationsComposerArgs(
-                metrics_polling_interval=400,
-            ),
-            data_flow=newrelic.cloud.GcpIntegrationsDataFlowArgs(
-                metrics_polling_interval=400,
-            ),
-            data_proc=newrelic.cloud.GcpIntegrationsDataProcArgs(
-                metrics_polling_interval=400,
-            ),
-            data_store=newrelic.cloud.GcpIntegrationsDataStoreArgs(
-                metrics_polling_interval=400,
-            ),
-            fire_base_database=newrelic.cloud.GcpIntegrationsFireBaseDatabaseArgs(
-                metrics_polling_interval=400,
-            ),
-            fire_base_hosting=newrelic.cloud.GcpIntegrationsFireBaseHostingArgs(
-                metrics_polling_interval=400,
-            ),
-            fire_base_storage=newrelic.cloud.GcpIntegrationsFireBaseStorageArgs(
-                metrics_polling_interval=400,
-            ),
-            fire_store=newrelic.cloud.GcpIntegrationsFireStoreArgs(
-                metrics_polling_interval=400,
-            ),
-            functions=newrelic.cloud.GcpIntegrationsFunctionsArgs(
-                metrics_polling_interval=400,
-            ),
-            interconnect=newrelic.cloud.GcpIntegrationsInterconnectArgs(
-                metrics_polling_interval=400,
-            ),
-            kubernetes=newrelic.cloud.GcpIntegrationsKubernetesArgs(
-                metrics_polling_interval=400,
-            ),
-            load_balancing=newrelic.cloud.GcpIntegrationsLoadBalancingArgs(
-                metrics_polling_interval=400,
-            ),
-            mem_cache=newrelic.cloud.GcpIntegrationsMemCacheArgs(
-                metrics_polling_interval=400,
-            ),
-            pub_sub=newrelic.cloud.GcpIntegrationsPubSubArgs(
-                metrics_polling_interval=400,
-                fetch_tags=True,
-            ),
-            redis=newrelic.cloud.GcpIntegrationsRedisArgs(
-                metrics_polling_interval=400,
-            ),
-            router=newrelic.cloud.GcpIntegrationsRouterArgs(
-                metrics_polling_interval=400,
-            ),
-            run=newrelic.cloud.GcpIntegrationsRunArgs(
-                metrics_polling_interval=400,
-            ),
-            spanner=newrelic.cloud.GcpIntegrationsSpannerArgs(
-                metrics_polling_interval=400,
-                fetch_tags=True,
-            ),
-            sql=newrelic.cloud.GcpIntegrationsSqlArgs(
-                metrics_polling_interval=400,
-            ),
-            storage=newrelic.cloud.GcpIntegrationsStorageArgs(
-                metrics_polling_interval=400,
-                fetch_tags=True,
-            ),
-            virtual_machines=newrelic.cloud.GcpIntegrationsVirtualMachinesArgs(
-                metrics_polling_interval=400,
-            ),
-            vpc_access=newrelic.cloud.GcpIntegrationsVpcAccessArgs(
-                metrics_polling_interval=400,
-            ))
-        ```
 
         ## Import
 
@@ -1396,164 +1290,60 @@ class GcpIntegrations(pulumi.CustomResource):
             __props__ = GcpIntegrationsArgs.__new__(GcpIntegrationsArgs)
 
             __props__.__dict__["account_id"] = account_id
-            if alloy_db is not None and not isinstance(alloy_db, GcpIntegrationsAlloyDbArgs):
-                alloy_db = alloy_db or {}
-                def _setter(key, value):
-                    alloy_db[key] = value
-                GcpIntegrationsAlloyDbArgs._configure(_setter, **alloy_db)
+            alloy_db = _utilities.configure(alloy_db, GcpIntegrationsAlloyDbArgs, True)
             __props__.__dict__["alloy_db"] = alloy_db
-            if app_engine is not None and not isinstance(app_engine, GcpIntegrationsAppEngineArgs):
-                app_engine = app_engine or {}
-                def _setter(key, value):
-                    app_engine[key] = value
-                GcpIntegrationsAppEngineArgs._configure(_setter, **app_engine)
+            app_engine = _utilities.configure(app_engine, GcpIntegrationsAppEngineArgs, True)
             __props__.__dict__["app_engine"] = app_engine
-            if big_query is not None and not isinstance(big_query, GcpIntegrationsBigQueryArgs):
-                big_query = big_query or {}
-                def _setter(key, value):
-                    big_query[key] = value
-                GcpIntegrationsBigQueryArgs._configure(_setter, **big_query)
+            big_query = _utilities.configure(big_query, GcpIntegrationsBigQueryArgs, True)
             __props__.__dict__["big_query"] = big_query
-            if big_table is not None and not isinstance(big_table, GcpIntegrationsBigTableArgs):
-                big_table = big_table or {}
-                def _setter(key, value):
-                    big_table[key] = value
-                GcpIntegrationsBigTableArgs._configure(_setter, **big_table)
+            big_table = _utilities.configure(big_table, GcpIntegrationsBigTableArgs, True)
             __props__.__dict__["big_table"] = big_table
-            if composer is not None and not isinstance(composer, GcpIntegrationsComposerArgs):
-                composer = composer or {}
-                def _setter(key, value):
-                    composer[key] = value
-                GcpIntegrationsComposerArgs._configure(_setter, **composer)
+            composer = _utilities.configure(composer, GcpIntegrationsComposerArgs, True)
             __props__.__dict__["composer"] = composer
-            if data_flow is not None and not isinstance(data_flow, GcpIntegrationsDataFlowArgs):
-                data_flow = data_flow or {}
-                def _setter(key, value):
-                    data_flow[key] = value
-                GcpIntegrationsDataFlowArgs._configure(_setter, **data_flow)
+            data_flow = _utilities.configure(data_flow, GcpIntegrationsDataFlowArgs, True)
             __props__.__dict__["data_flow"] = data_flow
-            if data_proc is not None and not isinstance(data_proc, GcpIntegrationsDataProcArgs):
-                data_proc = data_proc or {}
-                def _setter(key, value):
-                    data_proc[key] = value
-                GcpIntegrationsDataProcArgs._configure(_setter, **data_proc)
+            data_proc = _utilities.configure(data_proc, GcpIntegrationsDataProcArgs, True)
             __props__.__dict__["data_proc"] = data_proc
-            if data_store is not None and not isinstance(data_store, GcpIntegrationsDataStoreArgs):
-                data_store = data_store or {}
-                def _setter(key, value):
-                    data_store[key] = value
-                GcpIntegrationsDataStoreArgs._configure(_setter, **data_store)
+            data_store = _utilities.configure(data_store, GcpIntegrationsDataStoreArgs, True)
             __props__.__dict__["data_store"] = data_store
-            if fire_base_database is not None and not isinstance(fire_base_database, GcpIntegrationsFireBaseDatabaseArgs):
-                fire_base_database = fire_base_database or {}
-                def _setter(key, value):
-                    fire_base_database[key] = value
-                GcpIntegrationsFireBaseDatabaseArgs._configure(_setter, **fire_base_database)
+            fire_base_database = _utilities.configure(fire_base_database, GcpIntegrationsFireBaseDatabaseArgs, True)
             __props__.__dict__["fire_base_database"] = fire_base_database
-            if fire_base_hosting is not None and not isinstance(fire_base_hosting, GcpIntegrationsFireBaseHostingArgs):
-                fire_base_hosting = fire_base_hosting or {}
-                def _setter(key, value):
-                    fire_base_hosting[key] = value
-                GcpIntegrationsFireBaseHostingArgs._configure(_setter, **fire_base_hosting)
+            fire_base_hosting = _utilities.configure(fire_base_hosting, GcpIntegrationsFireBaseHostingArgs, True)
             __props__.__dict__["fire_base_hosting"] = fire_base_hosting
-            if fire_base_storage is not None and not isinstance(fire_base_storage, GcpIntegrationsFireBaseStorageArgs):
-                fire_base_storage = fire_base_storage or {}
-                def _setter(key, value):
-                    fire_base_storage[key] = value
-                GcpIntegrationsFireBaseStorageArgs._configure(_setter, **fire_base_storage)
+            fire_base_storage = _utilities.configure(fire_base_storage, GcpIntegrationsFireBaseStorageArgs, True)
             __props__.__dict__["fire_base_storage"] = fire_base_storage
-            if fire_store is not None and not isinstance(fire_store, GcpIntegrationsFireStoreArgs):
-                fire_store = fire_store or {}
-                def _setter(key, value):
-                    fire_store[key] = value
-                GcpIntegrationsFireStoreArgs._configure(_setter, **fire_store)
+            fire_store = _utilities.configure(fire_store, GcpIntegrationsFireStoreArgs, True)
             __props__.__dict__["fire_store"] = fire_store
-            if functions is not None and not isinstance(functions, GcpIntegrationsFunctionsArgs):
-                functions = functions or {}
-                def _setter(key, value):
-                    functions[key] = value
-                GcpIntegrationsFunctionsArgs._configure(_setter, **functions)
+            functions = _utilities.configure(functions, GcpIntegrationsFunctionsArgs, True)
             __props__.__dict__["functions"] = functions
-            if interconnect is not None and not isinstance(interconnect, GcpIntegrationsInterconnectArgs):
-                interconnect = interconnect or {}
-                def _setter(key, value):
-                    interconnect[key] = value
-                GcpIntegrationsInterconnectArgs._configure(_setter, **interconnect)
+            interconnect = _utilities.configure(interconnect, GcpIntegrationsInterconnectArgs, True)
             __props__.__dict__["interconnect"] = interconnect
-            if kubernetes is not None and not isinstance(kubernetes, GcpIntegrationsKubernetesArgs):
-                kubernetes = kubernetes or {}
-                def _setter(key, value):
-                    kubernetes[key] = value
-                GcpIntegrationsKubernetesArgs._configure(_setter, **kubernetes)
+            kubernetes = _utilities.configure(kubernetes, GcpIntegrationsKubernetesArgs, True)
             __props__.__dict__["kubernetes"] = kubernetes
             if linked_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_account_id'")
             __props__.__dict__["linked_account_id"] = linked_account_id
-            if load_balancing is not None and not isinstance(load_balancing, GcpIntegrationsLoadBalancingArgs):
-                load_balancing = load_balancing or {}
-                def _setter(key, value):
-                    load_balancing[key] = value
-                GcpIntegrationsLoadBalancingArgs._configure(_setter, **load_balancing)
+            load_balancing = _utilities.configure(load_balancing, GcpIntegrationsLoadBalancingArgs, True)
             __props__.__dict__["load_balancing"] = load_balancing
-            if mem_cache is not None and not isinstance(mem_cache, GcpIntegrationsMemCacheArgs):
-                mem_cache = mem_cache or {}
-                def _setter(key, value):
-                    mem_cache[key] = value
-                GcpIntegrationsMemCacheArgs._configure(_setter, **mem_cache)
+            mem_cache = _utilities.configure(mem_cache, GcpIntegrationsMemCacheArgs, True)
             __props__.__dict__["mem_cache"] = mem_cache
-            if pub_sub is not None and not isinstance(pub_sub, GcpIntegrationsPubSubArgs):
-                pub_sub = pub_sub or {}
-                def _setter(key, value):
-                    pub_sub[key] = value
-                GcpIntegrationsPubSubArgs._configure(_setter, **pub_sub)
+            pub_sub = _utilities.configure(pub_sub, GcpIntegrationsPubSubArgs, True)
             __props__.__dict__["pub_sub"] = pub_sub
-            if redis is not None and not isinstance(redis, GcpIntegrationsRedisArgs):
-                redis = redis or {}
-                def _setter(key, value):
-                    redis[key] = value
-                GcpIntegrationsRedisArgs._configure(_setter, **redis)
+            redis = _utilities.configure(redis, GcpIntegrationsRedisArgs, True)
             __props__.__dict__["redis"] = redis
-            if router is not None and not isinstance(router, GcpIntegrationsRouterArgs):
-                router = router or {}
-                def _setter(key, value):
-                    router[key] = value
-                GcpIntegrationsRouterArgs._configure(_setter, **router)
+            router = _utilities.configure(router, GcpIntegrationsRouterArgs, True)
             __props__.__dict__["router"] = router
-            if run is not None and not isinstance(run, GcpIntegrationsRunArgs):
-                run = run or {}
-                def _setter(key, value):
-                    run[key] = value
-                GcpIntegrationsRunArgs._configure(_setter, **run)
+            run = _utilities.configure(run, GcpIntegrationsRunArgs, True)
             __props__.__dict__["run"] = run
-            if spanner is not None and not isinstance(spanner, GcpIntegrationsSpannerArgs):
-                spanner = spanner or {}
-                def _setter(key, value):
-                    spanner[key] = value
-                GcpIntegrationsSpannerArgs._configure(_setter, **spanner)
+            spanner = _utilities.configure(spanner, GcpIntegrationsSpannerArgs, True)
             __props__.__dict__["spanner"] = spanner
-            if sql is not None and not isinstance(sql, GcpIntegrationsSqlArgs):
-                sql = sql or {}
-                def _setter(key, value):
-                    sql[key] = value
-                GcpIntegrationsSqlArgs._configure(_setter, **sql)
+            sql = _utilities.configure(sql, GcpIntegrationsSqlArgs, True)
             __props__.__dict__["sql"] = sql
-            if storage is not None and not isinstance(storage, GcpIntegrationsStorageArgs):
-                storage = storage or {}
-                def _setter(key, value):
-                    storage[key] = value
-                GcpIntegrationsStorageArgs._configure(_setter, **storage)
+            storage = _utilities.configure(storage, GcpIntegrationsStorageArgs, True)
             __props__.__dict__["storage"] = storage
-            if virtual_machines is not None and not isinstance(virtual_machines, GcpIntegrationsVirtualMachinesArgs):
-                virtual_machines = virtual_machines or {}
-                def _setter(key, value):
-                    virtual_machines[key] = value
-                GcpIntegrationsVirtualMachinesArgs._configure(_setter, **virtual_machines)
+            virtual_machines = _utilities.configure(virtual_machines, GcpIntegrationsVirtualMachinesArgs, True)
             __props__.__dict__["virtual_machines"] = virtual_machines
-            if vpc_access is not None and not isinstance(vpc_access, GcpIntegrationsVpcAccessArgs):
-                vpc_access = vpc_access or {}
-                def _setter(key, value):
-                    vpc_access[key] = value
-                GcpIntegrationsVpcAccessArgs._configure(_setter, **vpc_access)
+            vpc_access = _utilities.configure(vpc_access, GcpIntegrationsVpcAccessArgs, True)
             __props__.__dict__["vpc_access"] = vpc_access
         super(GcpIntegrations, __self__).__init__(
             'newrelic:cloud/gcpIntegrations:GcpIntegrations',

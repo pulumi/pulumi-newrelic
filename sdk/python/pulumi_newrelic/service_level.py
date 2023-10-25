@@ -42,12 +42,20 @@ class ServiceLevelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             events: pulumi.Input['ServiceLevelEventsArgs'],
-             guid: pulumi.Input[str],
-             objective: pulumi.Input['ServiceLevelObjectiveArgs'],
+             events: Optional[pulumi.Input['ServiceLevelEventsArgs']] = None,
+             guid: Optional[pulumi.Input[str]] = None,
+             objective: Optional[pulumi.Input['ServiceLevelObjectiveArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if events is None:
+            raise TypeError("Missing 'events' argument")
+        if guid is None:
+            raise TypeError("Missing 'guid' argument")
+        if objective is None:
+            raise TypeError("Missing 'objective' argument")
+
         _setter("events", events)
         _setter("guid", guid)
         _setter("objective", objective)
@@ -161,7 +169,13 @@ class _ServiceLevelState:
              objective: Optional[pulumi.Input['ServiceLevelObjectiveArgs']] = None,
              sli_guid: Optional[pulumi.Input[str]] = None,
              sli_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sli_guid is None and 'sliGuid' in kwargs:
+            sli_guid = kwargs['sliGuid']
+        if sli_id is None and 'sliId' in kwargs:
+            sli_id = kwargs['sliId']
+
         if description is not None:
             _setter("description", description)
         if events is not None:
@@ -286,126 +300,6 @@ class ServiceLevel(pulumi.CustomResource):
         - Only roles that provide [permissions](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/new-relic-one-user-model-understand-user-structure/) to create events to metric rules can create SLI/SLOs.
         - Only [Full users](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/new-relic-one-user-model-understand-user-structure/#user-type) can view SLI/SLOs.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.ServiceLevel("foo",
-            description="Proportion of requests that are served faster than a threshold.",
-            events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
-                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
-                    from_="Transaction",
-                    where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
-                ),
-                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                    from_="Transaction",
-                    where="appName = 'Example application' AND (transactionType='Web')",
-                ),
-            ),
-            guid="MXxBUE18QVBQTElDQVRJT058MQ",
-            objective=newrelic.ServiceLevelObjectiveArgs(
-                target=99,
-                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
-                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
-                        count=7,
-                        unit="DAY",
-                    ),
-                ),
-            ))
-        ```
-        ## Additional Example
-
-        Service level with tags:
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        my_synthetic_monitor_service_level = newrelic.ServiceLevel("mySyntheticMonitorServiceLevel",
-            guid="MXxBUE18QVBQTElDQVRJT058MQ",
-            description="Proportion of successful synthetic checks.",
-            events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
-                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                    from_="SyntheticCheck",
-                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
-                ),
-                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
-                    from_="SyntheticCheck",
-                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'",
-                ),
-            ),
-            objective=newrelic.ServiceLevelObjectiveArgs(
-                target=99,
-                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
-                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
-                        count=7,
-                        unit="DAY",
-                    ),
-                ),
-            ))
-        my_synthetic_monitor_service_level_tags = newrelic.EntityTags("mySyntheticMonitorServiceLevelTags",
-            guid=my_synthetic_monitor_service_level.sli_guid,
-            tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="user_journey",
-                    values=[
-                        "authentication",
-                        "sso",
-                    ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="owner",
-                    values=["identityTeam"],
-                ),
-            ])
-        ```
-
-        Using `select` for events
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        my_synthetic_monitor_duration_service_level = newrelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel",
-            description="Monitor created to test concurrent request from terraform",
-            events=newrelic.ServiceLevelEventsArgs(
-                account_id=313870,
-                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
-                    from_="Metric",
-                    select=newrelic.ServiceLevelEventsGoodEventsSelectArgs(
-                        attribute="`query.wallClockTime.negative.distribution`",
-                        function="GET_CDF_COUNT",
-                        threshold=7,
-                    ),
-                    where="metricName = 'query.wallClockTime.negative.distribution'",
-                ),
-                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                    from_="Metric",
-                    select=newrelic.ServiceLevelEventsValidEventsSelectArgs(
-                        attribute="`query.wallClockTime.negative.distribution`",
-                        function="GET_FIELD",
-                    ),
-                    where="metricName = 'query.wallClockTime.negative.distribution'",
-                ),
-            ),
-            guid="MXxBUE18QVBQTElDQVRJT058MQ",
-            objective=newrelic.ServiceLevelObjectiveArgs(
-                target=49,
-                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
-                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
-                        count=7,
-                        unit="DAY",
-                    ),
-                ),
-            ))
-        ```
-
-        For up-to-date documentation about the tagging resource, please check EntityTags
-
         ## Import
 
         New Relic Service Levels can be imported using a concatenated string of the format
@@ -442,126 +336,6 @@ class ServiceLevel(pulumi.CustomResource):
         Important:
         - Only roles that provide [permissions](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/new-relic-one-user-model-understand-user-structure/) to create events to metric rules can create SLI/SLOs.
         - Only [Full users](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/new-relic-one-user-model-understand-user-structure/#user-type) can view SLI/SLOs.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.ServiceLevel("foo",
-            description="Proportion of requests that are served faster than a threshold.",
-            events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
-                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
-                    from_="Transaction",
-                    where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
-                ),
-                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                    from_="Transaction",
-                    where="appName = 'Example application' AND (transactionType='Web')",
-                ),
-            ),
-            guid="MXxBUE18QVBQTElDQVRJT058MQ",
-            objective=newrelic.ServiceLevelObjectiveArgs(
-                target=99,
-                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
-                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
-                        count=7,
-                        unit="DAY",
-                    ),
-                ),
-            ))
-        ```
-        ## Additional Example
-
-        Service level with tags:
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        my_synthetic_monitor_service_level = newrelic.ServiceLevel("mySyntheticMonitorServiceLevel",
-            guid="MXxBUE18QVBQTElDQVRJT058MQ",
-            description="Proportion of successful synthetic checks.",
-            events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
-                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                    from_="SyntheticCheck",
-                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
-                ),
-                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
-                    from_="SyntheticCheck",
-                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'",
-                ),
-            ),
-            objective=newrelic.ServiceLevelObjectiveArgs(
-                target=99,
-                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
-                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
-                        count=7,
-                        unit="DAY",
-                    ),
-                ),
-            ))
-        my_synthetic_monitor_service_level_tags = newrelic.EntityTags("mySyntheticMonitorServiceLevelTags",
-            guid=my_synthetic_monitor_service_level.sli_guid,
-            tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="user_journey",
-                    values=[
-                        "authentication",
-                        "sso",
-                    ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="owner",
-                    values=["identityTeam"],
-                ),
-            ])
-        ```
-
-        Using `select` for events
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        my_synthetic_monitor_duration_service_level = newrelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel",
-            description="Monitor created to test concurrent request from terraform",
-            events=newrelic.ServiceLevelEventsArgs(
-                account_id=313870,
-                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
-                    from_="Metric",
-                    select=newrelic.ServiceLevelEventsGoodEventsSelectArgs(
-                        attribute="`query.wallClockTime.negative.distribution`",
-                        function="GET_CDF_COUNT",
-                        threshold=7,
-                    ),
-                    where="metricName = 'query.wallClockTime.negative.distribution'",
-                ),
-                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                    from_="Metric",
-                    select=newrelic.ServiceLevelEventsValidEventsSelectArgs(
-                        attribute="`query.wallClockTime.negative.distribution`",
-                        function="GET_FIELD",
-                    ),
-                    where="metricName = 'query.wallClockTime.negative.distribution'",
-                ),
-            ),
-            guid="MXxBUE18QVBQTElDQVRJT058MQ",
-            objective=newrelic.ServiceLevelObjectiveArgs(
-                target=49,
-                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
-                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
-                        count=7,
-                        unit="DAY",
-                    ),
-                ),
-            ))
-        ```
-
-        For up-to-date documentation about the tagging resource, please check EntityTags
 
         ## Import
 
@@ -607,11 +381,7 @@ class ServiceLevel(pulumi.CustomResource):
             __props__ = ServiceLevelArgs.__new__(ServiceLevelArgs)
 
             __props__.__dict__["description"] = description
-            if events is not None and not isinstance(events, ServiceLevelEventsArgs):
-                events = events or {}
-                def _setter(key, value):
-                    events[key] = value
-                ServiceLevelEventsArgs._configure(_setter, **events)
+            events = _utilities.configure(events, ServiceLevelEventsArgs, True)
             if events is None and not opts.urn:
                 raise TypeError("Missing required property 'events'")
             __props__.__dict__["events"] = events
@@ -619,11 +389,7 @@ class ServiceLevel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'guid'")
             __props__.__dict__["guid"] = guid
             __props__.__dict__["name"] = name
-            if objective is not None and not isinstance(objective, ServiceLevelObjectiveArgs):
-                objective = objective or {}
-                def _setter(key, value):
-                    objective[key] = value
-                ServiceLevelObjectiveArgs._configure(_setter, **objective)
+            objective = _utilities.configure(objective, ServiceLevelObjectiveArgs, True)
             if objective is None and not opts.urn:
                 raise TypeError("Missing required property 'objective'")
             __props__.__dict__["objective"] = objective

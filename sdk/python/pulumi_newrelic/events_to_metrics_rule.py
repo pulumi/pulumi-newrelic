@@ -38,12 +38,18 @@ class EventsToMetricsRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             nrql: pulumi.Input[str],
+             nrql: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if nrql is None:
+            raise TypeError("Missing 'nrql' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("nrql", nrql)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -151,7 +157,13 @@ class _EventsToMetricsRuleState:
              name: Optional[pulumi.Input[str]] = None,
              nrql: Optional[pulumi.Input[str]] = None,
              rule_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if rule_id is None and 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if description is not None:
@@ -252,18 +264,6 @@ class EventsToMetricsRule(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete New Relic Events to Metrics rules.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.EventsToMetricsRule("foo",
-            account_id=12345,
-            description="Example description",
-            nrql="SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
-        ```
-
         ## Import
 
         New Relic Events to Metrics rules can be imported using a concatenated string of the format
@@ -290,18 +290,6 @@ class EventsToMetricsRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to create, update, and delete New Relic Events to Metrics rules.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.EventsToMetricsRule("foo",
-            account_id=12345,
-            description="Example description",
-            nrql="SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
-        ```
 
         ## Import
 

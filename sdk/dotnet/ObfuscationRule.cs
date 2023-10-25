@@ -12,44 +12,6 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create, update and delete New Relic Obfuscation Rule.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bar = new NewRelic.ObfuscationExpression("bar", new()
-    ///     {
-    ///         Description = "description of the expression",
-    ///         Regex = "(^http)",
-    ///     });
-    /// 
-    ///     var foo = new NewRelic.ObfuscationRule("foo", new()
-    ///     {
-    ///         Description = "description of the rule",
-    ///         Filter = "hostStatus=running",
-    ///         Enabled = true,
-    ///         Actions = new[]
-    ///         {
-    ///             new NewRelic.Inputs.ObfuscationRuleActionArgs
-    ///             {
-    ///                 Attributes = new[]
-    ///                 {
-    ///                     "message",
-    ///                 },
-    ///                 ExpressionId = bar.Id,
-    ///                 Method = "MASK",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// New Relic obfuscation rule can be imported using the rule ID, e.g. bash

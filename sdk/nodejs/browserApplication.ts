@@ -7,20 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create, update, and delete a standalone New Relic browser application.
  *
- * ## Example Usage
- *
- * Basic usage to create a standalone browser application.
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.BrowserApplication("foo", {
- *     cookiesEnabled: true,
- *     distributedTracingEnabled: true,
- *     loaderType: "SPA",
- * });
- * ```
- *
  * ## Import
  *
  * Browser applications can be imported using the GUID of the browser application. bash

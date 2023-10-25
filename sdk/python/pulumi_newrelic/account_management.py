@@ -29,9 +29,13 @@ class AccountManagementArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             region: pulumi.Input[str],
+             region: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+
         _setter("region", region)
         if name is not None:
             _setter("name", name)
@@ -81,7 +85,9 @@ class _AccountManagementState:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if region is not None:
@@ -125,16 +131,6 @@ class AccountManagement(pulumi.CustomResource):
 
         > **WARNING:** The `AccountManagement` resource will only create/update but won't delete a sub account. Please visit our documentation on  [`Account Management`](https://docs.newrelic.com/docs/apis/nerdgraph/examples/manage-accounts-nerdgraph/#delete) for more information .
 
-        ## Example Usage
-
-        ##### Create Account
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.AccountManagement("foo", region="us01")
-        ```
-
         ## Import
 
         Accounts can be imported using the `id`, e.g. bash
@@ -158,16 +154,6 @@ class AccountManagement(pulumi.CustomResource):
         Use this resource to create and manage New Relic sub accounts.
 
         > **WARNING:** The `AccountManagement` resource will only create/update but won't delete a sub account. Please visit our documentation on  [`Account Management`](https://docs.newrelic.com/docs/apis/nerdgraph/examples/manage-accounts-nerdgraph/#delete) for more information .
-
-        ## Example Usage
-
-        ##### Create Account
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.AccountManagement("foo", region="us01")
-        ```
 
         ## Import
 

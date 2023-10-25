@@ -24,27 +24,6 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/google-cloud-platform-integrations/get-started/connect-google-cloud-platform-services-new-relic) to set up the integration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// You can also use the full example, including the GCP set up, found in our guides.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.Cloud.GcpLinkAccount("foo", new()
-    ///     {
-    ///         AccountId = "account id of newrelic account",
-    ///         ProjectId = "id of the Project",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console. bash

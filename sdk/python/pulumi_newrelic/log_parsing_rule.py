@@ -47,15 +47,27 @@ class LogParsingRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             grok: pulumi.Input[str],
-             lucene: pulumi.Input[str],
-             nrql: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             grok: Optional[pulumi.Input[str]] = None,
+             lucene: Optional[pulumi.Input[str]] = None,
+             nrql: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              attribute: Optional[pulumi.Input[str]] = None,
              matched: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if grok is None:
+            raise TypeError("Missing 'grok' argument")
+        if lucene is None:
+            raise TypeError("Missing 'lucene' argument")
+        if nrql is None:
+            raise TypeError("Missing 'nrql' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("enabled", enabled)
         _setter("grok", grok)
         _setter("lucene", lucene)
@@ -214,7 +226,11 @@ class _LogParsingRuleState:
              matched: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              nrql: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if attribute is not None:
@@ -360,39 +376,6 @@ class LogParsingRule(pulumi.CustomResource):
         """
         Use this resource to create, update and delete New Relic Log Parsing Rule.
 
-        ## Example Usage
-
-        Use this example to create the log parse rule.
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.LogParsingRule("foo",
-            attribute="message",
-            enabled=True,
-            grok="sampleattribute='%%{NUMBER:test:int}'",
-            lucene="logtype:linux_messages",
-            nrql="SELECT * FROM Log WHERE logtype = 'linux_messages'")
-        ```
-        ## Additional Example
-
-        Use this example to validate a grok pattern and create the log parse rule.  More
-        information on grok pattern can be found [here](https://docs.newrelic.com/docs/logs/ui-data/parsing/#grok)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        grok = newrelic.get_test_grok_pattern(grok="%{IP:host_ip}",
-            log_lines=["host_ip: 43.3.120.2"])
-        foo = newrelic.LogParsingRule("foo",
-            attribute="message",
-            enabled=True,
-            grok=grok.grok,
-            lucene="logtype:linux_messages",
-            nrql="SELECT * FROM Log WHERE logtype = 'linux_messages'",
-            matched=grok.test_groks[0].matched)
-        ```
-
         ## Import
 
         New Relic log parsing rule can be imported using the rule ID, e.g. bash
@@ -420,39 +403,6 @@ class LogParsingRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to create, update and delete New Relic Log Parsing Rule.
-
-        ## Example Usage
-
-        Use this example to create the log parse rule.
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.LogParsingRule("foo",
-            attribute="message",
-            enabled=True,
-            grok="sampleattribute='%%{NUMBER:test:int}'",
-            lucene="logtype:linux_messages",
-            nrql="SELECT * FROM Log WHERE logtype = 'linux_messages'")
-        ```
-        ## Additional Example
-
-        Use this example to validate a grok pattern and create the log parse rule.  More
-        information on grok pattern can be found [here](https://docs.newrelic.com/docs/logs/ui-data/parsing/#grok)
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        grok = newrelic.get_test_grok_pattern(grok="%{IP:host_ip}",
-            log_lines=["host_ip: 43.3.120.2"])
-        foo = newrelic.LogParsingRule("foo",
-            attribute="message",
-            enabled=True,
-            grok=grok.grok,
-            lucene="logtype:linux_messages",
-            nrql="SELECT * FROM Log WHERE logtype = 'linux_messages'",
-            matched=grok.test_groks[0].matched)
-        ```
 
         ## Import
 

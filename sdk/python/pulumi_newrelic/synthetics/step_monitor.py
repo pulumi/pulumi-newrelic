@@ -54,16 +54,32 @@ class StepMonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             period: pulumi.Input[str],
-             status: pulumi.Input[str],
-             steps: pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]],
+             period: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             steps: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
              location_privates: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorLocationPrivateArgs']]]] = None,
              locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if period is None:
+            raise TypeError("Missing 'period' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if steps is None:
+            raise TypeError("Missing 'steps' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if enable_screenshot_on_failure_and_script is None and 'enableScreenshotOnFailureAndScript' in kwargs:
+            enable_screenshot_on_failure_and_script = kwargs['enableScreenshotOnFailureAndScript']
+        if location_privates is None and 'locationPrivates' in kwargs:
+            location_privates = kwargs['locationPrivates']
+        if locations_publics is None and 'locationsPublics' in kwargs:
+            locations_publics = kwargs['locationsPublics']
+
         _setter("period", period)
         _setter("status", status)
         _setter("steps", steps)
@@ -249,7 +265,19 @@ class _StepMonitorState:
              status: Optional[pulumi.Input[str]] = None,
              steps: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if enable_screenshot_on_failure_and_script is None and 'enableScreenshotOnFailureAndScript' in kwargs:
+            enable_screenshot_on_failure_and_script = kwargs['enableScreenshotOnFailureAndScript']
+        if location_privates is None and 'locationPrivates' in kwargs:
+            location_privates = kwargs['locationPrivates']
+        if locations_publics is None and 'locationsPublics' in kwargs:
+            locations_publics = kwargs['locationsPublics']
+        if period_in_minutes is None and 'periodInMinutes' in kwargs:
+            period_in_minutes = kwargs['periodInMinutes']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if enable_screenshot_on_failure_and_script is not None:
@@ -426,31 +454,6 @@ class StepMonitor(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        monitor = newrelic.synthetics.StepMonitor("monitor",
-            enable_screenshot_on_failure_and_script=True,
-            locations_publics=[
-                "US_EAST_1",
-                "US_EAST_2",
-            ],
-            period="EVERY_6_HOURS",
-            status="ENABLED",
-            steps=[newrelic.synthetics.StepMonitorStepArgs(
-                ordinal=0,
-                type="NAVIGATE",
-                values=["https://www.newrelic.com"],
-            )],
-            tags=[newrelic.synthetics.StepMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
-        See additional examples.
         ## Additional Examples
 
         ## Import
@@ -484,31 +487,6 @@ class StepMonitor(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        monitor = newrelic.synthetics.StepMonitor("monitor",
-            enable_screenshot_on_failure_and_script=True,
-            locations_publics=[
-                "US_EAST_1",
-                "US_EAST_2",
-            ],
-            period="EVERY_6_HOURS",
-            status="ENABLED",
-            steps=[newrelic.synthetics.StepMonitorStepArgs(
-                ordinal=0,
-                type="NAVIGATE",
-                values=["https://www.newrelic.com"],
-            )],
-            tags=[newrelic.synthetics.StepMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
-        See additional examples.
         ## Additional Examples
 
         ## Import

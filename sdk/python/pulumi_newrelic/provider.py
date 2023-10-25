@@ -50,7 +50,7 @@ class ProviderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_key: pulumi.Input[str],
+             api_key: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              admin_api_key: Optional[pulumi.Input[str]] = None,
              api_url: Optional[pulumi.Input[str]] = None,
@@ -63,7 +63,35 @@ class ProviderArgs:
              nerdgraph_api_url: Optional[pulumi.Input[str]] = None,
              region: Optional[pulumi.Input[str]] = None,
              synthetics_api_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if api_key is None:
+            raise TypeError("Missing 'api_key' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if admin_api_key is None and 'adminApiKey' in kwargs:
+            admin_api_key = kwargs['adminApiKey']
+        if api_url is None and 'apiUrl' in kwargs:
+            api_url = kwargs['apiUrl']
+        if cacert_file is None and 'cacertFile' in kwargs:
+            cacert_file = kwargs['cacertFile']
+        if infrastructure_api_url is None and 'infrastructureApiUrl' in kwargs:
+            infrastructure_api_url = kwargs['infrastructureApiUrl']
+        if insecure_skip_verify is None and 'insecureSkipVerify' in kwargs:
+            insecure_skip_verify = kwargs['insecureSkipVerify']
+        if insights_insert_key is None and 'insightsInsertKey' in kwargs:
+            insights_insert_key = kwargs['insightsInsertKey']
+        if insights_insert_url is None and 'insightsInsertUrl' in kwargs:
+            insights_insert_url = kwargs['insightsInsertUrl']
+        if insights_query_url is None and 'insightsQueryUrl' in kwargs:
+            insights_query_url = kwargs['insightsQueryUrl']
+        if nerdgraph_api_url is None and 'nerdgraphApiUrl' in kwargs:
+            nerdgraph_api_url = kwargs['nerdgraphApiUrl']
+        if synthetics_api_url is None and 'syntheticsApiUrl' in kwargs:
+            synthetics_api_url = kwargs['syntheticsApiUrl']
+
         _setter("api_key", api_key)
         if account_id is None:
             account_id = _utilities.get_env_int('NEW_RELIC_ACCOUNT_ID')

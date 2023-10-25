@@ -74,9 +74,9 @@ class ScriptMonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             period: pulumi.Input[str],
-             status: pulumi.Input[str],
-             type: pulumi.Input[str],
+             period: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              device_orientation: Optional[pulumi.Input[str]] = None,
              device_type: Optional[pulumi.Input[str]] = None,
@@ -89,7 +89,33 @@ class ScriptMonitorArgs:
              script: Optional[pulumi.Input[str]] = None,
              script_language: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if period is None:
+            raise TypeError("Missing 'period' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if device_orientation is None and 'deviceOrientation' in kwargs:
+            device_orientation = kwargs['deviceOrientation']
+        if device_type is None and 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+        if enable_screenshot_on_failure_and_script is None and 'enableScreenshotOnFailureAndScript' in kwargs:
+            enable_screenshot_on_failure_and_script = kwargs['enableScreenshotOnFailureAndScript']
+        if location_privates is None and 'locationPrivates' in kwargs:
+            location_privates = kwargs['locationPrivates']
+        if locations_publics is None and 'locationsPublics' in kwargs:
+            locations_publics = kwargs['locationsPublics']
+        if runtime_type is None and 'runtimeType' in kwargs:
+            runtime_type = kwargs['runtimeType']
+        if runtime_type_version is None and 'runtimeTypeVersion' in kwargs:
+            runtime_type_version = kwargs['runtimeTypeVersion']
+        if script_language is None and 'scriptLanguage' in kwargs:
+            script_language = kwargs['scriptLanguage']
+
         _setter("period", period)
         _setter("status", status)
         _setter("type", type)
@@ -387,7 +413,29 @@ class _ScriptMonitorState:
              status: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if device_orientation is None and 'deviceOrientation' in kwargs:
+            device_orientation = kwargs['deviceOrientation']
+        if device_type is None and 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+        if enable_screenshot_on_failure_and_script is None and 'enableScreenshotOnFailureAndScript' in kwargs:
+            enable_screenshot_on_failure_and_script = kwargs['enableScreenshotOnFailureAndScript']
+        if location_privates is None and 'locationPrivates' in kwargs:
+            location_privates = kwargs['locationPrivates']
+        if locations_publics is None and 'locationsPublics' in kwargs:
+            locations_publics = kwargs['locationsPublics']
+        if period_in_minutes is None and 'periodInMinutes' in kwargs:
+            period_in_minutes = kwargs['periodInMinutes']
+        if runtime_type is None and 'runtimeType' in kwargs:
+            runtime_type = kwargs['runtimeType']
+        if runtime_type_version is None and 'runtimeTypeVersion' in kwargs:
+            runtime_type_version = kwargs['runtimeTypeVersion']
+        if script_language is None and 'scriptLanguage' in kwargs:
+            script_language = kwargs['scriptLanguage']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if device_orientation is not None:
@@ -656,117 +704,7 @@ class ScriptMonitor(pulumi.CustomResource):
         """
         Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
 
-        ## Example Usage
-
-        ##### Type: `SCRIPT_API`
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        monitor = newrelic.synthetics.ScriptMonitor("monitor",
-            locations_publics=[
-                "AP_SOUTH_1",
-                "AP_EAST_1",
-            ],
-            period="EVERY_6_HOURS",
-            runtime_type="NODE_API",
-            runtime_type_version="16.10",
-            script="console.log('it works!')",
-            script_language="JAVASCRIPT",
-            status="ENABLED",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )],
-            type="SCRIPT_API")
-        ```
-        ##### Type: `SCRIPT_BROWSER`
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        monitor = newrelic.synthetics.ScriptMonitor("monitor",
-            enable_screenshot_on_failure_and_script=False,
-            locations_publics=[
-                "AP_SOUTH_1",
-                "AP_EAST_1",
-            ],
-            period="EVERY_HOUR",
-            runtime_type="CHROME_BROWSER",
-            runtime_type_version="100",
-            script="$browser.get('https://one.newrelic.com')",
-            script_language="JAVASCRIPT",
-            status="ENABLED",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )],
-            type="SCRIPT_BROWSER")
-        ```
-        See additional examples.
         ## Additional Examples
-
-        ### Create a monitor with a private location
-
-        The below example shows how you can define a private location and attach it to a monitor.
-
-        > **NOTE:** It can take up to 10 minutes for a private location to become available.
-
-        ##### Type: `SCRIPT_API`
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        location = newrelic.synthetics.PrivateLocation("location",
-            description="Example private location",
-            verified_script_execution=True)
-        monitor = newrelic.synthetics.ScriptMonitor("monitor",
-            status="ENABLED",
-            type="SCRIPT_API",
-            location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid=location.id,
-                vse_password="secret",
-            )],
-            period="EVERY_6_HOURS",
-            script="console.log('terraform integration test updated')",
-            script_language="JAVASCRIPT",
-            runtime_type="NODE_API",
-            runtime_type_version="16.10",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
-        ##### Type: `SCRIPT_BROWSER`
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        location = newrelic.synthetics.PrivateLocation("location",
-            description="Test Description",
-            verified_script_execution=True)
-        monitor = newrelic.synthetics.ScriptMonitor("monitor",
-            status="ENABLED",
-            type="SCRIPT_BROWSER",
-            period="EVERY_HOUR",
-            script="$browser.get('https://one.newrelic.com')",
-            enable_screenshot_on_failure_and_script=False,
-            location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid=location.id,
-                vse_password="secret",
-            )],
-            runtime_type_version="100",
-            runtime_type="CHROME_BROWSER",
-            script_language="JAVASCRIPT",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
 
         ## Import
 
@@ -807,117 +745,7 @@ class ScriptMonitor(pulumi.CustomResource):
         """
         Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
 
-        ## Example Usage
-
-        ##### Type: `SCRIPT_API`
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        monitor = newrelic.synthetics.ScriptMonitor("monitor",
-            locations_publics=[
-                "AP_SOUTH_1",
-                "AP_EAST_1",
-            ],
-            period="EVERY_6_HOURS",
-            runtime_type="NODE_API",
-            runtime_type_version="16.10",
-            script="console.log('it works!')",
-            script_language="JAVASCRIPT",
-            status="ENABLED",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )],
-            type="SCRIPT_API")
-        ```
-        ##### Type: `SCRIPT_BROWSER`
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        monitor = newrelic.synthetics.ScriptMonitor("monitor",
-            enable_screenshot_on_failure_and_script=False,
-            locations_publics=[
-                "AP_SOUTH_1",
-                "AP_EAST_1",
-            ],
-            period="EVERY_HOUR",
-            runtime_type="CHROME_BROWSER",
-            runtime_type_version="100",
-            script="$browser.get('https://one.newrelic.com')",
-            script_language="JAVASCRIPT",
-            status="ENABLED",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )],
-            type="SCRIPT_BROWSER")
-        ```
-        See additional examples.
         ## Additional Examples
-
-        ### Create a monitor with a private location
-
-        The below example shows how you can define a private location and attach it to a monitor.
-
-        > **NOTE:** It can take up to 10 minutes for a private location to become available.
-
-        ##### Type: `SCRIPT_API`
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        location = newrelic.synthetics.PrivateLocation("location",
-            description="Example private location",
-            verified_script_execution=True)
-        monitor = newrelic.synthetics.ScriptMonitor("monitor",
-            status="ENABLED",
-            type="SCRIPT_API",
-            location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid=location.id,
-                vse_password="secret",
-            )],
-            period="EVERY_6_HOURS",
-            script="console.log('terraform integration test updated')",
-            script_language="JAVASCRIPT",
-            runtime_type="NODE_API",
-            runtime_type_version="16.10",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
-        ##### Type: `SCRIPT_BROWSER`
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        location = newrelic.synthetics.PrivateLocation("location",
-            description="Test Description",
-            verified_script_execution=True)
-        monitor = newrelic.synthetics.ScriptMonitor("monitor",
-            status="ENABLED",
-            type="SCRIPT_BROWSER",
-            period="EVERY_HOUR",
-            script="$browser.get('https://one.newrelic.com')",
-            enable_screenshot_on_failure_and_script=False,
-            location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid=location.id,
-                vse_password="secret",
-            )],
-            runtime_type_version="100",
-            runtime_type="CHROME_BROWSER",
-            script_language="JAVASCRIPT",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        ```
 
         ## Import
 

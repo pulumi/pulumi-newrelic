@@ -79,17 +79,6 @@ def get_cloud_account(account_id: Optional[int] = None,
     Use this data source to get information about a specific cloud account linked to New Relic.
     Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    account = newrelic.get_cloud_account(account_id=12345,
-        cloud_provider="aws",
-        name="my aws account")
-    ```
-
 
     :param int account_id: The account ID in New Relic.
     :param str cloud_provider: The cloud provider of the account (aws, gcp, azure, etc)
@@ -117,17 +106,6 @@ def get_cloud_account_output(account_id: Optional[pulumi.Input[Optional[int]]] =
     """
     Use this data source to get information about a specific cloud account linked to New Relic.
     Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    account = newrelic.get_cloud_account(account_id=12345,
-        cloud_provider="aws",
-        name="my aws account")
-    ```
 
 
     :param int account_id: The account ID in New Relic.

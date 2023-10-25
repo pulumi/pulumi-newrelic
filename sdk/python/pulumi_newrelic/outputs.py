@@ -301,7 +301,33 @@ class AlertChannelConfig(dict):
              teams: Optional[str] = None,
              url: Optional[str] = None,
              user_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if auth_password is None and 'authPassword' in kwargs:
+            auth_password = kwargs['authPassword']
+        if auth_type is None and 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if auth_username is None and 'authUsername' in kwargs:
+            auth_username = kwargs['authUsername']
+        if base_url is None and 'baseUrl' in kwargs:
+            base_url = kwargs['baseUrl']
+        if headers_string is None and 'headersString' in kwargs:
+            headers_string = kwargs['headersString']
+        if include_json_attachment is None and 'includeJsonAttachment' in kwargs:
+            include_json_attachment = kwargs['includeJsonAttachment']
+        if payload_string is None and 'payloadString' in kwargs:
+            payload_string = kwargs['payloadString']
+        if payload_type is None and 'payloadType' in kwargs:
+            payload_type = kwargs['payloadType']
+        if route_key is None and 'routeKey' in kwargs:
+            route_key = kwargs['routeKey']
+        if service_key is None and 'serviceKey' in kwargs:
+            service_key = kwargs['serviceKey']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if api_key is not None:
             _setter("api_key", api_key)
         if auth_password is not None:
@@ -547,12 +573,22 @@ class AlertConditionTerm(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             duration: int,
-             threshold: float,
-             time_function: str,
+             duration: Optional[int] = None,
+             threshold: Optional[float] = None,
+             time_function: Optional[str] = None,
              operator: Optional[str] = None,
              priority: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if time_function is None and 'timeFunction' in kwargs:
+            time_function = kwargs['timeFunction']
+        if time_function is None:
+            raise TypeError("Missing 'time_function' argument")
+
         _setter("duration", duration)
         _setter("threshold", threshold)
         _setter("time_function", time_function)
@@ -604,9 +640,15 @@ class AlertMutingRuleCondition(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             conditions: Sequence['outputs.AlertMutingRuleConditionCondition'],
-             operator: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             conditions: Optional[Sequence['outputs.AlertMutingRuleConditionCondition']] = None,
+             operator: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if conditions is None:
+            raise TypeError("Missing 'conditions' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+
         _setter("conditions", conditions)
         _setter("operator", operator)
 
@@ -647,10 +689,18 @@ class AlertMutingRuleConditionCondition(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute: str,
-             operator: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             attribute: Optional[str] = None,
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute is None:
+            raise TypeError("Missing 'attribute' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("attribute", attribute)
         _setter("operator", operator)
         _setter("values", values)
@@ -738,14 +788,30 @@ class AlertMutingRuleSchedule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             time_zone: str,
+             time_zone: Optional[str] = None,
              end_repeat: Optional[str] = None,
              end_time: Optional[str] = None,
              repeat: Optional[str] = None,
              repeat_count: Optional[int] = None,
              start_time: Optional[str] = None,
              weekly_repeat_days: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+        if end_repeat is None and 'endRepeat' in kwargs:
+            end_repeat = kwargs['endRepeat']
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if repeat_count is None and 'repeatCount' in kwargs:
+            repeat_count = kwargs['repeatCount']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if weekly_repeat_days is None and 'weeklyRepeatDays' in kwargs:
+            weekly_repeat_days = kwargs['weeklyRepeatDays']
+
         _setter("time_zone", time_zone)
         if end_repeat is not None:
             _setter("end_repeat", end_repeat)
@@ -831,9 +897,15 @@ class EntityTagsTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 
@@ -886,10 +958,16 @@ class InfraAlertConditionCritical(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             duration: int,
+             duration: Optional[int] = None,
              time_function: Optional[str] = None,
              value: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if time_function is None and 'timeFunction' in kwargs:
+            time_function = kwargs['timeFunction']
+
         _setter("duration", duration)
         if time_function is not None:
             _setter("time_function", time_function)
@@ -944,10 +1022,16 @@ class InfraAlertConditionWarning(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             duration: int,
+             duration: Optional[int] = None,
              time_function: Optional[str] = None,
              value: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if time_function is None and 'timeFunction' in kwargs:
+            time_function = kwargs['timeFunction']
+
         _setter("duration", duration)
         if time_function is not None:
             _setter("time_function", time_function)
@@ -1012,11 +1096,19 @@ class NotificationChannelProperty(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
+             key: Optional[str] = None,
+             value: Optional[str] = None,
              display_value: Optional[str] = None,
              label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if display_value is None and 'displayValue' in kwargs:
+            display_value = kwargs['displayValue']
+
         _setter("key", key)
         _setter("value", value)
         if display_value is not None:
@@ -1076,9 +1168,15 @@ class NotificationDestinationAuthBasic(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: str,
-             user: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             password: Optional[str] = None,
+             user: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+
         _setter("password", password)
         _setter("user", user)
 
@@ -1115,9 +1213,13 @@ class NotificationDestinationAuthToken(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             token: str,
+             token: Optional[str] = None,
              prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+
         _setter("token", token)
         if prefix is not None:
             _setter("prefix", prefix)
@@ -1178,11 +1280,19 @@ class NotificationDestinationProperty(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
+             key: Optional[str] = None,
+             value: Optional[str] = None,
              display_value: Optional[str] = None,
              label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if display_value is None and 'displayValue' in kwargs:
+            display_value = kwargs['displayValue']
+
         _setter("key", key)
         _setter("value", value)
         if display_value is not None:
@@ -1267,13 +1377,23 @@ class NrqlAlertConditionCritical(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             threshold: float,
+             threshold: Optional[float] = None,
              duration: Optional[int] = None,
              operator: Optional[str] = None,
              threshold_duration: Optional[int] = None,
              threshold_occurrences: Optional[str] = None,
              time_function: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if threshold_duration is None and 'thresholdDuration' in kwargs:
+            threshold_duration = kwargs['thresholdDuration']
+        if threshold_occurrences is None and 'thresholdOccurrences' in kwargs:
+            threshold_occurrences = kwargs['thresholdOccurrences']
+        if time_function is None and 'timeFunction' in kwargs:
+            time_function = kwargs['timeFunction']
+
         _setter("threshold", threshold)
         if duration is not None:
             _setter("duration", duration)
@@ -1357,10 +1477,18 @@ class NrqlAlertConditionNrql(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
+             query: Optional[str] = None,
              evaluation_offset: Optional[int] = None,
              since_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if evaluation_offset is None and 'evaluationOffset' in kwargs:
+            evaluation_offset = kwargs['evaluationOffset']
+        if since_value is None and 'sinceValue' in kwargs:
+            since_value = kwargs['sinceValue']
+
         _setter("query", query)
         if evaluation_offset is not None:
             _setter("evaluation_offset", evaluation_offset)
@@ -1433,14 +1561,24 @@ class NrqlAlertConditionTerm(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             threshold: float,
+             threshold: Optional[float] = None,
              duration: Optional[int] = None,
              operator: Optional[str] = None,
              priority: Optional[str] = None,
              threshold_duration: Optional[int] = None,
              threshold_occurrences: Optional[str] = None,
              time_function: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if threshold_duration is None and 'thresholdDuration' in kwargs:
+            threshold_duration = kwargs['thresholdDuration']
+        if threshold_occurrences is None and 'thresholdOccurrences' in kwargs:
+            threshold_occurrences = kwargs['thresholdOccurrences']
+        if time_function is None and 'timeFunction' in kwargs:
+            time_function = kwargs['timeFunction']
+
         _setter("threshold", threshold)
         if duration is not None:
             _setter("duration", duration)
@@ -1539,13 +1677,23 @@ class NrqlAlertConditionWarning(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             threshold: float,
+             threshold: Optional[float] = None,
              duration: Optional[int] = None,
              operator: Optional[str] = None,
              threshold_duration: Optional[int] = None,
              threshold_occurrences: Optional[str] = None,
              time_function: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if threshold_duration is None and 'thresholdDuration' in kwargs:
+            threshold_duration = kwargs['thresholdDuration']
+        if threshold_occurrences is None and 'thresholdOccurrences' in kwargs:
+            threshold_occurrences = kwargs['thresholdOccurrences']
+        if time_function is None and 'timeFunction' in kwargs:
+            time_function = kwargs['timeFunction']
+
         _setter("threshold", threshold)
         if duration is not None:
             _setter("duration", duration)
@@ -1632,10 +1780,20 @@ class ObfuscationRuleAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attributes: Sequence[str],
-             expression_id: str,
-             method: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             attributes: Optional[Sequence[str]] = None,
+             expression_id: Optional[str] = None,
+             method: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if expression_id is None and 'expressionId' in kwargs:
+            expression_id = kwargs['expressionId']
+        if expression_id is None:
+            raise TypeError("Missing 'expression_id' argument")
+        if method is None:
+            raise TypeError("Missing 'method' argument")
+
         _setter("attributes", attributes)
         _setter("expression_id", expression_id)
         _setter("method", method)
@@ -1756,7 +1914,7 @@ class OneDashboardPage(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              guid: Optional[str] = None,
              widget_areas: Optional[Sequence['outputs.OneDashboardPageWidgetArea']] = None,
@@ -1773,7 +1931,39 @@ class OneDashboardPage(dict):
              widget_pies: Optional[Sequence['outputs.OneDashboardPageWidgetPy']] = None,
              widget_stacked_bars: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBar']] = None,
              widget_tables: Optional[Sequence['outputs.OneDashboardPageWidgetTable']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if widget_areas is None and 'widgetAreas' in kwargs:
+            widget_areas = kwargs['widgetAreas']
+        if widget_bars is None and 'widgetBars' in kwargs:
+            widget_bars = kwargs['widgetBars']
+        if widget_billboards is None and 'widgetBillboards' in kwargs:
+            widget_billboards = kwargs['widgetBillboards']
+        if widget_bullets is None and 'widgetBullets' in kwargs:
+            widget_bullets = kwargs['widgetBullets']
+        if widget_funnels is None and 'widgetFunnels' in kwargs:
+            widget_funnels = kwargs['widgetFunnels']
+        if widget_heatmaps is None and 'widgetHeatmaps' in kwargs:
+            widget_heatmaps = kwargs['widgetHeatmaps']
+        if widget_histograms is None and 'widgetHistograms' in kwargs:
+            widget_histograms = kwargs['widgetHistograms']
+        if widget_jsons is None and 'widgetJsons' in kwargs:
+            widget_jsons = kwargs['widgetJsons']
+        if widget_lines is None and 'widgetLines' in kwargs:
+            widget_lines = kwargs['widgetLines']
+        if widget_log_tables is None and 'widgetLogTables' in kwargs:
+            widget_log_tables = kwargs['widgetLogTables']
+        if widget_markdowns is None and 'widgetMarkdowns' in kwargs:
+            widget_markdowns = kwargs['widgetMarkdowns']
+        if widget_pies is None and 'widgetPies' in kwargs:
+            widget_pies = kwargs['widgetPies']
+        if widget_stacked_bars is None and 'widgetStackedBars' in kwargs:
+            widget_stacked_bars = kwargs['widgetStackedBars']
+        if widget_tables is None and 'widgetTables' in kwargs:
+            widget_tables = kwargs['widgetTables']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -1986,10 +2176,10 @@ class OneDashboardPageWidgetArea(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: int,
-             nrql_queries: Sequence['outputs.OneDashboardPageWidgetAreaNrqlQuery'],
-             row: int,
-             title: str,
+             column: Optional[int] = None,
+             nrql_queries: Optional[Sequence['outputs.OneDashboardPageWidgetAreaNrqlQuery']] = None,
+             row: Optional[int] = None,
+             title: Optional[str] = None,
              colors: Optional[Sequence['outputs.OneDashboardPageWidgetAreaColor']] = None,
              facet_show_other_series: Optional[bool] = None,
              height: Optional[int] = None,
@@ -2001,7 +2191,31 @@ class OneDashboardPageWidgetArea(dict):
              width: Optional[int] = None,
              y_axis_left_max: Optional[float] = None,
              y_axis_left_min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -2180,7 +2394,11 @@ class OneDashboardPageWidgetAreaColor(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetAreaColorSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -2238,7 +2456,11 @@ class OneDashboardPageWidgetAreaColorSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -2292,9 +2514,15 @@ class OneDashboardPageWidgetAreaNrqlQuery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
+             query: Optional[str] = None,
              account_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -2354,7 +2582,13 @@ class OneDashboardPageWidgetAreaNullValue(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetAreaNullValueSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -2414,7 +2648,13 @@ class OneDashboardPageWidgetAreaNullValueSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -2470,7 +2710,11 @@ class OneDashboardPageWidgetAreaUnit(dict):
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetAreaUnitSeriesOverride']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -2528,7 +2772,11 @@ class OneDashboardPageWidgetAreaUnitSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              series_name: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -2641,10 +2889,10 @@ class OneDashboardPageWidgetBar(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: int,
-             nrql_queries: Sequence['outputs.OneDashboardPageWidgetBarNrqlQuery'],
-             row: int,
-             title: str,
+             column: Optional[int] = None,
+             nrql_queries: Optional[Sequence['outputs.OneDashboardPageWidgetBarNrqlQuery']] = None,
+             row: Optional[int] = None,
+             title: Optional[str] = None,
              colors: Optional[Sequence['outputs.OneDashboardPageWidgetBarColor']] = None,
              facet_show_other_series: Optional[bool] = None,
              filter_current_dashboard: Optional[bool] = None,
@@ -2658,7 +2906,35 @@ class OneDashboardPageWidgetBar(dict):
              width: Optional[int] = None,
              y_axis_left_max: Optional[float] = None,
              y_axis_left_min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if filter_current_dashboard is None and 'filterCurrentDashboard' in kwargs:
+            filter_current_dashboard = kwargs['filterCurrentDashboard']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if linked_entity_guids is None and 'linkedEntityGuids' in kwargs:
+            linked_entity_guids = kwargs['linkedEntityGuids']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -2857,7 +3133,11 @@ class OneDashboardPageWidgetBarColor(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBarColorSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -2915,7 +3195,11 @@ class OneDashboardPageWidgetBarColorSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -2969,9 +3253,15 @@ class OneDashboardPageWidgetBarNrqlQuery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
+             query: Optional[str] = None,
              account_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -3031,7 +3321,13 @@ class OneDashboardPageWidgetBarNullValue(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBarNullValueSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -3091,7 +3387,13 @@ class OneDashboardPageWidgetBarNullValueSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -3147,7 +3449,11 @@ class OneDashboardPageWidgetBarUnit(dict):
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBarUnitSeriesOverride']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -3205,7 +3511,11 @@ class OneDashboardPageWidgetBarUnitSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              series_name: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -3314,10 +3624,10 @@ class OneDashboardPageWidgetBillboard(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: int,
-             nrql_queries: Sequence['outputs.OneDashboardPageWidgetBillboardNrqlQuery'],
-             row: int,
-             title: str,
+             column: Optional[int] = None,
+             nrql_queries: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardNrqlQuery']] = None,
+             row: Optional[int] = None,
+             title: Optional[str] = None,
              colors: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardColor']] = None,
              critical: Optional[str] = None,
              facet_show_other_series: Optional[bool] = None,
@@ -3331,7 +3641,31 @@ class OneDashboardPageWidgetBillboard(dict):
              width: Optional[int] = None,
              y_axis_left_max: Optional[float] = None,
              y_axis_left_min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -3530,7 +3864,11 @@ class OneDashboardPageWidgetBillboardColor(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardColorSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -3588,7 +3926,11 @@ class OneDashboardPageWidgetBillboardColorSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -3642,9 +3984,15 @@ class OneDashboardPageWidgetBillboardNrqlQuery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
+             query: Optional[str] = None,
              account_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -3704,7 +4052,13 @@ class OneDashboardPageWidgetBillboardNullValue(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardNullValueSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -3764,7 +4118,13 @@ class OneDashboardPageWidgetBillboardNullValueSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -3820,7 +4180,11 @@ class OneDashboardPageWidgetBillboardUnit(dict):
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardUnitSeriesOverride']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -3878,7 +4242,11 @@ class OneDashboardPageWidgetBillboardUnitSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              series_name: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -3984,11 +4352,11 @@ class OneDashboardPageWidgetBullet(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: int,
-             limit: float,
-             nrql_queries: Sequence['outputs.OneDashboardPageWidgetBulletNrqlQuery'],
-             row: int,
-             title: str,
+             column: Optional[int] = None,
+             limit: Optional[float] = None,
+             nrql_queries: Optional[Sequence['outputs.OneDashboardPageWidgetBulletNrqlQuery']] = None,
+             row: Optional[int] = None,
+             title: Optional[str] = None,
              colors: Optional[Sequence['outputs.OneDashboardPageWidgetBulletColor']] = None,
              facet_show_other_series: Optional[bool] = None,
              height: Optional[int] = None,
@@ -4000,7 +4368,33 @@ class OneDashboardPageWidgetBullet(dict):
              width: Optional[int] = None,
              y_axis_left_max: Optional[float] = None,
              y_axis_left_min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if limit is None:
+            raise TypeError("Missing 'limit' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("limit", limit)
         _setter("nrql_queries", nrql_queries)
@@ -4188,7 +4582,11 @@ class OneDashboardPageWidgetBulletColor(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBulletColorSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -4246,7 +4644,11 @@ class OneDashboardPageWidgetBulletColorSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -4300,9 +4702,15 @@ class OneDashboardPageWidgetBulletNrqlQuery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
+             query: Optional[str] = None,
              account_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -4362,7 +4770,13 @@ class OneDashboardPageWidgetBulletNullValue(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBulletNullValueSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -4422,7 +4836,13 @@ class OneDashboardPageWidgetBulletNullValueSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -4478,7 +4898,11 @@ class OneDashboardPageWidgetBulletUnit(dict):
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBulletUnitSeriesOverride']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -4536,7 +4960,11 @@ class OneDashboardPageWidgetBulletUnitSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              series_name: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -4639,10 +5067,10 @@ class OneDashboardPageWidgetFunnel(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: int,
-             nrql_queries: Sequence['outputs.OneDashboardPageWidgetFunnelNrqlQuery'],
-             row: int,
-             title: str,
+             column: Optional[int] = None,
+             nrql_queries: Optional[Sequence['outputs.OneDashboardPageWidgetFunnelNrqlQuery']] = None,
+             row: Optional[int] = None,
+             title: Optional[str] = None,
              colors: Optional[Sequence['outputs.OneDashboardPageWidgetFunnelColor']] = None,
              facet_show_other_series: Optional[bool] = None,
              height: Optional[int] = None,
@@ -4654,7 +5082,31 @@ class OneDashboardPageWidgetFunnel(dict):
              width: Optional[int] = None,
              y_axis_left_max: Optional[float] = None,
              y_axis_left_min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -4833,7 +5285,11 @@ class OneDashboardPageWidgetFunnelColor(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetFunnelColorSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -4891,7 +5347,11 @@ class OneDashboardPageWidgetFunnelColorSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -4945,9 +5405,15 @@ class OneDashboardPageWidgetFunnelNrqlQuery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
+             query: Optional[str] = None,
              account_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -5007,7 +5473,13 @@ class OneDashboardPageWidgetFunnelNullValue(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetFunnelNullValueSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -5067,7 +5539,13 @@ class OneDashboardPageWidgetFunnelNullValueSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -5123,7 +5601,11 @@ class OneDashboardPageWidgetFunnelUnit(dict):
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetFunnelUnitSeriesOverride']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -5181,7 +5663,11 @@ class OneDashboardPageWidgetFunnelUnitSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              series_name: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -5294,10 +5780,10 @@ class OneDashboardPageWidgetHeatmap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: int,
-             nrql_queries: Sequence['outputs.OneDashboardPageWidgetHeatmapNrqlQuery'],
-             row: int,
-             title: str,
+             column: Optional[int] = None,
+             nrql_queries: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapNrqlQuery']] = None,
+             row: Optional[int] = None,
+             title: Optional[str] = None,
              colors: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapColor']] = None,
              facet_show_other_series: Optional[bool] = None,
              filter_current_dashboard: Optional[bool] = None,
@@ -5311,7 +5797,35 @@ class OneDashboardPageWidgetHeatmap(dict):
              width: Optional[int] = None,
              y_axis_left_max: Optional[float] = None,
              y_axis_left_min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if filter_current_dashboard is None and 'filterCurrentDashboard' in kwargs:
+            filter_current_dashboard = kwargs['filterCurrentDashboard']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if linked_entity_guids is None and 'linkedEntityGuids' in kwargs:
+            linked_entity_guids = kwargs['linkedEntityGuids']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -5510,7 +6024,11 @@ class OneDashboardPageWidgetHeatmapColor(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapColorSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -5568,7 +6086,11 @@ class OneDashboardPageWidgetHeatmapColorSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -5622,9 +6144,15 @@ class OneDashboardPageWidgetHeatmapNrqlQuery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
+             query: Optional[str] = None,
              account_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -5684,7 +6212,13 @@ class OneDashboardPageWidgetHeatmapNullValue(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapNullValueSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -5744,7 +6278,13 @@ class OneDashboardPageWidgetHeatmapNullValueSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -5800,7 +6340,11 @@ class OneDashboardPageWidgetHeatmapUnit(dict):
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapUnitSeriesOverride']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -5858,7 +6402,11 @@ class OneDashboardPageWidgetHeatmapUnitSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              series_name: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -5961,10 +6509,10 @@ class OneDashboardPageWidgetHistogram(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: int,
-             nrql_queries: Sequence['outputs.OneDashboardPageWidgetHistogramNrqlQuery'],
-             row: int,
-             title: str,
+             column: Optional[int] = None,
+             nrql_queries: Optional[Sequence['outputs.OneDashboardPageWidgetHistogramNrqlQuery']] = None,
+             row: Optional[int] = None,
+             title: Optional[str] = None,
              colors: Optional[Sequence['outputs.OneDashboardPageWidgetHistogramColor']] = None,
              facet_show_other_series: Optional[bool] = None,
              height: Optional[int] = None,
@@ -5976,7 +6524,31 @@ class OneDashboardPageWidgetHistogram(dict):
              width: Optional[int] = None,
              y_axis_left_max: Optional[float] = None,
              y_axis_left_min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -6155,7 +6727,11 @@ class OneDashboardPageWidgetHistogramColor(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetHistogramColorSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -6213,7 +6789,11 @@ class OneDashboardPageWidgetHistogramColorSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -6267,9 +6847,15 @@ class OneDashboardPageWidgetHistogramNrqlQuery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
+             query: Optional[str] = None,
              account_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -6329,7 +6915,13 @@ class OneDashboardPageWidgetHistogramNullValue(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetHistogramNullValueSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -6389,7 +6981,13 @@ class OneDashboardPageWidgetHistogramNullValueSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -6445,7 +7043,11 @@ class OneDashboardPageWidgetHistogramUnit(dict):
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetHistogramUnitSeriesOverride']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -6503,7 +7105,11 @@ class OneDashboardPageWidgetHistogramUnitSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              series_name: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -6606,10 +7212,10 @@ class OneDashboardPageWidgetJson(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: int,
-             nrql_queries: Sequence['outputs.OneDashboardPageWidgetJsonNrqlQuery'],
-             row: int,
-             title: str,
+             column: Optional[int] = None,
+             nrql_queries: Optional[Sequence['outputs.OneDashboardPageWidgetJsonNrqlQuery']] = None,
+             row: Optional[int] = None,
+             title: Optional[str] = None,
              colors: Optional[Sequence['outputs.OneDashboardPageWidgetJsonColor']] = None,
              facet_show_other_series: Optional[bool] = None,
              height: Optional[int] = None,
@@ -6621,7 +7227,31 @@ class OneDashboardPageWidgetJson(dict):
              width: Optional[int] = None,
              y_axis_left_max: Optional[float] = None,
              y_axis_left_min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -6800,7 +7430,11 @@ class OneDashboardPageWidgetJsonColor(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetJsonColorSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -6858,7 +7492,11 @@ class OneDashboardPageWidgetJsonColorSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -6912,9 +7550,15 @@ class OneDashboardPageWidgetJsonNrqlQuery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
+             query: Optional[str] = None,
              account_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -6974,7 +7618,13 @@ class OneDashboardPageWidgetJsonNullValue(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetJsonNullValueSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -7034,7 +7684,13 @@ class OneDashboardPageWidgetJsonNullValueSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -7090,7 +7746,11 @@ class OneDashboardPageWidgetJsonUnit(dict):
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetJsonUnitSeriesOverride']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -7148,7 +7808,11 @@ class OneDashboardPageWidgetJsonUnitSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              series_name: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -7256,10 +7920,10 @@ class OneDashboardPageWidgetLine(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: int,
-             nrql_queries: Sequence['outputs.OneDashboardPageWidgetLineNrqlQuery'],
-             row: int,
-             title: str,
+             column: Optional[int] = None,
+             nrql_queries: Optional[Sequence['outputs.OneDashboardPageWidgetLineNrqlQuery']] = None,
+             row: Optional[int] = None,
+             title: Optional[str] = None,
              colors: Optional[Sequence['outputs.OneDashboardPageWidgetLineColor']] = None,
              facet_show_other_series: Optional[bool] = None,
              height: Optional[int] = None,
@@ -7272,7 +7936,33 @@ class OneDashboardPageWidgetLine(dict):
              y_axis_left_max: Optional[float] = None,
              y_axis_left_min: Optional[float] = None,
              y_axis_left_zero: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+        if y_axis_left_zero is None and 'yAxisLeftZero' in kwargs:
+            y_axis_left_zero = kwargs['yAxisLeftZero']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -7461,7 +8151,11 @@ class OneDashboardPageWidgetLineColor(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetLineColorSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -7519,7 +8213,11 @@ class OneDashboardPageWidgetLineColorSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -7573,9 +8271,15 @@ class OneDashboardPageWidgetLineNrqlQuery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
+             query: Optional[str] = None,
              account_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -7635,7 +8339,13 @@ class OneDashboardPageWidgetLineNullValue(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetLineNullValueSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -7695,7 +8405,13 @@ class OneDashboardPageWidgetLineNullValueSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -7751,7 +8467,11 @@ class OneDashboardPageWidgetLineUnit(dict):
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetLineUnitSeriesOverride']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -7809,7 +8529,11 @@ class OneDashboardPageWidgetLineUnitSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              series_name: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -7912,10 +8636,10 @@ class OneDashboardPageWidgetLogTable(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: int,
-             nrql_queries: Sequence['outputs.OneDashboardPageWidgetLogTableNrqlQuery'],
-             row: int,
-             title: str,
+             column: Optional[int] = None,
+             nrql_queries: Optional[Sequence['outputs.OneDashboardPageWidgetLogTableNrqlQuery']] = None,
+             row: Optional[int] = None,
+             title: Optional[str] = None,
              colors: Optional[Sequence['outputs.OneDashboardPageWidgetLogTableColor']] = None,
              facet_show_other_series: Optional[bool] = None,
              height: Optional[int] = None,
@@ -7927,7 +8651,31 @@ class OneDashboardPageWidgetLogTable(dict):
              width: Optional[int] = None,
              y_axis_left_max: Optional[float] = None,
              y_axis_left_min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -8106,7 +8854,11 @@ class OneDashboardPageWidgetLogTableColor(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetLogTableColorSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -8164,7 +8916,11 @@ class OneDashboardPageWidgetLogTableColorSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -8218,9 +8974,15 @@ class OneDashboardPageWidgetLogTableNrqlQuery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
+             query: Optional[str] = None,
              account_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -8280,7 +9042,13 @@ class OneDashboardPageWidgetLogTableNullValue(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetLogTableNullValueSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -8340,7 +9108,13 @@ class OneDashboardPageWidgetLogTableNullValueSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -8396,7 +9170,11 @@ class OneDashboardPageWidgetLogTableUnit(dict):
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetLogTableUnitSeriesOverride']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -8454,7 +9232,11 @@ class OneDashboardPageWidgetLogTableUnitSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              series_name: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -8555,10 +9337,10 @@ class OneDashboardPageWidgetMarkdown(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: int,
-             row: int,
-             text: str,
-             title: str,
+             column: Optional[int] = None,
+             row: Optional[int] = None,
+             text: Optional[str] = None,
+             title: Optional[str] = None,
              colors: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownColor']] = None,
              facet_show_other_series: Optional[bool] = None,
              height: Optional[int] = None,
@@ -8570,7 +9352,29 @@ class OneDashboardPageWidgetMarkdown(dict):
              width: Optional[int] = None,
              y_axis_left_max: Optional[float] = None,
              y_axis_left_min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if text is None:
+            raise TypeError("Missing 'text' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("row", row)
         _setter("text", text)
@@ -8749,7 +9553,11 @@ class OneDashboardPageWidgetMarkdownColor(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownColorSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -8807,7 +9615,11 @@ class OneDashboardPageWidgetMarkdownColorSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -8865,7 +9677,13 @@ class OneDashboardPageWidgetMarkdownNullValue(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownNullValueSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -8925,7 +9743,13 @@ class OneDashboardPageWidgetMarkdownNullValueSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -8981,7 +9805,11 @@ class OneDashboardPageWidgetMarkdownUnit(dict):
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownUnitSeriesOverride']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -9039,7 +9867,11 @@ class OneDashboardPageWidgetMarkdownUnitSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              series_name: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -9152,10 +9984,10 @@ class OneDashboardPageWidgetPy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: int,
-             nrql_queries: Sequence['outputs.OneDashboardPageWidgetPyNrqlQuery'],
-             row: int,
-             title: str,
+             column: Optional[int] = None,
+             nrql_queries: Optional[Sequence['outputs.OneDashboardPageWidgetPyNrqlQuery']] = None,
+             row: Optional[int] = None,
+             title: Optional[str] = None,
              colors: Optional[Sequence['outputs.OneDashboardPageWidgetPyColor']] = None,
              facet_show_other_series: Optional[bool] = None,
              filter_current_dashboard: Optional[bool] = None,
@@ -9169,7 +10001,35 @@ class OneDashboardPageWidgetPy(dict):
              width: Optional[int] = None,
              y_axis_left_max: Optional[float] = None,
              y_axis_left_min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if filter_current_dashboard is None and 'filterCurrentDashboard' in kwargs:
+            filter_current_dashboard = kwargs['filterCurrentDashboard']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if linked_entity_guids is None and 'linkedEntityGuids' in kwargs:
+            linked_entity_guids = kwargs['linkedEntityGuids']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -9368,7 +10228,11 @@ class OneDashboardPageWidgetPyColor(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetPyColorSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -9426,7 +10290,11 @@ class OneDashboardPageWidgetPyColorSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -9480,9 +10348,15 @@ class OneDashboardPageWidgetPyNrqlQuery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
+             query: Optional[str] = None,
              account_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -9542,7 +10416,13 @@ class OneDashboardPageWidgetPyNullValue(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetPyNullValueSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -9602,7 +10482,13 @@ class OneDashboardPageWidgetPyNullValueSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -9658,7 +10544,11 @@ class OneDashboardPageWidgetPyUnit(dict):
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetPyUnitSeriesOverride']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -9716,7 +10606,11 @@ class OneDashboardPageWidgetPyUnitSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              series_name: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -9819,10 +10713,10 @@ class OneDashboardPageWidgetStackedBar(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: int,
-             nrql_queries: Sequence['outputs.OneDashboardPageWidgetStackedBarNrqlQuery'],
-             row: int,
-             title: str,
+             column: Optional[int] = None,
+             nrql_queries: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarNrqlQuery']] = None,
+             row: Optional[int] = None,
+             title: Optional[str] = None,
              colors: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarColor']] = None,
              facet_show_other_series: Optional[bool] = None,
              height: Optional[int] = None,
@@ -9834,7 +10728,31 @@ class OneDashboardPageWidgetStackedBar(dict):
              width: Optional[int] = None,
              y_axis_left_max: Optional[float] = None,
              y_axis_left_min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -10013,7 +10931,11 @@ class OneDashboardPageWidgetStackedBarColor(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarColorSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -10071,7 +10993,11 @@ class OneDashboardPageWidgetStackedBarColorSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -10125,9 +11051,15 @@ class OneDashboardPageWidgetStackedBarNrqlQuery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
+             query: Optional[str] = None,
              account_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -10187,7 +11119,13 @@ class OneDashboardPageWidgetStackedBarNullValue(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarNullValueSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -10247,7 +11185,13 @@ class OneDashboardPageWidgetStackedBarNullValueSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -10303,7 +11247,11 @@ class OneDashboardPageWidgetStackedBarUnit(dict):
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarUnitSeriesOverride']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -10361,7 +11309,11 @@ class OneDashboardPageWidgetStackedBarUnitSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              series_name: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -10474,10 +11426,10 @@ class OneDashboardPageWidgetTable(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: int,
-             nrql_queries: Sequence['outputs.OneDashboardPageWidgetTableNrqlQuery'],
-             row: int,
-             title: str,
+             column: Optional[int] = None,
+             nrql_queries: Optional[Sequence['outputs.OneDashboardPageWidgetTableNrqlQuery']] = None,
+             row: Optional[int] = None,
+             title: Optional[str] = None,
              colors: Optional[Sequence['outputs.OneDashboardPageWidgetTableColor']] = None,
              facet_show_other_series: Optional[bool] = None,
              filter_current_dashboard: Optional[bool] = None,
@@ -10491,7 +11443,35 @@ class OneDashboardPageWidgetTable(dict):
              width: Optional[int] = None,
              y_axis_left_max: Optional[float] = None,
              y_axis_left_min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if nrql_queries is None and 'nrqlQueries' in kwargs:
+            nrql_queries = kwargs['nrqlQueries']
+        if nrql_queries is None:
+            raise TypeError("Missing 'nrql_queries' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if facet_show_other_series is None and 'facetShowOtherSeries' in kwargs:
+            facet_show_other_series = kwargs['facetShowOtherSeries']
+        if filter_current_dashboard is None and 'filterCurrentDashboard' in kwargs:
+            filter_current_dashboard = kwargs['filterCurrentDashboard']
+        if ignore_time_range is None and 'ignoreTimeRange' in kwargs:
+            ignore_time_range = kwargs['ignoreTimeRange']
+        if legend_enabled is None and 'legendEnabled' in kwargs:
+            legend_enabled = kwargs['legendEnabled']
+        if linked_entity_guids is None and 'linkedEntityGuids' in kwargs:
+            linked_entity_guids = kwargs['linkedEntityGuids']
+        if null_values is None and 'nullValues' in kwargs:
+            null_values = kwargs['nullValues']
+        if y_axis_left_max is None and 'yAxisLeftMax' in kwargs:
+            y_axis_left_max = kwargs['yAxisLeftMax']
+        if y_axis_left_min is None and 'yAxisLeftMin' in kwargs:
+            y_axis_left_min = kwargs['yAxisLeftMin']
+
         _setter("column", column)
         _setter("nrql_queries", nrql_queries)
         _setter("row", row)
@@ -10690,7 +11670,11 @@ class OneDashboardPageWidgetTableColor(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetTableColorSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if color is not None:
             _setter("color", color)
         if series_overrides is not None:
@@ -10748,7 +11732,11 @@ class OneDashboardPageWidgetTableColorSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              color: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if color is not None:
             _setter("color", color)
         if series_name is not None:
@@ -10802,9 +11790,15 @@ class OneDashboardPageWidgetTableNrqlQuery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
+             query: Optional[str] = None,
              account_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("query", query)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -10864,7 +11858,13 @@ class OneDashboardPageWidgetTableNullValue(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetTableNullValueSeriesOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_overrides is not None:
@@ -10924,7 +11924,13 @@ class OneDashboardPageWidgetTableNullValueSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              null_value: Optional[str] = None,
              series_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if null_value is None and 'nullValue' in kwargs:
+            null_value = kwargs['nullValue']
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if null_value is not None:
             _setter("null_value", null_value)
         if series_name is not None:
@@ -10980,7 +11986,11 @@ class OneDashboardPageWidgetTableUnit(dict):
              _setter: Callable[[Any, Any], None],
              series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetTableUnitSeriesOverride']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_overrides is None and 'seriesOverrides' in kwargs:
+            series_overrides = kwargs['seriesOverrides']
+
         if series_overrides is not None:
             _setter("series_overrides", series_overrides)
         if unit is not None:
@@ -11038,7 +12048,11 @@ class OneDashboardPageWidgetTableUnitSeriesOverride(dict):
              _setter: Callable[[Any, Any], None],
              series_name: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if series_name is None and 'seriesName' in kwargs:
+            series_name = kwargs['seriesName']
+
         if series_name is not None:
             _setter("series_name", series_name)
         if unit is not None:
@@ -11081,11 +12095,15 @@ class OneDashboardRawPage(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              guid: Optional[str] = None,
              widgets: Optional[Sequence['outputs.OneDashboardRawPageWidget']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -11183,16 +12201,32 @@ class OneDashboardRawPageWidget(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: int,
-             configuration: str,
-             row: int,
-             title: str,
-             visualization_id: str,
+             column: Optional[int] = None,
+             configuration: Optional[str] = None,
+             row: Optional[int] = None,
+             title: Optional[str] = None,
+             visualization_id: Optional[str] = None,
              height: Optional[int] = None,
              id: Optional[str] = None,
              linked_entity_guids: Optional[Sequence[str]] = None,
              width: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if configuration is None:
+            raise TypeError("Missing 'configuration' argument")
+        if row is None:
+            raise TypeError("Missing 'row' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if visualization_id is None and 'visualizationId' in kwargs:
+            visualization_id = kwargs['visualizationId']
+        if visualization_id is None:
+            raise TypeError("Missing 'visualization_id' argument")
+        if linked_entity_guids is None and 'linkedEntityGuids' in kwargs:
+            linked_entity_guids = kwargs['linkedEntityGuids']
+
         _setter("column", column)
         _setter("configuration", configuration)
         _setter("row", row)
@@ -11335,15 +12369,33 @@ class OneDashboardVariable(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             replacement_strategy: str,
-             title: str,
-             type: str,
+             name: Optional[str] = None,
+             replacement_strategy: Optional[str] = None,
+             title: Optional[str] = None,
+             type: Optional[str] = None,
              default_values: Optional[Sequence[str]] = None,
              is_multi_selection: Optional[bool] = None,
              items: Optional[Sequence['outputs.OneDashboardVariableItem']] = None,
              nrql_query: Optional['outputs.OneDashboardVariableNrqlQuery'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if replacement_strategy is None and 'replacementStrategy' in kwargs:
+            replacement_strategy = kwargs['replacementStrategy']
+        if replacement_strategy is None:
+            raise TypeError("Missing 'replacement_strategy' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if default_values is None and 'defaultValues' in kwargs:
+            default_values = kwargs['defaultValues']
+        if is_multi_selection is None and 'isMultiSelection' in kwargs:
+            is_multi_selection = kwargs['isMultiSelection']
+        if nrql_query is None and 'nrqlQuery' in kwargs:
+            nrql_query = kwargs['nrqlQuery']
+
         _setter("name", name)
         _setter("replacement_strategy", replacement_strategy)
         _setter("title", title)
@@ -11439,9 +12491,13 @@ class OneDashboardVariableItem(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: str,
+             value: Optional[str] = None,
              title: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("value", value)
         if title is not None:
             _setter("title", title)
@@ -11496,9 +12552,15 @@ class OneDashboardVariableNrqlQuery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
+             query: Optional[str] = None,
              account_ids: Optional[Sequence[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if account_ids is None and 'accountIds' in kwargs:
+            account_ids = kwargs['accountIds']
+
         _setter("query", query)
         if account_ids is not None:
             _setter("account_ids", account_ids)
@@ -11564,11 +12626,25 @@ class ServiceLevelEvents(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_id: int,
-             valid_events: 'outputs.ServiceLevelEventsValidEvents',
+             account_id: Optional[int] = None,
+             valid_events: Optional['outputs.ServiceLevelEventsValidEvents'] = None,
              bad_events: Optional['outputs.ServiceLevelEventsBadEvents'] = None,
              good_events: Optional['outputs.ServiceLevelEventsGoodEvents'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if valid_events is None and 'validEvents' in kwargs:
+            valid_events = kwargs['validEvents']
+        if valid_events is None:
+            raise TypeError("Missing 'valid_events' argument")
+        if bad_events is None and 'badEvents' in kwargs:
+            bad_events = kwargs['badEvents']
+        if good_events is None and 'goodEvents' in kwargs:
+            good_events = kwargs['goodEvents']
+
         _setter("account_id", account_id)
         _setter("valid_events", valid_events)
         if bad_events is not None:
@@ -11648,10 +12724,16 @@ class ServiceLevelEventsBadEvents(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             from_: str,
+             from_: Optional[str] = None,
              select: Optional['outputs.ServiceLevelEventsBadEventsSelect'] = None,
              where: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if from_ is None:
+            raise TypeError("Missing 'from_' argument")
+
         _setter("from_", from_)
         if select is not None:
             _setter("select", select)
@@ -11704,10 +12786,14 @@ class ServiceLevelEventsBadEventsSelect(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function: str,
+             function: Optional[str] = None,
              attribute: Optional[str] = None,
              threshold: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function is None:
+            raise TypeError("Missing 'function' argument")
+
         _setter("function", function)
         if attribute is not None:
             _setter("attribute", attribute)
@@ -11777,10 +12863,16 @@ class ServiceLevelEventsGoodEvents(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             from_: str,
+             from_: Optional[str] = None,
              select: Optional['outputs.ServiceLevelEventsGoodEventsSelect'] = None,
              where: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if from_ is None:
+            raise TypeError("Missing 'from_' argument")
+
         _setter("from_", from_)
         if select is not None:
             _setter("select", select)
@@ -11833,10 +12925,14 @@ class ServiceLevelEventsGoodEventsSelect(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function: str,
+             function: Optional[str] = None,
              attribute: Optional[str] = None,
              threshold: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function is None:
+            raise TypeError("Missing 'function' argument")
+
         _setter("function", function)
         if attribute is not None:
             _setter("attribute", attribute)
@@ -11906,10 +13002,16 @@ class ServiceLevelEventsValidEvents(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             from_: str,
+             from_: Optional[str] = None,
              select: Optional['outputs.ServiceLevelEventsValidEventsSelect'] = None,
              where: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if from_ is None:
+            raise TypeError("Missing 'from_' argument")
+
         _setter("from_", from_)
         if select is not None:
             _setter("select", select)
@@ -11962,10 +13064,14 @@ class ServiceLevelEventsValidEventsSelect(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function: str,
+             function: Optional[str] = None,
              attribute: Optional[str] = None,
              threshold: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function is None:
+            raise TypeError("Missing 'function' argument")
+
         _setter("function", function)
         if attribute is not None:
             _setter("attribute", attribute)
@@ -12037,11 +13143,19 @@ class ServiceLevelObjective(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target: float,
-             time_window: 'outputs.ServiceLevelObjectiveTimeWindow',
+             target: Optional[float] = None,
+             time_window: Optional['outputs.ServiceLevelObjectiveTimeWindow'] = None,
              description: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if time_window is None and 'timeWindow' in kwargs:
+            time_window = kwargs['timeWindow']
+        if time_window is None:
+            raise TypeError("Missing 'time_window' argument")
+
         _setter("target", target)
         _setter("time_window", time_window)
         if description is not None:
@@ -12096,8 +13210,12 @@ class ServiceLevelObjectiveTimeWindow(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rolling: 'outputs.ServiceLevelObjectiveTimeWindowRolling',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             rolling: Optional['outputs.ServiceLevelObjectiveTimeWindowRolling'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rolling is None:
+            raise TypeError("Missing 'rolling' argument")
+
         _setter("rolling", rolling)
 
     @property
@@ -12126,9 +13244,15 @@ class ServiceLevelObjectiveTimeWindowRolling(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: int,
-             unit: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             count: Optional[int] = None,
+             unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if unit is None:
+            raise TypeError("Missing 'unit' argument")
+
         _setter("count", count)
         _setter("unit", unit)
 
@@ -12192,11 +13316,19 @@ class WorkflowDestination(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel_id: str,
+             channel_id: Optional[str] = None,
              name: Optional[str] = None,
              notification_triggers: Optional[Sequence[str]] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_id is None and 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+        if channel_id is None:
+            raise TypeError("Missing 'channel_id' argument")
+        if notification_triggers is None and 'notificationTriggers' in kwargs:
+            notification_triggers = kwargs['notificationTriggers']
+
         _setter("channel_id", channel_id)
         if name is not None:
             _setter("name", name)
@@ -12253,8 +13385,12 @@ class WorkflowEnrichments(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             nrqls: Sequence['outputs.WorkflowEnrichmentsNrql'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             nrqls: Optional[Sequence['outputs.WorkflowEnrichmentsNrql']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if nrqls is None:
+            raise TypeError("Missing 'nrqls' argument")
+
         _setter("nrqls", nrqls)
 
     @property
@@ -12310,12 +13446,22 @@ class WorkflowEnrichmentsNrql(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             configurations: Sequence['outputs.WorkflowEnrichmentsNrqlConfiguration'],
-             name: str,
+             configurations: Optional[Sequence['outputs.WorkflowEnrichmentsNrqlConfiguration']] = None,
+             name: Optional[str] = None,
              account_id: Optional[int] = None,
              enrichment_id: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configurations is None:
+            raise TypeError("Missing 'configurations' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if enrichment_id is None and 'enrichmentId' in kwargs:
+            enrichment_id = kwargs['enrichmentId']
+
         _setter("configurations", configurations)
         _setter("name", name)
         if account_id is not None:
@@ -12377,8 +13523,12 @@ class WorkflowEnrichmentsNrqlConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             query: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+
         _setter("query", query)
 
     @property
@@ -12428,11 +13578,19 @@ class WorkflowIssuesFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             type: str,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
              filter_id: Optional[str] = None,
              predicates: Optional[Sequence['outputs.WorkflowIssuesFilterPredicate']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if filter_id is None and 'filterId' in kwargs:
+            filter_id = kwargs['filterId']
+
         _setter("name", name)
         _setter("type", type)
         if filter_id is not None:
@@ -12487,10 +13645,18 @@ class WorkflowIssuesFilterPredicate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute: str,
-             operator: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             attribute: Optional[str] = None,
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute is None:
+            raise TypeError("Missing 'attribute' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("attribute", attribute)
         _setter("operator", operator)
         _setter("values", values)
@@ -12589,7 +13755,31 @@ class GetAlertChannelConfigResult(dict):
              teams: Optional[str] = None,
              url: Optional[str] = None,
              user_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if auth_password is None and 'authPassword' in kwargs:
+            auth_password = kwargs['authPassword']
+        if auth_type is None and 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if auth_username is None and 'authUsername' in kwargs:
+            auth_username = kwargs['authUsername']
+        if base_url is None and 'baseUrl' in kwargs:
+            base_url = kwargs['baseUrl']
+        if include_json_attachment is None and 'includeJsonAttachment' in kwargs:
+            include_json_attachment = kwargs['includeJsonAttachment']
+        if payload_string is None and 'payloadString' in kwargs:
+            payload_string = kwargs['payloadString']
+        if payload_type is None and 'payloadType' in kwargs:
+            payload_type = kwargs['payloadType']
+        if route_key is None and 'routeKey' in kwargs:
+            route_key = kwargs['routeKey']
+        if service_key is None and 'serviceKey' in kwargs:
+            service_key = kwargs['serviceKey']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if api_key is not None:
             _setter("api_key", api_key)
         if auth_password is not None:
@@ -12749,9 +13939,15 @@ class GetEntityTagResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -12789,11 +13985,19 @@ class GetNotificationDestinationPropertyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
+             key: Optional[str] = None,
+             value: Optional[str] = None,
              display_value: Optional[str] = None,
              label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if display_value is None and 'displayValue' in kwargs:
+            display_value = kwargs['displayValue']
+
         _setter("key", key)
         _setter("value", value)
         if display_value is not None:
@@ -12842,10 +14046,20 @@ class GetTestGrokPatternTestGrokResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attributes: Sequence['outputs.GetTestGrokPatternTestGrokAttributeResult'],
-             log_line: str,
-             matched: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             attributes: Optional[Sequence['outputs.GetTestGrokPatternTestGrokAttributeResult']] = None,
+             log_line: Optional[str] = None,
+             matched: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if log_line is None and 'logLine' in kwargs:
+            log_line = kwargs['logLine']
+        if log_line is None:
+            raise TypeError("Missing 'log_line' argument")
+        if matched is None:
+            raise TypeError("Missing 'matched' argument")
+
         _setter("attributes", attributes)
         _setter("log_line", log_line)
         _setter("matched", matched)
@@ -12892,9 +14106,15 @@ class GetTestGrokPatternTestGrokAttributeResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("name", name)
         _setter("value", value)
 

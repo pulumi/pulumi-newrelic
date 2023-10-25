@@ -131,7 +131,7 @@ class AzureIntegrationsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_account_id: pulumi.Input[int],
+             linked_account_id: Optional[pulumi.Input[int]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              api_management: Optional[pulumi.Input['AzureIntegrationsApiManagementArgs']] = None,
              app_gateway: Optional[pulumi.Input['AzureIntegrationsAppGatewayArgs']] = None,
@@ -165,7 +165,61 @@ class AzureIntegrationsArgs:
              virtual_networks: Optional[pulumi.Input['AzureIntegrationsVirtualNetworksArgs']] = None,
              vms: Optional[pulumi.Input['AzureIntegrationsVmsArgs']] = None,
              vpn_gateway: Optional[pulumi.Input['AzureIntegrationsVpnGatewayArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if linked_account_id is None and 'linkedAccountId' in kwargs:
+            linked_account_id = kwargs['linkedAccountId']
+        if linked_account_id is None:
+            raise TypeError("Missing 'linked_account_id' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if api_management is None and 'apiManagement' in kwargs:
+            api_management = kwargs['apiManagement']
+        if app_gateway is None and 'appGateway' in kwargs:
+            app_gateway = kwargs['appGateway']
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if cosmos_db is None and 'cosmosDb' in kwargs:
+            cosmos_db = kwargs['cosmosDb']
+        if cost_management is None and 'costManagement' in kwargs:
+            cost_management = kwargs['costManagement']
+        if data_factory is None and 'dataFactory' in kwargs:
+            data_factory = kwargs['dataFactory']
+        if event_hub is None and 'eventHub' in kwargs:
+            event_hub = kwargs['eventHub']
+        if express_route is None and 'expressRoute' in kwargs:
+            express_route = kwargs['expressRoute']
+        if front_door is None and 'frontDoor' in kwargs:
+            front_door = kwargs['frontDoor']
+        if key_vault is None and 'keyVault' in kwargs:
+            key_vault = kwargs['keyVault']
+        if load_balancer is None and 'loadBalancer' in kwargs:
+            load_balancer = kwargs['loadBalancer']
+        if logic_apps is None and 'logicApps' in kwargs:
+            logic_apps = kwargs['logicApps']
+        if machine_learning is None and 'machineLearning' in kwargs:
+            machine_learning = kwargs['machineLearning']
+        if maria_db is None and 'mariaDb' in kwargs:
+            maria_db = kwargs['mariaDb']
+        if mysql_flexible is None and 'mysqlFlexible' in kwargs:
+            mysql_flexible = kwargs['mysqlFlexible']
+        if postgresql_flexible is None and 'postgresqlFlexible' in kwargs:
+            postgresql_flexible = kwargs['postgresqlFlexible']
+        if power_bi_dedicated is None and 'powerBiDedicated' in kwargs:
+            power_bi_dedicated = kwargs['powerBiDedicated']
+        if redis_cache is None and 'redisCache' in kwargs:
+            redis_cache = kwargs['redisCache']
+        if service_bus is None and 'serviceBus' in kwargs:
+            service_bus = kwargs['serviceBus']
+        if sql_managed is None and 'sqlManaged' in kwargs:
+            sql_managed = kwargs['sqlManaged']
+        if virtual_machine is None and 'virtualMachine' in kwargs:
+            virtual_machine = kwargs['virtualMachine']
+        if virtual_networks is None and 'virtualNetworks' in kwargs:
+            virtual_networks = kwargs['virtualNetworks']
+        if vpn_gateway is None and 'vpnGateway' in kwargs:
+            vpn_gateway = kwargs['vpnGateway']
+
         _setter("linked_account_id", linked_account_id)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -799,7 +853,59 @@ class _AzureIntegrationsState:
              virtual_networks: Optional[pulumi.Input['AzureIntegrationsVirtualNetworksArgs']] = None,
              vms: Optional[pulumi.Input['AzureIntegrationsVmsArgs']] = None,
              vpn_gateway: Optional[pulumi.Input['AzureIntegrationsVpnGatewayArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if api_management is None and 'apiManagement' in kwargs:
+            api_management = kwargs['apiManagement']
+        if app_gateway is None and 'appGateway' in kwargs:
+            app_gateway = kwargs['appGateway']
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if cosmos_db is None and 'cosmosDb' in kwargs:
+            cosmos_db = kwargs['cosmosDb']
+        if cost_management is None and 'costManagement' in kwargs:
+            cost_management = kwargs['costManagement']
+        if data_factory is None and 'dataFactory' in kwargs:
+            data_factory = kwargs['dataFactory']
+        if event_hub is None and 'eventHub' in kwargs:
+            event_hub = kwargs['eventHub']
+        if express_route is None and 'expressRoute' in kwargs:
+            express_route = kwargs['expressRoute']
+        if front_door is None and 'frontDoor' in kwargs:
+            front_door = kwargs['frontDoor']
+        if key_vault is None and 'keyVault' in kwargs:
+            key_vault = kwargs['keyVault']
+        if linked_account_id is None and 'linkedAccountId' in kwargs:
+            linked_account_id = kwargs['linkedAccountId']
+        if load_balancer is None and 'loadBalancer' in kwargs:
+            load_balancer = kwargs['loadBalancer']
+        if logic_apps is None and 'logicApps' in kwargs:
+            logic_apps = kwargs['logicApps']
+        if machine_learning is None and 'machineLearning' in kwargs:
+            machine_learning = kwargs['machineLearning']
+        if maria_db is None and 'mariaDb' in kwargs:
+            maria_db = kwargs['mariaDb']
+        if mysql_flexible is None and 'mysqlFlexible' in kwargs:
+            mysql_flexible = kwargs['mysqlFlexible']
+        if postgresql_flexible is None and 'postgresqlFlexible' in kwargs:
+            postgresql_flexible = kwargs['postgresqlFlexible']
+        if power_bi_dedicated is None and 'powerBiDedicated' in kwargs:
+            power_bi_dedicated = kwargs['powerBiDedicated']
+        if redis_cache is None and 'redisCache' in kwargs:
+            redis_cache = kwargs['redisCache']
+        if service_bus is None and 'serviceBus' in kwargs:
+            service_bus = kwargs['serviceBus']
+        if sql_managed is None and 'sqlManaged' in kwargs:
+            sql_managed = kwargs['sqlManaged']
+        if virtual_machine is None and 'virtualMachine' in kwargs:
+            virtual_machine = kwargs['virtualMachine']
+        if virtual_networks is None and 'virtualNetworks' in kwargs:
+            virtual_networks = kwargs['virtualNetworks']
+        if vpn_gateway is None and 'vpnGateway' in kwargs:
+            vpn_gateway = kwargs['vpnGateway']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if api_management is not None:
@@ -1333,160 +1439,6 @@ class AzureIntegrations(pulumi.CustomResource):
 
         You can find instructions on how to set up Azure on [our documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/activate-azure-integrations/).
 
-        ## Example Usage
-
-        Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo_azure_link_account = newrelic.cloud.AzureLinkAccount("fooAzureLinkAccount",
-            account_id="The New Relic account ID where you want to link the Azure account",
-            application_id="ID of the application",
-            client_secret="Secret value of client's Azure account",
-            subscription_id="Subscription ID of Azure",
-            tenant_id="Tenant ID of the Azure")
-        foo_azure_integrations = newrelic.cloud.AzureIntegrations("fooAzureIntegrations",
-            linked_account_id=foo_azure_link_account.id,
-            account_id="The New Relic account ID",
-            api_management=newrelic.cloud.AzureIntegrationsApiManagementArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            app_gateway=newrelic.cloud.AzureIntegrationsAppGatewayArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            app_service=newrelic.cloud.AzureIntegrationsAppServiceArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            containers=newrelic.cloud.AzureIntegrationsContainersArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            cosmos_db=newrelic.cloud.AzureIntegrationsCosmosDbArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            cost_management=newrelic.cloud.AzureIntegrationsCostManagementArgs(
-                metrics_polling_interval=3600,
-                tag_keys=["tag_keys"],
-            ),
-            data_factory=newrelic.cloud.AzureIntegrationsDataFactoryArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            event_hub=newrelic.cloud.AzureIntegrationsEventHubArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            express_route=newrelic.cloud.AzureIntegrationsExpressRouteArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            firewalls=newrelic.cloud.AzureIntegrationsFirewallsArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            front_door=newrelic.cloud.AzureIntegrationsFrontDoorArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            functions=newrelic.cloud.AzureIntegrationsFunctionsArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            key_vault=newrelic.cloud.AzureIntegrationsKeyVaultArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            load_balancer=newrelic.cloud.AzureIntegrationsLoadBalancerArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            logic_apps=newrelic.cloud.AzureIntegrationsLogicAppsArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            machine_learning=newrelic.cloud.AzureIntegrationsMachineLearningArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            maria_db=newrelic.cloud.AzureIntegrationsMariaDbArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            monitor=newrelic.cloud.AzureIntegrationsMonitorArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-                include_tags=["env:production"],
-                exclude_tags=[
-                    "env:staging",
-                    "env:testing",
-                ],
-                enabled=True,
-                resource_types=["microsoft.datashare/accounts"],
-            ),
-            mysql=newrelic.cloud.AzureIntegrationsMysqlArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            mysql_flexible=newrelic.cloud.AzureIntegrationsMysqlFlexibleArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            postgresql=newrelic.cloud.AzureIntegrationsPostgresqlArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            postgresql_flexible=newrelic.cloud.AzureIntegrationsPostgresqlFlexibleArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            power_bi_dedicated=newrelic.cloud.AzureIntegrationsPowerBiDedicatedArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            redis_cache=newrelic.cloud.AzureIntegrationsRedisCacheArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            service_bus=newrelic.cloud.AzureIntegrationsServiceBusArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            sql=newrelic.cloud.AzureIntegrationsSqlArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            sql_managed=newrelic.cloud.AzureIntegrationsSqlManagedArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            storage=newrelic.cloud.AzureIntegrationsStorageArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            virtual_machine=newrelic.cloud.AzureIntegrationsVirtualMachineArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            virtual_networks=newrelic.cloud.AzureIntegrationsVirtualNetworksArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            vms=newrelic.cloud.AzureIntegrationsVmsArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            vpn_gateway=newrelic.cloud.AzureIntegrationsVpnGatewayArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ))
-        ```
-
         ## Import
 
         Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic. bash
@@ -1552,160 +1504,6 @@ class AzureIntegrations(pulumi.CustomResource):
         Setup is required for this resource to work properly. This resource assumes you have linked an Azure account to New Relic.
 
         You can find instructions on how to set up Azure on [our documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/activate-azure-integrations/).
-
-        ## Example Usage
-
-        Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo_azure_link_account = newrelic.cloud.AzureLinkAccount("fooAzureLinkAccount",
-            account_id="The New Relic account ID where you want to link the Azure account",
-            application_id="ID of the application",
-            client_secret="Secret value of client's Azure account",
-            subscription_id="Subscription ID of Azure",
-            tenant_id="Tenant ID of the Azure")
-        foo_azure_integrations = newrelic.cloud.AzureIntegrations("fooAzureIntegrations",
-            linked_account_id=foo_azure_link_account.id,
-            account_id="The New Relic account ID",
-            api_management=newrelic.cloud.AzureIntegrationsApiManagementArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            app_gateway=newrelic.cloud.AzureIntegrationsAppGatewayArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            app_service=newrelic.cloud.AzureIntegrationsAppServiceArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            containers=newrelic.cloud.AzureIntegrationsContainersArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            cosmos_db=newrelic.cloud.AzureIntegrationsCosmosDbArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            cost_management=newrelic.cloud.AzureIntegrationsCostManagementArgs(
-                metrics_polling_interval=3600,
-                tag_keys=["tag_keys"],
-            ),
-            data_factory=newrelic.cloud.AzureIntegrationsDataFactoryArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            event_hub=newrelic.cloud.AzureIntegrationsEventHubArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            express_route=newrelic.cloud.AzureIntegrationsExpressRouteArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            firewalls=newrelic.cloud.AzureIntegrationsFirewallsArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            front_door=newrelic.cloud.AzureIntegrationsFrontDoorArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            functions=newrelic.cloud.AzureIntegrationsFunctionsArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            key_vault=newrelic.cloud.AzureIntegrationsKeyVaultArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            load_balancer=newrelic.cloud.AzureIntegrationsLoadBalancerArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            logic_apps=newrelic.cloud.AzureIntegrationsLogicAppsArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            machine_learning=newrelic.cloud.AzureIntegrationsMachineLearningArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            maria_db=newrelic.cloud.AzureIntegrationsMariaDbArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            monitor=newrelic.cloud.AzureIntegrationsMonitorArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-                include_tags=["env:production"],
-                exclude_tags=[
-                    "env:staging",
-                    "env:testing",
-                ],
-                enabled=True,
-                resource_types=["microsoft.datashare/accounts"],
-            ),
-            mysql=newrelic.cloud.AzureIntegrationsMysqlArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            mysql_flexible=newrelic.cloud.AzureIntegrationsMysqlFlexibleArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            postgresql=newrelic.cloud.AzureIntegrationsPostgresqlArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            postgresql_flexible=newrelic.cloud.AzureIntegrationsPostgresqlFlexibleArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            power_bi_dedicated=newrelic.cloud.AzureIntegrationsPowerBiDedicatedArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            redis_cache=newrelic.cloud.AzureIntegrationsRedisCacheArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            service_bus=newrelic.cloud.AzureIntegrationsServiceBusArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            sql=newrelic.cloud.AzureIntegrationsSqlArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            sql_managed=newrelic.cloud.AzureIntegrationsSqlManagedArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            storage=newrelic.cloud.AzureIntegrationsStorageArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            virtual_machine=newrelic.cloud.AzureIntegrationsVirtualMachineArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            virtual_networks=newrelic.cloud.AzureIntegrationsVirtualNetworksArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            vms=newrelic.cloud.AzureIntegrationsVmsArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ),
-            vpn_gateway=newrelic.cloud.AzureIntegrationsVpnGatewayArgs(
-                metrics_polling_interval=1200,
-                resource_groups=["resource_groups"],
-            ))
-        ```
 
         ## Import
 
@@ -1778,200 +1576,72 @@ class AzureIntegrations(pulumi.CustomResource):
             __props__ = AzureIntegrationsArgs.__new__(AzureIntegrationsArgs)
 
             __props__.__dict__["account_id"] = account_id
-            if api_management is not None and not isinstance(api_management, AzureIntegrationsApiManagementArgs):
-                api_management = api_management or {}
-                def _setter(key, value):
-                    api_management[key] = value
-                AzureIntegrationsApiManagementArgs._configure(_setter, **api_management)
+            api_management = _utilities.configure(api_management, AzureIntegrationsApiManagementArgs, True)
             __props__.__dict__["api_management"] = api_management
-            if app_gateway is not None and not isinstance(app_gateway, AzureIntegrationsAppGatewayArgs):
-                app_gateway = app_gateway or {}
-                def _setter(key, value):
-                    app_gateway[key] = value
-                AzureIntegrationsAppGatewayArgs._configure(_setter, **app_gateway)
+            app_gateway = _utilities.configure(app_gateway, AzureIntegrationsAppGatewayArgs, True)
             __props__.__dict__["app_gateway"] = app_gateway
-            if app_service is not None and not isinstance(app_service, AzureIntegrationsAppServiceArgs):
-                app_service = app_service or {}
-                def _setter(key, value):
-                    app_service[key] = value
-                AzureIntegrationsAppServiceArgs._configure(_setter, **app_service)
+            app_service = _utilities.configure(app_service, AzureIntegrationsAppServiceArgs, True)
             __props__.__dict__["app_service"] = app_service
-            if containers is not None and not isinstance(containers, AzureIntegrationsContainersArgs):
-                containers = containers or {}
-                def _setter(key, value):
-                    containers[key] = value
-                AzureIntegrationsContainersArgs._configure(_setter, **containers)
+            containers = _utilities.configure(containers, AzureIntegrationsContainersArgs, True)
             __props__.__dict__["containers"] = containers
-            if cosmos_db is not None and not isinstance(cosmos_db, AzureIntegrationsCosmosDbArgs):
-                cosmos_db = cosmos_db or {}
-                def _setter(key, value):
-                    cosmos_db[key] = value
-                AzureIntegrationsCosmosDbArgs._configure(_setter, **cosmos_db)
+            cosmos_db = _utilities.configure(cosmos_db, AzureIntegrationsCosmosDbArgs, True)
             __props__.__dict__["cosmos_db"] = cosmos_db
-            if cost_management is not None and not isinstance(cost_management, AzureIntegrationsCostManagementArgs):
-                cost_management = cost_management or {}
-                def _setter(key, value):
-                    cost_management[key] = value
-                AzureIntegrationsCostManagementArgs._configure(_setter, **cost_management)
+            cost_management = _utilities.configure(cost_management, AzureIntegrationsCostManagementArgs, True)
             __props__.__dict__["cost_management"] = cost_management
-            if data_factory is not None and not isinstance(data_factory, AzureIntegrationsDataFactoryArgs):
-                data_factory = data_factory or {}
-                def _setter(key, value):
-                    data_factory[key] = value
-                AzureIntegrationsDataFactoryArgs._configure(_setter, **data_factory)
+            data_factory = _utilities.configure(data_factory, AzureIntegrationsDataFactoryArgs, True)
             __props__.__dict__["data_factory"] = data_factory
-            if event_hub is not None and not isinstance(event_hub, AzureIntegrationsEventHubArgs):
-                event_hub = event_hub or {}
-                def _setter(key, value):
-                    event_hub[key] = value
-                AzureIntegrationsEventHubArgs._configure(_setter, **event_hub)
+            event_hub = _utilities.configure(event_hub, AzureIntegrationsEventHubArgs, True)
             __props__.__dict__["event_hub"] = event_hub
-            if express_route is not None and not isinstance(express_route, AzureIntegrationsExpressRouteArgs):
-                express_route = express_route or {}
-                def _setter(key, value):
-                    express_route[key] = value
-                AzureIntegrationsExpressRouteArgs._configure(_setter, **express_route)
+            express_route = _utilities.configure(express_route, AzureIntegrationsExpressRouteArgs, True)
             __props__.__dict__["express_route"] = express_route
-            if firewalls is not None and not isinstance(firewalls, AzureIntegrationsFirewallsArgs):
-                firewalls = firewalls or {}
-                def _setter(key, value):
-                    firewalls[key] = value
-                AzureIntegrationsFirewallsArgs._configure(_setter, **firewalls)
+            firewalls = _utilities.configure(firewalls, AzureIntegrationsFirewallsArgs, True)
             __props__.__dict__["firewalls"] = firewalls
-            if front_door is not None and not isinstance(front_door, AzureIntegrationsFrontDoorArgs):
-                front_door = front_door or {}
-                def _setter(key, value):
-                    front_door[key] = value
-                AzureIntegrationsFrontDoorArgs._configure(_setter, **front_door)
+            front_door = _utilities.configure(front_door, AzureIntegrationsFrontDoorArgs, True)
             __props__.__dict__["front_door"] = front_door
-            if functions is not None and not isinstance(functions, AzureIntegrationsFunctionsArgs):
-                functions = functions or {}
-                def _setter(key, value):
-                    functions[key] = value
-                AzureIntegrationsFunctionsArgs._configure(_setter, **functions)
+            functions = _utilities.configure(functions, AzureIntegrationsFunctionsArgs, True)
             __props__.__dict__["functions"] = functions
-            if key_vault is not None and not isinstance(key_vault, AzureIntegrationsKeyVaultArgs):
-                key_vault = key_vault or {}
-                def _setter(key, value):
-                    key_vault[key] = value
-                AzureIntegrationsKeyVaultArgs._configure(_setter, **key_vault)
+            key_vault = _utilities.configure(key_vault, AzureIntegrationsKeyVaultArgs, True)
             __props__.__dict__["key_vault"] = key_vault
             if linked_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_account_id'")
             __props__.__dict__["linked_account_id"] = linked_account_id
-            if load_balancer is not None and not isinstance(load_balancer, AzureIntegrationsLoadBalancerArgs):
-                load_balancer = load_balancer or {}
-                def _setter(key, value):
-                    load_balancer[key] = value
-                AzureIntegrationsLoadBalancerArgs._configure(_setter, **load_balancer)
+            load_balancer = _utilities.configure(load_balancer, AzureIntegrationsLoadBalancerArgs, True)
             __props__.__dict__["load_balancer"] = load_balancer
-            if logic_apps is not None and not isinstance(logic_apps, AzureIntegrationsLogicAppsArgs):
-                logic_apps = logic_apps or {}
-                def _setter(key, value):
-                    logic_apps[key] = value
-                AzureIntegrationsLogicAppsArgs._configure(_setter, **logic_apps)
+            logic_apps = _utilities.configure(logic_apps, AzureIntegrationsLogicAppsArgs, True)
             __props__.__dict__["logic_apps"] = logic_apps
-            if machine_learning is not None and not isinstance(machine_learning, AzureIntegrationsMachineLearningArgs):
-                machine_learning = machine_learning or {}
-                def _setter(key, value):
-                    machine_learning[key] = value
-                AzureIntegrationsMachineLearningArgs._configure(_setter, **machine_learning)
+            machine_learning = _utilities.configure(machine_learning, AzureIntegrationsMachineLearningArgs, True)
             __props__.__dict__["machine_learning"] = machine_learning
-            if maria_db is not None and not isinstance(maria_db, AzureIntegrationsMariaDbArgs):
-                maria_db = maria_db or {}
-                def _setter(key, value):
-                    maria_db[key] = value
-                AzureIntegrationsMariaDbArgs._configure(_setter, **maria_db)
+            maria_db = _utilities.configure(maria_db, AzureIntegrationsMariaDbArgs, True)
             __props__.__dict__["maria_db"] = maria_db
-            if monitor is not None and not isinstance(monitor, AzureIntegrationsMonitorArgs):
-                monitor = monitor or {}
-                def _setter(key, value):
-                    monitor[key] = value
-                AzureIntegrationsMonitorArgs._configure(_setter, **monitor)
+            monitor = _utilities.configure(monitor, AzureIntegrationsMonitorArgs, True)
             __props__.__dict__["monitor"] = monitor
-            if mysql is not None and not isinstance(mysql, AzureIntegrationsMysqlArgs):
-                mysql = mysql or {}
-                def _setter(key, value):
-                    mysql[key] = value
-                AzureIntegrationsMysqlArgs._configure(_setter, **mysql)
+            mysql = _utilities.configure(mysql, AzureIntegrationsMysqlArgs, True)
             __props__.__dict__["mysql"] = mysql
-            if mysql_flexible is not None and not isinstance(mysql_flexible, AzureIntegrationsMysqlFlexibleArgs):
-                mysql_flexible = mysql_flexible or {}
-                def _setter(key, value):
-                    mysql_flexible[key] = value
-                AzureIntegrationsMysqlFlexibleArgs._configure(_setter, **mysql_flexible)
+            mysql_flexible = _utilities.configure(mysql_flexible, AzureIntegrationsMysqlFlexibleArgs, True)
             __props__.__dict__["mysql_flexible"] = mysql_flexible
-            if postgresql is not None and not isinstance(postgresql, AzureIntegrationsPostgresqlArgs):
-                postgresql = postgresql or {}
-                def _setter(key, value):
-                    postgresql[key] = value
-                AzureIntegrationsPostgresqlArgs._configure(_setter, **postgresql)
+            postgresql = _utilities.configure(postgresql, AzureIntegrationsPostgresqlArgs, True)
             __props__.__dict__["postgresql"] = postgresql
-            if postgresql_flexible is not None and not isinstance(postgresql_flexible, AzureIntegrationsPostgresqlFlexibleArgs):
-                postgresql_flexible = postgresql_flexible or {}
-                def _setter(key, value):
-                    postgresql_flexible[key] = value
-                AzureIntegrationsPostgresqlFlexibleArgs._configure(_setter, **postgresql_flexible)
+            postgresql_flexible = _utilities.configure(postgresql_flexible, AzureIntegrationsPostgresqlFlexibleArgs, True)
             __props__.__dict__["postgresql_flexible"] = postgresql_flexible
-            if power_bi_dedicated is not None and not isinstance(power_bi_dedicated, AzureIntegrationsPowerBiDedicatedArgs):
-                power_bi_dedicated = power_bi_dedicated or {}
-                def _setter(key, value):
-                    power_bi_dedicated[key] = value
-                AzureIntegrationsPowerBiDedicatedArgs._configure(_setter, **power_bi_dedicated)
+            power_bi_dedicated = _utilities.configure(power_bi_dedicated, AzureIntegrationsPowerBiDedicatedArgs, True)
             __props__.__dict__["power_bi_dedicated"] = power_bi_dedicated
-            if redis_cache is not None and not isinstance(redis_cache, AzureIntegrationsRedisCacheArgs):
-                redis_cache = redis_cache or {}
-                def _setter(key, value):
-                    redis_cache[key] = value
-                AzureIntegrationsRedisCacheArgs._configure(_setter, **redis_cache)
+            redis_cache = _utilities.configure(redis_cache, AzureIntegrationsRedisCacheArgs, True)
             __props__.__dict__["redis_cache"] = redis_cache
-            if service_bus is not None and not isinstance(service_bus, AzureIntegrationsServiceBusArgs):
-                service_bus = service_bus or {}
-                def _setter(key, value):
-                    service_bus[key] = value
-                AzureIntegrationsServiceBusArgs._configure(_setter, **service_bus)
+            service_bus = _utilities.configure(service_bus, AzureIntegrationsServiceBusArgs, True)
             __props__.__dict__["service_bus"] = service_bus
-            if sql is not None and not isinstance(sql, AzureIntegrationsSqlArgs):
-                sql = sql or {}
-                def _setter(key, value):
-                    sql[key] = value
-                AzureIntegrationsSqlArgs._configure(_setter, **sql)
+            sql = _utilities.configure(sql, AzureIntegrationsSqlArgs, True)
             __props__.__dict__["sql"] = sql
-            if sql_managed is not None and not isinstance(sql_managed, AzureIntegrationsSqlManagedArgs):
-                sql_managed = sql_managed or {}
-                def _setter(key, value):
-                    sql_managed[key] = value
-                AzureIntegrationsSqlManagedArgs._configure(_setter, **sql_managed)
+            sql_managed = _utilities.configure(sql_managed, AzureIntegrationsSqlManagedArgs, True)
             __props__.__dict__["sql_managed"] = sql_managed
-            if storage is not None and not isinstance(storage, AzureIntegrationsStorageArgs):
-                storage = storage or {}
-                def _setter(key, value):
-                    storage[key] = value
-                AzureIntegrationsStorageArgs._configure(_setter, **storage)
+            storage = _utilities.configure(storage, AzureIntegrationsStorageArgs, True)
             __props__.__dict__["storage"] = storage
-            if virtual_machine is not None and not isinstance(virtual_machine, AzureIntegrationsVirtualMachineArgs):
-                virtual_machine = virtual_machine or {}
-                def _setter(key, value):
-                    virtual_machine[key] = value
-                AzureIntegrationsVirtualMachineArgs._configure(_setter, **virtual_machine)
+            virtual_machine = _utilities.configure(virtual_machine, AzureIntegrationsVirtualMachineArgs, True)
             __props__.__dict__["virtual_machine"] = virtual_machine
-            if virtual_networks is not None and not isinstance(virtual_networks, AzureIntegrationsVirtualNetworksArgs):
-                virtual_networks = virtual_networks or {}
-                def _setter(key, value):
-                    virtual_networks[key] = value
-                AzureIntegrationsVirtualNetworksArgs._configure(_setter, **virtual_networks)
+            virtual_networks = _utilities.configure(virtual_networks, AzureIntegrationsVirtualNetworksArgs, True)
             __props__.__dict__["virtual_networks"] = virtual_networks
-            if vms is not None and not isinstance(vms, AzureIntegrationsVmsArgs):
-                vms = vms or {}
-                def _setter(key, value):
-                    vms[key] = value
-                AzureIntegrationsVmsArgs._configure(_setter, **vms)
+            vms = _utilities.configure(vms, AzureIntegrationsVmsArgs, True)
             __props__.__dict__["vms"] = vms
-            if vpn_gateway is not None and not isinstance(vpn_gateway, AzureIntegrationsVpnGatewayArgs):
-                vpn_gateway = vpn_gateway or {}
-                def _setter(key, value):
-                    vpn_gateway[key] = value
-                AzureIntegrationsVpnGatewayArgs._configure(_setter, **vpn_gateway)
+            vpn_gateway = _utilities.configure(vpn_gateway, AzureIntegrationsVpnGatewayArgs, True)
             __props__.__dict__["vpn_gateway"] = vpn_gateway
         super(AzureIntegrations, __self__).__init__(
             'newrelic:cloud/azureIntegrations:AzureIntegrations',

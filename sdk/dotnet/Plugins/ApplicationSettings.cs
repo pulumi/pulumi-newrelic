@@ -16,25 +16,6 @@ namespace Pulumi.NewRelic.Plugins
     /// Use this resource to manage configuration for an application that already
     /// exists in New Relic.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var app = new NewRelic.Plugins.ApplicationSettings("app", new()
-    ///     {
-    ///         AppApdexThreshold = 0.7,
-    ///         EnableRealUserMonitoring = false,
-    ///         EndUserApdexThreshold = 0.8,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Notes
     /// 
     /// &gt; **NOTE:** Applications that have reported data in the last twelve hours
@@ -59,16 +40,6 @@ namespace Pulumi.NewRelic.Plugins
 
         /// <summary>
         /// Enable or disable real user monitoring for the New Relic application.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Output("enableRealUserMonitoring")]
         public Output<bool> EnableRealUserMonitoring { get; private set; } = null!;
@@ -139,16 +110,6 @@ namespace Pulumi.NewRelic.Plugins
 
         /// <summary>
         /// Enable or disable real user monitoring for the New Relic application.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Input("enableRealUserMonitoring", required: true)]
         public Input<bool> EnableRealUserMonitoring { get; set; } = null!;
@@ -181,16 +142,6 @@ namespace Pulumi.NewRelic.Plugins
 
         /// <summary>
         /// Enable or disable real user monitoring for the New Relic application.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Input("enableRealUserMonitoring")]
         public Input<bool>? EnableRealUserMonitoring { get; set; }

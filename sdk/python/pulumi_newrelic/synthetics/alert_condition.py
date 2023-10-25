@@ -24,10 +24,6 @@ class AlertConditionArgs:
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[str] name: The title of this condition.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         """
@@ -42,12 +38,24 @@ class AlertConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             monitor_id: pulumi.Input[str],
-             policy_id: pulumi.Input[int],
+             monitor_id: Optional[pulumi.Input[str]] = None,
+             policy_id: Optional[pulumi.Input[int]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              runbook_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if monitor_id is None and 'monitorId' in kwargs:
+            monitor_id = kwargs['monitorId']
+        if monitor_id is None:
+            raise TypeError("Missing 'monitor_id' argument")
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
+        if runbook_url is None and 'runbookUrl' in kwargs:
+            runbook_url = kwargs['runbookUrl']
+
         _setter("monitor_id", monitor_id)
         _setter("policy_id", policy_id)
         if enabled is not None:
@@ -86,10 +94,6 @@ class AlertConditionArgs:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Set whether to enable the alert condition. Defaults to `true`.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "enabled")
 
@@ -134,10 +138,6 @@ class _AlertConditionState:
         """
         Input properties used for looking up and filtering AlertCondition resources.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
@@ -162,7 +162,17 @@ class _AlertConditionState:
              name: Optional[pulumi.Input[str]] = None,
              policy_id: Optional[pulumi.Input[int]] = None,
              runbook_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if entity_guid is None and 'entityGuid' in kwargs:
+            entity_guid = kwargs['entityGuid']
+        if monitor_id is None and 'monitorId' in kwargs:
+            monitor_id = kwargs['monitorId']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if runbook_url is None and 'runbookUrl' in kwargs:
+            runbook_url = kwargs['runbookUrl']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if entity_guid is not None:
@@ -181,10 +191,6 @@ class _AlertConditionState:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Set whether to enable the alert condition. Defaults to `true`.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "enabled")
 
@@ -269,65 +275,6 @@ class AlertCondition(pulumi.CustomResource):
 
         > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.synthetics.AlertCondition("foo",
-            policy_id=newrelic_alert_policy["foo"]["id"],
-            monitor_id=newrelic_synthetics_monitor["foo"]["id"],
-            runbook_url="https://www.example.com")
-        ```
-        ## Tags
-
-        Manage synthetics alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_monitor = newrelic.synthetics.Monitor("fooMonitor",
-            status="ENABLED",
-            period="EVERY_MINUTE",
-            uri="https://www.one.newrelic.com",
-            type="SIMPLE",
-            locations_publics=["AP_EAST_1"],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
-            treat_redirect_as_failure=True,
-            validation_string="success",
-            bypass_head_request=True,
-            verify_ssl=True,
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        foo_alert_condition = newrelic.synthetics.AlertCondition("fooAlertCondition",
-            policy_id=foo_alert_policy.id,
-            monitor_id=foo_monitor.id,
-            runbook_url="https://www.example.com")
-        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
-            guid=foo_alert_condition.entity_guid,
-            tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="my-key",
-                    values=[
-                        "my-value",
-                        "my-other-value",
-                    ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="my-key-2",
-                    values=["my-value-2"],
-                ),
-            ])
-        ```
-
         ## Import
 
         Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
@@ -339,10 +286,6 @@ class AlertCondition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
@@ -358,65 +301,6 @@ class AlertCondition(pulumi.CustomResource):
         Use this resource to create and manage synthetics alert conditions in New Relic.
 
         > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.synthetics.AlertCondition("foo",
-            policy_id=newrelic_alert_policy["foo"]["id"],
-            monitor_id=newrelic_synthetics_monitor["foo"]["id"],
-            runbook_url="https://www.example.com")
-        ```
-        ## Tags
-
-        Manage synthetics alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_monitor = newrelic.synthetics.Monitor("fooMonitor",
-            status="ENABLED",
-            period="EVERY_MINUTE",
-            uri="https://www.one.newrelic.com",
-            type="SIMPLE",
-            locations_publics=["AP_EAST_1"],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
-            treat_redirect_as_failure=True,
-            validation_string="success",
-            bypass_head_request=True,
-            verify_ssl=True,
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
-        foo_alert_condition = newrelic.synthetics.AlertCondition("fooAlertCondition",
-            policy_id=foo_alert_policy.id,
-            monitor_id=foo_monitor.id,
-            runbook_url="https://www.example.com")
-        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
-            guid=foo_alert_condition.entity_guid,
-            tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="my-key",
-                    values=[
-                        "my-value",
-                        "my-other-value",
-                    ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="my-key-2",
-                    values=["my-value-2"],
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -493,10 +377,6 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
@@ -520,10 +400,6 @@ class AlertCondition(pulumi.CustomResource):
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Set whether to enable the alert condition. Defaults to `true`.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "enabled")
 

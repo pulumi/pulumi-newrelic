@@ -102,8 +102,8 @@ class NrqlAlertConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             nrql: pulumi.Input['NrqlAlertConditionNrqlArgs'],
-             policy_id: pulumi.Input[int],
+             nrql: Optional[pulumi.Input['NrqlAlertConditionNrqlArgs']] = None,
+             policy_id: Optional[pulumi.Input[int]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
              aggregation_delay: Optional[pulumi.Input[str]] = None,
              aggregation_method: Optional[pulumi.Input[str]] = None,
@@ -127,7 +127,47 @@ class NrqlAlertConditionArgs:
              violation_time_limit: Optional[pulumi.Input[str]] = None,
              violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
              warning: Optional[pulumi.Input['NrqlAlertConditionWarningArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if nrql is None:
+            raise TypeError("Missing 'nrql' argument")
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if aggregation_delay is None and 'aggregationDelay' in kwargs:
+            aggregation_delay = kwargs['aggregationDelay']
+        if aggregation_method is None and 'aggregationMethod' in kwargs:
+            aggregation_method = kwargs['aggregationMethod']
+        if aggregation_timer is None and 'aggregationTimer' in kwargs:
+            aggregation_timer = kwargs['aggregationTimer']
+        if aggregation_window is None and 'aggregationWindow' in kwargs:
+            aggregation_window = kwargs['aggregationWindow']
+        if baseline_direction is None and 'baselineDirection' in kwargs:
+            baseline_direction = kwargs['baselineDirection']
+        if close_violations_on_expiration is None and 'closeViolationsOnExpiration' in kwargs:
+            close_violations_on_expiration = kwargs['closeViolationsOnExpiration']
+        if evaluation_delay is None and 'evaluationDelay' in kwargs:
+            evaluation_delay = kwargs['evaluationDelay']
+        if expiration_duration is None and 'expirationDuration' in kwargs:
+            expiration_duration = kwargs['expirationDuration']
+        if fill_option is None and 'fillOption' in kwargs:
+            fill_option = kwargs['fillOption']
+        if fill_value is None and 'fillValue' in kwargs:
+            fill_value = kwargs['fillValue']
+        if open_violation_on_expiration is None and 'openViolationOnExpiration' in kwargs:
+            open_violation_on_expiration = kwargs['openViolationOnExpiration']
+        if runbook_url is None and 'runbookUrl' in kwargs:
+            runbook_url = kwargs['runbookUrl']
+        if slide_by is None and 'slideBy' in kwargs:
+            slide_by = kwargs['slideBy']
+        if violation_time_limit is None and 'violationTimeLimit' in kwargs:
+            violation_time_limit = kwargs['violationTimeLimit']
+        if violation_time_limit_seconds is None and 'violationTimeLimitSeconds' in kwargs:
+            violation_time_limit_seconds = kwargs['violationTimeLimitSeconds']
+
         _setter("nrql", nrql)
         _setter("policy_id", policy_id)
         if account_id is not None:
@@ -610,7 +650,45 @@ class _NrqlAlertConditionState:
              violation_time_limit: Optional[pulumi.Input[str]] = None,
              violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
              warning: Optional[pulumi.Input['NrqlAlertConditionWarningArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if aggregation_delay is None and 'aggregationDelay' in kwargs:
+            aggregation_delay = kwargs['aggregationDelay']
+        if aggregation_method is None and 'aggregationMethod' in kwargs:
+            aggregation_method = kwargs['aggregationMethod']
+        if aggregation_timer is None and 'aggregationTimer' in kwargs:
+            aggregation_timer = kwargs['aggregationTimer']
+        if aggregation_window is None and 'aggregationWindow' in kwargs:
+            aggregation_window = kwargs['aggregationWindow']
+        if baseline_direction is None and 'baselineDirection' in kwargs:
+            baseline_direction = kwargs['baselineDirection']
+        if close_violations_on_expiration is None and 'closeViolationsOnExpiration' in kwargs:
+            close_violations_on_expiration = kwargs['closeViolationsOnExpiration']
+        if entity_guid is None and 'entityGuid' in kwargs:
+            entity_guid = kwargs['entityGuid']
+        if evaluation_delay is None and 'evaluationDelay' in kwargs:
+            evaluation_delay = kwargs['evaluationDelay']
+        if expiration_duration is None and 'expirationDuration' in kwargs:
+            expiration_duration = kwargs['expirationDuration']
+        if fill_option is None and 'fillOption' in kwargs:
+            fill_option = kwargs['fillOption']
+        if fill_value is None and 'fillValue' in kwargs:
+            fill_value = kwargs['fillValue']
+        if open_violation_on_expiration is None and 'openViolationOnExpiration' in kwargs:
+            open_violation_on_expiration = kwargs['openViolationOnExpiration']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if runbook_url is None and 'runbookUrl' in kwargs:
+            runbook_url = kwargs['runbookUrl']
+        if slide_by is None and 'slideBy' in kwargs:
+            slide_by = kwargs['slideBy']
+        if violation_time_limit is None and 'violationTimeLimit' in kwargs:
+            violation_time_limit = kwargs['violationTimeLimit']
+        if violation_time_limit_seconds is None and 'violationTimeLimitSeconds' in kwargs:
+            violation_time_limit_seconds = kwargs['violationTimeLimitSeconds']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if aggregation_delay is not None:
@@ -1058,106 +1136,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         > **NOTE:** When a `critical` or `warning` block is added to this resource, using either `time_function` or `threshold_occurrences` (one of the two) is mandatory. Both of these should not be specified.
 
-        ## Additional Examples
-
-        ##### Type: `baseline`
-
-        [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_index_alert_policy_alert_policy = newrelic.AlertPolicy("fooIndex/alertPolicyAlertPolicy")
-        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
-            account_id="your_account_id",
-            policy_id=foo_alert_policy.id,
-            type="static",
-            description="Alert when transactions are taking too long",
-            runbook_url="https://www.example.com",
-            enabled=True,
-            violation_time_limit_seconds=3600,
-            fill_option="static",
-            fill_value=1,
-            aggregation_window=60,
-            aggregation_method="event_flow",
-            aggregation_delay="120",
-            expiration_duration=120,
-            open_violation_on_expiration=True,
-            close_violations_on_expiration=True,
-            slide_by=30,
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT average(duration) FROM Transaction where appName = 'Your App'",
-            ),
-            critical=newrelic.NrqlAlertConditionCriticalArgs(
-                operator="above",
-                threshold=5.5,
-                threshold_duration=300,
-                threshold_occurrences="ALL",
-            ),
-            warning=newrelic.NrqlAlertConditionWarningArgs(
-                operator="above",
-                threshold=3.5,
-                threshold_duration=600,
-                threshold_occurrences="ALL",
-            ))
-        ```
-
-        ## Upgrade from 1.x to 2.x
-
-        There have been several deprecations in the `NrqlAlertCondition`
-        resource. Users will need to make some updates in order to have a smooth
-        upgrade.
-
-        An example resource from 1.x might look like the following.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
-            policy_id=newrelic_alert_policy["z"]["id"],
-            type="static",
-            runbook_url="https://localhost",
-            enabled=True,
-            violation_time_limit="TWENTY_FOUR_HOURS",
-            critical=newrelic.NrqlAlertConditionCriticalArgs(
-                operator="above",
-                threshold_duration=120,
-                threshold=3,
-                threshold_occurrences="AT_LEAST_ONCE",
-            ),
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
-            ))
-        ```
-
-        After making the appropriate adjustments mentioned in the deprecation warnings,
-        the resource now looks like the following.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
-            policy_id=newrelic_alert_policy["z"]["id"],
-            type="static",
-            runbook_url="https://localhost",
-            enabled=True,
-            violation_time_limit_seconds=86400,
-            terms=[newrelic.NrqlAlertConditionTermArgs(
-                priority="critical",
-                operator="above",
-                threshold=3,
-                duration=5,
-                time_function="any",
-            )],
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
-            ))
-        ```
-
         ## Import
 
         NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
@@ -1244,106 +1222,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         > **NOTE:** When a `critical` or `warning` block is added to this resource, using either `time_function` or `threshold_occurrences` (one of the two) is mandatory. Both of these should not be specified.
 
-        ## Additional Examples
-
-        ##### Type: `baseline`
-
-        [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_index_alert_policy_alert_policy = newrelic.AlertPolicy("fooIndex/alertPolicyAlertPolicy")
-        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
-            account_id="your_account_id",
-            policy_id=foo_alert_policy.id,
-            type="static",
-            description="Alert when transactions are taking too long",
-            runbook_url="https://www.example.com",
-            enabled=True,
-            violation_time_limit_seconds=3600,
-            fill_option="static",
-            fill_value=1,
-            aggregation_window=60,
-            aggregation_method="event_flow",
-            aggregation_delay="120",
-            expiration_duration=120,
-            open_violation_on_expiration=True,
-            close_violations_on_expiration=True,
-            slide_by=30,
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT average(duration) FROM Transaction where appName = 'Your App'",
-            ),
-            critical=newrelic.NrqlAlertConditionCriticalArgs(
-                operator="above",
-                threshold=5.5,
-                threshold_duration=300,
-                threshold_occurrences="ALL",
-            ),
-            warning=newrelic.NrqlAlertConditionWarningArgs(
-                operator="above",
-                threshold=3.5,
-                threshold_duration=600,
-                threshold_occurrences="ALL",
-            ))
-        ```
-
-        ## Upgrade from 1.x to 2.x
-
-        There have been several deprecations in the `NrqlAlertCondition`
-        resource. Users will need to make some updates in order to have a smooth
-        upgrade.
-
-        An example resource from 1.x might look like the following.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
-            policy_id=newrelic_alert_policy["z"]["id"],
-            type="static",
-            runbook_url="https://localhost",
-            enabled=True,
-            violation_time_limit="TWENTY_FOUR_HOURS",
-            critical=newrelic.NrqlAlertConditionCriticalArgs(
-                operator="above",
-                threshold_duration=120,
-                threshold=3,
-                threshold_occurrences="AT_LEAST_ONCE",
-            ),
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
-            ))
-        ```
-
-        After making the appropriate adjustments mentioned in the deprecation warnings,
-        the resource now looks like the following.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
-            policy_id=newrelic_alert_policy["z"]["id"],
-            type="static",
-            runbook_url="https://localhost",
-            enabled=True,
-            violation_time_limit_seconds=86400,
-            terms=[newrelic.NrqlAlertConditionTermArgs(
-                priority="critical",
-                operator="above",
-                threshold=3,
-                duration=5,
-                time_function="any",
-            )],
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
-            ))
-        ```
-
         ## Import
 
         NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
@@ -1418,11 +1296,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__.__dict__["aggregation_window"] = aggregation_window
             __props__.__dict__["baseline_direction"] = baseline_direction
             __props__.__dict__["close_violations_on_expiration"] = close_violations_on_expiration
-            if critical is not None and not isinstance(critical, NrqlAlertConditionCriticalArgs):
-                critical = critical or {}
-                def _setter(key, value):
-                    critical[key] = value
-                NrqlAlertConditionCriticalArgs._configure(_setter, **critical)
+            critical = _utilities.configure(critical, NrqlAlertConditionCriticalArgs, True)
             __props__.__dict__["critical"] = critical
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
@@ -1431,11 +1305,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__.__dict__["fill_option"] = fill_option
             __props__.__dict__["fill_value"] = fill_value
             __props__.__dict__["name"] = name
-            if nrql is not None and not isinstance(nrql, NrqlAlertConditionNrqlArgs):
-                nrql = nrql or {}
-                def _setter(key, value):
-                    nrql[key] = value
-                NrqlAlertConditionNrqlArgs._configure(_setter, **nrql)
+            nrql = _utilities.configure(nrql, NrqlAlertConditionNrqlArgs, True)
             if nrql is None and not opts.urn:
                 raise TypeError("Missing required property 'nrql'")
             __props__.__dict__["nrql"] = nrql
@@ -1449,11 +1319,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["violation_time_limit"] = violation_time_limit
             __props__.__dict__["violation_time_limit_seconds"] = violation_time_limit_seconds
-            if warning is not None and not isinstance(warning, NrqlAlertConditionWarningArgs):
-                warning = warning or {}
-                def _setter(key, value):
-                    warning[key] = value
-                NrqlAlertConditionWarningArgs._configure(_setter, **warning)
+            warning = _utilities.configure(warning, NrqlAlertConditionWarningArgs, True)
             __props__.__dict__["warning"] = warning
             __props__.__dict__["entity_guid"] = None
         super(NrqlAlertCondition, __self__).__init__(

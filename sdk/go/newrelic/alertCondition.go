@@ -17,59 +17,6 @@ import (
 //
 // > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
-//				Name:   "my-app",
-//				Type:   pulumi.StringRef("APPLICATION"),
-//				Domain: pulumi.StringRef("APM"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
-//				PolicyId: fooAlertPolicy.ID(),
-//				Type:     pulumi.String("apm_app_metric"),
-//				Entities: pulumi.IntArray{
-//					*pulumi.Int(app.ApplicationId),
-//				},
-//				Metric:         pulumi.String("apdex"),
-//				RunbookUrl:     pulumi.String("https://www.example.com"),
-//				ConditionScope: pulumi.String("application"),
-//				Terms: newrelic.AlertConditionTermArray{
-//					&newrelic.AlertConditionTermArgs{
-//						Duration:     pulumi.Int(5),
-//						Operator:     pulumi.String("below"),
-//						Priority:     pulumi.String("critical"),
-//						Threshold:    pulumi.Float64(0.75),
-//						TimeFunction: pulumi.String("all"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Terms
 //
 // The `term` mapping supports the following arguments:
@@ -79,81 +26,6 @@ import (
 //   - `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
 //   - `threshold` - (Required) Must be 0 or greater.
 //   - `timeFunction` - (Required) `all` or `any`.
-//
-// ## Tags
-//
-// Manage alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooEntity, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
-//				Name: "foo entitiy",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
-//			if err != nil {
-//				return err
-//			}
-//			fooAlertCondition, err := newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
-//				PolicyId: fooAlertPolicy.ID(),
-//				Type:     pulumi.String("apm_app_metric"),
-//				Entities: pulumi.IntArray{
-//					*pulumi.Int(fooEntity.ApplicationId),
-//				},
-//				Metric:         pulumi.String("apdex"),
-//				RunbookUrl:     pulumi.String("https://www.example.com"),
-//				ConditionScope: pulumi.String("application"),
-//				Terms: newrelic.AlertConditionTermArray{
-//					&newrelic.AlertConditionTermArgs{
-//						Duration:     pulumi.Int(5),
-//						Operator:     pulumi.String("below"),
-//						Priority:     pulumi.String("critical"),
-//						Threshold:    pulumi.Float64(0.75),
-//						TimeFunction: pulumi.String("all"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
-//				Guid: fooAlertCondition.EntityGuid,
-//				Tags: newrelic.EntityTagsTagArray{
-//					&newrelic.EntityTagsTagArgs{
-//						Key: pulumi.String("my-key"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("my-value"),
-//							pulumi.String("my-other-value"),
-//						},
-//					},
-//					&newrelic.EntityTagsTagArgs{
-//						Key: pulumi.String("my-key-2"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("my-value-2"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -194,20 +66,6 @@ type AlertCondition struct {
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 	//
 	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	UserDefinedValueFunction pulumi.StringPtrOutput `pulumi:"userDefinedValueFunction"`
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
 	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
@@ -287,20 +145,6 @@ type alertConditionState struct {
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 	//
 	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	UserDefinedValueFunction *string `pulumi:"userDefinedValueFunction"`
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
 	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
@@ -336,20 +180,6 @@ type AlertConditionState struct {
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 	//
 	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	UserDefinedValueFunction pulumi.StringPtrInput
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
 	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
@@ -387,20 +217,6 @@ type alertConditionArgs struct {
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 	//
 	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	UserDefinedValueFunction *string `pulumi:"userDefinedValueFunction"`
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
 	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
@@ -435,20 +251,6 @@ type AlertConditionArgs struct {
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 	//
 	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	UserDefinedValueFunction pulumi.StringPtrInput
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
 	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
@@ -630,23 +432,6 @@ func (o AlertConditionOutput) UserDefinedMetric() pulumi.StringPtrOutput {
 // One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 //
 // > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o AlertConditionOutput) UserDefinedValueFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.StringPtrOutput { return v.UserDefinedValueFunction }).(pulumi.StringPtrOutput)
 }

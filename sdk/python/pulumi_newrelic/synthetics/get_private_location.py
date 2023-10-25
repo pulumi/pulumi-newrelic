@@ -81,28 +81,6 @@ def get_private_location(account_id: Optional[int] = None,
     """
     Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    example = newrelic.synthetics.get_private_location(account_id=123456,
-        name="My private location")
-    foo = newrelic.synthetics.Monitor("foo", locations_privates=[example.id])
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    example = newrelic.synthetics.get_private_location(account_id=123456,
-        name="My private location")
-    foo = newrelic.synthetics.StepMonitor("foo", location_privates=[newrelic.synthetics.StepMonitorLocationPrivateArgs(
-        guid=example.id,
-    )])
-    ```
-
 
     :param int account_id: The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
     :param Sequence[str] keys: The key of the private location.
@@ -129,28 +107,6 @@ def get_private_location_output(account_id: Optional[pulumi.Input[Optional[int]]
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLocationResult]:
     """
     Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    example = newrelic.synthetics.get_private_location(account_id=123456,
-        name="My private location")
-    foo = newrelic.synthetics.Monitor("foo", locations_privates=[example.id])
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    example = newrelic.synthetics.get_private_location(account_id=123456,
-        name="My private location")
-    foo = newrelic.synthetics.StepMonitor("foo", location_privates=[newrelic.synthetics.StepMonitorLocationPrivateArgs(
-        guid=example.id,
-    )])
-    ```
 
 
     :param int account_id: The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.

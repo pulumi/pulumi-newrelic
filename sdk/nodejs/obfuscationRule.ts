@@ -9,28 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create, update and delete New Relic Obfuscation Rule.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const bar = new newrelic.ObfuscationExpression("bar", {
- *     description: "description of the expression",
- *     regex: "(^http)",
- * });
- * const foo = new newrelic.ObfuscationRule("foo", {
- *     description: "description of the rule",
- *     filter: "hostStatus=running",
- *     enabled: true,
- *     actions: [{
- *         attributes: ["message"],
- *         expressionId: bar.id,
- *         method: "MASK",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * New Relic obfuscation rule can be imported using the rule ID, e.g. bash

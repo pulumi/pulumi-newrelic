@@ -31,9 +31,15 @@ class EntityTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             guid: pulumi.Input[str],
-             tags: pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             guid: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if guid is None:
+            raise TypeError("Missing 'guid' argument")
+        if tags is None:
+            raise TypeError("Missing 'tags' argument")
+
         _setter("guid", guid)
         _setter("tags", tags)
 
@@ -82,7 +88,9 @@ class _EntityTagsState:
              _setter: Callable[[Any, Any], None],
              guid: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if guid is not None:
             _setter("guid", guid)
         if tags is not None:

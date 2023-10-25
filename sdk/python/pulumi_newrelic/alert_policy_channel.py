@@ -32,10 +32,22 @@ class AlertPolicyChannelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel_ids: pulumi.Input[Sequence[pulumi.Input[int]]],
-             policy_id: pulumi.Input[int],
+             channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             policy_id: Optional[pulumi.Input[int]] = None,
              account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_ids is None and 'channelIds' in kwargs:
+            channel_ids = kwargs['channelIds']
+        if channel_ids is None:
+            raise TypeError("Missing 'channel_ids' argument")
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("channel_ids", channel_ids)
         _setter("policy_id", policy_id)
         if account_id is not None:
@@ -102,7 +114,15 @@ class _AlertPolicyChannelState:
              account_id: Optional[pulumi.Input[int]] = None,
              channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              policy_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if channel_ids is None and 'channelIds' in kwargs:
+            channel_ids = kwargs['channelIds']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if channel_ids is not None:
@@ -161,39 +181,6 @@ class AlertPolicyChannel(pulumi.CustomResource):
 
         > **WARNING:** The `AlertPolicyChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `NotificationChannel`.
 
-        ## Example Usage
-
-        The example below will apply multiple alert channels to an existing New Relic alert policy.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        example_policy = newrelic.get_alert_policy(name="my-alert-policy")
-        # Creates an email alert channel.
-        email_channel = newrelic.AlertChannel("emailChannel",
-            type="email",
-            config=newrelic.AlertChannelConfigArgs(
-                recipients="foo@example.com",
-                include_json_attachment="1",
-            ))
-        # Creates a Slack alert channel.
-        slack_channel = newrelic.AlertChannel("slackChannel",
-            type="slack",
-            config=newrelic.AlertChannelConfigArgs(
-                channel="#example-channel",
-                url="http://example-org.slack.com",
-            ))
-        # Applies the created channels above to the alert policy
-        # referenced at the top of the config.
-        foo = newrelic.AlertPolicyChannel("foo",
-            policy_id=example_policy.id,
-            channel_ids=[
-                email_channel.id,
-                slack_channel.id,
-            ])
-        ```
-
         ## Import
 
         Alert policy channels can be imported using the following notation`<policyID>:<channelID>:<channelID>`, e.g.
@@ -219,39 +206,6 @@ class AlertPolicyChannel(pulumi.CustomResource):
         Use this resource to map alert policies to alert channels in New Relic.
 
         > **WARNING:** The `AlertPolicyChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `NotificationChannel`.
-
-        ## Example Usage
-
-        The example below will apply multiple alert channels to an existing New Relic alert policy.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        example_policy = newrelic.get_alert_policy(name="my-alert-policy")
-        # Creates an email alert channel.
-        email_channel = newrelic.AlertChannel("emailChannel",
-            type="email",
-            config=newrelic.AlertChannelConfigArgs(
-                recipients="foo@example.com",
-                include_json_attachment="1",
-            ))
-        # Creates a Slack alert channel.
-        slack_channel = newrelic.AlertChannel("slackChannel",
-            type="slack",
-            config=newrelic.AlertChannelConfigArgs(
-                channel="#example-channel",
-                url="http://example-org.slack.com",
-            ))
-        # Applies the created channels above to the alert policy
-        # referenced at the top of the config.
-        foo = newrelic.AlertPolicyChannel("foo",
-            policy_id=example_policy.id,
-            channel_ids=[
-                email_channel.id,
-                slack_channel.id,
-            ])
-        ```
 
         ## Import
 
