@@ -17,6 +17,162 @@ import * as utilities from "../utilities";
  *
  * You can find instructions on how to set up Azure on [our documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/activate-azure-integrations/).
  *
+ * ## Example Usage
+ *
+ * Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooAzureLinkAccount = new newrelic.cloud.AzureLinkAccount("fooAzureLinkAccount", {
+ *     accountId: "The New Relic account ID where you want to link the Azure account",
+ *     applicationId: "ID of the application",
+ *     clientSecret: "Secret value of client's Azure account",
+ *     subscriptionId: "Subscription ID of Azure",
+ *     tenantId: "Tenant ID of the Azure",
+ * });
+ * const fooAzureIntegrations = new newrelic.cloud.AzureIntegrations("fooAzureIntegrations", {
+ *     linkedAccountId: fooAzureLinkAccount.id,
+ *     accountId: "The New Relic account ID",
+ *     apiManagement: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     appGateway: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     appService: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     containers: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     cosmosDb: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     costManagement: {
+ *         metricsPollingInterval: 3600,
+ *         tagKeys: ["tag_keys"],
+ *     },
+ *     dataFactory: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     eventHub: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     expressRoute: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     firewalls: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     frontDoor: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     functions: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     keyVault: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     loadBalancer: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     logicApps: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     machineLearning: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     mariaDb: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     monitor: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *         includeTags: ["env:production"],
+ *         excludeTags: [
+ *             "env:staging",
+ *             "env:testing",
+ *         ],
+ *         enabled: true,
+ *         resourceTypes: ["microsoft.datashare/accounts"],
+ *     },
+ *     mysql: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     mysqlFlexible: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     postgresql: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     postgresqlFlexible: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     powerBiDedicated: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     redisCache: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     serviceBus: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     sql: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     sqlManaged: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     storage: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     virtualMachine: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     virtualNetworks: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     vms: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ *     vpnGateway: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic. bash

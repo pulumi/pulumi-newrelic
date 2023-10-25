@@ -12,6 +12,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.GetTestGrokPattern(ctx, &newrelic.GetTestGrokPatternArgs{
+//				Grok: "%%{IP:host_ip}",
+//				LogLines: []string{
+//					"host_ip: 43.3.120.2",
+//					"bytes_received: 2048",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetTestGrokPattern(ctx *pulumi.Context, args *GetTestGrokPatternArgs, opts ...pulumi.InvokeOption) (*GetTestGrokPatternResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTestGrokPatternResult

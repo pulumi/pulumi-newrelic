@@ -227,6 +227,57 @@ class AlertPolicy(pulumi.CustomResource):
         Use this resource to create and manage New Relic alert policies.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertPolicy("foo", incident_preference="PER_POLICY")
+        ```
+        ### Provision multiple notification channels and add those channels to a policy
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        # Provision a Slack notification channel.
+        slack_channel = newrelic.AlertChannel("slackChannel",
+            type="slack",
+            config=newrelic.AlertChannelConfigArgs(
+                url="https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
+                channel="example-alerts-channel",
+            ))
+        # Provision an email notification channel.
+        email_channel = newrelic.AlertChannel("emailChannel",
+            type="email",
+            config=newrelic.AlertChannelConfigArgs(
+                recipients="example@testing.com",
+                include_json_attachment="1",
+            ))
+        # Provision the alert policy.
+        policy_with_channels = newrelic.AlertPolicy("policyWithChannels",
+            incident_preference="PER_CONDITION",
+            channel_ids=[
+                slack_channel.id,
+                email_channel.id,
+            ])
+        ```
+        ### Reference existing notification channels and add those channel to a policy
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        slack_channel = newrelic.get_alert_channel(name="slack-channel-notification")
+        email_channel = newrelic.get_alert_channel(name="test@example.com")
+        # Provision the alert policy.
+        policy_with_channels = newrelic.AlertPolicy("policyWithChannels",
+            incident_preference="PER_CONDITION",
+            channel_ids=[
+                slack_channel.id,
+                email_channel.id,
+            ])
+        ```
 
         ## Import
 
@@ -256,6 +307,57 @@ class AlertPolicy(pulumi.CustomResource):
         Use this resource to create and manage New Relic alert policies.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertPolicy("foo", incident_preference="PER_POLICY")
+        ```
+        ### Provision multiple notification channels and add those channels to a policy
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        # Provision a Slack notification channel.
+        slack_channel = newrelic.AlertChannel("slackChannel",
+            type="slack",
+            config=newrelic.AlertChannelConfigArgs(
+                url="https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
+                channel="example-alerts-channel",
+            ))
+        # Provision an email notification channel.
+        email_channel = newrelic.AlertChannel("emailChannel",
+            type="email",
+            config=newrelic.AlertChannelConfigArgs(
+                recipients="example@testing.com",
+                include_json_attachment="1",
+            ))
+        # Provision the alert policy.
+        policy_with_channels = newrelic.AlertPolicy("policyWithChannels",
+            incident_preference="PER_CONDITION",
+            channel_ids=[
+                slack_channel.id,
+                email_channel.id,
+            ])
+        ```
+        ### Reference existing notification channels and add those channel to a policy
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        slack_channel = newrelic.get_alert_channel(name="slack-channel-notification")
+        email_channel = newrelic.get_alert_channel(name="test@example.com")
+        # Provision the alert policy.
+        policy_with_channels = newrelic.AlertPolicy("policyWithChannels",
+            incident_preference="PER_CONDITION",
+            channel_ids=[
+                slack_channel.id,
+                email_channel.id,
+            ])
+        ```
 
         ## Import
 

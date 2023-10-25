@@ -310,6 +310,19 @@ class DataPartitionRule(pulumi.CustomResource):
         """
         Use this resource to create, update and delete New Relic Data partition rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.DataPartitionRule("foo",
+            description="description",
+            enabled=True,
+            nrql="logtype='node'",
+            retention_policy="STANDARD",
+            target_data_partition="Log_name")
+        ```
         ## Additional Information
 
         More details about the data partition can be found [here](https://docs.newrelic.com/docs/logs/ui-data/data-partitions/)
@@ -340,6 +353,19 @@ class DataPartitionRule(pulumi.CustomResource):
         """
         Use this resource to create, update and delete New Relic Data partition rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.DataPartitionRule("foo",
+            description="description",
+            enabled=True,
+            nrql="logtype='node'",
+            retention_policy="STANDARD",
+            target_data_partition="Log_name")
+        ```
         ## Additional Information
 
         More details about the data partition can be found [here](https://docs.newrelic.com/docs/logs/ui-data/data-partitions/)

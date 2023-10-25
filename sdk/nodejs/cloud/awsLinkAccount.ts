@@ -15,6 +15,20 @@ import * as utilities from "../utilities";
  *
  * To pull data from AWS instead, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-new-relic-infrastructure-monitoring#connect).
  *
+ * ## Example Usage
+ *
+ * You can also use the full example, including the AWS set up, found in our guides.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.cloud.AwsLinkAccount("foo", {
+ *     arn: "arn:aws:service:region:account-id:resource-id",
+ *     metricCollectionMode: "PUSH",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Linked AWS accounts can be imported using the `id`, e.g. bash

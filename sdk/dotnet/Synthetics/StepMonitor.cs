@@ -12,6 +12,54 @@ namespace Pulumi.NewRelic.Synthetics
     /// <summary>
     /// Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var monitor = new NewRelic.Synthetics.StepMonitor("monitor", new()
+    ///     {
+    ///         EnableScreenshotOnFailureAndScript = true,
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "US_EAST_1",
+    ///             "US_EAST_2",
+    ///         },
+    ///         Period = "EVERY_6_HOURS",
+    ///         Status = "ENABLED",
+    ///         Steps = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.StepMonitorStepArgs
+    ///             {
+    ///                 Ordinal = 0,
+    ///                 Type = "NAVIGATE",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "https://www.newrelic.com",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.StepMonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// See additional examples.
     /// ## Additional Examples
     /// 
     /// ## Import

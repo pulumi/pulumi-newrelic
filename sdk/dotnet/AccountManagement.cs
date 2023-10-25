@@ -14,6 +14,25 @@ namespace Pulumi.NewRelic
     /// 
     /// &gt; **WARNING:** The `newrelic.AccountManagement` resource will only create/update but won't delete a sub account. Please visit our documentation on  [`Account Management`](https://docs.newrelic.com/docs/apis/nerdgraph/examples/manage-accounts-nerdgraph/#delete) for more information .
     /// 
+    /// ## Example Usage
+    /// 
+    /// ##### Create Account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.AccountManagement("foo", new()
+    ///     {
+    ///         Region = "us01",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Accounts can be imported using the `id`, e.g. bash

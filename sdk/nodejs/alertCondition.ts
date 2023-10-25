@@ -11,6 +11,34 @@ import * as utilities from "./utilities";
  *
  * > **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     name: "my-app",
+ *     type: "APPLICATION",
+ *     domain: "APM",
+ * });
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
+ *     policyId: fooAlertPolicy.id,
+ *     type: "apm_app_metric",
+ *     entities: [app.then(app => app.applicationId)],
+ *     metric: "apdex",
+ *     runbookUrl: "https://www.example.com",
+ *     conditionScope: "application",
+ *     terms: [{
+ *         duration: 5,
+ *         operator: "below",
+ *         priority: "critical",
+ *         threshold: 0.75,
+ *         timeFunction: "all",
+ *     }],
+ * });
+ * ```
  * ## Terms
  *
  * The `term` mapping supports the following arguments:
@@ -20,6 +48,51 @@ import * as utilities from "./utilities";
  *   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
  *   * `threshold` - (Required) Must be 0 or greater.
  *   * `timeFunction` - (Required) `all` or `any`.
+ *
+ * ## Tags
+ *
+ * Manage alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooEntity = newrelic.getEntity({
+ *     name: "foo entitiy",
+ * });
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
+ *     policyId: fooAlertPolicy.id,
+ *     type: "apm_app_metric",
+ *     entities: [fooEntity.then(fooEntity => fooEntity.applicationId)],
+ *     metric: "apdex",
+ *     runbookUrl: "https://www.example.com",
+ *     conditionScope: "application",
+ *     terms: [{
+ *         duration: 5,
+ *         operator: "below",
+ *         priority: "critical",
+ *         threshold: 0.75,
+ *         timeFunction: "all",
+ *     }],
+ * });
+ * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
+ *     guid: fooAlertCondition.entityGuid,
+ *     tags: [
+ *         {
+ *             key: "my-key",
+ *             values: [
+ *                 "my-value",
+ *                 "my-other-value",
+ *             ],
+ *         },
+ *         {
+ *             key: "my-key-2",
+ *             values: ["my-value-2"],
+ *         },
+ *     ],
+ * });
+ * ```
  *
  * ## Import
  *
@@ -109,6 +182,10 @@ export class AlertCondition extends pulumi.CustomResource {
      * One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
      *
      * > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     public readonly userDefinedValueFunction!: pulumi.Output<string | undefined>;
     /**
@@ -238,6 +315,10 @@ export interface AlertConditionState {
      * One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
      *
      * > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     userDefinedValueFunction?: pulumi.Input<string>;
     /**
@@ -300,6 +381,10 @@ export interface AlertConditionArgs {
      * One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
      *
      * > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     userDefinedValueFunction?: pulumi.Input<string>;
     /**

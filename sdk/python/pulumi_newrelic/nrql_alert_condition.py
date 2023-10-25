@@ -1136,6 +1136,106 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         > **NOTE:** When a `critical` or `warning` block is added to this resource, using either `time_function` or `threshold_occurrences` (one of the two) is mandatory. Both of these should not be specified.
 
+        ## Additional Examples
+
+        ##### Type: `baseline`
+
+        [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+        foo_index_alert_policy_alert_policy = newrelic.AlertPolicy("fooIndex/alertPolicyAlertPolicy")
+        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
+            account_id="your_account_id",
+            policy_id=foo_alert_policy.id,
+            type="static",
+            description="Alert when transactions are taking too long",
+            runbook_url="https://www.example.com",
+            enabled=True,
+            violation_time_limit_seconds=3600,
+            fill_option="static",
+            fill_value=1,
+            aggregation_window=60,
+            aggregation_method="event_flow",
+            aggregation_delay="120",
+            expiration_duration=120,
+            open_violation_on_expiration=True,
+            close_violations_on_expiration=True,
+            slide_by=30,
+            nrql=newrelic.NrqlAlertConditionNrqlArgs(
+                query="SELECT average(duration) FROM Transaction where appName = 'Your App'",
+            ),
+            critical=newrelic.NrqlAlertConditionCriticalArgs(
+                operator="above",
+                threshold=5.5,
+                threshold_duration=300,
+                threshold_occurrences="ALL",
+            ),
+            warning=newrelic.NrqlAlertConditionWarningArgs(
+                operator="above",
+                threshold=3.5,
+                threshold_duration=600,
+                threshold_occurrences="ALL",
+            ))
+        ```
+
+        ## Upgrade from 1.x to 2.x
+
+        There have been several deprecations in the `NrqlAlertCondition`
+        resource. Users will need to make some updates in order to have a smooth
+        upgrade.
+
+        An example resource from 1.x might look like the following.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
+            policy_id=newrelic_alert_policy["z"]["id"],
+            type="static",
+            runbook_url="https://localhost",
+            enabled=True,
+            violation_time_limit="TWENTY_FOUR_HOURS",
+            critical=newrelic.NrqlAlertConditionCriticalArgs(
+                operator="above",
+                threshold_duration=120,
+                threshold=3,
+                threshold_occurrences="AT_LEAST_ONCE",
+            ),
+            nrql=newrelic.NrqlAlertConditionNrqlArgs(
+                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
+            ))
+        ```
+
+        After making the appropriate adjustments mentioned in the deprecation warnings,
+        the resource now looks like the following.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
+            policy_id=newrelic_alert_policy["z"]["id"],
+            type="static",
+            runbook_url="https://localhost",
+            enabled=True,
+            violation_time_limit_seconds=86400,
+            terms=[newrelic.NrqlAlertConditionTermArgs(
+                priority="critical",
+                operator="above",
+                threshold=3,
+                duration=5,
+                time_function="any",
+            )],
+            nrql=newrelic.NrqlAlertConditionNrqlArgs(
+                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
+            ))
+        ```
+
         ## Import
 
         NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
@@ -1221,6 +1321,106 @@ class NrqlAlertCondition(pulumi.CustomResource):
         > **NOTE:** When a `critical` or `warning` block is added to this resource, using either `duration` or `threshold_duration` (one of the two) is mandatory. Both of these should not be specified.
 
         > **NOTE:** When a `critical` or `warning` block is added to this resource, using either `time_function` or `threshold_occurrences` (one of the two) is mandatory. Both of these should not be specified.
+
+        ## Additional Examples
+
+        ##### Type: `baseline`
+
+        [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+        foo_index_alert_policy_alert_policy = newrelic.AlertPolicy("fooIndex/alertPolicyAlertPolicy")
+        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
+            account_id="your_account_id",
+            policy_id=foo_alert_policy.id,
+            type="static",
+            description="Alert when transactions are taking too long",
+            runbook_url="https://www.example.com",
+            enabled=True,
+            violation_time_limit_seconds=3600,
+            fill_option="static",
+            fill_value=1,
+            aggregation_window=60,
+            aggregation_method="event_flow",
+            aggregation_delay="120",
+            expiration_duration=120,
+            open_violation_on_expiration=True,
+            close_violations_on_expiration=True,
+            slide_by=30,
+            nrql=newrelic.NrqlAlertConditionNrqlArgs(
+                query="SELECT average(duration) FROM Transaction where appName = 'Your App'",
+            ),
+            critical=newrelic.NrqlAlertConditionCriticalArgs(
+                operator="above",
+                threshold=5.5,
+                threshold_duration=300,
+                threshold_occurrences="ALL",
+            ),
+            warning=newrelic.NrqlAlertConditionWarningArgs(
+                operator="above",
+                threshold=3.5,
+                threshold_duration=600,
+                threshold_occurrences="ALL",
+            ))
+        ```
+
+        ## Upgrade from 1.x to 2.x
+
+        There have been several deprecations in the `NrqlAlertCondition`
+        resource. Users will need to make some updates in order to have a smooth
+        upgrade.
+
+        An example resource from 1.x might look like the following.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
+            policy_id=newrelic_alert_policy["z"]["id"],
+            type="static",
+            runbook_url="https://localhost",
+            enabled=True,
+            violation_time_limit="TWENTY_FOUR_HOURS",
+            critical=newrelic.NrqlAlertConditionCriticalArgs(
+                operator="above",
+                threshold_duration=120,
+                threshold=3,
+                threshold_occurrences="AT_LEAST_ONCE",
+            ),
+            nrql=newrelic.NrqlAlertConditionNrqlArgs(
+                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
+            ))
+        ```
+
+        After making the appropriate adjustments mentioned in the deprecation warnings,
+        the resource now looks like the following.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
+            policy_id=newrelic_alert_policy["z"]["id"],
+            type="static",
+            runbook_url="https://localhost",
+            enabled=True,
+            violation_time_limit_seconds=86400,
+            terms=[newrelic.NrqlAlertConditionTermArgs(
+                priority="critical",
+                operator="above",
+                threshold=3,
+                duration=5,
+                time_function="any",
+            )],
+            nrql=newrelic.NrqlAlertConditionNrqlArgs(
+                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
+            ))
+        ```
 
         ## Import
 

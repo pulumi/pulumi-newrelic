@@ -12,7 +12,216 @@ namespace Pulumi.NewRelic.Synthetics
     /// <summary>
     /// Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
+    ///     {
+    ///         BypassHeadRequest = true,
+    ///         CustomHeaders = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
+    ///             {
+    ///                 Name = "some_name",
+    ///                 Value = "some_value",
+    ///             },
+    ///         },
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "AP_SOUTH_1",
+    ///         },
+    ///         Period = "EVERY_MINUTE",
+    ///         Status = "ENABLED",
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///         TreatRedirectAsFailure = true,
+    ///         Type = "SIMPLE",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         ValidationString = "success",
+    ///         VerifySsl = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ##### Type: `SIMPLE BROWSER`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
+    ///     {
+    ///         CustomHeaders = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
+    ///             {
+    ///                 Name = "some_name",
+    ///                 Value = "some_value",
+    ///             },
+    ///         },
+    ///         EnableScreenshotOnFailureAndScript = true,
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "AP_SOUTH_1",
+    ///         },
+    ///         Period = "EVERY_MINUTE",
+    ///         Status = "ENABLED",
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Type = "BROWSER",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         ValidationString = "success",
+    ///         VerifySsl = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// See additional examples.
     /// ## Additional Examples
+    /// 
+    /// ### Create a monitor with a private location
+    /// 
+    /// The below example shows how you can define a private location and attach it to a monitor.
+    /// 
+    /// &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
+    /// 
+    /// ##### Type: `SIMPLE`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
+    ///     {
+    ///         Description = "Example private location",
+    ///         VerifiedScriptExecution = false,
+    ///     });
+    /// 
+    ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
+    ///     {
+    ///         Status = "ENABLED",
+    ///         Period = "EVERY_MINUTE",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         Type = "SIMPLE",
+    ///         LocationsPrivates = new[]
+    ///         {
+    ///             location.Id,
+    ///         },
+    ///         CustomHeaders = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
+    ///             {
+    ///                 Name = "some_name",
+    ///                 Value = "some_value",
+    ///             },
+    ///         },
+    ///         TreatRedirectAsFailure = true,
+    ///         ValidationString = "success",
+    ///         BypassHeadRequest = true,
+    ///         VerifySsl = true,
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ##### Type: `BROWSER`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
+    ///     {
+    ///         Description = "Example private location",
+    ///         VerifiedScriptExecution = false,
+    ///     });
+    /// 
+    ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
+    ///     {
+    ///         Status = "ENABLED",
+    ///         Type = "BROWSER",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         Period = "EVERY_MINUTE",
+    ///         LocationsPrivates = new[]
+    ///         {
+    ///             location.Id,
+    ///         },
+    ///         CustomHeaders = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
+    ///             {
+    ///                 Name = "some_name",
+    ///                 Value = "some_value",
+    ///             },
+    ///         },
+    ///         EnableScreenshotOnFailureAndScript = true,
+    ///         ValidationString = "success",
+    ///         VerifySsl = true,
+    ///         RuntimeTypeVersion = "100",
+    ///         RuntimeType = "CHROME_BROWSER",
+    ///         ScriptLanguage = "JAVASCRIPT",
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

@@ -80,6 +80,15 @@ def get_account(account_id: Optional[int] = None,
     Accounts can be located by ID or name.  At most one of the two attributes can
     be provided. If neither are provided, the provider's `account_id` will be used.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    acc = newrelic.get_account(scope="global")
+    ```
+
 
     :param int account_id: The account ID in New Relic.
     :param str name: The account name in New Relic.
@@ -108,6 +117,15 @@ def get_account_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
     Use this data source to get information about a specific account in New Relic.
     Accounts can be located by ID or name.  At most one of the two attributes can
     be provided. If neither are provided, the provider's `account_id` will be used.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    acc = newrelic.get_account(scope="global")
+    ```
 
 
     :param int account_id: The account ID in New Relic.

@@ -486,6 +486,129 @@ class Workflow(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic workflows.
 
+        ## Example Usage
+
+        ##### Workflow
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.Workflow("foo",
+            muting_rules_handling="NOTIFY_ALL_ISSUES",
+            issues_filter=newrelic.WorkflowIssuesFilterArgs(
+                name="filter-name",
+                type="FILTER",
+                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
+                    attribute="accumulations.tag.team",
+                    operator="EXACTLY_MATCHES",
+                    values=["growth"],
+                )],
+            ),
+            destinations=[newrelic.WorkflowDestinationArgs(
+                channel_id=newrelic_notification_channel["some_channel"]["id"],
+            )])
+        ```
+        ## Policy-Based Workflow Example
+
+        This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        # Create a policy to track
+        my_policy = newrelic.AlertPolicy("my-policy")
+        # Create a reusable notification destination
+        webhook_destination = newrelic.NotificationDestination("webhook-destination",
+            type="WEBHOOK",
+            properties=[newrelic.NotificationDestinationPropertyArgs(
+                key="url",
+                value="https://example.com",
+            )],
+            auth_basic=newrelic.NotificationDestinationAuthBasicArgs(
+                user="username",
+                password="password",
+            ))
+        # Create a notification channel to use in the workflow
+        webhook_channel = newrelic.NotificationChannel("webhook-channel",
+            type="WEBHOOK",
+            destination_id=webhook_destination.id,
+            product="IINT",
+            properties=[newrelic.NotificationChannelPropertyArgs(
+                key="payload",
+                value="{}",
+                label="Payload Template",
+            )])
+        # A workflow that matches issues that include incidents triggered by the policy
+        workflow_example = newrelic.Workflow("workflow-example",
+            muting_rules_handling="NOTIFY_ALL_ISSUES",
+            issues_filter=newrelic.WorkflowIssuesFilterArgs(
+                name="Filter-name",
+                type="FILTER",
+                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
+                    attribute="labels.policyIds",
+                    operator="EXACTLY_MATCHES",
+                    values=[my_policy.id],
+                )],
+            ),
+            destinations=[newrelic.WorkflowDestinationArgs(
+                channel_id=webhook_channel.id,
+            )])
+        ```
+
+        ### An example of a workflow with enrichments
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        workflow_example = newrelic.Workflow("workflow-example",
+            muting_rules_handling="NOTIFY_ALL_ISSUES",
+            issues_filter=newrelic.WorkflowIssuesFilterArgs(
+                name="Filter-name",
+                type="FILTER",
+                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
+                    attribute="accumulations.tag.team",
+                    operator="EXACTLY_MATCHES",
+                    values=["my_team"],
+                )],
+            ),
+            enrichments=newrelic.WorkflowEnrichmentsArgs(
+                nrqls=[newrelic.WorkflowEnrichmentsNrqlArgs(
+                    name="Log Count",
+                    configurations=[newrelic.WorkflowEnrichmentsNrqlConfigurationArgs(
+                        query="SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago",
+                    )],
+                )],
+            ),
+            destinations=[newrelic.WorkflowDestinationArgs(
+                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
+            )])
+        ```
+
+        ### An example of a workflow with notification triggers
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        workflow_example = newrelic.Workflow("workflow-example",
+            muting_rules_handling="NOTIFY_ALL_ISSUES",
+            issues_filter=newrelic.WorkflowIssuesFilterArgs(
+                name="Filter-name",
+                type="FILTER",
+                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
+                    attribute="accumulations.tag.team",
+                    operator="EXACTLY_MATCHES",
+                    values=["my_team"],
+                )],
+            ),
+            destinations=[newrelic.WorkflowDestinationArgs(
+                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
+                notification_triggers=["ACTIVATED"],
+            )])
+        ```
+
         ## Additional Information
 
         More details about the workflows can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/applied-intelligence/incident-workflows/incident-workflows/).
@@ -530,6 +653,129 @@ class Workflow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to create and manage New Relic workflows.
+
+        ## Example Usage
+
+        ##### Workflow
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.Workflow("foo",
+            muting_rules_handling="NOTIFY_ALL_ISSUES",
+            issues_filter=newrelic.WorkflowIssuesFilterArgs(
+                name="filter-name",
+                type="FILTER",
+                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
+                    attribute="accumulations.tag.team",
+                    operator="EXACTLY_MATCHES",
+                    values=["growth"],
+                )],
+            ),
+            destinations=[newrelic.WorkflowDestinationArgs(
+                channel_id=newrelic_notification_channel["some_channel"]["id"],
+            )])
+        ```
+        ## Policy-Based Workflow Example
+
+        This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        # Create a policy to track
+        my_policy = newrelic.AlertPolicy("my-policy")
+        # Create a reusable notification destination
+        webhook_destination = newrelic.NotificationDestination("webhook-destination",
+            type="WEBHOOK",
+            properties=[newrelic.NotificationDestinationPropertyArgs(
+                key="url",
+                value="https://example.com",
+            )],
+            auth_basic=newrelic.NotificationDestinationAuthBasicArgs(
+                user="username",
+                password="password",
+            ))
+        # Create a notification channel to use in the workflow
+        webhook_channel = newrelic.NotificationChannel("webhook-channel",
+            type="WEBHOOK",
+            destination_id=webhook_destination.id,
+            product="IINT",
+            properties=[newrelic.NotificationChannelPropertyArgs(
+                key="payload",
+                value="{}",
+                label="Payload Template",
+            )])
+        # A workflow that matches issues that include incidents triggered by the policy
+        workflow_example = newrelic.Workflow("workflow-example",
+            muting_rules_handling="NOTIFY_ALL_ISSUES",
+            issues_filter=newrelic.WorkflowIssuesFilterArgs(
+                name="Filter-name",
+                type="FILTER",
+                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
+                    attribute="labels.policyIds",
+                    operator="EXACTLY_MATCHES",
+                    values=[my_policy.id],
+                )],
+            ),
+            destinations=[newrelic.WorkflowDestinationArgs(
+                channel_id=webhook_channel.id,
+            )])
+        ```
+
+        ### An example of a workflow with enrichments
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        workflow_example = newrelic.Workflow("workflow-example",
+            muting_rules_handling="NOTIFY_ALL_ISSUES",
+            issues_filter=newrelic.WorkflowIssuesFilterArgs(
+                name="Filter-name",
+                type="FILTER",
+                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
+                    attribute="accumulations.tag.team",
+                    operator="EXACTLY_MATCHES",
+                    values=["my_team"],
+                )],
+            ),
+            enrichments=newrelic.WorkflowEnrichmentsArgs(
+                nrqls=[newrelic.WorkflowEnrichmentsNrqlArgs(
+                    name="Log Count",
+                    configurations=[newrelic.WorkflowEnrichmentsNrqlConfigurationArgs(
+                        query="SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago",
+                    )],
+                )],
+            ),
+            destinations=[newrelic.WorkflowDestinationArgs(
+                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
+            )])
+        ```
+
+        ### An example of a workflow with notification triggers
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        workflow_example = newrelic.Workflow("workflow-example",
+            muting_rules_handling="NOTIFY_ALL_ISSUES",
+            issues_filter=newrelic.WorkflowIssuesFilterArgs(
+                name="Filter-name",
+                type="FILTER",
+                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
+                    attribute="accumulations.tag.team",
+                    operator="EXACTLY_MATCHES",
+                    values=["my_team"],
+                )],
+            ),
+            destinations=[newrelic.WorkflowDestinationArgs(
+                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
+                notification_triggers=["ACTIVATED"],
+            )])
+        ```
 
         ## Additional Information
 

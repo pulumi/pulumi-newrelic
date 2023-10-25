@@ -11,6 +11,69 @@ import * as utilities from "./utilities";
  *
  * > **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.AlertPolicy("foo", {});
+ * const highDiskUsage = new newrelic.InfraAlertCondition("highDiskUsage", {
+ *     policyId: foo.id,
+ *     description: "Warning if disk usage goes above 80% and critical alert if goes above 90%",
+ *     type: "infra_metric",
+ *     event: "StorageSample",
+ *     select: "diskUsedPercent",
+ *     comparison: "above",
+ *     where: "(hostname LIKE '%frontend%')",
+ *     critical: {
+ *         duration: 25,
+ *         value: 90,
+ *         timeFunction: "all",
+ *     },
+ *     warning: {
+ *         duration: 10,
+ *         value: 80,
+ *         timeFunction: "all",
+ *     },
+ * });
+ * const highDbConnCount = new newrelic.InfraAlertCondition("highDbConnCount", {
+ *     policyId: foo.id,
+ *     description: "Critical alert when the number of database connections goes above 90",
+ *     type: "infra_metric",
+ *     event: "DatastoreSample",
+ *     select: "provider.databaseConnections.Average",
+ *     comparison: "above",
+ *     where: "(hostname LIKE '%db%')",
+ *     integrationProvider: "RdsDbInstance",
+ *     critical: {
+ *         duration: 25,
+ *         value: 90,
+ *         timeFunction: "all",
+ *     },
+ * });
+ * const processNotRunning = new newrelic.InfraAlertCondition("processNotRunning", {
+ *     policyId: foo.id,
+ *     description: "Critical alert when ruby isn't running",
+ *     type: "infra_process_running",
+ *     comparison: "equal",
+ *     where: "hostname = 'web01'",
+ *     processWhere: "commandName = '/usr/bin/ruby'",
+ *     critical: {
+ *         duration: 5,
+ *         value: 0,
+ *     },
+ * });
+ * const hostNotReporting = new newrelic.InfraAlertCondition("hostNotReporting", {
+ *     policyId: foo.id,
+ *     description: "Critical alert when the host is not reporting",
+ *     type: "infra_host_not_reporting",
+ *     where: "(hostname LIKE '%frontend%')",
+ *     critical: {
+ *         duration: 5,
+ *     },
+ * });
+ * ```
  * ## Thresholds
  *
  * The `critical` and `warning` threshold mapping supports the following arguments:
@@ -18,6 +81,52 @@ import * as utilities from "./utilities";
  *   * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
  *   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infraMetric` and `infraProcessRunning` alert condition types.
  *   * `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infraMetric` alert condition type.
+ *
+ * ## Tags
+ *
+ * Manage infra alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooInfraAlertCondition = new newrelic.InfraAlertCondition("fooInfraAlertCondition", {
+ *     policyId: fooAlertPolicy.id,
+ *     description: "Warning if disk usage goes above 80% and critical alert if goes above 90%",
+ *     type: "infra_metric",
+ *     event: "StorageSample",
+ *     select: "diskUsedPercent",
+ *     comparison: "above",
+ *     where: "(hostname LIKE '%frontend%')",
+ *     critical: {
+ *         duration: 25,
+ *         value: 90,
+ *         timeFunction: "all",
+ *     },
+ *     warning: {
+ *         duration: 10,
+ *         value: 80,
+ *         timeFunction: "all",
+ *     },
+ * });
+ * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
+ *     guid: fooInfraAlertCondition.entityGuid,
+ *     tags: [
+ *         {
+ *             key: "my-key",
+ *             values: [
+ *                 "my-value",
+ *                 "my-other-value",
+ *             ],
+ *         },
+ *         {
+ *             key: "my-key-2",
+ *             values: ["my-value-2"],
+ *         },
+ *     ],
+ * });
+ * ```
  *
  * ## Import
  *
@@ -117,6 +226,10 @@ export class InfraAlertCondition extends pulumi.CustomResource {
     public /*out*/ readonly updatedAt!: pulumi.Output<number>;
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     public readonly violationCloseTimer!: pulumi.Output<number | undefined>;
     /**
@@ -257,6 +370,10 @@ export interface InfraAlertConditionState {
     updatedAt?: pulumi.Input<number>;
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     violationCloseTimer?: pulumi.Input<number>;
     /**
@@ -323,6 +440,10 @@ export interface InfraAlertConditionArgs {
     type: pulumi.Input<string>;
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     violationCloseTimer?: pulumi.Input<number>;
     /**

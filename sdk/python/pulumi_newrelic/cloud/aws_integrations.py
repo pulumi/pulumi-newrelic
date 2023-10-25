@@ -2419,6 +2419,297 @@ class AwsIntegrations(pulumi.CustomResource):
 
         Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.
 
+        ## Example Usage
+
+        Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.cloud.AwsLinkAccount("foo",
+            arn=aws_iam_role["newrelic_aws_role"]["arn"],
+            metric_collection_mode="PULL")
+        bar = newrelic.cloud.AwsIntegrations("bar",
+            linked_account_id=foo.id,
+            billing=newrelic.cloud.AwsIntegrationsBillingArgs(),
+            cloudtrail=newrelic.cloud.AwsIntegrationsCloudtrailArgs(
+                metrics_polling_interval=6000,
+                aws_regions=[
+                    "us-east-1",
+                    "us-east-2",
+                ],
+            ),
+            health=newrelic.cloud.AwsIntegrationsHealthArgs(
+                metrics_polling_interval=6000,
+            ),
+            trusted_advisor=newrelic.cloud.AwsIntegrationsTrustedAdvisorArgs(
+                metrics_polling_interval=6000,
+            ),
+            vpc=newrelic.cloud.AwsIntegrationsVpcArgs(
+                metrics_polling_interval=6000,
+                aws_regions=[
+                    "us-east-1",
+                    "us-east-2",
+                ],
+                fetch_nat_gateway=True,
+                fetch_vpn=False,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            x_ray=newrelic.cloud.AwsIntegrationsXRayArgs(
+                metrics_polling_interval=6000,
+                aws_regions=[
+                    "us-east-1",
+                    "us-east-2",
+                ],
+            ),
+            s3=newrelic.cloud.AwsIntegrationsS3Args(
+                metrics_polling_interval=6000,
+            ),
+            doc_db=newrelic.cloud.AwsIntegrationsDocDbArgs(
+                metrics_polling_interval=6000,
+            ),
+            sqs=newrelic.cloud.AwsIntegrationsSqsArgs(
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                queue_prefixes=["queue prefix"],
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            ebs=newrelic.cloud.AwsIntegrationsEbsArgs(
+                metrics_polling_interval=6000,
+                fetch_extended_inventory=True,
+                aws_regions=["us-east-1"],
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            alb=newrelic.cloud.AwsIntegrationsAlbArgs(
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                load_balancer_prefixes=["load balancer prefix"],
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            elasticache=newrelic.cloud.AwsIntegrationsElasticacheArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            api_gateway=newrelic.cloud.AwsIntegrationsApiGatewayArgs(
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+                stage_prefixes=["stage prefix"],
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            auto_scaling=newrelic.cloud.AwsIntegrationsAutoScalingArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_app_sync=newrelic.cloud.AwsIntegrationsAwsAppSyncArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_athena=newrelic.cloud.AwsIntegrationsAwsAthenaArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_cognito=newrelic.cloud.AwsIntegrationsAwsCognitoArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_connect=newrelic.cloud.AwsIntegrationsAwsConnectArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_direct_connect=newrelic.cloud.AwsIntegrationsAwsDirectConnectArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_fsx=newrelic.cloud.AwsIntegrationsAwsFsxArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_glue=newrelic.cloud.AwsIntegrationsAwsGlueArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_kinesis_analytics=newrelic.cloud.AwsIntegrationsAwsKinesisAnalyticsArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_media_convert=newrelic.cloud.AwsIntegrationsAwsMediaConvertArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_media_package_vod=newrelic.cloud.AwsIntegrationsAwsMediaPackageVodArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_mq=newrelic.cloud.AwsIntegrationsAwsMqArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_msk=newrelic.cloud.AwsIntegrationsAwsMskArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_neptune=newrelic.cloud.AwsIntegrationsAwsNeptuneArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_qldb=newrelic.cloud.AwsIntegrationsAwsQldbArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_route53resolver=newrelic.cloud.AwsIntegrationsAwsRoute53resolverArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_states=newrelic.cloud.AwsIntegrationsAwsStatesArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_transit_gateway=newrelic.cloud.AwsIntegrationsAwsTransitGatewayArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_waf=newrelic.cloud.AwsIntegrationsAwsWafArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_wafv2=newrelic.cloud.AwsIntegrationsAwsWafv2Args(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            cloudfront=newrelic.cloud.AwsIntegrationsCloudfrontArgs(
+                fetch_lambdas_at_edge=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            dynamodb=newrelic.cloud.AwsIntegrationsDynamodbArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            ec2=newrelic.cloud.AwsIntegrationsEc2Args(
+                aws_regions=["us-east-1"],
+                duplicate_ec2_tags=True,
+                fetch_ip_addresses=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            ecs=newrelic.cloud.AwsIntegrationsEcsArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            efs=newrelic.cloud.AwsIntegrationsEfsArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            elasticbeanstalk=newrelic.cloud.AwsIntegrationsElasticbeanstalkArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            elasticsearch=newrelic.cloud.AwsIntegrationsElasticsearchArgs(
+                aws_regions=["us-east-1"],
+                fetch_nodes=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            elb=newrelic.cloud.AwsIntegrationsElbArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+            ),
+            emr=newrelic.cloud.AwsIntegrationsEmrArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            iam=newrelic.cloud.AwsIntegrationsIamArgs(
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            iot=newrelic.cloud.AwsIntegrationsIotArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            kinesis=newrelic.cloud.AwsIntegrationsKinesisArgs(
+                aws_regions=["us-east-1"],
+                fetch_shards=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            kinesis_firehose=newrelic.cloud.AwsIntegrationsKinesisFirehoseArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            lambda_=newrelic.cloud.AwsIntegrationsLambdaArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            rds=newrelic.cloud.AwsIntegrationsRdsArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            redshift=newrelic.cloud.AwsIntegrationsRedshiftArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            route53=newrelic.cloud.AwsIntegrationsRoute53Args(
+                fetch_extended_inventory=True,
+                metrics_polling_interval=6000,
+            ),
+            ses=newrelic.cloud.AwsIntegrationsSesArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            sns=newrelic.cloud.AwsIntegrationsSnsArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
+                metrics_polling_interval=6000,
+            ))
+        ```
+
         ## Import
 
         Linked AWS account integrations can be imported using the `id`, e.g. bash
@@ -2561,6 +2852,297 @@ class AwsIntegrations(pulumi.CustomResource):
         New Relic doesn't automatically receive metrics from AWS for some services so this resource can be used to configure integrations to those services.
 
         Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.
+
+        ## Example Usage
+
+        Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.cloud.AwsLinkAccount("foo",
+            arn=aws_iam_role["newrelic_aws_role"]["arn"],
+            metric_collection_mode="PULL")
+        bar = newrelic.cloud.AwsIntegrations("bar",
+            linked_account_id=foo.id,
+            billing=newrelic.cloud.AwsIntegrationsBillingArgs(),
+            cloudtrail=newrelic.cloud.AwsIntegrationsCloudtrailArgs(
+                metrics_polling_interval=6000,
+                aws_regions=[
+                    "us-east-1",
+                    "us-east-2",
+                ],
+            ),
+            health=newrelic.cloud.AwsIntegrationsHealthArgs(
+                metrics_polling_interval=6000,
+            ),
+            trusted_advisor=newrelic.cloud.AwsIntegrationsTrustedAdvisorArgs(
+                metrics_polling_interval=6000,
+            ),
+            vpc=newrelic.cloud.AwsIntegrationsVpcArgs(
+                metrics_polling_interval=6000,
+                aws_regions=[
+                    "us-east-1",
+                    "us-east-2",
+                ],
+                fetch_nat_gateway=True,
+                fetch_vpn=False,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            x_ray=newrelic.cloud.AwsIntegrationsXRayArgs(
+                metrics_polling_interval=6000,
+                aws_regions=[
+                    "us-east-1",
+                    "us-east-2",
+                ],
+            ),
+            s3=newrelic.cloud.AwsIntegrationsS3Args(
+                metrics_polling_interval=6000,
+            ),
+            doc_db=newrelic.cloud.AwsIntegrationsDocDbArgs(
+                metrics_polling_interval=6000,
+            ),
+            sqs=newrelic.cloud.AwsIntegrationsSqsArgs(
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                queue_prefixes=["queue prefix"],
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            ebs=newrelic.cloud.AwsIntegrationsEbsArgs(
+                metrics_polling_interval=6000,
+                fetch_extended_inventory=True,
+                aws_regions=["us-east-1"],
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            alb=newrelic.cloud.AwsIntegrationsAlbArgs(
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                load_balancer_prefixes=["load balancer prefix"],
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            elasticache=newrelic.cloud.AwsIntegrationsElasticacheArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            api_gateway=newrelic.cloud.AwsIntegrationsApiGatewayArgs(
+                metrics_polling_interval=6000,
+                aws_regions=["us-east-1"],
+                stage_prefixes=["stage prefix"],
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            auto_scaling=newrelic.cloud.AwsIntegrationsAutoScalingArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_app_sync=newrelic.cloud.AwsIntegrationsAwsAppSyncArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_athena=newrelic.cloud.AwsIntegrationsAwsAthenaArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_cognito=newrelic.cloud.AwsIntegrationsAwsCognitoArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_connect=newrelic.cloud.AwsIntegrationsAwsConnectArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_direct_connect=newrelic.cloud.AwsIntegrationsAwsDirectConnectArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_fsx=newrelic.cloud.AwsIntegrationsAwsFsxArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_glue=newrelic.cloud.AwsIntegrationsAwsGlueArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_kinesis_analytics=newrelic.cloud.AwsIntegrationsAwsKinesisAnalyticsArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_media_convert=newrelic.cloud.AwsIntegrationsAwsMediaConvertArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_media_package_vod=newrelic.cloud.AwsIntegrationsAwsMediaPackageVodArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_mq=newrelic.cloud.AwsIntegrationsAwsMqArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_msk=newrelic.cloud.AwsIntegrationsAwsMskArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_neptune=newrelic.cloud.AwsIntegrationsAwsNeptuneArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_qldb=newrelic.cloud.AwsIntegrationsAwsQldbArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_route53resolver=newrelic.cloud.AwsIntegrationsAwsRoute53resolverArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_states=newrelic.cloud.AwsIntegrationsAwsStatesArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_transit_gateway=newrelic.cloud.AwsIntegrationsAwsTransitGatewayArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_waf=newrelic.cloud.AwsIntegrationsAwsWafArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            aws_wafv2=newrelic.cloud.AwsIntegrationsAwsWafv2Args(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            cloudfront=newrelic.cloud.AwsIntegrationsCloudfrontArgs(
+                fetch_lambdas_at_edge=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            dynamodb=newrelic.cloud.AwsIntegrationsDynamodbArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            ec2=newrelic.cloud.AwsIntegrationsEc2Args(
+                aws_regions=["us-east-1"],
+                duplicate_ec2_tags=True,
+                fetch_ip_addresses=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            ecs=newrelic.cloud.AwsIntegrationsEcsArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            efs=newrelic.cloud.AwsIntegrationsEfsArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            elasticbeanstalk=newrelic.cloud.AwsIntegrationsElasticbeanstalkArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            elasticsearch=newrelic.cloud.AwsIntegrationsElasticsearchArgs(
+                aws_regions=["us-east-1"],
+                fetch_nodes=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            elb=newrelic.cloud.AwsIntegrationsElbArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+            ),
+            emr=newrelic.cloud.AwsIntegrationsEmrArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            iam=newrelic.cloud.AwsIntegrationsIamArgs(
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            iot=newrelic.cloud.AwsIntegrationsIotArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            kinesis=newrelic.cloud.AwsIntegrationsKinesisArgs(
+                aws_regions=["us-east-1"],
+                fetch_shards=True,
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            kinesis_firehose=newrelic.cloud.AwsIntegrationsKinesisFirehoseArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            lambda_=newrelic.cloud.AwsIntegrationsLambdaArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            rds=newrelic.cloud.AwsIntegrationsRdsArgs(
+                aws_regions=["us-east-1"],
+                fetch_tags=True,
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            redshift=newrelic.cloud.AwsIntegrationsRedshiftArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+                tag_key="tag key",
+                tag_value="tag value",
+            ),
+            route53=newrelic.cloud.AwsIntegrationsRoute53Args(
+                fetch_extended_inventory=True,
+                metrics_polling_interval=6000,
+            ),
+            ses=newrelic.cloud.AwsIntegrationsSesArgs(
+                aws_regions=["us-east-1"],
+                metrics_polling_interval=6000,
+            ),
+            sns=newrelic.cloud.AwsIntegrationsSnsArgs(
+                aws_regions=["us-east-1"],
+                fetch_extended_inventory=True,
+                metrics_polling_interval=6000,
+            ))
+        ```
 
         ## Import
 

@@ -13,6 +13,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/cloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloud.NewAwsGovcloudLinkAccount(ctx, "foo", &cloud.AwsGovcloudLinkAccountArgs{
+//				AccessKeyId:          pulumi.String("access-key-id of aws govcloud account"),
+//				AccountId:            pulumi.Int("The New Relic account ID where you want to link the AWS GovCloud account"),
+//				AwsAccountId:         pulumi.String("aws govcloud account id"),
+//				MetricCollectionMode: pulumi.String("PULL"),
+//				SecretAccessKey:      pulumi.String("secret access key of the aws govcloud account"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Linked AWSGovCloud accounts can be imported using the `id`, e.g. bash

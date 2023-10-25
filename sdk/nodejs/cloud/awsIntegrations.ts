@@ -17,6 +17,299 @@ import * as utilities from "../utilities";
  *
  * Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.
  *
+ * ## Example Usage
+ *
+ * Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.cloud.AwsLinkAccount("foo", {
+ *     arn: aws_iam_role.newrelic_aws_role.arn,
+ *     metricCollectionMode: "PULL",
+ * });
+ * const bar = new newrelic.cloud.AwsIntegrations("bar", {
+ *     linkedAccountId: foo.id,
+ *     billing: {},
+ *     cloudtrail: {
+ *         metricsPollingInterval: 6000,
+ *         awsRegions: [
+ *             "us-east-1",
+ *             "us-east-2",
+ *         ],
+ *     },
+ *     health: {
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     trustedAdvisor: {
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     vpc: {
+ *         metricsPollingInterval: 6000,
+ *         awsRegions: [
+ *             "us-east-1",
+ *             "us-east-2",
+ *         ],
+ *         fetchNatGateway: true,
+ *         fetchVpn: false,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     xRay: {
+ *         metricsPollingInterval: 6000,
+ *         awsRegions: [
+ *             "us-east-1",
+ *             "us-east-2",
+ *         ],
+ *     },
+ *     s3: {
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     docDb: {
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     sqs: {
+ *         fetchExtendedInventory: true,
+ *         fetchTags: true,
+ *         queuePrefixes: ["queue prefix"],
+ *         metricsPollingInterval: 6000,
+ *         awsRegions: ["us-east-1"],
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     ebs: {
+ *         metricsPollingInterval: 6000,
+ *         fetchExtendedInventory: true,
+ *         awsRegions: ["us-east-1"],
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     alb: {
+ *         fetchExtendedInventory: true,
+ *         fetchTags: true,
+ *         loadBalancerPrefixes: ["load balancer prefix"],
+ *         metricsPollingInterval: 6000,
+ *         awsRegions: ["us-east-1"],
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     elasticache: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     apiGateway: {
+ *         metricsPollingInterval: 6000,
+ *         awsRegions: ["us-east-1"],
+ *         stagePrefixes: ["stage prefix"],
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     autoScaling: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsAppSync: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsAthena: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsCognito: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsConnect: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsDirectConnect: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsFsx: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsGlue: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsKinesisAnalytics: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsMediaConvert: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsMediaPackageVod: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsMq: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsMsk: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsNeptune: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsQldb: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsRoute53resolver: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsStates: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsTransitGateway: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsWaf: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     awsWafv2: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     cloudfront: {
+ *         fetchLambdasAtEdge: true,
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     dynamodb: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchExtendedInventory: true,
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     ec2: {
+ *         awsRegions: ["us-east-1"],
+ *         duplicateEc2Tags: true,
+ *         fetchIpAddresses: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     ecs: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     efs: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     elasticbeanstalk: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchExtendedInventory: true,
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     elasticsearch: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchNodes: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     elb: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchExtendedInventory: true,
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     emr: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     iam: {
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     iot: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     kinesis: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchShards: true,
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     kinesisFirehose: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     lambda: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     rds: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchTags: true,
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     redshift: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *         tagKey: "tag key",
+ *         tagValue: "tag value",
+ *     },
+ *     route53: {
+ *         fetchExtendedInventory: true,
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     ses: {
+ *         awsRegions: ["us-east-1"],
+ *         metricsPollingInterval: 6000,
+ *     },
+ *     sns: {
+ *         awsRegions: ["us-east-1"],
+ *         fetchExtendedInventory: true,
+ *         metricsPollingInterval: 6000,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Linked AWS account integrations can be imported using the `id`, e.g. bash

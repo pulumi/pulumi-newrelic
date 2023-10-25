@@ -15,6 +15,55 @@ import (
 
 // Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewStepMonitor(ctx, "monitor", &synthetics.StepMonitorArgs{
+//				EnableScreenshotOnFailureAndScript: pulumi.Bool(true),
+//				LocationsPublics: pulumi.StringArray{
+//					pulumi.String("US_EAST_1"),
+//					pulumi.String("US_EAST_2"),
+//				},
+//				Period: pulumi.String("EVERY_6_HOURS"),
+//				Status: pulumi.String("ENABLED"),
+//				Steps: synthetics.StepMonitorStepArray{
+//					&synthetics.StepMonitorStepArgs{
+//						Ordinal: pulumi.Int(0),
+//						Type:    pulumi.String("NAVIGATE"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("https://www.newrelic.com"),
+//						},
+//					},
+//				},
+//				Tags: synthetics.StepMonitorTagArray{
+//					&synthetics.StepMonitorTagArgs{
+//						Key: pulumi.String("some_key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("some_value"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// See additional examples.
 // ## Additional Examples
 //
 // ## Import

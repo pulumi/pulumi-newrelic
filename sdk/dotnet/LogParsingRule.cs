@@ -12,6 +12,62 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create, update and delete New Relic Log Parsing Rule.
     /// 
+    /// ## Example Usage
+    /// 
+    /// Use this example to create the log parse rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.LogParsingRule("foo", new()
+    ///     {
+    ///         Attribute = "message",
+    ///         Enabled = true,
+    ///         Grok = "sampleattribute='%%{NUMBER:test:int}'",
+    ///         Lucene = "logtype:linux_messages",
+    ///         Nrql = "SELECT * FROM Log WHERE logtype = 'linux_messages'",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Additional Example
+    /// 
+    /// Use this example to validate a grok pattern and create the log parse rule.  More
+    /// information on grok pattern can be found [here](https://docs.newrelic.com/docs/logs/ui-data/parsing/#grok)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var grok = NewRelic.GetTestGrokPattern.Invoke(new()
+    ///     {
+    ///         Grok = "%{IP:host_ip}",
+    ///         LogLines = new[]
+    ///         {
+    ///             "host_ip: 43.3.120.2",
+    ///         },
+    ///     });
+    /// 
+    ///     var foo = new NewRelic.LogParsingRule("foo", new()
+    ///     {
+    ///         Attribute = "message",
+    ///         Enabled = true,
+    ///         Grok = grok.Apply(getTestGrokPatternResult =&gt; getTestGrokPatternResult.Grok),
+    ///         Lucene = "logtype:linux_messages",
+    ///         Nrql = "SELECT * FROM Log WHERE logtype = 'linux_messages'",
+    ///         Matched = grok.Apply(getTestGrokPatternResult =&gt; getTestGrokPatternResult.TestGroks[0]?.Matched),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// New Relic log parsing rule can be imported using the rule ID, e.g. bash

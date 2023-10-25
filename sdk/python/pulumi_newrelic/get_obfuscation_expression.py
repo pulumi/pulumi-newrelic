@@ -68,6 +68,25 @@ def get_obfuscation_expression(account_id: Optional[int] = None,
     """
     Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    expression = newrelic.get_obfuscation_expression(account_id=123456,
+        name="The expression")
+    rule = newrelic.ObfuscationRule("rule",
+        description="description of the rule",
+        filter="hostStatus=running",
+        enabled=True,
+        actions=[newrelic.ObfuscationRuleActionArgs(
+            attributes=["message"],
+            expression_id=expression.id,
+            method="MASK",
+        )])
+    ```
+
 
     :param int account_id: The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
     :param str name: Name of expression.
@@ -90,6 +109,25 @@ def get_obfuscation_expression_output(account_id: Optional[pulumi.Input[Optional
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObfuscationExpressionResult]:
     """
     Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    expression = newrelic.get_obfuscation_expression(account_id=123456,
+        name="The expression")
+    rule = newrelic.ObfuscationRule("rule",
+        description="description of the rule",
+        filter="hostStatus=running",
+        enabled=True,
+        actions=[newrelic.ObfuscationRuleActionArgs(
+            attributes=["message"],
+            expression_id=expression.id,
+            method="MASK",
+        )])
+    ```
 
 
     :param int account_id: The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.

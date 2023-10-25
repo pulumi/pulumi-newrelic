@@ -226,6 +226,29 @@ class NrqlDropRule(pulumi.CustomResource):
                  nrql: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.NrqlDropRule("foo",
+            account_id=12345,
+            action="drop_data",
+            description="Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it.",
+            nrql="SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'")
+        bar = newrelic.NrqlDropRule("bar",
+            account_id=12345,
+            action="drop_attributes",
+            description="Removes the user name and email fields from MyCustomEvent",
+            nrql="SELECT userEmail, userName FROM MyCustomEvent")
+        baz = newrelic.NrqlDropRule("baz",
+            account_id=12345,
+            action="drop_attributes_from_metric_aggregates",
+            description="Removes containerId from metric aggregates to reduce metric cardinality.",
+            nrql="SELECT containerId FROM Metric")
+        ```
+
         ## Import
 
         New Relic NRQL drop rules can be imported using a concatenated string of the format
@@ -250,6 +273,29 @@ class NrqlDropRule(pulumi.CustomResource):
                  args: NrqlDropRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.NrqlDropRule("foo",
+            account_id=12345,
+            action="drop_data",
+            description="Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it.",
+            nrql="SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'")
+        bar = newrelic.NrqlDropRule("bar",
+            account_id=12345,
+            action="drop_attributes",
+            description="Removes the user name and email fields from MyCustomEvent",
+            nrql="SELECT userEmail, userName FROM MyCustomEvent")
+        baz = newrelic.NrqlDropRule("baz",
+            account_id=12345,
+            action="drop_attributes_from_metric_aggregates",
+            description="Removes containerId from metric aggregates to reduce metric cardinality.",
+            nrql="SELECT containerId FROM Metric")
+        ```
+
         ## Import
 
         New Relic NRQL drop rules can be imported using a concatenated string of the format

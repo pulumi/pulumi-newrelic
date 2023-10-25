@@ -15,7 +15,226 @@ import (
 
 // Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
+//				BypassHeadRequest: pulumi.Bool(true),
+//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
+//					&synthetics.MonitorCustomHeaderArgs{
+//						Name:  pulumi.String("some_name"),
+//						Value: pulumi.String("some_value"),
+//					},
+//				},
+//				LocationsPublics: pulumi.StringArray{
+//					pulumi.String("AP_SOUTH_1"),
+//				},
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				Status: pulumi.String("ENABLED"),
+//				Tags: synthetics.MonitorTagArray{
+//					&synthetics.MonitorTagArgs{
+//						Key: pulumi.String("some_key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("some_value"),
+//						},
+//					},
+//				},
+//				TreatRedirectAsFailure: pulumi.Bool(true),
+//				Type:                   pulumi.String("SIMPLE"),
+//				Uri:                    pulumi.String("https://www.one.newrelic.com"),
+//				ValidationString:       pulumi.String("success"),
+//				VerifySsl:              pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ##### Type: `SIMPLE BROWSER`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
+//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
+//					&synthetics.MonitorCustomHeaderArgs{
+//						Name:  pulumi.String("some_name"),
+//						Value: pulumi.String("some_value"),
+//					},
+//				},
+//				EnableScreenshotOnFailureAndScript: pulumi.Bool(true),
+//				LocationsPublics: pulumi.StringArray{
+//					pulumi.String("AP_SOUTH_1"),
+//				},
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				Status: pulumi.String("ENABLED"),
+//				Tags: synthetics.MonitorTagArray{
+//					&synthetics.MonitorTagArgs{
+//						Key: pulumi.String("some_key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("some_value"),
+//						},
+//					},
+//				},
+//				Type:             pulumi.String("BROWSER"),
+//				Uri:              pulumi.String("https://www.one.newrelic.com"),
+//				ValidationString: pulumi.String("success"),
+//				VerifySsl:        pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// See additional examples.
 // ## Additional Examples
+//
+// ### Create a monitor with a private location
+//
+// The below example shows how you can define a private location and attach it to a monitor.
+//
+// > **NOTE:** It can take up to 10 minutes for a private location to become available.
+//
+// ##### Type: `SIMPLE`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
+//				Description:             pulumi.String("Example private location"),
+//				VerifiedScriptExecution: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
+//				Status: pulumi.String("ENABLED"),
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				Uri:    pulumi.String("https://www.one.newrelic.com"),
+//				Type:   pulumi.String("SIMPLE"),
+//				LocationsPrivates: pulumi.StringArray{
+//					location.ID(),
+//				},
+//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
+//					&synthetics.MonitorCustomHeaderArgs{
+//						Name:  pulumi.String("some_name"),
+//						Value: pulumi.String("some_value"),
+//					},
+//				},
+//				TreatRedirectAsFailure: pulumi.Bool(true),
+//				ValidationString:       pulumi.String("success"),
+//				BypassHeadRequest:      pulumi.Bool(true),
+//				VerifySsl:              pulumi.Bool(true),
+//				Tags: synthetics.MonitorTagArray{
+//					&synthetics.MonitorTagArgs{
+//						Key: pulumi.String("some_key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("some_value"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ##### Type: `BROWSER`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
+//				Description:             pulumi.String("Example private location"),
+//				VerifiedScriptExecution: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
+//				Status: pulumi.String("ENABLED"),
+//				Type:   pulumi.String("BROWSER"),
+//				Uri:    pulumi.String("https://www.one.newrelic.com"),
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				LocationsPrivates: pulumi.StringArray{
+//					location.ID(),
+//				},
+//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
+//					&synthetics.MonitorCustomHeaderArgs{
+//						Name:  pulumi.String("some_name"),
+//						Value: pulumi.String("some_value"),
+//					},
+//				},
+//				EnableScreenshotOnFailureAndScript: pulumi.Bool(true),
+//				ValidationString:                   pulumi.String("success"),
+//				VerifySsl:                          pulumi.Bool(true),
+//				RuntimeTypeVersion:                 pulumi.String("100"),
+//				RuntimeType:                        pulumi.String("CHROME_BROWSER"),
+//				ScriptLanguage:                     pulumi.String("JAVASCRIPT"),
+//				Tags: synthetics.MonitorTagArray{
+//					&synthetics.MonitorTagArgs{
+//						Key: pulumi.String("some_key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("some_value"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

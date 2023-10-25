@@ -150,6 +150,31 @@ def get_entity(account_id: Optional[int] = None,
 
     > If the entities are not found please try again without providing the `types` field.
 
+    ### Query for an OTEL entity
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    app = newrelic.get_entity(domain="EXT",
+        name="my-otel-app",
+        tags=[newrelic.GetEntityTagArgs(
+            key="accountID",
+            value="12345",
+        )],
+        type="SERVICE")
+    ```
+
+    ### Query for an entity by type (AWS Lambda entity in this example)
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    app = newrelic.get_entity(name="my_lambda_trace",
+        type="AWSLAMBDAFUNCTION")
+    ```
+
 
     :param int account_id: The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
     :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
@@ -195,6 +220,31 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
     ## Additional Examples
 
     > If the entities are not found please try again without providing the `types` field.
+
+    ### Query for an OTEL entity
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    app = newrelic.get_entity(domain="EXT",
+        name="my-otel-app",
+        tags=[newrelic.GetEntityTagArgs(
+            key="accountID",
+            value="12345",
+        )],
+        type="SERVICE")
+    ```
+
+    ### Query for an entity by type (AWS Lambda entity in this example)
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    app = newrelic.get_entity(name="my_lambda_trace",
+        type="AWSLAMBDAFUNCTION")
+    ```
 
 
     :param int account_id: The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.

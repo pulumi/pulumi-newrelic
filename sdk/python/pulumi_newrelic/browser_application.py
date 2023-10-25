@@ -273,6 +273,19 @@ class BrowserApplication(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a standalone New Relic browser application.
 
+        ## Example Usage
+
+        Basic usage to create a standalone browser application.
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.BrowserApplication("foo",
+            cookies_enabled=True,
+            distributed_tracing_enabled=True,
+            loader_type="SPA")
+        ```
+
         ## Import
 
         Browser applications can be imported using the GUID of the browser application. bash
@@ -297,6 +310,19 @@ class BrowserApplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to create, update, and delete a standalone New Relic browser application.
+
+        ## Example Usage
+
+        Basic usage to create a standalone browser application.
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.BrowserApplication("foo",
+            cookies_enabled=True,
+            distributed_tracing_enabled=True,
+            loader_type="SPA")
+        ```
 
         ## Import
 

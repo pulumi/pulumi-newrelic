@@ -45,6 +45,10 @@ class AlertConditionArgs:
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
                
                > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
                * when `type` = `apm_app_metric` and `condition_scope` = `instance`
                * when `type` = `apm_jvm_metric`
@@ -269,6 +273,10 @@ class AlertConditionArgs:
         One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
 
         > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "user_defined_value_function")
 
@@ -325,6 +333,10 @@ class _AlertConditionState:
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
                
                > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
                * when `type` = `apm_app_metric` and `condition_scope` = `instance`
                * when `type` = `apm_jvm_metric`
@@ -562,6 +574,10 @@ class _AlertConditionState:
         One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
 
         > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "user_defined_value_function")
 
@@ -608,6 +624,31 @@ class AlertCondition(pulumi.CustomResource):
 
         > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        app = newrelic.get_entity(name="my-app",
+            type="APPLICATION",
+            domain="APM")
+        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+        foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
+            policy_id=foo_alert_policy.id,
+            type="apm_app_metric",
+            entities=[app.application_id],
+            metric="apdex",
+            runbook_url="https://www.example.com",
+            condition_scope="application",
+            terms=[newrelic.AlertConditionTermArgs(
+                duration=5,
+                operator="below",
+                priority="critical",
+                threshold=0.75,
+                time_function="all",
+            )])
+        ```
         ## Terms
 
         The `term` mapping supports the following arguments:
@@ -617,6 +658,47 @@ class AlertCondition(pulumi.CustomResource):
           * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
           * `threshold` - (Required) Must be 0 or greater.
           * `time_function` - (Required) `all` or `any`.
+
+        ## Tags
+
+        Manage alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_entity = newrelic.get_entity(name="foo entitiy")
+        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+        foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
+            policy_id=foo_alert_policy.id,
+            type="apm_app_metric",
+            entities=[foo_entity.application_id],
+            metric="apdex",
+            runbook_url="https://www.example.com",
+            condition_scope="application",
+            terms=[newrelic.AlertConditionTermArgs(
+                duration=5,
+                operator="below",
+                priority="critical",
+                threshold=0.75,
+                time_function="all",
+            )])
+        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
+            guid=foo_alert_condition.entity_guid,
+            tags=[
+                newrelic.EntityTagsTagArgs(
+                    key="my-key",
+                    values=[
+                        "my-value",
+                        "my-other-value",
+                    ],
+                ),
+                newrelic.EntityTagsTagArgs(
+                    key="my-key-2",
+                    values=["my-value-2"],
+                ),
+            ])
+        ```
 
         ## Import
 
@@ -642,6 +724,10 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
                
                > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
                * when `type` = `apm_app_metric` and `condition_scope` = `instance`
                * when `type` = `apm_jvm_metric`
@@ -657,6 +743,31 @@ class AlertCondition(pulumi.CustomResource):
 
         > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        app = newrelic.get_entity(name="my-app",
+            type="APPLICATION",
+            domain="APM")
+        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+        foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
+            policy_id=foo_alert_policy.id,
+            type="apm_app_metric",
+            entities=[app.application_id],
+            metric="apdex",
+            runbook_url="https://www.example.com",
+            condition_scope="application",
+            terms=[newrelic.AlertConditionTermArgs(
+                duration=5,
+                operator="below",
+                priority="critical",
+                threshold=0.75,
+                time_function="all",
+            )])
+        ```
         ## Terms
 
         The `term` mapping supports the following arguments:
@@ -666,6 +777,47 @@ class AlertCondition(pulumi.CustomResource):
           * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
           * `threshold` - (Required) Must be 0 or greater.
           * `time_function` - (Required) `all` or `any`.
+
+        ## Tags
+
+        Manage alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_entity = newrelic.get_entity(name="foo entitiy")
+        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+        foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
+            policy_id=foo_alert_policy.id,
+            type="apm_app_metric",
+            entities=[foo_entity.application_id],
+            metric="apdex",
+            runbook_url="https://www.example.com",
+            condition_scope="application",
+            terms=[newrelic.AlertConditionTermArgs(
+                duration=5,
+                operator="below",
+                priority="critical",
+                threshold=0.75,
+                time_function="all",
+            )])
+        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
+            guid=foo_alert_condition.entity_guid,
+            tags=[
+                newrelic.EntityTagsTagArgs(
+                    key="my-key",
+                    values=[
+                        "my-value",
+                        "my-other-value",
+                    ],
+                ),
+                newrelic.EntityTagsTagArgs(
+                    key="my-key-2",
+                    values=["my-value-2"],
+                ),
+            ])
+        ```
 
         ## Import
 
@@ -786,6 +938,10 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
                
                > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
                * when `type` = `apm_app_metric` and `condition_scope` = `instance`
                * when `type` = `apm_jvm_metric`
@@ -913,6 +1069,10 @@ class AlertCondition(pulumi.CustomResource):
         One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
 
         > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "user_defined_value_function")
 

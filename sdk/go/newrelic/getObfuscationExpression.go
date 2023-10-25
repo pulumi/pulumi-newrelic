@@ -13,6 +13,50 @@ import (
 )
 
 // Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			expression, err := newrelic.LookupObfuscationExpression(ctx, &newrelic.LookupObfuscationExpressionArgs{
+//				AccountId: pulumi.IntRef(123456),
+//				Name:      "The expression",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewObfuscationRule(ctx, "rule", &newrelic.ObfuscationRuleArgs{
+//				Description: pulumi.String("description of the rule"),
+//				Filter:      pulumi.String("hostStatus=running"),
+//				Enabled:     pulumi.Bool(true),
+//				Actions: newrelic.ObfuscationRuleActionArray{
+//					&newrelic.ObfuscationRuleActionArgs{
+//						Attributes: pulumi.StringArray{
+//							pulumi.String("message"),
+//						},
+//						ExpressionId: *pulumi.String(expression.Id),
+//						Method:       pulumi.String("MASK"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupObfuscationExpression(ctx *pulumi.Context, args *LookupObfuscationExpressionArgs, opts ...pulumi.InvokeOption) (*LookupObfuscationExpressionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupObfuscationExpressionResult

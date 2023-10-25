@@ -704,7 +704,117 @@ class ScriptMonitor(pulumi.CustomResource):
         """
         Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
 
+        ## Example Usage
+
+        ##### Type: `SCRIPT_API`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            locations_publics=[
+                "AP_SOUTH_1",
+                "AP_EAST_1",
+            ],
+            period="EVERY_6_HOURS",
+            runtime_type="NODE_API",
+            runtime_type_version="16.10",
+            script="console.log('it works!')",
+            script_language="JAVASCRIPT",
+            status="ENABLED",
+            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )],
+            type="SCRIPT_API")
+        ```
+        ##### Type: `SCRIPT_BROWSER`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            enable_screenshot_on_failure_and_script=False,
+            locations_publics=[
+                "AP_SOUTH_1",
+                "AP_EAST_1",
+            ],
+            period="EVERY_HOUR",
+            runtime_type="CHROME_BROWSER",
+            runtime_type_version="100",
+            script="$browser.get('https://one.newrelic.com')",
+            script_language="JAVASCRIPT",
+            status="ENABLED",
+            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )],
+            type="SCRIPT_BROWSER")
+        ```
+        See additional examples.
         ## Additional Examples
+
+        ### Create a monitor with a private location
+
+        The below example shows how you can define a private location and attach it to a monitor.
+
+        > **NOTE:** It can take up to 10 minutes for a private location to become available.
+
+        ##### Type: `SCRIPT_API`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Example private location",
+            verified_script_execution=True)
+        monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            status="ENABLED",
+            type="SCRIPT_API",
+            location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
+                guid=location.id,
+                vse_password="secret",
+            )],
+            period="EVERY_6_HOURS",
+            script="console.log('terraform integration test updated')",
+            script_language="JAVASCRIPT",
+            runtime_type="NODE_API",
+            runtime_type_version="16.10",
+            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )])
+        ```
+        ##### Type: `SCRIPT_BROWSER`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Test Description",
+            verified_script_execution=True)
+        monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            status="ENABLED",
+            type="SCRIPT_BROWSER",
+            period="EVERY_HOUR",
+            script="$browser.get('https://one.newrelic.com')",
+            enable_screenshot_on_failure_and_script=False,
+            location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
+                guid=location.id,
+                vse_password="secret",
+            )],
+            runtime_type_version="100",
+            runtime_type="CHROME_BROWSER",
+            script_language="JAVASCRIPT",
+            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )])
+        ```
 
         ## Import
 
@@ -745,7 +855,117 @@ class ScriptMonitor(pulumi.CustomResource):
         """
         Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
 
+        ## Example Usage
+
+        ##### Type: `SCRIPT_API`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            locations_publics=[
+                "AP_SOUTH_1",
+                "AP_EAST_1",
+            ],
+            period="EVERY_6_HOURS",
+            runtime_type="NODE_API",
+            runtime_type_version="16.10",
+            script="console.log('it works!')",
+            script_language="JAVASCRIPT",
+            status="ENABLED",
+            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )],
+            type="SCRIPT_API")
+        ```
+        ##### Type: `SCRIPT_BROWSER`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            enable_screenshot_on_failure_and_script=False,
+            locations_publics=[
+                "AP_SOUTH_1",
+                "AP_EAST_1",
+            ],
+            period="EVERY_HOUR",
+            runtime_type="CHROME_BROWSER",
+            runtime_type_version="100",
+            script="$browser.get('https://one.newrelic.com')",
+            script_language="JAVASCRIPT",
+            status="ENABLED",
+            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )],
+            type="SCRIPT_BROWSER")
+        ```
+        See additional examples.
         ## Additional Examples
+
+        ### Create a monitor with a private location
+
+        The below example shows how you can define a private location and attach it to a monitor.
+
+        > **NOTE:** It can take up to 10 minutes for a private location to become available.
+
+        ##### Type: `SCRIPT_API`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Example private location",
+            verified_script_execution=True)
+        monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            status="ENABLED",
+            type="SCRIPT_API",
+            location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
+                guid=location.id,
+                vse_password="secret",
+            )],
+            period="EVERY_6_HOURS",
+            script="console.log('terraform integration test updated')",
+            script_language="JAVASCRIPT",
+            runtime_type="NODE_API",
+            runtime_type_version="16.10",
+            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )])
+        ```
+        ##### Type: `SCRIPT_BROWSER`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Test Description",
+            verified_script_execution=True)
+        monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            status="ENABLED",
+            type="SCRIPT_BROWSER",
+            period="EVERY_HOUR",
+            script="$browser.get('https://one.newrelic.com')",
+            enable_screenshot_on_failure_and_script=False,
+            location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
+                guid=location.id,
+                vse_password="secret",
+            )],
+            runtime_type_version="100",
+            runtime_type="CHROME_BROWSER",
+            script_language="JAVASCRIPT",
+            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )])
+        ```
 
         ## Import
 

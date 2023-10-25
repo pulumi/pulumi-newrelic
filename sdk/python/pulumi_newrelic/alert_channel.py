@@ -212,6 +212,116 @@ class AlertChannel(pulumi.CustomResource):
         > **WARNING:** The `AlertChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `NotificationChannel`.
 
         ## Example Usage
+        ### Email
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config=newrelic.AlertChannelConfigArgs(
+                include_json_attachment="true",
+                recipients="foo@example.com",
+            ),
+            type="email")
+        ```
+        ## Additional Examples
+
+        ##### Slack
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config=newrelic.AlertChannelConfigArgs(
+                channel="example-alerts-channel",
+                url="https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
+            ),
+            type="slack")
+        ```
+
+        > **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
+
+        ### OpsGenie
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config=newrelic.AlertChannelConfigArgs(
+                api_key="abc123",
+                recipients="user1@domain.com, user2@domain.com",
+                tags="tag1, tag2",
+                teams="team1, team2",
+            ),
+            type="opsgenie")
+        ```
+
+        ### PagerDuty
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config=newrelic.AlertChannelConfigArgs(
+                service_key="abc123",
+            ),
+            type="pagerduty")
+        ```
+
+        ### VictorOps
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config=newrelic.AlertChannelConfigArgs(
+                key="abc123",
+                route_key="/example",
+            ),
+            type="victorops")
+        ```
+
+        ### Webhook
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            type="webhook",
+            config=newrelic.AlertChannelConfigArgs(
+                base_url="http://www.test.com",
+                payload_type="application/json",
+                payload={
+                    "condition_name": "$CONDITION_NAME",
+                    "policy_name": "$POLICY_NAME",
+                },
+                headers={
+                    "header1": value1,
+                    "header2": value2,
+                },
+            ))
+        ```
+
+        ### Webhook with complex payload
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config=newrelic.AlertChannelConfigArgs(
+                base_url="http://www.test.com",
+                payload_string=\"\"\"{
+          "my_custom_values": {
+            "condition_name": "$CONDITION_NAME",
+            "policy_name": "$POLICY_NAME"
+          }
+        }
+
+        \"\"\",
+                payload_type="application/json",
+            ),
+            type="webhook")
+        ```
 
         ## Import
 
@@ -240,6 +350,116 @@ class AlertChannel(pulumi.CustomResource):
         > **WARNING:** The `AlertChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `NotificationChannel`.
 
         ## Example Usage
+        ### Email
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config=newrelic.AlertChannelConfigArgs(
+                include_json_attachment="true",
+                recipients="foo@example.com",
+            ),
+            type="email")
+        ```
+        ## Additional Examples
+
+        ##### Slack
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config=newrelic.AlertChannelConfigArgs(
+                channel="example-alerts-channel",
+                url="https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
+            ),
+            type="slack")
+        ```
+
+        > **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
+
+        ### OpsGenie
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config=newrelic.AlertChannelConfigArgs(
+                api_key="abc123",
+                recipients="user1@domain.com, user2@domain.com",
+                tags="tag1, tag2",
+                teams="team1, team2",
+            ),
+            type="opsgenie")
+        ```
+
+        ### PagerDuty
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config=newrelic.AlertChannelConfigArgs(
+                service_key="abc123",
+            ),
+            type="pagerduty")
+        ```
+
+        ### VictorOps
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config=newrelic.AlertChannelConfigArgs(
+                key="abc123",
+                route_key="/example",
+            ),
+            type="victorops")
+        ```
+
+        ### Webhook
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            type="webhook",
+            config=newrelic.AlertChannelConfigArgs(
+                base_url="http://www.test.com",
+                payload_type="application/json",
+                payload={
+                    "condition_name": "$CONDITION_NAME",
+                    "policy_name": "$POLICY_NAME",
+                },
+                headers={
+                    "header1": value1,
+                    "header2": value2,
+                },
+            ))
+        ```
+
+        ### Webhook with complex payload
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config=newrelic.AlertChannelConfigArgs(
+                base_url="http://www.test.com",
+                payload_string=\"\"\"{
+          "my_custom_values": {
+            "condition_name": "$CONDITION_NAME",
+            "policy_name": "$POLICY_NAME"
+          }
+        }
+
+        \"\"\",
+                payload_type="application/json",
+            ),
+            type="webhook")
+        ```
 
         ## Import
 

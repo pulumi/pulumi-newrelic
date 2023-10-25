@@ -14,6 +14,30 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Use this data source to get information about a specific cloud account linked to New Relic.
         /// Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used. 
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var account = NewRelic.GetCloudAccount.Invoke(new()
+        ///     {
+        ///         AccountId = 12345,
+        ///         CloudProvider = "aws",
+        ///         Name = "my aws account",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCloudAccountResult> InvokeAsync(GetCloudAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudAccountResult>("newrelic:index/getCloudAccount:getCloudAccount", args ?? new GetCloudAccountArgs(), options.WithDefaults());
@@ -21,6 +45,30 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Use this data source to get information about a specific cloud account linked to New Relic.
         /// Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used. 
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var account = NewRelic.GetCloudAccount.Invoke(new()
+        ///     {
+        ///         AccountId = 12345,
+        ///         CloudProvider = "aws",
+        ///         Name = "my aws account",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCloudAccountResult> Invoke(GetCloudAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudAccountResult>("newrelic:index/getCloudAccount:getCloudAccount", args ?? new GetCloudAccountInvokeArgs(), options.WithDefaults());

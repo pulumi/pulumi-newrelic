@@ -14,6 +14,35 @@ import (
 
 // Use this resource to create, update, and delete a standalone New Relic browser application.
 //
+// ## Example Usage
+//
+// Basic usage to create a standalone browser application.
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewBrowserApplication(ctx, "foo", &newrelic.BrowserApplicationArgs{
+//				CookiesEnabled:            pulumi.Bool(true),
+//				DistributedTracingEnabled: pulumi.Bool(true),
+//				LoaderType:                pulumi.String("SPA"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Browser applications can be imported using the GUID of the browser application. bash

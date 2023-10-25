@@ -13,12 +13,130 @@ namespace Pulumi.NewRelic.Synthetics
     {
         /// <summary>
         /// Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()
+        ///     {
+        ///         AccountId = 123456,
+        ///         Name = "My private location",
+        ///     });
+        /// 
+        ///     var foo = new NewRelic.Synthetics.Monitor("foo", new()
+        ///     {
+        ///         LocationsPrivates = new[]
+        ///         {
+        ///             example.Apply(getPrivateLocationResult =&gt; getPrivateLocationResult.Id),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()
+        ///     {
+        ///         AccountId = 123456,
+        ///         Name = "My private location",
+        ///     });
+        /// 
+        ///     var foo = new NewRelic.Synthetics.StepMonitor("foo", new()
+        ///     {
+        ///         LocationPrivates = new[]
+        ///         {
+        ///             new NewRelic.Synthetics.Inputs.StepMonitorLocationPrivateArgs
+        ///             {
+        ///                 Guid = example.Apply(getPrivateLocationResult =&gt; getPrivateLocationResult.Id),
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPrivateLocationResult> InvokeAsync(GetPrivateLocationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLocationResult>("newrelic:synthetics/getPrivateLocation:getPrivateLocation", args ?? new GetPrivateLocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()
+        ///     {
+        ///         AccountId = 123456,
+        ///         Name = "My private location",
+        ///     });
+        /// 
+        ///     var foo = new NewRelic.Synthetics.Monitor("foo", new()
+        ///     {
+        ///         LocationsPrivates = new[]
+        ///         {
+        ///             example.Apply(getPrivateLocationResult =&gt; getPrivateLocationResult.Id),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()
+        ///     {
+        ///         AccountId = 123456,
+        ///         Name = "My private location",
+        ///     });
+        /// 
+        ///     var foo = new NewRelic.Synthetics.StepMonitor("foo", new()
+        ///     {
+        ///         LocationPrivates = new[]
+        ///         {
+        ///             new NewRelic.Synthetics.Inputs.StepMonitorLocationPrivateArgs
+        ///             {
+        ///                 Guid = example.Apply(getPrivateLocationResult =&gt; getPrivateLocationResult.Id),
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPrivateLocationResult> Invoke(GetPrivateLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLocationResult>("newrelic:synthetics/getPrivateLocation:getPrivateLocation", args ?? new GetPrivateLocationInvokeArgs(), options.WithDefaults());

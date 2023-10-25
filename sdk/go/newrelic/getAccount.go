@@ -15,6 +15,32 @@ import (
 // Use this data source to get information about a specific account in New Relic.
 // Accounts can be located by ID or name.  At most one of the two attributes can
 // be provided. If neither are provided, the provider's `accountId` will be used.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.GetAccount(ctx, &newrelic.GetAccountArgs{
+//				Scope: pulumi.StringRef("global"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetAccount(ctx *pulumi.Context, args *GetAccountArgs, opts ...pulumi.InvokeOption) (*GetAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAccountResult

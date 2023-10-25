@@ -17,6 +17,67 @@ import (
 // ## Additional Examples
 //
 // > If the entities are not found please try again without providing the `types` field.
+//
+// ### Query for an OTEL entity
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+//				Domain: pulumi.StringRef("EXT"),
+//				Name:   "my-otel-app",
+//				Tags: []newrelic.GetEntityTag{
+//					{
+//						Key:   "accountID",
+//						Value: "12345",
+//					},
+//				},
+//				Type: pulumi.StringRef("SERVICE"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Query for an entity by type (AWS Lambda entity in this example)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+//				Name: "my_lambda_trace",
+//				Type: pulumi.StringRef("AWSLAMBDAFUNCTION"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOption) (*GetEntityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEntityResult

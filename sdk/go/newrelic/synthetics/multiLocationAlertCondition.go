@@ -17,6 +17,156 @@ import (
 //
 // > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			policy, err := newrelic.NewAlertPolicy(ctx, "policy", nil)
+//			if err != nil {
+//				return err
+//			}
+//			monitor, err := synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
+//				LocationsPublics: pulumi.StringArray{
+//					pulumi.String("US_WEST_1"),
+//				},
+//				Period: pulumi.String("EVERY_10_MINUTES"),
+//				Status: pulumi.String("DISABLED"),
+//				Type:   pulumi.String("SIMPLE"),
+//				Uri:    pulumi.String("https://www.one.newrelic.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synthetics.NewMultiLocationAlertCondition(ctx, "example", &synthetics.MultiLocationAlertConditionArgs{
+//				PolicyId:                  policy.ID(),
+//				RunbookUrl:                pulumi.String("https://example.com"),
+//				Enabled:                   pulumi.Bool(true),
+//				ViolationTimeLimitSeconds: pulumi.Int(3600),
+//				Entities: pulumi.StringArray{
+//					monitor.ID(),
+//				},
+//				Critical: &synthetics.MultiLocationAlertConditionCriticalArgs{
+//					Threshold: pulumi.Int(2),
+//				},
+//				Warning: &synthetics.MultiLocationAlertConditionWarningArgs{
+//					Threshold: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Tags
+//
+// Manage synthetics multilocation alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooMonitor, err := synthetics.NewMonitor(ctx, "fooMonitor", &synthetics.MonitorArgs{
+//				Status: pulumi.String("ENABLED"),
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				Uri:    pulumi.String("https://www.one.newrelic.com"),
+//				Type:   pulumi.String("SIMPLE"),
+//				LocationsPublics: pulumi.StringArray{
+//					pulumi.String("AP_EAST_1"),
+//				},
+//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
+//					&synthetics.MonitorCustomHeaderArgs{
+//						Name:  pulumi.String("some_name"),
+//						Value: pulumi.String("some_value"),
+//					},
+//				},
+//				TreatRedirectAsFailure: pulumi.Bool(true),
+//				ValidationString:       pulumi.String("success"),
+//				BypassHeadRequest:      pulumi.Bool(true),
+//				VerifySsl:              pulumi.Bool(true),
+//				Tags: synthetics.MonitorTagArray{
+//					&synthetics.MonitorTagArgs{
+//						Key: pulumi.String("some_key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("some_value"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooMultiLocationAlertCondition, err := synthetics.NewMultiLocationAlertCondition(ctx, "fooMultiLocationAlertCondition", &synthetics.MultiLocationAlertConditionArgs{
+//				PolicyId:                  fooAlertPolicy.ID(),
+//				RunbookUrl:                pulumi.String("https://example.com"),
+//				Enabled:                   pulumi.Bool(true),
+//				ViolationTimeLimitSeconds: pulumi.Int(3600),
+//				Entities: pulumi.StringArray{
+//					fooMonitor.ID(),
+//				},
+//				Critical: &synthetics.MultiLocationAlertConditionCriticalArgs{
+//					Threshold: pulumi.Int(2),
+//				},
+//				Warning: &synthetics.MultiLocationAlertConditionWarningArgs{
+//					Threshold: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
+//				Guid: fooMultiLocationAlertCondition.EntityGuid,
+//				Tags: newrelic.EntityTagsTagArray{
+//					&newrelic.EntityTagsTagArgs{
+//						Key: pulumi.String("my-key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("my-value"),
+//							pulumi.String("my-other-value"),
+//						},
+//					},
+//					&newrelic.EntityTagsTagArgs{
+//						Key: pulumi.String("my-key-2"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("my-value-2"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // # New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
@@ -48,6 +198,20 @@ type MultiLocationAlertCondition struct {
 	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
 	ViolationTimeLimitSeconds pulumi.IntOutput `pulumi:"violationTimeLimitSeconds"`
 	// A condition term with the priority set to warning.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Warning MultiLocationAlertConditionWarningPtrOutput `pulumi:"warning"`
 }
 
@@ -110,6 +274,20 @@ type multiLocationAlertConditionState struct {
 	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
 	ViolationTimeLimitSeconds *int `pulumi:"violationTimeLimitSeconds"`
 	// A condition term with the priority set to warning.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Warning *MultiLocationAlertConditionWarning `pulumi:"warning"`
 }
 
@@ -131,6 +309,20 @@ type MultiLocationAlertConditionState struct {
 	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
 	ViolationTimeLimitSeconds pulumi.IntPtrInput
 	// A condition term with the priority set to warning.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Warning MultiLocationAlertConditionWarningPtrInput
 }
 
@@ -154,6 +346,20 @@ type multiLocationAlertConditionArgs struct {
 	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
 	ViolationTimeLimitSeconds int `pulumi:"violationTimeLimitSeconds"`
 	// A condition term with the priority set to warning.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Warning *MultiLocationAlertConditionWarning `pulumi:"warning"`
 }
 
@@ -174,6 +380,20 @@ type MultiLocationAlertConditionArgs struct {
 	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
 	ViolationTimeLimitSeconds pulumi.IntInput
 	// A condition term with the priority set to warning.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Warning MultiLocationAlertConditionWarningPtrInput
 }
 
@@ -329,6 +549,23 @@ func (o MultiLocationAlertConditionOutput) ViolationTimeLimitSeconds() pulumi.In
 }
 
 // A condition term with the priority set to warning.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o MultiLocationAlertConditionOutput) Warning() MultiLocationAlertConditionWarningPtrOutput {
 	return o.ApplyT(func(v *MultiLocationAlertCondition) MultiLocationAlertConditionWarningPtrOutput { return v.Warning }).(MultiLocationAlertConditionWarningPtrOutput)
 }

@@ -89,7 +89,19 @@ def get_test_grok_pattern(account_id: Optional[int] = None,
                           log_lines: Optional[Sequence[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestGrokPatternResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    foo = newrelic.get_test_grok_pattern(grok="%%{IP:host_ip}",
+        log_lines=[
+            "host_ip: 43.3.120.2",
+            "bytes_received: 2048",
+        ])
+    ```
+
 
     :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str grok: The Grok pattern to test.
@@ -116,7 +128,19 @@ def get_test_grok_pattern_output(account_id: Optional[pulumi.Input[Optional[int]
                                  log_lines: Optional[pulumi.Input[Sequence[str]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestGrokPatternResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    foo = newrelic.get_test_grok_pattern(grok="%%{IP:host_ip}",
+        log_lines=[
+            "host_ip: 43.3.120.2",
+            "bytes_received: 2048",
+        ])
+    ```
+
 
     :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str grok: The Grok pattern to test.

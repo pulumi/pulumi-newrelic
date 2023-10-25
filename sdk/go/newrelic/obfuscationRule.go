@@ -15,6 +15,50 @@ import (
 
 // Use this resource to create, update and delete New Relic Obfuscation Rule.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			bar, err := newrelic.NewObfuscationExpression(ctx, "bar", &newrelic.ObfuscationExpressionArgs{
+//				Description: pulumi.String("description of the expression"),
+//				Regex:       pulumi.String("(^http)"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewObfuscationRule(ctx, "foo", &newrelic.ObfuscationRuleArgs{
+//				Description: pulumi.String("description of the rule"),
+//				Filter:      pulumi.String("hostStatus=running"),
+//				Enabled:     pulumi.Bool(true),
+//				Actions: newrelic.ObfuscationRuleActionArray{
+//					&newrelic.ObfuscationRuleActionArgs{
+//						Attributes: pulumi.StringArray{
+//							pulumi.String("message"),
+//						},
+//						ExpressionId: bar.ID(),
+//						Method:       pulumi.String("MASK"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // New Relic obfuscation rule can be imported using the rule ID, e.g. bash

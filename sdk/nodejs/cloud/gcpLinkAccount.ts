@@ -19,6 +19,20 @@ import * as utilities from "../utilities";
  *
  * Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/google-cloud-platform-integrations/get-started/connect-google-cloud-platform-services-new-relic) to set up the integration.
  *
+ * ## Example Usage
+ *
+ * You can also use the full example, including the GCP set up, found in our guides.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.cloud.GcpLinkAccount("foo", {
+ *     accountId: "account id of newrelic account",
+ *     projectId: "id of the Project",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console. bash

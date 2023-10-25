@@ -11,6 +11,93 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const policy = new newrelic.AlertPolicy("policy", {});
+ * const monitor = new newrelic.synthetics.Monitor("monitor", {
+ *     locationsPublics: ["US_WEST_1"],
+ *     period: "EVERY_10_MINUTES",
+ *     status: "DISABLED",
+ *     type: "SIMPLE",
+ *     uri: "https://www.one.newrelic.com",
+ * });
+ * const example = new newrelic.synthetics.MultiLocationAlertCondition("example", {
+ *     policyId: policy.id,
+ *     runbookUrl: "https://example.com",
+ *     enabled: true,
+ *     violationTimeLimitSeconds: 3600,
+ *     entities: [monitor.id],
+ *     critical: {
+ *         threshold: 2,
+ *     },
+ *     warning: {
+ *         threshold: 1,
+ *     },
+ * });
+ * ```
+ * ## Tags
+ *
+ * Manage synthetics multilocation alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooMonitor = new newrelic.synthetics.Monitor("fooMonitor", {
+ *     status: "ENABLED",
+ *     period: "EVERY_MINUTE",
+ *     uri: "https://www.one.newrelic.com",
+ *     type: "SIMPLE",
+ *     locationsPublics: ["AP_EAST_1"],
+ *     customHeaders: [{
+ *         name: "some_name",
+ *         value: "some_value",
+ *     }],
+ *     treatRedirectAsFailure: true,
+ *     validationString: "success",
+ *     bypassHeadRequest: true,
+ *     verifySsl: true,
+ *     tags: [{
+ *         key: "some_key",
+ *         values: ["some_value"],
+ *     }],
+ * });
+ * const fooMultiLocationAlertCondition = new newrelic.synthetics.MultiLocationAlertCondition("fooMultiLocationAlertCondition", {
+ *     policyId: fooAlertPolicy.id,
+ *     runbookUrl: "https://example.com",
+ *     enabled: true,
+ *     violationTimeLimitSeconds: 3600,
+ *     entities: [fooMonitor.id],
+ *     critical: {
+ *         threshold: 2,
+ *     },
+ *     warning: {
+ *         threshold: 1,
+ *     },
+ * });
+ * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
+ *     guid: fooMultiLocationAlertCondition.entityGuid,
+ *     tags: [
+ *         {
+ *             key: "my-key",
+ *             values: [
+ *                 "my-value",
+ *                 "my-other-value",
+ *             ],
+ *         },
+ *         {
+ *             key: "my-key-2",
+ *             values: ["my-value-2"],
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
@@ -83,6 +170,10 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
     public readonly violationTimeLimitSeconds!: pulumi.Output<number>;
     /**
      * A condition term with the priority set to warning.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     public readonly warning!: pulumi.Output<outputs.synthetics.MultiLocationAlertConditionWarning | undefined>;
 
@@ -175,6 +266,10 @@ export interface MultiLocationAlertConditionState {
     violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
      * A condition term with the priority set to warning.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
 }
@@ -213,6 +308,10 @@ export interface MultiLocationAlertConditionArgs {
     violationTimeLimitSeconds: pulumi.Input<number>;
     /**
      * A condition term with the priority set to warning.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
 }

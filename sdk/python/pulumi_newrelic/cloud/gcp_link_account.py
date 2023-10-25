@@ -186,6 +186,19 @@ class GcpLinkAccount(pulumi.CustomResource):
 
         Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/google-cloud-platform-integrations/get-started/connect-google-cloud-platform-services-new-relic) to set up the integration.
 
+        ## Example Usage
+
+        You can also use the full example, including the GCP set up, found in our guides.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.cloud.GcpLinkAccount("foo",
+            account_id="account id of newrelic account",
+            project_id="id of the Project")
+        ```
+
         ## Import
 
         Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console. bash
@@ -220,6 +233,19 @@ class GcpLinkAccount(pulumi.CustomResource):
         In the GCP project IAM & admin, the service account must have the Project Viewer role and the Service Usage Consumer role or, alternatively, a custom role.
 
         Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/google-cloud-platform-integrations/get-started/connect-google-cloud-platform-services-new-relic) to set up the integration.
+
+        ## Example Usage
+
+        You can also use the full example, including the GCP set up, found in our guides.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.cloud.GcpLinkAccount("foo",
+            account_id="account id of newrelic account",
+            project_id="id of the Project")
+        ```
 
         ## Import
 

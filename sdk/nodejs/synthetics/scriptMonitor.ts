@@ -9,7 +9,123 @@ import * as utilities from "../utilities";
 /**
  * Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
  *
+ * ## Example Usage
+ *
+ * ##### Type: `SCRIPT_API`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const monitor = new newrelic.synthetics.ScriptMonitor("monitor", {
+ *     locationsPublics: [
+ *         "AP_SOUTH_1",
+ *         "AP_EAST_1",
+ *     ],
+ *     period: "EVERY_6_HOURS",
+ *     runtimeType: "NODE_API",
+ *     runtimeTypeVersion: "16.10",
+ *     script: "console.log('it works!')",
+ *     scriptLanguage: "JAVASCRIPT",
+ *     status: "ENABLED",
+ *     tags: [{
+ *         key: "some_key",
+ *         values: ["some_value"],
+ *     }],
+ *     type: "SCRIPT_API",
+ * });
+ * ```
+ * ##### Type: `SCRIPT_BROWSER`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const monitor = new newrelic.synthetics.ScriptMonitor("monitor", {
+ *     enableScreenshotOnFailureAndScript: false,
+ *     locationsPublics: [
+ *         "AP_SOUTH_1",
+ *         "AP_EAST_1",
+ *     ],
+ *     period: "EVERY_HOUR",
+ *     runtimeType: "CHROME_BROWSER",
+ *     runtimeTypeVersion: "100",
+ *     script: "$browser.get('https://one.newrelic.com')",
+ *     scriptLanguage: "JAVASCRIPT",
+ *     status: "ENABLED",
+ *     tags: [{
+ *         key: "some_key",
+ *         values: ["some_value"],
+ *     }],
+ *     type: "SCRIPT_BROWSER",
+ * });
+ * ```
+ * See additional examples.
  * ## Additional Examples
+ *
+ * ### Create a monitor with a private location
+ *
+ * The below example shows how you can define a private location and attach it to a monitor.
+ *
+ * > **NOTE:** It can take up to 10 minutes for a private location to become available.
+ *
+ * ##### Type: `SCRIPT_API`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const location = new newrelic.synthetics.PrivateLocation("location", {
+ *     description: "Example private location",
+ *     verifiedScriptExecution: true,
+ * });
+ * const monitor = new newrelic.synthetics.ScriptMonitor("monitor", {
+ *     status: "ENABLED",
+ *     type: "SCRIPT_API",
+ *     locationPrivates: [{
+ *         guid: location.id,
+ *         vsePassword: "secret",
+ *     }],
+ *     period: "EVERY_6_HOURS",
+ *     script: "console.log('terraform integration test updated')",
+ *     scriptLanguage: "JAVASCRIPT",
+ *     runtimeType: "NODE_API",
+ *     runtimeTypeVersion: "16.10",
+ *     tags: [{
+ *         key: "some_key",
+ *         values: ["some_value"],
+ *     }],
+ * });
+ * ```
+ * ##### Type: `SCRIPT_BROWSER`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const location = new newrelic.synthetics.PrivateLocation("location", {
+ *     description: "Test Description",
+ *     verifiedScriptExecution: true,
+ * });
+ * const monitor = new newrelic.synthetics.ScriptMonitor("monitor", {
+ *     status: "ENABLED",
+ *     type: "SCRIPT_BROWSER",
+ *     period: "EVERY_HOUR",
+ *     script: "$browser.get('https://one.newrelic.com')",
+ *     enableScreenshotOnFailureAndScript: false,
+ *     locationPrivates: [{
+ *         guid: location.id,
+ *         vsePassword: "secret",
+ *     }],
+ *     runtimeTypeVersion: "100",
+ *     runtimeType: "CHROME_BROWSER",
+ *     scriptLanguage: "JAVASCRIPT",
+ *     tags: [{
+ *         key: "some_key",
+ *         values: ["some_value"],
+ *     }],
+ * });
+ * ```
  *
  * ## Import
  *

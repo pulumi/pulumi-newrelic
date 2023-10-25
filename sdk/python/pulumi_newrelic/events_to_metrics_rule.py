@@ -264,6 +264,18 @@ class EventsToMetricsRule(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete New Relic Events to Metrics rules.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.EventsToMetricsRule("foo",
+            account_id=12345,
+            description="Example description",
+            nrql="SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
+        ```
+
         ## Import
 
         New Relic Events to Metrics rules can be imported using a concatenated string of the format
@@ -290,6 +302,18 @@ class EventsToMetricsRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to create, update, and delete New Relic Events to Metrics rules.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.EventsToMetricsRule("foo",
+            account_id=12345,
+            description="Example description",
+            nrql="SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
+        ```
 
         ## Import
 

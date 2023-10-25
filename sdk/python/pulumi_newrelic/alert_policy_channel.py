@@ -181,6 +181,39 @@ class AlertPolicyChannel(pulumi.CustomResource):
 
         > **WARNING:** The `AlertPolicyChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `NotificationChannel`.
 
+        ## Example Usage
+
+        The example below will apply multiple alert channels to an existing New Relic alert policy.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        example_policy = newrelic.get_alert_policy(name="my-alert-policy")
+        # Creates an email alert channel.
+        email_channel = newrelic.AlertChannel("emailChannel",
+            type="email",
+            config=newrelic.AlertChannelConfigArgs(
+                recipients="foo@example.com",
+                include_json_attachment="1",
+            ))
+        # Creates a Slack alert channel.
+        slack_channel = newrelic.AlertChannel("slackChannel",
+            type="slack",
+            config=newrelic.AlertChannelConfigArgs(
+                channel="#example-channel",
+                url="http://example-org.slack.com",
+            ))
+        # Applies the created channels above to the alert policy
+        # referenced at the top of the config.
+        foo = newrelic.AlertPolicyChannel("foo",
+            policy_id=example_policy.id,
+            channel_ids=[
+                email_channel.id,
+                slack_channel.id,
+            ])
+        ```
+
         ## Import
 
         Alert policy channels can be imported using the following notation`<policyID>:<channelID>:<channelID>`, e.g.
@@ -206,6 +239,39 @@ class AlertPolicyChannel(pulumi.CustomResource):
         Use this resource to map alert policies to alert channels in New Relic.
 
         > **WARNING:** The `AlertPolicyChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `NotificationChannel`.
+
+        ## Example Usage
+
+        The example below will apply multiple alert channels to an existing New Relic alert policy.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        example_policy = newrelic.get_alert_policy(name="my-alert-policy")
+        # Creates an email alert channel.
+        email_channel = newrelic.AlertChannel("emailChannel",
+            type="email",
+            config=newrelic.AlertChannelConfigArgs(
+                recipients="foo@example.com",
+                include_json_attachment="1",
+            ))
+        # Creates a Slack alert channel.
+        slack_channel = newrelic.AlertChannel("slackChannel",
+            type="slack",
+            config=newrelic.AlertChannelConfigArgs(
+                channel="#example-channel",
+                url="http://example-org.slack.com",
+            ))
+        # Applies the created channels above to the alert policy
+        # referenced at the top of the config.
+        foo = newrelic.AlertPolicyChannel("foo",
+            policy_id=example_policy.id,
+            channel_ids=[
+                email_channel.id,
+                slack_channel.id,
+            ])
+        ```
 
         ## Import
 

@@ -14,6 +14,149 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// &gt; **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policy = new NewRelic.AlertPolicy("policy");
+    /// 
+    ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
+    ///     {
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "US_WEST_1",
+    ///         },
+    ///         Period = "EVERY_10_MINUTES",
+    ///         Status = "DISABLED",
+    ///         Type = "SIMPLE",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///     });
+    /// 
+    ///     var example = new NewRelic.Synthetics.MultiLocationAlertCondition("example", new()
+    ///     {
+    ///         PolicyId = policy.Id,
+    ///         RunbookUrl = "https://example.com",
+    ///         Enabled = true,
+    ///         ViolationTimeLimitSeconds = 3600,
+    ///         Entities = new[]
+    ///         {
+    ///             monitor.Id,
+    ///         },
+    ///         Critical = new NewRelic.Synthetics.Inputs.MultiLocationAlertConditionCriticalArgs
+    ///         {
+    ///             Threshold = 2,
+    ///         },
+    ///         Warning = new NewRelic.Synthetics.Inputs.MultiLocationAlertConditionWarningArgs
+    ///         {
+    ///             Threshold = 1,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Tags
+    /// 
+    /// Manage synthetics multilocation alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    /// 
+    ///     var fooMonitor = new NewRelic.Synthetics.Monitor("fooMonitor", new()
+    ///     {
+    ///         Status = "ENABLED",
+    ///         Period = "EVERY_MINUTE",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         Type = "SIMPLE",
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "AP_EAST_1",
+    ///         },
+    ///         CustomHeaders = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
+    ///             {
+    ///                 Name = "some_name",
+    ///                 Value = "some_value",
+    ///             },
+    ///         },
+    ///         TreatRedirectAsFailure = true,
+    ///         ValidationString = "success",
+    ///         BypassHeadRequest = true,
+    ///         VerifySsl = true,
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooMultiLocationAlertCondition = new NewRelic.Synthetics.MultiLocationAlertCondition("fooMultiLocationAlertCondition", new()
+    ///     {
+    ///         PolicyId = fooAlertPolicy.Id,
+    ///         RunbookUrl = "https://example.com",
+    ///         Enabled = true,
+    ///         ViolationTimeLimitSeconds = 3600,
+    ///         Entities = new[]
+    ///         {
+    ///             fooMonitor.Id,
+    ///         },
+    ///         Critical = new NewRelic.Synthetics.Inputs.MultiLocationAlertConditionCriticalArgs
+    ///         {
+    ///             Threshold = 2,
+    ///         },
+    ///         Warning = new NewRelic.Synthetics.Inputs.MultiLocationAlertConditionWarningArgs
+    ///         {
+    ///             Threshold = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
+    ///     {
+    ///         Guid = fooMultiLocationAlertCondition.EntityGuid,
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Inputs.EntityTagsTagArgs
+    ///             {
+    ///                 Key = "my-key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "my-value",
+    ///                     "my-other-value",
+    ///                 },
+    ///             },
+    ///             new NewRelic.Inputs.EntityTagsTagArgs
+    ///             {
+    ///                 Key = "my-key-2",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "my-value-2",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
@@ -77,6 +220,16 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// A condition term with the priority set to warning.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Output("warning")]
         public Output<Outputs.MultiLocationAlertConditionWarning?> Warning { get; private set; } = null!;
@@ -177,6 +330,16 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// A condition term with the priority set to warning.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("warning")]
         public Input<Inputs.MultiLocationAlertConditionWarningArgs>? Warning { get; set; }
@@ -245,6 +408,16 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// A condition term with the priority set to warning.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("warning")]
         public Input<Inputs.MultiLocationAlertConditionWarningGetArgs>? Warning { get; set; }

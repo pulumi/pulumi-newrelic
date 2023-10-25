@@ -6,6 +6,22 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = newrelic.getTestGrokPattern({
+ *     grok: "%%{IP:host_ip}",
+ *     logLines: [
+ *         "host_ip: 43.3.120.2",
+ *         "bytes_received: 2048",
+ *     ],
+ * });
+ * ```
+ */
 export function getTestGrokPattern(args: GetTestGrokPatternArgs, opts?: pulumi.InvokeOptions): Promise<GetTestGrokPatternResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,6 +66,22 @@ export interface GetTestGrokPatternResult {
      */
     readonly testGroks: outputs.GetTestGrokPatternTestGrok[];
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = newrelic.getTestGrokPattern({
+ *     grok: "%%{IP:host_ip}",
+ *     logLines: [
+ *         "host_ip: 43.3.120.2",
+ *         "bytes_received: 2048",
+ *     ],
+ * });
+ * ```
+ */
 export function getTestGrokPatternOutput(args: GetTestGrokPatternOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestGrokPatternResult> {
     return pulumi.output(args).apply((a: any) => getTestGrokPattern(a, opts))
 }

@@ -1439,6 +1439,160 @@ class AzureIntegrations(pulumi.CustomResource):
 
         You can find instructions on how to set up Azure on [our documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/activate-azure-integrations/).
 
+        ## Example Usage
+
+        Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_azure_link_account = newrelic.cloud.AzureLinkAccount("fooAzureLinkAccount",
+            account_id="The New Relic account ID where you want to link the Azure account",
+            application_id="ID of the application",
+            client_secret="Secret value of client's Azure account",
+            subscription_id="Subscription ID of Azure",
+            tenant_id="Tenant ID of the Azure")
+        foo_azure_integrations = newrelic.cloud.AzureIntegrations("fooAzureIntegrations",
+            linked_account_id=foo_azure_link_account.id,
+            account_id="The New Relic account ID",
+            api_management=newrelic.cloud.AzureIntegrationsApiManagementArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            app_gateway=newrelic.cloud.AzureIntegrationsAppGatewayArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            app_service=newrelic.cloud.AzureIntegrationsAppServiceArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            containers=newrelic.cloud.AzureIntegrationsContainersArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            cosmos_db=newrelic.cloud.AzureIntegrationsCosmosDbArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            cost_management=newrelic.cloud.AzureIntegrationsCostManagementArgs(
+                metrics_polling_interval=3600,
+                tag_keys=["tag_keys"],
+            ),
+            data_factory=newrelic.cloud.AzureIntegrationsDataFactoryArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            event_hub=newrelic.cloud.AzureIntegrationsEventHubArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            express_route=newrelic.cloud.AzureIntegrationsExpressRouteArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            firewalls=newrelic.cloud.AzureIntegrationsFirewallsArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            front_door=newrelic.cloud.AzureIntegrationsFrontDoorArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            functions=newrelic.cloud.AzureIntegrationsFunctionsArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            key_vault=newrelic.cloud.AzureIntegrationsKeyVaultArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            load_balancer=newrelic.cloud.AzureIntegrationsLoadBalancerArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            logic_apps=newrelic.cloud.AzureIntegrationsLogicAppsArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            machine_learning=newrelic.cloud.AzureIntegrationsMachineLearningArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            maria_db=newrelic.cloud.AzureIntegrationsMariaDbArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            monitor=newrelic.cloud.AzureIntegrationsMonitorArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+                include_tags=["env:production"],
+                exclude_tags=[
+                    "env:staging",
+                    "env:testing",
+                ],
+                enabled=True,
+                resource_types=["microsoft.datashare/accounts"],
+            ),
+            mysql=newrelic.cloud.AzureIntegrationsMysqlArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            mysql_flexible=newrelic.cloud.AzureIntegrationsMysqlFlexibleArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            postgresql=newrelic.cloud.AzureIntegrationsPostgresqlArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            postgresql_flexible=newrelic.cloud.AzureIntegrationsPostgresqlFlexibleArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            power_bi_dedicated=newrelic.cloud.AzureIntegrationsPowerBiDedicatedArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            redis_cache=newrelic.cloud.AzureIntegrationsRedisCacheArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            service_bus=newrelic.cloud.AzureIntegrationsServiceBusArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            sql=newrelic.cloud.AzureIntegrationsSqlArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            sql_managed=newrelic.cloud.AzureIntegrationsSqlManagedArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            storage=newrelic.cloud.AzureIntegrationsStorageArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            virtual_machine=newrelic.cloud.AzureIntegrationsVirtualMachineArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            virtual_networks=newrelic.cloud.AzureIntegrationsVirtualNetworksArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            vms=newrelic.cloud.AzureIntegrationsVmsArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            vpn_gateway=newrelic.cloud.AzureIntegrationsVpnGatewayArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ))
+        ```
+
         ## Import
 
         Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic. bash
@@ -1504,6 +1658,160 @@ class AzureIntegrations(pulumi.CustomResource):
         Setup is required for this resource to work properly. This resource assumes you have linked an Azure account to New Relic.
 
         You can find instructions on how to set up Azure on [our documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/activate-azure-integrations/).
+
+        ## Example Usage
+
+        Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_azure_link_account = newrelic.cloud.AzureLinkAccount("fooAzureLinkAccount",
+            account_id="The New Relic account ID where you want to link the Azure account",
+            application_id="ID of the application",
+            client_secret="Secret value of client's Azure account",
+            subscription_id="Subscription ID of Azure",
+            tenant_id="Tenant ID of the Azure")
+        foo_azure_integrations = newrelic.cloud.AzureIntegrations("fooAzureIntegrations",
+            linked_account_id=foo_azure_link_account.id,
+            account_id="The New Relic account ID",
+            api_management=newrelic.cloud.AzureIntegrationsApiManagementArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            app_gateway=newrelic.cloud.AzureIntegrationsAppGatewayArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            app_service=newrelic.cloud.AzureIntegrationsAppServiceArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            containers=newrelic.cloud.AzureIntegrationsContainersArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            cosmos_db=newrelic.cloud.AzureIntegrationsCosmosDbArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            cost_management=newrelic.cloud.AzureIntegrationsCostManagementArgs(
+                metrics_polling_interval=3600,
+                tag_keys=["tag_keys"],
+            ),
+            data_factory=newrelic.cloud.AzureIntegrationsDataFactoryArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            event_hub=newrelic.cloud.AzureIntegrationsEventHubArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            express_route=newrelic.cloud.AzureIntegrationsExpressRouteArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            firewalls=newrelic.cloud.AzureIntegrationsFirewallsArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            front_door=newrelic.cloud.AzureIntegrationsFrontDoorArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            functions=newrelic.cloud.AzureIntegrationsFunctionsArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            key_vault=newrelic.cloud.AzureIntegrationsKeyVaultArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            load_balancer=newrelic.cloud.AzureIntegrationsLoadBalancerArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            logic_apps=newrelic.cloud.AzureIntegrationsLogicAppsArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            machine_learning=newrelic.cloud.AzureIntegrationsMachineLearningArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            maria_db=newrelic.cloud.AzureIntegrationsMariaDbArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            monitor=newrelic.cloud.AzureIntegrationsMonitorArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+                include_tags=["env:production"],
+                exclude_tags=[
+                    "env:staging",
+                    "env:testing",
+                ],
+                enabled=True,
+                resource_types=["microsoft.datashare/accounts"],
+            ),
+            mysql=newrelic.cloud.AzureIntegrationsMysqlArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            mysql_flexible=newrelic.cloud.AzureIntegrationsMysqlFlexibleArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            postgresql=newrelic.cloud.AzureIntegrationsPostgresqlArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            postgresql_flexible=newrelic.cloud.AzureIntegrationsPostgresqlFlexibleArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            power_bi_dedicated=newrelic.cloud.AzureIntegrationsPowerBiDedicatedArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            redis_cache=newrelic.cloud.AzureIntegrationsRedisCacheArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            service_bus=newrelic.cloud.AzureIntegrationsServiceBusArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            sql=newrelic.cloud.AzureIntegrationsSqlArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            sql_managed=newrelic.cloud.AzureIntegrationsSqlManagedArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            storage=newrelic.cloud.AzureIntegrationsStorageArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            virtual_machine=newrelic.cloud.AzureIntegrationsVirtualMachineArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            virtual_networks=newrelic.cloud.AzureIntegrationsVirtualNetworksArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            vms=newrelic.cloud.AzureIntegrationsVmsArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
+            vpn_gateway=newrelic.cloud.AzureIntegrationsVpnGatewayArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ))
+        ```
 
         ## Import
 

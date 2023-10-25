@@ -12,6 +12,237 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage New Relic workflows.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ##### Workflow
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.Workflow("foo", new()
+    ///     {
+    ///         MutingRulesHandling = "NOTIFY_ALL_ISSUES",
+    ///         IssuesFilter = new NewRelic.Inputs.WorkflowIssuesFilterArgs
+    ///         {
+    ///             Name = "filter-name",
+    ///             Type = "FILTER",
+    ///             Predicates = new[]
+    ///             {
+    ///                 new NewRelic.Inputs.WorkflowIssuesFilterPredicateArgs
+    ///                 {
+    ///                     Attribute = "accumulations.tag.team",
+    ///                     Operator = "EXACTLY_MATCHES",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "growth",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Destinations = new[]
+    ///         {
+    ///             new NewRelic.Inputs.WorkflowDestinationArgs
+    ///             {
+    ///                 ChannelId = newrelic_notification_channel.Some_channel.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Policy-Based Workflow Example
+    /// 
+    /// This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a policy to track
+    ///     var my_policy = new NewRelic.AlertPolicy("my-policy");
+    /// 
+    ///     // Create a reusable notification destination
+    ///     var webhook_destination = new NewRelic.NotificationDestination("webhook-destination", new()
+    ///     {
+    ///         Type = "WEBHOOK",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "url",
+    ///                 Value = "https://example.com",
+    ///             },
+    ///         },
+    ///         AuthBasic = new NewRelic.Inputs.NotificationDestinationAuthBasicArgs
+    ///         {
+    ///             User = "username",
+    ///             Password = "password",
+    ///         },
+    ///     });
+    /// 
+    ///     // Create a notification channel to use in the workflow
+    ///     var webhook_channel = new NewRelic.NotificationChannel("webhook-channel", new()
+    ///     {
+    ///         Type = "WEBHOOK",
+    ///         DestinationId = webhook_destination.Id,
+    ///         Product = "IINT",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+    ///             {
+    ///                 Key = "payload",
+    ///                 Value = "{}",
+    ///                 Label = "Payload Template",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // A workflow that matches issues that include incidents triggered by the policy
+    ///     var workflow_example = new NewRelic.Workflow("workflow-example", new()
+    ///     {
+    ///         MutingRulesHandling = "NOTIFY_ALL_ISSUES",
+    ///         IssuesFilter = new NewRelic.Inputs.WorkflowIssuesFilterArgs
+    ///         {
+    ///             Name = "Filter-name",
+    ///             Type = "FILTER",
+    ///             Predicates = new[]
+    ///             {
+    ///                 new NewRelic.Inputs.WorkflowIssuesFilterPredicateArgs
+    ///                 {
+    ///                     Attribute = "labels.policyIds",
+    ///                     Operator = "EXACTLY_MATCHES",
+    ///                     Values = new[]
+    ///                     {
+    ///                         my_policy.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Destinations = new[]
+    ///         {
+    ///             new NewRelic.Inputs.WorkflowDestinationArgs
+    ///             {
+    ///                 ChannelId = webhook_channel.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### An example of a workflow with enrichments
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workflow_example = new NewRelic.Workflow("workflow-example", new()
+    ///     {
+    ///         MutingRulesHandling = "NOTIFY_ALL_ISSUES",
+    ///         IssuesFilter = new NewRelic.Inputs.WorkflowIssuesFilterArgs
+    ///         {
+    ///             Name = "Filter-name",
+    ///             Type = "FILTER",
+    ///             Predicates = new[]
+    ///             {
+    ///                 new NewRelic.Inputs.WorkflowIssuesFilterPredicateArgs
+    ///                 {
+    ///                     Attribute = "accumulations.tag.team",
+    ///                     Operator = "EXACTLY_MATCHES",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "my_team",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Enrichments = new NewRelic.Inputs.WorkflowEnrichmentsArgs
+    ///         {
+    ///             Nrqls = new[]
+    ///             {
+    ///                 new NewRelic.Inputs.WorkflowEnrichmentsNrqlArgs
+    ///                 {
+    ///                     Name = "Log Count",
+    ///                     Configurations = new[]
+    ///                     {
+    ///                         new NewRelic.Inputs.WorkflowEnrichmentsNrqlConfigurationArgs
+    ///                         {
+    ///                             Query = "SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Destinations = new[]
+    ///         {
+    ///             new NewRelic.Inputs.WorkflowDestinationArgs
+    ///             {
+    ///                 ChannelId = newrelic_notification_channel.Webhook_channel.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### An example of a workflow with notification triggers
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workflow_example = new NewRelic.Workflow("workflow-example", new()
+    ///     {
+    ///         MutingRulesHandling = "NOTIFY_ALL_ISSUES",
+    ///         IssuesFilter = new NewRelic.Inputs.WorkflowIssuesFilterArgs
+    ///         {
+    ///             Name = "Filter-name",
+    ///             Type = "FILTER",
+    ///             Predicates = new[]
+    ///             {
+    ///                 new NewRelic.Inputs.WorkflowIssuesFilterPredicateArgs
+    ///                 {
+    ///                     Attribute = "accumulations.tag.team",
+    ///                     Operator = "EXACTLY_MATCHES",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "my_team",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Destinations = new[]
+    ///         {
+    ///             new NewRelic.Inputs.WorkflowDestinationArgs
+    ///             {
+    ///                 ChannelId = newrelic_notification_channel.Webhook_channel.Id,
+    ///                 NotificationTriggers = new[]
+    ///                 {
+    ///                     "ACTIVATED",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Additional Information
     /// 
     /// More details about the workflows can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/applied-intelligence/incident-workflows/incident-workflows/).

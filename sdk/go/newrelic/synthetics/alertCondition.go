@@ -17,6 +17,119 @@ import (
 //
 // > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewAlertCondition(ctx, "foo", &synthetics.AlertConditionArgs{
+//				PolicyId:   pulumi.Any(newrelic_alert_policy.Foo.Id),
+//				MonitorId:  pulumi.Any(newrelic_synthetics_monitor.Foo.Id),
+//				RunbookUrl: pulumi.String("https://www.example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Tags
+//
+// Manage synthetics alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooMonitor, err := synthetics.NewMonitor(ctx, "fooMonitor", &synthetics.MonitorArgs{
+//				Status: pulumi.String("ENABLED"),
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				Uri:    pulumi.String("https://www.one.newrelic.com"),
+//				Type:   pulumi.String("SIMPLE"),
+//				LocationsPublics: pulumi.StringArray{
+//					pulumi.String("AP_EAST_1"),
+//				},
+//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
+//					&synthetics.MonitorCustomHeaderArgs{
+//						Name:  pulumi.String("some_name"),
+//						Value: pulumi.String("some_value"),
+//					},
+//				},
+//				TreatRedirectAsFailure: pulumi.Bool(true),
+//				ValidationString:       pulumi.String("success"),
+//				BypassHeadRequest:      pulumi.Bool(true),
+//				VerifySsl:              pulumi.Bool(true),
+//				Tags: synthetics.MonitorTagArray{
+//					&synthetics.MonitorTagArgs{
+//						Key: pulumi.String("some_key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("some_value"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooAlertCondition, err := synthetics.NewAlertCondition(ctx, "fooAlertCondition", &synthetics.AlertConditionArgs{
+//				PolicyId:   fooAlertPolicy.ID(),
+//				MonitorId:  fooMonitor.ID(),
+//				RunbookUrl: pulumi.String("https://www.example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
+//				Guid: fooAlertCondition.EntityGuid,
+//				Tags: newrelic.EntityTagsTagArray{
+//					&newrelic.EntityTagsTagArgs{
+//						Key: pulumi.String("my-key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("my-value"),
+//							pulumi.String("my-other-value"),
+//						},
+//					},
+//					&newrelic.EntityTagsTagArgs{
+//						Key: pulumi.String("my-key-2"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("my-value-2"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
@@ -30,6 +143,20 @@ type AlertCondition struct {
 	pulumi.CustomResourceState
 
 	// Set whether to enable the alert condition. Defaults to `true`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
@@ -80,6 +207,20 @@ func GetAlertCondition(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AlertCondition resources.
 type alertConditionState struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Enabled *bool `pulumi:"enabled"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid *string `pulumi:"entityGuid"`
@@ -95,6 +236,20 @@ type alertConditionState struct {
 
 type AlertConditionState struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Enabled pulumi.BoolPtrInput
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringPtrInput
@@ -114,6 +269,20 @@ func (AlertConditionState) ElementType() reflect.Type {
 
 type alertConditionArgs struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Enabled *bool `pulumi:"enabled"`
 	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId string `pulumi:"monitorId"`
@@ -128,6 +297,20 @@ type alertConditionArgs struct {
 // The set of arguments for constructing a AlertCondition resource.
 type AlertConditionArgs struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Enabled pulumi.BoolPtrInput
 	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId pulumi.StringInput
@@ -251,6 +434,23 @@ func (o AlertConditionOutput) ToOutput(ctx context.Context) pulumix.Output[*Aler
 }
 
 // Set whether to enable the alert condition. Defaults to `true`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o AlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

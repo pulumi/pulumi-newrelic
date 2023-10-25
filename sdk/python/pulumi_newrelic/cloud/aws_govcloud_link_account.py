@@ -297,6 +297,20 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
                  secret_access_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.cloud.AwsGovcloudLinkAccount("foo",
+            access_key_id="access-key-id of aws govcloud account",
+            account_id="The New Relic account ID where you want to link the AWS GovCloud account",
+            aws_account_id="aws govcloud account id",
+            metric_collection_mode="PULL",
+            secret_access_key="secret access key of the aws govcloud account")
+        ```
+
         ## Import
 
         Linked AWSGovCloud accounts can be imported using the `id`, e.g. bash
@@ -321,6 +335,20 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
                  args: AwsGovcloudLinkAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.cloud.AwsGovcloudLinkAccount("foo",
+            access_key_id="access-key-id of aws govcloud account",
+            account_id="The New Relic account ID where you want to link the AWS GovCloud account",
+            aws_account_id="aws govcloud account id",
+            metric_collection_mode="PULL",
+            secret_access_key="secret access key of the aws govcloud account")
+        ```
+
         ## Import
 
         Linked AWSGovCloud accounts can be imported using the `id`, e.g. bash

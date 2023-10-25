@@ -7,6 +7,19 @@ import * as utilities from "../utilities";
 /**
  * Use this resource to create and manage New Relic Synthetic secure credentials.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.synthetics.SecureCredential("foo", {
+ *     description: "My description",
+ *     key: "MY_KEY",
+ *     value: "My value",
+ * });
+ * ```
+ *
  * ## Import
  *
  * A Synthetics secure credential can be imported using its `key`:

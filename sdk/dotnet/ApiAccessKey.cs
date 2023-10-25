@@ -24,6 +24,29 @@ namespace Pulumi.NewRelic
     /// and `newrelic_api_access_key.notes` are updatable. All other resource attributes will force a resource recreation which will
     /// invalidate the previous API key(s).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foobar = new NewRelic.ApiAccessKey("foobar", new()
+    ///     {
+    ///         AccountId = 1234567,
+    ///         IngestType = "LICENSE",
+    ///         KeyType = "INGEST",
+    ///         Notes = "To be used with service X",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **WARNING:** Creating 'Ingest - License' and 'Ingest - Browser' keys using this resource is restricted to 'core' or 'full platform' New Relic user accounts. If you've signed up as a 'basic' user with New Relic, or have been added as a 'basic' user to your organization on New Relic, you would not be able to use your account to create 'Ingest' keys. If you see the message `"You do not have permission to create this key"` in the response of the API called by this resource, it could be owing to the aforementioned. For more insights into user account types on New Relic and associated privileges, please check out this [page](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/user-type/#api-access).
+    /// 
     /// ## Import
     /// 
     /// Existing API access keys can be imported using a composite ID of `&lt;api_access_key_id&gt;:&lt;key_type&gt;`. `&lt;key_type&gt;` will be either `INGEST` or `USER`.
