@@ -57,10 +57,10 @@ public final class GetKeyTransactionResult {
             return this;
         }
         public GetKeyTransactionResult build() {
-            final var o = new GetKeyTransactionResult();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetKeyTransactionResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

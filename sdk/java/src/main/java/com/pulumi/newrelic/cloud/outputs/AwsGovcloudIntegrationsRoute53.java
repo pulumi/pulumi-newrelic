@@ -72,10 +72,10 @@ public final class AwsGovcloudIntegrationsRoute53 {
             return this;
         }
         public AwsGovcloudIntegrationsRoute53 build() {
-            final var o = new AwsGovcloudIntegrationsRoute53();
-            o.fetchExtendedInventory = fetchExtendedInventory;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsGovcloudIntegrationsRoute53();
+            _resultValue.fetchExtendedInventory = fetchExtendedInventory;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

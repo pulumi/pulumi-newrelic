@@ -50,9 +50,9 @@ public final class WorkflowEnrichments {
             return nrqls(List.of(nrqls));
         }
         public WorkflowEnrichments build() {
-            final var o = new WorkflowEnrichments();
-            o.nrqls = nrqls;
-            return o;
+            final var _resultValue = new WorkflowEnrichments();
+            _resultValue.nrqls = nrqls;
+            return _resultValue;
         }
     }
 }

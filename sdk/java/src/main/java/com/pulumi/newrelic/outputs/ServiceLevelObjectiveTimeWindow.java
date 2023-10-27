@@ -46,9 +46,9 @@ public final class ServiceLevelObjectiveTimeWindow {
             return this;
         }
         public ServiceLevelObjectiveTimeWindow build() {
-            final var o = new ServiceLevelObjectiveTimeWindow();
-            o.rolling = rolling;
-            return o;
+            final var _resultValue = new ServiceLevelObjectiveTimeWindow();
+            _resultValue.rolling = rolling;
+            return _resultValue;
         }
     }
 }

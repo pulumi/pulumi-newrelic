@@ -80,10 +80,10 @@ public final class AwsIntegrationsKinesisFirehose {
             return this;
         }
         public AwsIntegrationsKinesisFirehose build() {
-            final var o = new AwsIntegrationsKinesisFirehose();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsKinesisFirehose();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

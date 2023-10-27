@@ -59,10 +59,10 @@ public final class OneDashboardPageWidgetHeatmapNullValueSeriesOverride {
             return this;
         }
         public OneDashboardPageWidgetHeatmapNullValueSeriesOverride build() {
-            final var o = new OneDashboardPageWidgetHeatmapNullValueSeriesOverride();
-            o.nullValue = nullValue;
-            o.seriesName = seriesName;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetHeatmapNullValueSeriesOverride();
+            _resultValue.nullValue = nullValue;
+            _resultValue.seriesName = seriesName;
+            return _resultValue;
         }
     }
 }

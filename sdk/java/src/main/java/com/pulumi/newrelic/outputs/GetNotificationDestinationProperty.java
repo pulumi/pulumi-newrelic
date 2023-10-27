@@ -73,12 +73,12 @@ public final class GetNotificationDestinationProperty {
             return this;
         }
         public GetNotificationDestinationProperty build() {
-            final var o = new GetNotificationDestinationProperty();
-            o.displayValue = displayValue;
-            o.key = key;
-            o.label = label;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetNotificationDestinationProperty();
+            _resultValue.displayValue = displayValue;
+            _resultValue.key = key;
+            _resultValue.label = label;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

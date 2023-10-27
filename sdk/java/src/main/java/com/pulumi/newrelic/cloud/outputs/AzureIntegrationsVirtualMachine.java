@@ -76,10 +76,10 @@ public final class AzureIntegrationsVirtualMachine {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsVirtualMachine build() {
-            final var o = new AzureIntegrationsVirtualMachine();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsVirtualMachine();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

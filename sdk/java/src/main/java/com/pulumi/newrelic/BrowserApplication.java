@@ -68,7 +68,7 @@ public class BrowserApplication extends com.pulumi.resources.CustomResource {
      * The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -82,7 +82,7 @@ public class BrowserApplication extends com.pulumi.resources.CustomResource {
      * Configure cookies. The default is enabled: true.
      * 
      */
-    @Export(name="cookiesEnabled", type=Boolean.class, parameters={})
+    @Export(name="cookiesEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cookiesEnabled;
 
     /**
@@ -96,7 +96,7 @@ public class BrowserApplication extends com.pulumi.resources.CustomResource {
      * Configure distributed tracing in browser apps. The default is enabled: true.
      * 
      */
-    @Export(name="distributedTracingEnabled", type=Boolean.class, parameters={})
+    @Export(name="distributedTracingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> distributedTracingEnabled;
 
     /**
@@ -110,7 +110,7 @@ public class BrowserApplication extends com.pulumi.resources.CustomResource {
      * The GUID of the browser application.
      * 
      */
-    @Export(name="guid", type=String.class, parameters={})
+    @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
     /**
@@ -121,10 +121,24 @@ public class BrowserApplication extends com.pulumi.resources.CustomResource {
         return this.guid;
     }
     /**
+     * JavaScript configuration of the browser application encoded into a string.
+     * 
+     */
+    @Export(name="jsConfig", refs={String.class}, tree="[0]")
+    private Output<String> jsConfig;
+
+    /**
+     * @return JavaScript configuration of the browser application encoded into a string.
+     * 
+     */
+    public Output<String> jsConfig() {
+        return this.jsConfig;
+    }
+    /**
      * Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
      * 
      */
-    @Export(name="loaderType", type=String.class, parameters={})
+    @Export(name="loaderType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> loaderType;
 
     /**
@@ -138,7 +152,7 @@ public class BrowserApplication extends com.pulumi.resources.CustomResource {
      * The name of the browser application.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

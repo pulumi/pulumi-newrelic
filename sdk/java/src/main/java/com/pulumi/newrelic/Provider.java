@@ -23,13 +23,13 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pulumi:providers:newrelic")
 public class Provider extends com.pulumi.resources.ProviderResource {
-    @Export(name="adminApiKey", type=String.class, parameters={})
+    @Export(name="adminApiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminApiKey;
 
     public Output<Optional<String>> adminApiKey() {
         return Codegen.optional(this.adminApiKey);
     }
-    @Export(name="apiKey", type=String.class, parameters={})
+    @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output<String> apiKey;
 
     public Output<String> apiKey() {
@@ -41,13 +41,13 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * 
      */
     @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
-    @Export(name="apiUrl", type=String.class, parameters={})
+    @Export(name="apiUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiUrl;
 
     public Output<Optional<String>> apiUrl() {
         return Codegen.optional(this.apiUrl);
     }
-    @Export(name="cacertFile", type=String.class, parameters={})
+    @Export(name="cacertFile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cacertFile;
 
     public Output<Optional<String>> cacertFile() {
@@ -59,25 +59,25 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * 
      */
     @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
-    @Export(name="infrastructureApiUrl", type=String.class, parameters={})
+    @Export(name="infrastructureApiUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> infrastructureApiUrl;
 
     public Output<Optional<String>> infrastructureApiUrl() {
         return Codegen.optional(this.infrastructureApiUrl);
     }
-    @Export(name="insightsInsertKey", type=String.class, parameters={})
+    @Export(name="insightsInsertKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> insightsInsertKey;
 
     public Output<Optional<String>> insightsInsertKey() {
         return Codegen.optional(this.insightsInsertKey);
     }
-    @Export(name="insightsInsertUrl", type=String.class, parameters={})
+    @Export(name="insightsInsertUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> insightsInsertUrl;
 
     public Output<Optional<String>> insightsInsertUrl() {
         return Codegen.optional(this.insightsInsertUrl);
     }
-    @Export(name="insightsQueryUrl", type=String.class, parameters={})
+    @Export(name="insightsQueryUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> insightsQueryUrl;
 
     public Output<Optional<String>> insightsQueryUrl() {
@@ -89,7 +89,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * 
      */
     @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
-    @Export(name="nerdgraphApiUrl", type=String.class, parameters={})
+    @Export(name="nerdgraphApiUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nerdgraphApiUrl;
 
     public Output<Optional<String>> nerdgraphApiUrl() {
@@ -99,7 +99,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The data center for which your New Relic account is configured. Only one region per provider block is permitted.
      * 
      */
-    @Export(name="region", type=String.class, parameters={})
+    @Export(name="region", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> region;
 
     /**
@@ -115,7 +115,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * 
      */
     @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
-    @Export(name="syntheticsApiUrl", type=String.class, parameters={})
+    @Export(name="syntheticsApiUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> syntheticsApiUrl;
 
     public Output<Optional<String>> syntheticsApiUrl() {

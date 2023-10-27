@@ -68,10 +68,10 @@ public final class OneDashboardPageWidgetLogTableNrqlQuery {
             return this;
         }
         public OneDashboardPageWidgetLogTableNrqlQuery build() {
-            final var o = new OneDashboardPageWidgetLogTableNrqlQuery();
-            o.accountId = accountId;
-            o.query = query;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetLogTableNrqlQuery();
+            _resultValue.accountId = accountId;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

@@ -80,10 +80,10 @@ public final class AwsIntegrationsAwsGlue {
             return this;
         }
         public AwsIntegrationsAwsGlue build() {
-            final var o = new AwsIntegrationsAwsGlue();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsAwsGlue();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

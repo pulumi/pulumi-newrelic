@@ -68,10 +68,10 @@ public final class OneDashboardPageWidgetBulletNrqlQuery {
             return this;
         }
         public OneDashboardPageWidgetBulletNrqlQuery build() {
-            final var o = new OneDashboardPageWidgetBulletNrqlQuery();
-            o.accountId = accountId;
-            o.query = query;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetBulletNrqlQuery();
+            _resultValue.accountId = accountId;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

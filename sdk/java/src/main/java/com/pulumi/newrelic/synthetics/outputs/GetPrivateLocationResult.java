@@ -94,12 +94,12 @@ public final class GetPrivateLocationResult {
             return this;
         }
         public GetPrivateLocationResult build() {
-            final var o = new GetPrivateLocationResult();
-            o.accountId = accountId;
-            o.id = id;
-            o.keys = keys;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetPrivateLocationResult();
+            _resultValue.accountId = accountId;
+            _resultValue.id = id;
+            _resultValue.keys = keys;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

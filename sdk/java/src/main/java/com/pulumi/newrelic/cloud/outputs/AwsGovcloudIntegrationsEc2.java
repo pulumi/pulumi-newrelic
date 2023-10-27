@@ -134,13 +134,13 @@ public final class AwsGovcloudIntegrationsEc2 {
             return this;
         }
         public AwsGovcloudIntegrationsEc2 build() {
-            final var o = new AwsGovcloudIntegrationsEc2();
-            o.awsRegions = awsRegions;
-            o.fetchIpAddresses = fetchIpAddresses;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsGovcloudIntegrationsEc2();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.fetchIpAddresses = fetchIpAddresses;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

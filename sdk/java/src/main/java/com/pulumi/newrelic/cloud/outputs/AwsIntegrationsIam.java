@@ -93,11 +93,11 @@ public final class AwsIntegrationsIam {
             return this;
         }
         public AwsIntegrationsIam build() {
-            final var o = new AwsIntegrationsIam();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsIntegrationsIam();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

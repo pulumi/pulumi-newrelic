@@ -72,10 +72,10 @@ public final class GcpIntegrationsSpanner {
             return this;
         }
         public GcpIntegrationsSpanner build() {
-            final var o = new GcpIntegrationsSpanner();
-            o.fetchTags = fetchTags;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsSpanner();
+            _resultValue.fetchTags = fetchTags;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetTestGrokPatternTestGrokAttribute {
             return this;
         }
         public GetTestGrokPatternTestGrokAttribute build() {
-            final var o = new GetTestGrokPatternTestGrokAttribute();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetTestGrokPatternTestGrokAttribute();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

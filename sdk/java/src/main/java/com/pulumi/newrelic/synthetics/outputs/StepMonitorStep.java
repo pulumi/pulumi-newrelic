@@ -90,11 +90,11 @@ public final class StepMonitorStep {
             return values(List.of(values));
         }
         public StepMonitorStep build() {
-            final var o = new StepMonitorStep();
-            o.ordinal = ordinal;
-            o.type = type;
-            o.values = values;
-            return o;
+            final var _resultValue = new StepMonitorStep();
+            _resultValue.ordinal = ordinal;
+            _resultValue.type = type;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

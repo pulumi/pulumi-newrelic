@@ -76,10 +76,10 @@ public final class AzureIntegrationsEventHub {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsEventHub build() {
-            final var o = new AzureIntegrationsEventHub();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsEventHub();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

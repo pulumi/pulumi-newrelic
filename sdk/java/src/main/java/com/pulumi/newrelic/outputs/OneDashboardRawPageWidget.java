@@ -197,17 +197,17 @@ public final class OneDashboardRawPageWidget {
             return this;
         }
         public OneDashboardRawPageWidget build() {
-            final var o = new OneDashboardRawPageWidget();
-            o.column = column;
-            o.configuration = configuration;
-            o.height = height;
-            o.id = id;
-            o.linkedEntityGuids = linkedEntityGuids;
-            o.row = row;
-            o.title = title;
-            o.visualizationId = visualizationId;
-            o.width = width;
-            return o;
+            final var _resultValue = new OneDashboardRawPageWidget();
+            _resultValue.column = column;
+            _resultValue.configuration = configuration;
+            _resultValue.height = height;
+            _resultValue.id = id;
+            _resultValue.linkedEntityGuids = linkedEntityGuids;
+            _resultValue.row = row;
+            _resultValue.title = title;
+            _resultValue.visualizationId = visualizationId;
+            _resultValue.width = width;
+            return _resultValue;
         }
     }
 }

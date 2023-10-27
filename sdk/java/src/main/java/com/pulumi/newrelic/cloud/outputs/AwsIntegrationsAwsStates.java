@@ -80,10 +80,10 @@ public final class AwsIntegrationsAwsStates {
             return this;
         }
         public AwsIntegrationsAwsStates build() {
-            final var o = new AwsIntegrationsAwsStates();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsAwsStates();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

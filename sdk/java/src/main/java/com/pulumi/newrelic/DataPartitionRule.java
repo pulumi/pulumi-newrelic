@@ -71,7 +71,7 @@ public class DataPartitionRule extends com.pulumi.resources.CustomResource {
      * The account id associated with the data partition rule.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -85,7 +85,7 @@ public class DataPartitionRule extends com.pulumi.resources.CustomResource {
      * Whether or not this data partition rule is deleted. Deleting a data partition rule does not delete the already persisted data. This data will be retained for a given period of time specified in the retention policy field.
      * 
      */
-    @Export(name="deleted", type=Boolean.class, parameters={})
+    @Export(name="deleted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> deleted;
 
     /**
@@ -99,7 +99,7 @@ public class DataPartitionRule extends com.pulumi.resources.CustomResource {
      * The description of the data partition rule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -113,7 +113,7 @@ public class DataPartitionRule extends com.pulumi.resources.CustomResource {
      * Whether or not this data partition rule is enabled.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -127,7 +127,7 @@ public class DataPartitionRule extends com.pulumi.resources.CustomResource {
      * The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
      * 
      */
-    @Export(name="nrql", type=String.class, parameters={})
+    @Export(name="nrql", refs={String.class}, tree="[0]")
     private Output<String> nrql;
 
     /**
@@ -141,7 +141,7 @@ public class DataPartitionRule extends com.pulumi.resources.CustomResource {
      * The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
      * 
      */
-    @Export(name="retentionPolicy", type=String.class, parameters={})
+    @Export(name="retentionPolicy", refs={String.class}, tree="[0]")
     private Output<String> retentionPolicy;
 
     /**
@@ -155,7 +155,7 @@ public class DataPartitionRule extends com.pulumi.resources.CustomResource {
      * The name of the data partition where logs will be allocated once the rule is enabled.
      * 
      */
-    @Export(name="targetDataPartition", type=String.class, parameters={})
+    @Export(name="targetDataPartition", refs={String.class}, tree="[0]")
     private Output<String> targetDataPartition;
 
     /**

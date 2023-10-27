@@ -275,7 +275,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -289,7 +289,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Notification configuration. See Nested destination blocks below for details.
      * 
      */
-    @Export(name="destinations", type=List.class, parameters={WorkflowDestination.class})
+    @Export(name="destinations", refs={List.class,WorkflowDestination.class}, tree="[0,1]")
     private Output<List<WorkflowDestination>> destinations;
 
     /**
@@ -308,7 +308,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Please use 'enabled' instead */
-    @Export(name="destinationsEnabled", type=Boolean.class, parameters={})
+    @Export(name="destinationsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> destinationsEnabled;
 
     /**
@@ -323,7 +323,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Whether workflow is enabled. Defaults to true.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -337,7 +337,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Workflow&#39;s enrichments. See Nested enrichments blocks below for details.
      * 
      */
-    @Export(name="enrichments", type=WorkflowEnrichments.class, parameters={})
+    @Export(name="enrichments", refs={WorkflowEnrichments.class}, tree="[0]")
     private Output</* @Nullable */ WorkflowEnrichments> enrichments;
 
     /**
@@ -351,7 +351,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Whether enrichments are enabled. Defaults to true.
      * 
      */
-    @Export(name="enrichmentsEnabled", type=Boolean.class, parameters={})
+    @Export(name="enrichmentsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enrichmentsEnabled;
 
     /**
@@ -365,7 +365,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Workflow entity GUID
      * 
      */
-    @Export(name="guid", type=String.class, parameters={})
+    @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
     /**
@@ -379,7 +379,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
      * 
      */
-    @Export(name="issuesFilter", type=WorkflowIssuesFilter.class, parameters={})
+    @Export(name="issuesFilter", refs={WorkflowIssuesFilter.class}, tree="[0]")
     private Output<WorkflowIssuesFilter> issuesFilter;
 
     /**
@@ -393,7 +393,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * The last time notification was sent for this workflow.
      * 
      */
-    @Export(name="lastRun", type=String.class, parameters={})
+    @Export(name="lastRun", refs={String.class}, tree="[0]")
     private Output<String> lastRun;
 
     /**
@@ -407,7 +407,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * How to handle muted issues. See Muting Rules below for details.
      * 
      */
-    @Export(name="mutingRulesHandling", type=String.class, parameters={})
+    @Export(name="mutingRulesHandling", refs={String.class}, tree="[0]")
     private Output<String> mutingRulesHandling;
 
     /**
@@ -421,7 +421,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * The name of the workflow.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -435,7 +435,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * The id of the workflow.
      * 
      */
-    @Export(name="workflowId", type=String.class, parameters={})
+    @Export(name="workflowId", refs={String.class}, tree="[0]")
     private Output<String> workflowId;
 
     /**

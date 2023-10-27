@@ -76,10 +76,10 @@ public final class AzureIntegrationsFrontDoor {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsFrontDoor build() {
-            final var o = new AzureIntegrationsFrontDoor();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsFrontDoor();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

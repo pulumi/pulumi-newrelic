@@ -76,10 +76,10 @@ public final class AzureIntegrationsContainers {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsContainers build() {
-            final var o = new AzureIntegrationsContainers();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsContainers();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

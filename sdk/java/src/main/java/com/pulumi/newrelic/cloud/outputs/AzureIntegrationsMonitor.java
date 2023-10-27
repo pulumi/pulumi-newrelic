@@ -162,14 +162,14 @@ public final class AzureIntegrationsMonitor {
             return resourceTypes(List.of(resourceTypes));
         }
         public AzureIntegrationsMonitor build() {
-            final var o = new AzureIntegrationsMonitor();
-            o.enabled = enabled;
-            o.excludeTags = excludeTags;
-            o.includeTags = includeTags;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            o.resourceTypes = resourceTypes;
-            return o;
+            final var _resultValue = new AzureIntegrationsMonitor();
+            _resultValue.enabled = enabled;
+            _resultValue.excludeTags = excludeTags;
+            _resultValue.includeTags = includeTags;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            _resultValue.resourceTypes = resourceTypes;
+            return _resultValue;
         }
     }
 }

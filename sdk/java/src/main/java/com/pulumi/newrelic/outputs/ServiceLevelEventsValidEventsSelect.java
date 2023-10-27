@@ -87,11 +87,11 @@ public final class ServiceLevelEventsValidEventsSelect {
             return this;
         }
         public ServiceLevelEventsValidEventsSelect build() {
-            final var o = new ServiceLevelEventsValidEventsSelect();
-            o.attribute = attribute;
-            o.function = function;
-            o.threshold = threshold;
-            return o;
+            final var _resultValue = new ServiceLevelEventsValidEventsSelect();
+            _resultValue.attribute = attribute;
+            _resultValue.function = function;
+            _resultValue.threshold = threshold;
+            return _resultValue;
         }
     }
 }

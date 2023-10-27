@@ -73,7 +73,7 @@ public class ApplicationSettings extends com.pulumi.resources.CustomResource {
      * The apdex threshold for the New Relic application.
      * 
      */
-    @Export(name="appApdexThreshold", type=Double.class, parameters={})
+    @Export(name="appApdexThreshold", refs={Double.class}, tree="[0]")
     private Output<Double> appApdexThreshold;
 
     /**
@@ -109,7 +109,7 @@ public class ApplicationSettings extends com.pulumi.resources.CustomResource {
      * ```
      * 
      */
-    @Export(name="enableRealUserMonitoring", type=Boolean.class, parameters={})
+    @Export(name="enableRealUserMonitoring", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableRealUserMonitoring;
 
     /**
@@ -145,7 +145,7 @@ public class ApplicationSettings extends com.pulumi.resources.CustomResource {
      * The user&#39;s apdex threshold for the New Relic application.
      * 
      */
-    @Export(name="endUserApdexThreshold", type=Double.class, parameters={})
+    @Export(name="endUserApdexThreshold", refs={Double.class}, tree="[0]")
     private Output<Double> endUserApdexThreshold;
 
     /**
@@ -159,7 +159,7 @@ public class ApplicationSettings extends com.pulumi.resources.CustomResource {
      * The name of the application in New Relic APM.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

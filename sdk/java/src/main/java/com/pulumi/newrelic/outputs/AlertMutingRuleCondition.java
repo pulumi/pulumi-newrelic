@@ -70,10 +70,10 @@ public final class AlertMutingRuleCondition {
             return this;
         }
         public AlertMutingRuleCondition build() {
-            final var o = new AlertMutingRuleCondition();
-            o.conditions = conditions;
-            o.operator = operator;
-            return o;
+            final var _resultValue = new AlertMutingRuleCondition();
+            _resultValue.conditions = conditions;
+            _resultValue.operator = operator;
+            return _resultValue;
         }
     }
 }

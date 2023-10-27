@@ -76,10 +76,10 @@ public final class AzureIntegrationsDataFactory {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsDataFactory build() {
-            final var o = new AzureIntegrationsDataFactory();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsDataFactory();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

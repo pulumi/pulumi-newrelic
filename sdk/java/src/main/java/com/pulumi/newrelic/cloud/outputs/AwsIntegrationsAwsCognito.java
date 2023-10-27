@@ -80,10 +80,10 @@ public final class AwsIntegrationsAwsCognito {
             return this;
         }
         public AwsIntegrationsAwsCognito build() {
-            final var o = new AwsIntegrationsAwsCognito();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsAwsCognito();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

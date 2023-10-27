@@ -87,11 +87,11 @@ public final class ServiceLevelEventsBadEventsSelect {
             return this;
         }
         public ServiceLevelEventsBadEventsSelect build() {
-            final var o = new ServiceLevelEventsBadEventsSelect();
-            o.attribute = attribute;
-            o.function = function;
-            o.threshold = threshold;
-            return o;
+            final var _resultValue = new ServiceLevelEventsBadEventsSelect();
+            _resultValue.attribute = attribute;
+            _resultValue.function = function;
+            _resultValue.threshold = threshold;
+            return _resultValue;
         }
     }
 }

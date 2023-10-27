@@ -72,10 +72,10 @@ public final class OneDashboardPageWidgetAreaColor {
             return seriesOverrides(List.of(seriesOverrides));
         }
         public OneDashboardPageWidgetAreaColor build() {
-            final var o = new OneDashboardPageWidgetAreaColor();
-            o.color = color;
-            o.seriesOverrides = seriesOverrides;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetAreaColor();
+            _resultValue.color = color;
+            _resultValue.seriesOverrides = seriesOverrides;
+            return _resultValue;
         }
     }
 }

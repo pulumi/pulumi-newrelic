@@ -109,13 +109,13 @@ public final class GetTestGrokPatternResult {
             return testGroks(List.of(testGroks));
         }
         public GetTestGrokPatternResult build() {
-            final var o = new GetTestGrokPatternResult();
-            o.accountId = accountId;
-            o.grok = grok;
-            o.id = id;
-            o.logLines = logLines;
-            o.testGroks = testGroks;
-            return o;
+            final var _resultValue = new GetTestGrokPatternResult();
+            _resultValue.accountId = accountId;
+            _resultValue.grok = grok;
+            _resultValue.id = id;
+            _resultValue.logLines = logLines;
+            _resultValue.testGroks = testGroks;
+            return _resultValue;
         }
     }
 }

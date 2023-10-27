@@ -64,11 +64,11 @@ public final class InfraAlertConditionWarning {
             return this;
         }
         public InfraAlertConditionWarning build() {
-            final var o = new InfraAlertConditionWarning();
-            o.duration = duration;
-            o.timeFunction = timeFunction;
-            o.value = value;
-            return o;
+            final var _resultValue = new InfraAlertConditionWarning();
+            _resultValue.duration = duration;
+            _resultValue.timeFunction = timeFunction;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

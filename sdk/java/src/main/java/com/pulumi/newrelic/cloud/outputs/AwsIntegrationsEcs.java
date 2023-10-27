@@ -138,13 +138,13 @@ public final class AwsIntegrationsEcs {
             return this;
         }
         public AwsIntegrationsEcs build() {
-            final var o = new AwsIntegrationsEcs();
-            o.awsRegions = awsRegions;
-            o.fetchTags = fetchTags;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsIntegrationsEcs();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.fetchTags = fetchTags;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

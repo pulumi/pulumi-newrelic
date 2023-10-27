@@ -54,9 +54,9 @@ public final class AwsIntegrationsBilling {
             return this;
         }
         public AwsIntegrationsBilling build() {
-            final var o = new AwsIntegrationsBilling();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsBilling();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

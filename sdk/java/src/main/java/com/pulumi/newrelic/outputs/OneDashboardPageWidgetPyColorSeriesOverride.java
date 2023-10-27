@@ -59,10 +59,10 @@ public final class OneDashboardPageWidgetPyColorSeriesOverride {
             return this;
         }
         public OneDashboardPageWidgetPyColorSeriesOverride build() {
-            final var o = new OneDashboardPageWidgetPyColorSeriesOverride();
-            o.color = color;
-            o.seriesName = seriesName;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetPyColorSeriesOverride();
+            _resultValue.color = color;
+            _resultValue.seriesName = seriesName;
+            return _resultValue;
         }
     }
 }

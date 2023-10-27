@@ -87,11 +87,11 @@ public final class NrqlAlertConditionNrql {
             return this;
         }
         public NrqlAlertConditionNrql build() {
-            final var o = new NrqlAlertConditionNrql();
-            o.evaluationOffset = evaluationOffset;
-            o.query = query;
-            o.sinceValue = sinceValue;
-            return o;
+            final var _resultValue = new NrqlAlertConditionNrql();
+            _resultValue.evaluationOffset = evaluationOffset;
+            _resultValue.query = query;
+            _resultValue.sinceValue = sinceValue;
+            return _resultValue;
         }
     }
 }

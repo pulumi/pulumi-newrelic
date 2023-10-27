@@ -456,7 +456,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -470,7 +470,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * ALB integration
      * 
      */
-    @Export(name="alb", type=AwsIntegrationsAlb.class, parameters={})
+    @Export(name="alb", refs={AwsIntegrationsAlb.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAlb> alb;
 
     /**
@@ -484,7 +484,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * API Gateway integration
      * 
      */
-    @Export(name="apiGateway", type=AwsIntegrationsApiGateway.class, parameters={})
+    @Export(name="apiGateway", refs={AwsIntegrationsApiGateway.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsApiGateway> apiGateway;
 
     /**
@@ -498,7 +498,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
      * 
      */
-    @Export(name="autoScaling", type=AwsIntegrationsAutoScaling.class, parameters={})
+    @Export(name="autoScaling", refs={AwsIntegrationsAutoScaling.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAutoScaling> autoScaling;
 
     /**
@@ -512,7 +512,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Appsync integration
      * 
      */
-    @Export(name="awsAppSync", type=AwsIntegrationsAwsAppSync.class, parameters={})
+    @Export(name="awsAppSync", refs={AwsIntegrationsAwsAppSync.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsAppSync> awsAppSync;
 
     /**
@@ -526,7 +526,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Athena integration
      * 
      */
-    @Export(name="awsAthena", type=AwsIntegrationsAwsAthena.class, parameters={})
+    @Export(name="awsAthena", refs={AwsIntegrationsAwsAthena.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsAthena> awsAthena;
 
     /**
@@ -540,7 +540,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Cognito integration
      * 
      */
-    @Export(name="awsCognito", type=AwsIntegrationsAwsCognito.class, parameters={})
+    @Export(name="awsCognito", refs={AwsIntegrationsAwsCognito.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsCognito> awsCognito;
 
     /**
@@ -554,7 +554,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Connect integration
      * 
      */
-    @Export(name="awsConnect", type=AwsIntegrationsAwsConnect.class, parameters={})
+    @Export(name="awsConnect", refs={AwsIntegrationsAwsConnect.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsConnect> awsConnect;
 
     /**
@@ -568,7 +568,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Direct Connect integration
      * 
      */
-    @Export(name="awsDirectConnect", type=AwsIntegrationsAwsDirectConnect.class, parameters={})
+    @Export(name="awsDirectConnect", refs={AwsIntegrationsAwsDirectConnect.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsDirectConnect> awsDirectConnect;
 
     /**
@@ -582,7 +582,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Fsx integration
      * 
      */
-    @Export(name="awsFsx", type=AwsIntegrationsAwsFsx.class, parameters={})
+    @Export(name="awsFsx", refs={AwsIntegrationsAwsFsx.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsFsx> awsFsx;
 
     /**
@@ -596,7 +596,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Glue integration
      * 
      */
-    @Export(name="awsGlue", type=AwsIntegrationsAwsGlue.class, parameters={})
+    @Export(name="awsGlue", refs={AwsIntegrationsAwsGlue.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsGlue> awsGlue;
 
     /**
@@ -610,7 +610,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Kinesis Analytics integration
      * 
      */
-    @Export(name="awsKinesisAnalytics", type=AwsIntegrationsAwsKinesisAnalytics.class, parameters={})
+    @Export(name="awsKinesisAnalytics", refs={AwsIntegrationsAwsKinesisAnalytics.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsKinesisAnalytics> awsKinesisAnalytics;
 
     /**
@@ -624,7 +624,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Media Convert integration
      * 
      */
-    @Export(name="awsMediaConvert", type=AwsIntegrationsAwsMediaConvert.class, parameters={})
+    @Export(name="awsMediaConvert", refs={AwsIntegrationsAwsMediaConvert.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsMediaConvert> awsMediaConvert;
 
     /**
@@ -638,7 +638,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Media PackageVod integration
      * 
      */
-    @Export(name="awsMediaPackageVod", type=AwsIntegrationsAwsMediaPackageVod.class, parameters={})
+    @Export(name="awsMediaPackageVod", refs={AwsIntegrationsAwsMediaPackageVod.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsMediaPackageVod> awsMediaPackageVod;
 
     /**
@@ -652,7 +652,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Mq integration
      * 
      */
-    @Export(name="awsMq", type=AwsIntegrationsAwsMq.class, parameters={})
+    @Export(name="awsMq", refs={AwsIntegrationsAwsMq.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsMq> awsMq;
 
     /**
@@ -666,7 +666,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Msk integration
      * 
      */
-    @Export(name="awsMsk", type=AwsIntegrationsAwsMsk.class, parameters={})
+    @Export(name="awsMsk", refs={AwsIntegrationsAwsMsk.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsMsk> awsMsk;
 
     /**
@@ -680,7 +680,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Neptune integration
      * 
      */
-    @Export(name="awsNeptune", type=AwsIntegrationsAwsNeptune.class, parameters={})
+    @Export(name="awsNeptune", refs={AwsIntegrationsAwsNeptune.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsNeptune> awsNeptune;
 
     /**
@@ -694,7 +694,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Qldb integration
      * 
      */
-    @Export(name="awsQldb", type=AwsIntegrationsAwsQldb.class, parameters={})
+    @Export(name="awsQldb", refs={AwsIntegrationsAwsQldb.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsQldb> awsQldb;
 
     /**
@@ -708,7 +708,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Route53resolver integration
      * 
      */
-    @Export(name="awsRoute53resolver", type=AwsIntegrationsAwsRoute53resolver.class, parameters={})
+    @Export(name="awsRoute53resolver", refs={AwsIntegrationsAwsRoute53resolver.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsRoute53resolver> awsRoute53resolver;
 
     /**
@@ -722,7 +722,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws states integration
      * 
      */
-    @Export(name="awsStates", type=AwsIntegrationsAwsStates.class, parameters={})
+    @Export(name="awsStates", refs={AwsIntegrationsAwsStates.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsStates> awsStates;
 
     /**
@@ -736,7 +736,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Transit Gateway integration
      * 
      */
-    @Export(name="awsTransitGateway", type=AwsIntegrationsAwsTransitGateway.class, parameters={})
+    @Export(name="awsTransitGateway", refs={AwsIntegrationsAwsTransitGateway.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsTransitGateway> awsTransitGateway;
 
     /**
@@ -750,7 +750,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Waf integration
      * 
      */
-    @Export(name="awsWaf", type=AwsIntegrationsAwsWaf.class, parameters={})
+    @Export(name="awsWaf", refs={AwsIntegrationsAwsWaf.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsWaf> awsWaf;
 
     /**
@@ -764,7 +764,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Aws Wafv2 integration
      * 
      */
-    @Export(name="awsWafv2", type=AwsIntegrationsAwsWafv2.class, parameters={})
+    @Export(name="awsWafv2", refs={AwsIntegrationsAwsWafv2.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsWafv2> awsWafv2;
 
     /**
@@ -778,7 +778,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Billing integration
      * 
      */
-    @Export(name="billing", type=AwsIntegrationsBilling.class, parameters={})
+    @Export(name="billing", refs={AwsIntegrationsBilling.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsBilling> billing;
 
     /**
@@ -792,7 +792,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Cloudfront integration
      * 
      */
-    @Export(name="cloudfront", type=AwsIntegrationsCloudfront.class, parameters={})
+    @Export(name="cloudfront", refs={AwsIntegrationsCloudfront.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsCloudfront> cloudfront;
 
     /**
@@ -806,7 +806,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * CloudTrail integration
      * 
      */
-    @Export(name="cloudtrail", type=AwsIntegrationsCloudtrail.class, parameters={})
+    @Export(name="cloudtrail", refs={AwsIntegrationsCloudtrail.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsCloudtrail> cloudtrail;
 
     /**
@@ -820,7 +820,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Doc DB integration
      * 
      */
-    @Export(name="docDb", type=AwsIntegrationsDocDb.class, parameters={})
+    @Export(name="docDb", refs={AwsIntegrationsDocDb.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsDocDb> docDb;
 
     /**
@@ -834,7 +834,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Dynamo DB integration
      * 
      */
-    @Export(name="dynamodb", type=AwsIntegrationsDynamodb.class, parameters={})
+    @Export(name="dynamodb", refs={AwsIntegrationsDynamodb.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsDynamodb> dynamodb;
 
     /**
@@ -848,7 +848,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * EBS integration
      * 
      */
-    @Export(name="ebs", type=AwsIntegrationsEbs.class, parameters={})
+    @Export(name="ebs", refs={AwsIntegrationsEbs.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsEbs> ebs;
 
     /**
@@ -862,7 +862,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Ec2 integration
      * 
      */
-    @Export(name="ec2", type=AwsIntegrationsEc2.class, parameters={})
+    @Export(name="ec2", refs={AwsIntegrationsEc2.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsEc2> ec2;
 
     /**
@@ -876,7 +876,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Ecs integration
      * 
      */
-    @Export(name="ecs", type=AwsIntegrationsEcs.class, parameters={})
+    @Export(name="ecs", refs={AwsIntegrationsEcs.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsEcs> ecs;
 
     /**
@@ -890,7 +890,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Efs integration
      * 
      */
-    @Export(name="efs", type=AwsIntegrationsEfs.class, parameters={})
+    @Export(name="efs", refs={AwsIntegrationsEfs.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsEfs> efs;
 
     /**
@@ -904,7 +904,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Elasticache integration
      * 
      */
-    @Export(name="elasticache", type=AwsIntegrationsElasticache.class, parameters={})
+    @Export(name="elasticache", refs={AwsIntegrationsElasticache.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsElasticache> elasticache;
 
     /**
@@ -918,7 +918,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Elastic Bean Stalk integration
      * 
      */
-    @Export(name="elasticbeanstalk", type=AwsIntegrationsElasticbeanstalk.class, parameters={})
+    @Export(name="elasticbeanstalk", refs={AwsIntegrationsElasticbeanstalk.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsElasticbeanstalk> elasticbeanstalk;
 
     /**
@@ -932,7 +932,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Elastic Search integration
      * 
      */
-    @Export(name="elasticsearch", type=AwsIntegrationsElasticsearch.class, parameters={})
+    @Export(name="elasticsearch", refs={AwsIntegrationsElasticsearch.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsElasticsearch> elasticsearch;
 
     /**
@@ -946,7 +946,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Elb integration
      * 
      */
-    @Export(name="elb", type=AwsIntegrationsElb.class, parameters={})
+    @Export(name="elb", refs={AwsIntegrationsElb.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsElb> elb;
 
     /**
@@ -960,7 +960,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Emr integration
      * 
      */
-    @Export(name="emr", type=AwsIntegrationsEmr.class, parameters={})
+    @Export(name="emr", refs={AwsIntegrationsEmr.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsEmr> emr;
 
     /**
@@ -974,7 +974,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Health integration
      * 
      */
-    @Export(name="health", type=AwsIntegrationsHealth.class, parameters={})
+    @Export(name="health", refs={AwsIntegrationsHealth.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsHealth> health;
 
     /**
@@ -988,7 +988,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Iam integration
      * 
      */
-    @Export(name="iam", type=AwsIntegrationsIam.class, parameters={})
+    @Export(name="iam", refs={AwsIntegrationsIam.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsIam> iam;
 
     /**
@@ -1002,7 +1002,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Iot integration
      * 
      */
-    @Export(name="iot", type=AwsIntegrationsIot.class, parameters={})
+    @Export(name="iot", refs={AwsIntegrationsIot.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsIot> iot;
 
     /**
@@ -1016,7 +1016,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Kinesis integration
      * 
      */
-    @Export(name="kinesis", type=AwsIntegrationsKinesis.class, parameters={})
+    @Export(name="kinesis", refs={AwsIntegrationsKinesis.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsKinesis> kinesis;
 
     /**
@@ -1030,7 +1030,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Kinesis Firehose integration
      * 
      */
-    @Export(name="kinesisFirehose", type=AwsIntegrationsKinesisFirehose.class, parameters={})
+    @Export(name="kinesisFirehose", refs={AwsIntegrationsKinesisFirehose.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsKinesisFirehose> kinesisFirehose;
 
     /**
@@ -1044,7 +1044,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Lambda integration
      * 
      */
-    @Export(name="lambda", type=AwsIntegrationsLambda.class, parameters={})
+    @Export(name="lambda", refs={AwsIntegrationsLambda.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsLambda> lambda;
 
     /**
@@ -1119,7 +1119,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * &lt;/details&gt;
      * 
      */
-    @Export(name="linkedAccountId", type=Integer.class, parameters={})
+    @Export(name="linkedAccountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> linkedAccountId;
 
     /**
@@ -1194,7 +1194,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Rds integration
      * 
      */
-    @Export(name="rds", type=AwsIntegrationsRds.class, parameters={})
+    @Export(name="rds", refs={AwsIntegrationsRds.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsRds> rds;
 
     /**
@@ -1208,7 +1208,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Redshift integration
      * 
      */
-    @Export(name="redshift", type=AwsIntegrationsRedshift.class, parameters={})
+    @Export(name="redshift", refs={AwsIntegrationsRedshift.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsRedshift> redshift;
 
     /**
@@ -1222,7 +1222,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Route53 integration
      * 
      */
-    @Export(name="route53", type=AwsIntegrationsRoute53.class, parameters={})
+    @Export(name="route53", refs={AwsIntegrationsRoute53.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsRoute53> route53;
 
     /**
@@ -1236,7 +1236,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * S3 integration
      * 
      */
-    @Export(name="s3", type=AwsIntegrationsS3.class, parameters={})
+    @Export(name="s3", refs={AwsIntegrationsS3.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsS3> s3;
 
     /**
@@ -1250,7 +1250,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Ses integration
      * 
      */
-    @Export(name="ses", type=AwsIntegrationsSes.class, parameters={})
+    @Export(name="ses", refs={AwsIntegrationsSes.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsSes> ses;
 
     /**
@@ -1264,7 +1264,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Sns integration
      * 
      */
-    @Export(name="sns", type=AwsIntegrationsSns.class, parameters={})
+    @Export(name="sns", refs={AwsIntegrationsSns.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsSns> sns;
 
     /**
@@ -1278,7 +1278,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * SQS integration
      * 
      */
-    @Export(name="sqs", type=AwsIntegrationsSqs.class, parameters={})
+    @Export(name="sqs", refs={AwsIntegrationsSqs.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsSqs> sqs;
 
     /**
@@ -1292,7 +1292,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * Trusted Advisor integration
      * 
      */
-    @Export(name="trustedAdvisor", type=AwsIntegrationsTrustedAdvisor.class, parameters={})
+    @Export(name="trustedAdvisor", refs={AwsIntegrationsTrustedAdvisor.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsTrustedAdvisor> trustedAdvisor;
 
     /**
@@ -1306,7 +1306,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * VPC integration
      * 
      */
-    @Export(name="vpc", type=AwsIntegrationsVpc.class, parameters={})
+    @Export(name="vpc", refs={AwsIntegrationsVpc.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsVpc> vpc;
 
     /**
@@ -1320,7 +1320,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * X-Ray integration
      * 
      */
-    @Export(name="xRay", type=AwsIntegrationsXRay.class, parameters={})
+    @Export(name="xRay", refs={AwsIntegrationsXRay.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsXRay> xRay;
 
     /**

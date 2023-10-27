@@ -65,10 +65,10 @@ public final class NotificationDestinationAuthBasic {
             return this;
         }
         public NotificationDestinationAuthBasic build() {
-            final var o = new NotificationDestinationAuthBasic();
-            o.password = password;
-            o.user = user;
-            return o;
+            final var _resultValue = new NotificationDestinationAuthBasic();
+            _resultValue.password = password;
+            _resultValue.user = user;
+            return _resultValue;
         }
     }
 }

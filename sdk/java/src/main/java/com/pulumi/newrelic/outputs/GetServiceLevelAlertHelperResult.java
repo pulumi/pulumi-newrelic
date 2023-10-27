@@ -204,20 +204,20 @@ public final class GetServiceLevelAlertHelperResult {
             return this;
         }
         public GetServiceLevelAlertHelperResult build() {
-            final var o = new GetServiceLevelAlertHelperResult();
-            o.alertType = alertType;
-            o.customEvaluationPeriod = customEvaluationPeriod;
-            o.customToleratedBudgetConsumption = customToleratedBudgetConsumption;
-            o.evaluationPeriod = evaluationPeriod;
-            o.id = id;
-            o.isBadEvents = isBadEvents;
-            o.nrql = nrql;
-            o.sliGuid = sliGuid;
-            o.sloPeriod = sloPeriod;
-            o.sloTarget = sloTarget;
-            o.threshold = threshold;
-            o.toleratedBudgetConsumption = toleratedBudgetConsumption;
-            return o;
+            final var _resultValue = new GetServiceLevelAlertHelperResult();
+            _resultValue.alertType = alertType;
+            _resultValue.customEvaluationPeriod = customEvaluationPeriod;
+            _resultValue.customToleratedBudgetConsumption = customToleratedBudgetConsumption;
+            _resultValue.evaluationPeriod = evaluationPeriod;
+            _resultValue.id = id;
+            _resultValue.isBadEvents = isBadEvents;
+            _resultValue.nrql = nrql;
+            _resultValue.sliGuid = sliGuid;
+            _resultValue.sloPeriod = sloPeriod;
+            _resultValue.sloTarget = sloTarget;
+            _resultValue.threshold = threshold;
+            _resultValue.toleratedBudgetConsumption = toleratedBudgetConsumption;
+            return _resultValue;
         }
     }
 }

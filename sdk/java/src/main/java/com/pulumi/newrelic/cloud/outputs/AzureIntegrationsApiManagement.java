@@ -76,10 +76,10 @@ public final class AzureIntegrationsApiManagement {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsApiManagement build() {
-            final var o = new AzureIntegrationsApiManagement();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsApiManagement();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

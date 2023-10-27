@@ -72,10 +72,10 @@ public final class OneDashboardPageWidgetTableUnit {
             return this;
         }
         public OneDashboardPageWidgetTableUnit build() {
-            final var o = new OneDashboardPageWidgetTableUnit();
-            o.seriesOverrides = seriesOverrides;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetTableUnit();
+            _resultValue.seriesOverrides = seriesOverrides;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

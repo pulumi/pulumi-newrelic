@@ -59,10 +59,10 @@ public final class OneDashboardPageWidgetLineColorSeriesOverride {
             return this;
         }
         public OneDashboardPageWidgetLineColorSeriesOverride build() {
-            final var o = new OneDashboardPageWidgetLineColorSeriesOverride();
-            o.color = color;
-            o.seriesName = seriesName;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetLineColorSeriesOverride();
+            _resultValue.color = color;
+            _resultValue.seriesName = seriesName;
+            return _resultValue;
         }
     }
 }

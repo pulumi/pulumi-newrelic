@@ -134,13 +134,13 @@ public final class AwsGovcloudIntegrationsLambda {
             return this;
         }
         public AwsGovcloudIntegrationsLambda build() {
-            final var o = new AwsGovcloudIntegrationsLambda();
-            o.awsRegions = awsRegions;
-            o.fetchTags = fetchTags;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsGovcloudIntegrationsLambda();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.fetchTags = fetchTags;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

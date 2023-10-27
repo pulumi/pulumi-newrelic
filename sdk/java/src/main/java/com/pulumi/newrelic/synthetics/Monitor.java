@@ -250,7 +250,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The account in which the Synthetics monitor will be created.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -266,7 +266,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The `BROWSER` monitor type supports the following additional arguments:
      * 
      */
-    @Export(name="bypassHeadRequest", type=Boolean.class, parameters={})
+    @Export(name="bypassHeadRequest", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bypassHeadRequest;
 
     /**
@@ -282,7 +282,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Custom headers to use in monitor job. See Nested custom_header blocks below for details.
      * 
      */
-    @Export(name="customHeaders", type=List.class, parameters={MonitorCustomHeader.class})
+    @Export(name="customHeaders", refs={List.class,MonitorCustomHeader.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MonitorCustomHeader>> customHeaders;
 
     /**
@@ -296,7 +296,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
      * 
      */
-    @Export(name="deviceOrientation", type=String.class, parameters={})
+    @Export(name="deviceOrientation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceOrientation;
 
     /**
@@ -310,7 +310,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
      * 
      */
-    @Export(name="deviceType", type=String.class, parameters={})
+    @Export(name="deviceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceType;
 
     /**
@@ -324,7 +324,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Capture a screenshot during job execution.
      * 
      */
-    @Export(name="enableScreenshotOnFailureAndScript", type=Boolean.class, parameters={})
+    @Export(name="enableScreenshotOnFailureAndScript", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableScreenshotOnFailureAndScript;
 
     /**
@@ -338,7 +338,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
      * 
      */
-    @Export(name="locationsPrivates", type=List.class, parameters={String.class})
+    @Export(name="locationsPrivates", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> locationsPrivates;
 
     /**
@@ -352,7 +352,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
      * 
      */
-    @Export(name="locationsPublics", type=List.class, parameters={String.class})
+    @Export(name="locationsPublics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> locationsPublics;
 
     /**
@@ -366,7 +366,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The human-readable identifier for the monitor.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -380,7 +380,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
      * 
      */
-    @Export(name="period", type=String.class, parameters={})
+    @Export(name="period", refs={String.class}, tree="[0]")
     private Output<String> period;
 
     /**
@@ -394,7 +394,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The interval in minutes at which Synthetic monitor should run.
      * 
      */
-    @Export(name="periodInMinutes", type=Integer.class, parameters={})
+    @Export(name="periodInMinutes", refs={Integer.class}, tree="[0]")
     private Output<Integer> periodInMinutes;
 
     /**
@@ -408,7 +408,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The runtime type that the monitor will run.
      * 
      */
-    @Export(name="runtimeType", type=String.class, parameters={})
+    @Export(name="runtimeType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeType;
 
     /**
@@ -422,7 +422,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The runtime type that the monitor will run.
      * 
      */
-    @Export(name="runtimeTypeVersion", type=String.class, parameters={})
+    @Export(name="runtimeTypeVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeTypeVersion;
 
     /**
@@ -436,7 +436,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The programing language that should execute the script.
      * 
      */
-    @Export(name="scriptLanguage", type=String.class, parameters={})
+    @Export(name="scriptLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scriptLanguage;
 
     /**
@@ -452,7 +452,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -470,7 +470,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The `SIMPLE` monitor type supports the following additional arguments:
      * 
      */
-    @Export(name="tags", type=List.class, parameters={MonitorTag.class})
+    @Export(name="tags", refs={List.class,MonitorTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MonitorTag>> tags;
 
     /**
@@ -486,7 +486,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Categorize redirects during a monitor job as a failure.
      * 
      */
-    @Export(name="treatRedirectAsFailure", type=Boolean.class, parameters={})
+    @Export(name="treatRedirectAsFailure", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> treatRedirectAsFailure;
 
     /**
@@ -500,7 +500,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The monitor type. Valid values are `SIMPLE` and `BROWSER`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -514,7 +514,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The URI the monitor runs against.
      * 
      */
-    @Export(name="uri", type=String.class, parameters={})
+    @Export(name="uri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> uri;
 
     /**
@@ -528,7 +528,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Validation text for monitor to search for at given URI.
      * 
      */
-    @Export(name="validationString", type=String.class, parameters={})
+    @Export(name="validationString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> validationString;
 
     /**
@@ -542,7 +542,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Monitor should validate SSL certificate chain.
      * 
      */
-    @Export(name="verifySsl", type=Boolean.class, parameters={})
+    @Export(name="verifySsl", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> verifySsl;
 
     /**

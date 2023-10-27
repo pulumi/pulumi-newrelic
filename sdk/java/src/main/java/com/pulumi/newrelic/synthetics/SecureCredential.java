@@ -66,7 +66,7 @@ public class SecureCredential extends com.pulumi.resources.CustomResource {
      * Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -80,7 +80,7 @@ public class SecureCredential extends com.pulumi.resources.CustomResource {
      * The secure credential&#39;s description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -94,7 +94,7 @@ public class SecureCredential extends com.pulumi.resources.CustomResource {
      * The secure credential&#39;s key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -108,7 +108,7 @@ public class SecureCredential extends com.pulumi.resources.CustomResource {
      * The time the secure credential was last updated.
      * 
      */
-    @Export(name="lastUpdated", type=String.class, parameters={})
+    @Export(name="lastUpdated", refs={String.class}, tree="[0]")
     private Output<String> lastUpdated;
 
     /**
@@ -122,7 +122,7 @@ public class SecureCredential extends com.pulumi.resources.CustomResource {
      * The secure credential&#39;s value.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

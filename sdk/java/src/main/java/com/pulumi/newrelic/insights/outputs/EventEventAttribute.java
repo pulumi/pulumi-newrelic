@@ -62,11 +62,11 @@ public final class EventEventAttribute {
             return this;
         }
         public EventEventAttribute build() {
-            final var o = new EventEventAttribute();
-            o.key = key;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventEventAttribute();
+            _resultValue.key = key;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

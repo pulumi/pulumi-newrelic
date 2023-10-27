@@ -178,18 +178,18 @@ public final class GetEntityResult {
             return this;
         }
         public GetEntityResult build() {
-            final var o = new GetEntityResult();
-            o.accountId = accountId;
-            o.applicationId = applicationId;
-            o.domain = domain;
-            o.guid = guid;
-            o.id = id;
-            o.ignoreCase = ignoreCase;
-            o.name = name;
-            o.servingApmApplicationId = servingApmApplicationId;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetEntityResult();
+            _resultValue.accountId = accountId;
+            _resultValue.applicationId = applicationId;
+            _resultValue.domain = domain;
+            _resultValue.guid = guid;
+            _resultValue.id = id;
+            _resultValue.ignoreCase = ignoreCase;
+            _resultValue.name = name;
+            _resultValue.servingApmApplicationId = servingApmApplicationId;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

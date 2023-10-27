@@ -59,10 +59,10 @@ public final class OneDashboardPageWidgetBarUnitSeriesOverride {
             return this;
         }
         public OneDashboardPageWidgetBarUnitSeriesOverride build() {
-            final var o = new OneDashboardPageWidgetBarUnitSeriesOverride();
-            o.seriesName = seriesName;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetBarUnitSeriesOverride();
+            _resultValue.seriesName = seriesName;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

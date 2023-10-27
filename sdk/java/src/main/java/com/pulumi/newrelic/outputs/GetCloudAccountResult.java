@@ -82,12 +82,12 @@ public final class GetCloudAccountResult {
             return this;
         }
         public GetCloudAccountResult build() {
-            final var o = new GetCloudAccountResult();
-            o.accountId = accountId;
-            o.cloudProvider = cloudProvider;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetCloudAccountResult();
+            _resultValue.accountId = accountId;
+            _resultValue.cloudProvider = cloudProvider;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

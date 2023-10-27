@@ -78,10 +78,10 @@ public final class AwsIntegrationsRoute53 {
             return this;
         }
         public AwsIntegrationsRoute53 build() {
-            final var o = new AwsIntegrationsRoute53();
-            o.fetchExtendedInventory = fetchExtendedInventory;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsRoute53();
+            _resultValue.fetchExtendedInventory = fetchExtendedInventory;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

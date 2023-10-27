@@ -241,7 +241,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * The account in which the Synthetics monitor will be created.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -255,7 +255,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
      * 
      */
-    @Export(name="deviceOrientation", type=String.class, parameters={})
+    @Export(name="deviceOrientation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceOrientation;
 
     /**
@@ -269,7 +269,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
      * 
      */
-    @Export(name="deviceType", type=String.class, parameters={})
+    @Export(name="deviceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceType;
 
     /**
@@ -283,7 +283,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * Capture a screenshot during job execution.
      * 
      */
-    @Export(name="enableScreenshotOnFailureAndScript", type=Boolean.class, parameters={})
+    @Export(name="enableScreenshotOnFailureAndScript", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableScreenshotOnFailureAndScript;
 
     /**
@@ -297,7 +297,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * The unique identifier for the Synthetics private location in New Relic.
      * 
      */
-    @Export(name="guid", type=String.class, parameters={})
+    @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
     /**
@@ -311,7 +311,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
      * 
      */
-    @Export(name="locationPrivates", type=List.class, parameters={ScriptMonitorLocationPrivate.class})
+    @Export(name="locationPrivates", refs={List.class,ScriptMonitorLocationPrivate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScriptMonitorLocationPrivate>> locationPrivates;
 
     /**
@@ -325,7 +325,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
      * 
      */
-    @Export(name="locationsPublics", type=List.class, parameters={String.class})
+    @Export(name="locationsPublics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> locationsPublics;
 
     /**
@@ -339,7 +339,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * The name for the monitor.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -353,7 +353,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
      * 
      */
-    @Export(name="period", type=String.class, parameters={})
+    @Export(name="period", refs={String.class}, tree="[0]")
     private Output<String> period;
 
     /**
@@ -367,7 +367,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * The interval in minutes at which Synthetic monitor should run.
      * 
      */
-    @Export(name="periodInMinutes", type=Integer.class, parameters={})
+    @Export(name="periodInMinutes", refs={Integer.class}, tree="[0]")
     private Output<Integer> periodInMinutes;
 
     /**
@@ -381,7 +381,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * The runtime that the monitor will use to run jobs.
      * 
      */
-    @Export(name="runtimeType", type=String.class, parameters={})
+    @Export(name="runtimeType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeType;
 
     /**
@@ -395,7 +395,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * The specific version of the runtime type selected.
      * 
      */
-    @Export(name="runtimeTypeVersion", type=String.class, parameters={})
+    @Export(name="runtimeTypeVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeTypeVersion;
 
     /**
@@ -409,7 +409,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * The script that the monitor runs.
      * 
      */
-    @Export(name="script", type=String.class, parameters={})
+    @Export(name="script", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> script;
 
     /**
@@ -423,7 +423,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * The programing language that should execute the script.
      * 
      */
-    @Export(name="scriptLanguage", type=String.class, parameters={})
+    @Export(name="scriptLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scriptLanguage;
 
     /**
@@ -439,7 +439,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -457,7 +457,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
      * 
      */
-    @Export(name="tags", type=List.class, parameters={ScriptMonitorTag.class})
+    @Export(name="tags", refs={List.class,ScriptMonitorTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScriptMonitorTag>> tags;
 
     /**
@@ -473,7 +473,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

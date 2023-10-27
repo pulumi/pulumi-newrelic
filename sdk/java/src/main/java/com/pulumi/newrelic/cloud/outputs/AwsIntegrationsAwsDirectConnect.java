@@ -80,10 +80,10 @@ public final class AwsIntegrationsAwsDirectConnect {
             return this;
         }
         public AwsIntegrationsAwsDirectConnect build() {
-            final var o = new AwsIntegrationsAwsDirectConnect();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsAwsDirectConnect();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

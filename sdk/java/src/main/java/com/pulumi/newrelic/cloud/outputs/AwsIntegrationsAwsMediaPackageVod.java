@@ -80,10 +80,10 @@ public final class AwsIntegrationsAwsMediaPackageVod {
             return this;
         }
         public AwsIntegrationsAwsMediaPackageVod build() {
-            final var o = new AwsIntegrationsAwsMediaPackageVod();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsAwsMediaPackageVod();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

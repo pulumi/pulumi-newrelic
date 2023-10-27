@@ -76,10 +76,10 @@ public final class AzureIntegrationsStorage {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsStorage build() {
-            final var o = new AzureIntegrationsStorage();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsStorage();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class WorkloadStatusConfigStatic {
             return this;
         }
         public WorkloadStatusConfigStatic build() {
-            final var o = new WorkloadStatusConfigStatic();
-            o.description = description;
-            o.enabled = enabled;
-            o.status = status;
-            o.summary = summary;
-            return o;
+            final var _resultValue = new WorkloadStatusConfigStatic();
+            _resultValue.description = description;
+            _resultValue.enabled = enabled;
+            _resultValue.status = status;
+            _resultValue.summary = summary;
+            return _resultValue;
         }
     }
 }

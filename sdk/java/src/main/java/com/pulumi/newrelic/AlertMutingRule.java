@@ -92,7 +92,7 @@ public class AlertMutingRule extends com.pulumi.resources.CustomResource {
      * The account id of the MutingRule.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -106,7 +106,7 @@ public class AlertMutingRule extends com.pulumi.resources.CustomResource {
      * The condition that defines which incidents to target. See Nested condition blocks below for details.
      * 
      */
-    @Export(name="condition", type=AlertMutingRuleCondition.class, parameters={})
+    @Export(name="condition", refs={AlertMutingRuleCondition.class}, tree="[0]")
     private Output<AlertMutingRuleCondition> condition;
 
     /**
@@ -120,7 +120,7 @@ public class AlertMutingRule extends com.pulumi.resources.CustomResource {
      * The description of the MutingRule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -134,7 +134,7 @@ public class AlertMutingRule extends com.pulumi.resources.CustomResource {
      * Whether the MutingRule is enabled.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -148,7 +148,7 @@ public class AlertMutingRule extends com.pulumi.resources.CustomResource {
      * The name of the MutingRule.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -162,7 +162,7 @@ public class AlertMutingRule extends com.pulumi.resources.CustomResource {
      * Specify a schedule for enabling the MutingRule. See Schedule below for details
      * 
      */
-    @Export(name="schedule", type=AlertMutingRuleSchedule.class, parameters={})
+    @Export(name="schedule", refs={AlertMutingRuleSchedule.class}, tree="[0]")
     private Output</* @Nullable */ AlertMutingRuleSchedule> schedule;
 
     /**

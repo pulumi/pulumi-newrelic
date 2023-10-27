@@ -76,10 +76,10 @@ public final class AzureIntegrationsExpressRoute {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsExpressRoute build() {
-            final var o = new AzureIntegrationsExpressRoute();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsExpressRoute();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

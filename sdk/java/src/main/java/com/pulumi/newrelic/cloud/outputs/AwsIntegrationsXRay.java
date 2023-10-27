@@ -80,10 +80,10 @@ public final class AwsIntegrationsXRay {
             return this;
         }
         public AwsIntegrationsXRay build() {
-            final var o = new AwsIntegrationsXRay();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsXRay();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

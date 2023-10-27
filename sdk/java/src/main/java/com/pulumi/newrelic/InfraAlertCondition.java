@@ -206,7 +206,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
      * 
      */
-    @Export(name="comparison", type=String.class, parameters={})
+    @Export(name="comparison", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comparison;
 
     /**
@@ -220,7 +220,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * The timestamp the alert condition was created.
      * 
      */
-    @Export(name="createdAt", type=Integer.class, parameters={})
+    @Export(name="createdAt", refs={Integer.class}, tree="[0]")
     private Output<Integer> createdAt;
 
     /**
@@ -234,7 +234,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
      * 
      */
-    @Export(name="critical", type=InfraAlertConditionCritical.class, parameters={})
+    @Export(name="critical", refs={InfraAlertConditionCritical.class}, tree="[0]")
     private Output</* @Nullable */ InfraAlertConditionCritical> critical;
 
     /**
@@ -248,7 +248,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * The description of the Infrastructure alert condition.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -262,7 +262,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -276,7 +276,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * The unique entity identifier of the condition in New Relic.
      * 
      */
-    @Export(name="entityGuid", type=String.class, parameters={})
+    @Export(name="entityGuid", refs={String.class}, tree="[0]")
     private Output<String> entityGuid;
 
     /**
@@ -290,7 +290,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
      * 
      */
-    @Export(name="event", type=String.class, parameters={})
+    @Export(name="event", refs={String.class}, tree="[0]")
     private Output<String> event;
 
     /**
@@ -304,7 +304,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
      * 
      */
-    @Export(name="integrationProvider", type=String.class, parameters={})
+    @Export(name="integrationProvider", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> integrationProvider;
 
     /**
@@ -318,7 +318,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * The Infrastructure alert condition&#39;s name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -332,7 +332,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * The ID of the alert policy where this condition should be used.
      * 
      */
-    @Export(name="policyId", type=Integer.class, parameters={})
+    @Export(name="policyId", refs={Integer.class}, tree="[0]")
     private Output<Integer> policyId;
 
     /**
@@ -346,7 +346,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infra_process_running` condition type.
      * 
      */
-    @Export(name="processWhere", type=String.class, parameters={})
+    @Export(name="processWhere", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> processWhere;
 
     /**
@@ -360,7 +360,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * Runbook URL to display in notifications.
      * 
      */
-    @Export(name="runbookUrl", type=String.class, parameters={})
+    @Export(name="runbookUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runbookUrl;
 
     /**
@@ -374,7 +374,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
      * 
      */
-    @Export(name="select", type=String.class, parameters={})
+    @Export(name="select", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> select;
 
     /**
@@ -388,7 +388,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -402,7 +402,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * The timestamp the alert condition was last updated.
      * 
      */
-    @Export(name="updatedAt", type=Integer.class, parameters={})
+    @Export(name="updatedAt", refs={Integer.class}, tree="[0]")
     private Output<Integer> updatedAt;
 
     /**
@@ -438,7 +438,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * ```
      * 
      */
-    @Export(name="violationCloseTimer", type=Integer.class, parameters={})
+    @Export(name="violationCloseTimer", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> violationCloseTimer;
 
     /**
@@ -474,7 +474,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
      * 
      */
-    @Export(name="warning", type=InfraAlertConditionWarning.class, parameters={})
+    @Export(name="warning", refs={InfraAlertConditionWarning.class}, tree="[0]")
     private Output</* @Nullable */ InfraAlertConditionWarning> warning;
 
     /**
@@ -488,7 +488,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
      * 
      */
-    @Export(name="where", type=String.class, parameters={})
+    @Export(name="where", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> where;
 
     /**

@@ -52,9 +52,9 @@ public final class GcpIntegrationsBigTable {
             return this;
         }
         public GcpIntegrationsBigTable build() {
-            final var o = new GcpIntegrationsBigTable();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsBigTable();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

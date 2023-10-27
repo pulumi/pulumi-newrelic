@@ -65,10 +65,10 @@ public final class GetEntityTag {
             return this;
         }
         public GetEntityTag build() {
-            final var o = new GetEntityTag();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetEntityTag();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

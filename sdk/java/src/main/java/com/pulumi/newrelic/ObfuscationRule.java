@@ -81,7 +81,7 @@ public class ObfuscationRule extends com.pulumi.resources.CustomResource {
      * The account id associated with the obfuscation rule.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -95,7 +95,7 @@ public class ObfuscationRule extends com.pulumi.resources.CustomResource {
      * Actions for the rule. The actions will be applied in the order specified by this list.
      * 
      */
-    @Export(name="actions", type=List.class, parameters={ObfuscationRuleAction.class})
+    @Export(name="actions", refs={List.class,ObfuscationRuleAction.class}, tree="[0,1]")
     private Output<List<ObfuscationRuleAction>> actions;
 
     /**
@@ -109,7 +109,7 @@ public class ObfuscationRule extends com.pulumi.resources.CustomResource {
      * Description of rule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -123,7 +123,7 @@ public class ObfuscationRule extends com.pulumi.resources.CustomResource {
      * Whether the rule should be applied or not to incoming data.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -137,7 +137,7 @@ public class ObfuscationRule extends com.pulumi.resources.CustomResource {
      * NRQL for determining whether a given log record should have obfuscation actions applied.
      * 
      */
-    @Export(name="filter", type=String.class, parameters={})
+    @Export(name="filter", refs={String.class}, tree="[0]")
     private Output<String> filter;
 
     /**
@@ -151,7 +151,7 @@ public class ObfuscationRule extends com.pulumi.resources.CustomResource {
      * Name of rule.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

@@ -72,10 +72,10 @@ public final class OneDashboardPageWidgetHeatmapUnit {
             return this;
         }
         public OneDashboardPageWidgetHeatmapUnit build() {
-            final var o = new OneDashboardPageWidgetHeatmapUnit();
-            o.seriesOverrides = seriesOverrides;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetHeatmapUnit();
+            _resultValue.seriesOverrides = seriesOverrides;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

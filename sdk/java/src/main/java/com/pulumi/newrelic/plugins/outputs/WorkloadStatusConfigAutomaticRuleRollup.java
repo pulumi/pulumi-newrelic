@@ -87,11 +87,11 @@ public final class WorkloadStatusConfigAutomaticRuleRollup {
             return this;
         }
         public WorkloadStatusConfigAutomaticRuleRollup build() {
-            final var o = new WorkloadStatusConfigAutomaticRuleRollup();
-            o.strategy = strategy;
-            o.thresholdType = thresholdType;
-            o.thresholdValue = thresholdValue;
-            return o;
+            final var _resultValue = new WorkloadStatusConfigAutomaticRuleRollup();
+            _resultValue.strategy = strategy;
+            _resultValue.thresholdType = thresholdType;
+            _resultValue.thresholdValue = thresholdValue;
+            return _resultValue;
         }
     }
 }

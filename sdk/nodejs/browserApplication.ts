@@ -74,6 +74,10 @@ export class BrowserApplication extends pulumi.CustomResource {
      */
     public /*out*/ readonly guid!: pulumi.Output<string>;
     /**
+     * JavaScript configuration of the browser application encoded into a string.
+     */
+    public /*out*/ readonly jsConfig!: pulumi.Output<string>;
+    /**
      * Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
      */
     public readonly loaderType!: pulumi.Output<string | undefined>;
@@ -99,6 +103,7 @@ export class BrowserApplication extends pulumi.CustomResource {
             resourceInputs["cookiesEnabled"] = state ? state.cookiesEnabled : undefined;
             resourceInputs["distributedTracingEnabled"] = state ? state.distributedTracingEnabled : undefined;
             resourceInputs["guid"] = state ? state.guid : undefined;
+            resourceInputs["jsConfig"] = state ? state.jsConfig : undefined;
             resourceInputs["loaderType"] = state ? state.loaderType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
@@ -109,6 +114,7 @@ export class BrowserApplication extends pulumi.CustomResource {
             resourceInputs["loaderType"] = args ? args.loaderType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["guid"] = undefined /*out*/;
+            resourceInputs["jsConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BrowserApplication.__pulumiType, name, resourceInputs, opts);
@@ -135,6 +141,10 @@ export interface BrowserApplicationState {
      * The GUID of the browser application.
      */
     guid?: pulumi.Input<string>;
+    /**
+     * JavaScript configuration of the browser application encoded into a string.
+     */
+    jsConfig?: pulumi.Input<string>;
     /**
      * Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
      */

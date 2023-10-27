@@ -67,10 +67,10 @@ public final class ScriptMonitorLocationPrivate {
             return this;
         }
         public ScriptMonitorLocationPrivate build() {
-            final var o = new ScriptMonitorLocationPrivate();
-            o.guid = guid;
-            o.vsePassword = vsePassword;
-            return o;
+            final var _resultValue = new ScriptMonitorLocationPrivate();
+            _resultValue.guid = guid;
+            _resultValue.vsePassword = vsePassword;
+            return _resultValue;
         }
     }
 }
