@@ -9996,6 +9996,10 @@
                     "type": "string",
                     "description": "The GUID of the browser application.\n"
                 },
+                "jsConfig": {
+                    "type": "string",
+                    "description": "JavaScript configuration of the browser application encoded into a string.\n"
+                },
                 "loaderType": {
                     "type": "string",
                     "description": "Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.\n"
@@ -10008,6 +10012,7 @@
             "required": [
                 "accountId",
                 "guid",
+                "jsConfig",
                 "name"
             ],
             "inputProperties": {
@@ -10050,6 +10055,10 @@
                     "guid": {
                         "type": "string",
                         "description": "The GUID of the browser application.\n"
+                    },
+                    "jsConfig": {
+                        "type": "string",
+                        "description": "JavaScript configuration of the browser application encoded into a string.\n"
                     },
                     "loaderType": {
                         "type": "string",

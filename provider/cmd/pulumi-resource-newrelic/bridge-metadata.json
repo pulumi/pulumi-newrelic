@@ -3755,6 +3755,7 @@
                 "accountId": "account_id",
                 "cookiesEnabled": "cookies_enabled",
                 "distributedTracingEnabled": "distributed_tracing_enabled",
+                "jsConfig": "js_config",
                 "loaderType": "loader_type"
             },
             "newrelic:index/dataPartitionRule:DataPartitionRule": {
