@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -75,164 +75,61 @@ class GcpIntegrationsArgs:
         :param pulumi.Input['GcpIntegrationsVirtualMachinesArgs'] virtual_machines: Virtual machines integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsVpcAccessArgs'] vpc_access: VPC Access integration. See Integration blocks below for details.
         """
-        GcpIntegrationsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            linked_account_id=linked_account_id,
-            account_id=account_id,
-            alloy_db=alloy_db,
-            app_engine=app_engine,
-            big_query=big_query,
-            big_table=big_table,
-            composer=composer,
-            data_flow=data_flow,
-            data_proc=data_proc,
-            data_store=data_store,
-            fire_base_database=fire_base_database,
-            fire_base_hosting=fire_base_hosting,
-            fire_base_storage=fire_base_storage,
-            fire_store=fire_store,
-            functions=functions,
-            interconnect=interconnect,
-            kubernetes=kubernetes,
-            load_balancing=load_balancing,
-            mem_cache=mem_cache,
-            pub_sub=pub_sub,
-            redis=redis,
-            router=router,
-            run=run,
-            spanner=spanner,
-            sql=sql,
-            storage=storage,
-            virtual_machines=virtual_machines,
-            vpc_access=vpc_access,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             linked_account_id: Optional[pulumi.Input[int]] = None,
-             account_id: Optional[pulumi.Input[int]] = None,
-             alloy_db: Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']] = None,
-             app_engine: Optional[pulumi.Input['GcpIntegrationsAppEngineArgs']] = None,
-             big_query: Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']] = None,
-             big_table: Optional[pulumi.Input['GcpIntegrationsBigTableArgs']] = None,
-             composer: Optional[pulumi.Input['GcpIntegrationsComposerArgs']] = None,
-             data_flow: Optional[pulumi.Input['GcpIntegrationsDataFlowArgs']] = None,
-             data_proc: Optional[pulumi.Input['GcpIntegrationsDataProcArgs']] = None,
-             data_store: Optional[pulumi.Input['GcpIntegrationsDataStoreArgs']] = None,
-             fire_base_database: Optional[pulumi.Input['GcpIntegrationsFireBaseDatabaseArgs']] = None,
-             fire_base_hosting: Optional[pulumi.Input['GcpIntegrationsFireBaseHostingArgs']] = None,
-             fire_base_storage: Optional[pulumi.Input['GcpIntegrationsFireBaseStorageArgs']] = None,
-             fire_store: Optional[pulumi.Input['GcpIntegrationsFireStoreArgs']] = None,
-             functions: Optional[pulumi.Input['GcpIntegrationsFunctionsArgs']] = None,
-             interconnect: Optional[pulumi.Input['GcpIntegrationsInterconnectArgs']] = None,
-             kubernetes: Optional[pulumi.Input['GcpIntegrationsKubernetesArgs']] = None,
-             load_balancing: Optional[pulumi.Input['GcpIntegrationsLoadBalancingArgs']] = None,
-             mem_cache: Optional[pulumi.Input['GcpIntegrationsMemCacheArgs']] = None,
-             pub_sub: Optional[pulumi.Input['GcpIntegrationsPubSubArgs']] = None,
-             redis: Optional[pulumi.Input['GcpIntegrationsRedisArgs']] = None,
-             router: Optional[pulumi.Input['GcpIntegrationsRouterArgs']] = None,
-             run: Optional[pulumi.Input['GcpIntegrationsRunArgs']] = None,
-             spanner: Optional[pulumi.Input['GcpIntegrationsSpannerArgs']] = None,
-             sql: Optional[pulumi.Input['GcpIntegrationsSqlArgs']] = None,
-             storage: Optional[pulumi.Input['GcpIntegrationsStorageArgs']] = None,
-             virtual_machines: Optional[pulumi.Input['GcpIntegrationsVirtualMachinesArgs']] = None,
-             vpc_access: Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if linked_account_id is None and 'linkedAccountId' in kwargs:
-            linked_account_id = kwargs['linkedAccountId']
-        if linked_account_id is None:
-            raise TypeError("Missing 'linked_account_id' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if alloy_db is None and 'alloyDb' in kwargs:
-            alloy_db = kwargs['alloyDb']
-        if app_engine is None and 'appEngine' in kwargs:
-            app_engine = kwargs['appEngine']
-        if big_query is None and 'bigQuery' in kwargs:
-            big_query = kwargs['bigQuery']
-        if big_table is None and 'bigTable' in kwargs:
-            big_table = kwargs['bigTable']
-        if data_flow is None and 'dataFlow' in kwargs:
-            data_flow = kwargs['dataFlow']
-        if data_proc is None and 'dataProc' in kwargs:
-            data_proc = kwargs['dataProc']
-        if data_store is None and 'dataStore' in kwargs:
-            data_store = kwargs['dataStore']
-        if fire_base_database is None and 'fireBaseDatabase' in kwargs:
-            fire_base_database = kwargs['fireBaseDatabase']
-        if fire_base_hosting is None and 'fireBaseHosting' in kwargs:
-            fire_base_hosting = kwargs['fireBaseHosting']
-        if fire_base_storage is None and 'fireBaseStorage' in kwargs:
-            fire_base_storage = kwargs['fireBaseStorage']
-        if fire_store is None and 'fireStore' in kwargs:
-            fire_store = kwargs['fireStore']
-        if load_balancing is None and 'loadBalancing' in kwargs:
-            load_balancing = kwargs['loadBalancing']
-        if mem_cache is None and 'memCache' in kwargs:
-            mem_cache = kwargs['memCache']
-        if pub_sub is None and 'pubSub' in kwargs:
-            pub_sub = kwargs['pubSub']
-        if virtual_machines is None and 'virtualMachines' in kwargs:
-            virtual_machines = kwargs['virtualMachines']
-        if vpc_access is None and 'vpcAccess' in kwargs:
-            vpc_access = kwargs['vpcAccess']
-
-        _setter("linked_account_id", linked_account_id)
+        pulumi.set(__self__, "linked_account_id", linked_account_id)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if alloy_db is not None:
-            _setter("alloy_db", alloy_db)
+            pulumi.set(__self__, "alloy_db", alloy_db)
         if app_engine is not None:
-            _setter("app_engine", app_engine)
+            pulumi.set(__self__, "app_engine", app_engine)
         if big_query is not None:
-            _setter("big_query", big_query)
+            pulumi.set(__self__, "big_query", big_query)
         if big_table is not None:
-            _setter("big_table", big_table)
+            pulumi.set(__self__, "big_table", big_table)
         if composer is not None:
-            _setter("composer", composer)
+            pulumi.set(__self__, "composer", composer)
         if data_flow is not None:
-            _setter("data_flow", data_flow)
+            pulumi.set(__self__, "data_flow", data_flow)
         if data_proc is not None:
-            _setter("data_proc", data_proc)
+            pulumi.set(__self__, "data_proc", data_proc)
         if data_store is not None:
-            _setter("data_store", data_store)
+            pulumi.set(__self__, "data_store", data_store)
         if fire_base_database is not None:
-            _setter("fire_base_database", fire_base_database)
+            pulumi.set(__self__, "fire_base_database", fire_base_database)
         if fire_base_hosting is not None:
-            _setter("fire_base_hosting", fire_base_hosting)
+            pulumi.set(__self__, "fire_base_hosting", fire_base_hosting)
         if fire_base_storage is not None:
-            _setter("fire_base_storage", fire_base_storage)
+            pulumi.set(__self__, "fire_base_storage", fire_base_storage)
         if fire_store is not None:
-            _setter("fire_store", fire_store)
+            pulumi.set(__self__, "fire_store", fire_store)
         if functions is not None:
-            _setter("functions", functions)
+            pulumi.set(__self__, "functions", functions)
         if interconnect is not None:
-            _setter("interconnect", interconnect)
+            pulumi.set(__self__, "interconnect", interconnect)
         if kubernetes is not None:
-            _setter("kubernetes", kubernetes)
+            pulumi.set(__self__, "kubernetes", kubernetes)
         if load_balancing is not None:
-            _setter("load_balancing", load_balancing)
+            pulumi.set(__self__, "load_balancing", load_balancing)
         if mem_cache is not None:
-            _setter("mem_cache", mem_cache)
+            pulumi.set(__self__, "mem_cache", mem_cache)
         if pub_sub is not None:
-            _setter("pub_sub", pub_sub)
+            pulumi.set(__self__, "pub_sub", pub_sub)
         if redis is not None:
-            _setter("redis", redis)
+            pulumi.set(__self__, "redis", redis)
         if router is not None:
-            _setter("router", router)
+            pulumi.set(__self__, "router", router)
         if run is not None:
-            _setter("run", run)
+            pulumi.set(__self__, "run", run)
         if spanner is not None:
-            _setter("spanner", spanner)
+            pulumi.set(__self__, "spanner", spanner)
         if sql is not None:
-            _setter("sql", sql)
+            pulumi.set(__self__, "sql", sql)
         if storage is not None:
-            _setter("storage", storage)
+            pulumi.set(__self__, "storage", storage)
         if virtual_machines is not None:
-            _setter("virtual_machines", virtual_machines)
+            pulumi.set(__self__, "virtual_machines", virtual_machines)
         if vpc_access is not None:
-            _setter("vpc_access", vpc_access)
+            pulumi.set(__self__, "vpc_access", vpc_access)
 
     @property
     @pulumi.getter(name="linkedAccountId")
@@ -633,163 +530,62 @@ class _GcpIntegrationsState:
         :param pulumi.Input['GcpIntegrationsVirtualMachinesArgs'] virtual_machines: Virtual machines integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsVpcAccessArgs'] vpc_access: VPC Access integration. See Integration blocks below for details.
         """
-        _GcpIntegrationsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            alloy_db=alloy_db,
-            app_engine=app_engine,
-            big_query=big_query,
-            big_table=big_table,
-            composer=composer,
-            data_flow=data_flow,
-            data_proc=data_proc,
-            data_store=data_store,
-            fire_base_database=fire_base_database,
-            fire_base_hosting=fire_base_hosting,
-            fire_base_storage=fire_base_storage,
-            fire_store=fire_store,
-            functions=functions,
-            interconnect=interconnect,
-            kubernetes=kubernetes,
-            linked_account_id=linked_account_id,
-            load_balancing=load_balancing,
-            mem_cache=mem_cache,
-            pub_sub=pub_sub,
-            redis=redis,
-            router=router,
-            run=run,
-            spanner=spanner,
-            sql=sql,
-            storage=storage,
-            virtual_machines=virtual_machines,
-            vpc_access=vpc_access,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             alloy_db: Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']] = None,
-             app_engine: Optional[pulumi.Input['GcpIntegrationsAppEngineArgs']] = None,
-             big_query: Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']] = None,
-             big_table: Optional[pulumi.Input['GcpIntegrationsBigTableArgs']] = None,
-             composer: Optional[pulumi.Input['GcpIntegrationsComposerArgs']] = None,
-             data_flow: Optional[pulumi.Input['GcpIntegrationsDataFlowArgs']] = None,
-             data_proc: Optional[pulumi.Input['GcpIntegrationsDataProcArgs']] = None,
-             data_store: Optional[pulumi.Input['GcpIntegrationsDataStoreArgs']] = None,
-             fire_base_database: Optional[pulumi.Input['GcpIntegrationsFireBaseDatabaseArgs']] = None,
-             fire_base_hosting: Optional[pulumi.Input['GcpIntegrationsFireBaseHostingArgs']] = None,
-             fire_base_storage: Optional[pulumi.Input['GcpIntegrationsFireBaseStorageArgs']] = None,
-             fire_store: Optional[pulumi.Input['GcpIntegrationsFireStoreArgs']] = None,
-             functions: Optional[pulumi.Input['GcpIntegrationsFunctionsArgs']] = None,
-             interconnect: Optional[pulumi.Input['GcpIntegrationsInterconnectArgs']] = None,
-             kubernetes: Optional[pulumi.Input['GcpIntegrationsKubernetesArgs']] = None,
-             linked_account_id: Optional[pulumi.Input[int]] = None,
-             load_balancing: Optional[pulumi.Input['GcpIntegrationsLoadBalancingArgs']] = None,
-             mem_cache: Optional[pulumi.Input['GcpIntegrationsMemCacheArgs']] = None,
-             pub_sub: Optional[pulumi.Input['GcpIntegrationsPubSubArgs']] = None,
-             redis: Optional[pulumi.Input['GcpIntegrationsRedisArgs']] = None,
-             router: Optional[pulumi.Input['GcpIntegrationsRouterArgs']] = None,
-             run: Optional[pulumi.Input['GcpIntegrationsRunArgs']] = None,
-             spanner: Optional[pulumi.Input['GcpIntegrationsSpannerArgs']] = None,
-             sql: Optional[pulumi.Input['GcpIntegrationsSqlArgs']] = None,
-             storage: Optional[pulumi.Input['GcpIntegrationsStorageArgs']] = None,
-             virtual_machines: Optional[pulumi.Input['GcpIntegrationsVirtualMachinesArgs']] = None,
-             vpc_access: Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if alloy_db is None and 'alloyDb' in kwargs:
-            alloy_db = kwargs['alloyDb']
-        if app_engine is None and 'appEngine' in kwargs:
-            app_engine = kwargs['appEngine']
-        if big_query is None and 'bigQuery' in kwargs:
-            big_query = kwargs['bigQuery']
-        if big_table is None and 'bigTable' in kwargs:
-            big_table = kwargs['bigTable']
-        if data_flow is None and 'dataFlow' in kwargs:
-            data_flow = kwargs['dataFlow']
-        if data_proc is None and 'dataProc' in kwargs:
-            data_proc = kwargs['dataProc']
-        if data_store is None and 'dataStore' in kwargs:
-            data_store = kwargs['dataStore']
-        if fire_base_database is None and 'fireBaseDatabase' in kwargs:
-            fire_base_database = kwargs['fireBaseDatabase']
-        if fire_base_hosting is None and 'fireBaseHosting' in kwargs:
-            fire_base_hosting = kwargs['fireBaseHosting']
-        if fire_base_storage is None and 'fireBaseStorage' in kwargs:
-            fire_base_storage = kwargs['fireBaseStorage']
-        if fire_store is None and 'fireStore' in kwargs:
-            fire_store = kwargs['fireStore']
-        if linked_account_id is None and 'linkedAccountId' in kwargs:
-            linked_account_id = kwargs['linkedAccountId']
-        if load_balancing is None and 'loadBalancing' in kwargs:
-            load_balancing = kwargs['loadBalancing']
-        if mem_cache is None and 'memCache' in kwargs:
-            mem_cache = kwargs['memCache']
-        if pub_sub is None and 'pubSub' in kwargs:
-            pub_sub = kwargs['pubSub']
-        if virtual_machines is None and 'virtualMachines' in kwargs:
-            virtual_machines = kwargs['virtualMachines']
-        if vpc_access is None and 'vpcAccess' in kwargs:
-            vpc_access = kwargs['vpcAccess']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if alloy_db is not None:
-            _setter("alloy_db", alloy_db)
+            pulumi.set(__self__, "alloy_db", alloy_db)
         if app_engine is not None:
-            _setter("app_engine", app_engine)
+            pulumi.set(__self__, "app_engine", app_engine)
         if big_query is not None:
-            _setter("big_query", big_query)
+            pulumi.set(__self__, "big_query", big_query)
         if big_table is not None:
-            _setter("big_table", big_table)
+            pulumi.set(__self__, "big_table", big_table)
         if composer is not None:
-            _setter("composer", composer)
+            pulumi.set(__self__, "composer", composer)
         if data_flow is not None:
-            _setter("data_flow", data_flow)
+            pulumi.set(__self__, "data_flow", data_flow)
         if data_proc is not None:
-            _setter("data_proc", data_proc)
+            pulumi.set(__self__, "data_proc", data_proc)
         if data_store is not None:
-            _setter("data_store", data_store)
+            pulumi.set(__self__, "data_store", data_store)
         if fire_base_database is not None:
-            _setter("fire_base_database", fire_base_database)
+            pulumi.set(__self__, "fire_base_database", fire_base_database)
         if fire_base_hosting is not None:
-            _setter("fire_base_hosting", fire_base_hosting)
+            pulumi.set(__self__, "fire_base_hosting", fire_base_hosting)
         if fire_base_storage is not None:
-            _setter("fire_base_storage", fire_base_storage)
+            pulumi.set(__self__, "fire_base_storage", fire_base_storage)
         if fire_store is not None:
-            _setter("fire_store", fire_store)
+            pulumi.set(__self__, "fire_store", fire_store)
         if functions is not None:
-            _setter("functions", functions)
+            pulumi.set(__self__, "functions", functions)
         if interconnect is not None:
-            _setter("interconnect", interconnect)
+            pulumi.set(__self__, "interconnect", interconnect)
         if kubernetes is not None:
-            _setter("kubernetes", kubernetes)
+            pulumi.set(__self__, "kubernetes", kubernetes)
         if linked_account_id is not None:
-            _setter("linked_account_id", linked_account_id)
+            pulumi.set(__self__, "linked_account_id", linked_account_id)
         if load_balancing is not None:
-            _setter("load_balancing", load_balancing)
+            pulumi.set(__self__, "load_balancing", load_balancing)
         if mem_cache is not None:
-            _setter("mem_cache", mem_cache)
+            pulumi.set(__self__, "mem_cache", mem_cache)
         if pub_sub is not None:
-            _setter("pub_sub", pub_sub)
+            pulumi.set(__self__, "pub_sub", pub_sub)
         if redis is not None:
-            _setter("redis", redis)
+            pulumi.set(__self__, "redis", redis)
         if router is not None:
-            _setter("router", router)
+            pulumi.set(__self__, "router", router)
         if run is not None:
-            _setter("run", run)
+            pulumi.set(__self__, "run", run)
         if spanner is not None:
-            _setter("spanner", spanner)
+            pulumi.set(__self__, "spanner", spanner)
         if sql is not None:
-            _setter("sql", sql)
+            pulumi.set(__self__, "sql", sql)
         if storage is not None:
-            _setter("storage", storage)
+            pulumi.set(__self__, "storage", storage)
         if virtual_machines is not None:
-            _setter("virtual_machines", virtual_machines)
+            pulumi.set(__self__, "virtual_machines", virtual_machines)
         if vpc_access is not None:
-            _setter("vpc_access", vpc_access)
+            pulumi.set(__self__, "vpc_access", vpc_access)
 
     @property
     @pulumi.getter(name="accountId")
@@ -1427,10 +1223,6 @@ class GcpIntegrations(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GcpIntegrationsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1474,60 +1266,34 @@ class GcpIntegrations(pulumi.CustomResource):
             __props__ = GcpIntegrationsArgs.__new__(GcpIntegrationsArgs)
 
             __props__.__dict__["account_id"] = account_id
-            alloy_db = _utilities.configure(alloy_db, GcpIntegrationsAlloyDbArgs, True)
             __props__.__dict__["alloy_db"] = alloy_db
-            app_engine = _utilities.configure(app_engine, GcpIntegrationsAppEngineArgs, True)
             __props__.__dict__["app_engine"] = app_engine
-            big_query = _utilities.configure(big_query, GcpIntegrationsBigQueryArgs, True)
             __props__.__dict__["big_query"] = big_query
-            big_table = _utilities.configure(big_table, GcpIntegrationsBigTableArgs, True)
             __props__.__dict__["big_table"] = big_table
-            composer = _utilities.configure(composer, GcpIntegrationsComposerArgs, True)
             __props__.__dict__["composer"] = composer
-            data_flow = _utilities.configure(data_flow, GcpIntegrationsDataFlowArgs, True)
             __props__.__dict__["data_flow"] = data_flow
-            data_proc = _utilities.configure(data_proc, GcpIntegrationsDataProcArgs, True)
             __props__.__dict__["data_proc"] = data_proc
-            data_store = _utilities.configure(data_store, GcpIntegrationsDataStoreArgs, True)
             __props__.__dict__["data_store"] = data_store
-            fire_base_database = _utilities.configure(fire_base_database, GcpIntegrationsFireBaseDatabaseArgs, True)
             __props__.__dict__["fire_base_database"] = fire_base_database
-            fire_base_hosting = _utilities.configure(fire_base_hosting, GcpIntegrationsFireBaseHostingArgs, True)
             __props__.__dict__["fire_base_hosting"] = fire_base_hosting
-            fire_base_storage = _utilities.configure(fire_base_storage, GcpIntegrationsFireBaseStorageArgs, True)
             __props__.__dict__["fire_base_storage"] = fire_base_storage
-            fire_store = _utilities.configure(fire_store, GcpIntegrationsFireStoreArgs, True)
             __props__.__dict__["fire_store"] = fire_store
-            functions = _utilities.configure(functions, GcpIntegrationsFunctionsArgs, True)
             __props__.__dict__["functions"] = functions
-            interconnect = _utilities.configure(interconnect, GcpIntegrationsInterconnectArgs, True)
             __props__.__dict__["interconnect"] = interconnect
-            kubernetes = _utilities.configure(kubernetes, GcpIntegrationsKubernetesArgs, True)
             __props__.__dict__["kubernetes"] = kubernetes
             if linked_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_account_id'")
             __props__.__dict__["linked_account_id"] = linked_account_id
-            load_balancing = _utilities.configure(load_balancing, GcpIntegrationsLoadBalancingArgs, True)
             __props__.__dict__["load_balancing"] = load_balancing
-            mem_cache = _utilities.configure(mem_cache, GcpIntegrationsMemCacheArgs, True)
             __props__.__dict__["mem_cache"] = mem_cache
-            pub_sub = _utilities.configure(pub_sub, GcpIntegrationsPubSubArgs, True)
             __props__.__dict__["pub_sub"] = pub_sub
-            redis = _utilities.configure(redis, GcpIntegrationsRedisArgs, True)
             __props__.__dict__["redis"] = redis
-            router = _utilities.configure(router, GcpIntegrationsRouterArgs, True)
             __props__.__dict__["router"] = router
-            run = _utilities.configure(run, GcpIntegrationsRunArgs, True)
             __props__.__dict__["run"] = run
-            spanner = _utilities.configure(spanner, GcpIntegrationsSpannerArgs, True)
             __props__.__dict__["spanner"] = spanner
-            sql = _utilities.configure(sql, GcpIntegrationsSqlArgs, True)
             __props__.__dict__["sql"] = sql
-            storage = _utilities.configure(storage, GcpIntegrationsStorageArgs, True)
             __props__.__dict__["storage"] = storage
-            virtual_machines = _utilities.configure(virtual_machines, GcpIntegrationsVirtualMachinesArgs, True)
             __props__.__dict__["virtual_machines"] = virtual_machines
-            vpc_access = _utilities.configure(vpc_access, GcpIntegrationsVpcAccessArgs, True)
             __props__.__dict__["vpc_access"] = vpc_access
         super(GcpIntegrations, __self__).__init__(
             'newrelic:cloud/gcpIntegrations:GcpIntegrations',

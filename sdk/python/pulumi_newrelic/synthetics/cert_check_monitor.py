@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,63 +39,20 @@ class CertCheckMonitorArgs:
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
-        CertCheckMonitorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_expiration=certificate_expiration,
-            domain=domain,
-            period=period,
-            status=status,
-            account_id=account_id,
-            locations_privates=locations_privates,
-            locations_publics=locations_publics,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_expiration: Optional[pulumi.Input[int]] = None,
-             domain: Optional[pulumi.Input[str]] = None,
-             period: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             account_id: Optional[pulumi.Input[int]] = None,
-             locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_expiration is None and 'certificateExpiration' in kwargs:
-            certificate_expiration = kwargs['certificateExpiration']
-        if certificate_expiration is None:
-            raise TypeError("Missing 'certificate_expiration' argument")
-        if domain is None:
-            raise TypeError("Missing 'domain' argument")
-        if period is None:
-            raise TypeError("Missing 'period' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if locations_privates is None and 'locationsPrivates' in kwargs:
-            locations_privates = kwargs['locationsPrivates']
-        if locations_publics is None and 'locationsPublics' in kwargs:
-            locations_publics = kwargs['locationsPublics']
-
-        _setter("certificate_expiration", certificate_expiration)
-        _setter("domain", domain)
-        _setter("period", period)
-        _setter("status", status)
+        pulumi.set(__self__, "certificate_expiration", certificate_expiration)
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "period", period)
+        pulumi.set(__self__, "status", status)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if locations_privates is not None:
-            _setter("locations_privates", locations_privates)
+            pulumi.set(__self__, "locations_privates", locations_privates)
         if locations_publics is not None:
-            _setter("locations_publics", locations_publics)
+            pulumi.set(__self__, "locations_publics", locations_publics)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="certificateExpiration")
@@ -236,65 +193,26 @@ class _CertCheckMonitorState:
                > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
-        _CertCheckMonitorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            certificate_expiration=certificate_expiration,
-            domain=domain,
-            locations_privates=locations_privates,
-            locations_publics=locations_publics,
-            name=name,
-            period=period,
-            period_in_minutes=period_in_minutes,
-            status=status,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             certificate_expiration: Optional[pulumi.Input[int]] = None,
-             domain: Optional[pulumi.Input[str]] = None,
-             locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             period: Optional[pulumi.Input[str]] = None,
-             period_in_minutes: Optional[pulumi.Input[int]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if certificate_expiration is None and 'certificateExpiration' in kwargs:
-            certificate_expiration = kwargs['certificateExpiration']
-        if locations_privates is None and 'locationsPrivates' in kwargs:
-            locations_privates = kwargs['locationsPrivates']
-        if locations_publics is None and 'locationsPublics' in kwargs:
-            locations_publics = kwargs['locationsPublics']
-        if period_in_minutes is None and 'periodInMinutes' in kwargs:
-            period_in_minutes = kwargs['periodInMinutes']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if certificate_expiration is not None:
-            _setter("certificate_expiration", certificate_expiration)
+            pulumi.set(__self__, "certificate_expiration", certificate_expiration)
         if domain is not None:
-            _setter("domain", domain)
+            pulumi.set(__self__, "domain", domain)
         if locations_privates is not None:
-            _setter("locations_privates", locations_privates)
+            pulumi.set(__self__, "locations_privates", locations_privates)
         if locations_publics is not None:
-            _setter("locations_publics", locations_publics)
+            pulumi.set(__self__, "locations_publics", locations_publics)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if period is not None:
-            _setter("period", period)
+            pulumi.set(__self__, "period", period)
         if period_in_minutes is not None:
-            _setter("period_in_minutes", period_in_minutes)
+            pulumi.set(__self__, "period_in_minutes", period_in_minutes)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="accountId")
@@ -574,10 +492,6 @@ class CertCheckMonitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CertCheckMonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

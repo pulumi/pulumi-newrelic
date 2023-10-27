@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,20 +28,7 @@ class WorkloadEntitySearchQuery(dict):
         """
         :param str query: The query.
         """
-        WorkloadEntitySearchQuery._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            query=query,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             query: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query is None:
-            raise TypeError("Missing 'query' argument")
-
-        _setter("query", query)
+        pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter
@@ -80,30 +67,11 @@ class WorkloadStatusConfigAutomatic(dict):
         :param 'WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs' remaining_entities_rule: An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remaining_entities_rule blocks below for details.
         :param Sequence['WorkloadStatusConfigAutomaticRuleArgs'] rules: The input object used to represent a rollup strategy. See Nested rule blocks below for details.
         """
-        WorkloadStatusConfigAutomatic._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            remaining_entities_rule=remaining_entities_rule,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             remaining_entities_rule: Optional['outputs.WorkloadStatusConfigAutomaticRemainingEntitiesRule'] = None,
-             rules: Optional[Sequence['outputs.WorkloadStatusConfigAutomaticRule']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if remaining_entities_rule is None and 'remainingEntitiesRule' in kwargs:
-            remaining_entities_rule = kwargs['remainingEntitiesRule']
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if remaining_entities_rule is not None:
-            _setter("remaining_entities_rule", remaining_entities_rule)
+            pulumi.set(__self__, "remaining_entities_rule", remaining_entities_rule)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -154,22 +122,7 @@ class WorkloadStatusConfigAutomaticRemainingEntitiesRule(dict):
         """
         :param 'WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs' remaining_entities_rule_rollup: The input object used to represent a rollup strategy. See Nested remaining_entities_rule_rollup blocks below for details.
         """
-        WorkloadStatusConfigAutomaticRemainingEntitiesRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            remaining_entities_rule_rollup=remaining_entities_rule_rollup,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             remaining_entities_rule_rollup: Optional['outputs.WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if remaining_entities_rule_rollup is None and 'remainingEntitiesRuleRollup' in kwargs:
-            remaining_entities_rule_rollup = kwargs['remainingEntitiesRuleRollup']
-        if remaining_entities_rule_rollup is None:
-            raise TypeError("Missing 'remaining_entities_rule_rollup' argument")
-
-        _setter("remaining_entities_rule_rollup", remaining_entities_rule_rollup)
+        pulumi.set(__self__, "remaining_entities_rule_rollup", remaining_entities_rule_rollup)
 
     @property
     @pulumi.getter(name="remainingEntitiesRuleRollup")
@@ -214,39 +167,12 @@ class WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRol
         :param str threshold_type: Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
         :param int threshold_value: Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
         """
-        WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            group_by=group_by,
-            strategy=strategy,
-            threshold_type=threshold_type,
-            threshold_value=threshold_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             group_by: Optional[str] = None,
-             strategy: Optional[str] = None,
-             threshold_type: Optional[str] = None,
-             threshold_value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if group_by is None and 'groupBy' in kwargs:
-            group_by = kwargs['groupBy']
-        if group_by is None:
-            raise TypeError("Missing 'group_by' argument")
-        if strategy is None:
-            raise TypeError("Missing 'strategy' argument")
-        if threshold_type is None and 'thresholdType' in kwargs:
-            threshold_type = kwargs['thresholdType']
-        if threshold_value is None and 'thresholdValue' in kwargs:
-            threshold_value = kwargs['thresholdValue']
-
-        _setter("group_by", group_by)
-        _setter("strategy", strategy)
+        pulumi.set(__self__, "group_by", group_by)
+        pulumi.set(__self__, "strategy", strategy)
         if threshold_type is not None:
-            _setter("threshold_type", threshold_type)
+            pulumi.set(__self__, "threshold_type", threshold_type)
         if threshold_value is not None:
-            _setter("threshold_value", threshold_value)
+            pulumi.set(__self__, "threshold_value", threshold_value)
 
     @property
     @pulumi.getter(name="groupBy")
@@ -311,32 +237,11 @@ class WorkloadStatusConfigAutomaticRule(dict):
         :param Sequence[str] entity_guids: A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
         :param Sequence['WorkloadStatusConfigAutomaticRuleNrqlQueryArgs'] nrql_queries: A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
         """
-        WorkloadStatusConfigAutomaticRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rollup=rollup,
-            entity_guids=entity_guids,
-            nrql_queries=nrql_queries,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rollup: Optional['outputs.WorkloadStatusConfigAutomaticRuleRollup'] = None,
-             entity_guids: Optional[Sequence[str]] = None,
-             nrql_queries: Optional[Sequence['outputs.WorkloadStatusConfigAutomaticRuleNrqlQuery']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rollup is None:
-            raise TypeError("Missing 'rollup' argument")
-        if entity_guids is None and 'entityGuids' in kwargs:
-            entity_guids = kwargs['entityGuids']
-        if nrql_queries is None and 'nrqlQueries' in kwargs:
-            nrql_queries = kwargs['nrqlQueries']
-
-        _setter("rollup", rollup)
+        pulumi.set(__self__, "rollup", rollup)
         if entity_guids is not None:
-            _setter("entity_guids", entity_guids)
+            pulumi.set(__self__, "entity_guids", entity_guids)
         if nrql_queries is not None:
-            _setter("nrql_queries", nrql_queries)
+            pulumi.set(__self__, "nrql_queries", nrql_queries)
 
     @property
     @pulumi.getter
@@ -370,20 +275,7 @@ class WorkloadStatusConfigAutomaticRuleNrqlQuery(dict):
         """
         :param str query: The entity search query that is used to perform the search of a group of entities.
         """
-        WorkloadStatusConfigAutomaticRuleNrqlQuery._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            query=query,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             query: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query is None:
-            raise TypeError("Missing 'query' argument")
-
-        _setter("query", query)
+        pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter
@@ -424,32 +316,11 @@ class WorkloadStatusConfigAutomaticRuleRollup(dict):
         :param str threshold_type: Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
         :param int threshold_value: Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
         """
-        WorkloadStatusConfigAutomaticRuleRollup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            strategy=strategy,
-            threshold_type=threshold_type,
-            threshold_value=threshold_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             strategy: Optional[str] = None,
-             threshold_type: Optional[str] = None,
-             threshold_value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if strategy is None:
-            raise TypeError("Missing 'strategy' argument")
-        if threshold_type is None and 'thresholdType' in kwargs:
-            threshold_type = kwargs['thresholdType']
-        if threshold_value is None and 'thresholdValue' in kwargs:
-            threshold_value = kwargs['thresholdValue']
-
-        _setter("strategy", strategy)
+        pulumi.set(__self__, "strategy", strategy)
         if threshold_type is not None:
-            _setter("threshold_type", threshold_type)
+            pulumi.set(__self__, "threshold_type", threshold_type)
         if threshold_value is not None:
-            _setter("threshold_value", threshold_value)
+            pulumi.set(__self__, "threshold_value", threshold_value)
 
     @property
     @pulumi.getter
@@ -489,33 +360,12 @@ class WorkloadStatusConfigStatic(dict):
         :param str description: Relevant information about the workload.
         :param str summary: A short description of the status of the workload.
         """
-        WorkloadStatusConfigStatic._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            status=status,
-            description=description,
-            summary=summary,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             status: Optional[str] = None,
-             description: Optional[str] = None,
-             summary: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-
-        _setter("enabled", enabled)
-        _setter("status", status)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "status", status)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if summary is not None:
-            _setter("summary", summary)
+            pulumi.set(__self__, "summary", summary)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -31,108 +31,47 @@ class ProviderArgs:
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] region: The data center for which your New Relic account is configured. Only one region per provider block is permitted.
         """
-        ProviderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_key=api_key,
-            account_id=account_id,
-            admin_api_key=admin_api_key,
-            api_url=api_url,
-            cacert_file=cacert_file,
-            infrastructure_api_url=infrastructure_api_url,
-            insecure_skip_verify=insecure_skip_verify,
-            insights_insert_key=insights_insert_key,
-            insights_insert_url=insights_insert_url,
-            insights_query_url=insights_query_url,
-            nerdgraph_api_url=nerdgraph_api_url,
-            region=region,
-            synthetics_api_url=synthetics_api_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_key: Optional[pulumi.Input[str]] = None,
-             account_id: Optional[pulumi.Input[int]] = None,
-             admin_api_key: Optional[pulumi.Input[str]] = None,
-             api_url: Optional[pulumi.Input[str]] = None,
-             cacert_file: Optional[pulumi.Input[str]] = None,
-             infrastructure_api_url: Optional[pulumi.Input[str]] = None,
-             insecure_skip_verify: Optional[pulumi.Input[bool]] = None,
-             insights_insert_key: Optional[pulumi.Input[str]] = None,
-             insights_insert_url: Optional[pulumi.Input[str]] = None,
-             insights_query_url: Optional[pulumi.Input[str]] = None,
-             nerdgraph_api_url: Optional[pulumi.Input[str]] = None,
-             region: Optional[pulumi.Input[str]] = None,
-             synthetics_api_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_key is None and 'apiKey' in kwargs:
-            api_key = kwargs['apiKey']
-        if api_key is None:
-            raise TypeError("Missing 'api_key' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if admin_api_key is None and 'adminApiKey' in kwargs:
-            admin_api_key = kwargs['adminApiKey']
-        if api_url is None and 'apiUrl' in kwargs:
-            api_url = kwargs['apiUrl']
-        if cacert_file is None and 'cacertFile' in kwargs:
-            cacert_file = kwargs['cacertFile']
-        if infrastructure_api_url is None and 'infrastructureApiUrl' in kwargs:
-            infrastructure_api_url = kwargs['infrastructureApiUrl']
-        if insecure_skip_verify is None and 'insecureSkipVerify' in kwargs:
-            insecure_skip_verify = kwargs['insecureSkipVerify']
-        if insights_insert_key is None and 'insightsInsertKey' in kwargs:
-            insights_insert_key = kwargs['insightsInsertKey']
-        if insights_insert_url is None and 'insightsInsertUrl' in kwargs:
-            insights_insert_url = kwargs['insightsInsertUrl']
-        if insights_query_url is None and 'insightsQueryUrl' in kwargs:
-            insights_query_url = kwargs['insightsQueryUrl']
-        if nerdgraph_api_url is None and 'nerdgraphApiUrl' in kwargs:
-            nerdgraph_api_url = kwargs['nerdgraphApiUrl']
-        if synthetics_api_url is None and 'syntheticsApiUrl' in kwargs:
-            synthetics_api_url = kwargs['syntheticsApiUrl']
-
-        _setter("api_key", api_key)
+        pulumi.set(__self__, "api_key", api_key)
         if account_id is None:
             account_id = _utilities.get_env_int('NEW_RELIC_ACCOUNT_ID')
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if admin_api_key is not None:
-            _setter("admin_api_key", admin_api_key)
+            pulumi.set(__self__, "admin_api_key", admin_api_key)
         if api_url is not None:
             warnings.warn("""New Relic internal use only. API URLs are now configured based on the configured region.""", DeprecationWarning)
             pulumi.log.warn("""api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
         if api_url is not None:
-            _setter("api_url", api_url)
+            pulumi.set(__self__, "api_url", api_url)
         if cacert_file is not None:
-            _setter("cacert_file", cacert_file)
+            pulumi.set(__self__, "cacert_file", cacert_file)
         if infrastructure_api_url is not None:
             warnings.warn("""New Relic internal use only. API URLs are now configured based on the configured region.""", DeprecationWarning)
             pulumi.log.warn("""infrastructure_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
         if infrastructure_api_url is not None:
-            _setter("infrastructure_api_url", infrastructure_api_url)
+            pulumi.set(__self__, "infrastructure_api_url", infrastructure_api_url)
         if insecure_skip_verify is not None:
-            _setter("insecure_skip_verify", insecure_skip_verify)
+            pulumi.set(__self__, "insecure_skip_verify", insecure_skip_verify)
         if insights_insert_key is not None:
-            _setter("insights_insert_key", insights_insert_key)
+            pulumi.set(__self__, "insights_insert_key", insights_insert_key)
         if insights_insert_url is not None:
-            _setter("insights_insert_url", insights_insert_url)
+            pulumi.set(__self__, "insights_insert_url", insights_insert_url)
         if insights_query_url is not None:
-            _setter("insights_query_url", insights_query_url)
+            pulumi.set(__self__, "insights_query_url", insights_query_url)
         if nerdgraph_api_url is not None:
             warnings.warn("""New Relic internal use only. API URLs are now configured based on the configured region.""", DeprecationWarning)
             pulumi.log.warn("""nerdgraph_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
         if nerdgraph_api_url is not None:
-            _setter("nerdgraph_api_url", nerdgraph_api_url)
+            pulumi.set(__self__, "nerdgraph_api_url", nerdgraph_api_url)
         if region is None:
             region = (_utilities.get_env('NEW_RELIC_REGION') or 'US')
         if region is not None:
-            _setter("region", region)
+            pulumi.set(__self__, "region", region)
         if synthetics_api_url is not None:
             warnings.warn("""New Relic internal use only. API URLs are now configured based on the configured region.""", DeprecationWarning)
             pulumi.log.warn("""synthetics_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
         if synthetics_api_url is not None:
-            _setter("synthetics_api_url", synthetics_api_url)
+            pulumi.set(__self__, "synthetics_api_url", synthetics_api_url)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -318,10 +257,6 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

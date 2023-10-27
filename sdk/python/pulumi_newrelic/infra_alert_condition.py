@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,87 +53,34 @@ class InfraAlertConditionArgs:
         :param pulumi.Input['InfraAlertConditionWarningArgs'] warning: Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
         :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
-        InfraAlertConditionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_id=policy_id,
-            type=type,
-            comparison=comparison,
-            critical=critical,
-            description=description,
-            enabled=enabled,
-            event=event,
-            integration_provider=integration_provider,
-            name=name,
-            process_where=process_where,
-            runbook_url=runbook_url,
-            select=select,
-            violation_close_timer=violation_close_timer,
-            warning=warning,
-            where=where,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_id: Optional[pulumi.Input[int]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             comparison: Optional[pulumi.Input[str]] = None,
-             critical: Optional[pulumi.Input['InfraAlertConditionCriticalArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             event: Optional[pulumi.Input[str]] = None,
-             integration_provider: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             process_where: Optional[pulumi.Input[str]] = None,
-             runbook_url: Optional[pulumi.Input[str]] = None,
-             select: Optional[pulumi.Input[str]] = None,
-             violation_close_timer: Optional[pulumi.Input[int]] = None,
-             warning: Optional[pulumi.Input['InfraAlertConditionWarningArgs']] = None,
-             where: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if policy_id is None and 'policyId' in kwargs:
-            policy_id = kwargs['policyId']
-        if policy_id is None:
-            raise TypeError("Missing 'policy_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if integration_provider is None and 'integrationProvider' in kwargs:
-            integration_provider = kwargs['integrationProvider']
-        if process_where is None and 'processWhere' in kwargs:
-            process_where = kwargs['processWhere']
-        if runbook_url is None and 'runbookUrl' in kwargs:
-            runbook_url = kwargs['runbookUrl']
-        if violation_close_timer is None and 'violationCloseTimer' in kwargs:
-            violation_close_timer = kwargs['violationCloseTimer']
-
-        _setter("policy_id", policy_id)
-        _setter("type", type)
+        pulumi.set(__self__, "policy_id", policy_id)
+        pulumi.set(__self__, "type", type)
         if comparison is not None:
-            _setter("comparison", comparison)
+            pulumi.set(__self__, "comparison", comparison)
         if critical is not None:
-            _setter("critical", critical)
+            pulumi.set(__self__, "critical", critical)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if event is not None:
-            _setter("event", event)
+            pulumi.set(__self__, "event", event)
         if integration_provider is not None:
-            _setter("integration_provider", integration_provider)
+            pulumi.set(__self__, "integration_provider", integration_provider)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if process_where is not None:
-            _setter("process_where", process_where)
+            pulumi.set(__self__, "process_where", process_where)
         if runbook_url is not None:
-            _setter("runbook_url", runbook_url)
+            pulumi.set(__self__, "runbook_url", runbook_url)
         if select is not None:
-            _setter("select", select)
+            pulumi.set(__self__, "select", select)
         if violation_close_timer is not None:
-            _setter("violation_close_timer", violation_close_timer)
+            pulumi.set(__self__, "violation_close_timer", violation_close_timer)
         if warning is not None:
-            _setter("warning", warning)
+            pulumi.set(__self__, "warning", warning)
         if where is not None:
-            _setter("where", where)
+            pulumi.set(__self__, "where", where)
 
     @property
     @pulumi.getter(name="policyId")
@@ -366,103 +313,42 @@ class _InfraAlertConditionState:
         :param pulumi.Input['InfraAlertConditionWarningArgs'] warning: Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
         :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
-        _InfraAlertConditionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            created_at=created_at,
-            critical=critical,
-            description=description,
-            enabled=enabled,
-            entity_guid=entity_guid,
-            event=event,
-            integration_provider=integration_provider,
-            name=name,
-            policy_id=policy_id,
-            process_where=process_where,
-            runbook_url=runbook_url,
-            select=select,
-            type=type,
-            updated_at=updated_at,
-            violation_close_timer=violation_close_timer,
-            warning=warning,
-            where=where,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             created_at: Optional[pulumi.Input[int]] = None,
-             critical: Optional[pulumi.Input['InfraAlertConditionCriticalArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             entity_guid: Optional[pulumi.Input[str]] = None,
-             event: Optional[pulumi.Input[str]] = None,
-             integration_provider: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             policy_id: Optional[pulumi.Input[int]] = None,
-             process_where: Optional[pulumi.Input[str]] = None,
-             runbook_url: Optional[pulumi.Input[str]] = None,
-             select: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             updated_at: Optional[pulumi.Input[int]] = None,
-             violation_close_timer: Optional[pulumi.Input[int]] = None,
-             warning: Optional[pulumi.Input['InfraAlertConditionWarningArgs']] = None,
-             where: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_at is None and 'createdAt' in kwargs:
-            created_at = kwargs['createdAt']
-        if entity_guid is None and 'entityGuid' in kwargs:
-            entity_guid = kwargs['entityGuid']
-        if integration_provider is None and 'integrationProvider' in kwargs:
-            integration_provider = kwargs['integrationProvider']
-        if policy_id is None and 'policyId' in kwargs:
-            policy_id = kwargs['policyId']
-        if process_where is None and 'processWhere' in kwargs:
-            process_where = kwargs['processWhere']
-        if runbook_url is None and 'runbookUrl' in kwargs:
-            runbook_url = kwargs['runbookUrl']
-        if updated_at is None and 'updatedAt' in kwargs:
-            updated_at = kwargs['updatedAt']
-        if violation_close_timer is None and 'violationCloseTimer' in kwargs:
-            violation_close_timer = kwargs['violationCloseTimer']
-
         if comparison is not None:
-            _setter("comparison", comparison)
+            pulumi.set(__self__, "comparison", comparison)
         if created_at is not None:
-            _setter("created_at", created_at)
+            pulumi.set(__self__, "created_at", created_at)
         if critical is not None:
-            _setter("critical", critical)
+            pulumi.set(__self__, "critical", critical)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if entity_guid is not None:
-            _setter("entity_guid", entity_guid)
+            pulumi.set(__self__, "entity_guid", entity_guid)
         if event is not None:
-            _setter("event", event)
+            pulumi.set(__self__, "event", event)
         if integration_provider is not None:
-            _setter("integration_provider", integration_provider)
+            pulumi.set(__self__, "integration_provider", integration_provider)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if policy_id is not None:
-            _setter("policy_id", policy_id)
+            pulumi.set(__self__, "policy_id", policy_id)
         if process_where is not None:
-            _setter("process_where", process_where)
+            pulumi.set(__self__, "process_where", process_where)
         if runbook_url is not None:
-            _setter("runbook_url", runbook_url)
+            pulumi.set(__self__, "runbook_url", runbook_url)
         if select is not None:
-            _setter("select", select)
+            pulumi.set(__self__, "select", select)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if updated_at is not None:
-            _setter("updated_at", updated_at)
+            pulumi.set(__self__, "updated_at", updated_at)
         if violation_close_timer is not None:
-            _setter("violation_close_timer", violation_close_timer)
+            pulumi.set(__self__, "violation_close_timer", violation_close_timer)
         if warning is not None:
-            _setter("warning", warning)
+            pulumi.set(__self__, "warning", warning)
         if where is not None:
-            _setter("where", where)
+            pulumi.set(__self__, "where", where)
 
     @property
     @pulumi.getter
@@ -992,10 +878,6 @@ class InfraAlertCondition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InfraAlertConditionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1026,7 +908,6 @@ class InfraAlertCondition(pulumi.CustomResource):
             __props__ = InfraAlertConditionArgs.__new__(InfraAlertConditionArgs)
 
             __props__.__dict__["comparison"] = comparison
-            critical = _utilities.configure(critical, InfraAlertConditionCriticalArgs, True)
             __props__.__dict__["critical"] = critical
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
@@ -1043,7 +924,6 @@ class InfraAlertCondition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["violation_close_timer"] = violation_close_timer
-            warning = _utilities.configure(warning, InfraAlertConditionWarningArgs, True)
             __props__.__dict__["warning"] = warning
             __props__.__dict__["where"] = where
             __props__.__dict__["created_at"] = None

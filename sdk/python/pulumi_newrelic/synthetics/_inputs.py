@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -32,25 +32,8 @@ class BrokenLinksMonitorTagArgs:
         :param pulumi.Input[str] key: Name of the tag key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Values associated with the tag key.
         """
-        BrokenLinksMonitorTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -86,25 +69,8 @@ class CertCheckMonitorTagArgs:
         :param pulumi.Input[str] key: Name of the tag key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Values associated with the tag key.
         """
-        CertCheckMonitorTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -140,23 +106,10 @@ class MonitorCustomHeaderArgs:
         :param pulumi.Input[str] name: Header name.
         :param pulumi.Input[str] value: Header Value.
         """
-        MonitorCustomHeaderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -192,25 +145,8 @@ class MonitorTagArgs:
         :param pulumi.Input[str] key: Name of the tag key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Values associated with the tag key.
         """
-        MonitorTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -241,20 +177,7 @@ class MonitorTagArgs:
 class MultiLocationAlertConditionCriticalArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[int]):
-        MultiLocationAlertConditionCriticalArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            threshold=threshold,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             threshold: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if threshold is None:
-            raise TypeError("Missing 'threshold' argument")
-
-        _setter("threshold", threshold)
+        pulumi.set(__self__, "threshold", threshold)
 
     @property
     @pulumi.getter
@@ -270,20 +193,7 @@ class MultiLocationAlertConditionCriticalArgs:
 class MultiLocationAlertConditionWarningArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[int]):
-        MultiLocationAlertConditionWarningArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            threshold=threshold,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             threshold: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if threshold is None:
-            raise TypeError("Missing 'threshold' argument")
-
-        _setter("threshold", threshold)
+        pulumi.set(__self__, "threshold", threshold)
 
     @property
     @pulumi.getter
@@ -304,26 +214,9 @@ class ScriptMonitorLocationPrivateArgs:
         :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
         :param pulumi.Input[str] vse_password: The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
         """
-        ScriptMonitorLocationPrivateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            guid=guid,
-            vse_password=vse_password,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             guid: Optional[pulumi.Input[str]] = None,
-             vse_password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if guid is None:
-            raise TypeError("Missing 'guid' argument")
-        if vse_password is None and 'vsePassword' in kwargs:
-            vse_password = kwargs['vsePassword']
-
-        _setter("guid", guid)
+        pulumi.set(__self__, "guid", guid)
         if vse_password is not None:
-            _setter("vse_password", vse_password)
+            pulumi.set(__self__, "vse_password", vse_password)
 
     @property
     @pulumi.getter
@@ -359,25 +252,8 @@ class ScriptMonitorTagArgs:
         :param pulumi.Input[str] key: Name of the tag key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Values associated with the tag key.
         """
-        ScriptMonitorTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -413,26 +289,9 @@ class StepMonitorLocationPrivateArgs:
         :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
         :param pulumi.Input[str] vse_password: The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
         """
-        StepMonitorLocationPrivateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            guid=guid,
-            vse_password=vse_password,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             guid: Optional[pulumi.Input[str]] = None,
-             vse_password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if guid is None:
-            raise TypeError("Missing 'guid' argument")
-        if vse_password is None and 'vsePassword' in kwargs:
-            vse_password = kwargs['vsePassword']
-
-        _setter("guid", guid)
+        pulumi.set(__self__, "guid", guid)
         if vse_password is not None:
-            _setter("vse_password", vse_password)
+            pulumi.set(__self__, "vse_password", vse_password)
 
     @property
     @pulumi.getter
@@ -470,29 +329,10 @@ class StepMonitorStepArgs:
         :param pulumi.Input[str] type: Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The metadata values related to the step.
         """
-        StepMonitorStepArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ordinal=ordinal,
-            type=type,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ordinal: Optional[pulumi.Input[int]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ordinal is None:
-            raise TypeError("Missing 'ordinal' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("ordinal", ordinal)
-        _setter("type", type)
+        pulumi.set(__self__, "ordinal", ordinal)
+        pulumi.set(__self__, "type", type)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -540,25 +380,8 @@ class StepMonitorTagArgs:
         :param pulumi.Input[str] key: Name of the tag key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Values associated with the tag key.
         """
-        StepMonitorTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter

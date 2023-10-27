@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -65,125 +65,44 @@ class MonitorArgs:
         :param pulumi.Input[str] validation_string: Validation text for monitor to search for at given URI.
         :param pulumi.Input[bool] verify_ssl: Monitor should validate SSL certificate chain.
         """
-        MonitorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            type=type,
-            account_id=account_id,
-            bypass_head_request=bypass_head_request,
-            custom_headers=custom_headers,
-            device_orientation=device_orientation,
-            device_type=device_type,
-            enable_screenshot_on_failure_and_script=enable_screenshot_on_failure_and_script,
-            locations_privates=locations_privates,
-            locations_publics=locations_publics,
-            name=name,
-            period=period,
-            runtime_type=runtime_type,
-            runtime_type_version=runtime_type_version,
-            script_language=script_language,
-            tags=tags,
-            treat_redirect_as_failure=treat_redirect_as_failure,
-            uri=uri,
-            validation_string=validation_string,
-            verify_ssl=verify_ssl,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             account_id: Optional[pulumi.Input[int]] = None,
-             bypass_head_request: Optional[pulumi.Input[bool]] = None,
-             custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]]] = None,
-             device_orientation: Optional[pulumi.Input[str]] = None,
-             device_type: Optional[pulumi.Input[str]] = None,
-             enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
-             locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             period: Optional[pulumi.Input[str]] = None,
-             runtime_type: Optional[pulumi.Input[str]] = None,
-             runtime_type_version: Optional[pulumi.Input[str]] = None,
-             script_language: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]]] = None,
-             treat_redirect_as_failure: Optional[pulumi.Input[bool]] = None,
-             uri: Optional[pulumi.Input[str]] = None,
-             validation_string: Optional[pulumi.Input[str]] = None,
-             verify_ssl: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if bypass_head_request is None and 'bypassHeadRequest' in kwargs:
-            bypass_head_request = kwargs['bypassHeadRequest']
-        if custom_headers is None and 'customHeaders' in kwargs:
-            custom_headers = kwargs['customHeaders']
-        if device_orientation is None and 'deviceOrientation' in kwargs:
-            device_orientation = kwargs['deviceOrientation']
-        if device_type is None and 'deviceType' in kwargs:
-            device_type = kwargs['deviceType']
-        if enable_screenshot_on_failure_and_script is None and 'enableScreenshotOnFailureAndScript' in kwargs:
-            enable_screenshot_on_failure_and_script = kwargs['enableScreenshotOnFailureAndScript']
-        if locations_privates is None and 'locationsPrivates' in kwargs:
-            locations_privates = kwargs['locationsPrivates']
-        if locations_publics is None and 'locationsPublics' in kwargs:
-            locations_publics = kwargs['locationsPublics']
-        if runtime_type is None and 'runtimeType' in kwargs:
-            runtime_type = kwargs['runtimeType']
-        if runtime_type_version is None and 'runtimeTypeVersion' in kwargs:
-            runtime_type_version = kwargs['runtimeTypeVersion']
-        if script_language is None and 'scriptLanguage' in kwargs:
-            script_language = kwargs['scriptLanguage']
-        if treat_redirect_as_failure is None and 'treatRedirectAsFailure' in kwargs:
-            treat_redirect_as_failure = kwargs['treatRedirectAsFailure']
-        if validation_string is None and 'validationString' in kwargs:
-            validation_string = kwargs['validationString']
-        if verify_ssl is None and 'verifySsl' in kwargs:
-            verify_ssl = kwargs['verifySsl']
-
-        _setter("status", status)
-        _setter("type", type)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "type", type)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if bypass_head_request is not None:
-            _setter("bypass_head_request", bypass_head_request)
+            pulumi.set(__self__, "bypass_head_request", bypass_head_request)
         if custom_headers is not None:
-            _setter("custom_headers", custom_headers)
+            pulumi.set(__self__, "custom_headers", custom_headers)
         if device_orientation is not None:
-            _setter("device_orientation", device_orientation)
+            pulumi.set(__self__, "device_orientation", device_orientation)
         if device_type is not None:
-            _setter("device_type", device_type)
+            pulumi.set(__self__, "device_type", device_type)
         if enable_screenshot_on_failure_and_script is not None:
-            _setter("enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
+            pulumi.set(__self__, "enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
         if locations_privates is not None:
-            _setter("locations_privates", locations_privates)
+            pulumi.set(__self__, "locations_privates", locations_privates)
         if locations_publics is not None:
-            _setter("locations_publics", locations_publics)
+            pulumi.set(__self__, "locations_publics", locations_publics)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if period is not None:
-            _setter("period", period)
+            pulumi.set(__self__, "period", period)
         if runtime_type is not None:
-            _setter("runtime_type", runtime_type)
+            pulumi.set(__self__, "runtime_type", runtime_type)
         if runtime_type_version is not None:
-            _setter("runtime_type_version", runtime_type_version)
+            pulumi.set(__self__, "runtime_type_version", runtime_type_version)
         if script_language is not None:
-            _setter("script_language", script_language)
+            pulumi.set(__self__, "script_language", script_language)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if treat_redirect_as_failure is not None:
-            _setter("treat_redirect_as_failure", treat_redirect_as_failure)
+            pulumi.set(__self__, "treat_redirect_as_failure", treat_redirect_as_failure)
         if uri is not None:
-            _setter("uri", uri)
+            pulumi.set(__self__, "uri", uri)
         if validation_string is not None:
-            _setter("validation_string", validation_string)
+            pulumi.set(__self__, "validation_string", validation_string)
         if verify_ssl is not None:
-            _setter("verify_ssl", verify_ssl)
+            pulumi.set(__self__, "verify_ssl", verify_ssl)
 
     @property
     @pulumi.getter
@@ -486,129 +405,48 @@ class _MonitorState:
         :param pulumi.Input[str] validation_string: Validation text for monitor to search for at given URI.
         :param pulumi.Input[bool] verify_ssl: Monitor should validate SSL certificate chain.
         """
-        _MonitorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            bypass_head_request=bypass_head_request,
-            custom_headers=custom_headers,
-            device_orientation=device_orientation,
-            device_type=device_type,
-            enable_screenshot_on_failure_and_script=enable_screenshot_on_failure_and_script,
-            locations_privates=locations_privates,
-            locations_publics=locations_publics,
-            name=name,
-            period=period,
-            period_in_minutes=period_in_minutes,
-            runtime_type=runtime_type,
-            runtime_type_version=runtime_type_version,
-            script_language=script_language,
-            status=status,
-            tags=tags,
-            treat_redirect_as_failure=treat_redirect_as_failure,
-            type=type,
-            uri=uri,
-            validation_string=validation_string,
-            verify_ssl=verify_ssl,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             bypass_head_request: Optional[pulumi.Input[bool]] = None,
-             custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]]] = None,
-             device_orientation: Optional[pulumi.Input[str]] = None,
-             device_type: Optional[pulumi.Input[str]] = None,
-             enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
-             locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             period: Optional[pulumi.Input[str]] = None,
-             period_in_minutes: Optional[pulumi.Input[int]] = None,
-             runtime_type: Optional[pulumi.Input[str]] = None,
-             runtime_type_version: Optional[pulumi.Input[str]] = None,
-             script_language: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]]] = None,
-             treat_redirect_as_failure: Optional[pulumi.Input[bool]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             uri: Optional[pulumi.Input[str]] = None,
-             validation_string: Optional[pulumi.Input[str]] = None,
-             verify_ssl: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if bypass_head_request is None and 'bypassHeadRequest' in kwargs:
-            bypass_head_request = kwargs['bypassHeadRequest']
-        if custom_headers is None and 'customHeaders' in kwargs:
-            custom_headers = kwargs['customHeaders']
-        if device_orientation is None and 'deviceOrientation' in kwargs:
-            device_orientation = kwargs['deviceOrientation']
-        if device_type is None and 'deviceType' in kwargs:
-            device_type = kwargs['deviceType']
-        if enable_screenshot_on_failure_and_script is None and 'enableScreenshotOnFailureAndScript' in kwargs:
-            enable_screenshot_on_failure_and_script = kwargs['enableScreenshotOnFailureAndScript']
-        if locations_privates is None and 'locationsPrivates' in kwargs:
-            locations_privates = kwargs['locationsPrivates']
-        if locations_publics is None and 'locationsPublics' in kwargs:
-            locations_publics = kwargs['locationsPublics']
-        if period_in_minutes is None and 'periodInMinutes' in kwargs:
-            period_in_minutes = kwargs['periodInMinutes']
-        if runtime_type is None and 'runtimeType' in kwargs:
-            runtime_type = kwargs['runtimeType']
-        if runtime_type_version is None and 'runtimeTypeVersion' in kwargs:
-            runtime_type_version = kwargs['runtimeTypeVersion']
-        if script_language is None and 'scriptLanguage' in kwargs:
-            script_language = kwargs['scriptLanguage']
-        if treat_redirect_as_failure is None and 'treatRedirectAsFailure' in kwargs:
-            treat_redirect_as_failure = kwargs['treatRedirectAsFailure']
-        if validation_string is None and 'validationString' in kwargs:
-            validation_string = kwargs['validationString']
-        if verify_ssl is None and 'verifySsl' in kwargs:
-            verify_ssl = kwargs['verifySsl']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if bypass_head_request is not None:
-            _setter("bypass_head_request", bypass_head_request)
+            pulumi.set(__self__, "bypass_head_request", bypass_head_request)
         if custom_headers is not None:
-            _setter("custom_headers", custom_headers)
+            pulumi.set(__self__, "custom_headers", custom_headers)
         if device_orientation is not None:
-            _setter("device_orientation", device_orientation)
+            pulumi.set(__self__, "device_orientation", device_orientation)
         if device_type is not None:
-            _setter("device_type", device_type)
+            pulumi.set(__self__, "device_type", device_type)
         if enable_screenshot_on_failure_and_script is not None:
-            _setter("enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
+            pulumi.set(__self__, "enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
         if locations_privates is not None:
-            _setter("locations_privates", locations_privates)
+            pulumi.set(__self__, "locations_privates", locations_privates)
         if locations_publics is not None:
-            _setter("locations_publics", locations_publics)
+            pulumi.set(__self__, "locations_publics", locations_publics)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if period is not None:
-            _setter("period", period)
+            pulumi.set(__self__, "period", period)
         if period_in_minutes is not None:
-            _setter("period_in_minutes", period_in_minutes)
+            pulumi.set(__self__, "period_in_minutes", period_in_minutes)
         if runtime_type is not None:
-            _setter("runtime_type", runtime_type)
+            pulumi.set(__self__, "runtime_type", runtime_type)
         if runtime_type_version is not None:
-            _setter("runtime_type_version", runtime_type_version)
+            pulumi.set(__self__, "runtime_type_version", runtime_type_version)
         if script_language is not None:
-            _setter("script_language", script_language)
+            pulumi.set(__self__, "script_language", script_language)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if treat_redirect_as_failure is not None:
-            _setter("treat_redirect_as_failure", treat_redirect_as_failure)
+            pulumi.set(__self__, "treat_redirect_as_failure", treat_redirect_as_failure)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if uri is not None:
-            _setter("uri", uri)
+            pulumi.set(__self__, "uri", uri)
         if validation_string is not None:
-            _setter("validation_string", validation_string)
+            pulumi.set(__self__, "validation_string", validation_string)
         if verify_ssl is not None:
-            _setter("verify_ssl", verify_ssl)
+            pulumi.set(__self__, "verify_ssl", verify_ssl)
 
     @property
     @pulumi.getter(name="accountId")
@@ -1196,10 +1034,6 @@ class Monitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
