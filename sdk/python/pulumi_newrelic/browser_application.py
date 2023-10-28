@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['BrowserApplicationArgs', 'BrowserApplication']
@@ -27,43 +27,16 @@ class BrowserApplicationArgs:
         :param pulumi.Input[str] loader_type: Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
         :param pulumi.Input[str] name: The name of the browser application.
         """
-        BrowserApplicationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            cookies_enabled=cookies_enabled,
-            distributed_tracing_enabled=distributed_tracing_enabled,
-            loader_type=loader_type,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             cookies_enabled: Optional[pulumi.Input[bool]] = None,
-             distributed_tracing_enabled: Optional[pulumi.Input[bool]] = None,
-             loader_type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if cookies_enabled is None and 'cookiesEnabled' in kwargs:
-            cookies_enabled = kwargs['cookiesEnabled']
-        if distributed_tracing_enabled is None and 'distributedTracingEnabled' in kwargs:
-            distributed_tracing_enabled = kwargs['distributedTracingEnabled']
-        if loader_type is None and 'loaderType' in kwargs:
-            loader_type = kwargs['loaderType']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if cookies_enabled is not None:
-            _setter("cookies_enabled", cookies_enabled)
+            pulumi.set(__self__, "cookies_enabled", cookies_enabled)
         if distributed_tracing_enabled is not None:
-            _setter("distributed_tracing_enabled", distributed_tracing_enabled)
+            pulumi.set(__self__, "distributed_tracing_enabled", distributed_tracing_enabled)
         if loader_type is not None:
-            _setter("loader_type", loader_type)
+            pulumi.set(__self__, "loader_type", loader_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="accountId")
@@ -144,47 +117,18 @@ class _BrowserApplicationState:
         :param pulumi.Input[str] loader_type: Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
         :param pulumi.Input[str] name: The name of the browser application.
         """
-        _BrowserApplicationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            cookies_enabled=cookies_enabled,
-            distributed_tracing_enabled=distributed_tracing_enabled,
-            guid=guid,
-            loader_type=loader_type,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             cookies_enabled: Optional[pulumi.Input[bool]] = None,
-             distributed_tracing_enabled: Optional[pulumi.Input[bool]] = None,
-             guid: Optional[pulumi.Input[str]] = None,
-             loader_type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if cookies_enabled is None and 'cookiesEnabled' in kwargs:
-            cookies_enabled = kwargs['cookiesEnabled']
-        if distributed_tracing_enabled is None and 'distributedTracingEnabled' in kwargs:
-            distributed_tracing_enabled = kwargs['distributedTracingEnabled']
-        if loader_type is None and 'loaderType' in kwargs:
-            loader_type = kwargs['loaderType']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if cookies_enabled is not None:
-            _setter("cookies_enabled", cookies_enabled)
+            pulumi.set(__self__, "cookies_enabled", cookies_enabled)
         if distributed_tracing_enabled is not None:
-            _setter("distributed_tracing_enabled", distributed_tracing_enabled)
+            pulumi.set(__self__, "distributed_tracing_enabled", distributed_tracing_enabled)
         if guid is not None:
-            _setter("guid", guid)
+            pulumi.set(__self__, "guid", guid)
         if loader_type is not None:
-            _setter("loader_type", loader_type)
+            pulumi.set(__self__, "loader_type", loader_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="accountId")
@@ -342,10 +286,6 @@ class BrowserApplication(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BrowserApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

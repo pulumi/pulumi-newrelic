@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AlertPolicyChannelArgs', 'AlertPolicyChannel']
@@ -23,35 +23,10 @@ class AlertPolicyChannelArgs:
         :param pulumi.Input[int] policy_id: The ID of the policy.
         :param pulumi.Input[int] account_id: Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
         """
-        AlertPolicyChannelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            channel_ids=channel_ids,
-            policy_id=policy_id,
-            account_id=account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             policy_id: Optional[pulumi.Input[int]] = None,
-             account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if channel_ids is None and 'channelIds' in kwargs:
-            channel_ids = kwargs['channelIds']
-        if channel_ids is None:
-            raise TypeError("Missing 'channel_ids' argument")
-        if policy_id is None and 'policyId' in kwargs:
-            policy_id = kwargs['policyId']
-        if policy_id is None:
-            raise TypeError("Missing 'policy_id' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-
-        _setter("channel_ids", channel_ids)
-        _setter("policy_id", policy_id)
+        pulumi.set(__self__, "channel_ids", channel_ids)
+        pulumi.set(__self__, "policy_id", policy_id)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
 
     @property
     @pulumi.getter(name="channelIds")
@@ -102,33 +77,12 @@ class _AlertPolicyChannelState:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
         :param pulumi.Input[int] policy_id: The ID of the policy.
         """
-        _AlertPolicyChannelState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            channel_ids=channel_ids,
-            policy_id=policy_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             policy_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if channel_ids is None and 'channelIds' in kwargs:
-            channel_ids = kwargs['channelIds']
-        if policy_id is None and 'policyId' in kwargs:
-            policy_id = kwargs['policyId']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if channel_ids is not None:
-            _setter("channel_ids", channel_ids)
+            pulumi.set(__self__, "channel_ids", channel_ids)
         if policy_id is not None:
-            _setter("policy_id", policy_id)
+            pulumi.set(__self__, "policy_id", policy_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -292,10 +246,6 @@ class AlertPolicyChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AlertPolicyChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

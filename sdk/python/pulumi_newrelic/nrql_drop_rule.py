@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['NrqlDropRuleArgs', 'NrqlDropRule']
@@ -25,35 +25,12 @@ class NrqlDropRuleArgs:
         :param pulumi.Input[int] account_id: Account where the drop rule will be put. Defaults to the account associated with the API key used.
         :param pulumi.Input[str] description: The description of the drop rule.
         """
-        NrqlDropRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            nrql=nrql,
-            account_id=account_id,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input[str]] = None,
-             nrql: Optional[pulumi.Input[str]] = None,
-             account_id: Optional[pulumi.Input[int]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if nrql is None:
-            raise TypeError("Missing 'nrql' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-
-        _setter("action", action)
-        _setter("nrql", nrql)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "nrql", nrql)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
@@ -120,39 +97,16 @@ class _NrqlDropRuleState:
         :param pulumi.Input[str] nrql: A NRQL string that specifies what data types to drop.
         :param pulumi.Input[str] rule_id: The id, uniquely identifying the rule.
         """
-        _NrqlDropRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            action=action,
-            description=description,
-            nrql=nrql,
-            rule_id=rule_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             action: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             nrql: Optional[pulumi.Input[str]] = None,
-             rule_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if rule_id is None and 'ruleId' in kwargs:
-            rule_id = kwargs['ruleId']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if nrql is not None:
-            _setter("nrql", nrql)
+            pulumi.set(__self__, "nrql", nrql)
         if rule_id is not None:
-            _setter("rule_id", rule_id)
+            pulumi.set(__self__, "rule_id", rule_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -316,10 +270,6 @@ class NrqlDropRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NrqlDropRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

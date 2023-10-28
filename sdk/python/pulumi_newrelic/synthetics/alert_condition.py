@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AlertConditionArgs', 'AlertCondition']
@@ -31,43 +31,14 @@ class AlertConditionArgs:
         :param pulumi.Input[str] name: The title of this condition.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         """
-        AlertConditionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            monitor_id=monitor_id,
-            policy_id=policy_id,
-            enabled=enabled,
-            name=name,
-            runbook_url=runbook_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             monitor_id: Optional[pulumi.Input[str]] = None,
-             policy_id: Optional[pulumi.Input[int]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             runbook_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if monitor_id is None and 'monitorId' in kwargs:
-            monitor_id = kwargs['monitorId']
-        if monitor_id is None:
-            raise TypeError("Missing 'monitor_id' argument")
-        if policy_id is None and 'policyId' in kwargs:
-            policy_id = kwargs['policyId']
-        if policy_id is None:
-            raise TypeError("Missing 'policy_id' argument")
-        if runbook_url is None and 'runbookUrl' in kwargs:
-            runbook_url = kwargs['runbookUrl']
-
-        _setter("monitor_id", monitor_id)
-        _setter("policy_id", policy_id)
+        pulumi.set(__self__, "monitor_id", monitor_id)
+        pulumi.set(__self__, "policy_id", policy_id)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if runbook_url is not None:
-            _setter("runbook_url", runbook_url)
+            pulumi.set(__self__, "runbook_url", runbook_url)
 
     @property
     @pulumi.getter(name="monitorId")
@@ -156,47 +127,18 @@ class _AlertConditionState:
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         """
-        _AlertConditionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            entity_guid=entity_guid,
-            monitor_id=monitor_id,
-            name=name,
-            policy_id=policy_id,
-            runbook_url=runbook_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             entity_guid: Optional[pulumi.Input[str]] = None,
-             monitor_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             policy_id: Optional[pulumi.Input[int]] = None,
-             runbook_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if entity_guid is None and 'entityGuid' in kwargs:
-            entity_guid = kwargs['entityGuid']
-        if monitor_id is None and 'monitorId' in kwargs:
-            monitor_id = kwargs['monitorId']
-        if policy_id is None and 'policyId' in kwargs:
-            policy_id = kwargs['policyId']
-        if runbook_url is None and 'runbookUrl' in kwargs:
-            runbook_url = kwargs['runbookUrl']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if entity_guid is not None:
-            _setter("entity_guid", entity_guid)
+            pulumi.set(__self__, "entity_guid", entity_guid)
         if monitor_id is not None:
-            _setter("monitor_id", monitor_id)
+            pulumi.set(__self__, "monitor_id", monitor_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if policy_id is not None:
-            _setter("policy_id", policy_id)
+            pulumi.set(__self__, "policy_id", policy_id)
         if runbook_url is not None:
-            _setter("runbook_url", runbook_url)
+            pulumi.set(__self__, "runbook_url", runbook_url)
 
     @property
     @pulumi.getter
@@ -458,10 +400,6 @@ class AlertCondition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AlertConditionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

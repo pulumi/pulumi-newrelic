@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -21,29 +21,10 @@ class EventEvent(dict):
                  attributes: Sequence['outputs.EventEventAttribute'],
                  type: str,
                  timestamp: Optional[int] = None):
-        EventEvent._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attributes=attributes,
-            type=type,
-            timestamp=timestamp,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attributes: Optional[Sequence['outputs.EventEventAttribute']] = None,
-             type: Optional[str] = None,
-             timestamp: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if attributes is None:
-            raise TypeError("Missing 'attributes' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("attributes", attributes)
-        _setter("type", type)
+        pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "type", type)
         if timestamp is not None:
-            _setter("timestamp", timestamp)
+            pulumi.set(__self__, "timestamp", timestamp)
 
     @property
     @pulumi.getter
@@ -67,29 +48,10 @@ class EventEventAttribute(dict):
                  key: str,
                  value: str,
                  type: Optional[str] = None):
-        EventEventAttribute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter

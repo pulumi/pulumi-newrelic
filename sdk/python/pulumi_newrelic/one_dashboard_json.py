@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['OneDashboardJsonArgs', 'OneDashboardJson']
@@ -21,26 +21,9 @@ class OneDashboardJsonArgs:
         :param pulumi.Input[str] json: The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
         :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
-        OneDashboardJsonArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            json=json,
-            account_id=account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             json: Optional[pulumi.Input[str]] = None,
-             account_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if json is None:
-            raise TypeError("Missing 'json' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-
-        _setter("json", json)
+        pulumi.set(__self__, "json", json)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
 
     @property
     @pulumi.getter
@@ -83,39 +66,16 @@ class _OneDashboardJsonState:
         :param pulumi.Input[str] permalink: The URL for viewing the dashboard.
         :param pulumi.Input[str] updated_at: The date and time when the dashboard was last updated.
         """
-        _OneDashboardJsonState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            guid=guid,
-            json=json,
-            permalink=permalink,
-            updated_at=updated_at,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             guid: Optional[pulumi.Input[str]] = None,
-             json: Optional[pulumi.Input[str]] = None,
-             permalink: Optional[pulumi.Input[str]] = None,
-             updated_at: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if updated_at is None and 'updatedAt' in kwargs:
-            updated_at = kwargs['updatedAt']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if guid is not None:
-            _setter("guid", guid)
+            pulumi.set(__self__, "guid", guid)
         if json is not None:
-            _setter("json", json)
+            pulumi.set(__self__, "json", json)
         if permalink is not None:
-            _setter("permalink", permalink)
+            pulumi.set(__self__, "permalink", permalink)
         if updated_at is not None:
-            _setter("updated_at", updated_at)
+            pulumi.set(__self__, "updated_at", updated_at)
 
     @property
     @pulumi.getter(name="accountId")
@@ -225,10 +185,6 @@ class OneDashboardJson(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OneDashboardJsonArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

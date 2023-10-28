@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -38,67 +38,24 @@ class WorkflowArgs:
         :param pulumi.Input[bool] enrichments_enabled: Whether enrichments are enabled. Defaults to true.
         :param pulumi.Input[str] name: The name of the workflow.
         """
-        WorkflowArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destinations=destinations,
-            issues_filter=issues_filter,
-            muting_rules_handling=muting_rules_handling,
-            account_id=account_id,
-            destinations_enabled=destinations_enabled,
-            enabled=enabled,
-            enrichments=enrichments,
-            enrichments_enabled=enrichments_enabled,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]]] = None,
-             issues_filter: Optional[pulumi.Input['WorkflowIssuesFilterArgs']] = None,
-             muting_rules_handling: Optional[pulumi.Input[str]] = None,
-             account_id: Optional[pulumi.Input[int]] = None,
-             destinations_enabled: Optional[pulumi.Input[bool]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             enrichments: Optional[pulumi.Input['WorkflowEnrichmentsArgs']] = None,
-             enrichments_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destinations is None:
-            raise TypeError("Missing 'destinations' argument")
-        if issues_filter is None and 'issuesFilter' in kwargs:
-            issues_filter = kwargs['issuesFilter']
-        if issues_filter is None:
-            raise TypeError("Missing 'issues_filter' argument")
-        if muting_rules_handling is None and 'mutingRulesHandling' in kwargs:
-            muting_rules_handling = kwargs['mutingRulesHandling']
-        if muting_rules_handling is None:
-            raise TypeError("Missing 'muting_rules_handling' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if destinations_enabled is None and 'destinationsEnabled' in kwargs:
-            destinations_enabled = kwargs['destinationsEnabled']
-        if enrichments_enabled is None and 'enrichmentsEnabled' in kwargs:
-            enrichments_enabled = kwargs['enrichmentsEnabled']
-
-        _setter("destinations", destinations)
-        _setter("issues_filter", issues_filter)
-        _setter("muting_rules_handling", muting_rules_handling)
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "issues_filter", issues_filter)
+        pulumi.set(__self__, "muting_rules_handling", muting_rules_handling)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if destinations_enabled is not None:
             warnings.warn("""Please use 'enabled' instead""", DeprecationWarning)
             pulumi.log.warn("""destinations_enabled is deprecated: Please use 'enabled' instead""")
         if destinations_enabled is not None:
-            _setter("destinations_enabled", destinations_enabled)
+            pulumi.set(__self__, "destinations_enabled", destinations_enabled)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if enrichments is not None:
-            _setter("enrichments", enrichments)
+            pulumi.set(__self__, "enrichments", enrichments)
         if enrichments_enabled is not None:
-            _setter("enrichments_enabled", enrichments_enabled)
+            pulumi.set(__self__, "enrichments_enabled", enrichments_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -244,80 +201,33 @@ class _WorkflowState:
         :param pulumi.Input[str] name: The name of the workflow.
         :param pulumi.Input[str] workflow_id: The id of the workflow.
         """
-        _WorkflowState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            destinations=destinations,
-            destinations_enabled=destinations_enabled,
-            enabled=enabled,
-            enrichments=enrichments,
-            enrichments_enabled=enrichments_enabled,
-            guid=guid,
-            issues_filter=issues_filter,
-            last_run=last_run,
-            muting_rules_handling=muting_rules_handling,
-            name=name,
-            workflow_id=workflow_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]]] = None,
-             destinations_enabled: Optional[pulumi.Input[bool]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             enrichments: Optional[pulumi.Input['WorkflowEnrichmentsArgs']] = None,
-             enrichments_enabled: Optional[pulumi.Input[bool]] = None,
-             guid: Optional[pulumi.Input[str]] = None,
-             issues_filter: Optional[pulumi.Input['WorkflowIssuesFilterArgs']] = None,
-             last_run: Optional[pulumi.Input[str]] = None,
-             muting_rules_handling: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             workflow_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if destinations_enabled is None and 'destinationsEnabled' in kwargs:
-            destinations_enabled = kwargs['destinationsEnabled']
-        if enrichments_enabled is None and 'enrichmentsEnabled' in kwargs:
-            enrichments_enabled = kwargs['enrichmentsEnabled']
-        if issues_filter is None and 'issuesFilter' in kwargs:
-            issues_filter = kwargs['issuesFilter']
-        if last_run is None and 'lastRun' in kwargs:
-            last_run = kwargs['lastRun']
-        if muting_rules_handling is None and 'mutingRulesHandling' in kwargs:
-            muting_rules_handling = kwargs['mutingRulesHandling']
-        if workflow_id is None and 'workflowId' in kwargs:
-            workflow_id = kwargs['workflowId']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if destinations is not None:
-            _setter("destinations", destinations)
+            pulumi.set(__self__, "destinations", destinations)
         if destinations_enabled is not None:
             warnings.warn("""Please use 'enabled' instead""", DeprecationWarning)
             pulumi.log.warn("""destinations_enabled is deprecated: Please use 'enabled' instead""")
         if destinations_enabled is not None:
-            _setter("destinations_enabled", destinations_enabled)
+            pulumi.set(__self__, "destinations_enabled", destinations_enabled)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if enrichments is not None:
-            _setter("enrichments", enrichments)
+            pulumi.set(__self__, "enrichments", enrichments)
         if enrichments_enabled is not None:
-            _setter("enrichments_enabled", enrichments_enabled)
+            pulumi.set(__self__, "enrichments_enabled", enrichments_enabled)
         if guid is not None:
-            _setter("guid", guid)
+            pulumi.set(__self__, "guid", guid)
         if issues_filter is not None:
-            _setter("issues_filter", issues_filter)
+            pulumi.set(__self__, "issues_filter", issues_filter)
         if last_run is not None:
-            _setter("last_run", last_run)
+            pulumi.set(__self__, "last_run", last_run)
         if muting_rules_handling is not None:
-            _setter("muting_rules_handling", muting_rules_handling)
+            pulumi.set(__self__, "muting_rules_handling", muting_rules_handling)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if workflow_id is not None:
-            _setter("workflow_id", workflow_id)
+            pulumi.set(__self__, "workflow_id", workflow_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -810,10 +720,6 @@ class Workflow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WorkflowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -843,10 +749,8 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["destinations"] = destinations
             __props__.__dict__["destinations_enabled"] = destinations_enabled
             __props__.__dict__["enabled"] = enabled
-            enrichments = _utilities.configure(enrichments, WorkflowEnrichmentsArgs, True)
             __props__.__dict__["enrichments"] = enrichments
             __props__.__dict__["enrichments_enabled"] = enrichments_enabled
-            issues_filter = _utilities.configure(issues_filter, WorkflowIssuesFilterArgs, True)
             if issues_filter is None and not opts.urn:
                 raise TypeError("Missing required property 'issues_filter'")
             __props__.__dict__["issues_filter"] = issues_filter
