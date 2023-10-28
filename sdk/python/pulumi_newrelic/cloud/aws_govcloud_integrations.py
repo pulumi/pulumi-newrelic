@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -63,124 +63,49 @@ class AwsGovcloudIntegrationsArgs:
         :param pulumi.Input['AwsGovcloudIntegrationsSnsArgs'] sns: SNS AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsSqsArgs'] sqs: SQS AwsGovCloud integration.See Integration blocks below for details.
         """
-        AwsGovcloudIntegrationsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            linked_account_id=linked_account_id,
-            account_id=account_id,
-            alb=alb,
-            api_gateway=api_gateway,
-            auto_scaling=auto_scaling,
-            aws_direct_connect=aws_direct_connect,
-            aws_states=aws_states,
-            cloudtrail=cloudtrail,
-            dynamo_db=dynamo_db,
-            ebs=ebs,
-            ec2=ec2,
-            elastic_search=elastic_search,
-            elb=elb,
-            emr=emr,
-            iam=iam,
-            lambda_=lambda_,
-            rds=rds,
-            red_shift=red_shift,
-            route53=route53,
-            s3=s3,
-            sns=sns,
-            sqs=sqs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             linked_account_id: Optional[pulumi.Input[int]] = None,
-             account_id: Optional[pulumi.Input[int]] = None,
-             alb: Optional[pulumi.Input['AwsGovcloudIntegrationsAlbArgs']] = None,
-             api_gateway: Optional[pulumi.Input['AwsGovcloudIntegrationsApiGatewayArgs']] = None,
-             auto_scaling: Optional[pulumi.Input['AwsGovcloudIntegrationsAutoScalingArgs']] = None,
-             aws_direct_connect: Optional[pulumi.Input['AwsGovcloudIntegrationsAwsDirectConnectArgs']] = None,
-             aws_states: Optional[pulumi.Input['AwsGovcloudIntegrationsAwsStatesArgs']] = None,
-             cloudtrail: Optional[pulumi.Input['AwsGovcloudIntegrationsCloudtrailArgs']] = None,
-             dynamo_db: Optional[pulumi.Input['AwsGovcloudIntegrationsDynamoDbArgs']] = None,
-             ebs: Optional[pulumi.Input['AwsGovcloudIntegrationsEbsArgs']] = None,
-             ec2: Optional[pulumi.Input['AwsGovcloudIntegrationsEc2Args']] = None,
-             elastic_search: Optional[pulumi.Input['AwsGovcloudIntegrationsElasticSearchArgs']] = None,
-             elb: Optional[pulumi.Input['AwsGovcloudIntegrationsElbArgs']] = None,
-             emr: Optional[pulumi.Input['AwsGovcloudIntegrationsEmrArgs']] = None,
-             iam: Optional[pulumi.Input['AwsGovcloudIntegrationsIamArgs']] = None,
-             lambda_: Optional[pulumi.Input['AwsGovcloudIntegrationsLambdaArgs']] = None,
-             rds: Optional[pulumi.Input['AwsGovcloudIntegrationsRdsArgs']] = None,
-             red_shift: Optional[pulumi.Input['AwsGovcloudIntegrationsRedShiftArgs']] = None,
-             route53: Optional[pulumi.Input['AwsGovcloudIntegrationsRoute53Args']] = None,
-             s3: Optional[pulumi.Input['AwsGovcloudIntegrationsS3Args']] = None,
-             sns: Optional[pulumi.Input['AwsGovcloudIntegrationsSnsArgs']] = None,
-             sqs: Optional[pulumi.Input['AwsGovcloudIntegrationsSqsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if linked_account_id is None and 'linkedAccountId' in kwargs:
-            linked_account_id = kwargs['linkedAccountId']
-        if linked_account_id is None:
-            raise TypeError("Missing 'linked_account_id' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if api_gateway is None and 'apiGateway' in kwargs:
-            api_gateway = kwargs['apiGateway']
-        if auto_scaling is None and 'autoScaling' in kwargs:
-            auto_scaling = kwargs['autoScaling']
-        if aws_direct_connect is None and 'awsDirectConnect' in kwargs:
-            aws_direct_connect = kwargs['awsDirectConnect']
-        if aws_states is None and 'awsStates' in kwargs:
-            aws_states = kwargs['awsStates']
-        if dynamo_db is None and 'dynamoDb' in kwargs:
-            dynamo_db = kwargs['dynamoDb']
-        if elastic_search is None and 'elasticSearch' in kwargs:
-            elastic_search = kwargs['elasticSearch']
-        if lambda_ is None and 'lambda' in kwargs:
-            lambda_ = kwargs['lambda']
-        if red_shift is None and 'redShift' in kwargs:
-            red_shift = kwargs['redShift']
-
-        _setter("linked_account_id", linked_account_id)
+        pulumi.set(__self__, "linked_account_id", linked_account_id)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if alb is not None:
-            _setter("alb", alb)
+            pulumi.set(__self__, "alb", alb)
         if api_gateway is not None:
-            _setter("api_gateway", api_gateway)
+            pulumi.set(__self__, "api_gateway", api_gateway)
         if auto_scaling is not None:
-            _setter("auto_scaling", auto_scaling)
+            pulumi.set(__self__, "auto_scaling", auto_scaling)
         if aws_direct_connect is not None:
-            _setter("aws_direct_connect", aws_direct_connect)
+            pulumi.set(__self__, "aws_direct_connect", aws_direct_connect)
         if aws_states is not None:
-            _setter("aws_states", aws_states)
+            pulumi.set(__self__, "aws_states", aws_states)
         if cloudtrail is not None:
-            _setter("cloudtrail", cloudtrail)
+            pulumi.set(__self__, "cloudtrail", cloudtrail)
         if dynamo_db is not None:
-            _setter("dynamo_db", dynamo_db)
+            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if ebs is not None:
-            _setter("ebs", ebs)
+            pulumi.set(__self__, "ebs", ebs)
         if ec2 is not None:
-            _setter("ec2", ec2)
+            pulumi.set(__self__, "ec2", ec2)
         if elastic_search is not None:
-            _setter("elastic_search", elastic_search)
+            pulumi.set(__self__, "elastic_search", elastic_search)
         if elb is not None:
-            _setter("elb", elb)
+            pulumi.set(__self__, "elb", elb)
         if emr is not None:
-            _setter("emr", emr)
+            pulumi.set(__self__, "emr", emr)
         if iam is not None:
-            _setter("iam", iam)
+            pulumi.set(__self__, "iam", iam)
         if lambda_ is not None:
-            _setter("lambda_", lambda_)
+            pulumi.set(__self__, "lambda_", lambda_)
         if rds is not None:
-            _setter("rds", rds)
+            pulumi.set(__self__, "rds", rds)
         if red_shift is not None:
-            _setter("red_shift", red_shift)
+            pulumi.set(__self__, "red_shift", red_shift)
         if route53 is not None:
-            _setter("route53", route53)
+            pulumi.set(__self__, "route53", route53)
         if s3 is not None:
-            _setter("s3", s3)
+            pulumi.set(__self__, "s3", s3)
         if sns is not None:
-            _setter("sns", sns)
+            pulumi.set(__self__, "sns", sns)
         if sqs is not None:
-            _setter("sqs", sqs)
+            pulumi.set(__self__, "sqs", sqs)
 
     @property
     @pulumi.getter(name="linkedAccountId")
@@ -497,123 +422,50 @@ class _AwsGovcloudIntegrationsState:
         :param pulumi.Input['AwsGovcloudIntegrationsSnsArgs'] sns: SNS AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsSqsArgs'] sqs: SQS AwsGovCloud integration.See Integration blocks below for details.
         """
-        _AwsGovcloudIntegrationsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            alb=alb,
-            api_gateway=api_gateway,
-            auto_scaling=auto_scaling,
-            aws_direct_connect=aws_direct_connect,
-            aws_states=aws_states,
-            cloudtrail=cloudtrail,
-            dynamo_db=dynamo_db,
-            ebs=ebs,
-            ec2=ec2,
-            elastic_search=elastic_search,
-            elb=elb,
-            emr=emr,
-            iam=iam,
-            lambda_=lambda_,
-            linked_account_id=linked_account_id,
-            rds=rds,
-            red_shift=red_shift,
-            route53=route53,
-            s3=s3,
-            sns=sns,
-            sqs=sqs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             alb: Optional[pulumi.Input['AwsGovcloudIntegrationsAlbArgs']] = None,
-             api_gateway: Optional[pulumi.Input['AwsGovcloudIntegrationsApiGatewayArgs']] = None,
-             auto_scaling: Optional[pulumi.Input['AwsGovcloudIntegrationsAutoScalingArgs']] = None,
-             aws_direct_connect: Optional[pulumi.Input['AwsGovcloudIntegrationsAwsDirectConnectArgs']] = None,
-             aws_states: Optional[pulumi.Input['AwsGovcloudIntegrationsAwsStatesArgs']] = None,
-             cloudtrail: Optional[pulumi.Input['AwsGovcloudIntegrationsCloudtrailArgs']] = None,
-             dynamo_db: Optional[pulumi.Input['AwsGovcloudIntegrationsDynamoDbArgs']] = None,
-             ebs: Optional[pulumi.Input['AwsGovcloudIntegrationsEbsArgs']] = None,
-             ec2: Optional[pulumi.Input['AwsGovcloudIntegrationsEc2Args']] = None,
-             elastic_search: Optional[pulumi.Input['AwsGovcloudIntegrationsElasticSearchArgs']] = None,
-             elb: Optional[pulumi.Input['AwsGovcloudIntegrationsElbArgs']] = None,
-             emr: Optional[pulumi.Input['AwsGovcloudIntegrationsEmrArgs']] = None,
-             iam: Optional[pulumi.Input['AwsGovcloudIntegrationsIamArgs']] = None,
-             lambda_: Optional[pulumi.Input['AwsGovcloudIntegrationsLambdaArgs']] = None,
-             linked_account_id: Optional[pulumi.Input[int]] = None,
-             rds: Optional[pulumi.Input['AwsGovcloudIntegrationsRdsArgs']] = None,
-             red_shift: Optional[pulumi.Input['AwsGovcloudIntegrationsRedShiftArgs']] = None,
-             route53: Optional[pulumi.Input['AwsGovcloudIntegrationsRoute53Args']] = None,
-             s3: Optional[pulumi.Input['AwsGovcloudIntegrationsS3Args']] = None,
-             sns: Optional[pulumi.Input['AwsGovcloudIntegrationsSnsArgs']] = None,
-             sqs: Optional[pulumi.Input['AwsGovcloudIntegrationsSqsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if api_gateway is None and 'apiGateway' in kwargs:
-            api_gateway = kwargs['apiGateway']
-        if auto_scaling is None and 'autoScaling' in kwargs:
-            auto_scaling = kwargs['autoScaling']
-        if aws_direct_connect is None and 'awsDirectConnect' in kwargs:
-            aws_direct_connect = kwargs['awsDirectConnect']
-        if aws_states is None and 'awsStates' in kwargs:
-            aws_states = kwargs['awsStates']
-        if dynamo_db is None and 'dynamoDb' in kwargs:
-            dynamo_db = kwargs['dynamoDb']
-        if elastic_search is None and 'elasticSearch' in kwargs:
-            elastic_search = kwargs['elasticSearch']
-        if lambda_ is None and 'lambda' in kwargs:
-            lambda_ = kwargs['lambda']
-        if linked_account_id is None and 'linkedAccountId' in kwargs:
-            linked_account_id = kwargs['linkedAccountId']
-        if red_shift is None and 'redShift' in kwargs:
-            red_shift = kwargs['redShift']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if alb is not None:
-            _setter("alb", alb)
+            pulumi.set(__self__, "alb", alb)
         if api_gateway is not None:
-            _setter("api_gateway", api_gateway)
+            pulumi.set(__self__, "api_gateway", api_gateway)
         if auto_scaling is not None:
-            _setter("auto_scaling", auto_scaling)
+            pulumi.set(__self__, "auto_scaling", auto_scaling)
         if aws_direct_connect is not None:
-            _setter("aws_direct_connect", aws_direct_connect)
+            pulumi.set(__self__, "aws_direct_connect", aws_direct_connect)
         if aws_states is not None:
-            _setter("aws_states", aws_states)
+            pulumi.set(__self__, "aws_states", aws_states)
         if cloudtrail is not None:
-            _setter("cloudtrail", cloudtrail)
+            pulumi.set(__self__, "cloudtrail", cloudtrail)
         if dynamo_db is not None:
-            _setter("dynamo_db", dynamo_db)
+            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if ebs is not None:
-            _setter("ebs", ebs)
+            pulumi.set(__self__, "ebs", ebs)
         if ec2 is not None:
-            _setter("ec2", ec2)
+            pulumi.set(__self__, "ec2", ec2)
         if elastic_search is not None:
-            _setter("elastic_search", elastic_search)
+            pulumi.set(__self__, "elastic_search", elastic_search)
         if elb is not None:
-            _setter("elb", elb)
+            pulumi.set(__self__, "elb", elb)
         if emr is not None:
-            _setter("emr", emr)
+            pulumi.set(__self__, "emr", emr)
         if iam is not None:
-            _setter("iam", iam)
+            pulumi.set(__self__, "iam", iam)
         if lambda_ is not None:
-            _setter("lambda_", lambda_)
+            pulumi.set(__self__, "lambda_", lambda_)
         if linked_account_id is not None:
-            _setter("linked_account_id", linked_account_id)
+            pulumi.set(__self__, "linked_account_id", linked_account_id)
         if rds is not None:
-            _setter("rds", rds)
+            pulumi.set(__self__, "rds", rds)
         if red_shift is not None:
-            _setter("red_shift", red_shift)
+            pulumi.set(__self__, "red_shift", red_shift)
         if route53 is not None:
-            _setter("route53", route53)
+            pulumi.set(__self__, "route53", route53)
         if s3 is not None:
-            _setter("s3", s3)
+            pulumi.set(__self__, "s3", s3)
         if sns is not None:
-            _setter("sns", sns)
+            pulumi.set(__self__, "sns", sns)
         if sqs is not None:
-            _setter("sqs", sqs)
+            pulumi.set(__self__, "sqs", sqs)
 
     @property
     @pulumi.getter(name="accountId")
@@ -967,10 +819,6 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AwsGovcloudIntegrationsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1008,48 +856,28 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
             __props__ = AwsGovcloudIntegrationsArgs.__new__(AwsGovcloudIntegrationsArgs)
 
             __props__.__dict__["account_id"] = account_id
-            alb = _utilities.configure(alb, AwsGovcloudIntegrationsAlbArgs, True)
             __props__.__dict__["alb"] = alb
-            api_gateway = _utilities.configure(api_gateway, AwsGovcloudIntegrationsApiGatewayArgs, True)
             __props__.__dict__["api_gateway"] = api_gateway
-            auto_scaling = _utilities.configure(auto_scaling, AwsGovcloudIntegrationsAutoScalingArgs, True)
             __props__.__dict__["auto_scaling"] = auto_scaling
-            aws_direct_connect = _utilities.configure(aws_direct_connect, AwsGovcloudIntegrationsAwsDirectConnectArgs, True)
             __props__.__dict__["aws_direct_connect"] = aws_direct_connect
-            aws_states = _utilities.configure(aws_states, AwsGovcloudIntegrationsAwsStatesArgs, True)
             __props__.__dict__["aws_states"] = aws_states
-            cloudtrail = _utilities.configure(cloudtrail, AwsGovcloudIntegrationsCloudtrailArgs, True)
             __props__.__dict__["cloudtrail"] = cloudtrail
-            dynamo_db = _utilities.configure(dynamo_db, AwsGovcloudIntegrationsDynamoDbArgs, True)
             __props__.__dict__["dynamo_db"] = dynamo_db
-            ebs = _utilities.configure(ebs, AwsGovcloudIntegrationsEbsArgs, True)
             __props__.__dict__["ebs"] = ebs
-            ec2 = _utilities.configure(ec2, AwsGovcloudIntegrationsEc2Args, True)
             __props__.__dict__["ec2"] = ec2
-            elastic_search = _utilities.configure(elastic_search, AwsGovcloudIntegrationsElasticSearchArgs, True)
             __props__.__dict__["elastic_search"] = elastic_search
-            elb = _utilities.configure(elb, AwsGovcloudIntegrationsElbArgs, True)
             __props__.__dict__["elb"] = elb
-            emr = _utilities.configure(emr, AwsGovcloudIntegrationsEmrArgs, True)
             __props__.__dict__["emr"] = emr
-            iam = _utilities.configure(iam, AwsGovcloudIntegrationsIamArgs, True)
             __props__.__dict__["iam"] = iam
-            lambda_ = _utilities.configure(lambda_, AwsGovcloudIntegrationsLambdaArgs, True)
             __props__.__dict__["lambda_"] = lambda_
             if linked_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_account_id'")
             __props__.__dict__["linked_account_id"] = linked_account_id
-            rds = _utilities.configure(rds, AwsGovcloudIntegrationsRdsArgs, True)
             __props__.__dict__["rds"] = rds
-            red_shift = _utilities.configure(red_shift, AwsGovcloudIntegrationsRedShiftArgs, True)
             __props__.__dict__["red_shift"] = red_shift
-            route53 = _utilities.configure(route53, AwsGovcloudIntegrationsRoute53Args, True)
             __props__.__dict__["route53"] = route53
-            s3 = _utilities.configure(s3, AwsGovcloudIntegrationsS3Args, True)
             __props__.__dict__["s3"] = s3
-            sns = _utilities.configure(sns, AwsGovcloudIntegrationsSnsArgs, True)
             __props__.__dict__["sns"] = sns
-            sqs = _utilities.configure(sqs, AwsGovcloudIntegrationsSqsArgs, True)
             __props__.__dict__["sqs"] = sqs
         super(AwsGovcloudIntegrations, __self__).__init__(
             'newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations',

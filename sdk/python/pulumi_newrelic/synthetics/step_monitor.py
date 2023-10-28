@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,62 +39,21 @@ class StepMonitorArgs:
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         """
-        StepMonitorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            period=period,
-            status=status,
-            steps=steps,
-            account_id=account_id,
-            enable_screenshot_on_failure_and_script=enable_screenshot_on_failure_and_script,
-            location_privates=location_privates,
-            locations_publics=locations_publics,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             period: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             steps: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]]] = None,
-             account_id: Optional[pulumi.Input[int]] = None,
-             enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
-             location_privates: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorLocationPrivateArgs']]]] = None,
-             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if period is None:
-            raise TypeError("Missing 'period' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if steps is None:
-            raise TypeError("Missing 'steps' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if enable_screenshot_on_failure_and_script is None and 'enableScreenshotOnFailureAndScript' in kwargs:
-            enable_screenshot_on_failure_and_script = kwargs['enableScreenshotOnFailureAndScript']
-        if location_privates is None and 'locationPrivates' in kwargs:
-            location_privates = kwargs['locationPrivates']
-        if locations_publics is None and 'locationsPublics' in kwargs:
-            locations_publics = kwargs['locationsPublics']
-
-        _setter("period", period)
-        _setter("status", status)
-        _setter("steps", steps)
+        pulumi.set(__self__, "period", period)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "steps", steps)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if enable_screenshot_on_failure_and_script is not None:
-            _setter("enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
+            pulumi.set(__self__, "enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
         if location_privates is not None:
-            _setter("location_privates", location_privates)
+            pulumi.set(__self__, "location_privates", location_privates)
         if locations_publics is not None:
-            _setter("locations_publics", locations_publics)
+            pulumi.set(__self__, "locations_publics", locations_publics)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -237,69 +196,28 @@ class _StepMonitorState:
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         """
-        _StepMonitorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            enable_screenshot_on_failure_and_script=enable_screenshot_on_failure_and_script,
-            guid=guid,
-            location_privates=location_privates,
-            locations_publics=locations_publics,
-            name=name,
-            period=period,
-            period_in_minutes=period_in_minutes,
-            status=status,
-            steps=steps,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
-             guid: Optional[pulumi.Input[str]] = None,
-             location_privates: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorLocationPrivateArgs']]]] = None,
-             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             period: Optional[pulumi.Input[str]] = None,
-             period_in_minutes: Optional[pulumi.Input[int]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             steps: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if enable_screenshot_on_failure_and_script is None and 'enableScreenshotOnFailureAndScript' in kwargs:
-            enable_screenshot_on_failure_and_script = kwargs['enableScreenshotOnFailureAndScript']
-        if location_privates is None and 'locationPrivates' in kwargs:
-            location_privates = kwargs['locationPrivates']
-        if locations_publics is None and 'locationsPublics' in kwargs:
-            locations_publics = kwargs['locationsPublics']
-        if period_in_minutes is None and 'periodInMinutes' in kwargs:
-            period_in_minutes = kwargs['periodInMinutes']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if enable_screenshot_on_failure_and_script is not None:
-            _setter("enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
+            pulumi.set(__self__, "enable_screenshot_on_failure_and_script", enable_screenshot_on_failure_and_script)
         if guid is not None:
-            _setter("guid", guid)
+            pulumi.set(__self__, "guid", guid)
         if location_privates is not None:
-            _setter("location_privates", location_privates)
+            pulumi.set(__self__, "location_privates", location_privates)
         if locations_publics is not None:
-            _setter("locations_publics", locations_publics)
+            pulumi.set(__self__, "locations_publics", locations_publics)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if period is not None:
-            _setter("period", period)
+            pulumi.set(__self__, "period", period)
         if period_in_minutes is not None:
-            _setter("period_in_minutes", period_in_minutes)
+            pulumi.set(__self__, "period_in_minutes", period_in_minutes)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if steps is not None:
-            _setter("steps", steps)
+            pulumi.set(__self__, "steps", steps)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="accountId")
@@ -557,10 +475,6 @@ class StepMonitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            StepMonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

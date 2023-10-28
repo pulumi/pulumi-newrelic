@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['EventsToMetricsRuleArgs', 'EventsToMetricsRule']
@@ -27,38 +27,15 @@ class EventsToMetricsRuleArgs:
         :param pulumi.Input[bool] enabled: True means this rule is enabled. False means the rule is currently not creating metrics.
         :param pulumi.Input[str] name: The name of the rule. This must be unique within an account.
         """
-        EventsToMetricsRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            nrql=nrql,
-            account_id=account_id,
-            description=description,
-            enabled=enabled,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             nrql: Optional[pulumi.Input[str]] = None,
-             account_id: Optional[pulumi.Input[int]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if nrql is None:
-            raise TypeError("Missing 'nrql' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-
-        _setter("nrql", nrql)
+        pulumi.set(__self__, "nrql", nrql)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -139,43 +116,18 @@ class _EventsToMetricsRuleState:
         :param pulumi.Input[str] nrql: Explains how to create metrics from events.
         :param pulumi.Input[str] rule_id: The id, uniquely identifying the rule.
         """
-        _EventsToMetricsRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            description=description,
-            enabled=enabled,
-            name=name,
-            nrql=nrql,
-            rule_id=rule_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             nrql: Optional[pulumi.Input[str]] = None,
-             rule_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if rule_id is None and 'ruleId' in kwargs:
-            rule_id = kwargs['ruleId']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if nrql is not None:
-            _setter("nrql", nrql)
+            pulumi.set(__self__, "nrql", nrql)
         if rule_id is not None:
-            _setter("rule_id", rule_id)
+            pulumi.set(__self__, "rule_id", rule_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -335,10 +287,6 @@ class EventsToMetricsRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EventsToMetricsRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

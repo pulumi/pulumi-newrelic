@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,43 +31,16 @@ class AlertMutingRuleArgs:
         :param pulumi.Input[str] name: The name of the MutingRule.
         :param pulumi.Input['AlertMutingRuleScheduleArgs'] schedule: Specify a schedule for enabling the MutingRule. See Schedule below for details
         """
-        AlertMutingRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            condition=condition,
-            enabled=enabled,
-            account_id=account_id,
-            description=description,
-            name=name,
-            schedule=schedule,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             condition: Optional[pulumi.Input['AlertMutingRuleConditionArgs']] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             account_id: Optional[pulumi.Input[int]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             schedule: Optional[pulumi.Input['AlertMutingRuleScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if condition is None:
-            raise TypeError("Missing 'condition' argument")
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-
-        _setter("condition", condition)
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "enabled", enabled)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
 
     @property
     @pulumi.getter
@@ -160,41 +133,18 @@ class _AlertMutingRuleState:
         :param pulumi.Input[str] name: The name of the MutingRule.
         :param pulumi.Input['AlertMutingRuleScheduleArgs'] schedule: Specify a schedule for enabling the MutingRule. See Schedule below for details
         """
-        _AlertMutingRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            condition=condition,
-            description=description,
-            enabled=enabled,
-            name=name,
-            schedule=schedule,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             condition: Optional[pulumi.Input['AlertMutingRuleConditionArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             schedule: Optional[pulumi.Input['AlertMutingRuleScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
 
     @property
     @pulumi.getter(name="accountId")
@@ -400,10 +350,6 @@ class AlertMutingRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AlertMutingRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -425,7 +371,6 @@ class AlertMutingRule(pulumi.CustomResource):
             __props__ = AlertMutingRuleArgs.__new__(AlertMutingRuleArgs)
 
             __props__.__dict__["account_id"] = account_id
-            condition = _utilities.configure(condition, AlertMutingRuleConditionArgs, True)
             if condition is None and not opts.urn:
                 raise TypeError("Missing required property 'condition'")
             __props__.__dict__["condition"] = condition
@@ -434,7 +379,6 @@ class AlertMutingRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["name"] = name
-            schedule = _utilities.configure(schedule, AlertMutingRuleScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
         super(AlertMutingRule, __self__).__init__(
             'newrelic:index/alertMutingRule:AlertMutingRule',

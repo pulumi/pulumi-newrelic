@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -71,157 +71,60 @@ class NrqlAlertConditionArgs:
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input['NrqlAlertConditionWarningArgs'] warning: A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
-        NrqlAlertConditionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            nrql=nrql,
-            policy_id=policy_id,
-            account_id=account_id,
-            aggregation_delay=aggregation_delay,
-            aggregation_method=aggregation_method,
-            aggregation_timer=aggregation_timer,
-            aggregation_window=aggregation_window,
-            baseline_direction=baseline_direction,
-            close_violations_on_expiration=close_violations_on_expiration,
-            critical=critical,
-            description=description,
-            enabled=enabled,
-            evaluation_delay=evaluation_delay,
-            expiration_duration=expiration_duration,
-            fill_option=fill_option,
-            fill_value=fill_value,
-            name=name,
-            open_violation_on_expiration=open_violation_on_expiration,
-            runbook_url=runbook_url,
-            slide_by=slide_by,
-            terms=terms,
-            type=type,
-            violation_time_limit=violation_time_limit,
-            violation_time_limit_seconds=violation_time_limit_seconds,
-            warning=warning,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             nrql: Optional[pulumi.Input['NrqlAlertConditionNrqlArgs']] = None,
-             policy_id: Optional[pulumi.Input[int]] = None,
-             account_id: Optional[pulumi.Input[int]] = None,
-             aggregation_delay: Optional[pulumi.Input[str]] = None,
-             aggregation_method: Optional[pulumi.Input[str]] = None,
-             aggregation_timer: Optional[pulumi.Input[str]] = None,
-             aggregation_window: Optional[pulumi.Input[int]] = None,
-             baseline_direction: Optional[pulumi.Input[str]] = None,
-             close_violations_on_expiration: Optional[pulumi.Input[bool]] = None,
-             critical: Optional[pulumi.Input['NrqlAlertConditionCriticalArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             evaluation_delay: Optional[pulumi.Input[int]] = None,
-             expiration_duration: Optional[pulumi.Input[int]] = None,
-             fill_option: Optional[pulumi.Input[str]] = None,
-             fill_value: Optional[pulumi.Input[float]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             open_violation_on_expiration: Optional[pulumi.Input[bool]] = None,
-             runbook_url: Optional[pulumi.Input[str]] = None,
-             slide_by: Optional[pulumi.Input[int]] = None,
-             terms: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             violation_time_limit: Optional[pulumi.Input[str]] = None,
-             violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
-             warning: Optional[pulumi.Input['NrqlAlertConditionWarningArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if nrql is None:
-            raise TypeError("Missing 'nrql' argument")
-        if policy_id is None and 'policyId' in kwargs:
-            policy_id = kwargs['policyId']
-        if policy_id is None:
-            raise TypeError("Missing 'policy_id' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if aggregation_delay is None and 'aggregationDelay' in kwargs:
-            aggregation_delay = kwargs['aggregationDelay']
-        if aggregation_method is None and 'aggregationMethod' in kwargs:
-            aggregation_method = kwargs['aggregationMethod']
-        if aggregation_timer is None and 'aggregationTimer' in kwargs:
-            aggregation_timer = kwargs['aggregationTimer']
-        if aggregation_window is None and 'aggregationWindow' in kwargs:
-            aggregation_window = kwargs['aggregationWindow']
-        if baseline_direction is None and 'baselineDirection' in kwargs:
-            baseline_direction = kwargs['baselineDirection']
-        if close_violations_on_expiration is None and 'closeViolationsOnExpiration' in kwargs:
-            close_violations_on_expiration = kwargs['closeViolationsOnExpiration']
-        if evaluation_delay is None and 'evaluationDelay' in kwargs:
-            evaluation_delay = kwargs['evaluationDelay']
-        if expiration_duration is None and 'expirationDuration' in kwargs:
-            expiration_duration = kwargs['expirationDuration']
-        if fill_option is None and 'fillOption' in kwargs:
-            fill_option = kwargs['fillOption']
-        if fill_value is None and 'fillValue' in kwargs:
-            fill_value = kwargs['fillValue']
-        if open_violation_on_expiration is None and 'openViolationOnExpiration' in kwargs:
-            open_violation_on_expiration = kwargs['openViolationOnExpiration']
-        if runbook_url is None and 'runbookUrl' in kwargs:
-            runbook_url = kwargs['runbookUrl']
-        if slide_by is None and 'slideBy' in kwargs:
-            slide_by = kwargs['slideBy']
-        if violation_time_limit is None and 'violationTimeLimit' in kwargs:
-            violation_time_limit = kwargs['violationTimeLimit']
-        if violation_time_limit_seconds is None and 'violationTimeLimitSeconds' in kwargs:
-            violation_time_limit_seconds = kwargs['violationTimeLimitSeconds']
-
-        _setter("nrql", nrql)
-        _setter("policy_id", policy_id)
+        pulumi.set(__self__, "nrql", nrql)
+        pulumi.set(__self__, "policy_id", policy_id)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if aggregation_delay is not None:
-            _setter("aggregation_delay", aggregation_delay)
+            pulumi.set(__self__, "aggregation_delay", aggregation_delay)
         if aggregation_method is not None:
-            _setter("aggregation_method", aggregation_method)
+            pulumi.set(__self__, "aggregation_method", aggregation_method)
         if aggregation_timer is not None:
-            _setter("aggregation_timer", aggregation_timer)
+            pulumi.set(__self__, "aggregation_timer", aggregation_timer)
         if aggregation_window is not None:
-            _setter("aggregation_window", aggregation_window)
+            pulumi.set(__self__, "aggregation_window", aggregation_window)
         if baseline_direction is not None:
-            _setter("baseline_direction", baseline_direction)
+            pulumi.set(__self__, "baseline_direction", baseline_direction)
         if close_violations_on_expiration is not None:
-            _setter("close_violations_on_expiration", close_violations_on_expiration)
+            pulumi.set(__self__, "close_violations_on_expiration", close_violations_on_expiration)
         if critical is not None:
-            _setter("critical", critical)
+            pulumi.set(__self__, "critical", critical)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if evaluation_delay is not None:
-            _setter("evaluation_delay", evaluation_delay)
+            pulumi.set(__self__, "evaluation_delay", evaluation_delay)
         if expiration_duration is not None:
-            _setter("expiration_duration", expiration_duration)
+            pulumi.set(__self__, "expiration_duration", expiration_duration)
         if fill_option is not None:
-            _setter("fill_option", fill_option)
+            pulumi.set(__self__, "fill_option", fill_option)
         if fill_value is not None:
-            _setter("fill_value", fill_value)
+            pulumi.set(__self__, "fill_value", fill_value)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if open_violation_on_expiration is not None:
-            _setter("open_violation_on_expiration", open_violation_on_expiration)
+            pulumi.set(__self__, "open_violation_on_expiration", open_violation_on_expiration)
         if runbook_url is not None:
-            _setter("runbook_url", runbook_url)
+            pulumi.set(__self__, "runbook_url", runbook_url)
         if slide_by is not None:
-            _setter("slide_by", slide_by)
+            pulumi.set(__self__, "slide_by", slide_by)
         if terms is not None:
             warnings.warn("""use `critical` and `warning` attributes instead""", DeprecationWarning)
             pulumi.log.warn("""terms is deprecated: use `critical` and `warning` attributes instead""")
         if terms is not None:
-            _setter("terms", terms)
+            pulumi.set(__self__, "terms", terms)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if violation_time_limit is not None:
             warnings.warn("""use `violation_time_limit_seconds` attribute instead""", DeprecationWarning)
             pulumi.log.warn("""violation_time_limit is deprecated: use `violation_time_limit_seconds` attribute instead""")
         if violation_time_limit is not None:
-            _setter("violation_time_limit", violation_time_limit)
+            pulumi.set(__self__, "violation_time_limit", violation_time_limit)
         if violation_time_limit_seconds is not None:
-            _setter("violation_time_limit_seconds", violation_time_limit_seconds)
+            pulumi.set(__self__, "violation_time_limit_seconds", violation_time_limit_seconds)
         if warning is not None:
-            _setter("warning", warning)
+            pulumi.set(__self__, "warning", warning)
 
     @property
     @pulumi.getter
@@ -592,161 +495,64 @@ class _NrqlAlertConditionState:
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input['NrqlAlertConditionWarningArgs'] warning: A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
-        _NrqlAlertConditionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            aggregation_delay=aggregation_delay,
-            aggregation_method=aggregation_method,
-            aggregation_timer=aggregation_timer,
-            aggregation_window=aggregation_window,
-            baseline_direction=baseline_direction,
-            close_violations_on_expiration=close_violations_on_expiration,
-            critical=critical,
-            description=description,
-            enabled=enabled,
-            entity_guid=entity_guid,
-            evaluation_delay=evaluation_delay,
-            expiration_duration=expiration_duration,
-            fill_option=fill_option,
-            fill_value=fill_value,
-            name=name,
-            nrql=nrql,
-            open_violation_on_expiration=open_violation_on_expiration,
-            policy_id=policy_id,
-            runbook_url=runbook_url,
-            slide_by=slide_by,
-            terms=terms,
-            type=type,
-            violation_time_limit=violation_time_limit,
-            violation_time_limit_seconds=violation_time_limit_seconds,
-            warning=warning,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             aggregation_delay: Optional[pulumi.Input[str]] = None,
-             aggregation_method: Optional[pulumi.Input[str]] = None,
-             aggregation_timer: Optional[pulumi.Input[str]] = None,
-             aggregation_window: Optional[pulumi.Input[int]] = None,
-             baseline_direction: Optional[pulumi.Input[str]] = None,
-             close_violations_on_expiration: Optional[pulumi.Input[bool]] = None,
-             critical: Optional[pulumi.Input['NrqlAlertConditionCriticalArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             entity_guid: Optional[pulumi.Input[str]] = None,
-             evaluation_delay: Optional[pulumi.Input[int]] = None,
-             expiration_duration: Optional[pulumi.Input[int]] = None,
-             fill_option: Optional[pulumi.Input[str]] = None,
-             fill_value: Optional[pulumi.Input[float]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             nrql: Optional[pulumi.Input['NrqlAlertConditionNrqlArgs']] = None,
-             open_violation_on_expiration: Optional[pulumi.Input[bool]] = None,
-             policy_id: Optional[pulumi.Input[int]] = None,
-             runbook_url: Optional[pulumi.Input[str]] = None,
-             slide_by: Optional[pulumi.Input[int]] = None,
-             terms: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             violation_time_limit: Optional[pulumi.Input[str]] = None,
-             violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
-             warning: Optional[pulumi.Input['NrqlAlertConditionWarningArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if aggregation_delay is None and 'aggregationDelay' in kwargs:
-            aggregation_delay = kwargs['aggregationDelay']
-        if aggregation_method is None and 'aggregationMethod' in kwargs:
-            aggregation_method = kwargs['aggregationMethod']
-        if aggregation_timer is None and 'aggregationTimer' in kwargs:
-            aggregation_timer = kwargs['aggregationTimer']
-        if aggregation_window is None and 'aggregationWindow' in kwargs:
-            aggregation_window = kwargs['aggregationWindow']
-        if baseline_direction is None and 'baselineDirection' in kwargs:
-            baseline_direction = kwargs['baselineDirection']
-        if close_violations_on_expiration is None and 'closeViolationsOnExpiration' in kwargs:
-            close_violations_on_expiration = kwargs['closeViolationsOnExpiration']
-        if entity_guid is None and 'entityGuid' in kwargs:
-            entity_guid = kwargs['entityGuid']
-        if evaluation_delay is None and 'evaluationDelay' in kwargs:
-            evaluation_delay = kwargs['evaluationDelay']
-        if expiration_duration is None and 'expirationDuration' in kwargs:
-            expiration_duration = kwargs['expirationDuration']
-        if fill_option is None and 'fillOption' in kwargs:
-            fill_option = kwargs['fillOption']
-        if fill_value is None and 'fillValue' in kwargs:
-            fill_value = kwargs['fillValue']
-        if open_violation_on_expiration is None and 'openViolationOnExpiration' in kwargs:
-            open_violation_on_expiration = kwargs['openViolationOnExpiration']
-        if policy_id is None and 'policyId' in kwargs:
-            policy_id = kwargs['policyId']
-        if runbook_url is None and 'runbookUrl' in kwargs:
-            runbook_url = kwargs['runbookUrl']
-        if slide_by is None and 'slideBy' in kwargs:
-            slide_by = kwargs['slideBy']
-        if violation_time_limit is None and 'violationTimeLimit' in kwargs:
-            violation_time_limit = kwargs['violationTimeLimit']
-        if violation_time_limit_seconds is None and 'violationTimeLimitSeconds' in kwargs:
-            violation_time_limit_seconds = kwargs['violationTimeLimitSeconds']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if aggregation_delay is not None:
-            _setter("aggregation_delay", aggregation_delay)
+            pulumi.set(__self__, "aggregation_delay", aggregation_delay)
         if aggregation_method is not None:
-            _setter("aggregation_method", aggregation_method)
+            pulumi.set(__self__, "aggregation_method", aggregation_method)
         if aggregation_timer is not None:
-            _setter("aggregation_timer", aggregation_timer)
+            pulumi.set(__self__, "aggregation_timer", aggregation_timer)
         if aggregation_window is not None:
-            _setter("aggregation_window", aggregation_window)
+            pulumi.set(__self__, "aggregation_window", aggregation_window)
         if baseline_direction is not None:
-            _setter("baseline_direction", baseline_direction)
+            pulumi.set(__self__, "baseline_direction", baseline_direction)
         if close_violations_on_expiration is not None:
-            _setter("close_violations_on_expiration", close_violations_on_expiration)
+            pulumi.set(__self__, "close_violations_on_expiration", close_violations_on_expiration)
         if critical is not None:
-            _setter("critical", critical)
+            pulumi.set(__self__, "critical", critical)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if entity_guid is not None:
-            _setter("entity_guid", entity_guid)
+            pulumi.set(__self__, "entity_guid", entity_guid)
         if evaluation_delay is not None:
-            _setter("evaluation_delay", evaluation_delay)
+            pulumi.set(__self__, "evaluation_delay", evaluation_delay)
         if expiration_duration is not None:
-            _setter("expiration_duration", expiration_duration)
+            pulumi.set(__self__, "expiration_duration", expiration_duration)
         if fill_option is not None:
-            _setter("fill_option", fill_option)
+            pulumi.set(__self__, "fill_option", fill_option)
         if fill_value is not None:
-            _setter("fill_value", fill_value)
+            pulumi.set(__self__, "fill_value", fill_value)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if nrql is not None:
-            _setter("nrql", nrql)
+            pulumi.set(__self__, "nrql", nrql)
         if open_violation_on_expiration is not None:
-            _setter("open_violation_on_expiration", open_violation_on_expiration)
+            pulumi.set(__self__, "open_violation_on_expiration", open_violation_on_expiration)
         if policy_id is not None:
-            _setter("policy_id", policy_id)
+            pulumi.set(__self__, "policy_id", policy_id)
         if runbook_url is not None:
-            _setter("runbook_url", runbook_url)
+            pulumi.set(__self__, "runbook_url", runbook_url)
         if slide_by is not None:
-            _setter("slide_by", slide_by)
+            pulumi.set(__self__, "slide_by", slide_by)
         if terms is not None:
             warnings.warn("""use `critical` and `warning` attributes instead""", DeprecationWarning)
             pulumi.log.warn("""terms is deprecated: use `critical` and `warning` attributes instead""")
         if terms is not None:
-            _setter("terms", terms)
+            pulumi.set(__self__, "terms", terms)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if violation_time_limit is not None:
             warnings.warn("""use `violation_time_limit_seconds` attribute instead""", DeprecationWarning)
             pulumi.log.warn("""violation_time_limit is deprecated: use `violation_time_limit_seconds` attribute instead""")
         if violation_time_limit is not None:
-            _setter("violation_time_limit", violation_time_limit)
+            pulumi.set(__self__, "violation_time_limit", violation_time_limit)
         if violation_time_limit_seconds is not None:
-            _setter("violation_time_limit_seconds", violation_time_limit_seconds)
+            pulumi.set(__self__, "violation_time_limit_seconds", violation_time_limit_seconds)
         if warning is not None:
-            _setter("warning", warning)
+            pulumi.set(__self__, "warning", warning)
 
     @property
     @pulumi.getter(name="accountId")
@@ -1446,10 +1252,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NrqlAlertConditionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1496,7 +1298,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__.__dict__["aggregation_window"] = aggregation_window
             __props__.__dict__["baseline_direction"] = baseline_direction
             __props__.__dict__["close_violations_on_expiration"] = close_violations_on_expiration
-            critical = _utilities.configure(critical, NrqlAlertConditionCriticalArgs, True)
             __props__.__dict__["critical"] = critical
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
@@ -1505,7 +1306,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__.__dict__["fill_option"] = fill_option
             __props__.__dict__["fill_value"] = fill_value
             __props__.__dict__["name"] = name
-            nrql = _utilities.configure(nrql, NrqlAlertConditionNrqlArgs, True)
             if nrql is None and not opts.urn:
                 raise TypeError("Missing required property 'nrql'")
             __props__.__dict__["nrql"] = nrql
@@ -1519,7 +1319,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["violation_time_limit"] = violation_time_limit
             __props__.__dict__["violation_time_limit_seconds"] = violation_time_limit_seconds
-            warning = _utilities.configure(warning, NrqlAlertConditionWarningArgs, True)
             __props__.__dict__["warning"] = warning
             __props__.__dict__["entity_guid"] = None
         super(NrqlAlertCondition, __self__).__init__(

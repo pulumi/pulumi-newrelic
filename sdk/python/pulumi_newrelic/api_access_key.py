@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ApiAccessKeyArgs', 'ApiAccessKey']
@@ -29,49 +29,16 @@ class ApiAccessKeyArgs:
         :param pulumi.Input[str] notes: Any notes about this ingest key.
         :param pulumi.Input[int] user_id: Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
         """
-        ApiAccessKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            key_type=key_type,
-            ingest_type=ingest_type,
-            name=name,
-            notes=notes,
-            user_id=user_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             key_type: Optional[pulumi.Input[str]] = None,
-             ingest_type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notes: Optional[pulumi.Input[str]] = None,
-             user_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if account_id is None:
-            raise TypeError("Missing 'account_id' argument")
-        if key_type is None and 'keyType' in kwargs:
-            key_type = kwargs['keyType']
-        if key_type is None:
-            raise TypeError("Missing 'key_type' argument")
-        if ingest_type is None and 'ingestType' in kwargs:
-            ingest_type = kwargs['ingestType']
-        if user_id is None and 'userId' in kwargs:
-            user_id = kwargs['userId']
-
-        _setter("account_id", account_id)
-        _setter("key_type", key_type)
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "key_type", key_type)
         if ingest_type is not None:
-            _setter("ingest_type", ingest_type)
+            pulumi.set(__self__, "ingest_type", ingest_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notes is not None:
-            _setter("notes", notes)
+            pulumi.set(__self__, "notes", notes)
         if user_id is not None:
-            _setter("user_id", user_id)
+            pulumi.set(__self__, "user_id", user_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -166,51 +133,20 @@ class _ApiAccessKeyState:
         :param pulumi.Input[str] notes: Any notes about this ingest key.
         :param pulumi.Input[int] user_id: Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
         """
-        _ApiAccessKeyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            ingest_type=ingest_type,
-            key=key,
-            key_type=key_type,
-            name=name,
-            notes=notes,
-            user_id=user_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[int]] = None,
-             ingest_type: Optional[pulumi.Input[str]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             key_type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notes: Optional[pulumi.Input[str]] = None,
-             user_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if ingest_type is None and 'ingestType' in kwargs:
-            ingest_type = kwargs['ingestType']
-        if key_type is None and 'keyType' in kwargs:
-            key_type = kwargs['keyType']
-        if user_id is None and 'userId' in kwargs:
-            user_id = kwargs['userId']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if ingest_type is not None:
-            _setter("ingest_type", ingest_type)
+            pulumi.set(__self__, "ingest_type", ingest_type)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if key_type is not None:
-            _setter("key_type", key_type)
+            pulumi.set(__self__, "key_type", key_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notes is not None:
-            _setter("notes", notes)
+            pulumi.set(__self__, "notes", notes)
         if user_id is not None:
-            _setter("user_id", user_id)
+            pulumi.set(__self__, "user_id", user_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -414,10 +350,6 @@ class ApiAccessKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApiAccessKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
