@@ -121,6 +121,20 @@ public class BrowserApplication extends com.pulumi.resources.CustomResource {
         return this.guid;
     }
     /**
+     * JavaScript configuration of the browser application encoded into a string.
+     * 
+     */
+    @Export(name="jsConfig", type=String.class, parameters={})
+    private Output<String> jsConfig;
+
+    /**
+     * @return JavaScript configuration of the browser application encoded into a string.
+     * 
+     */
+    public Output<String> jsConfig() {
+        return this.jsConfig;
+    }
+    /**
      * Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
      * 
      */

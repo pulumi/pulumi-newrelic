@@ -165,15 +165,14 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
      */
     public readonly runbookUrl!: pulumi.Output<string | undefined>;
     /**
-     * The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+     * The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
      */
-    public readonly violationTimeLimitSeconds!: pulumi.Output<number>;
+    public readonly violationTimeLimitSeconds!: pulumi.Output<number | undefined>;
     /**
      * A condition term with the priority set to warning.
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
+     *
+     * > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      */
     public readonly warning!: pulumi.Output<outputs.synthetics.MultiLocationAlertConditionWarning | undefined>;
 
@@ -209,9 +208,6 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
             }
             if ((!args || args.policyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
-            }
-            if ((!args || args.violationTimeLimitSeconds === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'violationTimeLimitSeconds'");
             }
             resourceInputs["critical"] = args ? args.critical : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
@@ -261,15 +257,14 @@ export interface MultiLocationAlertConditionState {
      */
     runbookUrl?: pulumi.Input<string>;
     /**
-     * The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+     * The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
      */
     violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
      * A condition term with the priority set to warning.
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
+     *
+     * > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      */
     warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
 }
@@ -303,15 +298,14 @@ export interface MultiLocationAlertConditionArgs {
      */
     runbookUrl?: pulumi.Input<string>;
     /**
-     * The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+     * The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
      */
-    violationTimeLimitSeconds: pulumi.Input<number>;
+    violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
      * A condition term with the priority set to warning.
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
+     *
+     * > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      */
     warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
 }

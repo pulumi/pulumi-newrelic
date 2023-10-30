@@ -213,23 +213,16 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string?> RunbookUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+        /// The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
         /// </summary>
         [Output("violationTimeLimitSeconds")]
-        public Output<int> ViolationTimeLimitSeconds { get; private set; } = null!;
+        public Output<int?> ViolationTimeLimitSeconds { get; private set; } = null!;
 
         /// <summary>
         /// A condition term with the priority set to warning.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
         /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
+        /// &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         /// </summary>
         [Output("warning")]
         public Output<Outputs.MultiLocationAlertConditionWarning?> Warning { get; private set; } = null!;
@@ -323,23 +316,16 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? RunbookUrl { get; set; }
 
         /// <summary>
-        /// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+        /// The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
         /// </summary>
-        [Input("violationTimeLimitSeconds", required: true)]
-        public Input<int> ViolationTimeLimitSeconds { get; set; } = null!;
+        [Input("violationTimeLimitSeconds")]
+        public Input<int>? ViolationTimeLimitSeconds { get; set; }
 
         /// <summary>
         /// A condition term with the priority set to warning.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
         /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
+        /// &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         /// </summary>
         [Input("warning")]
         public Input<Inputs.MultiLocationAlertConditionWarningArgs>? Warning { get; set; }
@@ -401,7 +387,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? RunbookUrl { get; set; }
 
         /// <summary>
-        /// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+        /// The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
         /// </summary>
         [Input("violationTimeLimitSeconds")]
         public Input<int>? ViolationTimeLimitSeconds { get; set; }
@@ -409,15 +395,8 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// A condition term with the priority set to warning.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
         /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
+        /// &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         /// </summary>
         [Input("warning")]
         public Input<Inputs.MultiLocationAlertConditionWarningGetArgs>? Warning { get; set; }

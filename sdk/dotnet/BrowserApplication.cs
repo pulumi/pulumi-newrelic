@@ -69,6 +69,12 @@ namespace Pulumi.NewRelic
         public Output<string> Guid { get; private set; } = null!;
 
         /// <summary>
+        /// JavaScript configuration of the browser application encoded into a string.
+        /// </summary>
+        [Output("jsConfig")]
+        public Output<string> JsConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
         /// </summary>
         [Output("loaderType")]
@@ -187,6 +193,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("guid")]
         public Input<string>? Guid { get; set; }
+
+        /// <summary>
+        /// JavaScript configuration of the browser application encoded into a string.
+        /// </summary>
+        [Input("jsConfig")]
+        public Input<string>? JsConfig { get; set; }
 
         /// <summary>
         /// Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.

@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic
         /// 
         /// ## Additional Examples
         /// 
-        /// &gt; If the entities are not found please try again without providing the `types` field.
+        /// &gt; If the entities are not found please try again without providing the `type` field.
         /// 
         /// ### Query for an OTEL entity
         /// 
@@ -73,7 +73,7 @@ namespace Pulumi.NewRelic
         /// 
         /// ## Additional Examples
         /// 
-        /// &gt; If the entities are not found please try again without providing the `types` field.
+        /// &gt; If the entities are not found please try again without providing the `type` field.
         /// 
         /// ### Query for an OTEL entity
         /// 

@@ -148,7 +148,7 @@ def get_entity(account_id: Optional[int] = None,
 
     ## Additional Examples
 
-    > If the entities are not found please try again without providing the `types` field.
+    > If the entities are not found please try again without providing the `type` field.
 
     ### Query for an OTEL entity
 
@@ -219,7 +219,7 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
 
     ## Additional Examples
 
-    > If the entities are not found please try again without providing the `types` field.
+    > If the entities are not found please try again without providing the `type` field.
 
     ### Query for an OTEL entity
 

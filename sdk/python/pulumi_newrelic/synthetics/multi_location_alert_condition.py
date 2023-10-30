@@ -19,36 +19,36 @@ class MultiLocationAlertConditionArgs:
                  critical: pulumi.Input['MultiLocationAlertConditionCriticalArgs'],
                  entities: pulumi.Input[Sequence[pulumi.Input[str]]],
                  policy_id: pulumi.Input[int],
-                 violation_time_limit_seconds: pulumi.Input[int],
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
+                 violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
                  warning: Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']] = None):
         """
         The set of arguments for constructing a MultiLocationAlertCondition resource.
         :param pulumi.Input['MultiLocationAlertConditionCriticalArgs'] critical: A condition term with the priority set to critical.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The Monitor GUID's of the Synthetics monitors to alert on.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
-        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition.  Defaults to true.
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
+        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
         :param pulumi.Input['MultiLocationAlertConditionWarningArgs'] warning: A condition term with the priority set to warning.
                
-               ```python
-               import pulumi
-               ```
+               
+               > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         """
         pulumi.set(__self__, "critical", critical)
         pulumi.set(__self__, "entities", entities)
         pulumi.set(__self__, "policy_id", policy_id)
-        pulumi.set(__self__, "violation_time_limit_seconds", violation_time_limit_seconds)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if runbook_url is not None:
             pulumi.set(__self__, "runbook_url", runbook_url)
+        if violation_time_limit_seconds is not None:
+            pulumi.set(__self__, "violation_time_limit_seconds", violation_time_limit_seconds)
         if warning is not None:
             pulumi.set(__self__, "warning", warning)
 
@@ -89,18 +89,6 @@ class MultiLocationAlertConditionArgs:
         pulumi.set(self, "policy_id", value)
 
     @property
-    @pulumi.getter(name="violationTimeLimitSeconds")
-    def violation_time_limit_seconds(self) -> pulumi.Input[int]:
-        """
-        The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
-        """
-        return pulumi.get(self, "violation_time_limit_seconds")
-
-    @violation_time_limit_seconds.setter
-    def violation_time_limit_seconds(self, value: pulumi.Input[int]):
-        pulumi.set(self, "violation_time_limit_seconds", value)
-
-    @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -137,14 +125,25 @@ class MultiLocationAlertConditionArgs:
         pulumi.set(self, "runbook_url", value)
 
     @property
+    @pulumi.getter(name="violationTimeLimitSeconds")
+    def violation_time_limit_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
+        """
+        return pulumi.get(self, "violation_time_limit_seconds")
+
+    @violation_time_limit_seconds.setter
+    def violation_time_limit_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "violation_time_limit_seconds", value)
+
+    @property
     @pulumi.getter
     def warning(self) -> Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']]:
         """
         A condition term with the priority set to warning.
 
-        ```python
-        import pulumi
-        ```
+
+        > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         """
         return pulumi.get(self, "warning")
 
@@ -174,12 +173,11 @@ class _MultiLocationAlertConditionState:
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
         :param pulumi.Input['MultiLocationAlertConditionWarningArgs'] warning: A condition term with the priority set to warning.
                
-               ```python
-               import pulumi
-               ```
+               
+               > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         """
         if critical is not None:
             pulumi.set(__self__, "critical", critical)
@@ -288,7 +286,7 @@ class _MultiLocationAlertConditionState:
     @pulumi.getter(name="violationTimeLimitSeconds")
     def violation_time_limit_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+        The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
         """
         return pulumi.get(self, "violation_time_limit_seconds")
 
@@ -302,9 +300,8 @@ class _MultiLocationAlertConditionState:
         """
         A condition term with the priority set to warning.
 
-        ```python
-        import pulumi
-        ```
+
+        > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         """
         return pulumi.get(self, "warning")
 
@@ -432,12 +429,11 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
         :param pulumi.Input[pulumi.InputType['MultiLocationAlertConditionWarningArgs']] warning: A condition term with the priority set to warning.
                
-               ```python
-               import pulumi
-               ```
+               
+               > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         """
         ...
     @overload
@@ -586,8 +582,6 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_id'")
             __props__.__dict__["policy_id"] = policy_id
             __props__.__dict__["runbook_url"] = runbook_url
-            if violation_time_limit_seconds is None and not opts.urn:
-                raise TypeError("Missing required property 'violation_time_limit_seconds'")
             __props__.__dict__["violation_time_limit_seconds"] = violation_time_limit_seconds
             __props__.__dict__["warning"] = warning
             __props__.__dict__["entity_guid"] = None
@@ -624,12 +618,11 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
         :param pulumi.Input[pulumi.InputType['MultiLocationAlertConditionWarningArgs']] warning: A condition term with the priority set to warning.
                
-               ```python
-               import pulumi
-               ```
+               
+               > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -704,9 +697,9 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="violationTimeLimitSeconds")
-    def violation_time_limit_seconds(self) -> pulumi.Output[int]:
+    def violation_time_limit_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+        The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
         """
         return pulumi.get(self, "violation_time_limit_seconds")
 
@@ -716,9 +709,8 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         """
         A condition term with the priority set to warning.
 
-        ```python
-        import pulumi
-        ```
+
+        > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         """
         return pulumi.get(self, "warning")
 
