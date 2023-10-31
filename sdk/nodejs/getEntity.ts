@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Additional Examples
  *
- * > If the entities are not found please try again without providing the `types` field.
+ * > If the entities are not found please try again without providing the `type` field.
  *
  * ### Query for an OTEL entity
  *
@@ -117,7 +117,7 @@ export interface GetEntityResult {
  *
  * ## Additional Examples
  *
- * > If the entities are not found please try again without providing the `types` field.
+ * > If the entities are not found please try again without providing the `type` field.
  *
  * ### Query for an OTEL entity
  *

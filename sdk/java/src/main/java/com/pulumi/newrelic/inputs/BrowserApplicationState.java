@@ -78,6 +78,21 @@ public final class BrowserApplicationState extends com.pulumi.resources.Resource
     }
 
     /**
+     * JavaScript configuration of the browser application encoded into a string.
+     * 
+     */
+    @Import(name="jsConfig")
+    private @Nullable Output<String> jsConfig;
+
+    /**
+     * @return JavaScript configuration of the browser application encoded into a string.
+     * 
+     */
+    public Optional<Output<String>> jsConfig() {
+        return Optional.ofNullable(this.jsConfig);
+    }
+
+    /**
      * Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
      * 
      */
@@ -114,6 +129,7 @@ public final class BrowserApplicationState extends com.pulumi.resources.Resource
         this.cookiesEnabled = $.cookiesEnabled;
         this.distributedTracingEnabled = $.distributedTracingEnabled;
         this.guid = $.guid;
+        this.jsConfig = $.jsConfig;
         this.loaderType = $.loaderType;
         this.name = $.name;
     }
@@ -218,6 +234,27 @@ public final class BrowserApplicationState extends com.pulumi.resources.Resource
          */
         public Builder guid(String guid) {
             return guid(Output.of(guid));
+        }
+
+        /**
+         * @param jsConfig JavaScript configuration of the browser application encoded into a string.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jsConfig(@Nullable Output<String> jsConfig) {
+            $.jsConfig = jsConfig;
+            return this;
+        }
+
+        /**
+         * @param jsConfig JavaScript configuration of the browser application encoded into a string.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jsConfig(String jsConfig) {
+            return jsConfig(Output.of(jsConfig));
         }
 
         /**

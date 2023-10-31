@@ -63,6 +63,8 @@ type BrowserApplication struct {
 	DistributedTracingEnabled pulumi.BoolPtrOutput `pulumi:"distributedTracingEnabled"`
 	// The GUID of the browser application.
 	Guid pulumi.StringOutput `pulumi:"guid"`
+	// JavaScript configuration of the browser application encoded into a string.
+	JsConfig pulumi.StringOutput `pulumi:"jsConfig"`
 	// Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
 	LoaderType pulumi.StringPtrOutput `pulumi:"loaderType"`
 	// The name of the browser application.
@@ -107,6 +109,8 @@ type browserApplicationState struct {
 	DistributedTracingEnabled *bool `pulumi:"distributedTracingEnabled"`
 	// The GUID of the browser application.
 	Guid *string `pulumi:"guid"`
+	// JavaScript configuration of the browser application encoded into a string.
+	JsConfig *string `pulumi:"jsConfig"`
 	// Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
 	LoaderType *string `pulumi:"loaderType"`
 	// The name of the browser application.
@@ -122,6 +126,8 @@ type BrowserApplicationState struct {
 	DistributedTracingEnabled pulumi.BoolPtrInput
 	// The GUID of the browser application.
 	Guid pulumi.StringPtrInput
+	// JavaScript configuration of the browser application encoded into a string.
+	JsConfig pulumi.StringPtrInput
 	// Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
 	LoaderType pulumi.StringPtrInput
 	// The name of the browser application.
@@ -288,6 +294,11 @@ func (o BrowserApplicationOutput) DistributedTracingEnabled() pulumi.BoolPtrOutp
 // The GUID of the browser application.
 func (o BrowserApplicationOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrowserApplication) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
+}
+
+// JavaScript configuration of the browser application encoded into a string.
+func (o BrowserApplicationOutput) JsConfig() pulumi.StringOutput {
+	return o.ApplyT(func(v *BrowserApplication) pulumi.StringOutput { return v.JsConfig }).(pulumi.StringOutput)
 }
 
 // Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.

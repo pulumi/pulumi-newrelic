@@ -111,44 +111,24 @@ public final class MultiLocationAlertConditionArgs extends com.pulumi.resources.
     }
 
     /**
-     * The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+     * The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
      * 
      */
-    @Import(name="violationTimeLimitSeconds", required=true)
-    private Output<Integer> violationTimeLimitSeconds;
+    @Import(name="violationTimeLimitSeconds")
+    private @Nullable Output<Integer> violationTimeLimitSeconds;
 
     /**
-     * @return The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+     * @return The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
      * 
      */
-    public Output<Integer> violationTimeLimitSeconds() {
-        return this.violationTimeLimitSeconds;
+    public Optional<Output<Integer>> violationTimeLimitSeconds() {
+        return Optional.ofNullable(this.violationTimeLimitSeconds);
     }
 
     /**
      * A condition term with the priority set to warning.
-     * ```java
-     * package generated_program;
      * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
+     * &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      * 
      */
     @Import(name="warning")
@@ -156,28 +136,8 @@ public final class MultiLocationAlertConditionArgs extends com.pulumi.resources.
 
     /**
      * @return A condition term with the priority set to warning.
-     * ```java
-     * package generated_program;
      * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
+     * &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      * 
      */
     public Optional<Output<MultiLocationAlertConditionWarningArgs>> warning() {
@@ -352,18 +312,18 @@ public final class MultiLocationAlertConditionArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param violationTimeLimitSeconds The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+         * @param violationTimeLimitSeconds The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
          * 
          * @return builder
          * 
          */
-        public Builder violationTimeLimitSeconds(Output<Integer> violationTimeLimitSeconds) {
+        public Builder violationTimeLimitSeconds(@Nullable Output<Integer> violationTimeLimitSeconds) {
             $.violationTimeLimitSeconds = violationTimeLimitSeconds;
             return this;
         }
 
         /**
-         * @param violationTimeLimitSeconds The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+         * @param violationTimeLimitSeconds The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
          * 
          * @return builder
          * 
@@ -374,28 +334,8 @@ public final class MultiLocationAlertConditionArgs extends com.pulumi.resources.
 
         /**
          * @param warning A condition term with the priority set to warning.
-         * ```java
-         * package generated_program;
          * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
+         * &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
          * 
          * @return builder
          * 
@@ -407,28 +347,8 @@ public final class MultiLocationAlertConditionArgs extends com.pulumi.resources.
 
         /**
          * @param warning A condition term with the priority set to warning.
-         * ```java
-         * package generated_program;
          * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
+         * &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
          * 
          * @return builder
          * 
@@ -441,7 +361,6 @@ public final class MultiLocationAlertConditionArgs extends com.pulumi.resources.
             $.critical = Objects.requireNonNull($.critical, "expected parameter 'critical' to be non-null");
             $.entities = Objects.requireNonNull($.entities, "expected parameter 'entities' to be non-null");
             $.policyId = Objects.requireNonNull($.policyId, "expected parameter 'policyId' to be non-null");
-            $.violationTimeLimitSeconds = Objects.requireNonNull($.violationTimeLimitSeconds, "expected parameter 'violationTimeLimitSeconds' to be non-null");
             return $;
         }
     }
