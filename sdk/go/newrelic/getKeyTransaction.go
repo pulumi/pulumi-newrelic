@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific key transaction in New Relic that already exists.
@@ -123,12 +122,6 @@ func (o GetKeyTransactionResultOutput) ToGetKeyTransactionResultOutput() GetKeyT
 
 func (o GetKeyTransactionResultOutput) ToGetKeyTransactionResultOutputWithContext(ctx context.Context) GetKeyTransactionResultOutput {
 	return o
-}
-
-func (o GetKeyTransactionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetKeyTransactionResult] {
-	return pulumix.Output[GetKeyTransactionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

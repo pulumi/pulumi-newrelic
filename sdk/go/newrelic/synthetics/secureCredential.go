@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create and manage New Relic Synthetic secure credentials.
@@ -189,12 +188,6 @@ func (i *SecureCredential) ToSecureCredentialOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SecureCredentialOutput)
 }
 
-func (i *SecureCredential) ToOutput(ctx context.Context) pulumix.Output[*SecureCredential] {
-	return pulumix.Output[*SecureCredential]{
-		OutputState: i.ToSecureCredentialOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SecureCredentialArrayInput is an input type that accepts SecureCredentialArray and SecureCredentialArrayOutput values.
 // You can construct a concrete instance of `SecureCredentialArrayInput` via:
 //
@@ -218,12 +211,6 @@ func (i SecureCredentialArray) ToSecureCredentialArrayOutput() SecureCredentialA
 
 func (i SecureCredentialArray) ToSecureCredentialArrayOutputWithContext(ctx context.Context) SecureCredentialArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecureCredentialArrayOutput)
-}
-
-func (i SecureCredentialArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecureCredential] {
-	return pulumix.Output[[]*SecureCredential]{
-		OutputState: i.ToSecureCredentialArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SecureCredentialMapInput is an input type that accepts SecureCredentialMap and SecureCredentialMapOutput values.
@@ -251,12 +238,6 @@ func (i SecureCredentialMap) ToSecureCredentialMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SecureCredentialMapOutput)
 }
 
-func (i SecureCredentialMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecureCredential] {
-	return pulumix.Output[map[string]*SecureCredential]{
-		OutputState: i.ToSecureCredentialMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecureCredentialOutput struct{ *pulumi.OutputState }
 
 func (SecureCredentialOutput) ElementType() reflect.Type {
@@ -269,12 +250,6 @@ func (o SecureCredentialOutput) ToSecureCredentialOutput() SecureCredentialOutpu
 
 func (o SecureCredentialOutput) ToSecureCredentialOutputWithContext(ctx context.Context) SecureCredentialOutput {
 	return o
-}
-
-func (o SecureCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[*SecureCredential] {
-	return pulumix.Output[*SecureCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
@@ -316,12 +291,6 @@ func (o SecureCredentialArrayOutput) ToSecureCredentialArrayOutputWithContext(ct
 	return o
 }
 
-func (o SecureCredentialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecureCredential] {
-	return pulumix.Output[[]*SecureCredential]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecureCredentialArrayOutput) Index(i pulumi.IntInput) SecureCredentialOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecureCredential {
 		return vs[0].([]*SecureCredential)[vs[1].(int)]
@@ -340,12 +309,6 @@ func (o SecureCredentialMapOutput) ToSecureCredentialMapOutput() SecureCredentia
 
 func (o SecureCredentialMapOutput) ToSecureCredentialMapOutputWithContext(ctx context.Context) SecureCredentialMapOutput {
 	return o
-}
-
-func (o SecureCredentialMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecureCredential] {
-	return pulumix.Output[map[string]*SecureCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecureCredentialMapOutput) MapIndex(k pulumi.StringInput) SecureCredentialOutput {

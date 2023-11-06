@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
@@ -493,12 +492,6 @@ func (i *ScriptMonitor) ToScriptMonitorOutputWithContext(ctx context.Context) Sc
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptMonitorOutput)
 }
 
-func (i *ScriptMonitor) ToOutput(ctx context.Context) pulumix.Output[*ScriptMonitor] {
-	return pulumix.Output[*ScriptMonitor]{
-		OutputState: i.ToScriptMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScriptMonitorArrayInput is an input type that accepts ScriptMonitorArray and ScriptMonitorArrayOutput values.
 // You can construct a concrete instance of `ScriptMonitorArrayInput` via:
 //
@@ -522,12 +515,6 @@ func (i ScriptMonitorArray) ToScriptMonitorArrayOutput() ScriptMonitorArrayOutpu
 
 func (i ScriptMonitorArray) ToScriptMonitorArrayOutputWithContext(ctx context.Context) ScriptMonitorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptMonitorArrayOutput)
-}
-
-func (i ScriptMonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]*ScriptMonitor] {
-	return pulumix.Output[[]*ScriptMonitor]{
-		OutputState: i.ToScriptMonitorArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ScriptMonitorMapInput is an input type that accepts ScriptMonitorMap and ScriptMonitorMapOutput values.
@@ -555,12 +542,6 @@ func (i ScriptMonitorMap) ToScriptMonitorMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptMonitorMapOutput)
 }
 
-func (i ScriptMonitorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScriptMonitor] {
-	return pulumix.Output[map[string]*ScriptMonitor]{
-		OutputState: i.ToScriptMonitorMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScriptMonitorOutput struct{ *pulumi.OutputState }
 
 func (ScriptMonitorOutput) ElementType() reflect.Type {
@@ -573,12 +554,6 @@ func (o ScriptMonitorOutput) ToScriptMonitorOutput() ScriptMonitorOutput {
 
 func (o ScriptMonitorOutput) ToScriptMonitorOutputWithContext(ctx context.Context) ScriptMonitorOutput {
 	return o
-}
-
-func (o ScriptMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[*ScriptMonitor] {
-	return pulumix.Output[*ScriptMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The account in which the Synthetics monitor will be created.
@@ -684,12 +659,6 @@ func (o ScriptMonitorArrayOutput) ToScriptMonitorArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o ScriptMonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScriptMonitor] {
-	return pulumix.Output[[]*ScriptMonitor]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScriptMonitorArrayOutput) Index(i pulumi.IntInput) ScriptMonitorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScriptMonitor {
 		return vs[0].([]*ScriptMonitor)[vs[1].(int)]
@@ -708,12 +677,6 @@ func (o ScriptMonitorMapOutput) ToScriptMonitorMapOutput() ScriptMonitorMapOutpu
 
 func (o ScriptMonitorMapOutput) ToScriptMonitorMapOutputWithContext(ctx context.Context) ScriptMonitorMapOutput {
 	return o
-}
-
-func (o ScriptMonitorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScriptMonitor] {
-	return pulumix.Output[map[string]*ScriptMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScriptMonitorMapOutput) MapIndex(k pulumi.StringInput) ScriptMonitorOutput {

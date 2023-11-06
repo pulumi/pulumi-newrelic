@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to link an Azure account to New Relic.
@@ -217,12 +216,6 @@ func (i *AzureLinkAccount) ToAzureLinkAccountOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AzureLinkAccountOutput)
 }
 
-func (i *AzureLinkAccount) ToOutput(ctx context.Context) pulumix.Output[*AzureLinkAccount] {
-	return pulumix.Output[*AzureLinkAccount]{
-		OutputState: i.ToAzureLinkAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AzureLinkAccountArrayInput is an input type that accepts AzureLinkAccountArray and AzureLinkAccountArrayOutput values.
 // You can construct a concrete instance of `AzureLinkAccountArrayInput` via:
 //
@@ -246,12 +239,6 @@ func (i AzureLinkAccountArray) ToAzureLinkAccountArrayOutput() AzureLinkAccountA
 
 func (i AzureLinkAccountArray) ToAzureLinkAccountArrayOutputWithContext(ctx context.Context) AzureLinkAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AzureLinkAccountArrayOutput)
-}
-
-func (i AzureLinkAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*AzureLinkAccount] {
-	return pulumix.Output[[]*AzureLinkAccount]{
-		OutputState: i.ToAzureLinkAccountArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AzureLinkAccountMapInput is an input type that accepts AzureLinkAccountMap and AzureLinkAccountMapOutput values.
@@ -279,12 +266,6 @@ func (i AzureLinkAccountMap) ToAzureLinkAccountMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AzureLinkAccountMapOutput)
 }
 
-func (i AzureLinkAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AzureLinkAccount] {
-	return pulumix.Output[map[string]*AzureLinkAccount]{
-		OutputState: i.ToAzureLinkAccountMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AzureLinkAccountOutput struct{ *pulumi.OutputState }
 
 func (AzureLinkAccountOutput) ElementType() reflect.Type {
@@ -297,12 +278,6 @@ func (o AzureLinkAccountOutput) ToAzureLinkAccountOutput() AzureLinkAccountOutpu
 
 func (o AzureLinkAccountOutput) ToAzureLinkAccountOutputWithContext(ctx context.Context) AzureLinkAccountOutput {
 	return o
-}
-
-func (o AzureLinkAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureLinkAccount] {
-	return pulumix.Output[*AzureLinkAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Account ID of the New Relic.
@@ -349,12 +324,6 @@ func (o AzureLinkAccountArrayOutput) ToAzureLinkAccountArrayOutputWithContext(ct
 	return o
 }
 
-func (o AzureLinkAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AzureLinkAccount] {
-	return pulumix.Output[[]*AzureLinkAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AzureLinkAccountArrayOutput) Index(i pulumi.IntInput) AzureLinkAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AzureLinkAccount {
 		return vs[0].([]*AzureLinkAccount)[vs[1].(int)]
@@ -373,12 +342,6 @@ func (o AzureLinkAccountMapOutput) ToAzureLinkAccountMapOutput() AzureLinkAccoun
 
 func (o AzureLinkAccountMapOutput) ToAzureLinkAccountMapOutputWithContext(ctx context.Context) AzureLinkAccountMapOutput {
 	return o
-}
-
-func (o AzureLinkAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AzureLinkAccount] {
-	return pulumix.Output[map[string]*AzureLinkAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AzureLinkAccountMapOutput) MapIndex(k pulumi.StringInput) AzureLinkAccountOutput {

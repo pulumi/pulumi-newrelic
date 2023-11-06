@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
@@ -153,12 +152,6 @@ func (o LookupPrivateLocationResultOutput) ToLookupPrivateLocationResultOutput()
 
 func (o LookupPrivateLocationResultOutput) ToLookupPrivateLocationResultOutputWithContext(ctx context.Context) LookupPrivateLocationResultOutput {
 	return o
-}
-
-func (o LookupPrivateLocationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPrivateLocationResult] {
-	return pulumix.Output[LookupPrivateLocationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupPrivateLocationResultOutput) AccountId() pulumi.IntPtrOutput {

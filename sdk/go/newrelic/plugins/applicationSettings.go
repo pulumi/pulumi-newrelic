@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **NOTE:** Applications are not created by this resource, but are created by
@@ -253,12 +252,6 @@ func (i *ApplicationSettings) ToApplicationSettingsOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsOutput)
 }
 
-func (i *ApplicationSettings) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSettings] {
-	return pulumix.Output[*ApplicationSettings]{
-		OutputState: i.ToApplicationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationSettingsArrayInput is an input type that accepts ApplicationSettingsArray and ApplicationSettingsArrayOutput values.
 // You can construct a concrete instance of `ApplicationSettingsArrayInput` via:
 //
@@ -282,12 +275,6 @@ func (i ApplicationSettingsArray) ToApplicationSettingsArrayOutput() Application
 
 func (i ApplicationSettingsArray) ToApplicationSettingsArrayOutputWithContext(ctx context.Context) ApplicationSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsArrayOutput)
-}
-
-func (i ApplicationSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationSettings] {
-	return pulumix.Output[[]*ApplicationSettings]{
-		OutputState: i.ToApplicationSettingsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApplicationSettingsMapInput is an input type that accepts ApplicationSettingsMap and ApplicationSettingsMapOutput values.
@@ -315,12 +302,6 @@ func (i ApplicationSettingsMap) ToApplicationSettingsMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsMapOutput)
 }
 
-func (i ApplicationSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationSettings] {
-	return pulumix.Output[map[string]*ApplicationSettings]{
-		OutputState: i.ToApplicationSettingsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSettingsOutput) ElementType() reflect.Type {
@@ -333,12 +314,6 @@ func (o ApplicationSettingsOutput) ToApplicationSettingsOutput() ApplicationSett
 
 func (o ApplicationSettingsOutput) ToApplicationSettingsOutputWithContext(ctx context.Context) ApplicationSettingsOutput {
 	return o
-}
-
-func (o ApplicationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSettings] {
-	return pulumix.Output[*ApplicationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The apdex threshold for the New Relic application.
@@ -392,12 +367,6 @@ func (o ApplicationSettingsArrayOutput) ToApplicationSettingsArrayOutputWithCont
 	return o
 }
 
-func (o ApplicationSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationSettings] {
-	return pulumix.Output[[]*ApplicationSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationSettingsArrayOutput) Index(i pulumi.IntInput) ApplicationSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApplicationSettings {
 		return vs[0].([]*ApplicationSettings)[vs[1].(int)]
@@ -416,12 +385,6 @@ func (o ApplicationSettingsMapOutput) ToApplicationSettingsMapOutput() Applicati
 
 func (o ApplicationSettingsMapOutput) ToApplicationSettingsMapOutputWithContext(ctx context.Context) ApplicationSettingsMapOutput {
 	return o
-}
-
-func (o ApplicationSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationSettings] {
-	return pulumix.Output[map[string]*ApplicationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationSettingsMapOutput) MapIndex(k pulumi.StringInput) ApplicationSettingsOutput {
