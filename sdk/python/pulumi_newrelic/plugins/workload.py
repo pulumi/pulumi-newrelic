@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,22 +35,59 @@ class WorkloadArgs:
         :param pulumi.Input['WorkloadStatusConfigAutomaticArgs'] status_config_automatic: An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
         :param pulumi.Input['WorkloadStatusConfigStaticArgs'] status_config_static: A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
         """
+        WorkloadArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            description=description,
+            entity_guids=entity_guids,
+            entity_search_queries=entity_search_queries,
+            name=name,
+            scope_account_ids=scope_account_ids,
+            status_config_automatic=status_config_automatic,
+            status_config_static=status_config_static,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             entity_search_queries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             scope_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             status_config_automatic: Optional[pulumi.Input['WorkloadStatusConfigAutomaticArgs']] = None,
+             status_config_static: Optional[pulumi.Input['WorkloadStatusConfigStaticArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if entity_guids is None and 'entityGuids' in kwargs:
+            entity_guids = kwargs['entityGuids']
+        if entity_search_queries is None and 'entitySearchQueries' in kwargs:
+            entity_search_queries = kwargs['entitySearchQueries']
+        if scope_account_ids is None and 'scopeAccountIds' in kwargs:
+            scope_account_ids = kwargs['scopeAccountIds']
+        if status_config_automatic is None and 'statusConfigAutomatic' in kwargs:
+            status_config_automatic = kwargs['statusConfigAutomatic']
+        if status_config_static is None and 'statusConfigStatic' in kwargs:
+            status_config_static = kwargs['statusConfigStatic']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if entity_guids is not None:
-            pulumi.set(__self__, "entity_guids", entity_guids)
+            _setter("entity_guids", entity_guids)
         if entity_search_queries is not None:
-            pulumi.set(__self__, "entity_search_queries", entity_search_queries)
+            _setter("entity_search_queries", entity_search_queries)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if scope_account_ids is not None:
-            pulumi.set(__self__, "scope_account_ids", scope_account_ids)
+            _setter("scope_account_ids", scope_account_ids)
         if status_config_automatic is not None:
-            pulumi.set(__self__, "status_config_automatic", status_config_automatic)
+            _setter("status_config_automatic", status_config_automatic)
         if status_config_static is not None:
-            pulumi.set(__self__, "status_config_static", status_config_static)
+            _setter("status_config_static", status_config_static)
 
     @property
     @pulumi.getter(name="accountId")
@@ -179,30 +216,79 @@ class _WorkloadState:
         :param pulumi.Input['WorkloadStatusConfigStaticArgs'] status_config_static: A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
         :param pulumi.Input[int] workload_id: The unique entity identifier of the workload.
         """
+        _WorkloadState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            composite_entity_search_query=composite_entity_search_query,
+            description=description,
+            entity_guids=entity_guids,
+            entity_search_queries=entity_search_queries,
+            guid=guid,
+            name=name,
+            permalink=permalink,
+            scope_account_ids=scope_account_ids,
+            status_config_automatic=status_config_automatic,
+            status_config_static=status_config_static,
+            workload_id=workload_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[int]] = None,
+             composite_entity_search_query: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             entity_search_queries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]] = None,
+             guid: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             permalink: Optional[pulumi.Input[str]] = None,
+             scope_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             status_config_automatic: Optional[pulumi.Input['WorkloadStatusConfigAutomaticArgs']] = None,
+             status_config_static: Optional[pulumi.Input['WorkloadStatusConfigStaticArgs']] = None,
+             workload_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if composite_entity_search_query is None and 'compositeEntitySearchQuery' in kwargs:
+            composite_entity_search_query = kwargs['compositeEntitySearchQuery']
+        if entity_guids is None and 'entityGuids' in kwargs:
+            entity_guids = kwargs['entityGuids']
+        if entity_search_queries is None and 'entitySearchQueries' in kwargs:
+            entity_search_queries = kwargs['entitySearchQueries']
+        if scope_account_ids is None and 'scopeAccountIds' in kwargs:
+            scope_account_ids = kwargs['scopeAccountIds']
+        if status_config_automatic is None and 'statusConfigAutomatic' in kwargs:
+            status_config_automatic = kwargs['statusConfigAutomatic']
+        if status_config_static is None and 'statusConfigStatic' in kwargs:
+            status_config_static = kwargs['statusConfigStatic']
+        if workload_id is None and 'workloadId' in kwargs:
+            workload_id = kwargs['workloadId']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if composite_entity_search_query is not None:
-            pulumi.set(__self__, "composite_entity_search_query", composite_entity_search_query)
+            _setter("composite_entity_search_query", composite_entity_search_query)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if entity_guids is not None:
-            pulumi.set(__self__, "entity_guids", entity_guids)
+            _setter("entity_guids", entity_guids)
         if entity_search_queries is not None:
-            pulumi.set(__self__, "entity_search_queries", entity_search_queries)
+            _setter("entity_search_queries", entity_search_queries)
         if guid is not None:
-            pulumi.set(__self__, "guid", guid)
+            _setter("guid", guid)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if permalink is not None:
-            pulumi.set(__self__, "permalink", permalink)
+            _setter("permalink", permalink)
         if scope_account_ids is not None:
-            pulumi.set(__self__, "scope_account_ids", scope_account_ids)
+            _setter("scope_account_ids", scope_account_ids)
         if status_config_automatic is not None:
-            pulumi.set(__self__, "status_config_automatic", status_config_automatic)
+            _setter("status_config_automatic", status_config_automatic)
         if status_config_static is not None:
-            pulumi.set(__self__, "status_config_static", status_config_static)
+            _setter("status_config_static", status_config_static)
         if workload_id is not None:
-            pulumi.set(__self__, "workload_id", workload_id)
+            _setter("workload_id", workload_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -424,6 +510,10 @@ class Workload(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkloadArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -452,7 +542,17 @@ class Workload(pulumi.CustomResource):
             __props__.__dict__["entity_search_queries"] = entity_search_queries
             __props__.__dict__["name"] = name
             __props__.__dict__["scope_account_ids"] = scope_account_ids
+            if status_config_automatic is not None and not isinstance(status_config_automatic, WorkloadStatusConfigAutomaticArgs):
+                status_config_automatic = status_config_automatic or {}
+                def _setter(key, value):
+                    status_config_automatic[key] = value
+                WorkloadStatusConfigAutomaticArgs._configure(_setter, **status_config_automatic)
             __props__.__dict__["status_config_automatic"] = status_config_automatic
+            if status_config_static is not None and not isinstance(status_config_static, WorkloadStatusConfigStaticArgs):
+                status_config_static = status_config_static or {}
+                def _setter(key, value):
+                    status_config_static[key] = value
+                WorkloadStatusConfigStaticArgs._configure(_setter, **status_config_static)
             __props__.__dict__["status_config_static"] = status_config_static
             __props__.__dict__["composite_entity_search_query"] = None
             __props__.__dict__["guid"] = None

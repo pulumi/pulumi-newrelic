@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PrivateLocationArgs', 'PrivateLocation']
@@ -25,13 +25,36 @@ class PrivateLocationArgs:
         :param pulumi.Input[str] name: The name of the private location.
         :param pulumi.Input[bool] verified_script_execution: The private location requires a password to edit if value is true. Defaults to `false`
         """
-        pulumi.set(__self__, "description", description)
+        PrivateLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            account_id=account_id,
+            name=name,
+            verified_script_execution=verified_script_execution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             account_id: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             verified_script_execution: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if verified_script_execution is None and 'verifiedScriptExecution' in kwargs:
+            verified_script_execution = kwargs['verifiedScriptExecution']
+
+        _setter("description", description)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if verified_script_execution is not None:
-            pulumi.set(__self__, "verified_script_execution", verified_script_execution)
+            _setter("verified_script_execution", verified_script_execution)
 
     @property
     @pulumi.getter
@@ -104,22 +127,55 @@ class _PrivateLocationState:
         :param pulumi.Input[str] name: The name of the private location.
         :param pulumi.Input[bool] verified_script_execution: The private location requires a password to edit if value is true. Defaults to `false`
         """
+        _PrivateLocationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            description=description,
+            domain_id=domain_id,
+            guid=guid,
+            key=key,
+            location_id=location_id,
+            name=name,
+            verified_script_execution=verified_script_execution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             domain_id: Optional[pulumi.Input[str]] = None,
+             guid: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             location_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             verified_script_execution: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if domain_id is None and 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if location_id is None and 'locationId' in kwargs:
+            location_id = kwargs['locationId']
+        if verified_script_execution is None and 'verifiedScriptExecution' in kwargs:
+            verified_script_execution = kwargs['verifiedScriptExecution']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if domain_id is not None:
-            pulumi.set(__self__, "domain_id", domain_id)
+            _setter("domain_id", domain_id)
         if guid is not None:
-            pulumi.set(__self__, "guid", guid)
+            _setter("guid", guid)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if location_id is not None:
-            pulumi.set(__self__, "location_id", location_id)
+            _setter("location_id", location_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if verified_script_execution is not None:
-            pulumi.set(__self__, "verified_script_execution", verified_script_execution)
+            _setter("verified_script_execution", verified_script_execution)
 
     @property
     @pulumi.getter(name="accountId")
@@ -291,6 +347,10 @@ class PrivateLocation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateLocationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

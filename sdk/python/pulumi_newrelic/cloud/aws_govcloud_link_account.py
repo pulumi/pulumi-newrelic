@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AwsGovcloudLinkAccountArgs', 'AwsGovcloudLinkAccount']
@@ -29,15 +29,52 @@ class AwsGovcloudLinkAccountArgs:
         :param pulumi.Input[str] metric_collection_mode: How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
         :param pulumi.Input[str] name: The linked account name
         """
-        pulumi.set(__self__, "access_key_id", access_key_id)
-        pulumi.set(__self__, "aws_account_id", aws_account_id)
-        pulumi.set(__self__, "secret_access_key", secret_access_key)
+        AwsGovcloudLinkAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key_id=access_key_id,
+            aws_account_id=aws_account_id,
+            secret_access_key=secret_access_key,
+            account_id=account_id,
+            metric_collection_mode=metric_collection_mode,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key_id: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             secret_access_key: Optional[pulumi.Input[str]] = None,
+             account_id: Optional[pulumi.Input[int]] = None,
+             metric_collection_mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_key_id is None and 'accessKeyId' in kwargs:
+            access_key_id = kwargs['accessKeyId']
+        if access_key_id is None:
+            raise TypeError("Missing 'access_key_id' argument")
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if aws_account_id is None:
+            raise TypeError("Missing 'aws_account_id' argument")
+        if secret_access_key is None and 'secretAccessKey' in kwargs:
+            secret_access_key = kwargs['secretAccessKey']
+        if secret_access_key is None:
+            raise TypeError("Missing 'secret_access_key' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if metric_collection_mode is None and 'metricCollectionMode' in kwargs:
+            metric_collection_mode = kwargs['metricCollectionMode']
+
+        _setter("access_key_id", access_key_id)
+        _setter("aws_account_id", aws_account_id)
+        _setter("secret_access_key", secret_access_key)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if metric_collection_mode is not None:
-            pulumi.set(__self__, "metric_collection_mode", metric_collection_mode)
+            _setter("metric_collection_mode", metric_collection_mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="accessKeyId")
@@ -130,18 +167,49 @@ class _AwsGovcloudLinkAccountState:
         :param pulumi.Input[str] name: The linked account name
         :param pulumi.Input[str] secret_access_key: The secret key of the AwsGovCloud.
         """
+        _AwsGovcloudLinkAccountState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key_id=access_key_id,
+            account_id=account_id,
+            aws_account_id=aws_account_id,
+            metric_collection_mode=metric_collection_mode,
+            name=name,
+            secret_access_key=secret_access_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key_id: Optional[pulumi.Input[str]] = None,
+             account_id: Optional[pulumi.Input[int]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             metric_collection_mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             secret_access_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_key_id is None and 'accessKeyId' in kwargs:
+            access_key_id = kwargs['accessKeyId']
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if metric_collection_mode is None and 'metricCollectionMode' in kwargs:
+            metric_collection_mode = kwargs['metricCollectionMode']
+        if secret_access_key is None and 'secretAccessKey' in kwargs:
+            secret_access_key = kwargs['secretAccessKey']
+
         if access_key_id is not None:
-            pulumi.set(__self__, "access_key_id", access_key_id)
+            _setter("access_key_id", access_key_id)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if metric_collection_mode is not None:
-            pulumi.set(__self__, "metric_collection_mode", metric_collection_mode)
+            _setter("metric_collection_mode", metric_collection_mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if secret_access_key is not None:
-            pulumi.set(__self__, "secret_access_key", secret_access_key)
+            _setter("secret_access_key", secret_access_key)
 
     @property
     @pulumi.getter(name="accessKeyId")
@@ -299,6 +367,10 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AwsGovcloudLinkAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

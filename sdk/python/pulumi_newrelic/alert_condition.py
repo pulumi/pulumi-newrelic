@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,27 +53,86 @@ class AlertConditionArgs:
                * when `type` = `apm_app_metric` and `condition_scope` = `instance`
                * when `type` = `apm_jvm_metric`
         """
-        pulumi.set(__self__, "entities", entities)
-        pulumi.set(__self__, "metric", metric)
-        pulumi.set(__self__, "policy_id", policy_id)
-        pulumi.set(__self__, "terms", terms)
-        pulumi.set(__self__, "type", type)
+        AlertConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entities=entities,
+            metric=metric,
+            policy_id=policy_id,
+            terms=terms,
+            type=type,
+            condition_scope=condition_scope,
+            enabled=enabled,
+            gc_metric=gc_metric,
+            name=name,
+            runbook_url=runbook_url,
+            user_defined_metric=user_defined_metric,
+            user_defined_value_function=user_defined_value_function,
+            violation_close_timer=violation_close_timer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entities: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             metric: Optional[pulumi.Input[str]] = None,
+             policy_id: Optional[pulumi.Input[int]] = None,
+             terms: Optional[pulumi.Input[Sequence[pulumi.Input['AlertConditionTermArgs']]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             condition_scope: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             gc_metric: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             runbook_url: Optional[pulumi.Input[str]] = None,
+             user_defined_metric: Optional[pulumi.Input[str]] = None,
+             user_defined_value_function: Optional[pulumi.Input[str]] = None,
+             violation_close_timer: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if entities is None:
+            raise TypeError("Missing 'entities' argument")
+        if metric is None:
+            raise TypeError("Missing 'metric' argument")
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
+        if terms is None:
+            raise TypeError("Missing 'terms' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if condition_scope is None and 'conditionScope' in kwargs:
+            condition_scope = kwargs['conditionScope']
+        if gc_metric is None and 'gcMetric' in kwargs:
+            gc_metric = kwargs['gcMetric']
+        if runbook_url is None and 'runbookUrl' in kwargs:
+            runbook_url = kwargs['runbookUrl']
+        if user_defined_metric is None and 'userDefinedMetric' in kwargs:
+            user_defined_metric = kwargs['userDefinedMetric']
+        if user_defined_value_function is None and 'userDefinedValueFunction' in kwargs:
+            user_defined_value_function = kwargs['userDefinedValueFunction']
+        if violation_close_timer is None and 'violationCloseTimer' in kwargs:
+            violation_close_timer = kwargs['violationCloseTimer']
+
+        _setter("entities", entities)
+        _setter("metric", metric)
+        _setter("policy_id", policy_id)
+        _setter("terms", terms)
+        _setter("type", type)
         if condition_scope is not None:
-            pulumi.set(__self__, "condition_scope", condition_scope)
+            _setter("condition_scope", condition_scope)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if gc_metric is not None:
-            pulumi.set(__self__, "gc_metric", gc_metric)
+            _setter("gc_metric", gc_metric)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if runbook_url is not None:
-            pulumi.set(__self__, "runbook_url", runbook_url)
+            _setter("runbook_url", runbook_url)
         if user_defined_metric is not None:
-            pulumi.set(__self__, "user_defined_metric", user_defined_metric)
+            _setter("user_defined_metric", user_defined_metric)
         if user_defined_value_function is not None:
-            pulumi.set(__self__, "user_defined_value_function", user_defined_value_function)
+            _setter("user_defined_value_function", user_defined_value_function)
         if violation_close_timer is not None:
-            pulumi.set(__self__, "violation_close_timer", violation_close_timer)
+            _setter("violation_close_timer", violation_close_timer)
 
     @property
     @pulumi.getter
@@ -282,34 +341,87 @@ class _AlertConditionState:
                * when `type` = `apm_app_metric` and `condition_scope` = `instance`
                * when `type` = `apm_jvm_metric`
         """
+        _AlertConditionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            condition_scope=condition_scope,
+            enabled=enabled,
+            entities=entities,
+            entity_guid=entity_guid,
+            gc_metric=gc_metric,
+            metric=metric,
+            name=name,
+            policy_id=policy_id,
+            runbook_url=runbook_url,
+            terms=terms,
+            type=type,
+            user_defined_metric=user_defined_metric,
+            user_defined_value_function=user_defined_value_function,
+            violation_close_timer=violation_close_timer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             condition_scope: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             entities: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             entity_guid: Optional[pulumi.Input[str]] = None,
+             gc_metric: Optional[pulumi.Input[str]] = None,
+             metric: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_id: Optional[pulumi.Input[int]] = None,
+             runbook_url: Optional[pulumi.Input[str]] = None,
+             terms: Optional[pulumi.Input[Sequence[pulumi.Input['AlertConditionTermArgs']]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             user_defined_metric: Optional[pulumi.Input[str]] = None,
+             user_defined_value_function: Optional[pulumi.Input[str]] = None,
+             violation_close_timer: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if condition_scope is None and 'conditionScope' in kwargs:
+            condition_scope = kwargs['conditionScope']
+        if entity_guid is None and 'entityGuid' in kwargs:
+            entity_guid = kwargs['entityGuid']
+        if gc_metric is None and 'gcMetric' in kwargs:
+            gc_metric = kwargs['gcMetric']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if runbook_url is None and 'runbookUrl' in kwargs:
+            runbook_url = kwargs['runbookUrl']
+        if user_defined_metric is None and 'userDefinedMetric' in kwargs:
+            user_defined_metric = kwargs['userDefinedMetric']
+        if user_defined_value_function is None and 'userDefinedValueFunction' in kwargs:
+            user_defined_value_function = kwargs['userDefinedValueFunction']
+        if violation_close_timer is None and 'violationCloseTimer' in kwargs:
+            violation_close_timer = kwargs['violationCloseTimer']
+
         if condition_scope is not None:
-            pulumi.set(__self__, "condition_scope", condition_scope)
+            _setter("condition_scope", condition_scope)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if entities is not None:
-            pulumi.set(__self__, "entities", entities)
+            _setter("entities", entities)
         if entity_guid is not None:
-            pulumi.set(__self__, "entity_guid", entity_guid)
+            _setter("entity_guid", entity_guid)
         if gc_metric is not None:
-            pulumi.set(__self__, "gc_metric", gc_metric)
+            _setter("gc_metric", gc_metric)
         if metric is not None:
-            pulumi.set(__self__, "metric", metric)
+            _setter("metric", metric)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if runbook_url is not None:
-            pulumi.set(__self__, "runbook_url", runbook_url)
+            _setter("runbook_url", runbook_url)
         if terms is not None:
-            pulumi.set(__self__, "terms", terms)
+            _setter("terms", terms)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_defined_metric is not None:
-            pulumi.set(__self__, "user_defined_metric", user_defined_metric)
+            _setter("user_defined_metric", user_defined_metric)
         if user_defined_value_function is not None:
-            pulumi.set(__self__, "user_defined_value_function", user_defined_value_function)
+            _setter("user_defined_value_function", user_defined_value_function)
         if violation_close_timer is not None:
-            pulumi.set(__self__, "violation_close_timer", violation_close_timer)
+            _setter("violation_close_timer", violation_close_timer)
 
     @property
     @pulumi.getter(name="conditionScope")
@@ -725,6 +837,10 @@ class AlertCondition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AlertConditionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

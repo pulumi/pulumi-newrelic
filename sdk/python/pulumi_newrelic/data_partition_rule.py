@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['DataPartitionRuleArgs', 'DataPartitionRule']
@@ -29,14 +29,49 @@ class DataPartitionRuleArgs:
         :param pulumi.Input[int] account_id: The account id associated with the data partition rule.
         :param pulumi.Input[str] description: The description of the data partition rule.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "nrql", nrql)
-        pulumi.set(__self__, "retention_policy", retention_policy)
-        pulumi.set(__self__, "target_data_partition", target_data_partition)
+        DataPartitionRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            nrql=nrql,
+            retention_policy=retention_policy,
+            target_data_partition=target_data_partition,
+            account_id=account_id,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             nrql: Optional[pulumi.Input[str]] = None,
+             retention_policy: Optional[pulumi.Input[str]] = None,
+             target_data_partition: Optional[pulumi.Input[str]] = None,
+             account_id: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if nrql is None:
+            raise TypeError("Missing 'nrql' argument")
+        if retention_policy is None and 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if retention_policy is None:
+            raise TypeError("Missing 'retention_policy' argument")
+        if target_data_partition is None and 'targetDataPartition' in kwargs:
+            target_data_partition = kwargs['targetDataPartition']
+        if target_data_partition is None:
+            raise TypeError("Missing 'target_data_partition' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
+        _setter("enabled", enabled)
+        _setter("nrql", nrql)
+        _setter("retention_policy", retention_policy)
+        _setter("target_data_partition", target_data_partition)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -131,20 +166,49 @@ class _DataPartitionRuleState:
         :param pulumi.Input[str] retention_policy: The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
         :param pulumi.Input[str] target_data_partition: The name of the data partition where logs will be allocated once the rule is enabled.
         """
+        _DataPartitionRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            deleted=deleted,
+            description=description,
+            enabled=enabled,
+            nrql=nrql,
+            retention_policy=retention_policy,
+            target_data_partition=target_data_partition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[int]] = None,
+             deleted: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             nrql: Optional[pulumi.Input[str]] = None,
+             retention_policy: Optional[pulumi.Input[str]] = None,
+             target_data_partition: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if retention_policy is None and 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if target_data_partition is None and 'targetDataPartition' in kwargs:
+            target_data_partition = kwargs['targetDataPartition']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if deleted is not None:
-            pulumi.set(__self__, "deleted", deleted)
+            _setter("deleted", deleted)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if nrql is not None:
-            pulumi.set(__self__, "nrql", nrql)
+            _setter("nrql", nrql)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
         if target_data_partition is not None:
-            pulumi.set(__self__, "target_data_partition", target_data_partition)
+            _setter("target_data_partition", target_data_partition)
 
     @property
     @pulumi.getter(name="accountId")
@@ -324,6 +388,10 @@ class DataPartitionRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataPartitionRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

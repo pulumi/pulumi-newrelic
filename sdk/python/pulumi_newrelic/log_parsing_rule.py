@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['LogParsingRuleArgs', 'LogParsingRule']
@@ -33,18 +33,53 @@ class LogParsingRuleArgs:
         :param pulumi.Input[bool] matched: Whether the Grok pattern matched.
         :param pulumi.Input[str] name: Name of rule.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "grok", grok)
-        pulumi.set(__self__, "lucene", lucene)
-        pulumi.set(__self__, "nrql", nrql)
+        LogParsingRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            grok=grok,
+            lucene=lucene,
+            nrql=nrql,
+            account_id=account_id,
+            attribute=attribute,
+            matched=matched,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             grok: Optional[pulumi.Input[str]] = None,
+             lucene: Optional[pulumi.Input[str]] = None,
+             nrql: Optional[pulumi.Input[str]] = None,
+             account_id: Optional[pulumi.Input[int]] = None,
+             attribute: Optional[pulumi.Input[str]] = None,
+             matched: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if grok is None:
+            raise TypeError("Missing 'grok' argument")
+        if lucene is None:
+            raise TypeError("Missing 'lucene' argument")
+        if nrql is None:
+            raise TypeError("Missing 'nrql' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
+        _setter("enabled", enabled)
+        _setter("grok", grok)
+        _setter("lucene", lucene)
+        _setter("nrql", nrql)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if attribute is not None:
-            pulumi.set(__self__, "attribute", attribute)
+            _setter("attribute", attribute)
         if matched is not None:
-            pulumi.set(__self__, "matched", matched)
+            _setter("matched", matched)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -167,24 +202,53 @@ class _LogParsingRuleState:
         :param pulumi.Input[str] name: Name of rule.
         :param pulumi.Input[str] nrql: The NRQL to match events to the parsing rule.
         """
+        _LogParsingRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            attribute=attribute,
+            deleted=deleted,
+            enabled=enabled,
+            grok=grok,
+            lucene=lucene,
+            matched=matched,
+            name=name,
+            nrql=nrql,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[int]] = None,
+             attribute: Optional[pulumi.Input[str]] = None,
+             deleted: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             grok: Optional[pulumi.Input[str]] = None,
+             lucene: Optional[pulumi.Input[str]] = None,
+             matched: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             nrql: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if attribute is not None:
-            pulumi.set(__self__, "attribute", attribute)
+            _setter("attribute", attribute)
         if deleted is not None:
-            pulumi.set(__self__, "deleted", deleted)
+            _setter("deleted", deleted)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if grok is not None:
-            pulumi.set(__self__, "grok", grok)
+            _setter("grok", grok)
         if lucene is not None:
-            pulumi.set(__self__, "lucene", lucene)
+            _setter("lucene", lucene)
         if matched is not None:
-            pulumi.set(__self__, "matched", matched)
+            _setter("matched", matched)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nrql is not None:
-            pulumi.set(__self__, "nrql", nrql)
+            _setter("nrql", nrql)
 
     @property
     @pulumi.getter(name="accountId")
@@ -424,6 +488,10 @@ class LogParsingRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogParsingRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

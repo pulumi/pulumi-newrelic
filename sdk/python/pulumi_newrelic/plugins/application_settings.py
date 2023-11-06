@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApplicationSettingsArgs', 'ApplicationSettings']
@@ -29,11 +29,40 @@ class ApplicationSettingsArgs:
         :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
         :param pulumi.Input[str] name: The name of the application in New Relic APM.
         """
-        pulumi.set(__self__, "app_apdex_threshold", app_apdex_threshold)
-        pulumi.set(__self__, "enable_real_user_monitoring", enable_real_user_monitoring)
-        pulumi.set(__self__, "end_user_apdex_threshold", end_user_apdex_threshold)
+        ApplicationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_apdex_threshold=app_apdex_threshold,
+            enable_real_user_monitoring=enable_real_user_monitoring,
+            end_user_apdex_threshold=end_user_apdex_threshold,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_apdex_threshold: Optional[pulumi.Input[float]] = None,
+             enable_real_user_monitoring: Optional[pulumi.Input[bool]] = None,
+             end_user_apdex_threshold: Optional[pulumi.Input[float]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_apdex_threshold is None and 'appApdexThreshold' in kwargs:
+            app_apdex_threshold = kwargs['appApdexThreshold']
+        if app_apdex_threshold is None:
+            raise TypeError("Missing 'app_apdex_threshold' argument")
+        if enable_real_user_monitoring is None and 'enableRealUserMonitoring' in kwargs:
+            enable_real_user_monitoring = kwargs['enableRealUserMonitoring']
+        if enable_real_user_monitoring is None:
+            raise TypeError("Missing 'enable_real_user_monitoring' argument")
+        if end_user_apdex_threshold is None and 'endUserApdexThreshold' in kwargs:
+            end_user_apdex_threshold = kwargs['endUserApdexThreshold']
+        if end_user_apdex_threshold is None:
+            raise TypeError("Missing 'end_user_apdex_threshold' argument")
+
+        _setter("app_apdex_threshold", app_apdex_threshold)
+        _setter("enable_real_user_monitoring", enable_real_user_monitoring)
+        _setter("end_user_apdex_threshold", end_user_apdex_threshold)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="appApdexThreshold")
@@ -106,14 +135,37 @@ class _ApplicationSettingsState:
         :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
         :param pulumi.Input[str] name: The name of the application in New Relic APM.
         """
+        _ApplicationSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_apdex_threshold=app_apdex_threshold,
+            enable_real_user_monitoring=enable_real_user_monitoring,
+            end_user_apdex_threshold=end_user_apdex_threshold,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_apdex_threshold: Optional[pulumi.Input[float]] = None,
+             enable_real_user_monitoring: Optional[pulumi.Input[bool]] = None,
+             end_user_apdex_threshold: Optional[pulumi.Input[float]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_apdex_threshold is None and 'appApdexThreshold' in kwargs:
+            app_apdex_threshold = kwargs['appApdexThreshold']
+        if enable_real_user_monitoring is None and 'enableRealUserMonitoring' in kwargs:
+            enable_real_user_monitoring = kwargs['enableRealUserMonitoring']
+        if end_user_apdex_threshold is None and 'endUserApdexThreshold' in kwargs:
+            end_user_apdex_threshold = kwargs['endUserApdexThreshold']
+
         if app_apdex_threshold is not None:
-            pulumi.set(__self__, "app_apdex_threshold", app_apdex_threshold)
+            _setter("app_apdex_threshold", app_apdex_threshold)
         if enable_real_user_monitoring is not None:
-            pulumi.set(__self__, "enable_real_user_monitoring", enable_real_user_monitoring)
+            _setter("enable_real_user_monitoring", enable_real_user_monitoring)
         if end_user_apdex_threshold is not None:
-            pulumi.set(__self__, "end_user_apdex_threshold", end_user_apdex_threshold)
+            _setter("end_user_apdex_threshold", end_user_apdex_threshold)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="appApdexThreshold")
@@ -267,6 +319,10 @@ class ApplicationSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

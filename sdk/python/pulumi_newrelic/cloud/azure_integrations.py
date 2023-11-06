@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -91,73 +91,202 @@ class AzureIntegrationsArgs:
                
                Below arguments supports the minimum metric polling interval of 900 seconds
         """
-        pulumi.set(__self__, "linked_account_id", linked_account_id)
+        AzureIntegrationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_account_id=linked_account_id,
+            account_id=account_id,
+            api_management=api_management,
+            app_gateway=app_gateway,
+            app_service=app_service,
+            containers=containers,
+            cosmos_db=cosmos_db,
+            cost_management=cost_management,
+            data_factory=data_factory,
+            event_hub=event_hub,
+            express_route=express_route,
+            firewalls=firewalls,
+            front_door=front_door,
+            functions=functions,
+            key_vault=key_vault,
+            load_balancer=load_balancer,
+            logic_apps=logic_apps,
+            machine_learning=machine_learning,
+            maria_db=maria_db,
+            monitor=monitor,
+            mysql=mysql,
+            mysql_flexible=mysql_flexible,
+            postgresql=postgresql,
+            postgresql_flexible=postgresql_flexible,
+            power_bi_dedicated=power_bi_dedicated,
+            redis_cache=redis_cache,
+            service_bus=service_bus,
+            sql=sql,
+            sql_managed=sql_managed,
+            storage=storage,
+            virtual_machine=virtual_machine,
+            virtual_networks=virtual_networks,
+            vms=vms,
+            vpn_gateway=vpn_gateway,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_account_id: Optional[pulumi.Input[int]] = None,
+             account_id: Optional[pulumi.Input[int]] = None,
+             api_management: Optional[pulumi.Input['AzureIntegrationsApiManagementArgs']] = None,
+             app_gateway: Optional[pulumi.Input['AzureIntegrationsAppGatewayArgs']] = None,
+             app_service: Optional[pulumi.Input['AzureIntegrationsAppServiceArgs']] = None,
+             containers: Optional[pulumi.Input['AzureIntegrationsContainersArgs']] = None,
+             cosmos_db: Optional[pulumi.Input['AzureIntegrationsCosmosDbArgs']] = None,
+             cost_management: Optional[pulumi.Input['AzureIntegrationsCostManagementArgs']] = None,
+             data_factory: Optional[pulumi.Input['AzureIntegrationsDataFactoryArgs']] = None,
+             event_hub: Optional[pulumi.Input['AzureIntegrationsEventHubArgs']] = None,
+             express_route: Optional[pulumi.Input['AzureIntegrationsExpressRouteArgs']] = None,
+             firewalls: Optional[pulumi.Input['AzureIntegrationsFirewallsArgs']] = None,
+             front_door: Optional[pulumi.Input['AzureIntegrationsFrontDoorArgs']] = None,
+             functions: Optional[pulumi.Input['AzureIntegrationsFunctionsArgs']] = None,
+             key_vault: Optional[pulumi.Input['AzureIntegrationsKeyVaultArgs']] = None,
+             load_balancer: Optional[pulumi.Input['AzureIntegrationsLoadBalancerArgs']] = None,
+             logic_apps: Optional[pulumi.Input['AzureIntegrationsLogicAppsArgs']] = None,
+             machine_learning: Optional[pulumi.Input['AzureIntegrationsMachineLearningArgs']] = None,
+             maria_db: Optional[pulumi.Input['AzureIntegrationsMariaDbArgs']] = None,
+             monitor: Optional[pulumi.Input['AzureIntegrationsMonitorArgs']] = None,
+             mysql: Optional[pulumi.Input['AzureIntegrationsMysqlArgs']] = None,
+             mysql_flexible: Optional[pulumi.Input['AzureIntegrationsMysqlFlexibleArgs']] = None,
+             postgresql: Optional[pulumi.Input['AzureIntegrationsPostgresqlArgs']] = None,
+             postgresql_flexible: Optional[pulumi.Input['AzureIntegrationsPostgresqlFlexibleArgs']] = None,
+             power_bi_dedicated: Optional[pulumi.Input['AzureIntegrationsPowerBiDedicatedArgs']] = None,
+             redis_cache: Optional[pulumi.Input['AzureIntegrationsRedisCacheArgs']] = None,
+             service_bus: Optional[pulumi.Input['AzureIntegrationsServiceBusArgs']] = None,
+             sql: Optional[pulumi.Input['AzureIntegrationsSqlArgs']] = None,
+             sql_managed: Optional[pulumi.Input['AzureIntegrationsSqlManagedArgs']] = None,
+             storage: Optional[pulumi.Input['AzureIntegrationsStorageArgs']] = None,
+             virtual_machine: Optional[pulumi.Input['AzureIntegrationsVirtualMachineArgs']] = None,
+             virtual_networks: Optional[pulumi.Input['AzureIntegrationsVirtualNetworksArgs']] = None,
+             vms: Optional[pulumi.Input['AzureIntegrationsVmsArgs']] = None,
+             vpn_gateway: Optional[pulumi.Input['AzureIntegrationsVpnGatewayArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if linked_account_id is None and 'linkedAccountId' in kwargs:
+            linked_account_id = kwargs['linkedAccountId']
+        if linked_account_id is None:
+            raise TypeError("Missing 'linked_account_id' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if api_management is None and 'apiManagement' in kwargs:
+            api_management = kwargs['apiManagement']
+        if app_gateway is None and 'appGateway' in kwargs:
+            app_gateway = kwargs['appGateway']
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if cosmos_db is None and 'cosmosDb' in kwargs:
+            cosmos_db = kwargs['cosmosDb']
+        if cost_management is None and 'costManagement' in kwargs:
+            cost_management = kwargs['costManagement']
+        if data_factory is None and 'dataFactory' in kwargs:
+            data_factory = kwargs['dataFactory']
+        if event_hub is None and 'eventHub' in kwargs:
+            event_hub = kwargs['eventHub']
+        if express_route is None and 'expressRoute' in kwargs:
+            express_route = kwargs['expressRoute']
+        if front_door is None and 'frontDoor' in kwargs:
+            front_door = kwargs['frontDoor']
+        if key_vault is None and 'keyVault' in kwargs:
+            key_vault = kwargs['keyVault']
+        if load_balancer is None and 'loadBalancer' in kwargs:
+            load_balancer = kwargs['loadBalancer']
+        if logic_apps is None and 'logicApps' in kwargs:
+            logic_apps = kwargs['logicApps']
+        if machine_learning is None and 'machineLearning' in kwargs:
+            machine_learning = kwargs['machineLearning']
+        if maria_db is None and 'mariaDb' in kwargs:
+            maria_db = kwargs['mariaDb']
+        if mysql_flexible is None and 'mysqlFlexible' in kwargs:
+            mysql_flexible = kwargs['mysqlFlexible']
+        if postgresql_flexible is None and 'postgresqlFlexible' in kwargs:
+            postgresql_flexible = kwargs['postgresqlFlexible']
+        if power_bi_dedicated is None and 'powerBiDedicated' in kwargs:
+            power_bi_dedicated = kwargs['powerBiDedicated']
+        if redis_cache is None and 'redisCache' in kwargs:
+            redis_cache = kwargs['redisCache']
+        if service_bus is None and 'serviceBus' in kwargs:
+            service_bus = kwargs['serviceBus']
+        if sql_managed is None and 'sqlManaged' in kwargs:
+            sql_managed = kwargs['sqlManaged']
+        if virtual_machine is None and 'virtualMachine' in kwargs:
+            virtual_machine = kwargs['virtualMachine']
+        if virtual_networks is None and 'virtualNetworks' in kwargs:
+            virtual_networks = kwargs['virtualNetworks']
+        if vpn_gateway is None and 'vpnGateway' in kwargs:
+            vpn_gateway = kwargs['vpnGateway']
+
+        _setter("linked_account_id", linked_account_id)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if api_management is not None:
-            pulumi.set(__self__, "api_management", api_management)
+            _setter("api_management", api_management)
         if app_gateway is not None:
-            pulumi.set(__self__, "app_gateway", app_gateway)
+            _setter("app_gateway", app_gateway)
         if app_service is not None:
-            pulumi.set(__self__, "app_service", app_service)
+            _setter("app_service", app_service)
         if containers is not None:
-            pulumi.set(__self__, "containers", containers)
+            _setter("containers", containers)
         if cosmos_db is not None:
-            pulumi.set(__self__, "cosmos_db", cosmos_db)
+            _setter("cosmos_db", cosmos_db)
         if cost_management is not None:
-            pulumi.set(__self__, "cost_management", cost_management)
+            _setter("cost_management", cost_management)
         if data_factory is not None:
-            pulumi.set(__self__, "data_factory", data_factory)
+            _setter("data_factory", data_factory)
         if event_hub is not None:
-            pulumi.set(__self__, "event_hub", event_hub)
+            _setter("event_hub", event_hub)
         if express_route is not None:
-            pulumi.set(__self__, "express_route", express_route)
+            _setter("express_route", express_route)
         if firewalls is not None:
-            pulumi.set(__self__, "firewalls", firewalls)
+            _setter("firewalls", firewalls)
         if front_door is not None:
-            pulumi.set(__self__, "front_door", front_door)
+            _setter("front_door", front_door)
         if functions is not None:
-            pulumi.set(__self__, "functions", functions)
+            _setter("functions", functions)
         if key_vault is not None:
-            pulumi.set(__self__, "key_vault", key_vault)
+            _setter("key_vault", key_vault)
         if load_balancer is not None:
-            pulumi.set(__self__, "load_balancer", load_balancer)
+            _setter("load_balancer", load_balancer)
         if logic_apps is not None:
-            pulumi.set(__self__, "logic_apps", logic_apps)
+            _setter("logic_apps", logic_apps)
         if machine_learning is not None:
-            pulumi.set(__self__, "machine_learning", machine_learning)
+            _setter("machine_learning", machine_learning)
         if maria_db is not None:
-            pulumi.set(__self__, "maria_db", maria_db)
+            _setter("maria_db", maria_db)
         if monitor is not None:
-            pulumi.set(__self__, "monitor", monitor)
+            _setter("monitor", monitor)
         if mysql is not None:
-            pulumi.set(__self__, "mysql", mysql)
+            _setter("mysql", mysql)
         if mysql_flexible is not None:
-            pulumi.set(__self__, "mysql_flexible", mysql_flexible)
+            _setter("mysql_flexible", mysql_flexible)
         if postgresql is not None:
-            pulumi.set(__self__, "postgresql", postgresql)
+            _setter("postgresql", postgresql)
         if postgresql_flexible is not None:
-            pulumi.set(__self__, "postgresql_flexible", postgresql_flexible)
+            _setter("postgresql_flexible", postgresql_flexible)
         if power_bi_dedicated is not None:
-            pulumi.set(__self__, "power_bi_dedicated", power_bi_dedicated)
+            _setter("power_bi_dedicated", power_bi_dedicated)
         if redis_cache is not None:
-            pulumi.set(__self__, "redis_cache", redis_cache)
+            _setter("redis_cache", redis_cache)
         if service_bus is not None:
-            pulumi.set(__self__, "service_bus", service_bus)
+            _setter("service_bus", service_bus)
         if sql is not None:
-            pulumi.set(__self__, "sql", sql)
+            _setter("sql", sql)
         if sql_managed is not None:
-            pulumi.set(__self__, "sql_managed", sql_managed)
+            _setter("sql_managed", sql_managed)
         if storage is not None:
-            pulumi.set(__self__, "storage", storage)
+            _setter("storage", storage)
         if virtual_machine is not None:
-            pulumi.set(__self__, "virtual_machine", virtual_machine)
+            _setter("virtual_machine", virtual_machine)
         if virtual_networks is not None:
-            pulumi.set(__self__, "virtual_networks", virtual_networks)
+            _setter("virtual_networks", virtual_networks)
         if vms is not None:
-            pulumi.set(__self__, "vms", vms)
+            _setter("vms", vms)
         if vpn_gateway is not None:
-            pulumi.set(__self__, "vpn_gateway", vpn_gateway)
+            _setter("vpn_gateway", vpn_gateway)
 
     @property
     @pulumi.getter(name="linkedAccountId")
@@ -650,74 +779,201 @@ class _AzureIntegrationsState:
                
                Below arguments supports the minimum metric polling interval of 900 seconds
         """
+        _AzureIntegrationsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            api_management=api_management,
+            app_gateway=app_gateway,
+            app_service=app_service,
+            containers=containers,
+            cosmos_db=cosmos_db,
+            cost_management=cost_management,
+            data_factory=data_factory,
+            event_hub=event_hub,
+            express_route=express_route,
+            firewalls=firewalls,
+            front_door=front_door,
+            functions=functions,
+            key_vault=key_vault,
+            linked_account_id=linked_account_id,
+            load_balancer=load_balancer,
+            logic_apps=logic_apps,
+            machine_learning=machine_learning,
+            maria_db=maria_db,
+            monitor=monitor,
+            mysql=mysql,
+            mysql_flexible=mysql_flexible,
+            postgresql=postgresql,
+            postgresql_flexible=postgresql_flexible,
+            power_bi_dedicated=power_bi_dedicated,
+            redis_cache=redis_cache,
+            service_bus=service_bus,
+            sql=sql,
+            sql_managed=sql_managed,
+            storage=storage,
+            virtual_machine=virtual_machine,
+            virtual_networks=virtual_networks,
+            vms=vms,
+            vpn_gateway=vpn_gateway,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[int]] = None,
+             api_management: Optional[pulumi.Input['AzureIntegrationsApiManagementArgs']] = None,
+             app_gateway: Optional[pulumi.Input['AzureIntegrationsAppGatewayArgs']] = None,
+             app_service: Optional[pulumi.Input['AzureIntegrationsAppServiceArgs']] = None,
+             containers: Optional[pulumi.Input['AzureIntegrationsContainersArgs']] = None,
+             cosmos_db: Optional[pulumi.Input['AzureIntegrationsCosmosDbArgs']] = None,
+             cost_management: Optional[pulumi.Input['AzureIntegrationsCostManagementArgs']] = None,
+             data_factory: Optional[pulumi.Input['AzureIntegrationsDataFactoryArgs']] = None,
+             event_hub: Optional[pulumi.Input['AzureIntegrationsEventHubArgs']] = None,
+             express_route: Optional[pulumi.Input['AzureIntegrationsExpressRouteArgs']] = None,
+             firewalls: Optional[pulumi.Input['AzureIntegrationsFirewallsArgs']] = None,
+             front_door: Optional[pulumi.Input['AzureIntegrationsFrontDoorArgs']] = None,
+             functions: Optional[pulumi.Input['AzureIntegrationsFunctionsArgs']] = None,
+             key_vault: Optional[pulumi.Input['AzureIntegrationsKeyVaultArgs']] = None,
+             linked_account_id: Optional[pulumi.Input[int]] = None,
+             load_balancer: Optional[pulumi.Input['AzureIntegrationsLoadBalancerArgs']] = None,
+             logic_apps: Optional[pulumi.Input['AzureIntegrationsLogicAppsArgs']] = None,
+             machine_learning: Optional[pulumi.Input['AzureIntegrationsMachineLearningArgs']] = None,
+             maria_db: Optional[pulumi.Input['AzureIntegrationsMariaDbArgs']] = None,
+             monitor: Optional[pulumi.Input['AzureIntegrationsMonitorArgs']] = None,
+             mysql: Optional[pulumi.Input['AzureIntegrationsMysqlArgs']] = None,
+             mysql_flexible: Optional[pulumi.Input['AzureIntegrationsMysqlFlexibleArgs']] = None,
+             postgresql: Optional[pulumi.Input['AzureIntegrationsPostgresqlArgs']] = None,
+             postgresql_flexible: Optional[pulumi.Input['AzureIntegrationsPostgresqlFlexibleArgs']] = None,
+             power_bi_dedicated: Optional[pulumi.Input['AzureIntegrationsPowerBiDedicatedArgs']] = None,
+             redis_cache: Optional[pulumi.Input['AzureIntegrationsRedisCacheArgs']] = None,
+             service_bus: Optional[pulumi.Input['AzureIntegrationsServiceBusArgs']] = None,
+             sql: Optional[pulumi.Input['AzureIntegrationsSqlArgs']] = None,
+             sql_managed: Optional[pulumi.Input['AzureIntegrationsSqlManagedArgs']] = None,
+             storage: Optional[pulumi.Input['AzureIntegrationsStorageArgs']] = None,
+             virtual_machine: Optional[pulumi.Input['AzureIntegrationsVirtualMachineArgs']] = None,
+             virtual_networks: Optional[pulumi.Input['AzureIntegrationsVirtualNetworksArgs']] = None,
+             vms: Optional[pulumi.Input['AzureIntegrationsVmsArgs']] = None,
+             vpn_gateway: Optional[pulumi.Input['AzureIntegrationsVpnGatewayArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if api_management is None and 'apiManagement' in kwargs:
+            api_management = kwargs['apiManagement']
+        if app_gateway is None and 'appGateway' in kwargs:
+            app_gateway = kwargs['appGateway']
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if cosmos_db is None and 'cosmosDb' in kwargs:
+            cosmos_db = kwargs['cosmosDb']
+        if cost_management is None and 'costManagement' in kwargs:
+            cost_management = kwargs['costManagement']
+        if data_factory is None and 'dataFactory' in kwargs:
+            data_factory = kwargs['dataFactory']
+        if event_hub is None and 'eventHub' in kwargs:
+            event_hub = kwargs['eventHub']
+        if express_route is None and 'expressRoute' in kwargs:
+            express_route = kwargs['expressRoute']
+        if front_door is None and 'frontDoor' in kwargs:
+            front_door = kwargs['frontDoor']
+        if key_vault is None and 'keyVault' in kwargs:
+            key_vault = kwargs['keyVault']
+        if linked_account_id is None and 'linkedAccountId' in kwargs:
+            linked_account_id = kwargs['linkedAccountId']
+        if load_balancer is None and 'loadBalancer' in kwargs:
+            load_balancer = kwargs['loadBalancer']
+        if logic_apps is None and 'logicApps' in kwargs:
+            logic_apps = kwargs['logicApps']
+        if machine_learning is None and 'machineLearning' in kwargs:
+            machine_learning = kwargs['machineLearning']
+        if maria_db is None and 'mariaDb' in kwargs:
+            maria_db = kwargs['mariaDb']
+        if mysql_flexible is None and 'mysqlFlexible' in kwargs:
+            mysql_flexible = kwargs['mysqlFlexible']
+        if postgresql_flexible is None and 'postgresqlFlexible' in kwargs:
+            postgresql_flexible = kwargs['postgresqlFlexible']
+        if power_bi_dedicated is None and 'powerBiDedicated' in kwargs:
+            power_bi_dedicated = kwargs['powerBiDedicated']
+        if redis_cache is None and 'redisCache' in kwargs:
+            redis_cache = kwargs['redisCache']
+        if service_bus is None and 'serviceBus' in kwargs:
+            service_bus = kwargs['serviceBus']
+        if sql_managed is None and 'sqlManaged' in kwargs:
+            sql_managed = kwargs['sqlManaged']
+        if virtual_machine is None and 'virtualMachine' in kwargs:
+            virtual_machine = kwargs['virtualMachine']
+        if virtual_networks is None and 'virtualNetworks' in kwargs:
+            virtual_networks = kwargs['virtualNetworks']
+        if vpn_gateway is None and 'vpnGateway' in kwargs:
+            vpn_gateway = kwargs['vpnGateway']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if api_management is not None:
-            pulumi.set(__self__, "api_management", api_management)
+            _setter("api_management", api_management)
         if app_gateway is not None:
-            pulumi.set(__self__, "app_gateway", app_gateway)
+            _setter("app_gateway", app_gateway)
         if app_service is not None:
-            pulumi.set(__self__, "app_service", app_service)
+            _setter("app_service", app_service)
         if containers is not None:
-            pulumi.set(__self__, "containers", containers)
+            _setter("containers", containers)
         if cosmos_db is not None:
-            pulumi.set(__self__, "cosmos_db", cosmos_db)
+            _setter("cosmos_db", cosmos_db)
         if cost_management is not None:
-            pulumi.set(__self__, "cost_management", cost_management)
+            _setter("cost_management", cost_management)
         if data_factory is not None:
-            pulumi.set(__self__, "data_factory", data_factory)
+            _setter("data_factory", data_factory)
         if event_hub is not None:
-            pulumi.set(__self__, "event_hub", event_hub)
+            _setter("event_hub", event_hub)
         if express_route is not None:
-            pulumi.set(__self__, "express_route", express_route)
+            _setter("express_route", express_route)
         if firewalls is not None:
-            pulumi.set(__self__, "firewalls", firewalls)
+            _setter("firewalls", firewalls)
         if front_door is not None:
-            pulumi.set(__self__, "front_door", front_door)
+            _setter("front_door", front_door)
         if functions is not None:
-            pulumi.set(__self__, "functions", functions)
+            _setter("functions", functions)
         if key_vault is not None:
-            pulumi.set(__self__, "key_vault", key_vault)
+            _setter("key_vault", key_vault)
         if linked_account_id is not None:
-            pulumi.set(__self__, "linked_account_id", linked_account_id)
+            _setter("linked_account_id", linked_account_id)
         if load_balancer is not None:
-            pulumi.set(__self__, "load_balancer", load_balancer)
+            _setter("load_balancer", load_balancer)
         if logic_apps is not None:
-            pulumi.set(__self__, "logic_apps", logic_apps)
+            _setter("logic_apps", logic_apps)
         if machine_learning is not None:
-            pulumi.set(__self__, "machine_learning", machine_learning)
+            _setter("machine_learning", machine_learning)
         if maria_db is not None:
-            pulumi.set(__self__, "maria_db", maria_db)
+            _setter("maria_db", maria_db)
         if monitor is not None:
-            pulumi.set(__self__, "monitor", monitor)
+            _setter("monitor", monitor)
         if mysql is not None:
-            pulumi.set(__self__, "mysql", mysql)
+            _setter("mysql", mysql)
         if mysql_flexible is not None:
-            pulumi.set(__self__, "mysql_flexible", mysql_flexible)
+            _setter("mysql_flexible", mysql_flexible)
         if postgresql is not None:
-            pulumi.set(__self__, "postgresql", postgresql)
+            _setter("postgresql", postgresql)
         if postgresql_flexible is not None:
-            pulumi.set(__self__, "postgresql_flexible", postgresql_flexible)
+            _setter("postgresql_flexible", postgresql_flexible)
         if power_bi_dedicated is not None:
-            pulumi.set(__self__, "power_bi_dedicated", power_bi_dedicated)
+            _setter("power_bi_dedicated", power_bi_dedicated)
         if redis_cache is not None:
-            pulumi.set(__self__, "redis_cache", redis_cache)
+            _setter("redis_cache", redis_cache)
         if service_bus is not None:
-            pulumi.set(__self__, "service_bus", service_bus)
+            _setter("service_bus", service_bus)
         if sql is not None:
-            pulumi.set(__self__, "sql", sql)
+            _setter("sql", sql)
         if sql_managed is not None:
-            pulumi.set(__self__, "sql_managed", sql_managed)
+            _setter("sql_managed", sql_managed)
         if storage is not None:
-            pulumi.set(__self__, "storage", storage)
+            _setter("storage", storage)
         if virtual_machine is not None:
-            pulumi.set(__self__, "virtual_machine", virtual_machine)
+            _setter("virtual_machine", virtual_machine)
         if virtual_networks is not None:
-            pulumi.set(__self__, "virtual_networks", virtual_networks)
+            _setter("virtual_networks", virtual_networks)
         if vms is not None:
-            pulumi.set(__self__, "vms", vms)
+            _setter("vms", vms)
         if vpn_gateway is not None:
-            pulumi.set(__self__, "vpn_gateway", vpn_gateway)
+            _setter("vpn_gateway", vpn_gateway)
 
     @property
     @pulumi.getter(name="accountId")
@@ -1575,6 +1831,10 @@ class AzureIntegrations(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AzureIntegrationsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1624,40 +1884,200 @@ class AzureIntegrations(pulumi.CustomResource):
             __props__ = AzureIntegrationsArgs.__new__(AzureIntegrationsArgs)
 
             __props__.__dict__["account_id"] = account_id
+            if api_management is not None and not isinstance(api_management, AzureIntegrationsApiManagementArgs):
+                api_management = api_management or {}
+                def _setter(key, value):
+                    api_management[key] = value
+                AzureIntegrationsApiManagementArgs._configure(_setter, **api_management)
             __props__.__dict__["api_management"] = api_management
+            if app_gateway is not None and not isinstance(app_gateway, AzureIntegrationsAppGatewayArgs):
+                app_gateway = app_gateway or {}
+                def _setter(key, value):
+                    app_gateway[key] = value
+                AzureIntegrationsAppGatewayArgs._configure(_setter, **app_gateway)
             __props__.__dict__["app_gateway"] = app_gateway
+            if app_service is not None and not isinstance(app_service, AzureIntegrationsAppServiceArgs):
+                app_service = app_service or {}
+                def _setter(key, value):
+                    app_service[key] = value
+                AzureIntegrationsAppServiceArgs._configure(_setter, **app_service)
             __props__.__dict__["app_service"] = app_service
+            if containers is not None and not isinstance(containers, AzureIntegrationsContainersArgs):
+                containers = containers or {}
+                def _setter(key, value):
+                    containers[key] = value
+                AzureIntegrationsContainersArgs._configure(_setter, **containers)
             __props__.__dict__["containers"] = containers
+            if cosmos_db is not None and not isinstance(cosmos_db, AzureIntegrationsCosmosDbArgs):
+                cosmos_db = cosmos_db or {}
+                def _setter(key, value):
+                    cosmos_db[key] = value
+                AzureIntegrationsCosmosDbArgs._configure(_setter, **cosmos_db)
             __props__.__dict__["cosmos_db"] = cosmos_db
+            if cost_management is not None and not isinstance(cost_management, AzureIntegrationsCostManagementArgs):
+                cost_management = cost_management or {}
+                def _setter(key, value):
+                    cost_management[key] = value
+                AzureIntegrationsCostManagementArgs._configure(_setter, **cost_management)
             __props__.__dict__["cost_management"] = cost_management
+            if data_factory is not None and not isinstance(data_factory, AzureIntegrationsDataFactoryArgs):
+                data_factory = data_factory or {}
+                def _setter(key, value):
+                    data_factory[key] = value
+                AzureIntegrationsDataFactoryArgs._configure(_setter, **data_factory)
             __props__.__dict__["data_factory"] = data_factory
+            if event_hub is not None and not isinstance(event_hub, AzureIntegrationsEventHubArgs):
+                event_hub = event_hub or {}
+                def _setter(key, value):
+                    event_hub[key] = value
+                AzureIntegrationsEventHubArgs._configure(_setter, **event_hub)
             __props__.__dict__["event_hub"] = event_hub
+            if express_route is not None and not isinstance(express_route, AzureIntegrationsExpressRouteArgs):
+                express_route = express_route or {}
+                def _setter(key, value):
+                    express_route[key] = value
+                AzureIntegrationsExpressRouteArgs._configure(_setter, **express_route)
             __props__.__dict__["express_route"] = express_route
+            if firewalls is not None and not isinstance(firewalls, AzureIntegrationsFirewallsArgs):
+                firewalls = firewalls or {}
+                def _setter(key, value):
+                    firewalls[key] = value
+                AzureIntegrationsFirewallsArgs._configure(_setter, **firewalls)
             __props__.__dict__["firewalls"] = firewalls
+            if front_door is not None and not isinstance(front_door, AzureIntegrationsFrontDoorArgs):
+                front_door = front_door or {}
+                def _setter(key, value):
+                    front_door[key] = value
+                AzureIntegrationsFrontDoorArgs._configure(_setter, **front_door)
             __props__.__dict__["front_door"] = front_door
+            if functions is not None and not isinstance(functions, AzureIntegrationsFunctionsArgs):
+                functions = functions or {}
+                def _setter(key, value):
+                    functions[key] = value
+                AzureIntegrationsFunctionsArgs._configure(_setter, **functions)
             __props__.__dict__["functions"] = functions
+            if key_vault is not None and not isinstance(key_vault, AzureIntegrationsKeyVaultArgs):
+                key_vault = key_vault or {}
+                def _setter(key, value):
+                    key_vault[key] = value
+                AzureIntegrationsKeyVaultArgs._configure(_setter, **key_vault)
             __props__.__dict__["key_vault"] = key_vault
             if linked_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_account_id'")
             __props__.__dict__["linked_account_id"] = linked_account_id
+            if load_balancer is not None and not isinstance(load_balancer, AzureIntegrationsLoadBalancerArgs):
+                load_balancer = load_balancer or {}
+                def _setter(key, value):
+                    load_balancer[key] = value
+                AzureIntegrationsLoadBalancerArgs._configure(_setter, **load_balancer)
             __props__.__dict__["load_balancer"] = load_balancer
+            if logic_apps is not None and not isinstance(logic_apps, AzureIntegrationsLogicAppsArgs):
+                logic_apps = logic_apps or {}
+                def _setter(key, value):
+                    logic_apps[key] = value
+                AzureIntegrationsLogicAppsArgs._configure(_setter, **logic_apps)
             __props__.__dict__["logic_apps"] = logic_apps
+            if machine_learning is not None and not isinstance(machine_learning, AzureIntegrationsMachineLearningArgs):
+                machine_learning = machine_learning or {}
+                def _setter(key, value):
+                    machine_learning[key] = value
+                AzureIntegrationsMachineLearningArgs._configure(_setter, **machine_learning)
             __props__.__dict__["machine_learning"] = machine_learning
+            if maria_db is not None and not isinstance(maria_db, AzureIntegrationsMariaDbArgs):
+                maria_db = maria_db or {}
+                def _setter(key, value):
+                    maria_db[key] = value
+                AzureIntegrationsMariaDbArgs._configure(_setter, **maria_db)
             __props__.__dict__["maria_db"] = maria_db
+            if monitor is not None and not isinstance(monitor, AzureIntegrationsMonitorArgs):
+                monitor = monitor or {}
+                def _setter(key, value):
+                    monitor[key] = value
+                AzureIntegrationsMonitorArgs._configure(_setter, **monitor)
             __props__.__dict__["monitor"] = monitor
+            if mysql is not None and not isinstance(mysql, AzureIntegrationsMysqlArgs):
+                mysql = mysql or {}
+                def _setter(key, value):
+                    mysql[key] = value
+                AzureIntegrationsMysqlArgs._configure(_setter, **mysql)
             __props__.__dict__["mysql"] = mysql
+            if mysql_flexible is not None and not isinstance(mysql_flexible, AzureIntegrationsMysqlFlexibleArgs):
+                mysql_flexible = mysql_flexible or {}
+                def _setter(key, value):
+                    mysql_flexible[key] = value
+                AzureIntegrationsMysqlFlexibleArgs._configure(_setter, **mysql_flexible)
             __props__.__dict__["mysql_flexible"] = mysql_flexible
+            if postgresql is not None and not isinstance(postgresql, AzureIntegrationsPostgresqlArgs):
+                postgresql = postgresql or {}
+                def _setter(key, value):
+                    postgresql[key] = value
+                AzureIntegrationsPostgresqlArgs._configure(_setter, **postgresql)
             __props__.__dict__["postgresql"] = postgresql
+            if postgresql_flexible is not None and not isinstance(postgresql_flexible, AzureIntegrationsPostgresqlFlexibleArgs):
+                postgresql_flexible = postgresql_flexible or {}
+                def _setter(key, value):
+                    postgresql_flexible[key] = value
+                AzureIntegrationsPostgresqlFlexibleArgs._configure(_setter, **postgresql_flexible)
             __props__.__dict__["postgresql_flexible"] = postgresql_flexible
+            if power_bi_dedicated is not None and not isinstance(power_bi_dedicated, AzureIntegrationsPowerBiDedicatedArgs):
+                power_bi_dedicated = power_bi_dedicated or {}
+                def _setter(key, value):
+                    power_bi_dedicated[key] = value
+                AzureIntegrationsPowerBiDedicatedArgs._configure(_setter, **power_bi_dedicated)
             __props__.__dict__["power_bi_dedicated"] = power_bi_dedicated
+            if redis_cache is not None and not isinstance(redis_cache, AzureIntegrationsRedisCacheArgs):
+                redis_cache = redis_cache or {}
+                def _setter(key, value):
+                    redis_cache[key] = value
+                AzureIntegrationsRedisCacheArgs._configure(_setter, **redis_cache)
             __props__.__dict__["redis_cache"] = redis_cache
+            if service_bus is not None and not isinstance(service_bus, AzureIntegrationsServiceBusArgs):
+                service_bus = service_bus or {}
+                def _setter(key, value):
+                    service_bus[key] = value
+                AzureIntegrationsServiceBusArgs._configure(_setter, **service_bus)
             __props__.__dict__["service_bus"] = service_bus
+            if sql is not None and not isinstance(sql, AzureIntegrationsSqlArgs):
+                sql = sql or {}
+                def _setter(key, value):
+                    sql[key] = value
+                AzureIntegrationsSqlArgs._configure(_setter, **sql)
             __props__.__dict__["sql"] = sql
+            if sql_managed is not None and not isinstance(sql_managed, AzureIntegrationsSqlManagedArgs):
+                sql_managed = sql_managed or {}
+                def _setter(key, value):
+                    sql_managed[key] = value
+                AzureIntegrationsSqlManagedArgs._configure(_setter, **sql_managed)
             __props__.__dict__["sql_managed"] = sql_managed
+            if storage is not None and not isinstance(storage, AzureIntegrationsStorageArgs):
+                storage = storage or {}
+                def _setter(key, value):
+                    storage[key] = value
+                AzureIntegrationsStorageArgs._configure(_setter, **storage)
             __props__.__dict__["storage"] = storage
+            if virtual_machine is not None and not isinstance(virtual_machine, AzureIntegrationsVirtualMachineArgs):
+                virtual_machine = virtual_machine or {}
+                def _setter(key, value):
+                    virtual_machine[key] = value
+                AzureIntegrationsVirtualMachineArgs._configure(_setter, **virtual_machine)
             __props__.__dict__["virtual_machine"] = virtual_machine
+            if virtual_networks is not None and not isinstance(virtual_networks, AzureIntegrationsVirtualNetworksArgs):
+                virtual_networks = virtual_networks or {}
+                def _setter(key, value):
+                    virtual_networks[key] = value
+                AzureIntegrationsVirtualNetworksArgs._configure(_setter, **virtual_networks)
             __props__.__dict__["virtual_networks"] = virtual_networks
+            if vms is not None and not isinstance(vms, AzureIntegrationsVmsArgs):
+                vms = vms or {}
+                def _setter(key, value):
+                    vms[key] = value
+                AzureIntegrationsVmsArgs._configure(_setter, **vms)
             __props__.__dict__["vms"] = vms
+            if vpn_gateway is not None and not isinstance(vpn_gateway, AzureIntegrationsVpnGatewayArgs):
+                vpn_gateway = vpn_gateway or {}
+                def _setter(key, value):
+                    vpn_gateway[key] = value
+                AzureIntegrationsVpnGatewayArgs._configure(_setter, **vpn_gateway)
             __props__.__dict__["vpn_gateway"] = vpn_gateway
         super(AzureIntegrations, __self__).__init__(
             'newrelic:cloud/azureIntegrations:AzureIntegrations',
