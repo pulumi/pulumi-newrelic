@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create, update, and delete a standalone New Relic browser application.
@@ -188,12 +187,6 @@ func (i *BrowserApplication) ToBrowserApplicationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BrowserApplicationOutput)
 }
 
-func (i *BrowserApplication) ToOutput(ctx context.Context) pulumix.Output[*BrowserApplication] {
-	return pulumix.Output[*BrowserApplication]{
-		OutputState: i.ToBrowserApplicationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BrowserApplicationArrayInput is an input type that accepts BrowserApplicationArray and BrowserApplicationArrayOutput values.
 // You can construct a concrete instance of `BrowserApplicationArrayInput` via:
 //
@@ -217,12 +210,6 @@ func (i BrowserApplicationArray) ToBrowserApplicationArrayOutput() BrowserApplic
 
 func (i BrowserApplicationArray) ToBrowserApplicationArrayOutputWithContext(ctx context.Context) BrowserApplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BrowserApplicationArrayOutput)
-}
-
-func (i BrowserApplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*BrowserApplication] {
-	return pulumix.Output[[]*BrowserApplication]{
-		OutputState: i.ToBrowserApplicationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BrowserApplicationMapInput is an input type that accepts BrowserApplicationMap and BrowserApplicationMapOutput values.
@@ -250,12 +237,6 @@ func (i BrowserApplicationMap) ToBrowserApplicationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BrowserApplicationMapOutput)
 }
 
-func (i BrowserApplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BrowserApplication] {
-	return pulumix.Output[map[string]*BrowserApplication]{
-		OutputState: i.ToBrowserApplicationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BrowserApplicationOutput struct{ *pulumi.OutputState }
 
 func (BrowserApplicationOutput) ElementType() reflect.Type {
@@ -268,12 +249,6 @@ func (o BrowserApplicationOutput) ToBrowserApplicationOutput() BrowserApplicatio
 
 func (o BrowserApplicationOutput) ToBrowserApplicationOutputWithContext(ctx context.Context) BrowserApplicationOutput {
 	return o
-}
-
-func (o BrowserApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*BrowserApplication] {
-	return pulumix.Output[*BrowserApplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -325,12 +300,6 @@ func (o BrowserApplicationArrayOutput) ToBrowserApplicationArrayOutputWithContex
 	return o
 }
 
-func (o BrowserApplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BrowserApplication] {
-	return pulumix.Output[[]*BrowserApplication]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BrowserApplicationArrayOutput) Index(i pulumi.IntInput) BrowserApplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BrowserApplication {
 		return vs[0].([]*BrowserApplication)[vs[1].(int)]
@@ -349,12 +318,6 @@ func (o BrowserApplicationMapOutput) ToBrowserApplicationMapOutput() BrowserAppl
 
 func (o BrowserApplicationMapOutput) ToBrowserApplicationMapOutputWithContext(ctx context.Context) BrowserApplicationMapOutput {
 	return o
-}
-
-func (o BrowserApplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BrowserApplication] {
-	return pulumix.Output[map[string]*BrowserApplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BrowserApplicationMapOutput) MapIndex(k pulumi.StringInput) BrowserApplicationOutput {

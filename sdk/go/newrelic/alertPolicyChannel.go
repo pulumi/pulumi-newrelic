@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to map alert policies to alert channels in New Relic.
@@ -196,12 +195,6 @@ func (i *AlertPolicyChannel) ToAlertPolicyChannelOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyChannelOutput)
 }
 
-func (i *AlertPolicyChannel) ToOutput(ctx context.Context) pulumix.Output[*AlertPolicyChannel] {
-	return pulumix.Output[*AlertPolicyChannel]{
-		OutputState: i.ToAlertPolicyChannelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertPolicyChannelArrayInput is an input type that accepts AlertPolicyChannelArray and AlertPolicyChannelArrayOutput values.
 // You can construct a concrete instance of `AlertPolicyChannelArrayInput` via:
 //
@@ -225,12 +218,6 @@ func (i AlertPolicyChannelArray) ToAlertPolicyChannelArrayOutput() AlertPolicyCh
 
 func (i AlertPolicyChannelArray) ToAlertPolicyChannelArrayOutputWithContext(ctx context.Context) AlertPolicyChannelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyChannelArrayOutput)
-}
-
-func (i AlertPolicyChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlertPolicyChannel] {
-	return pulumix.Output[[]*AlertPolicyChannel]{
-		OutputState: i.ToAlertPolicyChannelArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AlertPolicyChannelMapInput is an input type that accepts AlertPolicyChannelMap and AlertPolicyChannelMapOutput values.
@@ -258,12 +245,6 @@ func (i AlertPolicyChannelMap) ToAlertPolicyChannelMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyChannelMapOutput)
 }
 
-func (i AlertPolicyChannelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertPolicyChannel] {
-	return pulumix.Output[map[string]*AlertPolicyChannel]{
-		OutputState: i.ToAlertPolicyChannelMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertPolicyChannelOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyChannelOutput) ElementType() reflect.Type {
@@ -276,12 +257,6 @@ func (o AlertPolicyChannelOutput) ToAlertPolicyChannelOutput() AlertPolicyChanne
 
 func (o AlertPolicyChannelOutput) ToAlertPolicyChannelOutputWithContext(ctx context.Context) AlertPolicyChannelOutput {
 	return o
-}
-
-func (o AlertPolicyChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertPolicyChannel] {
-	return pulumix.Output[*AlertPolicyChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
@@ -313,12 +288,6 @@ func (o AlertPolicyChannelArrayOutput) ToAlertPolicyChannelArrayOutputWithContex
 	return o
 }
 
-func (o AlertPolicyChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlertPolicyChannel] {
-	return pulumix.Output[[]*AlertPolicyChannel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AlertPolicyChannelArrayOutput) Index(i pulumi.IntInput) AlertPolicyChannelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertPolicyChannel {
 		return vs[0].([]*AlertPolicyChannel)[vs[1].(int)]
@@ -337,12 +306,6 @@ func (o AlertPolicyChannelMapOutput) ToAlertPolicyChannelMapOutput() AlertPolicy
 
 func (o AlertPolicyChannelMapOutput) ToAlertPolicyChannelMapOutputWithContext(ctx context.Context) AlertPolicyChannelMapOutput {
 	return o
-}
-
-func (o AlertPolicyChannelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertPolicyChannel] {
-	return pulumix.Output[map[string]*AlertPolicyChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertPolicyChannelMapOutput) MapIndex(k pulumi.StringInput) AlertPolicyChannelOutput {

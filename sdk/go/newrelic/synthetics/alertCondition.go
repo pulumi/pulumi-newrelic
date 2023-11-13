@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create and manage synthetics alert conditions in New Relic.
@@ -345,12 +344,6 @@ func (i *AlertCondition) ToAlertConditionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AlertConditionOutput)
 }
 
-func (i *AlertCondition) ToOutput(ctx context.Context) pulumix.Output[*AlertCondition] {
-	return pulumix.Output[*AlertCondition]{
-		OutputState: i.ToAlertConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertConditionArrayInput is an input type that accepts AlertConditionArray and AlertConditionArrayOutput values.
 // You can construct a concrete instance of `AlertConditionArrayInput` via:
 //
@@ -374,12 +367,6 @@ func (i AlertConditionArray) ToAlertConditionArrayOutput() AlertConditionArrayOu
 
 func (i AlertConditionArray) ToAlertConditionArrayOutputWithContext(ctx context.Context) AlertConditionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertConditionArrayOutput)
-}
-
-func (i AlertConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlertCondition] {
-	return pulumix.Output[[]*AlertCondition]{
-		OutputState: i.ToAlertConditionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AlertConditionMapInput is an input type that accepts AlertConditionMap and AlertConditionMapOutput values.
@@ -407,12 +394,6 @@ func (i AlertConditionMap) ToAlertConditionMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AlertConditionMapOutput)
 }
 
-func (i AlertConditionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertCondition] {
-	return pulumix.Output[map[string]*AlertCondition]{
-		OutputState: i.ToAlertConditionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertConditionOutput struct{ *pulumi.OutputState }
 
 func (AlertConditionOutput) ElementType() reflect.Type {
@@ -425,12 +406,6 @@ func (o AlertConditionOutput) ToAlertConditionOutput() AlertConditionOutput {
 
 func (o AlertConditionOutput) ToAlertConditionOutputWithContext(ctx context.Context) AlertConditionOutput {
 	return o
-}
-
-func (o AlertConditionOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertCondition] {
-	return pulumix.Output[*AlertCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set whether to enable the alert condition. Defaults to `true`.
@@ -494,12 +469,6 @@ func (o AlertConditionArrayOutput) ToAlertConditionArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o AlertConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlertCondition] {
-	return pulumix.Output[[]*AlertCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AlertConditionArrayOutput) Index(i pulumi.IntInput) AlertConditionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertCondition {
 		return vs[0].([]*AlertCondition)[vs[1].(int)]
@@ -518,12 +487,6 @@ func (o AlertConditionMapOutput) ToAlertConditionMapOutput() AlertConditionMapOu
 
 func (o AlertConditionMapOutput) ToAlertConditionMapOutputWithContext(ctx context.Context) AlertConditionMapOutput {
 	return o
-}
-
-func (o AlertConditionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertCondition] {
-	return pulumix.Output[map[string]*AlertCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertConditionMapOutput) MapIndex(k pulumi.StringInput) AlertConditionOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific alert channel in New Relic that already exists.
@@ -85,12 +84,6 @@ func (o LookupAlertChannelResultOutput) ToLookupAlertChannelResultOutput() Looku
 
 func (o LookupAlertChannelResultOutput) ToLookupAlertChannelResultOutputWithContext(ctx context.Context) LookupAlertChannelResultOutput {
 	return o
-}
-
-func (o LookupAlertChannelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAlertChannelResult] {
-	return pulumix.Output[LookupAlertChannelResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupAlertChannelResultOutput) AccountId() pulumi.IntOutput {

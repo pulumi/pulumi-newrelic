@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type NotificationDestination struct {
@@ -180,12 +179,6 @@ func (i *NotificationDestination) ToNotificationDestinationOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationOutput)
 }
 
-func (i *NotificationDestination) ToOutput(ctx context.Context) pulumix.Output[*NotificationDestination] {
-	return pulumix.Output[*NotificationDestination]{
-		OutputState: i.ToNotificationDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationDestinationArrayInput is an input type that accepts NotificationDestinationArray and NotificationDestinationArrayOutput values.
 // You can construct a concrete instance of `NotificationDestinationArrayInput` via:
 //
@@ -209,12 +202,6 @@ func (i NotificationDestinationArray) ToNotificationDestinationArrayOutput() Not
 
 func (i NotificationDestinationArray) ToNotificationDestinationArrayOutputWithContext(ctx context.Context) NotificationDestinationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationArrayOutput)
-}
-
-func (i NotificationDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]*NotificationDestination] {
-	return pulumix.Output[[]*NotificationDestination]{
-		OutputState: i.ToNotificationDestinationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NotificationDestinationMapInput is an input type that accepts NotificationDestinationMap and NotificationDestinationMapOutput values.
@@ -242,12 +229,6 @@ func (i NotificationDestinationMap) ToNotificationDestinationMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationMapOutput)
 }
 
-func (i NotificationDestinationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotificationDestination] {
-	return pulumix.Output[map[string]*NotificationDestination]{
-		OutputState: i.ToNotificationDestinationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationDestinationOutput struct{ *pulumi.OutputState }
 
 func (NotificationDestinationOutput) ElementType() reflect.Type {
@@ -260,12 +241,6 @@ func (o NotificationDestinationOutput) ToNotificationDestinationOutput() Notific
 
 func (o NotificationDestinationOutput) ToNotificationDestinationOutputWithContext(ctx context.Context) NotificationDestinationOutput {
 	return o
-}
-
-func (o NotificationDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationDestination] {
-	return pulumix.Output[*NotificationDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
@@ -328,12 +303,6 @@ func (o NotificationDestinationArrayOutput) ToNotificationDestinationArrayOutput
 	return o
 }
 
-func (o NotificationDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NotificationDestination] {
-	return pulumix.Output[[]*NotificationDestination]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NotificationDestinationArrayOutput) Index(i pulumi.IntInput) NotificationDestinationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NotificationDestination {
 		return vs[0].([]*NotificationDestination)[vs[1].(int)]
@@ -352,12 +321,6 @@ func (o NotificationDestinationMapOutput) ToNotificationDestinationMapOutput() N
 
 func (o NotificationDestinationMapOutput) ToNotificationDestinationMapOutputWithContext(ctx context.Context) NotificationDestinationMapOutput {
 	return o
-}
-
-func (o NotificationDestinationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotificationDestination] {
-	return pulumix.Output[map[string]*NotificationDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationDestinationMapOutput) MapIndex(k pulumi.StringInput) NotificationDestinationOutput {

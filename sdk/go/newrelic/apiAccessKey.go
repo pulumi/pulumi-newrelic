@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to programmatically create and manage the following types of keys:
@@ -219,12 +218,6 @@ func (i *ApiAccessKey) ToApiAccessKeyOutputWithContext(ctx context.Context) ApiA
 	return pulumi.ToOutputWithContext(ctx, i).(ApiAccessKeyOutput)
 }
 
-func (i *ApiAccessKey) ToOutput(ctx context.Context) pulumix.Output[*ApiAccessKey] {
-	return pulumix.Output[*ApiAccessKey]{
-		OutputState: i.ToApiAccessKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApiAccessKeyArrayInput is an input type that accepts ApiAccessKeyArray and ApiAccessKeyArrayOutput values.
 // You can construct a concrete instance of `ApiAccessKeyArrayInput` via:
 //
@@ -248,12 +241,6 @@ func (i ApiAccessKeyArray) ToApiAccessKeyArrayOutput() ApiAccessKeyArrayOutput {
 
 func (i ApiAccessKeyArray) ToApiAccessKeyArrayOutputWithContext(ctx context.Context) ApiAccessKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiAccessKeyArrayOutput)
-}
-
-func (i ApiAccessKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApiAccessKey] {
-	return pulumix.Output[[]*ApiAccessKey]{
-		OutputState: i.ToApiAccessKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApiAccessKeyMapInput is an input type that accepts ApiAccessKeyMap and ApiAccessKeyMapOutput values.
@@ -281,12 +268,6 @@ func (i ApiAccessKeyMap) ToApiAccessKeyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ApiAccessKeyMapOutput)
 }
 
-func (i ApiAccessKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiAccessKey] {
-	return pulumix.Output[map[string]*ApiAccessKey]{
-		OutputState: i.ToApiAccessKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApiAccessKeyOutput struct{ *pulumi.OutputState }
 
 func (ApiAccessKeyOutput) ElementType() reflect.Type {
@@ -299,12 +280,6 @@ func (o ApiAccessKeyOutput) ToApiAccessKeyOutput() ApiAccessKeyOutput {
 
 func (o ApiAccessKeyOutput) ToApiAccessKeyOutputWithContext(ctx context.Context) ApiAccessKeyOutput {
 	return o
-}
-
-func (o ApiAccessKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiAccessKey] {
-	return pulumix.Output[*ApiAccessKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The New Relic account ID of the account you wish to create the API access key.
@@ -356,12 +331,6 @@ func (o ApiAccessKeyArrayOutput) ToApiAccessKeyArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o ApiAccessKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApiAccessKey] {
-	return pulumix.Output[[]*ApiAccessKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApiAccessKeyArrayOutput) Index(i pulumi.IntInput) ApiAccessKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiAccessKey {
 		return vs[0].([]*ApiAccessKey)[vs[1].(int)]
@@ -380,12 +349,6 @@ func (o ApiAccessKeyMapOutput) ToApiAccessKeyMapOutput() ApiAccessKeyMapOutput {
 
 func (o ApiAccessKeyMapOutput) ToApiAccessKeyMapOutputWithContext(ctx context.Context) ApiAccessKeyMapOutput {
 	return o
-}
-
-func (o ApiAccessKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiAccessKey] {
-	return pulumix.Output[map[string]*ApiAccessKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiAccessKeyMapOutput) MapIndex(k pulumi.StringInput) ApiAccessKeyOutput {

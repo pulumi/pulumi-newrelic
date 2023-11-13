@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create, update and delete New Relic Obfuscation Rule.
@@ -211,12 +210,6 @@ func (i *ObfuscationRule) ToObfuscationRuleOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ObfuscationRuleOutput)
 }
 
-func (i *ObfuscationRule) ToOutput(ctx context.Context) pulumix.Output[*ObfuscationRule] {
-	return pulumix.Output[*ObfuscationRule]{
-		OutputState: i.ToObfuscationRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ObfuscationRuleArrayInput is an input type that accepts ObfuscationRuleArray and ObfuscationRuleArrayOutput values.
 // You can construct a concrete instance of `ObfuscationRuleArrayInput` via:
 //
@@ -240,12 +233,6 @@ func (i ObfuscationRuleArray) ToObfuscationRuleArrayOutput() ObfuscationRuleArra
 
 func (i ObfuscationRuleArray) ToObfuscationRuleArrayOutputWithContext(ctx context.Context) ObfuscationRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ObfuscationRuleArrayOutput)
-}
-
-func (i ObfuscationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*ObfuscationRule] {
-	return pulumix.Output[[]*ObfuscationRule]{
-		OutputState: i.ToObfuscationRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ObfuscationRuleMapInput is an input type that accepts ObfuscationRuleMap and ObfuscationRuleMapOutput values.
@@ -273,12 +260,6 @@ func (i ObfuscationRuleMap) ToObfuscationRuleMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ObfuscationRuleMapOutput)
 }
 
-func (i ObfuscationRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObfuscationRule] {
-	return pulumix.Output[map[string]*ObfuscationRule]{
-		OutputState: i.ToObfuscationRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ObfuscationRuleOutput struct{ *pulumi.OutputState }
 
 func (ObfuscationRuleOutput) ElementType() reflect.Type {
@@ -291,12 +272,6 @@ func (o ObfuscationRuleOutput) ToObfuscationRuleOutput() ObfuscationRuleOutput {
 
 func (o ObfuscationRuleOutput) ToObfuscationRuleOutputWithContext(ctx context.Context) ObfuscationRuleOutput {
 	return o
-}
-
-func (o ObfuscationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*ObfuscationRule] {
-	return pulumix.Output[*ObfuscationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The account id associated with the obfuscation rule.
@@ -343,12 +318,6 @@ func (o ObfuscationRuleArrayOutput) ToObfuscationRuleArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ObfuscationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ObfuscationRule] {
-	return pulumix.Output[[]*ObfuscationRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ObfuscationRuleArrayOutput) Index(i pulumi.IntInput) ObfuscationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ObfuscationRule {
 		return vs[0].([]*ObfuscationRule)[vs[1].(int)]
@@ -367,12 +336,6 @@ func (o ObfuscationRuleMapOutput) ToObfuscationRuleMapOutput() ObfuscationRuleMa
 
 func (o ObfuscationRuleMapOutput) ToObfuscationRuleMapOutputWithContext(ctx context.Context) ObfuscationRuleMapOutput {
 	return o
-}
-
-func (o ObfuscationRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObfuscationRule] {
-	return pulumix.Output[map[string]*ObfuscationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ObfuscationRuleMapOutput) MapIndex(k pulumi.StringInput) ObfuscationRuleOutput {

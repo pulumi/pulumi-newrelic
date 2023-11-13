@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create, update, and delete a Synthetics Broken Links monitor in New Relic.
@@ -300,12 +299,6 @@ func (i *BrokenLinksMonitor) ToBrokenLinksMonitorOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BrokenLinksMonitorOutput)
 }
 
-func (i *BrokenLinksMonitor) ToOutput(ctx context.Context) pulumix.Output[*BrokenLinksMonitor] {
-	return pulumix.Output[*BrokenLinksMonitor]{
-		OutputState: i.ToBrokenLinksMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BrokenLinksMonitorArrayInput is an input type that accepts BrokenLinksMonitorArray and BrokenLinksMonitorArrayOutput values.
 // You can construct a concrete instance of `BrokenLinksMonitorArrayInput` via:
 //
@@ -329,12 +322,6 @@ func (i BrokenLinksMonitorArray) ToBrokenLinksMonitorArrayOutput() BrokenLinksMo
 
 func (i BrokenLinksMonitorArray) ToBrokenLinksMonitorArrayOutputWithContext(ctx context.Context) BrokenLinksMonitorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BrokenLinksMonitorArrayOutput)
-}
-
-func (i BrokenLinksMonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]*BrokenLinksMonitor] {
-	return pulumix.Output[[]*BrokenLinksMonitor]{
-		OutputState: i.ToBrokenLinksMonitorArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BrokenLinksMonitorMapInput is an input type that accepts BrokenLinksMonitorMap and BrokenLinksMonitorMapOutput values.
@@ -362,12 +349,6 @@ func (i BrokenLinksMonitorMap) ToBrokenLinksMonitorMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BrokenLinksMonitorMapOutput)
 }
 
-func (i BrokenLinksMonitorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BrokenLinksMonitor] {
-	return pulumix.Output[map[string]*BrokenLinksMonitor]{
-		OutputState: i.ToBrokenLinksMonitorMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BrokenLinksMonitorOutput struct{ *pulumi.OutputState }
 
 func (BrokenLinksMonitorOutput) ElementType() reflect.Type {
@@ -380,12 +361,6 @@ func (o BrokenLinksMonitorOutput) ToBrokenLinksMonitorOutput() BrokenLinksMonito
 
 func (o BrokenLinksMonitorOutput) ToBrokenLinksMonitorOutputWithContext(ctx context.Context) BrokenLinksMonitorOutput {
 	return o
-}
-
-func (o BrokenLinksMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[*BrokenLinksMonitor] {
-	return pulumix.Output[*BrokenLinksMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The account in which the Synthetics monitor will be created.
@@ -454,12 +429,6 @@ func (o BrokenLinksMonitorArrayOutput) ToBrokenLinksMonitorArrayOutputWithContex
 	return o
 }
 
-func (o BrokenLinksMonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BrokenLinksMonitor] {
-	return pulumix.Output[[]*BrokenLinksMonitor]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BrokenLinksMonitorArrayOutput) Index(i pulumi.IntInput) BrokenLinksMonitorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BrokenLinksMonitor {
 		return vs[0].([]*BrokenLinksMonitor)[vs[1].(int)]
@@ -478,12 +447,6 @@ func (o BrokenLinksMonitorMapOutput) ToBrokenLinksMonitorMapOutput() BrokenLinks
 
 func (o BrokenLinksMonitorMapOutput) ToBrokenLinksMonitorMapOutputWithContext(ctx context.Context) BrokenLinksMonitorMapOutput {
 	return o
-}
-
-func (o BrokenLinksMonitorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BrokenLinksMonitor] {
-	return pulumix.Output[map[string]*BrokenLinksMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BrokenLinksMonitorMapOutput) MapIndex(k pulumi.StringInput) BrokenLinksMonitorOutput {

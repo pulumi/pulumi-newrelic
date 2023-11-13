@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create and manage New Relic Synthetic private location.
@@ -191,12 +190,6 @@ func (i *PrivateLocation) ToPrivateLocationOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLocationOutput)
 }
 
-func (i *PrivateLocation) ToOutput(ctx context.Context) pulumix.Output[*PrivateLocation] {
-	return pulumix.Output[*PrivateLocation]{
-		OutputState: i.ToPrivateLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PrivateLocationArrayInput is an input type that accepts PrivateLocationArray and PrivateLocationArrayOutput values.
 // You can construct a concrete instance of `PrivateLocationArrayInput` via:
 //
@@ -220,12 +213,6 @@ func (i PrivateLocationArray) ToPrivateLocationArrayOutput() PrivateLocationArra
 
 func (i PrivateLocationArray) ToPrivateLocationArrayOutputWithContext(ctx context.Context) PrivateLocationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLocationArrayOutput)
-}
-
-func (i PrivateLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLocation] {
-	return pulumix.Output[[]*PrivateLocation]{
-		OutputState: i.ToPrivateLocationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PrivateLocationMapInput is an input type that accepts PrivateLocationMap and PrivateLocationMapOutput values.
@@ -253,12 +240,6 @@ func (i PrivateLocationMap) ToPrivateLocationMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLocationMapOutput)
 }
 
-func (i PrivateLocationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLocation] {
-	return pulumix.Output[map[string]*PrivateLocation]{
-		OutputState: i.ToPrivateLocationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrivateLocationOutput struct{ *pulumi.OutputState }
 
 func (PrivateLocationOutput) ElementType() reflect.Type {
@@ -271,12 +252,6 @@ func (o PrivateLocationOutput) ToPrivateLocationOutput() PrivateLocationOutput {
 
 func (o PrivateLocationOutput) ToPrivateLocationOutputWithContext(ctx context.Context) PrivateLocationOutput {
 	return o
-}
-
-func (o PrivateLocationOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLocation] {
-	return pulumix.Output[*PrivateLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The account in which the private location will be created.
@@ -333,12 +308,6 @@ func (o PrivateLocationArrayOutput) ToPrivateLocationArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o PrivateLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLocation] {
-	return pulumix.Output[[]*PrivateLocation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrivateLocationArrayOutput) Index(i pulumi.IntInput) PrivateLocationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrivateLocation {
 		return vs[0].([]*PrivateLocation)[vs[1].(int)]
@@ -357,12 +326,6 @@ func (o PrivateLocationMapOutput) ToPrivateLocationMapOutput() PrivateLocationMa
 
 func (o PrivateLocationMapOutput) ToPrivateLocationMapOutputWithContext(ctx context.Context) PrivateLocationMapOutput {
 	return o
-}
-
-func (o PrivateLocationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLocation] {
-	return pulumix.Output[map[string]*PrivateLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrivateLocationMapOutput) MapIndex(k pulumi.StringInput) PrivateLocationOutput {

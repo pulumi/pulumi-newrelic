@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -197,12 +196,6 @@ func (i *NrqlDropRule) ToNrqlDropRuleOutputWithContext(ctx context.Context) Nrql
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlDropRuleOutput)
 }
 
-func (i *NrqlDropRule) ToOutput(ctx context.Context) pulumix.Output[*NrqlDropRule] {
-	return pulumix.Output[*NrqlDropRule]{
-		OutputState: i.ToNrqlDropRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NrqlDropRuleArrayInput is an input type that accepts NrqlDropRuleArray and NrqlDropRuleArrayOutput values.
 // You can construct a concrete instance of `NrqlDropRuleArrayInput` via:
 //
@@ -226,12 +219,6 @@ func (i NrqlDropRuleArray) ToNrqlDropRuleArrayOutput() NrqlDropRuleArrayOutput {
 
 func (i NrqlDropRuleArray) ToNrqlDropRuleArrayOutputWithContext(ctx context.Context) NrqlDropRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlDropRuleArrayOutput)
-}
-
-func (i NrqlDropRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*NrqlDropRule] {
-	return pulumix.Output[[]*NrqlDropRule]{
-		OutputState: i.ToNrqlDropRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NrqlDropRuleMapInput is an input type that accepts NrqlDropRuleMap and NrqlDropRuleMapOutput values.
@@ -259,12 +246,6 @@ func (i NrqlDropRuleMap) ToNrqlDropRuleMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlDropRuleMapOutput)
 }
 
-func (i NrqlDropRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NrqlDropRule] {
-	return pulumix.Output[map[string]*NrqlDropRule]{
-		OutputState: i.ToNrqlDropRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NrqlDropRuleOutput struct{ *pulumi.OutputState }
 
 func (NrqlDropRuleOutput) ElementType() reflect.Type {
@@ -277,12 +258,6 @@ func (o NrqlDropRuleOutput) ToNrqlDropRuleOutput() NrqlDropRuleOutput {
 
 func (o NrqlDropRuleOutput) ToNrqlDropRuleOutputWithContext(ctx context.Context) NrqlDropRuleOutput {
 	return o
-}
-
-func (o NrqlDropRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*NrqlDropRule] {
-	return pulumix.Output[*NrqlDropRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Account where the drop rule will be put. Defaults to the account associated with the API key used.
@@ -324,12 +299,6 @@ func (o NrqlDropRuleArrayOutput) ToNrqlDropRuleArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o NrqlDropRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NrqlDropRule] {
-	return pulumix.Output[[]*NrqlDropRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NrqlDropRuleArrayOutput) Index(i pulumi.IntInput) NrqlDropRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NrqlDropRule {
 		return vs[0].([]*NrqlDropRule)[vs[1].(int)]
@@ -348,12 +317,6 @@ func (o NrqlDropRuleMapOutput) ToNrqlDropRuleMapOutput() NrqlDropRuleMapOutput {
 
 func (o NrqlDropRuleMapOutput) ToNrqlDropRuleMapOutputWithContext(ctx context.Context) NrqlDropRuleMapOutput {
 	return o
-}
-
-func (o NrqlDropRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NrqlDropRule] {
-	return pulumix.Output[map[string]*NrqlDropRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NrqlDropRuleMapOutput) MapIndex(k pulumi.StringInput) NrqlDropRuleOutput {
