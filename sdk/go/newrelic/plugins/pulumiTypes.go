@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i WorkloadEntitySearchQueryArgs) ToWorkloadEntitySearchQueryOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadEntitySearchQueryOutput)
 }
 
-func (i WorkloadEntitySearchQueryArgs) ToOutput(ctx context.Context) pulumix.Output[WorkloadEntitySearchQuery] {
-	return pulumix.Output[WorkloadEntitySearchQuery]{
-		OutputState: i.ToWorkloadEntitySearchQueryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkloadEntitySearchQueryArrayInput is an input type that accepts WorkloadEntitySearchQueryArray and WorkloadEntitySearchQueryArrayOutput values.
 // You can construct a concrete instance of `WorkloadEntitySearchQueryArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i WorkloadEntitySearchQueryArray) ToWorkloadEntitySearchQueryArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadEntitySearchQueryArrayOutput)
 }
 
-func (i WorkloadEntitySearchQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkloadEntitySearchQuery] {
-	return pulumix.Output[[]WorkloadEntitySearchQuery]{
-		OutputState: i.ToWorkloadEntitySearchQueryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkloadEntitySearchQueryOutput struct{ *pulumi.OutputState }
 
 func (WorkloadEntitySearchQueryOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o WorkloadEntitySearchQueryOutput) ToWorkloadEntitySearchQueryOutput() Wor
 
 func (o WorkloadEntitySearchQueryOutput) ToWorkloadEntitySearchQueryOutputWithContext(ctx context.Context) WorkloadEntitySearchQueryOutput {
 	return o
-}
-
-func (o WorkloadEntitySearchQueryOutput) ToOutput(ctx context.Context) pulumix.Output[WorkloadEntitySearchQuery] {
-	return pulumix.Output[WorkloadEntitySearchQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The query.
@@ -121,12 +102,6 @@ func (o WorkloadEntitySearchQueryArrayOutput) ToWorkloadEntitySearchQueryArrayOu
 
 func (o WorkloadEntitySearchQueryArrayOutput) ToWorkloadEntitySearchQueryArrayOutputWithContext(ctx context.Context) WorkloadEntitySearchQueryArrayOutput {
 	return o
-}
-
-func (o WorkloadEntitySearchQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkloadEntitySearchQuery] {
-	return pulumix.Output[[]WorkloadEntitySearchQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkloadEntitySearchQueryArrayOutput) Index(i pulumi.IntInput) WorkloadEntitySearchQueryOutput {
@@ -176,12 +151,6 @@ func (i WorkloadStatusConfigAutomaticArgs) ToWorkloadStatusConfigAutomaticOutput
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticOutput)
 }
 
-func (i WorkloadStatusConfigAutomaticArgs) ToOutput(ctx context.Context) pulumix.Output[WorkloadStatusConfigAutomatic] {
-	return pulumix.Output[WorkloadStatusConfigAutomatic]{
-		OutputState: i.ToWorkloadStatusConfigAutomaticOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkloadStatusConfigAutomaticArgs) ToWorkloadStatusConfigAutomaticPtrOutput() WorkloadStatusConfigAutomaticPtrOutput {
 	return i.ToWorkloadStatusConfigAutomaticPtrOutputWithContext(context.Background())
 }
@@ -223,12 +192,6 @@ func (i *workloadStatusConfigAutomaticPtrType) ToWorkloadStatusConfigAutomaticPt
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticPtrOutput)
 }
 
-func (i *workloadStatusConfigAutomaticPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkloadStatusConfigAutomatic] {
-	return pulumix.Output[*WorkloadStatusConfigAutomatic]{
-		OutputState: i.ToWorkloadStatusConfigAutomaticPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkloadStatusConfigAutomaticOutput struct{ *pulumi.OutputState }
 
 func (WorkloadStatusConfigAutomaticOutput) ElementType() reflect.Type {
@@ -251,12 +214,6 @@ func (o WorkloadStatusConfigAutomaticOutput) ToWorkloadStatusConfigAutomaticPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadStatusConfigAutomatic) *WorkloadStatusConfigAutomatic {
 		return &v
 	}).(WorkloadStatusConfigAutomaticPtrOutput)
-}
-
-func (o WorkloadStatusConfigAutomaticOutput) ToOutput(ctx context.Context) pulumix.Output[WorkloadStatusConfigAutomatic] {
-	return pulumix.Output[WorkloadStatusConfigAutomatic]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the static status configuration is enabled or not.
@@ -288,12 +245,6 @@ func (o WorkloadStatusConfigAutomaticPtrOutput) ToWorkloadStatusConfigAutomaticP
 
 func (o WorkloadStatusConfigAutomaticPtrOutput) ToWorkloadStatusConfigAutomaticPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticPtrOutput {
 	return o
-}
-
-func (o WorkloadStatusConfigAutomaticPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkloadStatusConfigAutomatic] {
-	return pulumix.Output[*WorkloadStatusConfigAutomatic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkloadStatusConfigAutomaticPtrOutput) Elem() WorkloadStatusConfigAutomaticOutput {
@@ -369,12 +320,6 @@ func (i WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs) ToWorkloadStatus
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput)
 }
 
-func (i WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs) ToOutput(ctx context.Context) pulumix.Output[WorkloadStatusConfigAutomaticRemainingEntitiesRule] {
-	return pulumix.Output[WorkloadStatusConfigAutomaticRemainingEntitiesRule]{
-		OutputState: i.ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs) ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput {
 	return i.ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutputWithContext(context.Background())
 }
@@ -416,12 +361,6 @@ func (i *workloadStatusConfigAutomaticRemainingEntitiesRulePtrType) ToWorkloadSt
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput)
 }
 
-func (i *workloadStatusConfigAutomaticRemainingEntitiesRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkloadStatusConfigAutomaticRemainingEntitiesRule] {
-	return pulumix.Output[*WorkloadStatusConfigAutomaticRemainingEntitiesRule]{
-		OutputState: i.ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput struct{ *pulumi.OutputState }
 
 func (WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput) ElementType() reflect.Type {
@@ -446,12 +385,6 @@ func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput) ToWorkloadStat
 	}).(WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput)
 }
 
-func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput) ToOutput(ctx context.Context) pulumix.Output[WorkloadStatusConfigAutomaticRemainingEntitiesRule] {
-	return pulumix.Output[WorkloadStatusConfigAutomaticRemainingEntitiesRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The input object used to represent a rollup strategy. See Nested remainingEntitiesRuleRollup blocks below for details.
 func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput) RemainingEntitiesRuleRollup() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput {
 	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRemainingEntitiesRule) WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup {
@@ -471,12 +404,6 @@ func (o WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput) ToWorkloadS
 
 func (o WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput) ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput {
 	return o
-}
-
-func (o WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkloadStatusConfigAutomaticRemainingEntitiesRule] {
-	return pulumix.Output[*WorkloadStatusConfigAutomaticRemainingEntitiesRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput) Elem() WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput {
@@ -544,12 +471,6 @@ func (i WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleR
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput)
 }
 
-func (i WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs) ToOutput(ctx context.Context) pulumix.Output[WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup] {
-	return pulumix.Output[WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup]{
-		OutputState: i.ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput {
 	return i.ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutputWithContext(context.Background())
 }
@@ -591,12 +512,6 @@ func (i *workloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRule
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput)
 }
 
-func (i *workloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup] {
-	return pulumix.Output[*WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup]{
-		OutputState: i.ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput struct{ *pulumi.OutputState }
 
 func (WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput) ElementType() reflect.Type {
@@ -619,12 +534,6 @@ func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleR
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup) *WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup {
 		return &v
 	}).(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput)
-}
-
-func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput) ToOutput(ctx context.Context) pulumix.Output[WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup] {
-	return pulumix.Output[WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The grouping to be applied to the remaining entities.
@@ -667,12 +576,6 @@ func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleR
 
 func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput {
 	return o
-}
-
-func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup] {
-	return pulumix.Output[*WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput) Elem() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput {
@@ -766,12 +669,6 @@ func (i WorkloadStatusConfigAutomaticRuleArgs) ToWorkloadStatusConfigAutomaticRu
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRuleOutput)
 }
 
-func (i WorkloadStatusConfigAutomaticRuleArgs) ToOutput(ctx context.Context) pulumix.Output[WorkloadStatusConfigAutomaticRule] {
-	return pulumix.Output[WorkloadStatusConfigAutomaticRule]{
-		OutputState: i.ToWorkloadStatusConfigAutomaticRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkloadStatusConfigAutomaticRuleArrayInput is an input type that accepts WorkloadStatusConfigAutomaticRuleArray and WorkloadStatusConfigAutomaticRuleArrayOutput values.
 // You can construct a concrete instance of `WorkloadStatusConfigAutomaticRuleArrayInput` via:
 //
@@ -797,12 +694,6 @@ func (i WorkloadStatusConfigAutomaticRuleArray) ToWorkloadStatusConfigAutomaticR
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRuleArrayOutput)
 }
 
-func (i WorkloadStatusConfigAutomaticRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkloadStatusConfigAutomaticRule] {
-	return pulumix.Output[[]WorkloadStatusConfigAutomaticRule]{
-		OutputState: i.ToWorkloadStatusConfigAutomaticRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkloadStatusConfigAutomaticRuleOutput struct{ *pulumi.OutputState }
 
 func (WorkloadStatusConfigAutomaticRuleOutput) ElementType() reflect.Type {
@@ -815,12 +706,6 @@ func (o WorkloadStatusConfigAutomaticRuleOutput) ToWorkloadStatusConfigAutomatic
 
 func (o WorkloadStatusConfigAutomaticRuleOutput) ToWorkloadStatusConfigAutomaticRuleOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRuleOutput {
 	return o
-}
-
-func (o WorkloadStatusConfigAutomaticRuleOutput) ToOutput(ctx context.Context) pulumix.Output[WorkloadStatusConfigAutomaticRule] {
-	return pulumix.Output[WorkloadStatusConfigAutomaticRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of entity GUIDs composing the rule. At least one of `entityGuids` or `nrqlQuery` must be defined.
@@ -852,12 +737,6 @@ func (o WorkloadStatusConfigAutomaticRuleArrayOutput) ToWorkloadStatusConfigAuto
 
 func (o WorkloadStatusConfigAutomaticRuleArrayOutput) ToWorkloadStatusConfigAutomaticRuleArrayOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRuleArrayOutput {
 	return o
-}
-
-func (o WorkloadStatusConfigAutomaticRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkloadStatusConfigAutomaticRule] {
-	return pulumix.Output[[]WorkloadStatusConfigAutomaticRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkloadStatusConfigAutomaticRuleArrayOutput) Index(i pulumi.IntInput) WorkloadStatusConfigAutomaticRuleOutput {
@@ -899,12 +778,6 @@ func (i WorkloadStatusConfigAutomaticRuleNrqlQueryArgs) ToWorkloadStatusConfigAu
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRuleNrqlQueryOutput)
 }
 
-func (i WorkloadStatusConfigAutomaticRuleNrqlQueryArgs) ToOutput(ctx context.Context) pulumix.Output[WorkloadStatusConfigAutomaticRuleNrqlQuery] {
-	return pulumix.Output[WorkloadStatusConfigAutomaticRuleNrqlQuery]{
-		OutputState: i.ToWorkloadStatusConfigAutomaticRuleNrqlQueryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkloadStatusConfigAutomaticRuleNrqlQueryArrayInput is an input type that accepts WorkloadStatusConfigAutomaticRuleNrqlQueryArray and WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput values.
 // You can construct a concrete instance of `WorkloadStatusConfigAutomaticRuleNrqlQueryArrayInput` via:
 //
@@ -930,12 +803,6 @@ func (i WorkloadStatusConfigAutomaticRuleNrqlQueryArray) ToWorkloadStatusConfigA
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput)
 }
 
-func (i WorkloadStatusConfigAutomaticRuleNrqlQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkloadStatusConfigAutomaticRuleNrqlQuery] {
-	return pulumix.Output[[]WorkloadStatusConfigAutomaticRuleNrqlQuery]{
-		OutputState: i.ToWorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkloadStatusConfigAutomaticRuleNrqlQueryOutput struct{ *pulumi.OutputState }
 
 func (WorkloadStatusConfigAutomaticRuleNrqlQueryOutput) ElementType() reflect.Type {
@@ -948,12 +815,6 @@ func (o WorkloadStatusConfigAutomaticRuleNrqlQueryOutput) ToWorkloadStatusConfig
 
 func (o WorkloadStatusConfigAutomaticRuleNrqlQueryOutput) ToWorkloadStatusConfigAutomaticRuleNrqlQueryOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRuleNrqlQueryOutput {
 	return o
-}
-
-func (o WorkloadStatusConfigAutomaticRuleNrqlQueryOutput) ToOutput(ctx context.Context) pulumix.Output[WorkloadStatusConfigAutomaticRuleNrqlQuery] {
-	return pulumix.Output[WorkloadStatusConfigAutomaticRuleNrqlQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The entity search query that is used to perform the search of a group of entities.
@@ -973,12 +834,6 @@ func (o WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput) ToWorkloadStatusC
 
 func (o WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput) ToWorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput {
 	return o
-}
-
-func (o WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkloadStatusConfigAutomaticRuleNrqlQuery] {
-	return pulumix.Output[[]WorkloadStatusConfigAutomaticRuleNrqlQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput) Index(i pulumi.IntInput) WorkloadStatusConfigAutomaticRuleNrqlQueryOutput {
@@ -1028,12 +883,6 @@ func (i WorkloadStatusConfigAutomaticRuleRollupArgs) ToWorkloadStatusConfigAutom
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRuleRollupOutput)
 }
 
-func (i WorkloadStatusConfigAutomaticRuleRollupArgs) ToOutput(ctx context.Context) pulumix.Output[WorkloadStatusConfigAutomaticRuleRollup] {
-	return pulumix.Output[WorkloadStatusConfigAutomaticRuleRollup]{
-		OutputState: i.ToWorkloadStatusConfigAutomaticRuleRollupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkloadStatusConfigAutomaticRuleRollupOutput struct{ *pulumi.OutputState }
 
 func (WorkloadStatusConfigAutomaticRuleRollupOutput) ElementType() reflect.Type {
@@ -1046,12 +895,6 @@ func (o WorkloadStatusConfigAutomaticRuleRollupOutput) ToWorkloadStatusConfigAut
 
 func (o WorkloadStatusConfigAutomaticRuleRollupOutput) ToWorkloadStatusConfigAutomaticRuleRollupOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRuleRollupOutput {
 	return o
-}
-
-func (o WorkloadStatusConfigAutomaticRuleRollupOutput) ToOutput(ctx context.Context) pulumix.Output[WorkloadStatusConfigAutomaticRuleRollup] {
-	return pulumix.Output[WorkloadStatusConfigAutomaticRuleRollup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The rollup strategy that is applied to a group of entities.
@@ -1114,12 +957,6 @@ func (i WorkloadStatusConfigStaticArgs) ToWorkloadStatusConfigStaticOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigStaticOutput)
 }
 
-func (i WorkloadStatusConfigStaticArgs) ToOutput(ctx context.Context) pulumix.Output[WorkloadStatusConfigStatic] {
-	return pulumix.Output[WorkloadStatusConfigStatic]{
-		OutputState: i.ToWorkloadStatusConfigStaticOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkloadStatusConfigStaticArgs) ToWorkloadStatusConfigStaticPtrOutput() WorkloadStatusConfigStaticPtrOutput {
 	return i.ToWorkloadStatusConfigStaticPtrOutputWithContext(context.Background())
 }
@@ -1161,12 +998,6 @@ func (i *workloadStatusConfigStaticPtrType) ToWorkloadStatusConfigStaticPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigStaticPtrOutput)
 }
 
-func (i *workloadStatusConfigStaticPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkloadStatusConfigStatic] {
-	return pulumix.Output[*WorkloadStatusConfigStatic]{
-		OutputState: i.ToWorkloadStatusConfigStaticPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkloadStatusConfigStaticOutput struct{ *pulumi.OutputState }
 
 func (WorkloadStatusConfigStaticOutput) ElementType() reflect.Type {
@@ -1189,12 +1020,6 @@ func (o WorkloadStatusConfigStaticOutput) ToWorkloadStatusConfigStaticPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadStatusConfigStatic) *WorkloadStatusConfigStatic {
 		return &v
 	}).(WorkloadStatusConfigStaticPtrOutput)
-}
-
-func (o WorkloadStatusConfigStaticOutput) ToOutput(ctx context.Context) pulumix.Output[WorkloadStatusConfigStatic] {
-	return pulumix.Output[WorkloadStatusConfigStatic]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Relevant information about the workload.
@@ -1229,12 +1054,6 @@ func (o WorkloadStatusConfigStaticPtrOutput) ToWorkloadStatusConfigStaticPtrOutp
 
 func (o WorkloadStatusConfigStaticPtrOutput) ToWorkloadStatusConfigStaticPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigStaticPtrOutput {
 	return o
-}
-
-func (o WorkloadStatusConfigStaticPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkloadStatusConfigStatic] {
-	return pulumix.Output[*WorkloadStatusConfigStatic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkloadStatusConfigStaticPtrOutput) Elem() WorkloadStatusConfigStaticOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific entity in New Relic One that already exists.
@@ -168,12 +167,6 @@ func (o GetEntityResultOutput) ToGetEntityResultOutput() GetEntityResultOutput {
 
 func (o GetEntityResultOutput) ToGetEntityResultOutputWithContext(ctx context.Context) GetEntityResultOutput {
 	return o
-}
-
-func (o GetEntityResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEntityResult] {
-	return pulumix.Output[GetEntityResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetEntityResultOutput) AccountId() pulumi.IntOutput {

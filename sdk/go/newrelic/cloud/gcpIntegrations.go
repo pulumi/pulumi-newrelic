@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to integrate GCP services with New Relic.
@@ -500,12 +499,6 @@ func (i *GcpIntegrations) ToGcpIntegrationsOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsOutput)
 }
 
-func (i *GcpIntegrations) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrations] {
-	return pulumix.Output[*GcpIntegrations]{
-		OutputState: i.ToGcpIntegrationsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GcpIntegrationsArrayInput is an input type that accepts GcpIntegrationsArray and GcpIntegrationsArrayOutput values.
 // You can construct a concrete instance of `GcpIntegrationsArrayInput` via:
 //
@@ -529,12 +522,6 @@ func (i GcpIntegrationsArray) ToGcpIntegrationsArrayOutput() GcpIntegrationsArra
 
 func (i GcpIntegrationsArray) ToGcpIntegrationsArrayOutputWithContext(ctx context.Context) GcpIntegrationsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsArrayOutput)
-}
-
-func (i GcpIntegrationsArray) ToOutput(ctx context.Context) pulumix.Output[[]*GcpIntegrations] {
-	return pulumix.Output[[]*GcpIntegrations]{
-		OutputState: i.ToGcpIntegrationsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GcpIntegrationsMapInput is an input type that accepts GcpIntegrationsMap and GcpIntegrationsMapOutput values.
@@ -562,12 +549,6 @@ func (i GcpIntegrationsMap) ToGcpIntegrationsMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsMapOutput)
 }
 
-func (i GcpIntegrationsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GcpIntegrations] {
-	return pulumix.Output[map[string]*GcpIntegrations]{
-		OutputState: i.ToGcpIntegrationsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GcpIntegrationsOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsOutput) ElementType() reflect.Type {
@@ -580,12 +561,6 @@ func (o GcpIntegrationsOutput) ToGcpIntegrationsOutput() GcpIntegrationsOutput {
 
 func (o GcpIntegrationsOutput) ToGcpIntegrationsOutputWithContext(ctx context.Context) GcpIntegrationsOutput {
 	return o
-}
-
-func (o GcpIntegrationsOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpIntegrations] {
-	return pulumix.Output[*GcpIntegrations]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -742,12 +717,6 @@ func (o GcpIntegrationsArrayOutput) ToGcpIntegrationsArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o GcpIntegrationsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GcpIntegrations] {
-	return pulumix.Output[[]*GcpIntegrations]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GcpIntegrationsArrayOutput) Index(i pulumi.IntInput) GcpIntegrationsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GcpIntegrations {
 		return vs[0].([]*GcpIntegrations)[vs[1].(int)]
@@ -766,12 +735,6 @@ func (o GcpIntegrationsMapOutput) ToGcpIntegrationsMapOutput() GcpIntegrationsMa
 
 func (o GcpIntegrationsMapOutput) ToGcpIntegrationsMapOutputWithContext(ctx context.Context) GcpIntegrationsMapOutput {
 	return o
-}
-
-func (o GcpIntegrationsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GcpIntegrations] {
-	return pulumix.Output[map[string]*GcpIntegrations]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GcpIntegrationsMapOutput) MapIndex(k pulumi.StringInput) GcpIntegrationsOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
@@ -109,12 +108,6 @@ func (o LookupSecureCredentialResultOutput) ToLookupSecureCredentialResultOutput
 
 func (o LookupSecureCredentialResultOutput) ToLookupSecureCredentialResultOutputWithContext(ctx context.Context) LookupSecureCredentialResultOutput {
 	return o
-}
-
-func (o LookupSecureCredentialResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSecureCredentialResult] {
-	return pulumix.Output[LookupSecureCredentialResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSecureCredentialResultOutput) AccountId() pulumi.IntOutput {

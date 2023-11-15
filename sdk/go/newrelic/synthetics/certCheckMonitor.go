@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
@@ -308,12 +307,6 @@ func (i *CertCheckMonitor) ToCertCheckMonitorOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CertCheckMonitorOutput)
 }
 
-func (i *CertCheckMonitor) ToOutput(ctx context.Context) pulumix.Output[*CertCheckMonitor] {
-	return pulumix.Output[*CertCheckMonitor]{
-		OutputState: i.ToCertCheckMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertCheckMonitorArrayInput is an input type that accepts CertCheckMonitorArray and CertCheckMonitorArrayOutput values.
 // You can construct a concrete instance of `CertCheckMonitorArrayInput` via:
 //
@@ -337,12 +330,6 @@ func (i CertCheckMonitorArray) ToCertCheckMonitorArrayOutput() CertCheckMonitorA
 
 func (i CertCheckMonitorArray) ToCertCheckMonitorArrayOutputWithContext(ctx context.Context) CertCheckMonitorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertCheckMonitorArrayOutput)
-}
-
-func (i CertCheckMonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]*CertCheckMonitor] {
-	return pulumix.Output[[]*CertCheckMonitor]{
-		OutputState: i.ToCertCheckMonitorArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CertCheckMonitorMapInput is an input type that accepts CertCheckMonitorMap and CertCheckMonitorMapOutput values.
@@ -370,12 +357,6 @@ func (i CertCheckMonitorMap) ToCertCheckMonitorMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CertCheckMonitorMapOutput)
 }
 
-func (i CertCheckMonitorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertCheckMonitor] {
-	return pulumix.Output[map[string]*CertCheckMonitor]{
-		OutputState: i.ToCertCheckMonitorMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertCheckMonitorOutput struct{ *pulumi.OutputState }
 
 func (CertCheckMonitorOutput) ElementType() reflect.Type {
@@ -388,12 +369,6 @@ func (o CertCheckMonitorOutput) ToCertCheckMonitorOutput() CertCheckMonitorOutpu
 
 func (o CertCheckMonitorOutput) ToCertCheckMonitorOutputWithContext(ctx context.Context) CertCheckMonitorOutput {
 	return o
-}
-
-func (o CertCheckMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[*CertCheckMonitor] {
-	return pulumix.Output[*CertCheckMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The account in which the Synthetics monitor will be created.
@@ -462,12 +437,6 @@ func (o CertCheckMonitorArrayOutput) ToCertCheckMonitorArrayOutputWithContext(ct
 	return o
 }
 
-func (o CertCheckMonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CertCheckMonitor] {
-	return pulumix.Output[[]*CertCheckMonitor]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertCheckMonitorArrayOutput) Index(i pulumi.IntInput) CertCheckMonitorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CertCheckMonitor {
 		return vs[0].([]*CertCheckMonitor)[vs[1].(int)]
@@ -486,12 +455,6 @@ func (o CertCheckMonitorMapOutput) ToCertCheckMonitorMapOutput() CertCheckMonito
 
 func (o CertCheckMonitorMapOutput) ToCertCheckMonitorMapOutputWithContext(ctx context.Context) CertCheckMonitorMapOutput {
 	return o
-}
-
-func (o CertCheckMonitorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertCheckMonitor] {
-	return pulumix.Output[map[string]*CertCheckMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertCheckMonitorMapOutput) MapIndex(k pulumi.StringInput) CertCheckMonitorOutput {

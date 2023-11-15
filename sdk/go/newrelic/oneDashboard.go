@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -171,12 +170,6 @@ func (i *OneDashboard) ToOneDashboardOutputWithContext(ctx context.Context) OneD
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardOutput)
 }
 
-func (i *OneDashboard) ToOutput(ctx context.Context) pulumix.Output[*OneDashboard] {
-	return pulumix.Output[*OneDashboard]{
-		OutputState: i.ToOneDashboardOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OneDashboardArrayInput is an input type that accepts OneDashboardArray and OneDashboardArrayOutput values.
 // You can construct a concrete instance of `OneDashboardArrayInput` via:
 //
@@ -200,12 +193,6 @@ func (i OneDashboardArray) ToOneDashboardArrayOutput() OneDashboardArrayOutput {
 
 func (i OneDashboardArray) ToOneDashboardArrayOutputWithContext(ctx context.Context) OneDashboardArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardArrayOutput)
-}
-
-func (i OneDashboardArray) ToOutput(ctx context.Context) pulumix.Output[[]*OneDashboard] {
-	return pulumix.Output[[]*OneDashboard]{
-		OutputState: i.ToOneDashboardArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OneDashboardMapInput is an input type that accepts OneDashboardMap and OneDashboardMapOutput values.
@@ -233,12 +220,6 @@ func (i OneDashboardMap) ToOneDashboardMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardMapOutput)
 }
 
-func (i OneDashboardMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OneDashboard] {
-	return pulumix.Output[map[string]*OneDashboard]{
-		OutputState: i.ToOneDashboardMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OneDashboardOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardOutput) ElementType() reflect.Type {
@@ -251,12 +232,6 @@ func (o OneDashboardOutput) ToOneDashboardOutput() OneDashboardOutput {
 
 func (o OneDashboardOutput) ToOneDashboardOutputWithContext(ctx context.Context) OneDashboardOutput {
 	return o
-}
-
-func (o OneDashboardOutput) ToOutput(ctx context.Context) pulumix.Output[*OneDashboard] {
-	return pulumix.Output[*OneDashboard]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -313,12 +288,6 @@ func (o OneDashboardArrayOutput) ToOneDashboardArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o OneDashboardArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OneDashboard] {
-	return pulumix.Output[[]*OneDashboard]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OneDashboardArrayOutput) Index(i pulumi.IntInput) OneDashboardOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OneDashboard {
 		return vs[0].([]*OneDashboard)[vs[1].(int)]
@@ -337,12 +306,6 @@ func (o OneDashboardMapOutput) ToOneDashboardMapOutput() OneDashboardMapOutput {
 
 func (o OneDashboardMapOutput) ToOneDashboardMapOutputWithContext(ctx context.Context) OneDashboardMapOutput {
 	return o
-}
-
-func (o OneDashboardMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OneDashboard] {
-	return pulumix.Output[map[string]*OneDashboard]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OneDashboardMapOutput) MapIndex(k pulumi.StringInput) OneDashboardOutput {

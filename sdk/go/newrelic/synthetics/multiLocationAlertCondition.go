@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create, update, and delete a New Relic Synthetics Location Alerts.
@@ -357,12 +356,6 @@ func (i *MultiLocationAlertCondition) ToMultiLocationAlertConditionOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(MultiLocationAlertConditionOutput)
 }
 
-func (i *MultiLocationAlertCondition) ToOutput(ctx context.Context) pulumix.Output[*MultiLocationAlertCondition] {
-	return pulumix.Output[*MultiLocationAlertCondition]{
-		OutputState: i.ToMultiLocationAlertConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MultiLocationAlertConditionArrayInput is an input type that accepts MultiLocationAlertConditionArray and MultiLocationAlertConditionArrayOutput values.
 // You can construct a concrete instance of `MultiLocationAlertConditionArrayInput` via:
 //
@@ -386,12 +379,6 @@ func (i MultiLocationAlertConditionArray) ToMultiLocationAlertConditionArrayOutp
 
 func (i MultiLocationAlertConditionArray) ToMultiLocationAlertConditionArrayOutputWithContext(ctx context.Context) MultiLocationAlertConditionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MultiLocationAlertConditionArrayOutput)
-}
-
-func (i MultiLocationAlertConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]*MultiLocationAlertCondition] {
-	return pulumix.Output[[]*MultiLocationAlertCondition]{
-		OutputState: i.ToMultiLocationAlertConditionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MultiLocationAlertConditionMapInput is an input type that accepts MultiLocationAlertConditionMap and MultiLocationAlertConditionMapOutput values.
@@ -419,12 +406,6 @@ func (i MultiLocationAlertConditionMap) ToMultiLocationAlertConditionMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MultiLocationAlertConditionMapOutput)
 }
 
-func (i MultiLocationAlertConditionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MultiLocationAlertCondition] {
-	return pulumix.Output[map[string]*MultiLocationAlertCondition]{
-		OutputState: i.ToMultiLocationAlertConditionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MultiLocationAlertConditionOutput struct{ *pulumi.OutputState }
 
 func (MultiLocationAlertConditionOutput) ElementType() reflect.Type {
@@ -437,12 +418,6 @@ func (o MultiLocationAlertConditionOutput) ToMultiLocationAlertConditionOutput()
 
 func (o MultiLocationAlertConditionOutput) ToMultiLocationAlertConditionOutputWithContext(ctx context.Context) MultiLocationAlertConditionOutput {
 	return o
-}
-
-func (o MultiLocationAlertConditionOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiLocationAlertCondition] {
-	return pulumix.Output[*MultiLocationAlertCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A condition term with the priority set to critical.
@@ -506,12 +481,6 @@ func (o MultiLocationAlertConditionArrayOutput) ToMultiLocationAlertConditionArr
 	return o
 }
 
-func (o MultiLocationAlertConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MultiLocationAlertCondition] {
-	return pulumix.Output[[]*MultiLocationAlertCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MultiLocationAlertConditionArrayOutput) Index(i pulumi.IntInput) MultiLocationAlertConditionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MultiLocationAlertCondition {
 		return vs[0].([]*MultiLocationAlertCondition)[vs[1].(int)]
@@ -530,12 +499,6 @@ func (o MultiLocationAlertConditionMapOutput) ToMultiLocationAlertConditionMapOu
 
 func (o MultiLocationAlertConditionMapOutput) ToMultiLocationAlertConditionMapOutputWithContext(ctx context.Context) MultiLocationAlertConditionMapOutput {
 	return o
-}
-
-func (o MultiLocationAlertConditionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MultiLocationAlertCondition] {
-	return pulumix.Output[map[string]*MultiLocationAlertCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiLocationAlertConditionMapOutput) MapIndex(k pulumi.StringInput) MultiLocationAlertConditionOutput {

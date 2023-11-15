@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create and manage Infrastructure alert conditions in New Relic.
@@ -511,12 +510,6 @@ func (i *InfraAlertCondition) ToInfraAlertConditionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionOutput)
 }
 
-func (i *InfraAlertCondition) ToOutput(ctx context.Context) pulumix.Output[*InfraAlertCondition] {
-	return pulumix.Output[*InfraAlertCondition]{
-		OutputState: i.ToInfraAlertConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InfraAlertConditionArrayInput is an input type that accepts InfraAlertConditionArray and InfraAlertConditionArrayOutput values.
 // You can construct a concrete instance of `InfraAlertConditionArrayInput` via:
 //
@@ -540,12 +533,6 @@ func (i InfraAlertConditionArray) ToInfraAlertConditionArrayOutput() InfraAlertC
 
 func (i InfraAlertConditionArray) ToInfraAlertConditionArrayOutputWithContext(ctx context.Context) InfraAlertConditionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionArrayOutput)
-}
-
-func (i InfraAlertConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]*InfraAlertCondition] {
-	return pulumix.Output[[]*InfraAlertCondition]{
-		OutputState: i.ToInfraAlertConditionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InfraAlertConditionMapInput is an input type that accepts InfraAlertConditionMap and InfraAlertConditionMapOutput values.
@@ -573,12 +560,6 @@ func (i InfraAlertConditionMap) ToInfraAlertConditionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionMapOutput)
 }
 
-func (i InfraAlertConditionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InfraAlertCondition] {
-	return pulumix.Output[map[string]*InfraAlertCondition]{
-		OutputState: i.ToInfraAlertConditionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InfraAlertConditionOutput struct{ *pulumi.OutputState }
 
 func (InfraAlertConditionOutput) ElementType() reflect.Type {
@@ -591,12 +572,6 @@ func (o InfraAlertConditionOutput) ToInfraAlertConditionOutput() InfraAlertCondi
 
 func (o InfraAlertConditionOutput) ToInfraAlertConditionOutputWithContext(ctx context.Context) InfraAlertConditionOutput {
 	return o
-}
-
-func (o InfraAlertConditionOutput) ToOutput(ctx context.Context) pulumix.Output[*InfraAlertCondition] {
-	return pulumix.Output[*InfraAlertCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
@@ -720,12 +695,6 @@ func (o InfraAlertConditionArrayOutput) ToInfraAlertConditionArrayOutputWithCont
 	return o
 }
 
-func (o InfraAlertConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InfraAlertCondition] {
-	return pulumix.Output[[]*InfraAlertCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InfraAlertConditionArrayOutput) Index(i pulumi.IntInput) InfraAlertConditionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InfraAlertCondition {
 		return vs[0].([]*InfraAlertCondition)[vs[1].(int)]
@@ -744,12 +713,6 @@ func (o InfraAlertConditionMapOutput) ToInfraAlertConditionMapOutput() InfraAler
 
 func (o InfraAlertConditionMapOutput) ToInfraAlertConditionMapOutputWithContext(ctx context.Context) InfraAlertConditionMapOutput {
 	return o
-}
-
-func (o InfraAlertConditionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InfraAlertCondition] {
-	return pulumix.Output[map[string]*InfraAlertCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InfraAlertConditionMapOutput) MapIndex(k pulumi.StringInput) InfraAlertConditionOutput {

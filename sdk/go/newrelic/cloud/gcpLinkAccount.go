@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to link a GCP account to New Relic.
@@ -172,12 +171,6 @@ func (i *GcpLinkAccount) ToGcpLinkAccountOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(GcpLinkAccountOutput)
 }
 
-func (i *GcpLinkAccount) ToOutput(ctx context.Context) pulumix.Output[*GcpLinkAccount] {
-	return pulumix.Output[*GcpLinkAccount]{
-		OutputState: i.ToGcpLinkAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GcpLinkAccountArrayInput is an input type that accepts GcpLinkAccountArray and GcpLinkAccountArrayOutput values.
 // You can construct a concrete instance of `GcpLinkAccountArrayInput` via:
 //
@@ -201,12 +194,6 @@ func (i GcpLinkAccountArray) ToGcpLinkAccountArrayOutput() GcpLinkAccountArrayOu
 
 func (i GcpLinkAccountArray) ToGcpLinkAccountArrayOutputWithContext(ctx context.Context) GcpLinkAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GcpLinkAccountArrayOutput)
-}
-
-func (i GcpLinkAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*GcpLinkAccount] {
-	return pulumix.Output[[]*GcpLinkAccount]{
-		OutputState: i.ToGcpLinkAccountArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GcpLinkAccountMapInput is an input type that accepts GcpLinkAccountMap and GcpLinkAccountMapOutput values.
@@ -234,12 +221,6 @@ func (i GcpLinkAccountMap) ToGcpLinkAccountMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GcpLinkAccountMapOutput)
 }
 
-func (i GcpLinkAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GcpLinkAccount] {
-	return pulumix.Output[map[string]*GcpLinkAccount]{
-		OutputState: i.ToGcpLinkAccountMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GcpLinkAccountOutput struct{ *pulumi.OutputState }
 
 func (GcpLinkAccountOutput) ElementType() reflect.Type {
@@ -252,12 +233,6 @@ func (o GcpLinkAccountOutput) ToGcpLinkAccountOutput() GcpLinkAccountOutput {
 
 func (o GcpLinkAccountOutput) ToGcpLinkAccountOutputWithContext(ctx context.Context) GcpLinkAccountOutput {
 	return o
-}
-
-func (o GcpLinkAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*GcpLinkAccount] {
-	return pulumix.Output[*GcpLinkAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Account ID of the New Relic account.
@@ -289,12 +264,6 @@ func (o GcpLinkAccountArrayOutput) ToGcpLinkAccountArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o GcpLinkAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GcpLinkAccount] {
-	return pulumix.Output[[]*GcpLinkAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GcpLinkAccountArrayOutput) Index(i pulumi.IntInput) GcpLinkAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GcpLinkAccount {
 		return vs[0].([]*GcpLinkAccount)[vs[1].(int)]
@@ -313,12 +282,6 @@ func (o GcpLinkAccountMapOutput) ToGcpLinkAccountMapOutput() GcpLinkAccountMapOu
 
 func (o GcpLinkAccountMapOutput) ToGcpLinkAccountMapOutputWithContext(ctx context.Context) GcpLinkAccountMapOutput {
 	return o
-}
-
-func (o GcpLinkAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GcpLinkAccount] {
-	return pulumix.Output[map[string]*GcpLinkAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GcpLinkAccountMapOutput) MapIndex(k pulumi.StringInput) GcpLinkAccountOutput {
