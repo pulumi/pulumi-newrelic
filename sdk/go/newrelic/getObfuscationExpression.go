@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
@@ -121,12 +120,6 @@ func (o LookupObfuscationExpressionResultOutput) ToLookupObfuscationExpressionRe
 
 func (o LookupObfuscationExpressionResultOutput) ToLookupObfuscationExpressionResultOutputWithContext(ctx context.Context) LookupObfuscationExpressionResultOutput {
 	return o
-}
-
-func (o LookupObfuscationExpressionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupObfuscationExpressionResult] {
-	return pulumix.Output[LookupObfuscationExpressionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupObfuscationExpressionResultOutput) AccountId() pulumi.IntPtrOutput {

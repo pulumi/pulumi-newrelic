@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific account in New Relic.
@@ -110,12 +109,6 @@ func (o GetAccountResultOutput) ToGetAccountResultOutput() GetAccountResultOutpu
 
 func (o GetAccountResultOutput) ToGetAccountResultOutputWithContext(ctx context.Context) GetAccountResultOutput {
 	return o
-}
-
-func (o GetAccountResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountResult] {
-	return pulumix.Output[GetAccountResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAccountResultOutput) AccountId() pulumi.IntPtrOutput {

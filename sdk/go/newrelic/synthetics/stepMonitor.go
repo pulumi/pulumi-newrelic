@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
@@ -270,12 +269,6 @@ func (i *StepMonitor) ToStepMonitorOutputWithContext(ctx context.Context) StepMo
 	return pulumi.ToOutputWithContext(ctx, i).(StepMonitorOutput)
 }
 
-func (i *StepMonitor) ToOutput(ctx context.Context) pulumix.Output[*StepMonitor] {
-	return pulumix.Output[*StepMonitor]{
-		OutputState: i.ToStepMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StepMonitorArrayInput is an input type that accepts StepMonitorArray and StepMonitorArrayOutput values.
 // You can construct a concrete instance of `StepMonitorArrayInput` via:
 //
@@ -299,12 +292,6 @@ func (i StepMonitorArray) ToStepMonitorArrayOutput() StepMonitorArrayOutput {
 
 func (i StepMonitorArray) ToStepMonitorArrayOutputWithContext(ctx context.Context) StepMonitorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StepMonitorArrayOutput)
-}
-
-func (i StepMonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]*StepMonitor] {
-	return pulumix.Output[[]*StepMonitor]{
-		OutputState: i.ToStepMonitorArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StepMonitorMapInput is an input type that accepts StepMonitorMap and StepMonitorMapOutput values.
@@ -332,12 +319,6 @@ func (i StepMonitorMap) ToStepMonitorMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(StepMonitorMapOutput)
 }
 
-func (i StepMonitorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StepMonitor] {
-	return pulumix.Output[map[string]*StepMonitor]{
-		OutputState: i.ToStepMonitorMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StepMonitorOutput struct{ *pulumi.OutputState }
 
 func (StepMonitorOutput) ElementType() reflect.Type {
@@ -350,12 +331,6 @@ func (o StepMonitorOutput) ToStepMonitorOutput() StepMonitorOutput {
 
 func (o StepMonitorOutput) ToStepMonitorOutputWithContext(ctx context.Context) StepMonitorOutput {
 	return o
-}
-
-func (o StepMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[*StepMonitor] {
-	return pulumix.Output[*StepMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The account in which the Synthetics monitor will be created.
@@ -429,12 +404,6 @@ func (o StepMonitorArrayOutput) ToStepMonitorArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o StepMonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StepMonitor] {
-	return pulumix.Output[[]*StepMonitor]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StepMonitorArrayOutput) Index(i pulumi.IntInput) StepMonitorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StepMonitor {
 		return vs[0].([]*StepMonitor)[vs[1].(int)]
@@ -453,12 +422,6 @@ func (o StepMonitorMapOutput) ToStepMonitorMapOutput() StepMonitorMapOutput {
 
 func (o StepMonitorMapOutput) ToStepMonitorMapOutputWithContext(ctx context.Context) StepMonitorMapOutput {
 	return o
-}
-
-func (o StepMonitorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StepMonitor] {
-	return pulumix.Output[map[string]*StepMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StepMonitorMapOutput) MapIndex(k pulumi.StringInput) StepMonitorOutput {

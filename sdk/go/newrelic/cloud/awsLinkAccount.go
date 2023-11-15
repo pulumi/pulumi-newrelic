@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to link an AWS account to New Relic.
@@ -178,12 +177,6 @@ func (i *AwsLinkAccount) ToAwsLinkAccountOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AwsLinkAccountOutput)
 }
 
-func (i *AwsLinkAccount) ToOutput(ctx context.Context) pulumix.Output[*AwsLinkAccount] {
-	return pulumix.Output[*AwsLinkAccount]{
-		OutputState: i.ToAwsLinkAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AwsLinkAccountArrayInput is an input type that accepts AwsLinkAccountArray and AwsLinkAccountArrayOutput values.
 // You can construct a concrete instance of `AwsLinkAccountArrayInput` via:
 //
@@ -207,12 +200,6 @@ func (i AwsLinkAccountArray) ToAwsLinkAccountArrayOutput() AwsLinkAccountArrayOu
 
 func (i AwsLinkAccountArray) ToAwsLinkAccountArrayOutputWithContext(ctx context.Context) AwsLinkAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AwsLinkAccountArrayOutput)
-}
-
-func (i AwsLinkAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*AwsLinkAccount] {
-	return pulumix.Output[[]*AwsLinkAccount]{
-		OutputState: i.ToAwsLinkAccountArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AwsLinkAccountMapInput is an input type that accepts AwsLinkAccountMap and AwsLinkAccountMapOutput values.
@@ -240,12 +227,6 @@ func (i AwsLinkAccountMap) ToAwsLinkAccountMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AwsLinkAccountMapOutput)
 }
 
-func (i AwsLinkAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AwsLinkAccount] {
-	return pulumix.Output[map[string]*AwsLinkAccount]{
-		OutputState: i.ToAwsLinkAccountMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AwsLinkAccountOutput struct{ *pulumi.OutputState }
 
 func (AwsLinkAccountOutput) ElementType() reflect.Type {
@@ -258,12 +239,6 @@ func (o AwsLinkAccountOutput) ToAwsLinkAccountOutput() AwsLinkAccountOutput {
 
 func (o AwsLinkAccountOutput) ToAwsLinkAccountOutputWithContext(ctx context.Context) AwsLinkAccountOutput {
 	return o
-}
-
-func (o AwsLinkAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*AwsLinkAccount] {
-	return pulumix.Output[*AwsLinkAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -300,12 +275,6 @@ func (o AwsLinkAccountArrayOutput) ToAwsLinkAccountArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o AwsLinkAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AwsLinkAccount] {
-	return pulumix.Output[[]*AwsLinkAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AwsLinkAccountArrayOutput) Index(i pulumi.IntInput) AwsLinkAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AwsLinkAccount {
 		return vs[0].([]*AwsLinkAccount)[vs[1].(int)]
@@ -324,12 +293,6 @@ func (o AwsLinkAccountMapOutput) ToAwsLinkAccountMapOutput() AwsLinkAccountMapOu
 
 func (o AwsLinkAccountMapOutput) ToAwsLinkAccountMapOutputWithContext(ctx context.Context) AwsLinkAccountMapOutput {
 	return o
-}
-
-func (o AwsLinkAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AwsLinkAccount] {
-	return pulumix.Output[map[string]*AwsLinkAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AwsLinkAccountMapOutput) MapIndex(k pulumi.StringInput) AwsLinkAccountOutput {

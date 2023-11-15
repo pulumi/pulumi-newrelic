@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to create and manage NRQL alert conditions in New Relic.
@@ -587,12 +586,6 @@ func (i *NrqlAlertCondition) ToNrqlAlertConditionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionOutput)
 }
 
-func (i *NrqlAlertCondition) ToOutput(ctx context.Context) pulumix.Output[*NrqlAlertCondition] {
-	return pulumix.Output[*NrqlAlertCondition]{
-		OutputState: i.ToNrqlAlertConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NrqlAlertConditionArrayInput is an input type that accepts NrqlAlertConditionArray and NrqlAlertConditionArrayOutput values.
 // You can construct a concrete instance of `NrqlAlertConditionArrayInput` via:
 //
@@ -616,12 +609,6 @@ func (i NrqlAlertConditionArray) ToNrqlAlertConditionArrayOutput() NrqlAlertCond
 
 func (i NrqlAlertConditionArray) ToNrqlAlertConditionArrayOutputWithContext(ctx context.Context) NrqlAlertConditionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionArrayOutput)
-}
-
-func (i NrqlAlertConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]*NrqlAlertCondition] {
-	return pulumix.Output[[]*NrqlAlertCondition]{
-		OutputState: i.ToNrqlAlertConditionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NrqlAlertConditionMapInput is an input type that accepts NrqlAlertConditionMap and NrqlAlertConditionMapOutput values.
@@ -649,12 +636,6 @@ func (i NrqlAlertConditionMap) ToNrqlAlertConditionMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionMapOutput)
 }
 
-func (i NrqlAlertConditionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NrqlAlertCondition] {
-	return pulumix.Output[map[string]*NrqlAlertCondition]{
-		OutputState: i.ToNrqlAlertConditionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NrqlAlertConditionOutput struct{ *pulumi.OutputState }
 
 func (NrqlAlertConditionOutput) ElementType() reflect.Type {
@@ -667,12 +648,6 @@ func (o NrqlAlertConditionOutput) ToNrqlAlertConditionOutput() NrqlAlertConditio
 
 func (o NrqlAlertConditionOutput) ToNrqlAlertConditionOutputWithContext(ctx context.Context) NrqlAlertConditionOutput {
 	return o
-}
-
-func (o NrqlAlertConditionOutput) ToOutput(ctx context.Context) pulumix.Output[*NrqlAlertCondition] {
-	return pulumix.Output[*NrqlAlertCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -825,12 +800,6 @@ func (o NrqlAlertConditionArrayOutput) ToNrqlAlertConditionArrayOutputWithContex
 	return o
 }
 
-func (o NrqlAlertConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NrqlAlertCondition] {
-	return pulumix.Output[[]*NrqlAlertCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NrqlAlertConditionArrayOutput) Index(i pulumi.IntInput) NrqlAlertConditionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NrqlAlertCondition {
 		return vs[0].([]*NrqlAlertCondition)[vs[1].(int)]
@@ -849,12 +818,6 @@ func (o NrqlAlertConditionMapOutput) ToNrqlAlertConditionMapOutput() NrqlAlertCo
 
 func (o NrqlAlertConditionMapOutput) ToNrqlAlertConditionMapOutputWithContext(ctx context.Context) NrqlAlertConditionMapOutput {
 	return o
-}
-
-func (o NrqlAlertConditionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NrqlAlertCondition] {
-	return pulumix.Output[map[string]*NrqlAlertCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NrqlAlertConditionMapOutput) MapIndex(k pulumi.StringInput) NrqlAlertConditionOutput {

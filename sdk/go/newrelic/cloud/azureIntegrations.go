@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to integrate Azure services with New Relic.
@@ -711,12 +710,6 @@ func (i *AzureIntegrations) ToAzureIntegrationsOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsOutput)
 }
 
-func (i *AzureIntegrations) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrations] {
-	return pulumix.Output[*AzureIntegrations]{
-		OutputState: i.ToAzureIntegrationsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AzureIntegrationsArrayInput is an input type that accepts AzureIntegrationsArray and AzureIntegrationsArrayOutput values.
 // You can construct a concrete instance of `AzureIntegrationsArrayInput` via:
 //
@@ -740,12 +733,6 @@ func (i AzureIntegrationsArray) ToAzureIntegrationsArrayOutput() AzureIntegratio
 
 func (i AzureIntegrationsArray) ToAzureIntegrationsArrayOutputWithContext(ctx context.Context) AzureIntegrationsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsArrayOutput)
-}
-
-func (i AzureIntegrationsArray) ToOutput(ctx context.Context) pulumix.Output[[]*AzureIntegrations] {
-	return pulumix.Output[[]*AzureIntegrations]{
-		OutputState: i.ToAzureIntegrationsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AzureIntegrationsMapInput is an input type that accepts AzureIntegrationsMap and AzureIntegrationsMapOutput values.
@@ -773,12 +760,6 @@ func (i AzureIntegrationsMap) ToAzureIntegrationsMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMapOutput)
 }
 
-func (i AzureIntegrationsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AzureIntegrations] {
-	return pulumix.Output[map[string]*AzureIntegrations]{
-		OutputState: i.ToAzureIntegrationsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AzureIntegrationsOutput struct{ *pulumi.OutputState }
 
 func (AzureIntegrationsOutput) ElementType() reflect.Type {
@@ -791,12 +772,6 @@ func (o AzureIntegrationsOutput) ToAzureIntegrationsOutput() AzureIntegrationsOu
 
 func (o AzureIntegrationsOutput) ToAzureIntegrationsOutputWithContext(ctx context.Context) AzureIntegrationsOutput {
 	return o
-}
-
-func (o AzureIntegrationsOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureIntegrations] {
-	return pulumix.Output[*AzureIntegrations]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -987,12 +962,6 @@ func (o AzureIntegrationsArrayOutput) ToAzureIntegrationsArrayOutputWithContext(
 	return o
 }
 
-func (o AzureIntegrationsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AzureIntegrations] {
-	return pulumix.Output[[]*AzureIntegrations]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AzureIntegrationsArrayOutput) Index(i pulumi.IntInput) AzureIntegrationsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AzureIntegrations {
 		return vs[0].([]*AzureIntegrations)[vs[1].(int)]
@@ -1011,12 +980,6 @@ func (o AzureIntegrationsMapOutput) ToAzureIntegrationsMapOutput() AzureIntegrat
 
 func (o AzureIntegrationsMapOutput) ToAzureIntegrationsMapOutputWithContext(ctx context.Context) AzureIntegrationsMapOutput {
 	return o
-}
-
-func (o AzureIntegrationsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AzureIntegrations] {
-	return pulumix.Output[map[string]*AzureIntegrations]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AzureIntegrationsMapOutput) MapIndex(k pulumi.StringInput) AzureIntegrationsOutput {

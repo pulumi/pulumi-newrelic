@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -112,12 +111,6 @@ func (o GetTestGrokPatternResultOutput) ToGetTestGrokPatternResultOutput() GetTe
 
 func (o GetTestGrokPatternResultOutput) ToGetTestGrokPatternResultOutputWithContext(ctx context.Context) GetTestGrokPatternResultOutput {
 	return o
-}
-
-func (o GetTestGrokPatternResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTestGrokPatternResult] {
-	return pulumix.Output[GetTestGrokPatternResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTestGrokPatternResultOutput) AccountId() pulumi.IntPtrOutput {

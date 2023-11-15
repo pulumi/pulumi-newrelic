@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -124,12 +123,6 @@ func (i *EntityTags) ToEntityTagsOutputWithContext(ctx context.Context) EntityTa
 	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsOutput)
 }
 
-func (i *EntityTags) ToOutput(ctx context.Context) pulumix.Output[*EntityTags] {
-	return pulumix.Output[*EntityTags]{
-		OutputState: i.ToEntityTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EntityTagsArrayInput is an input type that accepts EntityTagsArray and EntityTagsArrayOutput values.
 // You can construct a concrete instance of `EntityTagsArrayInput` via:
 //
@@ -153,12 +146,6 @@ func (i EntityTagsArray) ToEntityTagsArrayOutput() EntityTagsArrayOutput {
 
 func (i EntityTagsArray) ToEntityTagsArrayOutputWithContext(ctx context.Context) EntityTagsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsArrayOutput)
-}
-
-func (i EntityTagsArray) ToOutput(ctx context.Context) pulumix.Output[[]*EntityTags] {
-	return pulumix.Output[[]*EntityTags]{
-		OutputState: i.ToEntityTagsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EntityTagsMapInput is an input type that accepts EntityTagsMap and EntityTagsMapOutput values.
@@ -186,12 +173,6 @@ func (i EntityTagsMap) ToEntityTagsMapOutputWithContext(ctx context.Context) Ent
 	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsMapOutput)
 }
 
-func (i EntityTagsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EntityTags] {
-	return pulumix.Output[map[string]*EntityTags]{
-		OutputState: i.ToEntityTagsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EntityTagsOutput struct{ *pulumi.OutputState }
 
 func (EntityTagsOutput) ElementType() reflect.Type {
@@ -204,12 +185,6 @@ func (o EntityTagsOutput) ToEntityTagsOutput() EntityTagsOutput {
 
 func (o EntityTagsOutput) ToEntityTagsOutputWithContext(ctx context.Context) EntityTagsOutput {
 	return o
-}
-
-func (o EntityTagsOutput) ToOutput(ctx context.Context) pulumix.Output[*EntityTags] {
-	return pulumix.Output[*EntityTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The guid of the entity to tag.
@@ -236,12 +211,6 @@ func (o EntityTagsArrayOutput) ToEntityTagsArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o EntityTagsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EntityTags] {
-	return pulumix.Output[[]*EntityTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EntityTagsArrayOutput) Index(i pulumi.IntInput) EntityTagsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EntityTags {
 		return vs[0].([]*EntityTags)[vs[1].(int)]
@@ -260,12 +229,6 @@ func (o EntityTagsMapOutput) ToEntityTagsMapOutput() EntityTagsMapOutput {
 
 func (o EntityTagsMapOutput) ToEntityTagsMapOutputWithContext(ctx context.Context) EntityTagsMapOutput {
 	return o
-}
-
-func (o EntityTagsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EntityTags] {
-	return pulumix.Output[map[string]*EntityTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EntityTagsMapOutput) MapIndex(k pulumi.StringInput) EntityTagsOutput {
