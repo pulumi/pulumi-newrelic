@@ -18,8 +18,7 @@ public final class AwsIntegrationsTrustedAdvisorArgs extends com.pulumi.resource
     /**
      * The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+     * Furthermore, below integration types supports the following common arguments.
      * 
      */
     @Import(name="metricsPollingInterval")
@@ -28,8 +27,7 @@ public final class AwsIntegrationsTrustedAdvisorArgs extends com.pulumi.resource
     /**
      * @return The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+     * Furthermore, below integration types supports the following common arguments.
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -63,8 +61,7 @@ public final class AwsIntegrationsTrustedAdvisorArgs extends com.pulumi.resource
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
-         * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+         * Furthermore, below integration types supports the following common arguments.
          * 
          * @return builder
          * 
@@ -77,8 +74,7 @@ public final class AwsIntegrationsTrustedAdvisorArgs extends com.pulumi.resource
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
-         * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+         * Furthermore, below integration types supports the following common arguments.
          * 
          * @return builder
          * 

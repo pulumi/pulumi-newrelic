@@ -30,7 +30,7 @@ class CertCheckMonitorArgs:
         :param pulumi.Input[int] certificate_expiration: The desired number of remaining days until the certificate expires to trigger a monitor failure.
         :param pulumi.Input[str] domain: The domain of the host that will have its certificate checked.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
-        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
                
                > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
@@ -94,7 +94,7 @@ class CertCheckMonitorArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
         """
-        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 
         > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         """
@@ -188,7 +188,7 @@ class _CertCheckMonitorState:
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
-        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
                
                > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -314,7 +314,7 @@ class _CertCheckMonitorState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 
         > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         """
@@ -416,7 +416,7 @@ class CertCheckMonitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
-        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
                
                > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -568,7 +568,7 @@ class CertCheckMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
-        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
                
                > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -657,7 +657,7 @@ class CertCheckMonitor(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 
         > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
         """

@@ -61,14 +61,14 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
         return this.accountId;
     }
     /**
-     * Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+     * The alb integration
      * 
      */
     @Export(name="alb", type=AwsGovcloudIntegrationsAlb.class, parameters={})
     private Output</* @Nullable */ AwsGovcloudIntegrationsAlb> alb;
 
     /**
-     * @return Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+     * @return The alb integration
      * 
      */
     public Output<Optional<AwsGovcloudIntegrationsAlb>> alb() {
@@ -131,14 +131,14 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.awsStates);
     }
     /**
-     * Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+     * The cloudtrail integration
      * 
      */
     @Export(name="cloudtrail", type=AwsGovcloudIntegrationsCloudtrail.class, parameters={})
     private Output</* @Nullable */ AwsGovcloudIntegrationsCloudtrail> cloudtrail;
 
     /**
-     * @return Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+     * @return The cloudtrail integration
      * 
      */
     public Output<Optional<AwsGovcloudIntegrationsCloudtrail>> cloudtrail() {
@@ -159,28 +159,28 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.dynamoDb);
     }
     /**
-     * Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+     * The ebs integration
      * 
      */
     @Export(name="ebs", type=AwsGovcloudIntegrationsEbs.class, parameters={})
     private Output</* @Nullable */ AwsGovcloudIntegrationsEbs> ebs;
 
     /**
-     * @return Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+     * @return The ebs integration
      * 
      */
     public Output<Optional<AwsGovcloudIntegrationsEbs>> ebs() {
         return Codegen.optional(this.ebs);
     }
     /**
-     * EC2 AwsGovCloud integration.See Integration blocks below for details.
+     * The ec2 integration
      * 
      */
     @Export(name="ec2", type=AwsGovcloudIntegrationsEc2.class, parameters={})
     private Output</* @Nullable */ AwsGovcloudIntegrationsEc2> ec2;
 
     /**
-     * @return EC2 AwsGovCloud integration.See Integration blocks below for details.
+     * @return The ec2 integration
      * 
      */
     public Output<Optional<AwsGovcloudIntegrationsEc2>> ec2() {
@@ -201,56 +201,56 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.elasticSearch);
     }
     /**
-     * Elb AwsGovCloud integration.See Integration blocks below for details.
+     * The elb integration
      * 
      */
     @Export(name="elb", type=AwsGovcloudIntegrationsElb.class, parameters={})
     private Output</* @Nullable */ AwsGovcloudIntegrationsElb> elb;
 
     /**
-     * @return Elb AwsGovCloud integration.See Integration blocks below for details.
+     * @return The elb integration
      * 
      */
     public Output<Optional<AwsGovcloudIntegrationsElb>> elb() {
         return Codegen.optional(this.elb);
     }
     /**
-     * Emr AwsGovCloud integration.See Integration blocks below for details.
+     * The emr integration
      * 
      */
     @Export(name="emr", type=AwsGovcloudIntegrationsEmr.class, parameters={})
     private Output</* @Nullable */ AwsGovcloudIntegrationsEmr> emr;
 
     /**
-     * @return Emr AwsGovCloud integration.See Integration blocks below for details.
+     * @return The emr integration
      * 
      */
     public Output<Optional<AwsGovcloudIntegrationsEmr>> emr() {
         return Codegen.optional(this.emr);
     }
     /**
-     * IAM AwsGovCloud integration.See Integration blocks below for details.
+     * The iam integration
      * 
      */
     @Export(name="iam", type=AwsGovcloudIntegrationsIam.class, parameters={})
     private Output</* @Nullable */ AwsGovcloudIntegrationsIam> iam;
 
     /**
-     * @return IAM AwsGovCloud integration.See Integration blocks below for details.
+     * @return The iam integration
      * 
      */
     public Output<Optional<AwsGovcloudIntegrationsIam>> iam() {
         return Codegen.optional(this.iam);
     }
     /**
-     * Lambda AwsGovCloud integration.See Integration blocks below for details.
+     * The lambda integration
      * 
      */
     @Export(name="lambda", type=AwsGovcloudIntegrationsLambda.class, parameters={})
     private Output</* @Nullable */ AwsGovcloudIntegrationsLambda> lambda;
 
     /**
-     * @return Lambda AwsGovCloud integration.See Integration blocks below for details.
+     * @return The lambda integration
      * 
      */
     public Output<Optional<AwsGovcloudIntegrationsLambda>> lambda() {
@@ -271,14 +271,14 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
         return this.linkedAccountId;
     }
     /**
-     * RDS AwsGovCloud integration.See Integration blocks below for details.
+     * The rds integration
      * 
      */
     @Export(name="rds", type=AwsGovcloudIntegrationsRds.class, parameters={})
     private Output</* @Nullable */ AwsGovcloudIntegrationsRds> rds;
 
     /**
-     * @return RDS AwsGovCloud integration.See Integration blocks below for details.
+     * @return The rds integration
      * 
      */
     public Output<Optional<AwsGovcloudIntegrationsRds>> rds() {
@@ -299,14 +299,14 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.redShift);
     }
     /**
-     * Route53 AwsGovCloud integration.See Integration blocks below for details.
+     * The route53 integration
      * 
      */
     @Export(name="route53", type=AwsGovcloudIntegrationsRoute53.class, parameters={})
     private Output</* @Nullable */ AwsGovcloudIntegrationsRoute53> route53;
 
     /**
-     * @return Route53 AwsGovCloud integration.See Integration blocks below for details.
+     * @return The route53 integration
      * 
      */
     public Output<Optional<AwsGovcloudIntegrationsRoute53>> route53() {
@@ -327,28 +327,28 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.s3);
     }
     /**
-     * SNS AwsGovCloud integration.See Integration blocks below for details.
+     * The sns integration
      * 
      */
     @Export(name="sns", type=AwsGovcloudIntegrationsSns.class, parameters={})
     private Output</* @Nullable */ AwsGovcloudIntegrationsSns> sns;
 
     /**
-     * @return SNS AwsGovCloud integration.See Integration blocks below for details.
+     * @return The sns integration
      * 
      */
     public Output<Optional<AwsGovcloudIntegrationsSns>> sns() {
         return Codegen.optional(this.sns);
     }
     /**
-     * SQS AwsGovCloud integration.See Integration blocks below for details.
+     * The sqs integration
      * 
      */
     @Export(name="sqs", type=AwsGovcloudIntegrationsSqs.class, parameters={})
     private Output</* @Nullable */ AwsGovcloudIntegrationsSqs> sqs;
 
     /**
-     * @return SQS AwsGovCloud integration.See Integration blocks below for details.
+     * @return The sqs integration
      * 
      */
     public Output<Optional<AwsGovcloudIntegrationsSqs>> sqs() {

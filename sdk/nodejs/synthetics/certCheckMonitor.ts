@@ -125,7 +125,7 @@ export class CertCheckMonitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly periodInMinutes!: pulumi.Output<number>;
     /**
-     * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+     * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
      *
      * > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
      */
@@ -225,7 +225,7 @@ export interface CertCheckMonitorState {
      */
     periodInMinutes?: pulumi.Input<number>;
     /**
-     * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+     * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
      *
      * > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
      */
@@ -269,7 +269,7 @@ export interface CertCheckMonitorArgs {
      */
     period: pulumi.Input<string>;
     /**
-     * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
+     * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
      *
      * > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
      */

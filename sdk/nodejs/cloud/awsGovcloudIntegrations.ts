@@ -48,7 +48,7 @@ export class AwsGovcloudIntegrations extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
-     * Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+     * The alb integration
      */
     public readonly alb!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsAlb | undefined>;
     /**
@@ -68,7 +68,7 @@ export class AwsGovcloudIntegrations extends pulumi.CustomResource {
      */
     public readonly awsStates!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsAwsStates | undefined>;
     /**
-     * Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+     * The cloudtrail integration
      */
     public readonly cloudtrail!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsCloudtrail | undefined>;
     /**
@@ -76,11 +76,11 @@ export class AwsGovcloudIntegrations extends pulumi.CustomResource {
      */
     public readonly dynamoDb!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsDynamoDb | undefined>;
     /**
-     * Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+     * The ebs integration
      */
     public readonly ebs!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsEbs | undefined>;
     /**
-     * EC2 AwsGovCloud integration.See Integration blocks below for details.
+     * The ec2 integration
      */
     public readonly ec2!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsEc2 | undefined>;
     /**
@@ -88,19 +88,19 @@ export class AwsGovcloudIntegrations extends pulumi.CustomResource {
      */
     public readonly elasticSearch!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsElasticSearch | undefined>;
     /**
-     * Elb AwsGovCloud integration.See Integration blocks below for details.
+     * The elb integration
      */
     public readonly elb!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsElb | undefined>;
     /**
-     * Emr AwsGovCloud integration.See Integration blocks below for details.
+     * The emr integration
      */
     public readonly emr!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsEmr | undefined>;
     /**
-     * IAM AwsGovCloud integration.See Integration blocks below for details.
+     * The iam integration
      */
     public readonly iam!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsIam | undefined>;
     /**
-     * Lambda AwsGovCloud integration.See Integration blocks below for details.
+     * The lambda integration
      */
     public readonly lambda!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsLambda | undefined>;
     /**
@@ -108,7 +108,7 @@ export class AwsGovcloudIntegrations extends pulumi.CustomResource {
      */
     public readonly linkedAccountId!: pulumi.Output<number>;
     /**
-     * RDS AwsGovCloud integration.See Integration blocks below for details.
+     * The rds integration
      */
     public readonly rds!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsRds | undefined>;
     /**
@@ -116,7 +116,7 @@ export class AwsGovcloudIntegrations extends pulumi.CustomResource {
      */
     public readonly redShift!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsRedShift | undefined>;
     /**
-     * Route53 AwsGovCloud integration.See Integration blocks below for details.
+     * The route53 integration
      */
     public readonly route53!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsRoute53 | undefined>;
     /**
@@ -124,11 +124,11 @@ export class AwsGovcloudIntegrations extends pulumi.CustomResource {
      */
     public readonly s3!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsS3 | undefined>;
     /**
-     * SNS AwsGovCloud integration.See Integration blocks below for details.
+     * The sns integration
      */
     public readonly sns!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsSns | undefined>;
     /**
-     * SQS AwsGovCloud integration.See Integration blocks below for details.
+     * The sqs integration
      */
     public readonly sqs!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsSqs | undefined>;
 
@@ -209,7 +209,7 @@ export interface AwsGovcloudIntegrationsState {
      */
     accountId?: pulumi.Input<number>;
     /**
-     * Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+     * The alb integration
      */
     alb?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsAlb>;
     /**
@@ -229,7 +229,7 @@ export interface AwsGovcloudIntegrationsState {
      */
     awsStates?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsAwsStates>;
     /**
-     * Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+     * The cloudtrail integration
      */
     cloudtrail?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsCloudtrail>;
     /**
@@ -237,11 +237,11 @@ export interface AwsGovcloudIntegrationsState {
      */
     dynamoDb?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsDynamoDb>;
     /**
-     * Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+     * The ebs integration
      */
     ebs?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsEbs>;
     /**
-     * EC2 AwsGovCloud integration.See Integration blocks below for details.
+     * The ec2 integration
      */
     ec2?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsEc2>;
     /**
@@ -249,19 +249,19 @@ export interface AwsGovcloudIntegrationsState {
      */
     elasticSearch?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsElasticSearch>;
     /**
-     * Elb AwsGovCloud integration.See Integration blocks below for details.
+     * The elb integration
      */
     elb?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsElb>;
     /**
-     * Emr AwsGovCloud integration.See Integration blocks below for details.
+     * The emr integration
      */
     emr?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsEmr>;
     /**
-     * IAM AwsGovCloud integration.See Integration blocks below for details.
+     * The iam integration
      */
     iam?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsIam>;
     /**
-     * Lambda AwsGovCloud integration.See Integration blocks below for details.
+     * The lambda integration
      */
     lambda?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsLambda>;
     /**
@@ -269,7 +269,7 @@ export interface AwsGovcloudIntegrationsState {
      */
     linkedAccountId?: pulumi.Input<number>;
     /**
-     * RDS AwsGovCloud integration.See Integration blocks below for details.
+     * The rds integration
      */
     rds?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsRds>;
     /**
@@ -277,7 +277,7 @@ export interface AwsGovcloudIntegrationsState {
      */
     redShift?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsRedShift>;
     /**
-     * Route53 AwsGovCloud integration.See Integration blocks below for details.
+     * The route53 integration
      */
     route53?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsRoute53>;
     /**
@@ -285,11 +285,11 @@ export interface AwsGovcloudIntegrationsState {
      */
     s3?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsS3>;
     /**
-     * SNS AwsGovCloud integration.See Integration blocks below for details.
+     * The sns integration
      */
     sns?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsSns>;
     /**
-     * SQS AwsGovCloud integration.See Integration blocks below for details.
+     * The sqs integration
      */
     sqs?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsSqs>;
 }
@@ -303,7 +303,7 @@ export interface AwsGovcloudIntegrationsArgs {
      */
     accountId?: pulumi.Input<number>;
     /**
-     * Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+     * The alb integration
      */
     alb?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsAlb>;
     /**
@@ -323,7 +323,7 @@ export interface AwsGovcloudIntegrationsArgs {
      */
     awsStates?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsAwsStates>;
     /**
-     * Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+     * The cloudtrail integration
      */
     cloudtrail?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsCloudtrail>;
     /**
@@ -331,11 +331,11 @@ export interface AwsGovcloudIntegrationsArgs {
      */
     dynamoDb?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsDynamoDb>;
     /**
-     * Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+     * The ebs integration
      */
     ebs?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsEbs>;
     /**
-     * EC2 AwsGovCloud integration.See Integration blocks below for details.
+     * The ec2 integration
      */
     ec2?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsEc2>;
     /**
@@ -343,19 +343,19 @@ export interface AwsGovcloudIntegrationsArgs {
      */
     elasticSearch?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsElasticSearch>;
     /**
-     * Elb AwsGovCloud integration.See Integration blocks below for details.
+     * The elb integration
      */
     elb?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsElb>;
     /**
-     * Emr AwsGovCloud integration.See Integration blocks below for details.
+     * The emr integration
      */
     emr?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsEmr>;
     /**
-     * IAM AwsGovCloud integration.See Integration blocks below for details.
+     * The iam integration
      */
     iam?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsIam>;
     /**
-     * Lambda AwsGovCloud integration.See Integration blocks below for details.
+     * The lambda integration
      */
     lambda?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsLambda>;
     /**
@@ -363,7 +363,7 @@ export interface AwsGovcloudIntegrationsArgs {
      */
     linkedAccountId: pulumi.Input<number>;
     /**
-     * RDS AwsGovCloud integration.See Integration blocks below for details.
+     * The rds integration
      */
     rds?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsRds>;
     /**
@@ -371,7 +371,7 @@ export interface AwsGovcloudIntegrationsArgs {
      */
     redShift?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsRedShift>;
     /**
-     * Route53 AwsGovCloud integration.See Integration blocks below for details.
+     * The route53 integration
      */
     route53?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsRoute53>;
     /**
@@ -379,11 +379,11 @@ export interface AwsGovcloudIntegrationsArgs {
      */
     s3?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsS3>;
     /**
-     * SNS AwsGovCloud integration.See Integration blocks below for details.
+     * The sns integration
      */
     sns?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsSns>;
     /**
-     * SQS AwsGovCloud integration.See Integration blocks below for details.
+     * The sqs integration
      */
     sqs?: pulumi.Input<inputs.cloud.AwsGovcloudIntegrationsSqs>;
 }

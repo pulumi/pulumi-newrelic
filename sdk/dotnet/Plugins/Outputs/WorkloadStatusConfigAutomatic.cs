@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Plugins.Outputs
     public sealed class WorkloadStatusConfigAutomatic
     {
         /// <summary>
-        /// Whether the static status configuration is enabled or not.
+        /// Whether the automatic status configuration is enabled or not.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

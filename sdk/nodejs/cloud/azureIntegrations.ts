@@ -234,7 +234,7 @@ export class AzureIntegrations extends pulumi.CustomResource {
      */
     public readonly cosmosDb!: pulumi.Output<outputs.cloud.AzureIntegrationsCosmosDb | undefined>;
     /**
-     * Azure Cost Management. See Integration blocks below for details.
+     * The Azure cost management
      */
     public readonly costManagement!: pulumi.Output<outputs.cloud.AzureIntegrationsCostManagement | undefined>;
     /**
@@ -286,7 +286,7 @@ export class AzureIntegrations extends pulumi.CustomResource {
      */
     public readonly mariaDb!: pulumi.Output<outputs.cloud.AzureIntegrationsMariaDb | undefined>;
     /**
-     * Azure Monitor. See Integration blocks below for details.
+     * The Azure Monitor
      */
     public readonly monitor!: pulumi.Output<outputs.cloud.AzureIntegrationsMonitor | undefined>;
     /**
@@ -471,7 +471,7 @@ export interface AzureIntegrationsState {
      */
     cosmosDb?: pulumi.Input<inputs.cloud.AzureIntegrationsCosmosDb>;
     /**
-     * Azure Cost Management. See Integration blocks below for details.
+     * The Azure cost management
      */
     costManagement?: pulumi.Input<inputs.cloud.AzureIntegrationsCostManagement>;
     /**
@@ -523,7 +523,7 @@ export interface AzureIntegrationsState {
      */
     mariaDb?: pulumi.Input<inputs.cloud.AzureIntegrationsMariaDb>;
     /**
-     * Azure Monitor. See Integration blocks below for details.
+     * The Azure Monitor
      */
     monitor?: pulumi.Input<inputs.cloud.AzureIntegrationsMonitor>;
     /**
@@ -617,7 +617,7 @@ export interface AzureIntegrationsArgs {
      */
     cosmosDb?: pulumi.Input<inputs.cloud.AzureIntegrationsCosmosDb>;
     /**
-     * Azure Cost Management. See Integration blocks below for details.
+     * The Azure cost management
      */
     costManagement?: pulumi.Input<inputs.cloud.AzureIntegrationsCostManagement>;
     /**
@@ -669,7 +669,7 @@ export interface AzureIntegrationsArgs {
      */
     mariaDb?: pulumi.Input<inputs.cloud.AzureIntegrationsMariaDb>;
     /**
-     * Azure Monitor. See Integration blocks below for details.
+     * The Azure Monitor
      */
     monitor?: pulumi.Input<inputs.cloud.AzureIntegrationsMonitor>;
     /**

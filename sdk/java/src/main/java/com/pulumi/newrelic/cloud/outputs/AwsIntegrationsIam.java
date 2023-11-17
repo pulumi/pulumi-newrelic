@@ -15,44 +15,26 @@ public final class AwsIntegrationsIam {
     /**
      * @return The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+     * Furthermore, below integration types supports the following common arguments.
      * 
      */
     private @Nullable Integer metricsPollingInterval;
-    /**
-     * @return Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * 
-     */
     private @Nullable String tagKey;
-    /**
-     * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * 
-     */
     private @Nullable String tagValue;
 
     private AwsIntegrationsIam() {}
     /**
      * @return The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+     * Furthermore, below integration types supports the following common arguments.
      * 
      */
     public Optional<Integer> metricsPollingInterval() {
         return Optional.ofNullable(this.metricsPollingInterval);
     }
-    /**
-     * @return Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * 
-     */
     public Optional<String> tagKey() {
         return Optional.ofNullable(this.tagKey);
     }
-    /**
-     * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * 
-     */
     public Optional<String> tagValue() {
         return Optional.ofNullable(this.tagValue);
     }

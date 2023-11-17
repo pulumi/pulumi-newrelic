@@ -212,14 +212,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A set of recipients for targeting notifications.  Multiple values are comma separated.
+     * Comma delimited list of email addresses.
      * 
      */
     @Import(name="recipients")
     private @Nullable Output<String> recipients;
 
     /**
-     * @return A set of recipients for targeting notifications.  Multiple values are comma separated.
+     * @return Comma delimited list of email addresses.
      * 
      */
     public Optional<Output<String>> recipients() {
@@ -641,7 +641,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param recipients A set of recipients for targeting notifications.  Multiple values are comma separated.
+         * @param recipients Comma delimited list of email addresses.
          * 
          * @return builder
          * 
@@ -652,7 +652,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param recipients A set of recipients for targeting notifications.  Multiple values are comma separated.
+         * @param recipients Comma delimited list of email addresses.
          * 
          * @return builder
          * 

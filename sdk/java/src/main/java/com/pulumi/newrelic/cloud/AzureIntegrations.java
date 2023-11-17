@@ -362,14 +362,14 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cosmosDb);
     }
     /**
-     * Azure Cost Management. See Integration blocks below for details.
+     * The Azure cost management
      * 
      */
     @Export(name="costManagement", type=AzureIntegrationsCostManagement.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsCostManagement> costManagement;
 
     /**
-     * @return Azure Cost Management. See Integration blocks below for details.
+     * @return The Azure cost management
      * 
      */
     public Output<Optional<AzureIntegrationsCostManagement>> costManagement() {
@@ -544,14 +544,14 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.mariaDb);
     }
     /**
-     * Azure Monitor. See Integration blocks below for details.
+     * The Azure Monitor
      * 
      */
     @Export(name="monitor", type=AzureIntegrationsMonitor.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsMonitor> monitor;
 
     /**
-     * @return Azure Monitor. See Integration blocks below for details.
+     * @return The Azure Monitor
      * 
      */
     public Output<Optional<AzureIntegrationsMonitor>> monitor() {

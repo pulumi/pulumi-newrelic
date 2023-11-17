@@ -28,7 +28,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+        /// The alb integration
         /// </summary>
         [Output("alb")]
         public Output<Outputs.AwsGovcloudIntegrationsAlb?> Alb { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AwsGovcloudIntegrationsAwsStates?> AwsStates { get; private set; } = null!;
 
         /// <summary>
-        /// Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+        /// The cloudtrail integration
         /// </summary>
         [Output("cloudtrail")]
         public Output<Outputs.AwsGovcloudIntegrationsCloudtrail?> Cloudtrail { get; private set; } = null!;
@@ -70,13 +70,13 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AwsGovcloudIntegrationsDynamoDb?> DynamoDb { get; private set; } = null!;
 
         /// <summary>
-        /// Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+        /// The ebs integration
         /// </summary>
         [Output("ebs")]
         public Output<Outputs.AwsGovcloudIntegrationsEbs?> Ebs { get; private set; } = null!;
 
         /// <summary>
-        /// EC2 AwsGovCloud integration.See Integration blocks below for details.
+        /// The ec2 integration
         /// </summary>
         [Output("ec2")]
         public Output<Outputs.AwsGovcloudIntegrationsEc2?> Ec2 { get; private set; } = null!;
@@ -88,25 +88,25 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AwsGovcloudIntegrationsElasticSearch?> ElasticSearch { get; private set; } = null!;
 
         /// <summary>
-        /// Elb AwsGovCloud integration.See Integration blocks below for details.
+        /// The elb integration
         /// </summary>
         [Output("elb")]
         public Output<Outputs.AwsGovcloudIntegrationsElb?> Elb { get; private set; } = null!;
 
         /// <summary>
-        /// Emr AwsGovCloud integration.See Integration blocks below for details.
+        /// The emr integration
         /// </summary>
         [Output("emr")]
         public Output<Outputs.AwsGovcloudIntegrationsEmr?> Emr { get; private set; } = null!;
 
         /// <summary>
-        /// IAM AwsGovCloud integration.See Integration blocks below for details.
+        /// The iam integration
         /// </summary>
         [Output("iam")]
         public Output<Outputs.AwsGovcloudIntegrationsIam?> Iam { get; private set; } = null!;
 
         /// <summary>
-        /// Lambda AwsGovCloud integration.See Integration blocks below for details.
+        /// The lambda integration
         /// </summary>
         [Output("lambda")]
         public Output<Outputs.AwsGovcloudIntegrationsLambda?> Lambda { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<int> LinkedAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// RDS AwsGovCloud integration.See Integration blocks below for details.
+        /// The rds integration
         /// </summary>
         [Output("rds")]
         public Output<Outputs.AwsGovcloudIntegrationsRds?> Rds { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AwsGovcloudIntegrationsRedShift?> RedShift { get; private set; } = null!;
 
         /// <summary>
-        /// Route53 AwsGovCloud integration.See Integration blocks below for details.
+        /// The route53 integration
         /// </summary>
         [Output("route53")]
         public Output<Outputs.AwsGovcloudIntegrationsRoute53?> Route53 { get; private set; } = null!;
@@ -142,13 +142,13 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AwsGovcloudIntegrationsS3?> S3 { get; private set; } = null!;
 
         /// <summary>
-        /// SNS AwsGovCloud integration.See Integration blocks below for details.
+        /// The sns integration
         /// </summary>
         [Output("sns")]
         public Output<Outputs.AwsGovcloudIntegrationsSns?> Sns { get; private set; } = null!;
 
         /// <summary>
-        /// SQS AwsGovCloud integration.See Integration blocks below for details.
+        /// The sqs integration
         /// </summary>
         [Output("sqs")]
         public Output<Outputs.AwsGovcloudIntegrationsSqs?> Sqs { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+        /// The alb integration
         /// </summary>
         [Input("alb")]
         public Input<Inputs.AwsGovcloudIntegrationsAlbArgs>? Alb { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsGovcloudIntegrationsAwsStatesArgs>? AwsStates { get; set; }
 
         /// <summary>
-        /// Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+        /// The cloudtrail integration
         /// </summary>
         [Input("cloudtrail")]
         public Input<Inputs.AwsGovcloudIntegrationsCloudtrailArgs>? Cloudtrail { get; set; }
@@ -248,13 +248,13 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsGovcloudIntegrationsDynamoDbArgs>? DynamoDb { get; set; }
 
         /// <summary>
-        /// Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+        /// The ebs integration
         /// </summary>
         [Input("ebs")]
         public Input<Inputs.AwsGovcloudIntegrationsEbsArgs>? Ebs { get; set; }
 
         /// <summary>
-        /// EC2 AwsGovCloud integration.See Integration blocks below for details.
+        /// The ec2 integration
         /// </summary>
         [Input("ec2")]
         public Input<Inputs.AwsGovcloudIntegrationsEc2Args>? Ec2 { get; set; }
@@ -266,25 +266,25 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsGovcloudIntegrationsElasticSearchArgs>? ElasticSearch { get; set; }
 
         /// <summary>
-        /// Elb AwsGovCloud integration.See Integration blocks below for details.
+        /// The elb integration
         /// </summary>
         [Input("elb")]
         public Input<Inputs.AwsGovcloudIntegrationsElbArgs>? Elb { get; set; }
 
         /// <summary>
-        /// Emr AwsGovCloud integration.See Integration blocks below for details.
+        /// The emr integration
         /// </summary>
         [Input("emr")]
         public Input<Inputs.AwsGovcloudIntegrationsEmrArgs>? Emr { get; set; }
 
         /// <summary>
-        /// IAM AwsGovCloud integration.See Integration blocks below for details.
+        /// The iam integration
         /// </summary>
         [Input("iam")]
         public Input<Inputs.AwsGovcloudIntegrationsIamArgs>? Iam { get; set; }
 
         /// <summary>
-        /// Lambda AwsGovCloud integration.See Integration blocks below for details.
+        /// The lambda integration
         /// </summary>
         [Input("lambda")]
         public Input<Inputs.AwsGovcloudIntegrationsLambdaArgs>? Lambda { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<int> LinkedAccountId { get; set; } = null!;
 
         /// <summary>
-        /// RDS AwsGovCloud integration.See Integration blocks below for details.
+        /// The rds integration
         /// </summary>
         [Input("rds")]
         public Input<Inputs.AwsGovcloudIntegrationsRdsArgs>? Rds { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsGovcloudIntegrationsRedShiftArgs>? RedShift { get; set; }
 
         /// <summary>
-        /// Route53 AwsGovCloud integration.See Integration blocks below for details.
+        /// The route53 integration
         /// </summary>
         [Input("route53")]
         public Input<Inputs.AwsGovcloudIntegrationsRoute53Args>? Route53 { get; set; }
@@ -320,13 +320,13 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsGovcloudIntegrationsS3Args>? S3 { get; set; }
 
         /// <summary>
-        /// SNS AwsGovCloud integration.See Integration blocks below for details.
+        /// The sns integration
         /// </summary>
         [Input("sns")]
         public Input<Inputs.AwsGovcloudIntegrationsSnsArgs>? Sns { get; set; }
 
         /// <summary>
-        /// SQS AwsGovCloud integration.See Integration blocks below for details.
+        /// The sqs integration
         /// </summary>
         [Input("sqs")]
         public Input<Inputs.AwsGovcloudIntegrationsSqsArgs>? Sqs { get; set; }
@@ -346,7 +346,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+        /// The alb integration
         /// </summary>
         [Input("alb")]
         public Input<Inputs.AwsGovcloudIntegrationsAlbGetArgs>? Alb { get; set; }
@@ -376,7 +376,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsGovcloudIntegrationsAwsStatesGetArgs>? AwsStates { get; set; }
 
         /// <summary>
-        /// Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+        /// The cloudtrail integration
         /// </summary>
         [Input("cloudtrail")]
         public Input<Inputs.AwsGovcloudIntegrationsCloudtrailGetArgs>? Cloudtrail { get; set; }
@@ -388,13 +388,13 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsGovcloudIntegrationsDynamoDbGetArgs>? DynamoDb { get; set; }
 
         /// <summary>
-        /// Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+        /// The ebs integration
         /// </summary>
         [Input("ebs")]
         public Input<Inputs.AwsGovcloudIntegrationsEbsGetArgs>? Ebs { get; set; }
 
         /// <summary>
-        /// EC2 AwsGovCloud integration.See Integration blocks below for details.
+        /// The ec2 integration
         /// </summary>
         [Input("ec2")]
         public Input<Inputs.AwsGovcloudIntegrationsEc2GetArgs>? Ec2 { get; set; }
@@ -406,25 +406,25 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsGovcloudIntegrationsElasticSearchGetArgs>? ElasticSearch { get; set; }
 
         /// <summary>
-        /// Elb AwsGovCloud integration.See Integration blocks below for details.
+        /// The elb integration
         /// </summary>
         [Input("elb")]
         public Input<Inputs.AwsGovcloudIntegrationsElbGetArgs>? Elb { get; set; }
 
         /// <summary>
-        /// Emr AwsGovCloud integration.See Integration blocks below for details.
+        /// The emr integration
         /// </summary>
         [Input("emr")]
         public Input<Inputs.AwsGovcloudIntegrationsEmrGetArgs>? Emr { get; set; }
 
         /// <summary>
-        /// IAM AwsGovCloud integration.See Integration blocks below for details.
+        /// The iam integration
         /// </summary>
         [Input("iam")]
         public Input<Inputs.AwsGovcloudIntegrationsIamGetArgs>? Iam { get; set; }
 
         /// <summary>
-        /// Lambda AwsGovCloud integration.See Integration blocks below for details.
+        /// The lambda integration
         /// </summary>
         [Input("lambda")]
         public Input<Inputs.AwsGovcloudIntegrationsLambdaGetArgs>? Lambda { get; set; }
@@ -436,7 +436,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<int>? LinkedAccountId { get; set; }
 
         /// <summary>
-        /// RDS AwsGovCloud integration.See Integration blocks below for details.
+        /// The rds integration
         /// </summary>
         [Input("rds")]
         public Input<Inputs.AwsGovcloudIntegrationsRdsGetArgs>? Rds { get; set; }
@@ -448,7 +448,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsGovcloudIntegrationsRedShiftGetArgs>? RedShift { get; set; }
 
         /// <summary>
-        /// Route53 AwsGovCloud integration.See Integration blocks below for details.
+        /// The route53 integration
         /// </summary>
         [Input("route53")]
         public Input<Inputs.AwsGovcloudIntegrationsRoute53GetArgs>? Route53 { get; set; }
@@ -460,13 +460,13 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsGovcloudIntegrationsS3GetArgs>? S3 { get; set; }
 
         /// <summary>
-        /// SNS AwsGovCloud integration.See Integration blocks below for details.
+        /// The sns integration
         /// </summary>
         [Input("sns")]
         public Input<Inputs.AwsGovcloudIntegrationsSnsGetArgs>? Sns { get; set; }
 
         /// <summary>
-        /// SQS AwsGovCloud integration.See Integration blocks below for details.
+        /// The sqs integration
         /// </summary>
         [Input("sqs")]
         public Input<Inputs.AwsGovcloudIntegrationsSqsGetArgs>? Sqs { get; set; }

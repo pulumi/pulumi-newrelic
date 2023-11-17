@@ -16,17 +16,10 @@ namespace Pulumi.NewRelic.Cloud.Outputs
         /// <summary>
         /// The data polling interval in seconds.
         /// 
-        /// &lt;details&gt;
-        /// &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+        /// Furthermore, below integration types supports the following common arguments.
         /// </summary>
         public readonly int? MetricsPollingInterval;
-        /// <summary>
-        /// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        /// </summary>
         public readonly string? TagKey;
-        /// <summary>
-        /// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        /// </summary>
         public readonly string? TagValue;
 
         [OutputConstructor]

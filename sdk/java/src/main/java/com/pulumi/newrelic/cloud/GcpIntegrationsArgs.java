@@ -87,14 +87,14 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Biq Query integration. See Integration blocks below for details.
+     * GCP biq query service
      * 
      */
     @Import(name="bigQuery")
     private @Nullable Output<GcpIntegrationsBigQueryArgs> bigQuery;
 
     /**
-     * @return Biq Query integration. See Integration blocks below for details.
+     * @return GCP biq query service
      * 
      */
     public Optional<Output<GcpIntegrationsBigQueryArgs>> bigQuery() {
@@ -327,14 +327,14 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Pub/Sub integration. See Integration blocks below for details.
+     * GCP big table service
      * 
      */
     @Import(name="pubSub")
     private @Nullable Output<GcpIntegrationsPubSubArgs> pubSub;
 
     /**
-     * @return Pub/Sub integration. See Integration blocks below for details.
+     * @return GCP big table service
      * 
      */
     public Optional<Output<GcpIntegrationsPubSubArgs>> pubSub() {
@@ -387,14 +387,14 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Spanner integration. See Integration blocks below for details.
+     * GCP big table service
      * 
      */
     @Import(name="spanner")
     private @Nullable Output<GcpIntegrationsSpannerArgs> spanner;
 
     /**
-     * @return Spanner integration. See Integration blocks below for details.
+     * @return GCP big table service
      * 
      */
     public Optional<Output<GcpIntegrationsSpannerArgs>> spanner() {
@@ -417,14 +417,14 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Storage integration. See Integration blocks below for details.
+     * GCP big table service
      * 
      */
     @Import(name="storage")
     private @Nullable Output<GcpIntegrationsStorageArgs> storage;
 
     /**
-     * @return Storage integration. See Integration blocks below for details.
+     * @return GCP big table service
      * 
      */
     public Optional<Output<GcpIntegrationsStorageArgs>> storage() {
@@ -576,7 +576,7 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param bigQuery Biq Query integration. See Integration blocks below for details.
+         * @param bigQuery GCP biq query service
          * 
          * @return builder
          * 
@@ -587,7 +587,7 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param bigQuery Biq Query integration. See Integration blocks below for details.
+         * @param bigQuery GCP biq query service
          * 
          * @return builder
          * 
@@ -912,7 +912,7 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pubSub Pub/Sub integration. See Integration blocks below for details.
+         * @param pubSub GCP big table service
          * 
          * @return builder
          * 
@@ -923,7 +923,7 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pubSub Pub/Sub integration. See Integration blocks below for details.
+         * @param pubSub GCP big table service
          * 
          * @return builder
          * 
@@ -996,7 +996,7 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param spanner Spanner integration. See Integration blocks below for details.
+         * @param spanner GCP big table service
          * 
          * @return builder
          * 
@@ -1007,7 +1007,7 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param spanner Spanner integration. See Integration blocks below for details.
+         * @param spanner GCP big table service
          * 
          * @return builder
          * 
@@ -1038,7 +1038,7 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storage Storage integration. See Integration blocks below for details.
+         * @param storage GCP big table service
          * 
          * @return builder
          * 
@@ -1049,7 +1049,7 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storage Storage integration. See Integration blocks below for details.
+         * @param storage GCP big table service
          * 
          * @return builder
          * 

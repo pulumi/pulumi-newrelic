@@ -59,7 +59,7 @@ export interface AlertChannelConfig {
      */
     payloadType?: string;
     /**
-     * A set of recipients for targeting notifications.  Multiple values are comma separated.
+     * Comma delimited list of email addresses.
      */
     recipients?: string;
     /**
@@ -2361,8 +2361,8 @@ export interface ServiceLevelEventsGoodEvents {
      */
     select?: outputs.ServiceLevelEventsGoodEventsSelect;
     /**
-     * A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-     * a particular entity and returned an error).
+     * A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+     * a particular entity and were successful).
      */
     where?: string;
 }
@@ -2971,364 +2971,294 @@ export namespace cloud {
 
     export interface AwsIntegrationsAlb {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         *
-         * Furthermore, below integration types supports the following common arguments.
-         */
         fetchExtendedInventory?: boolean;
-        /**
-         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchTags?: boolean;
-        /**
-         * Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
-         */
         loadBalancerPrefixes?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsApiGateway {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         stagePrefixes?: string[];
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsAutoScaling {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsAppSync {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsAthena {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsCognito {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsConnect {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsDirectConnect {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsFsx {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsGlue {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsKinesisAnalytics {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsMediaConvert {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsMediaPackageVod {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsMq {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsMsk {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsNeptune {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsQldb {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsRoute53resolver {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsStates {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsTransitGateway {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsWaf {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsAwsWafv2 {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
@@ -3337,351 +3267,209 @@ export namespace cloud {
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsCloudfront {
-        /**
-         * Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchLambdasAtEdge?: boolean;
-        /**
-         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchTags?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsCloudtrail {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsDocDb {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsDynamodb {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         *
-         * Furthermore, below integration types supports the following common arguments.
-         */
         fetchExtendedInventory?: boolean;
-        /**
-         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchTags?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsEbs {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         *
-         * Furthermore, below integration types supports the following common arguments.
-         */
         fetchExtendedInventory?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsEc2 {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
-         */
         duplicateEc2Tags?: boolean;
-        /**
-         * Specify if IP addresses of ec2 instance should be collected.
-         */
         fetchIpAddresses?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsEcs {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchTags?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsEfs {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchTags?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsElasticache {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchTags?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsElasticbeanstalk {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         *
-         * Furthermore, below integration types supports the following common arguments.
-         */
         fetchExtendedInventory?: boolean;
-        /**
-         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchTags?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsElasticsearch {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
-         */
         fetchNodes?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsElb {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         *
-         * Furthermore, below integration types supports the following common arguments.
-         */
         fetchExtendedInventory?: boolean;
-        /**
-         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchTags?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsEmr {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchTags?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
@@ -3689,8 +3477,7 @@ export namespace cloud {
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
@@ -3699,272 +3486,168 @@ export namespace cloud {
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsIot {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsKinesis {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Specify if Shards should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchShards?: boolean;
-        /**
-         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchTags?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsKinesisFirehose {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsLambda {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchTags?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsRds {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchTags?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsRedshift {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsRoute53 {
-        /**
-         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         *
-         * Furthermore, below integration types supports the following common arguments.
-         */
         fetchExtendedInventory?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsS3 {
-        /**
-         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         *
-         * Furthermore, below integration types supports the following common arguments.
-         */
         fetchExtendedInventory?: boolean;
-        /**
-         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchTags?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsSes {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsSns {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         *
-         * Furthermore, below integration types supports the following common arguments.
-         */
         fetchExtendedInventory?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsSqs {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         *
-         * Furthermore, below integration types supports the following common arguments.
-         */
         fetchExtendedInventory?: boolean;
-        /**
-         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchTags?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
-         */
         queuePrefixes?: string[];
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
@@ -3972,54 +3655,37 @@ export namespace cloud {
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsVpc {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
-        /**
-         * Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchNatGateway?: boolean;
-        /**
-         * Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         */
         fetchVpn?: boolean;
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
-        /**
-         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagKey?: string;
-        /**
-         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         */
         tagValue?: string;
     }
 
     export interface AwsIntegrationsXRay {
         /**
-         * Specify each AWS region that includes the resources that you want to monitor.  
-         * </details>
+         * Specify each AWS region that includes the resources that you want to monitor.
          */
         awsRegions?: string[];
         /**
          * The data polling interval in seconds.
          *
-         * <details>
-         * <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+         * Furthermore, below integration types supports the following common arguments.
          */
         metricsPollingInterval?: number;
     }
@@ -4731,7 +4397,7 @@ export namespace plugins {
 
     export interface WorkloadStatusConfigAutomatic {
         /**
-         * Whether the static status configuration is enabled or not.
+         * Whether the automatic status configuration is enabled or not.
          */
         enabled: boolean;
         /**
@@ -4813,7 +4479,7 @@ export namespace plugins {
          */
         description?: string;
         /**
-         * Whether the static status configuration is enabled or not.
+         * Whether the automatic status configuration is enabled or not.
          */
         enabled: boolean;
         /**

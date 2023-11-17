@@ -66,7 +66,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? PayloadType;
         /// <summary>
-        /// A set of recipients for targeting notifications.  Multiple values are comma separated.
+        /// Comma delimited list of email addresses.
         /// </summary>
         public readonly string? Recipients;
         /// <summary>

@@ -50,7 +50,7 @@ class GcpIntegrationsArgs:
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['GcpIntegrationsAlloyDbArgs'] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsAppEngineArgs'] app_engine: App Engine integration. See Integration blocks below for details.
-        :param pulumi.Input['GcpIntegrationsBigQueryArgs'] big_query: Biq Query integration. See Integration blocks below for details.
+        :param pulumi.Input['GcpIntegrationsBigQueryArgs'] big_query: GCP biq query service
         :param pulumi.Input['GcpIntegrationsBigTableArgs'] big_table: Big Table. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsComposerArgs'] composer: Composer integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsDataFlowArgs'] data_flow: Data Flow integration. See Integration blocks below for details.
@@ -65,13 +65,13 @@ class GcpIntegrationsArgs:
         :param pulumi.Input['GcpIntegrationsKubernetesArgs'] kubernetes: Kubernetes integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsLoadBalancingArgs'] load_balancing: Load Balancing integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsMemCacheArgs'] mem_cache: Mem cache integration. See Integration blocks below for details.
-        :param pulumi.Input['GcpIntegrationsPubSubArgs'] pub_sub: Pub/Sub integration. See Integration blocks below for details.
+        :param pulumi.Input['GcpIntegrationsPubSubArgs'] pub_sub: GCP big table service
         :param pulumi.Input['GcpIntegrationsRedisArgs'] redis: Redis integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsRouterArgs'] router: Router integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsRunArgs'] run: Run integration. See Integration blocks below for details.
-        :param pulumi.Input['GcpIntegrationsSpannerArgs'] spanner: Spanner integration. See Integration blocks below for details.
+        :param pulumi.Input['GcpIntegrationsSpannerArgs'] spanner: GCP big table service
         :param pulumi.Input['GcpIntegrationsSqlArgs'] sql: SQL integration. See Integration blocks below for details.
-        :param pulumi.Input['GcpIntegrationsStorageArgs'] storage: Storage integration. See Integration blocks below for details.
+        :param pulumi.Input['GcpIntegrationsStorageArgs'] storage: GCP big table service
         :param pulumi.Input['GcpIntegrationsVirtualMachinesArgs'] virtual_machines: Virtual machines integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsVpcAccessArgs'] vpc_access: VPC Access integration. See Integration blocks below for details.
         """
@@ -183,7 +183,7 @@ class GcpIntegrationsArgs:
     @pulumi.getter(name="bigQuery")
     def big_query(self) -> Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']]:
         """
-        Biq Query integration. See Integration blocks below for details.
+        GCP biq query service
         """
         return pulumi.get(self, "big_query")
 
@@ -363,7 +363,7 @@ class GcpIntegrationsArgs:
     @pulumi.getter(name="pubSub")
     def pub_sub(self) -> Optional[pulumi.Input['GcpIntegrationsPubSubArgs']]:
         """
-        Pub/Sub integration. See Integration blocks below for details.
+        GCP big table service
         """
         return pulumi.get(self, "pub_sub")
 
@@ -411,7 +411,7 @@ class GcpIntegrationsArgs:
     @pulumi.getter
     def spanner(self) -> Optional[pulumi.Input['GcpIntegrationsSpannerArgs']]:
         """
-        Spanner integration. See Integration blocks below for details.
+        GCP big table service
         """
         return pulumi.get(self, "spanner")
 
@@ -435,7 +435,7 @@ class GcpIntegrationsArgs:
     @pulumi.getter
     def storage(self) -> Optional[pulumi.Input['GcpIntegrationsStorageArgs']]:
         """
-        Storage integration. See Integration blocks below for details.
+        GCP big table service
         """
         return pulumi.get(self, "storage")
 
@@ -504,7 +504,7 @@ class _GcpIntegrationsState:
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['GcpIntegrationsAlloyDbArgs'] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsAppEngineArgs'] app_engine: App Engine integration. See Integration blocks below for details.
-        :param pulumi.Input['GcpIntegrationsBigQueryArgs'] big_query: Biq Query integration. See Integration blocks below for details.
+        :param pulumi.Input['GcpIntegrationsBigQueryArgs'] big_query: GCP biq query service
         :param pulumi.Input['GcpIntegrationsBigTableArgs'] big_table: Big Table. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsComposerArgs'] composer: Composer integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsDataFlowArgs'] data_flow: Data Flow integration. See Integration blocks below for details.
@@ -520,13 +520,13 @@ class _GcpIntegrationsState:
         :param pulumi.Input[int] linked_account_id: The ID of the linked GCP account in New Relic.
         :param pulumi.Input['GcpIntegrationsLoadBalancingArgs'] load_balancing: Load Balancing integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsMemCacheArgs'] mem_cache: Mem cache integration. See Integration blocks below for details.
-        :param pulumi.Input['GcpIntegrationsPubSubArgs'] pub_sub: Pub/Sub integration. See Integration blocks below for details.
+        :param pulumi.Input['GcpIntegrationsPubSubArgs'] pub_sub: GCP big table service
         :param pulumi.Input['GcpIntegrationsRedisArgs'] redis: Redis integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsRouterArgs'] router: Router integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsRunArgs'] run: Run integration. See Integration blocks below for details.
-        :param pulumi.Input['GcpIntegrationsSpannerArgs'] spanner: Spanner integration. See Integration blocks below for details.
+        :param pulumi.Input['GcpIntegrationsSpannerArgs'] spanner: GCP big table service
         :param pulumi.Input['GcpIntegrationsSqlArgs'] sql: SQL integration. See Integration blocks below for details.
-        :param pulumi.Input['GcpIntegrationsStorageArgs'] storage: Storage integration. See Integration blocks below for details.
+        :param pulumi.Input['GcpIntegrationsStorageArgs'] storage: GCP big table service
         :param pulumi.Input['GcpIntegrationsVirtualMachinesArgs'] virtual_machines: Virtual machines integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsVpcAccessArgs'] vpc_access: VPC Access integration. See Integration blocks below for details.
         """
@@ -627,7 +627,7 @@ class _GcpIntegrationsState:
     @pulumi.getter(name="bigQuery")
     def big_query(self) -> Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']]:
         """
-        Biq Query integration. See Integration blocks below for details.
+        GCP biq query service
         """
         return pulumi.get(self, "big_query")
 
@@ -819,7 +819,7 @@ class _GcpIntegrationsState:
     @pulumi.getter(name="pubSub")
     def pub_sub(self) -> Optional[pulumi.Input['GcpIntegrationsPubSubArgs']]:
         """
-        Pub/Sub integration. See Integration blocks below for details.
+        GCP big table service
         """
         return pulumi.get(self, "pub_sub")
 
@@ -867,7 +867,7 @@ class _GcpIntegrationsState:
     @pulumi.getter
     def spanner(self) -> Optional[pulumi.Input['GcpIntegrationsSpannerArgs']]:
         """
-        Spanner integration. See Integration blocks below for details.
+        GCP big table service
         """
         return pulumi.get(self, "spanner")
 
@@ -891,7 +891,7 @@ class _GcpIntegrationsState:
     @pulumi.getter
     def storage(self) -> Optional[pulumi.Input['GcpIntegrationsStorageArgs']]:
         """
-        Storage integration. See Integration blocks below for details.
+        GCP big table service
         """
         return pulumi.get(self, "storage")
 
@@ -1072,7 +1072,7 @@ class GcpIntegrations(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']] app_engine: App Engine integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']] big_query: Biq Query integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']] big_query: GCP biq query service
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigTableArgs']] big_table: Big Table. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsComposerArgs']] composer: Composer integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsDataFlowArgs']] data_flow: Data Flow integration. See Integration blocks below for details.
@@ -1088,13 +1088,13 @@ class GcpIntegrations(pulumi.CustomResource):
         :param pulumi.Input[int] linked_account_id: The ID of the linked GCP account in New Relic.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']] load_balancing: Load Balancing integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']] mem_cache: Mem cache integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']] pub_sub: GCP big table service
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsRedisArgs']] redis: Redis integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsRouterArgs']] router: Router integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsRunArgs']] run: Run integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsSpannerArgs']] spanner: Spanner integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['GcpIntegrationsSpannerArgs']] spanner: GCP big table service
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsSqlArgs']] sql: SQL integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsStorageArgs']] storage: Storage integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['GcpIntegrationsStorageArgs']] storage: GCP big table service
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsVirtualMachinesArgs']] virtual_machines: Virtual machines integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsVpcAccessArgs']] vpc_access: VPC Access integration. See Integration blocks below for details.
         """
@@ -1343,7 +1343,7 @@ class GcpIntegrations(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']] app_engine: App Engine integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']] big_query: Biq Query integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']] big_query: GCP biq query service
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigTableArgs']] big_table: Big Table. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsComposerArgs']] composer: Composer integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsDataFlowArgs']] data_flow: Data Flow integration. See Integration blocks below for details.
@@ -1359,13 +1359,13 @@ class GcpIntegrations(pulumi.CustomResource):
         :param pulumi.Input[int] linked_account_id: The ID of the linked GCP account in New Relic.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']] load_balancing: Load Balancing integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']] mem_cache: Mem cache integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']] pub_sub: GCP big table service
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsRedisArgs']] redis: Redis integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsRouterArgs']] router: Router integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsRunArgs']] run: Run integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsSpannerArgs']] spanner: Spanner integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['GcpIntegrationsSpannerArgs']] spanner: GCP big table service
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsSqlArgs']] sql: SQL integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsStorageArgs']] storage: Storage integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['GcpIntegrationsStorageArgs']] storage: GCP big table service
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsVirtualMachinesArgs']] virtual_machines: Virtual machines integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsVpcAccessArgs']] vpc_access: VPC Access integration. See Integration blocks below for details.
         """
@@ -1431,7 +1431,7 @@ class GcpIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="bigQuery")
     def big_query(self) -> pulumi.Output[Optional['outputs.GcpIntegrationsBigQuery']]:
         """
-        Biq Query integration. See Integration blocks below for details.
+        GCP biq query service
         """
         return pulumi.get(self, "big_query")
 
@@ -1559,7 +1559,7 @@ class GcpIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="pubSub")
     def pub_sub(self) -> pulumi.Output[Optional['outputs.GcpIntegrationsPubSub']]:
         """
-        Pub/Sub integration. See Integration blocks below for details.
+        GCP big table service
         """
         return pulumi.get(self, "pub_sub")
 
@@ -1591,7 +1591,7 @@ class GcpIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def spanner(self) -> pulumi.Output[Optional['outputs.GcpIntegrationsSpanner']]:
         """
-        Spanner integration. See Integration blocks below for details.
+        GCP big table service
         """
         return pulumi.get(self, "spanner")
 
@@ -1607,7 +1607,7 @@ class GcpIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def storage(self) -> pulumi.Output[Optional['outputs.GcpIntegrationsStorage']]:
         """
-        Storage integration. See Integration blocks below for details.
+        GCP big table service
         """
         return pulumi.get(self, "storage")
 

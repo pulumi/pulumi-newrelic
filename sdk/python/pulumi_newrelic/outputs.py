@@ -245,7 +245,7 @@ class AlertChannelConfig(dict):
         :param Mapping[str, str] payload: A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
         :param str payload_string: Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
         :param str payload_type: Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
-        :param str recipients: A set of recipients for targeting notifications.  Multiple values are comma separated.
+        :param str recipients: Comma delimited list of email addresses.
         :param str region: The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
         :param str route_key: The route key for integrating with VictorOps.
         :param str service_key: Specifies the service key for integrating with Pagerduty.
@@ -404,7 +404,7 @@ class AlertChannelConfig(dict):
     @pulumi.getter
     def recipients(self) -> Optional[str]:
         """
-        A set of recipients for targeting notifications.  Multiple values are comma separated.
+        Comma delimited list of email addresses.
         """
         return pulumi.get(self, "recipients")
 
@@ -9704,8 +9704,8 @@ class ServiceLevelEventsGoodEvents(dict):
         """
         :param str from_: The event type where NRDB data will be fetched from.
         :param 'ServiceLevelEventsGoodEventsSelectArgs' select: The NRQL SELECT clause to aggregate events.
-        :param str where: A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-               a particular entity and returned an error).
+        :param str where: A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+               a particular entity and were successful).
         """
         pulumi.set(__self__, "from_", from_)
         if select is not None:
@@ -9733,8 +9733,8 @@ class ServiceLevelEventsGoodEvents(dict):
     @pulumi.getter
     def where(self) -> Optional[str]:
         """
-        A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-        a particular entity and returned an error).
+        A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+        a particular entity and were successful).
         """
         return pulumi.get(self, "where")
 

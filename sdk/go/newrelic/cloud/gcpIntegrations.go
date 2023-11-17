@@ -151,7 +151,7 @@ type GcpIntegrations struct {
 	AlloyDb GcpIntegrationsAlloyDbPtrOutput `pulumi:"alloyDb"`
 	// App Engine integration. See Integration blocks below for details.
 	AppEngine GcpIntegrationsAppEnginePtrOutput `pulumi:"appEngine"`
-	// Biq Query integration. See Integration blocks below for details.
+	// GCP biq query service
 	BigQuery GcpIntegrationsBigQueryPtrOutput `pulumi:"bigQuery"`
 	// Big Table. See Integration blocks below for details.
 	BigTable GcpIntegrationsBigTablePtrOutput `pulumi:"bigTable"`
@@ -183,7 +183,7 @@ type GcpIntegrations struct {
 	LoadBalancing GcpIntegrationsLoadBalancingPtrOutput `pulumi:"loadBalancing"`
 	// Mem cache integration. See Integration blocks below for details.
 	MemCache GcpIntegrationsMemCachePtrOutput `pulumi:"memCache"`
-	// Pub/Sub integration. See Integration blocks below for details.
+	// GCP big table service
 	PubSub GcpIntegrationsPubSubPtrOutput `pulumi:"pubSub"`
 	// Redis integration. See Integration blocks below for details.
 	Redis GcpIntegrationsRedisPtrOutput `pulumi:"redis"`
@@ -191,11 +191,11 @@ type GcpIntegrations struct {
 	Router GcpIntegrationsRouterPtrOutput `pulumi:"router"`
 	// Run integration. See Integration blocks below for details.
 	Run GcpIntegrationsRunPtrOutput `pulumi:"run"`
-	// Spanner integration. See Integration blocks below for details.
+	// GCP big table service
 	Spanner GcpIntegrationsSpannerPtrOutput `pulumi:"spanner"`
 	// SQL integration. See Integration blocks below for details.
 	Sql GcpIntegrationsSqlPtrOutput `pulumi:"sql"`
-	// Storage integration. See Integration blocks below for details.
+	// GCP big table service
 	Storage GcpIntegrationsStoragePtrOutput `pulumi:"storage"`
 	// Virtual machines integration. See Integration blocks below for details.
 	VirtualMachines GcpIntegrationsVirtualMachinesPtrOutput `pulumi:"virtualMachines"`
@@ -242,7 +242,7 @@ type gcpIntegrationsState struct {
 	AlloyDb *GcpIntegrationsAlloyDb `pulumi:"alloyDb"`
 	// App Engine integration. See Integration blocks below for details.
 	AppEngine *GcpIntegrationsAppEngine `pulumi:"appEngine"`
-	// Biq Query integration. See Integration blocks below for details.
+	// GCP biq query service
 	BigQuery *GcpIntegrationsBigQuery `pulumi:"bigQuery"`
 	// Big Table. See Integration blocks below for details.
 	BigTable *GcpIntegrationsBigTable `pulumi:"bigTable"`
@@ -274,7 +274,7 @@ type gcpIntegrationsState struct {
 	LoadBalancing *GcpIntegrationsLoadBalancing `pulumi:"loadBalancing"`
 	// Mem cache integration. See Integration blocks below for details.
 	MemCache *GcpIntegrationsMemCache `pulumi:"memCache"`
-	// Pub/Sub integration. See Integration blocks below for details.
+	// GCP big table service
 	PubSub *GcpIntegrationsPubSub `pulumi:"pubSub"`
 	// Redis integration. See Integration blocks below for details.
 	Redis *GcpIntegrationsRedis `pulumi:"redis"`
@@ -282,11 +282,11 @@ type gcpIntegrationsState struct {
 	Router *GcpIntegrationsRouter `pulumi:"router"`
 	// Run integration. See Integration blocks below for details.
 	Run *GcpIntegrationsRun `pulumi:"run"`
-	// Spanner integration. See Integration blocks below for details.
+	// GCP big table service
 	Spanner *GcpIntegrationsSpanner `pulumi:"spanner"`
 	// SQL integration. See Integration blocks below for details.
 	Sql *GcpIntegrationsSql `pulumi:"sql"`
-	// Storage integration. See Integration blocks below for details.
+	// GCP big table service
 	Storage *GcpIntegrationsStorage `pulumi:"storage"`
 	// Virtual machines integration. See Integration blocks below for details.
 	VirtualMachines *GcpIntegrationsVirtualMachines `pulumi:"virtualMachines"`
@@ -301,7 +301,7 @@ type GcpIntegrationsState struct {
 	AlloyDb GcpIntegrationsAlloyDbPtrInput
 	// App Engine integration. See Integration blocks below for details.
 	AppEngine GcpIntegrationsAppEnginePtrInput
-	// Biq Query integration. See Integration blocks below for details.
+	// GCP biq query service
 	BigQuery GcpIntegrationsBigQueryPtrInput
 	// Big Table. See Integration blocks below for details.
 	BigTable GcpIntegrationsBigTablePtrInput
@@ -333,7 +333,7 @@ type GcpIntegrationsState struct {
 	LoadBalancing GcpIntegrationsLoadBalancingPtrInput
 	// Mem cache integration. See Integration blocks below for details.
 	MemCache GcpIntegrationsMemCachePtrInput
-	// Pub/Sub integration. See Integration blocks below for details.
+	// GCP big table service
 	PubSub GcpIntegrationsPubSubPtrInput
 	// Redis integration. See Integration blocks below for details.
 	Redis GcpIntegrationsRedisPtrInput
@@ -341,11 +341,11 @@ type GcpIntegrationsState struct {
 	Router GcpIntegrationsRouterPtrInput
 	// Run integration. See Integration blocks below for details.
 	Run GcpIntegrationsRunPtrInput
-	// Spanner integration. See Integration blocks below for details.
+	// GCP big table service
 	Spanner GcpIntegrationsSpannerPtrInput
 	// SQL integration. See Integration blocks below for details.
 	Sql GcpIntegrationsSqlPtrInput
-	// Storage integration. See Integration blocks below for details.
+	// GCP big table service
 	Storage GcpIntegrationsStoragePtrInput
 	// Virtual machines integration. See Integration blocks below for details.
 	VirtualMachines GcpIntegrationsVirtualMachinesPtrInput
@@ -364,7 +364,7 @@ type gcpIntegrationsArgs struct {
 	AlloyDb *GcpIntegrationsAlloyDb `pulumi:"alloyDb"`
 	// App Engine integration. See Integration blocks below for details.
 	AppEngine *GcpIntegrationsAppEngine `pulumi:"appEngine"`
-	// Biq Query integration. See Integration blocks below for details.
+	// GCP biq query service
 	BigQuery *GcpIntegrationsBigQuery `pulumi:"bigQuery"`
 	// Big Table. See Integration blocks below for details.
 	BigTable *GcpIntegrationsBigTable `pulumi:"bigTable"`
@@ -396,7 +396,7 @@ type gcpIntegrationsArgs struct {
 	LoadBalancing *GcpIntegrationsLoadBalancing `pulumi:"loadBalancing"`
 	// Mem cache integration. See Integration blocks below for details.
 	MemCache *GcpIntegrationsMemCache `pulumi:"memCache"`
-	// Pub/Sub integration. See Integration blocks below for details.
+	// GCP big table service
 	PubSub *GcpIntegrationsPubSub `pulumi:"pubSub"`
 	// Redis integration. See Integration blocks below for details.
 	Redis *GcpIntegrationsRedis `pulumi:"redis"`
@@ -404,11 +404,11 @@ type gcpIntegrationsArgs struct {
 	Router *GcpIntegrationsRouter `pulumi:"router"`
 	// Run integration. See Integration blocks below for details.
 	Run *GcpIntegrationsRun `pulumi:"run"`
-	// Spanner integration. See Integration blocks below for details.
+	// GCP big table service
 	Spanner *GcpIntegrationsSpanner `pulumi:"spanner"`
 	// SQL integration. See Integration blocks below for details.
 	Sql *GcpIntegrationsSql `pulumi:"sql"`
-	// Storage integration. See Integration blocks below for details.
+	// GCP big table service
 	Storage *GcpIntegrationsStorage `pulumi:"storage"`
 	// Virtual machines integration. See Integration blocks below for details.
 	VirtualMachines *GcpIntegrationsVirtualMachines `pulumi:"virtualMachines"`
@@ -424,7 +424,7 @@ type GcpIntegrationsArgs struct {
 	AlloyDb GcpIntegrationsAlloyDbPtrInput
 	// App Engine integration. See Integration blocks below for details.
 	AppEngine GcpIntegrationsAppEnginePtrInput
-	// Biq Query integration. See Integration blocks below for details.
+	// GCP biq query service
 	BigQuery GcpIntegrationsBigQueryPtrInput
 	// Big Table. See Integration blocks below for details.
 	BigTable GcpIntegrationsBigTablePtrInput
@@ -456,7 +456,7 @@ type GcpIntegrationsArgs struct {
 	LoadBalancing GcpIntegrationsLoadBalancingPtrInput
 	// Mem cache integration. See Integration blocks below for details.
 	MemCache GcpIntegrationsMemCachePtrInput
-	// Pub/Sub integration. See Integration blocks below for details.
+	// GCP big table service
 	PubSub GcpIntegrationsPubSubPtrInput
 	// Redis integration. See Integration blocks below for details.
 	Redis GcpIntegrationsRedisPtrInput
@@ -464,11 +464,11 @@ type GcpIntegrationsArgs struct {
 	Router GcpIntegrationsRouterPtrInput
 	// Run integration. See Integration blocks below for details.
 	Run GcpIntegrationsRunPtrInput
-	// Spanner integration. See Integration blocks below for details.
+	// GCP big table service
 	Spanner GcpIntegrationsSpannerPtrInput
 	// SQL integration. See Integration blocks below for details.
 	Sql GcpIntegrationsSqlPtrInput
-	// Storage integration. See Integration blocks below for details.
+	// GCP big table service
 	Storage GcpIntegrationsStoragePtrInput
 	// Virtual machines integration. See Integration blocks below for details.
 	VirtualMachines GcpIntegrationsVirtualMachinesPtrInput
@@ -578,7 +578,7 @@ func (o GcpIntegrationsOutput) AppEngine() GcpIntegrationsAppEnginePtrOutput {
 	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsAppEnginePtrOutput { return v.AppEngine }).(GcpIntegrationsAppEnginePtrOutput)
 }
 
-// Biq Query integration. See Integration blocks below for details.
+// GCP biq query service
 func (o GcpIntegrationsOutput) BigQuery() GcpIntegrationsBigQueryPtrOutput {
 	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsBigQueryPtrOutput { return v.BigQuery }).(GcpIntegrationsBigQueryPtrOutput)
 }
@@ -658,7 +658,7 @@ func (o GcpIntegrationsOutput) MemCache() GcpIntegrationsMemCachePtrOutput {
 	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsMemCachePtrOutput { return v.MemCache }).(GcpIntegrationsMemCachePtrOutput)
 }
 
-// Pub/Sub integration. See Integration blocks below for details.
+// GCP big table service
 func (o GcpIntegrationsOutput) PubSub() GcpIntegrationsPubSubPtrOutput {
 	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsPubSubPtrOutput { return v.PubSub }).(GcpIntegrationsPubSubPtrOutput)
 }
@@ -678,7 +678,7 @@ func (o GcpIntegrationsOutput) Run() GcpIntegrationsRunPtrOutput {
 	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsRunPtrOutput { return v.Run }).(GcpIntegrationsRunPtrOutput)
 }
 
-// Spanner integration. See Integration blocks below for details.
+// GCP big table service
 func (o GcpIntegrationsOutput) Spanner() GcpIntegrationsSpannerPtrOutput {
 	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsSpannerPtrOutput { return v.Spanner }).(GcpIntegrationsSpannerPtrOutput)
 }
@@ -688,7 +688,7 @@ func (o GcpIntegrationsOutput) Sql() GcpIntegrationsSqlPtrOutput {
 	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsSqlPtrOutput { return v.Sql }).(GcpIntegrationsSqlPtrOutput)
 }
 
-// Storage integration. See Integration blocks below for details.
+// GCP big table service
 func (o GcpIntegrationsOutput) Storage() GcpIntegrationsStoragePtrOutput {
 	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsStoragePtrOutput { return v.Storage }).(GcpIntegrationsStoragePtrOutput)
 }

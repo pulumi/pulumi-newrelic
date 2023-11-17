@@ -20,7 +20,6 @@ public final class AwsIntegrationsEbsArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     @Import(name="awsRegions")
@@ -28,28 +27,15 @@ public final class AwsIntegrationsEbsArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
         return Optional.ofNullable(this.awsRegions);
     }
 
-    /**
-     * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * 
-     * Furthermore, below integration types supports the following common arguments.
-     * 
-     */
     @Import(name="fetchExtendedInventory")
     private @Nullable Output<Boolean> fetchExtendedInventory;
 
-    /**
-     * @return Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * 
-     * Furthermore, below integration types supports the following common arguments.
-     * 
-     */
     public Optional<Output<Boolean>> fetchExtendedInventory() {
         return Optional.ofNullable(this.fetchExtendedInventory);
     }
@@ -57,8 +43,7 @@ public final class AwsIntegrationsEbsArgs extends com.pulumi.resources.ResourceA
     /**
      * The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+     * Furthermore, below integration types supports the following common arguments.
      * 
      */
     @Import(name="metricsPollingInterval")
@@ -67,40 +52,23 @@ public final class AwsIntegrationsEbsArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+     * Furthermore, below integration types supports the following common arguments.
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
         return Optional.ofNullable(this.metricsPollingInterval);
     }
 
-    /**
-     * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * 
-     */
     @Import(name="tagKey")
     private @Nullable Output<String> tagKey;
 
-    /**
-     * @return Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * 
-     */
     public Optional<Output<String>> tagKey() {
         return Optional.ofNullable(this.tagKey);
     }
 
-    /**
-     * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * 
-     */
     @Import(name="tagValue")
     private @Nullable Output<String> tagValue;
 
-    /**
-     * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * 
-     */
     public Optional<Output<String>> tagValue() {
         return Optional.ofNullable(this.tagValue);
     }
@@ -135,7 +103,6 @@ public final class AwsIntegrationsEbsArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -147,7 +114,6 @@ public final class AwsIntegrationsEbsArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -158,7 +124,6 @@ public final class AwsIntegrationsEbsArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -167,27 +132,11 @@ public final class AwsIntegrationsEbsArgs extends com.pulumi.resources.ResourceA
             return awsRegions(List.of(awsRegions));
         }
 
-        /**
-         * @param fetchExtendedInventory Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * 
-         * Furthermore, below integration types supports the following common arguments.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fetchExtendedInventory(@Nullable Output<Boolean> fetchExtendedInventory) {
             $.fetchExtendedInventory = fetchExtendedInventory;
             return this;
         }
 
-        /**
-         * @param fetchExtendedInventory Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * 
-         * Furthermore, below integration types supports the following common arguments.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fetchExtendedInventory(Boolean fetchExtendedInventory) {
             return fetchExtendedInventory(Output.of(fetchExtendedInventory));
         }
@@ -195,8 +144,7 @@ public final class AwsIntegrationsEbsArgs extends com.pulumi.resources.ResourceA
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
-         * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+         * Furthermore, below integration types supports the following common arguments.
          * 
          * @return builder
          * 
@@ -209,8 +157,7 @@ public final class AwsIntegrationsEbsArgs extends com.pulumi.resources.ResourceA
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
-         * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+         * Furthermore, below integration types supports the following common arguments.
          * 
          * @return builder
          * 
@@ -219,44 +166,20 @@ public final class AwsIntegrationsEbsArgs extends com.pulumi.resources.ResourceA
             return metricsPollingInterval(Output.of(metricsPollingInterval));
         }
 
-        /**
-         * @param tagKey Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagKey(@Nullable Output<String> tagKey) {
             $.tagKey = tagKey;
             return this;
         }
 
-        /**
-         * @param tagKey Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagKey(String tagKey) {
             return tagKey(Output.of(tagKey));
         }
 
-        /**
-         * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagValue(@Nullable Output<String> tagValue) {
             $.tagValue = tagValue;
             return this;
         }
 
-        /**
-         * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagValue(String tagValue) {
             return tagValue(Output.of(tagValue));
         }

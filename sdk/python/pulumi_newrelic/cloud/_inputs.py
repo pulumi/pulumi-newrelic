@@ -1717,19 +1717,10 @@ class AwsIntegrationsAlbArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               
-               Furthermore, below integration types supports the following common arguments.
-        :param pulumi.Input[bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_prefixes: Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -1750,8 +1741,7 @@ class AwsIntegrationsAlbArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1762,11 +1752,6 @@ class AwsIntegrationsAlbArgs:
     @property
     @pulumi.getter(name="fetchExtendedInventory")
     def fetch_extended_inventory(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-
-        Furthermore, below integration types supports the following common arguments.
-        """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
@@ -1776,9 +1761,6 @@ class AwsIntegrationsAlbArgs:
     @property
     @pulumi.getter(name="fetchTags")
     def fetch_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
@@ -1788,9 +1770,6 @@ class AwsIntegrationsAlbArgs:
     @property
     @pulumi.getter(name="loadBalancerPrefixes")
     def load_balancer_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "load_balancer_prefixes")
 
     @load_balancer_prefixes.setter
@@ -1803,8 +1782,7 @@ class AwsIntegrationsAlbArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -1815,9 +1793,6 @@ class AwsIntegrationsAlbArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -1827,9 +1802,6 @@ class AwsIntegrationsAlbArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -1846,15 +1818,10 @@ class AwsIntegrationsApiGatewayArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] stage_prefixes: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -1871,8 +1838,7 @@ class AwsIntegrationsApiGatewayArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1886,8 +1852,7 @@ class AwsIntegrationsApiGatewayArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -1898,9 +1863,6 @@ class AwsIntegrationsApiGatewayArgs:
     @property
     @pulumi.getter(name="stagePrefixes")
     def stage_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "stage_prefixes")
 
     @stage_prefixes.setter
@@ -1910,9 +1872,6 @@ class AwsIntegrationsApiGatewayArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -1922,9 +1881,6 @@ class AwsIntegrationsApiGatewayArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -1938,12 +1894,10 @@ class AwsIntegrationsAutoScalingArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -1954,8 +1908,7 @@ class AwsIntegrationsAutoScalingArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1969,8 +1922,7 @@ class AwsIntegrationsAutoScalingArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -1985,12 +1937,10 @@ class AwsIntegrationsAwsAppSyncArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2001,8 +1951,7 @@ class AwsIntegrationsAwsAppSyncArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2016,8 +1965,7 @@ class AwsIntegrationsAwsAppSyncArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2032,12 +1980,10 @@ class AwsIntegrationsAwsAthenaArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2048,8 +1994,7 @@ class AwsIntegrationsAwsAthenaArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2063,8 +2008,7 @@ class AwsIntegrationsAwsAthenaArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2079,12 +2023,10 @@ class AwsIntegrationsAwsCognitoArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2095,8 +2037,7 @@ class AwsIntegrationsAwsCognitoArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2110,8 +2051,7 @@ class AwsIntegrationsAwsCognitoArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2126,12 +2066,10 @@ class AwsIntegrationsAwsConnectArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2142,8 +2080,7 @@ class AwsIntegrationsAwsConnectArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2157,8 +2094,7 @@ class AwsIntegrationsAwsConnectArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2173,12 +2109,10 @@ class AwsIntegrationsAwsDirectConnectArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2189,8 +2123,7 @@ class AwsIntegrationsAwsDirectConnectArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2204,8 +2137,7 @@ class AwsIntegrationsAwsDirectConnectArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2220,12 +2152,10 @@ class AwsIntegrationsAwsFsxArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2236,8 +2166,7 @@ class AwsIntegrationsAwsFsxArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2251,8 +2180,7 @@ class AwsIntegrationsAwsFsxArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2267,12 +2195,10 @@ class AwsIntegrationsAwsGlueArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2283,8 +2209,7 @@ class AwsIntegrationsAwsGlueArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2298,8 +2223,7 @@ class AwsIntegrationsAwsGlueArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2314,12 +2238,10 @@ class AwsIntegrationsAwsKinesisAnalyticsArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2330,8 +2252,7 @@ class AwsIntegrationsAwsKinesisAnalyticsArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2345,8 +2266,7 @@ class AwsIntegrationsAwsKinesisAnalyticsArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2361,12 +2281,10 @@ class AwsIntegrationsAwsMediaConvertArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2377,8 +2295,7 @@ class AwsIntegrationsAwsMediaConvertArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2392,8 +2309,7 @@ class AwsIntegrationsAwsMediaConvertArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2408,12 +2324,10 @@ class AwsIntegrationsAwsMediaPackageVodArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2424,8 +2338,7 @@ class AwsIntegrationsAwsMediaPackageVodArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2439,8 +2352,7 @@ class AwsIntegrationsAwsMediaPackageVodArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2455,12 +2367,10 @@ class AwsIntegrationsAwsMqArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2471,8 +2381,7 @@ class AwsIntegrationsAwsMqArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2486,8 +2395,7 @@ class AwsIntegrationsAwsMqArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2502,12 +2410,10 @@ class AwsIntegrationsAwsMskArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2518,8 +2424,7 @@ class AwsIntegrationsAwsMskArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2533,8 +2438,7 @@ class AwsIntegrationsAwsMskArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2549,12 +2453,10 @@ class AwsIntegrationsAwsNeptuneArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2565,8 +2467,7 @@ class AwsIntegrationsAwsNeptuneArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2580,8 +2481,7 @@ class AwsIntegrationsAwsNeptuneArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2596,12 +2496,10 @@ class AwsIntegrationsAwsQldbArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2612,8 +2510,7 @@ class AwsIntegrationsAwsQldbArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2627,8 +2524,7 @@ class AwsIntegrationsAwsQldbArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2643,12 +2539,10 @@ class AwsIntegrationsAwsRoute53resolverArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2659,8 +2553,7 @@ class AwsIntegrationsAwsRoute53resolverArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2674,8 +2567,7 @@ class AwsIntegrationsAwsRoute53resolverArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2690,12 +2582,10 @@ class AwsIntegrationsAwsStatesArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2706,8 +2596,7 @@ class AwsIntegrationsAwsStatesArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2721,8 +2610,7 @@ class AwsIntegrationsAwsStatesArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2737,12 +2625,10 @@ class AwsIntegrationsAwsTransitGatewayArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2753,8 +2639,7 @@ class AwsIntegrationsAwsTransitGatewayArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2768,8 +2653,7 @@ class AwsIntegrationsAwsTransitGatewayArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2784,12 +2668,10 @@ class AwsIntegrationsAwsWafArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2800,8 +2682,7 @@ class AwsIntegrationsAwsWafArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2815,8 +2696,7 @@ class AwsIntegrationsAwsWafArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2831,12 +2711,10 @@ class AwsIntegrationsAwsWafv2Args:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2847,8 +2725,7 @@ class AwsIntegrationsAwsWafv2Args:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2862,8 +2739,7 @@ class AwsIntegrationsAwsWafv2Args:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2879,8 +2755,7 @@ class AwsIntegrationsBillingArgs:
         """
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if metrics_polling_interval is not None:
             pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
@@ -2891,8 +2766,7 @@ class AwsIntegrationsBillingArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2910,14 +2784,9 @@ class AwsIntegrationsCloudfrontArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] fetch_lambdas_at_edge: Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        :param pulumi.Input[bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if fetch_lambdas_at_edge is not None:
             pulumi.set(__self__, "fetch_lambdas_at_edge", fetch_lambdas_at_edge)
@@ -2933,9 +2802,6 @@ class AwsIntegrationsCloudfrontArgs:
     @property
     @pulumi.getter(name="fetchLambdasAtEdge")
     def fetch_lambdas_at_edge(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_lambdas_at_edge")
 
     @fetch_lambdas_at_edge.setter
@@ -2945,9 +2811,6 @@ class AwsIntegrationsCloudfrontArgs:
     @property
     @pulumi.getter(name="fetchTags")
     def fetch_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
@@ -2960,8 +2823,7 @@ class AwsIntegrationsCloudfrontArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -2972,9 +2834,6 @@ class AwsIntegrationsCloudfrontArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -2984,9 +2843,6 @@ class AwsIntegrationsCloudfrontArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -3000,12 +2856,10 @@ class AwsIntegrationsCloudtrailArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -3016,8 +2870,7 @@ class AwsIntegrationsCloudtrailArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -3031,8 +2884,7 @@ class AwsIntegrationsCloudtrailArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3047,12 +2899,10 @@ class AwsIntegrationsDocDbArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -3063,8 +2913,7 @@ class AwsIntegrationsDocDbArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -3078,8 +2927,7 @@ class AwsIntegrationsDocDbArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3098,18 +2946,10 @@ class AwsIntegrationsDynamodbArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               
-               Furthermore, below integration types supports the following common arguments.
-        :param pulumi.Input[bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -3128,8 +2968,7 @@ class AwsIntegrationsDynamodbArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -3140,11 +2979,6 @@ class AwsIntegrationsDynamodbArgs:
     @property
     @pulumi.getter(name="fetchExtendedInventory")
     def fetch_extended_inventory(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-
-        Furthermore, below integration types supports the following common arguments.
-        """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
@@ -3154,9 +2988,6 @@ class AwsIntegrationsDynamodbArgs:
     @property
     @pulumi.getter(name="fetchTags")
     def fetch_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
@@ -3169,8 +3000,7 @@ class AwsIntegrationsDynamodbArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3181,9 +3011,6 @@ class AwsIntegrationsDynamodbArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -3193,9 +3020,6 @@ class AwsIntegrationsDynamodbArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -3212,17 +3036,10 @@ class AwsIntegrationsEbsArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               
-               Furthermore, below integration types supports the following common arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -3239,8 +3056,7 @@ class AwsIntegrationsEbsArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -3251,11 +3067,6 @@ class AwsIntegrationsEbsArgs:
     @property
     @pulumi.getter(name="fetchExtendedInventory")
     def fetch_extended_inventory(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-
-        Furthermore, below integration types supports the following common arguments.
-        """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
@@ -3268,8 +3079,7 @@ class AwsIntegrationsEbsArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3280,9 +3090,6 @@ class AwsIntegrationsEbsArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -3292,9 +3099,6 @@ class AwsIntegrationsEbsArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -3312,16 +3116,10 @@ class AwsIntegrationsEc2Args:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] duplicate_ec2_tags: Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
-        :param pulumi.Input[bool] fetch_ip_addresses: Specify if IP addresses of ec2 instance should be collected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -3340,8 +3138,7 @@ class AwsIntegrationsEc2Args:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -3352,9 +3149,6 @@ class AwsIntegrationsEc2Args:
     @property
     @pulumi.getter(name="duplicateEc2Tags")
     def duplicate_ec2_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
-        """
         return pulumi.get(self, "duplicate_ec2_tags")
 
     @duplicate_ec2_tags.setter
@@ -3364,9 +3158,6 @@ class AwsIntegrationsEc2Args:
     @property
     @pulumi.getter(name="fetchIpAddresses")
     def fetch_ip_addresses(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if IP addresses of ec2 instance should be collected.
-        """
         return pulumi.get(self, "fetch_ip_addresses")
 
     @fetch_ip_addresses.setter
@@ -3379,8 +3170,7 @@ class AwsIntegrationsEc2Args:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3391,9 +3181,6 @@ class AwsIntegrationsEc2Args:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -3403,9 +3190,6 @@ class AwsIntegrationsEc2Args:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -3422,15 +3206,10 @@ class AwsIntegrationsEcsArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -3447,8 +3226,7 @@ class AwsIntegrationsEcsArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -3459,9 +3237,6 @@ class AwsIntegrationsEcsArgs:
     @property
     @pulumi.getter(name="fetchTags")
     def fetch_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
@@ -3474,8 +3249,7 @@ class AwsIntegrationsEcsArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3486,9 +3260,6 @@ class AwsIntegrationsEcsArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -3498,9 +3269,6 @@ class AwsIntegrationsEcsArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -3517,15 +3285,10 @@ class AwsIntegrationsEfsArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -3542,8 +3305,7 @@ class AwsIntegrationsEfsArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -3554,9 +3316,6 @@ class AwsIntegrationsEfsArgs:
     @property
     @pulumi.getter(name="fetchTags")
     def fetch_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
@@ -3569,8 +3328,7 @@ class AwsIntegrationsEfsArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3581,9 +3339,6 @@ class AwsIntegrationsEfsArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -3593,9 +3348,6 @@ class AwsIntegrationsEfsArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -3612,15 +3364,10 @@ class AwsIntegrationsElasticacheArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -3637,8 +3384,7 @@ class AwsIntegrationsElasticacheArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -3649,9 +3395,6 @@ class AwsIntegrationsElasticacheArgs:
     @property
     @pulumi.getter(name="fetchTags")
     def fetch_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
@@ -3664,8 +3407,7 @@ class AwsIntegrationsElasticacheArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3676,9 +3418,6 @@ class AwsIntegrationsElasticacheArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -3688,9 +3427,6 @@ class AwsIntegrationsElasticacheArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -3708,18 +3444,10 @@ class AwsIntegrationsElasticbeanstalkArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               
-               Furthermore, below integration types supports the following common arguments.
-        :param pulumi.Input[bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -3738,8 +3466,7 @@ class AwsIntegrationsElasticbeanstalkArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -3750,11 +3477,6 @@ class AwsIntegrationsElasticbeanstalkArgs:
     @property
     @pulumi.getter(name="fetchExtendedInventory")
     def fetch_extended_inventory(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-
-        Furthermore, below integration types supports the following common arguments.
-        """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
@@ -3764,9 +3486,6 @@ class AwsIntegrationsElasticbeanstalkArgs:
     @property
     @pulumi.getter(name="fetchTags")
     def fetch_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
@@ -3779,8 +3498,7 @@ class AwsIntegrationsElasticbeanstalkArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3791,9 +3509,6 @@ class AwsIntegrationsElasticbeanstalkArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -3803,9 +3518,6 @@ class AwsIntegrationsElasticbeanstalkArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -3822,15 +3534,10 @@ class AwsIntegrationsElasticsearchArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_nodes: Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -3847,8 +3554,7 @@ class AwsIntegrationsElasticsearchArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -3859,9 +3565,6 @@ class AwsIntegrationsElasticsearchArgs:
     @property
     @pulumi.getter(name="fetchNodes")
     def fetch_nodes(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
-        """
         return pulumi.get(self, "fetch_nodes")
 
     @fetch_nodes.setter
@@ -3874,8 +3577,7 @@ class AwsIntegrationsElasticsearchArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -3886,9 +3588,6 @@ class AwsIntegrationsElasticsearchArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -3898,9 +3597,6 @@ class AwsIntegrationsElasticsearchArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -3916,16 +3612,10 @@ class AwsIntegrationsElbArgs:
                  fetch_tags: Optional[pulumi.Input[bool]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               
-               Furthermore, below integration types supports the following common arguments.
-        :param pulumi.Input[bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -3940,8 +3630,7 @@ class AwsIntegrationsElbArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -3952,11 +3641,6 @@ class AwsIntegrationsElbArgs:
     @property
     @pulumi.getter(name="fetchExtendedInventory")
     def fetch_extended_inventory(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-
-        Furthermore, below integration types supports the following common arguments.
-        """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
@@ -3966,9 +3650,6 @@ class AwsIntegrationsElbArgs:
     @property
     @pulumi.getter(name="fetchTags")
     def fetch_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
@@ -3981,8 +3662,7 @@ class AwsIntegrationsElbArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4000,15 +3680,10 @@ class AwsIntegrationsEmrArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -4025,8 +3700,7 @@ class AwsIntegrationsEmrArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -4037,9 +3711,6 @@ class AwsIntegrationsEmrArgs:
     @property
     @pulumi.getter(name="fetchTags")
     def fetch_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
@@ -4052,8 +3723,7 @@ class AwsIntegrationsEmrArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4064,9 +3734,6 @@ class AwsIntegrationsEmrArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -4076,9 +3743,6 @@ class AwsIntegrationsEmrArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -4093,8 +3757,7 @@ class AwsIntegrationsHealthArgs:
         """
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if metrics_polling_interval is not None:
             pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
@@ -4105,8 +3768,7 @@ class AwsIntegrationsHealthArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4124,10 +3786,7 @@ class AwsIntegrationsIamArgs:
         """
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if metrics_polling_interval is not None:
             pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
@@ -4142,8 +3801,7 @@ class AwsIntegrationsIamArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4154,9 +3812,6 @@ class AwsIntegrationsIamArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -4166,9 +3821,6 @@ class AwsIntegrationsIamArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -4182,12 +3834,10 @@ class AwsIntegrationsIotArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -4198,8 +3848,7 @@ class AwsIntegrationsIotArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -4213,8 +3862,7 @@ class AwsIntegrationsIotArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4233,16 +3881,10 @@ class AwsIntegrationsKinesisArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_shards: Specify if Shards should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        :param pulumi.Input[bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -4261,8 +3903,7 @@ class AwsIntegrationsKinesisArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -4273,9 +3914,6 @@ class AwsIntegrationsKinesisArgs:
     @property
     @pulumi.getter(name="fetchShards")
     def fetch_shards(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if Shards should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_shards")
 
     @fetch_shards.setter
@@ -4285,9 +3923,6 @@ class AwsIntegrationsKinesisArgs:
     @property
     @pulumi.getter(name="fetchTags")
     def fetch_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
@@ -4300,8 +3935,7 @@ class AwsIntegrationsKinesisArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4312,9 +3946,6 @@ class AwsIntegrationsKinesisArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -4324,9 +3955,6 @@ class AwsIntegrationsKinesisArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -4340,12 +3968,10 @@ class AwsIntegrationsKinesisFirehoseArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -4356,8 +3982,7 @@ class AwsIntegrationsKinesisFirehoseArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -4371,8 +3996,7 @@ class AwsIntegrationsKinesisFirehoseArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4390,15 +4014,10 @@ class AwsIntegrationsLambdaArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -4415,8 +4034,7 @@ class AwsIntegrationsLambdaArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -4427,9 +4045,6 @@ class AwsIntegrationsLambdaArgs:
     @property
     @pulumi.getter(name="fetchTags")
     def fetch_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
@@ -4442,8 +4057,7 @@ class AwsIntegrationsLambdaArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4454,9 +4068,6 @@ class AwsIntegrationsLambdaArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -4466,9 +4077,6 @@ class AwsIntegrationsLambdaArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -4485,15 +4093,10 @@ class AwsIntegrationsRdsArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -4510,8 +4113,7 @@ class AwsIntegrationsRdsArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -4522,9 +4124,6 @@ class AwsIntegrationsRdsArgs:
     @property
     @pulumi.getter(name="fetchTags")
     def fetch_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
@@ -4537,8 +4136,7 @@ class AwsIntegrationsRdsArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4549,9 +4147,6 @@ class AwsIntegrationsRdsArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -4561,9 +4156,6 @@ class AwsIntegrationsRdsArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -4579,14 +4171,10 @@ class AwsIntegrationsRedshiftArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -4601,8 +4189,7 @@ class AwsIntegrationsRedshiftArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -4616,8 +4203,7 @@ class AwsIntegrationsRedshiftArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4628,9 +4214,6 @@ class AwsIntegrationsRedshiftArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -4640,9 +4223,6 @@ class AwsIntegrationsRedshiftArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -4656,13 +4236,9 @@ class AwsIntegrationsRoute53Args:
                  fetch_extended_inventory: Optional[pulumi.Input[bool]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               
-               Furthermore, below integration types supports the following common arguments.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if fetch_extended_inventory is not None:
             pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
@@ -4672,11 +4248,6 @@ class AwsIntegrationsRoute53Args:
     @property
     @pulumi.getter(name="fetchExtendedInventory")
     def fetch_extended_inventory(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-
-        Furthermore, below integration types supports the following common arguments.
-        """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
@@ -4689,8 +4260,7 @@ class AwsIntegrationsRoute53Args:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4708,16 +4278,9 @@ class AwsIntegrationsS3Args:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               
-               Furthermore, below integration types supports the following common arguments.
-        :param pulumi.Input[bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if fetch_extended_inventory is not None:
             pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
@@ -4733,11 +4296,6 @@ class AwsIntegrationsS3Args:
     @property
     @pulumi.getter(name="fetchExtendedInventory")
     def fetch_extended_inventory(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-
-        Furthermore, below integration types supports the following common arguments.
-        """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
@@ -4747,9 +4305,6 @@ class AwsIntegrationsS3Args:
     @property
     @pulumi.getter(name="fetchTags")
     def fetch_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
@@ -4762,8 +4317,7 @@ class AwsIntegrationsS3Args:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4774,9 +4328,6 @@ class AwsIntegrationsS3Args:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -4786,9 +4337,6 @@ class AwsIntegrationsS3Args:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -4802,12 +4350,10 @@ class AwsIntegrationsSesArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -4818,8 +4364,7 @@ class AwsIntegrationsSesArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -4833,8 +4378,7 @@ class AwsIntegrationsSesArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4850,15 +4394,10 @@ class AwsIntegrationsSnsArgs:
                  fetch_extended_inventory: Optional[pulumi.Input[bool]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               
-               Furthermore, below integration types supports the following common arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -4871,8 +4410,7 @@ class AwsIntegrationsSnsArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -4883,11 +4421,6 @@ class AwsIntegrationsSnsArgs:
     @property
     @pulumi.getter(name="fetchExtendedInventory")
     def fetch_extended_inventory(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-
-        Furthermore, below integration types supports the following common arguments.
-        """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
@@ -4900,8 +4433,7 @@ class AwsIntegrationsSnsArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -4921,19 +4453,10 @@ class AwsIntegrationsSqsArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               
-               Furthermore, below integration types supports the following common arguments.
-        :param pulumi.Input[bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] queue_prefixes: Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -4954,8 +4477,7 @@ class AwsIntegrationsSqsArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -4966,11 +4488,6 @@ class AwsIntegrationsSqsArgs:
     @property
     @pulumi.getter(name="fetchExtendedInventory")
     def fetch_extended_inventory(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-
-        Furthermore, below integration types supports the following common arguments.
-        """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
@@ -4980,9 +4497,6 @@ class AwsIntegrationsSqsArgs:
     @property
     @pulumi.getter(name="fetchTags")
     def fetch_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
@@ -4995,8 +4509,7 @@ class AwsIntegrationsSqsArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -5007,9 +4520,6 @@ class AwsIntegrationsSqsArgs:
     @property
     @pulumi.getter(name="queuePrefixes")
     def queue_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "queue_prefixes")
 
     @queue_prefixes.setter
@@ -5019,9 +4529,6 @@ class AwsIntegrationsSqsArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -5031,9 +4538,6 @@ class AwsIntegrationsSqsArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -5048,8 +4552,7 @@ class AwsIntegrationsTrustedAdvisorArgs:
         """
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if metrics_polling_interval is not None:
             pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
@@ -5060,8 +4563,7 @@ class AwsIntegrationsTrustedAdvisorArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -5080,16 +4582,10 @@ class AwsIntegrationsVpcArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
-        :param pulumi.Input[bool] fetch_nat_gateway: Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        :param pulumi.Input[bool] fetch_vpn: Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-        :param pulumi.Input[str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        :param pulumi.Input[str] tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -5108,8 +4604,7 @@ class AwsIntegrationsVpcArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -5120,9 +4615,6 @@ class AwsIntegrationsVpcArgs:
     @property
     @pulumi.getter(name="fetchNatGateway")
     def fetch_nat_gateway(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_nat_gateway")
 
     @fetch_nat_gateway.setter
@@ -5132,9 +4624,6 @@ class AwsIntegrationsVpcArgs:
     @property
     @pulumi.getter(name="fetchVpn")
     def fetch_vpn(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        """
         return pulumi.get(self, "fetch_vpn")
 
     @fetch_vpn.setter
@@ -5147,8 +4636,7 @@ class AwsIntegrationsVpcArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
@@ -5159,9 +4647,6 @@ class AwsIntegrationsVpcArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -5171,9 +4656,6 @@ class AwsIntegrationsVpcArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -5187,12 +4669,10 @@ class AwsIntegrationsXRayArgs:
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.  
-               </details>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
                
-               <details>
-               <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+               Furthermore, below integration types supports the following common arguments.
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -5203,8 +4683,7 @@ class AwsIntegrationsXRayArgs:
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify each AWS region that includes the resources that you want to monitor.  
-        </details>
+        Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
@@ -5218,8 +4697,7 @@ class AwsIntegrationsXRayArgs:
         """
         The data polling interval in seconds.
 
-        <details>
-        <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+        Furthermore, below integration types supports the following common arguments.
         """
         return pulumi.get(self, "metrics_polling_interval")
 

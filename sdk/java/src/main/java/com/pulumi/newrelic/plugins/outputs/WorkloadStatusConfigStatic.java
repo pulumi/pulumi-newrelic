@@ -18,7 +18,7 @@ public final class WorkloadStatusConfigStatic {
      */
     private @Nullable String description;
     /**
-     * @return Whether the static status configuration is enabled or not.
+     * @return Whether the automatic status configuration is enabled or not.
      * 
      */
     private Boolean enabled;
@@ -42,7 +42,7 @@ public final class WorkloadStatusConfigStatic {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return Whether the static status configuration is enabled or not.
+     * @return Whether the automatic status configuration is enabled or not.
      * 
      */
     public Boolean enabled() {

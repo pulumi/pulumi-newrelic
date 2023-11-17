@@ -1058,8 +1058,6 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * The ID of the linked AWS account in New Relic.
      * 
      * All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-     * &lt;details&gt;
-     * &lt;summary&gt;Expand this section to view all supported AWS services supported, that may be integrated via this resource.&lt;/summary&gt;
      * 
      * | Block                   | Description                   |
      * |-------------------------|-------------------------------|
@@ -1115,8 +1113,6 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * | `trusted_advisor`       | Trusted Advisor Integration   |
      * | `vpc`                   | VPC Integration               |
      * | `x_ray`                 | X-Ray Integration             |
-     * 
-     * &lt;/details&gt;
      * 
      */
     @Export(name="linkedAccountId", type=Integer.class, parameters={})
@@ -1126,8 +1122,6 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * @return The ID of the linked AWS account in New Relic.
      * 
      * All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-     * &lt;details&gt;
-     * &lt;summary&gt;Expand this section to view all supported AWS services supported, that may be integrated via this resource.&lt;/summary&gt;
      * 
      * | Block                   | Description                   |
      * |-------------------------|-------------------------------|
@@ -1183,8 +1177,6 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * | `trusted_advisor`       | Trusted Advisor Integration   |
      * | `vpc`                   | VPC Integration               |
      * | `x_ray`                 | X-Ray Integration             |
-     * 
-     * &lt;/details&gt;
      * 
      */
     public Output<Integer> linkedAccountId() {

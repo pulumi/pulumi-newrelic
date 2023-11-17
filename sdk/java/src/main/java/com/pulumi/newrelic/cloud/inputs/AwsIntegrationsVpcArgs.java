@@ -20,7 +20,6 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     @Import(name="awsRegions")
@@ -28,39 +27,22 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
         return Optional.ofNullable(this.awsRegions);
     }
 
-    /**
-     * Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * 
-     */
     @Import(name="fetchNatGateway")
     private @Nullable Output<Boolean> fetchNatGateway;
 
-    /**
-     * @return Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * 
-     */
     public Optional<Output<Boolean>> fetchNatGateway() {
         return Optional.ofNullable(this.fetchNatGateway);
     }
 
-    /**
-     * Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * 
-     */
     @Import(name="fetchVpn")
     private @Nullable Output<Boolean> fetchVpn;
 
-    /**
-     * @return Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * 
-     */
     public Optional<Output<Boolean>> fetchVpn() {
         return Optional.ofNullable(this.fetchVpn);
     }
@@ -68,8 +50,7 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
     /**
      * The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+     * Furthermore, below integration types supports the following common arguments.
      * 
      */
     @Import(name="metricsPollingInterval")
@@ -78,40 +59,23 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+     * Furthermore, below integration types supports the following common arguments.
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
         return Optional.ofNullable(this.metricsPollingInterval);
     }
 
-    /**
-     * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * 
-     */
     @Import(name="tagKey")
     private @Nullable Output<String> tagKey;
 
-    /**
-     * @return Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * 
-     */
     public Optional<Output<String>> tagKey() {
         return Optional.ofNullable(this.tagKey);
     }
 
-    /**
-     * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * 
-     */
     @Import(name="tagValue")
     private @Nullable Output<String> tagValue;
 
-    /**
-     * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * 
-     */
     public Optional<Output<String>> tagValue() {
         return Optional.ofNullable(this.tagValue);
     }
@@ -147,7 +111,6 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -159,7 +122,6 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -170,7 +132,6 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -179,44 +140,20 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
             return awsRegions(List.of(awsRegions));
         }
 
-        /**
-         * @param fetchNatGateway Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fetchNatGateway(@Nullable Output<Boolean> fetchNatGateway) {
             $.fetchNatGateway = fetchNatGateway;
             return this;
         }
 
-        /**
-         * @param fetchNatGateway Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fetchNatGateway(Boolean fetchNatGateway) {
             return fetchNatGateway(Output.of(fetchNatGateway));
         }
 
-        /**
-         * @param fetchVpn Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fetchVpn(@Nullable Output<Boolean> fetchVpn) {
             $.fetchVpn = fetchVpn;
             return this;
         }
 
-        /**
-         * @param fetchVpn Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fetchVpn(Boolean fetchVpn) {
             return fetchVpn(Output.of(fetchVpn));
         }
@@ -224,8 +161,7 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
-         * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+         * Furthermore, below integration types supports the following common arguments.
          * 
          * @return builder
          * 
@@ -238,8 +174,7 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
-         * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+         * Furthermore, below integration types supports the following common arguments.
          * 
          * @return builder
          * 
@@ -248,44 +183,20 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
             return metricsPollingInterval(Output.of(metricsPollingInterval));
         }
 
-        /**
-         * @param tagKey Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagKey(@Nullable Output<String> tagKey) {
             $.tagKey = tagKey;
             return this;
         }
 
-        /**
-         * @param tagKey Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagKey(String tagKey) {
             return tagKey(Output.of(tagKey));
         }
 
-        /**
-         * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagValue(@Nullable Output<String> tagValue) {
             $.tagValue = tagValue;
             return this;
         }
 
-        /**
-         * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagValue(String tagValue) {
             return tagValue(Output.of(tagValue));
         }

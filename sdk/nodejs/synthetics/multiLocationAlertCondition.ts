@@ -171,7 +171,6 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
     /**
      * A condition term with the priority set to warning.
      *
-     *
      * > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      */
     public readonly warning!: pulumi.Output<outputs.synthetics.MultiLocationAlertConditionWarning | undefined>;
@@ -263,7 +262,6 @@ export interface MultiLocationAlertConditionState {
     /**
      * A condition term with the priority set to warning.
      *
-     *
      * > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      */
     warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
@@ -303,7 +301,6 @@ export interface MultiLocationAlertConditionArgs {
     violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
      * A condition term with the priority set to warning.
-     *
      *
      * > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      */

@@ -177,7 +177,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.GcpIntegrationsAppEngine?> AppEngine { get; private set; } = null!;
 
         /// <summary>
-        /// Biq Query integration. See Integration blocks below for details.
+        /// GCP biq query service
         /// </summary>
         [Output("bigQuery")]
         public Output<Outputs.GcpIntegrationsBigQuery?> BigQuery { get; private set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.GcpIntegrationsMemCache?> MemCache { get; private set; } = null!;
 
         /// <summary>
-        /// Pub/Sub integration. See Integration blocks below for details.
+        /// GCP big table service
         /// </summary>
         [Output("pubSub")]
         public Output<Outputs.GcpIntegrationsPubSub?> PubSub { get; private set; } = null!;
@@ -297,7 +297,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.GcpIntegrationsRun?> Run { get; private set; } = null!;
 
         /// <summary>
-        /// Spanner integration. See Integration blocks below for details.
+        /// GCP big table service
         /// </summary>
         [Output("spanner")]
         public Output<Outputs.GcpIntegrationsSpanner?> Spanner { get; private set; } = null!;
@@ -309,7 +309,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.GcpIntegrationsSql?> Sql { get; private set; } = null!;
 
         /// <summary>
-        /// Storage integration. See Integration blocks below for details.
+        /// GCP big table service
         /// </summary>
         [Output("storage")]
         public Output<Outputs.GcpIntegrationsStorage?> Storage { get; private set; } = null!;
@@ -391,7 +391,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.GcpIntegrationsAppEngineArgs>? AppEngine { get; set; }
 
         /// <summary>
-        /// Biq Query integration. See Integration blocks below for details.
+        /// GCP biq query service
         /// </summary>
         [Input("bigQuery")]
         public Input<Inputs.GcpIntegrationsBigQueryArgs>? BigQuery { get; set; }
@@ -487,7 +487,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.GcpIntegrationsMemCacheArgs>? MemCache { get; set; }
 
         /// <summary>
-        /// Pub/Sub integration. See Integration blocks below for details.
+        /// GCP big table service
         /// </summary>
         [Input("pubSub")]
         public Input<Inputs.GcpIntegrationsPubSubArgs>? PubSub { get; set; }
@@ -511,7 +511,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.GcpIntegrationsRunArgs>? Run { get; set; }
 
         /// <summary>
-        /// Spanner integration. See Integration blocks below for details.
+        /// GCP big table service
         /// </summary>
         [Input("spanner")]
         public Input<Inputs.GcpIntegrationsSpannerArgs>? Spanner { get; set; }
@@ -523,7 +523,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.GcpIntegrationsSqlArgs>? Sql { get; set; }
 
         /// <summary>
-        /// Storage integration. See Integration blocks below for details.
+        /// GCP big table service
         /// </summary>
         [Input("storage")]
         public Input<Inputs.GcpIntegrationsStorageArgs>? Storage { get; set; }
@@ -567,7 +567,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.GcpIntegrationsAppEngineGetArgs>? AppEngine { get; set; }
 
         /// <summary>
-        /// Biq Query integration. See Integration blocks below for details.
+        /// GCP biq query service
         /// </summary>
         [Input("bigQuery")]
         public Input<Inputs.GcpIntegrationsBigQueryGetArgs>? BigQuery { get; set; }
@@ -663,7 +663,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.GcpIntegrationsMemCacheGetArgs>? MemCache { get; set; }
 
         /// <summary>
-        /// Pub/Sub integration. See Integration blocks below for details.
+        /// GCP big table service
         /// </summary>
         [Input("pubSub")]
         public Input<Inputs.GcpIntegrationsPubSubGetArgs>? PubSub { get; set; }
@@ -687,7 +687,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.GcpIntegrationsRunGetArgs>? Run { get; set; }
 
         /// <summary>
-        /// Spanner integration. See Integration blocks below for details.
+        /// GCP big table service
         /// </summary>
         [Input("spanner")]
         public Input<Inputs.GcpIntegrationsSpannerGetArgs>? Spanner { get; set; }
@@ -699,7 +699,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.GcpIntegrationsSqlGetArgs>? Sql { get; set; }
 
         /// <summary>
-        /// Storage integration. See Integration blocks below for details.
+        /// GCP big table service
         /// </summary>
         [Input("storage")]
         public Input<Inputs.GcpIntegrationsStorageGetArgs>? Storage { get; set; }

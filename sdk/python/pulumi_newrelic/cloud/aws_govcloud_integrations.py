@@ -42,26 +42,26 @@ class AwsGovcloudIntegrationsArgs:
         The set of arguments for constructing a AwsGovcloudIntegrations resource.
         :param pulumi.Input[int] linked_account_id: The access key of the AwsGovCloud.
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input['AwsGovcloudIntegrationsAlbArgs'] alb: Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input['AwsGovcloudIntegrationsAlbArgs'] alb: The alb integration
         :param pulumi.Input['AwsGovcloudIntegrationsApiGatewayArgs'] api_gateway: Api Gateway AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsAutoScalingArgs'] auto_scaling: Autoscaling AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsAwsDirectConnectArgs'] aws_direct_connect: Aws Direct Connect AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsAwsStatesArgs'] aws_states: Aws States AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsCloudtrailArgs'] cloudtrail: Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input['AwsGovcloudIntegrationsCloudtrailArgs'] cloudtrail: The cloudtrail integration
         :param pulumi.Input['AwsGovcloudIntegrationsDynamoDbArgs'] dynamo_db: Dynamo DB AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsEbsArgs'] ebs: Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsEc2Args'] ec2: EC2 AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input['AwsGovcloudIntegrationsEbsArgs'] ebs: The ebs integration
+        :param pulumi.Input['AwsGovcloudIntegrationsEc2Args'] ec2: The ec2 integration
         :param pulumi.Input['AwsGovcloudIntegrationsElasticSearchArgs'] elastic_search: Elastic search AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsElbArgs'] elb: Elb AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsEmrArgs'] emr: Emr AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsIamArgs'] iam: IAM AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsLambdaArgs'] lambda_: Lambda AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsRdsArgs'] rds: RDS AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input['AwsGovcloudIntegrationsElbArgs'] elb: The elb integration
+        :param pulumi.Input['AwsGovcloudIntegrationsEmrArgs'] emr: The emr integration
+        :param pulumi.Input['AwsGovcloudIntegrationsIamArgs'] iam: The iam integration
+        :param pulumi.Input['AwsGovcloudIntegrationsLambdaArgs'] lambda_: The lambda integration
+        :param pulumi.Input['AwsGovcloudIntegrationsRdsArgs'] rds: The rds integration
         :param pulumi.Input['AwsGovcloudIntegrationsRedShiftArgs'] red_shift: Redshift AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsRoute53Args'] route53: Route53 AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input['AwsGovcloudIntegrationsRoute53Args'] route53: The route53 integration
         :param pulumi.Input['AwsGovcloudIntegrationsS3Args'] s3: The s3 integration
-        :param pulumi.Input['AwsGovcloudIntegrationsSnsArgs'] sns: SNS AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsSqsArgs'] sqs: SQS AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input['AwsGovcloudIntegrationsSnsArgs'] sns: The sns integration
+        :param pulumi.Input['AwsGovcloudIntegrationsSqsArgs'] sqs: The sqs integration
         """
         pulumi.set(__self__, "linked_account_id", linked_account_id)
         if account_id is not None:
@@ -135,7 +135,7 @@ class AwsGovcloudIntegrationsArgs:
     @pulumi.getter
     def alb(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsAlbArgs']]:
         """
-        Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+        The alb integration
         """
         return pulumi.get(self, "alb")
 
@@ -195,7 +195,7 @@ class AwsGovcloudIntegrationsArgs:
     @pulumi.getter
     def cloudtrail(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsCloudtrailArgs']]:
         """
-        Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+        The cloudtrail integration
         """
         return pulumi.get(self, "cloudtrail")
 
@@ -219,7 +219,7 @@ class AwsGovcloudIntegrationsArgs:
     @pulumi.getter
     def ebs(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsEbsArgs']]:
         """
-        Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+        The ebs integration
         """
         return pulumi.get(self, "ebs")
 
@@ -231,7 +231,7 @@ class AwsGovcloudIntegrationsArgs:
     @pulumi.getter
     def ec2(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsEc2Args']]:
         """
-        EC2 AwsGovCloud integration.See Integration blocks below for details.
+        The ec2 integration
         """
         return pulumi.get(self, "ec2")
 
@@ -255,7 +255,7 @@ class AwsGovcloudIntegrationsArgs:
     @pulumi.getter
     def elb(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsElbArgs']]:
         """
-        Elb AwsGovCloud integration.See Integration blocks below for details.
+        The elb integration
         """
         return pulumi.get(self, "elb")
 
@@ -267,7 +267,7 @@ class AwsGovcloudIntegrationsArgs:
     @pulumi.getter
     def emr(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsEmrArgs']]:
         """
-        Emr AwsGovCloud integration.See Integration blocks below for details.
+        The emr integration
         """
         return pulumi.get(self, "emr")
 
@@ -279,7 +279,7 @@ class AwsGovcloudIntegrationsArgs:
     @pulumi.getter
     def iam(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsIamArgs']]:
         """
-        IAM AwsGovCloud integration.See Integration blocks below for details.
+        The iam integration
         """
         return pulumi.get(self, "iam")
 
@@ -291,7 +291,7 @@ class AwsGovcloudIntegrationsArgs:
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsLambdaArgs']]:
         """
-        Lambda AwsGovCloud integration.See Integration blocks below for details.
+        The lambda integration
         """
         return pulumi.get(self, "lambda_")
 
@@ -303,7 +303,7 @@ class AwsGovcloudIntegrationsArgs:
     @pulumi.getter
     def rds(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsRdsArgs']]:
         """
-        RDS AwsGovCloud integration.See Integration blocks below for details.
+        The rds integration
         """
         return pulumi.get(self, "rds")
 
@@ -327,7 +327,7 @@ class AwsGovcloudIntegrationsArgs:
     @pulumi.getter
     def route53(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsRoute53Args']]:
         """
-        Route53 AwsGovCloud integration.See Integration blocks below for details.
+        The route53 integration
         """
         return pulumi.get(self, "route53")
 
@@ -351,7 +351,7 @@ class AwsGovcloudIntegrationsArgs:
     @pulumi.getter
     def sns(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsSnsArgs']]:
         """
-        SNS AwsGovCloud integration.See Integration blocks below for details.
+        The sns integration
         """
         return pulumi.get(self, "sns")
 
@@ -363,7 +363,7 @@ class AwsGovcloudIntegrationsArgs:
     @pulumi.getter
     def sqs(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsSqsArgs']]:
         """
-        SQS AwsGovCloud integration.See Integration blocks below for details.
+        The sqs integration
         """
         return pulumi.get(self, "sqs")
 
@@ -400,27 +400,27 @@ class _AwsGovcloudIntegrationsState:
         """
         Input properties used for looking up and filtering AwsGovcloudIntegrations resources.
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input['AwsGovcloudIntegrationsAlbArgs'] alb: Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input['AwsGovcloudIntegrationsAlbArgs'] alb: The alb integration
         :param pulumi.Input['AwsGovcloudIntegrationsApiGatewayArgs'] api_gateway: Api Gateway AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsAutoScalingArgs'] auto_scaling: Autoscaling AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsAwsDirectConnectArgs'] aws_direct_connect: Aws Direct Connect AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsAwsStatesArgs'] aws_states: Aws States AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsCloudtrailArgs'] cloudtrail: Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input['AwsGovcloudIntegrationsCloudtrailArgs'] cloudtrail: The cloudtrail integration
         :param pulumi.Input['AwsGovcloudIntegrationsDynamoDbArgs'] dynamo_db: Dynamo DB AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsEbsArgs'] ebs: Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsEc2Args'] ec2: EC2 AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input['AwsGovcloudIntegrationsEbsArgs'] ebs: The ebs integration
+        :param pulumi.Input['AwsGovcloudIntegrationsEc2Args'] ec2: The ec2 integration
         :param pulumi.Input['AwsGovcloudIntegrationsElasticSearchArgs'] elastic_search: Elastic search AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsElbArgs'] elb: Elb AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsEmrArgs'] emr: Emr AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsIamArgs'] iam: IAM AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsLambdaArgs'] lambda_: Lambda AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input['AwsGovcloudIntegrationsElbArgs'] elb: The elb integration
+        :param pulumi.Input['AwsGovcloudIntegrationsEmrArgs'] emr: The emr integration
+        :param pulumi.Input['AwsGovcloudIntegrationsIamArgs'] iam: The iam integration
+        :param pulumi.Input['AwsGovcloudIntegrationsLambdaArgs'] lambda_: The lambda integration
         :param pulumi.Input[int] linked_account_id: The access key of the AwsGovCloud.
-        :param pulumi.Input['AwsGovcloudIntegrationsRdsArgs'] rds: RDS AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input['AwsGovcloudIntegrationsRdsArgs'] rds: The rds integration
         :param pulumi.Input['AwsGovcloudIntegrationsRedShiftArgs'] red_shift: Redshift AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsRoute53Args'] route53: Route53 AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input['AwsGovcloudIntegrationsRoute53Args'] route53: The route53 integration
         :param pulumi.Input['AwsGovcloudIntegrationsS3Args'] s3: The s3 integration
-        :param pulumi.Input['AwsGovcloudIntegrationsSnsArgs'] sns: SNS AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input['AwsGovcloudIntegrationsSqsArgs'] sqs: SQS AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input['AwsGovcloudIntegrationsSnsArgs'] sns: The sns integration
+        :param pulumi.Input['AwsGovcloudIntegrationsSqsArgs'] sqs: The sqs integration
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -483,7 +483,7 @@ class _AwsGovcloudIntegrationsState:
     @pulumi.getter
     def alb(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsAlbArgs']]:
         """
-        Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+        The alb integration
         """
         return pulumi.get(self, "alb")
 
@@ -543,7 +543,7 @@ class _AwsGovcloudIntegrationsState:
     @pulumi.getter
     def cloudtrail(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsCloudtrailArgs']]:
         """
-        Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+        The cloudtrail integration
         """
         return pulumi.get(self, "cloudtrail")
 
@@ -567,7 +567,7 @@ class _AwsGovcloudIntegrationsState:
     @pulumi.getter
     def ebs(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsEbsArgs']]:
         """
-        Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+        The ebs integration
         """
         return pulumi.get(self, "ebs")
 
@@ -579,7 +579,7 @@ class _AwsGovcloudIntegrationsState:
     @pulumi.getter
     def ec2(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsEc2Args']]:
         """
-        EC2 AwsGovCloud integration.See Integration blocks below for details.
+        The ec2 integration
         """
         return pulumi.get(self, "ec2")
 
@@ -603,7 +603,7 @@ class _AwsGovcloudIntegrationsState:
     @pulumi.getter
     def elb(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsElbArgs']]:
         """
-        Elb AwsGovCloud integration.See Integration blocks below for details.
+        The elb integration
         """
         return pulumi.get(self, "elb")
 
@@ -615,7 +615,7 @@ class _AwsGovcloudIntegrationsState:
     @pulumi.getter
     def emr(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsEmrArgs']]:
         """
-        Emr AwsGovCloud integration.See Integration blocks below for details.
+        The emr integration
         """
         return pulumi.get(self, "emr")
 
@@ -627,7 +627,7 @@ class _AwsGovcloudIntegrationsState:
     @pulumi.getter
     def iam(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsIamArgs']]:
         """
-        IAM AwsGovCloud integration.See Integration blocks below for details.
+        The iam integration
         """
         return pulumi.get(self, "iam")
 
@@ -639,7 +639,7 @@ class _AwsGovcloudIntegrationsState:
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsLambdaArgs']]:
         """
-        Lambda AwsGovCloud integration.See Integration blocks below for details.
+        The lambda integration
         """
         return pulumi.get(self, "lambda_")
 
@@ -663,7 +663,7 @@ class _AwsGovcloudIntegrationsState:
     @pulumi.getter
     def rds(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsRdsArgs']]:
         """
-        RDS AwsGovCloud integration.See Integration blocks below for details.
+        The rds integration
         """
         return pulumi.get(self, "rds")
 
@@ -687,7 +687,7 @@ class _AwsGovcloudIntegrationsState:
     @pulumi.getter
     def route53(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsRoute53Args']]:
         """
-        Route53 AwsGovCloud integration.See Integration blocks below for details.
+        The route53 integration
         """
         return pulumi.get(self, "route53")
 
@@ -711,7 +711,7 @@ class _AwsGovcloudIntegrationsState:
     @pulumi.getter
     def sns(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsSnsArgs']]:
         """
-        SNS AwsGovCloud integration.See Integration blocks below for details.
+        The sns integration
         """
         return pulumi.get(self, "sns")
 
@@ -723,7 +723,7 @@ class _AwsGovcloudIntegrationsState:
     @pulumi.getter
     def sqs(self) -> Optional[pulumi.Input['AwsGovcloudIntegrationsSqsArgs']]:
         """
-        SQS AwsGovCloud integration.See Integration blocks below for details.
+        The sqs integration
         """
         return pulumi.get(self, "sqs")
 
@@ -772,27 +772,27 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAlbArgs']] alb: Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAlbArgs']] alb: The alb integration
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsApiGatewayArgs']] api_gateway: Api Gateway AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAutoScalingArgs']] auto_scaling: Autoscaling AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAwsDirectConnectArgs']] aws_direct_connect: Aws Direct Connect AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAwsStatesArgs']] aws_states: Aws States AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsCloudtrailArgs']] cloudtrail: Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsCloudtrailArgs']] cloudtrail: The cloudtrail integration
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsDynamoDbArgs']] dynamo_db: Dynamo DB AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEbsArgs']] ebs: Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEc2Args']] ec2: EC2 AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEbsArgs']] ebs: The ebs integration
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEc2Args']] ec2: The ec2 integration
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsElasticSearchArgs']] elastic_search: Elastic search AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsElbArgs']] elb: Elb AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEmrArgs']] emr: Emr AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsIamArgs']] iam: IAM AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsLambdaArgs']] lambda_: Lambda AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsElbArgs']] elb: The elb integration
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEmrArgs']] emr: The emr integration
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsIamArgs']] iam: The iam integration
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsLambdaArgs']] lambda_: The lambda integration
         :param pulumi.Input[int] linked_account_id: The access key of the AwsGovCloud.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRdsArgs']] rds: RDS AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRdsArgs']] rds: The rds integration
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRedShiftArgs']] red_shift: Redshift AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRoute53Args']] route53: Route53 AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRoute53Args']] route53: The route53 integration
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsS3Args']] s3: The s3 integration
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsSnsArgs']] sns: SNS AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsSqsArgs']] sqs: SQS AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsSnsArgs']] sns: The sns integration
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsSqsArgs']] sqs: The sqs integration
         """
         ...
     @overload
@@ -919,27 +919,27 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAlbArgs']] alb: Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAlbArgs']] alb: The alb integration
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsApiGatewayArgs']] api_gateway: Api Gateway AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAutoScalingArgs']] auto_scaling: Autoscaling AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAwsDirectConnectArgs']] aws_direct_connect: Aws Direct Connect AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAwsStatesArgs']] aws_states: Aws States AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsCloudtrailArgs']] cloudtrail: Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsCloudtrailArgs']] cloudtrail: The cloudtrail integration
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsDynamoDbArgs']] dynamo_db: Dynamo DB AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEbsArgs']] ebs: Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEc2Args']] ec2: EC2 AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEbsArgs']] ebs: The ebs integration
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEc2Args']] ec2: The ec2 integration
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsElasticSearchArgs']] elastic_search: Elastic search AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsElbArgs']] elb: Elb AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEmrArgs']] emr: Emr AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsIamArgs']] iam: IAM AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsLambdaArgs']] lambda_: Lambda AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsElbArgs']] elb: The elb integration
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEmrArgs']] emr: The emr integration
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsIamArgs']] iam: The iam integration
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsLambdaArgs']] lambda_: The lambda integration
         :param pulumi.Input[int] linked_account_id: The access key of the AwsGovCloud.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRdsArgs']] rds: RDS AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRdsArgs']] rds: The rds integration
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRedShiftArgs']] red_shift: Redshift AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRoute53Args']] route53: Route53 AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRoute53Args']] route53: The route53 integration
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsS3Args']] s3: The s3 integration
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsSnsArgs']] sns: SNS AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsSqsArgs']] sqs: SQS AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsSnsArgs']] sns: The sns integration
+        :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsSqsArgs']] sqs: The sqs integration
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -981,7 +981,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def alb(self) -> pulumi.Output[Optional['outputs.AwsGovcloudIntegrationsAlb']]:
         """
-        Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+        The alb integration
         """
         return pulumi.get(self, "alb")
 
@@ -1021,7 +1021,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def cloudtrail(self) -> pulumi.Output[Optional['outputs.AwsGovcloudIntegrationsCloudtrail']]:
         """
-        Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+        The cloudtrail integration
         """
         return pulumi.get(self, "cloudtrail")
 
@@ -1037,7 +1037,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def ebs(self) -> pulumi.Output[Optional['outputs.AwsGovcloudIntegrationsEbs']]:
         """
-        Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+        The ebs integration
         """
         return pulumi.get(self, "ebs")
 
@@ -1045,7 +1045,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def ec2(self) -> pulumi.Output[Optional['outputs.AwsGovcloudIntegrationsEc2']]:
         """
-        EC2 AwsGovCloud integration.See Integration blocks below for details.
+        The ec2 integration
         """
         return pulumi.get(self, "ec2")
 
@@ -1061,7 +1061,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def elb(self) -> pulumi.Output[Optional['outputs.AwsGovcloudIntegrationsElb']]:
         """
-        Elb AwsGovCloud integration.See Integration blocks below for details.
+        The elb integration
         """
         return pulumi.get(self, "elb")
 
@@ -1069,7 +1069,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def emr(self) -> pulumi.Output[Optional['outputs.AwsGovcloudIntegrationsEmr']]:
         """
-        Emr AwsGovCloud integration.See Integration blocks below for details.
+        The emr integration
         """
         return pulumi.get(self, "emr")
 
@@ -1077,7 +1077,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def iam(self) -> pulumi.Output[Optional['outputs.AwsGovcloudIntegrationsIam']]:
         """
-        IAM AwsGovCloud integration.See Integration blocks below for details.
+        The iam integration
         """
         return pulumi.get(self, "iam")
 
@@ -1085,7 +1085,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="lambda")
     def lambda_(self) -> pulumi.Output[Optional['outputs.AwsGovcloudIntegrationsLambda']]:
         """
-        Lambda AwsGovCloud integration.See Integration blocks below for details.
+        The lambda integration
         """
         return pulumi.get(self, "lambda_")
 
@@ -1101,7 +1101,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def rds(self) -> pulumi.Output[Optional['outputs.AwsGovcloudIntegrationsRds']]:
         """
-        RDS AwsGovCloud integration.See Integration blocks below for details.
+        The rds integration
         """
         return pulumi.get(self, "rds")
 
@@ -1117,7 +1117,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def route53(self) -> pulumi.Output[Optional['outputs.AwsGovcloudIntegrationsRoute53']]:
         """
-        Route53 AwsGovCloud integration.See Integration blocks below for details.
+        The route53 integration
         """
         return pulumi.get(self, "route53")
 
@@ -1133,7 +1133,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def sns(self) -> pulumi.Output[Optional['outputs.AwsGovcloudIntegrationsSns']]:
         """
-        SNS AwsGovCloud integration.See Integration blocks below for details.
+        The sns integration
         """
         return pulumi.get(self, "sns")
 
@@ -1141,7 +1141,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def sqs(self) -> pulumi.Output[Optional['outputs.AwsGovcloudIntegrationsSqs']]:
         """
-        SQS AwsGovCloud integration.See Integration blocks below for details.
+        The sqs integration
         """
         return pulumi.get(self, "sqs")
 

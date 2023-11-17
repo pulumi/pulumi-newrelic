@@ -245,14 +245,14 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appEngine);
     }
     /**
-     * Biq Query integration. See Integration blocks below for details.
+     * GCP biq query service
      * 
      */
     @Export(name="bigQuery", type=GcpIntegrationsBigQuery.class, parameters={})
     private Output</* @Nullable */ GcpIntegrationsBigQuery> bigQuery;
 
     /**
-     * @return Biq Query integration. See Integration blocks below for details.
+     * @return GCP biq query service
      * 
      */
     public Output<Optional<GcpIntegrationsBigQuery>> bigQuery() {
@@ -469,14 +469,14 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.memCache);
     }
     /**
-     * Pub/Sub integration. See Integration blocks below for details.
+     * GCP big table service
      * 
      */
     @Export(name="pubSub", type=GcpIntegrationsPubSub.class, parameters={})
     private Output</* @Nullable */ GcpIntegrationsPubSub> pubSub;
 
     /**
-     * @return Pub/Sub integration. See Integration blocks below for details.
+     * @return GCP big table service
      * 
      */
     public Output<Optional<GcpIntegrationsPubSub>> pubSub() {
@@ -525,14 +525,14 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.run);
     }
     /**
-     * Spanner integration. See Integration blocks below for details.
+     * GCP big table service
      * 
      */
     @Export(name="spanner", type=GcpIntegrationsSpanner.class, parameters={})
     private Output</* @Nullable */ GcpIntegrationsSpanner> spanner;
 
     /**
-     * @return Spanner integration. See Integration blocks below for details.
+     * @return GCP big table service
      * 
      */
     public Output<Optional<GcpIntegrationsSpanner>> spanner() {
@@ -553,14 +553,14 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sql);
     }
     /**
-     * Storage integration. See Integration blocks below for details.
+     * GCP big table service
      * 
      */
     @Export(name="storage", type=GcpIntegrationsStorage.class, parameters={})
     private Output</* @Nullable */ GcpIntegrationsStorage> storage;
 
     /**
-     * @return Storage integration. See Integration blocks below for details.
+     * @return GCP big table service
      * 
      */
     public Output<Optional<GcpIntegrationsStorage>> storage() {

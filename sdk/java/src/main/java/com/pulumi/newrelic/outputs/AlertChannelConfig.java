@@ -78,7 +78,7 @@ public final class AlertChannelConfig {
      */
     private @Nullable String payloadType;
     /**
-     * @return A set of recipients for targeting notifications.  Multiple values are comma separated.
+     * @return Comma delimited list of email addresses.
      * 
      */
     private @Nullable String recipients;
@@ -207,7 +207,7 @@ public final class AlertChannelConfig {
         return Optional.ofNullable(this.payloadType);
     }
     /**
-     * @return A set of recipients for targeting notifications.  Multiple values are comma separated.
+     * @return Comma delimited list of email addresses.
      * 
      */
     public Optional<String> recipients() {

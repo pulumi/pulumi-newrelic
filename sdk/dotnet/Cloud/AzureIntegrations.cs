@@ -368,7 +368,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AzureIntegrationsCosmosDb?> CosmosDb { get; private set; } = null!;
 
         /// <summary>
-        /// Azure Cost Management. See Integration blocks below for details.
+        /// The Azure cost management
         /// </summary>
         [Output("costManagement")]
         public Output<Outputs.AzureIntegrationsCostManagement?> CostManagement { get; private set; } = null!;
@@ -446,7 +446,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AzureIntegrationsMariaDb?> MariaDb { get; private set; } = null!;
 
         /// <summary>
-        /// Azure Monitor. See Integration blocks below for details.
+        /// The Azure Monitor
         /// </summary>
         [Output("monitor")]
         public Output<Outputs.AzureIntegrationsMonitor?> Monitor { get; private set; } = null!;
@@ -622,7 +622,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AzureIntegrationsCosmosDbArgs>? CosmosDb { get; set; }
 
         /// <summary>
-        /// Azure Cost Management. See Integration blocks below for details.
+        /// The Azure cost management
         /// </summary>
         [Input("costManagement")]
         public Input<Inputs.AzureIntegrationsCostManagementArgs>? CostManagement { get; set; }
@@ -700,7 +700,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AzureIntegrationsMariaDbArgs>? MariaDb { get; set; }
 
         /// <summary>
-        /// Azure Monitor. See Integration blocks below for details.
+        /// The Azure Monitor
         /// </summary>
         [Input("monitor")]
         public Input<Inputs.AzureIntegrationsMonitorArgs>? Monitor { get; set; }
@@ -838,7 +838,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AzureIntegrationsCosmosDbGetArgs>? CosmosDb { get; set; }
 
         /// <summary>
-        /// Azure Cost Management. See Integration blocks below for details.
+        /// The Azure cost management
         /// </summary>
         [Input("costManagement")]
         public Input<Inputs.AzureIntegrationsCostManagementGetArgs>? CostManagement { get; set; }
@@ -916,7 +916,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AzureIntegrationsMariaDbGetArgs>? MariaDb { get; set; }
 
         /// <summary>
-        /// Azure Monitor. See Integration blocks below for details.
+        /// The Azure Monitor
         /// </summary>
         [Input("monitor")]
         public Input<Inputs.AzureIntegrationsMonitorGetArgs>? Monitor { get; set; }

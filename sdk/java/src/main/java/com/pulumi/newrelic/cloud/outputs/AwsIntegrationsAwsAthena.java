@@ -15,15 +15,13 @@ import javax.annotation.Nullable;
 public final class AwsIntegrationsAwsAthena {
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     private @Nullable List<String> awsRegions;
     /**
      * @return The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+     * Furthermore, below integration types supports the following common arguments.
      * 
      */
     private @Nullable Integer metricsPollingInterval;
@@ -31,7 +29,6 @@ public final class AwsIntegrationsAwsAthena {
     private AwsIntegrationsAwsAthena() {}
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     public List<String> awsRegions() {
@@ -40,8 +37,7 @@ public final class AwsIntegrationsAwsAthena {
     /**
      * @return The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+     * Furthermore, below integration types supports the following common arguments.
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

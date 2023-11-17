@@ -51,14 +51,14 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+     * The alb integration
      * 
      */
     @Import(name="alb")
     private @Nullable Output<AwsGovcloudIntegrationsAlbArgs> alb;
 
     /**
-     * @return Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+     * @return The alb integration
      * 
      */
     public Optional<Output<AwsGovcloudIntegrationsAlbArgs>> alb() {
@@ -126,14 +126,14 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+     * The cloudtrail integration
      * 
      */
     @Import(name="cloudtrail")
     private @Nullable Output<AwsGovcloudIntegrationsCloudtrailArgs> cloudtrail;
 
     /**
-     * @return Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+     * @return The cloudtrail integration
      * 
      */
     public Optional<Output<AwsGovcloudIntegrationsCloudtrailArgs>> cloudtrail() {
@@ -156,14 +156,14 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+     * The ebs integration
      * 
      */
     @Import(name="ebs")
     private @Nullable Output<AwsGovcloudIntegrationsEbsArgs> ebs;
 
     /**
-     * @return Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+     * @return The ebs integration
      * 
      */
     public Optional<Output<AwsGovcloudIntegrationsEbsArgs>> ebs() {
@@ -171,14 +171,14 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * EC2 AwsGovCloud integration.See Integration blocks below for details.
+     * The ec2 integration
      * 
      */
     @Import(name="ec2")
     private @Nullable Output<AwsGovcloudIntegrationsEc2Args> ec2;
 
     /**
-     * @return EC2 AwsGovCloud integration.See Integration blocks below for details.
+     * @return The ec2 integration
      * 
      */
     public Optional<Output<AwsGovcloudIntegrationsEc2Args>> ec2() {
@@ -201,14 +201,14 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Elb AwsGovCloud integration.See Integration blocks below for details.
+     * The elb integration
      * 
      */
     @Import(name="elb")
     private @Nullable Output<AwsGovcloudIntegrationsElbArgs> elb;
 
     /**
-     * @return Elb AwsGovCloud integration.See Integration blocks below for details.
+     * @return The elb integration
      * 
      */
     public Optional<Output<AwsGovcloudIntegrationsElbArgs>> elb() {
@@ -216,14 +216,14 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Emr AwsGovCloud integration.See Integration blocks below for details.
+     * The emr integration
      * 
      */
     @Import(name="emr")
     private @Nullable Output<AwsGovcloudIntegrationsEmrArgs> emr;
 
     /**
-     * @return Emr AwsGovCloud integration.See Integration blocks below for details.
+     * @return The emr integration
      * 
      */
     public Optional<Output<AwsGovcloudIntegrationsEmrArgs>> emr() {
@@ -231,14 +231,14 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * IAM AwsGovCloud integration.See Integration blocks below for details.
+     * The iam integration
      * 
      */
     @Import(name="iam")
     private @Nullable Output<AwsGovcloudIntegrationsIamArgs> iam;
 
     /**
-     * @return IAM AwsGovCloud integration.See Integration blocks below for details.
+     * @return The iam integration
      * 
      */
     public Optional<Output<AwsGovcloudIntegrationsIamArgs>> iam() {
@@ -246,14 +246,14 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Lambda AwsGovCloud integration.See Integration blocks below for details.
+     * The lambda integration
      * 
      */
     @Import(name="lambda")
     private @Nullable Output<AwsGovcloudIntegrationsLambdaArgs> lambda;
 
     /**
-     * @return Lambda AwsGovCloud integration.See Integration blocks below for details.
+     * @return The lambda integration
      * 
      */
     public Optional<Output<AwsGovcloudIntegrationsLambdaArgs>> lambda() {
@@ -276,14 +276,14 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * RDS AwsGovCloud integration.See Integration blocks below for details.
+     * The rds integration
      * 
      */
     @Import(name="rds")
     private @Nullable Output<AwsGovcloudIntegrationsRdsArgs> rds;
 
     /**
-     * @return RDS AwsGovCloud integration.See Integration blocks below for details.
+     * @return The rds integration
      * 
      */
     public Optional<Output<AwsGovcloudIntegrationsRdsArgs>> rds() {
@@ -306,14 +306,14 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Route53 AwsGovCloud integration.See Integration blocks below for details.
+     * The route53 integration
      * 
      */
     @Import(name="route53")
     private @Nullable Output<AwsGovcloudIntegrationsRoute53Args> route53;
 
     /**
-     * @return Route53 AwsGovCloud integration.See Integration blocks below for details.
+     * @return The route53 integration
      * 
      */
     public Optional<Output<AwsGovcloudIntegrationsRoute53Args>> route53() {
@@ -336,14 +336,14 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * SNS AwsGovCloud integration.See Integration blocks below for details.
+     * The sns integration
      * 
      */
     @Import(name="sns")
     private @Nullable Output<AwsGovcloudIntegrationsSnsArgs> sns;
 
     /**
-     * @return SNS AwsGovCloud integration.See Integration blocks below for details.
+     * @return The sns integration
      * 
      */
     public Optional<Output<AwsGovcloudIntegrationsSnsArgs>> sns() {
@@ -351,14 +351,14 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * SQS AwsGovCloud integration.See Integration blocks below for details.
+     * The sqs integration
      * 
      */
     @Import(name="sqs")
     private @Nullable Output<AwsGovcloudIntegrationsSqsArgs> sqs;
 
     /**
-     * @return SQS AwsGovCloud integration.See Integration blocks below for details.
+     * @return The sqs integration
      * 
      */
     public Optional<Output<AwsGovcloudIntegrationsSqsArgs>> sqs() {
@@ -432,7 +432,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param alb Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+         * @param alb The alb integration
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param alb Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+         * @param alb The alb integration
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param cloudtrail Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+         * @param cloudtrail The cloudtrail integration
          * 
          * @return builder
          * 
@@ -548,7 +548,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param cloudtrail Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+         * @param cloudtrail The cloudtrail integration
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ebs Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+         * @param ebs The ebs integration
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ebs Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+         * @param ebs The ebs integration
          * 
          * @return builder
          * 
@@ -600,7 +600,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ec2 EC2 AwsGovCloud integration.See Integration blocks below for details.
+         * @param ec2 The ec2 integration
          * 
          * @return builder
          * 
@@ -611,7 +611,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ec2 EC2 AwsGovCloud integration.See Integration blocks below for details.
+         * @param ec2 The ec2 integration
          * 
          * @return builder
          * 
@@ -642,7 +642,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param elb Elb AwsGovCloud integration.See Integration blocks below for details.
+         * @param elb The elb integration
          * 
          * @return builder
          * 
@@ -653,7 +653,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param elb Elb AwsGovCloud integration.See Integration blocks below for details.
+         * @param elb The elb integration
          * 
          * @return builder
          * 
@@ -663,7 +663,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param emr Emr AwsGovCloud integration.See Integration blocks below for details.
+         * @param emr The emr integration
          * 
          * @return builder
          * 
@@ -674,7 +674,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param emr Emr AwsGovCloud integration.See Integration blocks below for details.
+         * @param emr The emr integration
          * 
          * @return builder
          * 
@@ -684,7 +684,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param iam IAM AwsGovCloud integration.See Integration blocks below for details.
+         * @param iam The iam integration
          * 
          * @return builder
          * 
@@ -695,7 +695,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param iam IAM AwsGovCloud integration.See Integration blocks below for details.
+         * @param iam The iam integration
          * 
          * @return builder
          * 
@@ -705,7 +705,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param lambda Lambda AwsGovCloud integration.See Integration blocks below for details.
+         * @param lambda The lambda integration
          * 
          * @return builder
          * 
@@ -716,7 +716,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param lambda Lambda AwsGovCloud integration.See Integration blocks below for details.
+         * @param lambda The lambda integration
          * 
          * @return builder
          * 
@@ -747,7 +747,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param rds RDS AwsGovCloud integration.See Integration blocks below for details.
+         * @param rds The rds integration
          * 
          * @return builder
          * 
@@ -758,7 +758,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param rds RDS AwsGovCloud integration.See Integration blocks below for details.
+         * @param rds The rds integration
          * 
          * @return builder
          * 
@@ -789,7 +789,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param route53 Route53 AwsGovCloud integration.See Integration blocks below for details.
+         * @param route53 The route53 integration
          * 
          * @return builder
          * 
@@ -800,7 +800,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param route53 Route53 AwsGovCloud integration.See Integration blocks below for details.
+         * @param route53 The route53 integration
          * 
          * @return builder
          * 
@@ -831,7 +831,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param sns SNS AwsGovCloud integration.See Integration blocks below for details.
+         * @param sns The sns integration
          * 
          * @return builder
          * 
@@ -842,7 +842,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param sns SNS AwsGovCloud integration.See Integration blocks below for details.
+         * @param sns The sns integration
          * 
          * @return builder
          * 
@@ -852,7 +852,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param sqs SQS AwsGovCloud integration.See Integration blocks below for details.
+         * @param sqs The sqs integration
          * 
          * @return builder
          * 
@@ -863,7 +863,7 @@ public final class AwsGovcloudIntegrationsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param sqs SQS AwsGovCloud integration.See Integration blocks below for details.
+         * @param sqs The sqs integration
          * 
          * @return builder
          * 

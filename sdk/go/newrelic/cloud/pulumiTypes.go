@@ -4131,25 +4131,16 @@ func (o AwsGovcloudIntegrationsSqsPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsAlb struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions []string `pulumi:"awsRegions"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
-	FetchExtendedInventory *bool `pulumi:"fetchExtendedInventory"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags *bool `pulumi:"fetchTags"`
-	// Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
-	LoadBalancerPrefixes []string `pulumi:"loadBalancerPrefixes"`
+	AwsRegions             []string `pulumi:"awsRegions"`
+	FetchExtendedInventory *bool    `pulumi:"fetchExtendedInventory"`
+	FetchTags              *bool    `pulumi:"fetchTags"`
+	LoadBalancerPrefixes   []string `pulumi:"loadBalancerPrefixes"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsAlbInput is an input type that accepts AwsIntegrationsAlbArgs and AwsIntegrationsAlbOutput values.
@@ -4165,25 +4156,16 @@ type AwsIntegrationsAlbInput interface {
 
 type AwsIntegrationsAlbArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
-	FetchExtendedInventory pulumi.BoolPtrInput `pulumi:"fetchExtendedInventory"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
-	// Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
-	LoadBalancerPrefixes pulumi.StringArrayInput `pulumi:"loadBalancerPrefixes"`
+	AwsRegions             pulumi.StringArrayInput `pulumi:"awsRegions"`
+	FetchExtendedInventory pulumi.BoolPtrInput     `pulumi:"fetchExtendedInventory"`
+	FetchTags              pulumi.BoolPtrInput     `pulumi:"fetchTags"`
+	LoadBalancerPrefixes   pulumi.StringArrayInput `pulumi:"loadBalancerPrefixes"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsAlbArgs) ElementType() reflect.Type {
@@ -4264,42 +4246,33 @@ func (o AwsIntegrationsAlbOutput) ToAwsIntegrationsAlbPtrOutputWithContext(ctx c
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAlbOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAlb) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAlbOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAlb) *bool { return v.FetchExtendedInventory }).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsAlbOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAlb) *bool { return v.FetchTags }).(pulumi.BoolPtrOutput)
 }
 
-// Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsAlbOutput) LoadBalancerPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAlb) []string { return v.LoadBalancerPrefixes }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAlbOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAlb) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsAlbOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAlb) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsAlbOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAlb) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -4329,7 +4302,6 @@ func (o AwsIntegrationsAlbPtrOutput) Elem() AwsIntegrationsAlbOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAlbPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAlb) []string {
 		if v == nil {
@@ -4339,9 +4311,6 @@ func (o AwsIntegrationsAlbPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAlbPtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAlb) *bool {
 		if v == nil {
@@ -4351,7 +4320,6 @@ func (o AwsIntegrationsAlbPtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsAlbPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAlb) *bool {
 		if v == nil {
@@ -4361,7 +4329,6 @@ func (o AwsIntegrationsAlbPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsAlbPtrOutput) LoadBalancerPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAlb) []string {
 		if v == nil {
@@ -4373,8 +4340,7 @@ func (o AwsIntegrationsAlbPtrOutput) LoadBalancerPrefixes() pulumi.StringArrayOu
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAlbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAlb) *int {
 		if v == nil {
@@ -4384,7 +4350,6 @@ func (o AwsIntegrationsAlbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsAlbPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAlb) *string {
 		if v == nil {
@@ -4394,7 +4359,6 @@ func (o AwsIntegrationsAlbPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsAlbPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAlb) *string {
 		if v == nil {
@@ -4406,19 +4370,14 @@ func (o AwsIntegrationsAlbPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsApiGateway struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	StagePrefixes []string `pulumi:"stagePrefixes"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int     `pulumi:"metricsPollingInterval"`
+	StagePrefixes          []string `pulumi:"stagePrefixes"`
+	TagKey                 *string  `pulumi:"tagKey"`
+	TagValue               *string  `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsApiGatewayInput is an input type that accepts AwsIntegrationsApiGatewayArgs and AwsIntegrationsApiGatewayOutput values.
@@ -4434,19 +4393,14 @@ type AwsIntegrationsApiGatewayInput interface {
 
 type AwsIntegrationsApiGatewayArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	StagePrefixes pulumi.StringArrayInput `pulumi:"stagePrefixes"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput      `pulumi:"metricsPollingInterval"`
+	StagePrefixes          pulumi.StringArrayInput `pulumi:"stagePrefixes"`
+	TagKey                 pulumi.StringPtrInput   `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput   `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsApiGatewayArgs) ElementType() reflect.Type {
@@ -4527,30 +4481,25 @@ func (o AwsIntegrationsApiGatewayOutput) ToAwsIntegrationsApiGatewayPtrOutputWit
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsApiGatewayOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsApiGateway) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsApiGatewayOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsApiGateway) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsApiGatewayOutput) StagePrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsApiGateway) []string { return v.StagePrefixes }).(pulumi.StringArrayOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsApiGatewayOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsApiGateway) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsApiGatewayOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsApiGateway) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -4580,7 +4529,6 @@ func (o AwsIntegrationsApiGatewayPtrOutput) Elem() AwsIntegrationsApiGatewayOutp
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsApiGatewayPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsApiGateway) []string {
 		if v == nil {
@@ -4592,8 +4540,7 @@ func (o AwsIntegrationsApiGatewayPtrOutput) AwsRegions() pulumi.StringArrayOutpu
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsApiGatewayPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsApiGateway) *int {
 		if v == nil {
@@ -4603,7 +4550,6 @@ func (o AwsIntegrationsApiGatewayPtrOutput) MetricsPollingInterval() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsApiGatewayPtrOutput) StagePrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsApiGateway) []string {
 		if v == nil {
@@ -4613,7 +4559,6 @@ func (o AwsIntegrationsApiGatewayPtrOutput) StagePrefixes() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsApiGatewayPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsApiGateway) *string {
 		if v == nil {
@@ -4623,7 +4568,6 @@ func (o AwsIntegrationsApiGatewayPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsApiGatewayPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsApiGateway) *string {
 		if v == nil {
@@ -4635,12 +4579,10 @@ func (o AwsIntegrationsApiGatewayPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsAutoScaling struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -4657,12 +4599,10 @@ type AwsIntegrationsAutoScalingInput interface {
 
 type AwsIntegrationsAutoScalingArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -4744,15 +4684,13 @@ func (o AwsIntegrationsAutoScalingOutput) ToAwsIntegrationsAutoScalingPtrOutputW
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAutoScalingOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAutoScaling) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAutoScalingOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAutoScaling) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -4782,7 +4720,6 @@ func (o AwsIntegrationsAutoScalingPtrOutput) Elem() AwsIntegrationsAutoScalingOu
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAutoScalingPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAutoScaling) []string {
 		if v == nil {
@@ -4794,8 +4731,7 @@ func (o AwsIntegrationsAutoScalingPtrOutput) AwsRegions() pulumi.StringArrayOutp
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAutoScalingPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAutoScaling) *int {
 		if v == nil {
@@ -4807,12 +4743,10 @@ func (o AwsIntegrationsAutoScalingPtrOutput) MetricsPollingInterval() pulumi.Int
 
 type AwsIntegrationsAwsAppSync struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -4829,12 +4763,10 @@ type AwsIntegrationsAwsAppSyncInput interface {
 
 type AwsIntegrationsAwsAppSyncArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -4916,15 +4848,13 @@ func (o AwsIntegrationsAwsAppSyncOutput) ToAwsIntegrationsAwsAppSyncPtrOutputWit
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsAppSyncOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsAppSync) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsAppSyncOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsAppSync) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -4954,7 +4884,6 @@ func (o AwsIntegrationsAwsAppSyncPtrOutput) Elem() AwsIntegrationsAwsAppSyncOutp
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsAppSyncPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsAppSync) []string {
 		if v == nil {
@@ -4966,8 +4895,7 @@ func (o AwsIntegrationsAwsAppSyncPtrOutput) AwsRegions() pulumi.StringArrayOutpu
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsAppSyncPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsAppSync) *int {
 		if v == nil {
@@ -4979,12 +4907,10 @@ func (o AwsIntegrationsAwsAppSyncPtrOutput) MetricsPollingInterval() pulumi.IntP
 
 type AwsIntegrationsAwsAthena struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -5001,12 +4927,10 @@ type AwsIntegrationsAwsAthenaInput interface {
 
 type AwsIntegrationsAwsAthenaArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -5088,15 +5012,13 @@ func (o AwsIntegrationsAwsAthenaOutput) ToAwsIntegrationsAwsAthenaPtrOutputWithC
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsAthenaOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsAthena) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsAthenaOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsAthena) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -5126,7 +5048,6 @@ func (o AwsIntegrationsAwsAthenaPtrOutput) Elem() AwsIntegrationsAwsAthenaOutput
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsAthenaPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsAthena) []string {
 		if v == nil {
@@ -5138,8 +5059,7 @@ func (o AwsIntegrationsAwsAthenaPtrOutput) AwsRegions() pulumi.StringArrayOutput
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsAthenaPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsAthena) *int {
 		if v == nil {
@@ -5151,12 +5071,10 @@ func (o AwsIntegrationsAwsAthenaPtrOutput) MetricsPollingInterval() pulumi.IntPt
 
 type AwsIntegrationsAwsCognito struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -5173,12 +5091,10 @@ type AwsIntegrationsAwsCognitoInput interface {
 
 type AwsIntegrationsAwsCognitoArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -5260,15 +5176,13 @@ func (o AwsIntegrationsAwsCognitoOutput) ToAwsIntegrationsAwsCognitoPtrOutputWit
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsCognitoOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsCognito) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsCognitoOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsCognito) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -5298,7 +5212,6 @@ func (o AwsIntegrationsAwsCognitoPtrOutput) Elem() AwsIntegrationsAwsCognitoOutp
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsCognitoPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsCognito) []string {
 		if v == nil {
@@ -5310,8 +5223,7 @@ func (o AwsIntegrationsAwsCognitoPtrOutput) AwsRegions() pulumi.StringArrayOutpu
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsCognitoPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsCognito) *int {
 		if v == nil {
@@ -5323,12 +5235,10 @@ func (o AwsIntegrationsAwsCognitoPtrOutput) MetricsPollingInterval() pulumi.IntP
 
 type AwsIntegrationsAwsConnect struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -5345,12 +5255,10 @@ type AwsIntegrationsAwsConnectInput interface {
 
 type AwsIntegrationsAwsConnectArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -5432,15 +5340,13 @@ func (o AwsIntegrationsAwsConnectOutput) ToAwsIntegrationsAwsConnectPtrOutputWit
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsConnectOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsConnect) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsConnectOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsConnect) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -5470,7 +5376,6 @@ func (o AwsIntegrationsAwsConnectPtrOutput) Elem() AwsIntegrationsAwsConnectOutp
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsConnectPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsConnect) []string {
 		if v == nil {
@@ -5482,8 +5387,7 @@ func (o AwsIntegrationsAwsConnectPtrOutput) AwsRegions() pulumi.StringArrayOutpu
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsConnectPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsConnect) *int {
 		if v == nil {
@@ -5495,12 +5399,10 @@ func (o AwsIntegrationsAwsConnectPtrOutput) MetricsPollingInterval() pulumi.IntP
 
 type AwsIntegrationsAwsDirectConnect struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -5517,12 +5419,10 @@ type AwsIntegrationsAwsDirectConnectInput interface {
 
 type AwsIntegrationsAwsDirectConnectArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -5604,15 +5504,13 @@ func (o AwsIntegrationsAwsDirectConnectOutput) ToAwsIntegrationsAwsDirectConnect
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsDirectConnectOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsDirectConnect) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsDirectConnectOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsDirectConnect) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -5642,7 +5540,6 @@ func (o AwsIntegrationsAwsDirectConnectPtrOutput) Elem() AwsIntegrationsAwsDirec
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsDirectConnectPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsDirectConnect) []string {
 		if v == nil {
@@ -5654,8 +5551,7 @@ func (o AwsIntegrationsAwsDirectConnectPtrOutput) AwsRegions() pulumi.StringArra
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsDirectConnectPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsDirectConnect) *int {
 		if v == nil {
@@ -5667,12 +5563,10 @@ func (o AwsIntegrationsAwsDirectConnectPtrOutput) MetricsPollingInterval() pulum
 
 type AwsIntegrationsAwsFsx struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -5689,12 +5583,10 @@ type AwsIntegrationsAwsFsxInput interface {
 
 type AwsIntegrationsAwsFsxArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -5776,15 +5668,13 @@ func (o AwsIntegrationsAwsFsxOutput) ToAwsIntegrationsAwsFsxPtrOutputWithContext
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsFsxOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsFsx) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsFsxOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsFsx) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -5814,7 +5704,6 @@ func (o AwsIntegrationsAwsFsxPtrOutput) Elem() AwsIntegrationsAwsFsxOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsFsxPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsFsx) []string {
 		if v == nil {
@@ -5826,8 +5715,7 @@ func (o AwsIntegrationsAwsFsxPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsFsxPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsFsx) *int {
 		if v == nil {
@@ -5839,12 +5727,10 @@ func (o AwsIntegrationsAwsFsxPtrOutput) MetricsPollingInterval() pulumi.IntPtrOu
 
 type AwsIntegrationsAwsGlue struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -5861,12 +5747,10 @@ type AwsIntegrationsAwsGlueInput interface {
 
 type AwsIntegrationsAwsGlueArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -5948,15 +5832,13 @@ func (o AwsIntegrationsAwsGlueOutput) ToAwsIntegrationsAwsGluePtrOutputWithConte
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsGlueOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsGlue) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsGlueOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsGlue) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -5986,7 +5868,6 @@ func (o AwsIntegrationsAwsGluePtrOutput) Elem() AwsIntegrationsAwsGlueOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsGluePtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsGlue) []string {
 		if v == nil {
@@ -5998,8 +5879,7 @@ func (o AwsIntegrationsAwsGluePtrOutput) AwsRegions() pulumi.StringArrayOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsGluePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsGlue) *int {
 		if v == nil {
@@ -6011,12 +5891,10 @@ func (o AwsIntegrationsAwsGluePtrOutput) MetricsPollingInterval() pulumi.IntPtrO
 
 type AwsIntegrationsAwsKinesisAnalytics struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -6033,12 +5911,10 @@ type AwsIntegrationsAwsKinesisAnalyticsInput interface {
 
 type AwsIntegrationsAwsKinesisAnalyticsArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -6120,15 +5996,13 @@ func (o AwsIntegrationsAwsKinesisAnalyticsOutput) ToAwsIntegrationsAwsKinesisAna
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsKinesisAnalyticsOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsKinesisAnalytics) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsKinesisAnalyticsOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsKinesisAnalytics) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -6158,7 +6032,6 @@ func (o AwsIntegrationsAwsKinesisAnalyticsPtrOutput) Elem() AwsIntegrationsAwsKi
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsKinesisAnalyticsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsKinesisAnalytics) []string {
 		if v == nil {
@@ -6170,8 +6043,7 @@ func (o AwsIntegrationsAwsKinesisAnalyticsPtrOutput) AwsRegions() pulumi.StringA
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsKinesisAnalyticsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsKinesisAnalytics) *int {
 		if v == nil {
@@ -6183,12 +6055,10 @@ func (o AwsIntegrationsAwsKinesisAnalyticsPtrOutput) MetricsPollingInterval() pu
 
 type AwsIntegrationsAwsMediaConvert struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -6205,12 +6075,10 @@ type AwsIntegrationsAwsMediaConvertInput interface {
 
 type AwsIntegrationsAwsMediaConvertArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -6292,15 +6160,13 @@ func (o AwsIntegrationsAwsMediaConvertOutput) ToAwsIntegrationsAwsMediaConvertPt
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsMediaConvertOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsMediaConvert) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsMediaConvertOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsMediaConvert) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -6330,7 +6196,6 @@ func (o AwsIntegrationsAwsMediaConvertPtrOutput) Elem() AwsIntegrationsAwsMediaC
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsMediaConvertPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsMediaConvert) []string {
 		if v == nil {
@@ -6342,8 +6207,7 @@ func (o AwsIntegrationsAwsMediaConvertPtrOutput) AwsRegions() pulumi.StringArray
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsMediaConvertPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsMediaConvert) *int {
 		if v == nil {
@@ -6355,12 +6219,10 @@ func (o AwsIntegrationsAwsMediaConvertPtrOutput) MetricsPollingInterval() pulumi
 
 type AwsIntegrationsAwsMediaPackageVod struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -6377,12 +6239,10 @@ type AwsIntegrationsAwsMediaPackageVodInput interface {
 
 type AwsIntegrationsAwsMediaPackageVodArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -6464,15 +6324,13 @@ func (o AwsIntegrationsAwsMediaPackageVodOutput) ToAwsIntegrationsAwsMediaPackag
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsMediaPackageVodOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsMediaPackageVod) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsMediaPackageVodOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsMediaPackageVod) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -6502,7 +6360,6 @@ func (o AwsIntegrationsAwsMediaPackageVodPtrOutput) Elem() AwsIntegrationsAwsMed
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsMediaPackageVodPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsMediaPackageVod) []string {
 		if v == nil {
@@ -6514,8 +6371,7 @@ func (o AwsIntegrationsAwsMediaPackageVodPtrOutput) AwsRegions() pulumi.StringAr
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsMediaPackageVodPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsMediaPackageVod) *int {
 		if v == nil {
@@ -6527,12 +6383,10 @@ func (o AwsIntegrationsAwsMediaPackageVodPtrOutput) MetricsPollingInterval() pul
 
 type AwsIntegrationsAwsMq struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -6549,12 +6403,10 @@ type AwsIntegrationsAwsMqInput interface {
 
 type AwsIntegrationsAwsMqArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -6636,15 +6488,13 @@ func (o AwsIntegrationsAwsMqOutput) ToAwsIntegrationsAwsMqPtrOutputWithContext(c
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsMqOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsMq) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsMqOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsMq) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -6674,7 +6524,6 @@ func (o AwsIntegrationsAwsMqPtrOutput) Elem() AwsIntegrationsAwsMqOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsMqPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsMq) []string {
 		if v == nil {
@@ -6686,8 +6535,7 @@ func (o AwsIntegrationsAwsMqPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsMqPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsMq) *int {
 		if v == nil {
@@ -6699,12 +6547,10 @@ func (o AwsIntegrationsAwsMqPtrOutput) MetricsPollingInterval() pulumi.IntPtrOut
 
 type AwsIntegrationsAwsMsk struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -6721,12 +6567,10 @@ type AwsIntegrationsAwsMskInput interface {
 
 type AwsIntegrationsAwsMskArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -6808,15 +6652,13 @@ func (o AwsIntegrationsAwsMskOutput) ToAwsIntegrationsAwsMskPtrOutputWithContext
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsMskOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsMsk) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsMskOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsMsk) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -6846,7 +6688,6 @@ func (o AwsIntegrationsAwsMskPtrOutput) Elem() AwsIntegrationsAwsMskOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsMskPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsMsk) []string {
 		if v == nil {
@@ -6858,8 +6699,7 @@ func (o AwsIntegrationsAwsMskPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsMskPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsMsk) *int {
 		if v == nil {
@@ -6871,12 +6711,10 @@ func (o AwsIntegrationsAwsMskPtrOutput) MetricsPollingInterval() pulumi.IntPtrOu
 
 type AwsIntegrationsAwsNeptune struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -6893,12 +6731,10 @@ type AwsIntegrationsAwsNeptuneInput interface {
 
 type AwsIntegrationsAwsNeptuneArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -6980,15 +6816,13 @@ func (o AwsIntegrationsAwsNeptuneOutput) ToAwsIntegrationsAwsNeptunePtrOutputWit
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsNeptuneOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsNeptune) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsNeptuneOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsNeptune) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -7018,7 +6852,6 @@ func (o AwsIntegrationsAwsNeptunePtrOutput) Elem() AwsIntegrationsAwsNeptuneOutp
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsNeptunePtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsNeptune) []string {
 		if v == nil {
@@ -7030,8 +6863,7 @@ func (o AwsIntegrationsAwsNeptunePtrOutput) AwsRegions() pulumi.StringArrayOutpu
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsNeptunePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsNeptune) *int {
 		if v == nil {
@@ -7043,12 +6875,10 @@ func (o AwsIntegrationsAwsNeptunePtrOutput) MetricsPollingInterval() pulumi.IntP
 
 type AwsIntegrationsAwsQldb struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -7065,12 +6895,10 @@ type AwsIntegrationsAwsQldbInput interface {
 
 type AwsIntegrationsAwsQldbArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -7152,15 +6980,13 @@ func (o AwsIntegrationsAwsQldbOutput) ToAwsIntegrationsAwsQldbPtrOutputWithConte
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsQldbOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsQldb) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsQldbOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsQldb) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -7190,7 +7016,6 @@ func (o AwsIntegrationsAwsQldbPtrOutput) Elem() AwsIntegrationsAwsQldbOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsQldbPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsQldb) []string {
 		if v == nil {
@@ -7202,8 +7027,7 @@ func (o AwsIntegrationsAwsQldbPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsQldbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsQldb) *int {
 		if v == nil {
@@ -7215,12 +7039,10 @@ func (o AwsIntegrationsAwsQldbPtrOutput) MetricsPollingInterval() pulumi.IntPtrO
 
 type AwsIntegrationsAwsRoute53resolver struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -7237,12 +7059,10 @@ type AwsIntegrationsAwsRoute53resolverInput interface {
 
 type AwsIntegrationsAwsRoute53resolverArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -7324,15 +7144,13 @@ func (o AwsIntegrationsAwsRoute53resolverOutput) ToAwsIntegrationsAwsRoute53reso
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsRoute53resolverOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsRoute53resolver) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsRoute53resolverOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsRoute53resolver) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -7362,7 +7180,6 @@ func (o AwsIntegrationsAwsRoute53resolverPtrOutput) Elem() AwsIntegrationsAwsRou
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsRoute53resolverPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsRoute53resolver) []string {
 		if v == nil {
@@ -7374,8 +7191,7 @@ func (o AwsIntegrationsAwsRoute53resolverPtrOutput) AwsRegions() pulumi.StringAr
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsRoute53resolverPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsRoute53resolver) *int {
 		if v == nil {
@@ -7387,12 +7203,10 @@ func (o AwsIntegrationsAwsRoute53resolverPtrOutput) MetricsPollingInterval() pul
 
 type AwsIntegrationsAwsStates struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -7409,12 +7223,10 @@ type AwsIntegrationsAwsStatesInput interface {
 
 type AwsIntegrationsAwsStatesArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -7496,15 +7308,13 @@ func (o AwsIntegrationsAwsStatesOutput) ToAwsIntegrationsAwsStatesPtrOutputWithC
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsStatesOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsStates) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsStatesOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsStates) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -7534,7 +7344,6 @@ func (o AwsIntegrationsAwsStatesPtrOutput) Elem() AwsIntegrationsAwsStatesOutput
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsStatesPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsStates) []string {
 		if v == nil {
@@ -7546,8 +7355,7 @@ func (o AwsIntegrationsAwsStatesPtrOutput) AwsRegions() pulumi.StringArrayOutput
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsStatesPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsStates) *int {
 		if v == nil {
@@ -7559,12 +7367,10 @@ func (o AwsIntegrationsAwsStatesPtrOutput) MetricsPollingInterval() pulumi.IntPt
 
 type AwsIntegrationsAwsTransitGateway struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -7581,12 +7387,10 @@ type AwsIntegrationsAwsTransitGatewayInput interface {
 
 type AwsIntegrationsAwsTransitGatewayArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -7668,15 +7472,13 @@ func (o AwsIntegrationsAwsTransitGatewayOutput) ToAwsIntegrationsAwsTransitGatew
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsTransitGatewayOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsTransitGateway) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsTransitGatewayOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsTransitGateway) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -7706,7 +7508,6 @@ func (o AwsIntegrationsAwsTransitGatewayPtrOutput) Elem() AwsIntegrationsAwsTran
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsTransitGatewayPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsTransitGateway) []string {
 		if v == nil {
@@ -7718,8 +7519,7 @@ func (o AwsIntegrationsAwsTransitGatewayPtrOutput) AwsRegions() pulumi.StringArr
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsTransitGatewayPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsTransitGateway) *int {
 		if v == nil {
@@ -7731,12 +7531,10 @@ func (o AwsIntegrationsAwsTransitGatewayPtrOutput) MetricsPollingInterval() pulu
 
 type AwsIntegrationsAwsWaf struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -7753,12 +7551,10 @@ type AwsIntegrationsAwsWafInput interface {
 
 type AwsIntegrationsAwsWafArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -7840,15 +7636,13 @@ func (o AwsIntegrationsAwsWafOutput) ToAwsIntegrationsAwsWafPtrOutputWithContext
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsWafOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsWaf) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsWafOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsWaf) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -7878,7 +7672,6 @@ func (o AwsIntegrationsAwsWafPtrOutput) Elem() AwsIntegrationsAwsWafOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsWafPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsWaf) []string {
 		if v == nil {
@@ -7890,8 +7683,7 @@ func (o AwsIntegrationsAwsWafPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsWafPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsWaf) *int {
 		if v == nil {
@@ -7903,12 +7695,10 @@ func (o AwsIntegrationsAwsWafPtrOutput) MetricsPollingInterval() pulumi.IntPtrOu
 
 type AwsIntegrationsAwsWafv2 struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -7925,12 +7715,10 @@ type AwsIntegrationsAwsWafv2Input interface {
 
 type AwsIntegrationsAwsWafv2Args struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -8012,15 +7800,13 @@ func (o AwsIntegrationsAwsWafv2Output) ToAwsIntegrationsAwsWafv2PtrOutputWithCon
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsWafv2Output) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsWafv2) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsWafv2Output) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsAwsWafv2) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -8050,7 +7836,6 @@ func (o AwsIntegrationsAwsWafv2PtrOutput) Elem() AwsIntegrationsAwsWafv2Output {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsAwsWafv2PtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsWafv2) []string {
 		if v == nil {
@@ -8062,8 +7847,7 @@ func (o AwsIntegrationsAwsWafv2PtrOutput) AwsRegions() pulumi.StringArrayOutput 
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsAwsWafv2PtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsAwsWafv2) *int {
 		if v == nil {
@@ -8076,8 +7860,7 @@ func (o AwsIntegrationsAwsWafv2PtrOutput) MetricsPollingInterval() pulumi.IntPtr
 type AwsIntegrationsBilling struct {
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -8095,8 +7878,7 @@ type AwsIntegrationsBillingInput interface {
 type AwsIntegrationsBillingArgs struct {
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -8179,8 +7961,7 @@ func (o AwsIntegrationsBillingOutput) ToAwsIntegrationsBillingPtrOutputWithConte
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsBillingOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsBilling) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -8211,8 +7992,7 @@ func (o AwsIntegrationsBillingPtrOutput) Elem() AwsIntegrationsBillingOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsBillingPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsBilling) *int {
 		if v == nil {
@@ -8223,19 +8003,14 @@ func (o AwsIntegrationsBillingPtrOutput) MetricsPollingInterval() pulumi.IntPtrO
 }
 
 type AwsIntegrationsCloudfront struct {
-	// Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchLambdasAtEdge *bool `pulumi:"fetchLambdasAtEdge"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags *bool `pulumi:"fetchTags"`
+	FetchTags          *bool `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsCloudfrontInput is an input type that accepts AwsIntegrationsCloudfrontArgs and AwsIntegrationsCloudfrontOutput values.
@@ -8250,19 +8025,14 @@ type AwsIntegrationsCloudfrontInput interface {
 }
 
 type AwsIntegrationsCloudfrontArgs struct {
-	// Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
 	FetchLambdasAtEdge pulumi.BoolPtrInput `pulumi:"fetchLambdasAtEdge"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
+	FetchTags          pulumi.BoolPtrInput `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsCloudfrontArgs) ElementType() reflect.Type {
@@ -8342,30 +8112,25 @@ func (o AwsIntegrationsCloudfrontOutput) ToAwsIntegrationsCloudfrontPtrOutputWit
 	}).(AwsIntegrationsCloudfrontPtrOutput)
 }
 
-// Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsCloudfrontOutput) FetchLambdasAtEdge() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsCloudfront) *bool { return v.FetchLambdasAtEdge }).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsCloudfrontOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsCloudfront) *bool { return v.FetchTags }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsCloudfrontOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsCloudfront) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsCloudfrontOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsCloudfront) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsCloudfrontOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsCloudfront) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -8394,7 +8159,6 @@ func (o AwsIntegrationsCloudfrontPtrOutput) Elem() AwsIntegrationsCloudfrontOutp
 	}).(AwsIntegrationsCloudfrontOutput)
 }
 
-// Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsCloudfrontPtrOutput) FetchLambdasAtEdge() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsCloudfront) *bool {
 		if v == nil {
@@ -8404,7 +8168,6 @@ func (o AwsIntegrationsCloudfrontPtrOutput) FetchLambdasAtEdge() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsCloudfrontPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsCloudfront) *bool {
 		if v == nil {
@@ -8416,8 +8179,7 @@ func (o AwsIntegrationsCloudfrontPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsCloudfrontPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsCloudfront) *int {
 		if v == nil {
@@ -8427,7 +8189,6 @@ func (o AwsIntegrationsCloudfrontPtrOutput) MetricsPollingInterval() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsCloudfrontPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsCloudfront) *string {
 		if v == nil {
@@ -8437,7 +8198,6 @@ func (o AwsIntegrationsCloudfrontPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsCloudfrontPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsCloudfront) *string {
 		if v == nil {
@@ -8449,12 +8209,10 @@ func (o AwsIntegrationsCloudfrontPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsCloudtrail struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -8471,12 +8229,10 @@ type AwsIntegrationsCloudtrailInput interface {
 
 type AwsIntegrationsCloudtrailArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -8558,15 +8314,13 @@ func (o AwsIntegrationsCloudtrailOutput) ToAwsIntegrationsCloudtrailPtrOutputWit
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsCloudtrailOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsCloudtrail) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsCloudtrailOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsCloudtrail) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -8596,7 +8350,6 @@ func (o AwsIntegrationsCloudtrailPtrOutput) Elem() AwsIntegrationsCloudtrailOutp
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsCloudtrailPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsCloudtrail) []string {
 		if v == nil {
@@ -8608,8 +8361,7 @@ func (o AwsIntegrationsCloudtrailPtrOutput) AwsRegions() pulumi.StringArrayOutpu
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsCloudtrailPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsCloudtrail) *int {
 		if v == nil {
@@ -8621,12 +8373,10 @@ func (o AwsIntegrationsCloudtrailPtrOutput) MetricsPollingInterval() pulumi.IntP
 
 type AwsIntegrationsDocDb struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -8643,12 +8393,10 @@ type AwsIntegrationsDocDbInput interface {
 
 type AwsIntegrationsDocDbArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -8730,15 +8478,13 @@ func (o AwsIntegrationsDocDbOutput) ToAwsIntegrationsDocDbPtrOutputWithContext(c
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsDocDbOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsDocDb) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsDocDbOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsDocDb) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -8768,7 +8514,6 @@ func (o AwsIntegrationsDocDbPtrOutput) Elem() AwsIntegrationsDocDbOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsDocDbPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsDocDb) []string {
 		if v == nil {
@@ -8780,8 +8525,7 @@ func (o AwsIntegrationsDocDbPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsDocDbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsDocDb) *int {
 		if v == nil {
@@ -8793,23 +8537,15 @@ func (o AwsIntegrationsDocDbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOut
 
 type AwsIntegrationsDynamodb struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions []string `pulumi:"awsRegions"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
-	FetchExtendedInventory *bool `pulumi:"fetchExtendedInventory"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags *bool `pulumi:"fetchTags"`
+	AwsRegions             []string `pulumi:"awsRegions"`
+	FetchExtendedInventory *bool    `pulumi:"fetchExtendedInventory"`
+	FetchTags              *bool    `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsDynamodbInput is an input type that accepts AwsIntegrationsDynamodbArgs and AwsIntegrationsDynamodbOutput values.
@@ -8825,23 +8561,15 @@ type AwsIntegrationsDynamodbInput interface {
 
 type AwsIntegrationsDynamodbArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
-	FetchExtendedInventory pulumi.BoolPtrInput `pulumi:"fetchExtendedInventory"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
+	AwsRegions             pulumi.StringArrayInput `pulumi:"awsRegions"`
+	FetchExtendedInventory pulumi.BoolPtrInput     `pulumi:"fetchExtendedInventory"`
+	FetchTags              pulumi.BoolPtrInput     `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsDynamodbArgs) ElementType() reflect.Type {
@@ -8922,37 +8650,29 @@ func (o AwsIntegrationsDynamodbOutput) ToAwsIntegrationsDynamodbPtrOutputWithCon
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsDynamodbOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsDynamodb) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsDynamodbOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsDynamodb) *bool { return v.FetchExtendedInventory }).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsDynamodbOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsDynamodb) *bool { return v.FetchTags }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsDynamodbOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsDynamodb) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsDynamodbOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsDynamodb) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsDynamodbOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsDynamodb) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -8982,7 +8702,6 @@ func (o AwsIntegrationsDynamodbPtrOutput) Elem() AwsIntegrationsDynamodbOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsDynamodbPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsDynamodb) []string {
 		if v == nil {
@@ -8992,9 +8711,6 @@ func (o AwsIntegrationsDynamodbPtrOutput) AwsRegions() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsDynamodbPtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsDynamodb) *bool {
 		if v == nil {
@@ -9004,7 +8720,6 @@ func (o AwsIntegrationsDynamodbPtrOutput) FetchExtendedInventory() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsDynamodbPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsDynamodb) *bool {
 		if v == nil {
@@ -9016,8 +8731,7 @@ func (o AwsIntegrationsDynamodbPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsDynamodbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsDynamodb) *int {
 		if v == nil {
@@ -9027,7 +8741,6 @@ func (o AwsIntegrationsDynamodbPtrOutput) MetricsPollingInterval() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsDynamodbPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsDynamodb) *string {
 		if v == nil {
@@ -9037,7 +8750,6 @@ func (o AwsIntegrationsDynamodbPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsDynamodbPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsDynamodb) *string {
 		if v == nil {
@@ -9049,21 +8761,14 @@ func (o AwsIntegrationsDynamodbPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsEbs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions []string `pulumi:"awsRegions"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
-	FetchExtendedInventory *bool `pulumi:"fetchExtendedInventory"`
+	AwsRegions             []string `pulumi:"awsRegions"`
+	FetchExtendedInventory *bool    `pulumi:"fetchExtendedInventory"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsEbsInput is an input type that accepts AwsIntegrationsEbsArgs and AwsIntegrationsEbsOutput values.
@@ -9079,21 +8784,14 @@ type AwsIntegrationsEbsInput interface {
 
 type AwsIntegrationsEbsArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
-	FetchExtendedInventory pulumi.BoolPtrInput `pulumi:"fetchExtendedInventory"`
+	AwsRegions             pulumi.StringArrayInput `pulumi:"awsRegions"`
+	FetchExtendedInventory pulumi.BoolPtrInput     `pulumi:"fetchExtendedInventory"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsEbsArgs) ElementType() reflect.Type {
@@ -9174,32 +8872,25 @@ func (o AwsIntegrationsEbsOutput) ToAwsIntegrationsEbsPtrOutputWithContext(ctx c
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsEbsOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsEbs) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsEbsOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEbs) *bool { return v.FetchExtendedInventory }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsEbsOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEbs) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEbsOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEbs) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEbsOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEbs) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -9229,7 +8920,6 @@ func (o AwsIntegrationsEbsPtrOutput) Elem() AwsIntegrationsEbsOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsEbsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEbs) []string {
 		if v == nil {
@@ -9239,9 +8929,6 @@ func (o AwsIntegrationsEbsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsEbsPtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEbs) *bool {
 		if v == nil {
@@ -9253,8 +8940,7 @@ func (o AwsIntegrationsEbsPtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutp
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsEbsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEbs) *int {
 		if v == nil {
@@ -9264,7 +8950,6 @@ func (o AwsIntegrationsEbsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEbsPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEbs) *string {
 		if v == nil {
@@ -9274,7 +8959,6 @@ func (o AwsIntegrationsEbsPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEbsPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEbs) *string {
 		if v == nil {
@@ -9286,21 +8970,15 @@ func (o AwsIntegrationsEbsPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsEc2 struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions []string `pulumi:"awsRegions"`
-	// Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
-	DuplicateEc2Tags *bool `pulumi:"duplicateEc2Tags"`
-	// Specify if IP addresses of ec2 instance should be collected.
-	FetchIpAddresses *bool `pulumi:"fetchIpAddresses"`
+	AwsRegions       []string `pulumi:"awsRegions"`
+	DuplicateEc2Tags *bool    `pulumi:"duplicateEc2Tags"`
+	FetchIpAddresses *bool    `pulumi:"fetchIpAddresses"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsEc2Input is an input type that accepts AwsIntegrationsEc2Args and AwsIntegrationsEc2Output values.
@@ -9316,21 +8994,15 @@ type AwsIntegrationsEc2Input interface {
 
 type AwsIntegrationsEc2Args struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
-	DuplicateEc2Tags pulumi.BoolPtrInput `pulumi:"duplicateEc2Tags"`
-	// Specify if IP addresses of ec2 instance should be collected.
-	FetchIpAddresses pulumi.BoolPtrInput `pulumi:"fetchIpAddresses"`
+	AwsRegions       pulumi.StringArrayInput `pulumi:"awsRegions"`
+	DuplicateEc2Tags pulumi.BoolPtrInput     `pulumi:"duplicateEc2Tags"`
+	FetchIpAddresses pulumi.BoolPtrInput     `pulumi:"fetchIpAddresses"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsEc2Args) ElementType() reflect.Type {
@@ -9411,35 +9083,29 @@ func (o AwsIntegrationsEc2Output) ToAwsIntegrationsEc2PtrOutputWithContext(ctx c
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsEc2Output) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsEc2) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
 func (o AwsIntegrationsEc2Output) DuplicateEc2Tags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEc2) *bool { return v.DuplicateEc2Tags }).(pulumi.BoolPtrOutput)
 }
 
-// Specify if IP addresses of ec2 instance should be collected.
 func (o AwsIntegrationsEc2Output) FetchIpAddresses() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEc2) *bool { return v.FetchIpAddresses }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsEc2Output) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEc2) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEc2Output) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEc2) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEc2Output) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEc2) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -9469,7 +9135,6 @@ func (o AwsIntegrationsEc2PtrOutput) Elem() AwsIntegrationsEc2Output {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsEc2PtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEc2) []string {
 		if v == nil {
@@ -9479,7 +9144,6 @@ func (o AwsIntegrationsEc2PtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
 func (o AwsIntegrationsEc2PtrOutput) DuplicateEc2Tags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEc2) *bool {
 		if v == nil {
@@ -9489,7 +9153,6 @@ func (o AwsIntegrationsEc2PtrOutput) DuplicateEc2Tags() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specify if IP addresses of ec2 instance should be collected.
 func (o AwsIntegrationsEc2PtrOutput) FetchIpAddresses() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEc2) *bool {
 		if v == nil {
@@ -9501,8 +9164,7 @@ func (o AwsIntegrationsEc2PtrOutput) FetchIpAddresses() pulumi.BoolPtrOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsEc2PtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEc2) *int {
 		if v == nil {
@@ -9512,7 +9174,6 @@ func (o AwsIntegrationsEc2PtrOutput) MetricsPollingInterval() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEc2PtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEc2) *string {
 		if v == nil {
@@ -9522,7 +9183,6 @@ func (o AwsIntegrationsEc2PtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEc2PtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEc2) *string {
 		if v == nil {
@@ -9534,19 +9194,14 @@ func (o AwsIntegrationsEc2PtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsEcs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags *bool `pulumi:"fetchTags"`
+	FetchTags  *bool    `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsEcsInput is an input type that accepts AwsIntegrationsEcsArgs and AwsIntegrationsEcsOutput values.
@@ -9562,19 +9217,14 @@ type AwsIntegrationsEcsInput interface {
 
 type AwsIntegrationsEcsArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
+	FetchTags  pulumi.BoolPtrInput     `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsEcsArgs) ElementType() reflect.Type {
@@ -9655,30 +9305,25 @@ func (o AwsIntegrationsEcsOutput) ToAwsIntegrationsEcsPtrOutputWithContext(ctx c
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsEcsOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsEcs) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsEcsOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEcs) *bool { return v.FetchTags }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsEcsOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEcs) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEcsOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEcs) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEcsOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEcs) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -9708,7 +9353,6 @@ func (o AwsIntegrationsEcsPtrOutput) Elem() AwsIntegrationsEcsOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsEcsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEcs) []string {
 		if v == nil {
@@ -9718,7 +9362,6 @@ func (o AwsIntegrationsEcsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsEcsPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEcs) *bool {
 		if v == nil {
@@ -9730,8 +9373,7 @@ func (o AwsIntegrationsEcsPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsEcsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEcs) *int {
 		if v == nil {
@@ -9741,7 +9383,6 @@ func (o AwsIntegrationsEcsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEcsPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEcs) *string {
 		if v == nil {
@@ -9751,7 +9392,6 @@ func (o AwsIntegrationsEcsPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEcsPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEcs) *string {
 		if v == nil {
@@ -9763,19 +9403,14 @@ func (o AwsIntegrationsEcsPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsEfs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags *bool `pulumi:"fetchTags"`
+	FetchTags  *bool    `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsEfsInput is an input type that accepts AwsIntegrationsEfsArgs and AwsIntegrationsEfsOutput values.
@@ -9791,19 +9426,14 @@ type AwsIntegrationsEfsInput interface {
 
 type AwsIntegrationsEfsArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
+	FetchTags  pulumi.BoolPtrInput     `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsEfsArgs) ElementType() reflect.Type {
@@ -9884,30 +9514,25 @@ func (o AwsIntegrationsEfsOutput) ToAwsIntegrationsEfsPtrOutputWithContext(ctx c
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsEfsOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsEfs) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsEfsOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEfs) *bool { return v.FetchTags }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsEfsOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEfs) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEfsOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEfs) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEfsOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEfs) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -9937,7 +9562,6 @@ func (o AwsIntegrationsEfsPtrOutput) Elem() AwsIntegrationsEfsOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsEfsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEfs) []string {
 		if v == nil {
@@ -9947,7 +9571,6 @@ func (o AwsIntegrationsEfsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsEfsPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEfs) *bool {
 		if v == nil {
@@ -9959,8 +9582,7 @@ func (o AwsIntegrationsEfsPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsEfsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEfs) *int {
 		if v == nil {
@@ -9970,7 +9592,6 @@ func (o AwsIntegrationsEfsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEfsPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEfs) *string {
 		if v == nil {
@@ -9980,7 +9601,6 @@ func (o AwsIntegrationsEfsPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEfsPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEfs) *string {
 		if v == nil {
@@ -9992,19 +9612,14 @@ func (o AwsIntegrationsEfsPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsElasticache struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags *bool `pulumi:"fetchTags"`
+	FetchTags  *bool    `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsElasticacheInput is an input type that accepts AwsIntegrationsElasticacheArgs and AwsIntegrationsElasticacheOutput values.
@@ -10020,19 +9635,14 @@ type AwsIntegrationsElasticacheInput interface {
 
 type AwsIntegrationsElasticacheArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
+	FetchTags  pulumi.BoolPtrInput     `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsElasticacheArgs) ElementType() reflect.Type {
@@ -10113,30 +9723,25 @@ func (o AwsIntegrationsElasticacheOutput) ToAwsIntegrationsElasticachePtrOutputW
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsElasticacheOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticache) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsElasticacheOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticache) *bool { return v.FetchTags }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsElasticacheOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticache) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsElasticacheOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticache) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsElasticacheOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticache) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -10166,7 +9771,6 @@ func (o AwsIntegrationsElasticachePtrOutput) Elem() AwsIntegrationsElasticacheOu
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsElasticachePtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticache) []string {
 		if v == nil {
@@ -10176,7 +9780,6 @@ func (o AwsIntegrationsElasticachePtrOutput) AwsRegions() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsElasticachePtrOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticache) *bool {
 		if v == nil {
@@ -10188,8 +9791,7 @@ func (o AwsIntegrationsElasticachePtrOutput) FetchTags() pulumi.BoolPtrOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsElasticachePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticache) *int {
 		if v == nil {
@@ -10199,7 +9801,6 @@ func (o AwsIntegrationsElasticachePtrOutput) MetricsPollingInterval() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsElasticachePtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticache) *string {
 		if v == nil {
@@ -10209,7 +9810,6 @@ func (o AwsIntegrationsElasticachePtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsElasticachePtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticache) *string {
 		if v == nil {
@@ -10221,23 +9821,15 @@ func (o AwsIntegrationsElasticachePtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsElasticbeanstalk struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions []string `pulumi:"awsRegions"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
-	FetchExtendedInventory *bool `pulumi:"fetchExtendedInventory"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags *bool `pulumi:"fetchTags"`
+	AwsRegions             []string `pulumi:"awsRegions"`
+	FetchExtendedInventory *bool    `pulumi:"fetchExtendedInventory"`
+	FetchTags              *bool    `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsElasticbeanstalkInput is an input type that accepts AwsIntegrationsElasticbeanstalkArgs and AwsIntegrationsElasticbeanstalkOutput values.
@@ -10253,23 +9845,15 @@ type AwsIntegrationsElasticbeanstalkInput interface {
 
 type AwsIntegrationsElasticbeanstalkArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
-	FetchExtendedInventory pulumi.BoolPtrInput `pulumi:"fetchExtendedInventory"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
+	AwsRegions             pulumi.StringArrayInput `pulumi:"awsRegions"`
+	FetchExtendedInventory pulumi.BoolPtrInput     `pulumi:"fetchExtendedInventory"`
+	FetchTags              pulumi.BoolPtrInput     `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsElasticbeanstalkArgs) ElementType() reflect.Type {
@@ -10350,37 +9934,29 @@ func (o AwsIntegrationsElasticbeanstalkOutput) ToAwsIntegrationsElasticbeanstalk
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsElasticbeanstalkOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticbeanstalk) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsElasticbeanstalkOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticbeanstalk) *bool { return v.FetchExtendedInventory }).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsElasticbeanstalkOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticbeanstalk) *bool { return v.FetchTags }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsElasticbeanstalkOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticbeanstalk) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsElasticbeanstalkOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticbeanstalk) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsElasticbeanstalkOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticbeanstalk) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -10410,7 +9986,6 @@ func (o AwsIntegrationsElasticbeanstalkPtrOutput) Elem() AwsIntegrationsElasticb
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsElasticbeanstalkPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticbeanstalk) []string {
 		if v == nil {
@@ -10420,9 +9995,6 @@ func (o AwsIntegrationsElasticbeanstalkPtrOutput) AwsRegions() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsElasticbeanstalkPtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticbeanstalk) *bool {
 		if v == nil {
@@ -10432,7 +10004,6 @@ func (o AwsIntegrationsElasticbeanstalkPtrOutput) FetchExtendedInventory() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsElasticbeanstalkPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticbeanstalk) *bool {
 		if v == nil {
@@ -10444,8 +10015,7 @@ func (o AwsIntegrationsElasticbeanstalkPtrOutput) FetchTags() pulumi.BoolPtrOutp
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsElasticbeanstalkPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticbeanstalk) *int {
 		if v == nil {
@@ -10455,7 +10025,6 @@ func (o AwsIntegrationsElasticbeanstalkPtrOutput) MetricsPollingInterval() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsElasticbeanstalkPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticbeanstalk) *string {
 		if v == nil {
@@ -10465,7 +10034,6 @@ func (o AwsIntegrationsElasticbeanstalkPtrOutput) TagKey() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsElasticbeanstalkPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticbeanstalk) *string {
 		if v == nil {
@@ -10477,19 +10045,14 @@ func (o AwsIntegrationsElasticbeanstalkPtrOutput) TagValue() pulumi.StringPtrOut
 
 type AwsIntegrationsElasticsearch struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
-	// Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
-	FetchNodes *bool `pulumi:"fetchNodes"`
+	FetchNodes *bool    `pulumi:"fetchNodes"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsElasticsearchInput is an input type that accepts AwsIntegrationsElasticsearchArgs and AwsIntegrationsElasticsearchOutput values.
@@ -10505,19 +10068,14 @@ type AwsIntegrationsElasticsearchInput interface {
 
 type AwsIntegrationsElasticsearchArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
-	FetchNodes pulumi.BoolPtrInput `pulumi:"fetchNodes"`
+	FetchNodes pulumi.BoolPtrInput     `pulumi:"fetchNodes"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsElasticsearchArgs) ElementType() reflect.Type {
@@ -10598,30 +10156,25 @@ func (o AwsIntegrationsElasticsearchOutput) ToAwsIntegrationsElasticsearchPtrOut
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsElasticsearchOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticsearch) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
 func (o AwsIntegrationsElasticsearchOutput) FetchNodes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticsearch) *bool { return v.FetchNodes }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsElasticsearchOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticsearch) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsElasticsearchOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticsearch) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsElasticsearchOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElasticsearch) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -10651,7 +10204,6 @@ func (o AwsIntegrationsElasticsearchPtrOutput) Elem() AwsIntegrationsElasticsear
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsElasticsearchPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticsearch) []string {
 		if v == nil {
@@ -10661,7 +10213,6 @@ func (o AwsIntegrationsElasticsearchPtrOutput) AwsRegions() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
 func (o AwsIntegrationsElasticsearchPtrOutput) FetchNodes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticsearch) *bool {
 		if v == nil {
@@ -10673,8 +10224,7 @@ func (o AwsIntegrationsElasticsearchPtrOutput) FetchNodes() pulumi.BoolPtrOutput
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsElasticsearchPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticsearch) *int {
 		if v == nil {
@@ -10684,7 +10234,6 @@ func (o AwsIntegrationsElasticsearchPtrOutput) MetricsPollingInterval() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsElasticsearchPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticsearch) *string {
 		if v == nil {
@@ -10694,7 +10243,6 @@ func (o AwsIntegrationsElasticsearchPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsElasticsearchPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElasticsearch) *string {
 		if v == nil {
@@ -10706,18 +10254,12 @@ func (o AwsIntegrationsElasticsearchPtrOutput) TagValue() pulumi.StringPtrOutput
 
 type AwsIntegrationsElb struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions []string `pulumi:"awsRegions"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
-	FetchExtendedInventory *bool `pulumi:"fetchExtendedInventory"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags *bool `pulumi:"fetchTags"`
+	AwsRegions             []string `pulumi:"awsRegions"`
+	FetchExtendedInventory *bool    `pulumi:"fetchExtendedInventory"`
+	FetchTags              *bool    `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -10734,18 +10276,12 @@ type AwsIntegrationsElbInput interface {
 
 type AwsIntegrationsElbArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
-	FetchExtendedInventory pulumi.BoolPtrInput `pulumi:"fetchExtendedInventory"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
+	AwsRegions             pulumi.StringArrayInput `pulumi:"awsRegions"`
+	FetchExtendedInventory pulumi.BoolPtrInput     `pulumi:"fetchExtendedInventory"`
+	FetchTags              pulumi.BoolPtrInput     `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -10827,27 +10363,21 @@ func (o AwsIntegrationsElbOutput) ToAwsIntegrationsElbPtrOutputWithContext(ctx c
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsElbOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsElb) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsElbOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElb) *bool { return v.FetchExtendedInventory }).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsElbOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElb) *bool { return v.FetchTags }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsElbOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsElb) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -10877,7 +10407,6 @@ func (o AwsIntegrationsElbPtrOutput) Elem() AwsIntegrationsElbOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsElbPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElb) []string {
 		if v == nil {
@@ -10887,9 +10416,6 @@ func (o AwsIntegrationsElbPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsElbPtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElb) *bool {
 		if v == nil {
@@ -10899,7 +10425,6 @@ func (o AwsIntegrationsElbPtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsElbPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElb) *bool {
 		if v == nil {
@@ -10911,8 +10436,7 @@ func (o AwsIntegrationsElbPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsElbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsElb) *int {
 		if v == nil {
@@ -10924,19 +10448,14 @@ func (o AwsIntegrationsElbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutpu
 
 type AwsIntegrationsEmr struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags *bool `pulumi:"fetchTags"`
+	FetchTags  *bool    `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsEmrInput is an input type that accepts AwsIntegrationsEmrArgs and AwsIntegrationsEmrOutput values.
@@ -10952,19 +10471,14 @@ type AwsIntegrationsEmrInput interface {
 
 type AwsIntegrationsEmrArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
+	FetchTags  pulumi.BoolPtrInput     `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsEmrArgs) ElementType() reflect.Type {
@@ -11045,30 +10559,25 @@ func (o AwsIntegrationsEmrOutput) ToAwsIntegrationsEmrPtrOutputWithContext(ctx c
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsEmrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsEmr) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsEmrOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEmr) *bool { return v.FetchTags }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsEmrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEmr) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEmrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEmr) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEmrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsEmr) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -11098,7 +10607,6 @@ func (o AwsIntegrationsEmrPtrOutput) Elem() AwsIntegrationsEmrOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsEmrPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEmr) []string {
 		if v == nil {
@@ -11108,7 +10616,6 @@ func (o AwsIntegrationsEmrPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsEmrPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEmr) *bool {
 		if v == nil {
@@ -11120,8 +10627,7 @@ func (o AwsIntegrationsEmrPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsEmrPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEmr) *int {
 		if v == nil {
@@ -11131,7 +10637,6 @@ func (o AwsIntegrationsEmrPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEmrPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEmr) *string {
 		if v == nil {
@@ -11141,7 +10646,6 @@ func (o AwsIntegrationsEmrPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsEmrPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsEmr) *string {
 		if v == nil {
@@ -11154,8 +10658,7 @@ func (o AwsIntegrationsEmrPtrOutput) TagValue() pulumi.StringPtrOutput {
 type AwsIntegrationsHealth struct {
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -11173,8 +10676,7 @@ type AwsIntegrationsHealthInput interface {
 type AwsIntegrationsHealthArgs struct {
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -11257,8 +10759,7 @@ func (o AwsIntegrationsHealthOutput) ToAwsIntegrationsHealthPtrOutputWithContext
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsHealthOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsHealth) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -11289,8 +10790,7 @@ func (o AwsIntegrationsHealthPtrOutput) Elem() AwsIntegrationsHealthOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsHealthPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsHealth) *int {
 		if v == nil {
@@ -11303,13 +10803,10 @@ func (o AwsIntegrationsHealthPtrOutput) MetricsPollingInterval() pulumi.IntPtrOu
 type AwsIntegrationsIam struct {
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsIamInput is an input type that accepts AwsIntegrationsIamArgs and AwsIntegrationsIamOutput values.
@@ -11326,13 +10823,10 @@ type AwsIntegrationsIamInput interface {
 type AwsIntegrationsIamArgs struct {
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsIamArgs) ElementType() reflect.Type {
@@ -11414,18 +10908,15 @@ func (o AwsIntegrationsIamOutput) ToAwsIntegrationsIamPtrOutputWithContext(ctx c
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsIamOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsIam) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsIamOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsIam) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsIamOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsIam) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -11456,8 +10947,7 @@ func (o AwsIntegrationsIamPtrOutput) Elem() AwsIntegrationsIamOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsIamPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsIam) *int {
 		if v == nil {
@@ -11467,7 +10957,6 @@ func (o AwsIntegrationsIamPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsIamPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsIam) *string {
 		if v == nil {
@@ -11477,7 +10966,6 @@ func (o AwsIntegrationsIamPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsIamPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsIam) *string {
 		if v == nil {
@@ -11489,12 +10977,10 @@ func (o AwsIntegrationsIamPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsIot struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -11511,12 +10997,10 @@ type AwsIntegrationsIotInput interface {
 
 type AwsIntegrationsIotArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -11598,15 +11082,13 @@ func (o AwsIntegrationsIotOutput) ToAwsIntegrationsIotPtrOutputWithContext(ctx c
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsIotOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsIot) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsIotOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsIot) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -11636,7 +11118,6 @@ func (o AwsIntegrationsIotPtrOutput) Elem() AwsIntegrationsIotOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsIotPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsIot) []string {
 		if v == nil {
@@ -11648,8 +11129,7 @@ func (o AwsIntegrationsIotPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsIotPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsIot) *int {
 		if v == nil {
@@ -11661,21 +11141,15 @@ func (o AwsIntegrationsIotPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutpu
 
 type AwsIntegrationsKinesis struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions []string `pulumi:"awsRegions"`
-	// Specify if Shards should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchShards *bool `pulumi:"fetchShards"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags *bool `pulumi:"fetchTags"`
+	AwsRegions  []string `pulumi:"awsRegions"`
+	FetchShards *bool    `pulumi:"fetchShards"`
+	FetchTags   *bool    `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsKinesisInput is an input type that accepts AwsIntegrationsKinesisArgs and AwsIntegrationsKinesisOutput values.
@@ -11691,21 +11165,15 @@ type AwsIntegrationsKinesisInput interface {
 
 type AwsIntegrationsKinesisArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Specify if Shards should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchShards pulumi.BoolPtrInput `pulumi:"fetchShards"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
+	AwsRegions  pulumi.StringArrayInput `pulumi:"awsRegions"`
+	FetchShards pulumi.BoolPtrInput     `pulumi:"fetchShards"`
+	FetchTags   pulumi.BoolPtrInput     `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsKinesisArgs) ElementType() reflect.Type {
@@ -11786,35 +11254,29 @@ func (o AwsIntegrationsKinesisOutput) ToAwsIntegrationsKinesisPtrOutputWithConte
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsKinesisOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsKinesis) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Specify if Shards should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsKinesisOutput) FetchShards() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsKinesis) *bool { return v.FetchShards }).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsKinesisOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsKinesis) *bool { return v.FetchTags }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsKinesisOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsKinesis) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsKinesisOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsKinesis) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsKinesisOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsKinesis) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -11844,7 +11306,6 @@ func (o AwsIntegrationsKinesisPtrOutput) Elem() AwsIntegrationsKinesisOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsKinesisPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsKinesis) []string {
 		if v == nil {
@@ -11854,7 +11315,6 @@ func (o AwsIntegrationsKinesisPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specify if Shards should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsKinesisPtrOutput) FetchShards() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsKinesis) *bool {
 		if v == nil {
@@ -11864,7 +11324,6 @@ func (o AwsIntegrationsKinesisPtrOutput) FetchShards() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsKinesisPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsKinesis) *bool {
 		if v == nil {
@@ -11876,8 +11335,7 @@ func (o AwsIntegrationsKinesisPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsKinesisPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsKinesis) *int {
 		if v == nil {
@@ -11887,7 +11345,6 @@ func (o AwsIntegrationsKinesisPtrOutput) MetricsPollingInterval() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsKinesisPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsKinesis) *string {
 		if v == nil {
@@ -11897,7 +11354,6 @@ func (o AwsIntegrationsKinesisPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsKinesisPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsKinesis) *string {
 		if v == nil {
@@ -11909,12 +11365,10 @@ func (o AwsIntegrationsKinesisPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsKinesisFirehose struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -11931,12 +11385,10 @@ type AwsIntegrationsKinesisFirehoseInput interface {
 
 type AwsIntegrationsKinesisFirehoseArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -12018,15 +11470,13 @@ func (o AwsIntegrationsKinesisFirehoseOutput) ToAwsIntegrationsKinesisFirehosePt
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsKinesisFirehoseOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsKinesisFirehose) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsKinesisFirehoseOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsKinesisFirehose) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -12056,7 +11506,6 @@ func (o AwsIntegrationsKinesisFirehosePtrOutput) Elem() AwsIntegrationsKinesisFi
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsKinesisFirehosePtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsKinesisFirehose) []string {
 		if v == nil {
@@ -12068,8 +11517,7 @@ func (o AwsIntegrationsKinesisFirehosePtrOutput) AwsRegions() pulumi.StringArray
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsKinesisFirehosePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsKinesisFirehose) *int {
 		if v == nil {
@@ -12081,19 +11529,14 @@ func (o AwsIntegrationsKinesisFirehosePtrOutput) MetricsPollingInterval() pulumi
 
 type AwsIntegrationsLambda struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags *bool `pulumi:"fetchTags"`
+	FetchTags  *bool    `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsLambdaInput is an input type that accepts AwsIntegrationsLambdaArgs and AwsIntegrationsLambdaOutput values.
@@ -12109,19 +11552,14 @@ type AwsIntegrationsLambdaInput interface {
 
 type AwsIntegrationsLambdaArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
+	FetchTags  pulumi.BoolPtrInput     `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsLambdaArgs) ElementType() reflect.Type {
@@ -12202,30 +11640,25 @@ func (o AwsIntegrationsLambdaOutput) ToAwsIntegrationsLambdaPtrOutputWithContext
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsLambdaOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsLambda) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsLambdaOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsLambda) *bool { return v.FetchTags }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsLambdaOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsLambda) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsLambdaOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsLambda) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsLambdaOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsLambda) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -12255,7 +11688,6 @@ func (o AwsIntegrationsLambdaPtrOutput) Elem() AwsIntegrationsLambdaOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsLambdaPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsLambda) []string {
 		if v == nil {
@@ -12265,7 +11697,6 @@ func (o AwsIntegrationsLambdaPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsLambdaPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsLambda) *bool {
 		if v == nil {
@@ -12277,8 +11708,7 @@ func (o AwsIntegrationsLambdaPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsLambdaPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsLambda) *int {
 		if v == nil {
@@ -12288,7 +11718,6 @@ func (o AwsIntegrationsLambdaPtrOutput) MetricsPollingInterval() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsLambdaPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsLambda) *string {
 		if v == nil {
@@ -12298,7 +11727,6 @@ func (o AwsIntegrationsLambdaPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsLambdaPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsLambda) *string {
 		if v == nil {
@@ -12310,19 +11738,14 @@ func (o AwsIntegrationsLambdaPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsRds struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags *bool `pulumi:"fetchTags"`
+	FetchTags  *bool    `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsRdsInput is an input type that accepts AwsIntegrationsRdsArgs and AwsIntegrationsRdsOutput values.
@@ -12338,19 +11761,14 @@ type AwsIntegrationsRdsInput interface {
 
 type AwsIntegrationsRdsArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
+	FetchTags  pulumi.BoolPtrInput     `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsRdsArgs) ElementType() reflect.Type {
@@ -12431,30 +11849,25 @@ func (o AwsIntegrationsRdsOutput) ToAwsIntegrationsRdsPtrOutputWithContext(ctx c
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsRdsOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsRds) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsRdsOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsRds) *bool { return v.FetchTags }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsRdsOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsRds) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsRdsOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsRds) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsRdsOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsRds) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -12484,7 +11897,6 @@ func (o AwsIntegrationsRdsPtrOutput) Elem() AwsIntegrationsRdsOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsRdsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsRds) []string {
 		if v == nil {
@@ -12494,7 +11906,6 @@ func (o AwsIntegrationsRdsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsRdsPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsRds) *bool {
 		if v == nil {
@@ -12506,8 +11917,7 @@ func (o AwsIntegrationsRdsPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsRdsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsRds) *int {
 		if v == nil {
@@ -12517,7 +11927,6 @@ func (o AwsIntegrationsRdsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsRdsPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsRds) *string {
 		if v == nil {
@@ -12527,7 +11936,6 @@ func (o AwsIntegrationsRdsPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsRdsPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsRds) *string {
 		if v == nil {
@@ -12539,17 +11947,13 @@ func (o AwsIntegrationsRdsPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsRedshift struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsRedshiftInput is an input type that accepts AwsIntegrationsRedshiftArgs and AwsIntegrationsRedshiftOutput values.
@@ -12565,17 +11969,13 @@ type AwsIntegrationsRedshiftInput interface {
 
 type AwsIntegrationsRedshiftArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsRedshiftArgs) ElementType() reflect.Type {
@@ -12656,25 +12056,21 @@ func (o AwsIntegrationsRedshiftOutput) ToAwsIntegrationsRedshiftPtrOutputWithCon
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsRedshiftOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsRedshift) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsRedshiftOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsRedshift) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsRedshiftOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsRedshift) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsRedshiftOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsRedshift) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -12704,7 +12100,6 @@ func (o AwsIntegrationsRedshiftPtrOutput) Elem() AwsIntegrationsRedshiftOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsRedshiftPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsRedshift) []string {
 		if v == nil {
@@ -12716,8 +12111,7 @@ func (o AwsIntegrationsRedshiftPtrOutput) AwsRegions() pulumi.StringArrayOutput 
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsRedshiftPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsRedshift) *int {
 		if v == nil {
@@ -12727,7 +12121,6 @@ func (o AwsIntegrationsRedshiftPtrOutput) MetricsPollingInterval() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsRedshiftPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsRedshift) *string {
 		if v == nil {
@@ -12737,7 +12130,6 @@ func (o AwsIntegrationsRedshiftPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsRedshiftPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsRedshift) *string {
 		if v == nil {
@@ -12748,14 +12140,10 @@ func (o AwsIntegrationsRedshiftPtrOutput) TagValue() pulumi.StringPtrOutput {
 }
 
 type AwsIntegrationsRoute53 struct {
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
 	FetchExtendedInventory *bool `pulumi:"fetchExtendedInventory"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -12771,14 +12159,10 @@ type AwsIntegrationsRoute53Input interface {
 }
 
 type AwsIntegrationsRoute53Args struct {
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
 	FetchExtendedInventory pulumi.BoolPtrInput `pulumi:"fetchExtendedInventory"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -12859,17 +12243,13 @@ func (o AwsIntegrationsRoute53Output) ToAwsIntegrationsRoute53PtrOutputWithConte
 	}).(AwsIntegrationsRoute53PtrOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsRoute53Output) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsRoute53) *bool { return v.FetchExtendedInventory }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsRoute53Output) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsRoute53) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -12898,9 +12278,6 @@ func (o AwsIntegrationsRoute53PtrOutput) Elem() AwsIntegrationsRoute53Output {
 	}).(AwsIntegrationsRoute53Output)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsRoute53PtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsRoute53) *bool {
 		if v == nil {
@@ -12912,8 +12289,7 @@ func (o AwsIntegrationsRoute53PtrOutput) FetchExtendedInventory() pulumi.BoolPtr
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsRoute53PtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsRoute53) *int {
 		if v == nil {
@@ -12924,21 +12300,14 @@ func (o AwsIntegrationsRoute53PtrOutput) MetricsPollingInterval() pulumi.IntPtrO
 }
 
 type AwsIntegrationsS3 struct {
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
 	FetchExtendedInventory *bool `pulumi:"fetchExtendedInventory"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags *bool `pulumi:"fetchTags"`
+	FetchTags              *bool `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsS3Input is an input type that accepts AwsIntegrationsS3Args and AwsIntegrationsS3Output values.
@@ -12953,21 +12322,14 @@ type AwsIntegrationsS3Input interface {
 }
 
 type AwsIntegrationsS3Args struct {
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
 	FetchExtendedInventory pulumi.BoolPtrInput `pulumi:"fetchExtendedInventory"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
+	FetchTags              pulumi.BoolPtrInput `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsS3Args) ElementType() reflect.Type {
@@ -13047,32 +12409,25 @@ func (o AwsIntegrationsS3Output) ToAwsIntegrationsS3PtrOutputWithContext(ctx con
 	}).(AwsIntegrationsS3PtrOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsS3Output) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsS3) *bool { return v.FetchExtendedInventory }).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsS3Output) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsS3) *bool { return v.FetchTags }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsS3Output) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsS3) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsS3Output) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsS3) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsS3Output) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsS3) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -13101,9 +12456,6 @@ func (o AwsIntegrationsS3PtrOutput) Elem() AwsIntegrationsS3Output {
 	}).(AwsIntegrationsS3Output)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsS3PtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsS3) *bool {
 		if v == nil {
@@ -13113,7 +12465,6 @@ func (o AwsIntegrationsS3PtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsS3PtrOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsS3) *bool {
 		if v == nil {
@@ -13125,8 +12476,7 @@ func (o AwsIntegrationsS3PtrOutput) FetchTags() pulumi.BoolPtrOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsS3PtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsS3) *int {
 		if v == nil {
@@ -13136,7 +12486,6 @@ func (o AwsIntegrationsS3PtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsS3PtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsS3) *string {
 		if v == nil {
@@ -13146,7 +12495,6 @@ func (o AwsIntegrationsS3PtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsS3PtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsS3) *string {
 		if v == nil {
@@ -13158,12 +12506,10 @@ func (o AwsIntegrationsS3PtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsSes struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -13180,12 +12526,10 @@ type AwsIntegrationsSesInput interface {
 
 type AwsIntegrationsSesArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -13267,15 +12611,13 @@ func (o AwsIntegrationsSesOutput) ToAwsIntegrationsSesPtrOutputWithContext(ctx c
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsSesOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsSes) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsSesOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsSes) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -13305,7 +12647,6 @@ func (o AwsIntegrationsSesPtrOutput) Elem() AwsIntegrationsSesOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsSesPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsSes) []string {
 		if v == nil {
@@ -13317,8 +12658,7 @@ func (o AwsIntegrationsSesPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsSesPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsSes) *int {
 		if v == nil {
@@ -13330,16 +12670,11 @@ func (o AwsIntegrationsSesPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutpu
 
 type AwsIntegrationsSns struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions []string `pulumi:"awsRegions"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
-	FetchExtendedInventory *bool `pulumi:"fetchExtendedInventory"`
+	AwsRegions             []string `pulumi:"awsRegions"`
+	FetchExtendedInventory *bool    `pulumi:"fetchExtendedInventory"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -13356,16 +12691,11 @@ type AwsIntegrationsSnsInput interface {
 
 type AwsIntegrationsSnsArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
-	FetchExtendedInventory pulumi.BoolPtrInput `pulumi:"fetchExtendedInventory"`
+	AwsRegions             pulumi.StringArrayInput `pulumi:"awsRegions"`
+	FetchExtendedInventory pulumi.BoolPtrInput     `pulumi:"fetchExtendedInventory"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -13447,22 +12777,17 @@ func (o AwsIntegrationsSnsOutput) ToAwsIntegrationsSnsPtrOutputWithContext(ctx c
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsSnsOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsSns) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsSnsOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsSns) *bool { return v.FetchExtendedInventory }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsSnsOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsSns) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -13492,7 +12817,6 @@ func (o AwsIntegrationsSnsPtrOutput) Elem() AwsIntegrationsSnsOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsSnsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsSns) []string {
 		if v == nil {
@@ -13502,9 +12826,6 @@ func (o AwsIntegrationsSnsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsSnsPtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsSns) *bool {
 		if v == nil {
@@ -13516,8 +12837,7 @@ func (o AwsIntegrationsSnsPtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutp
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsSnsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsSns) *int {
 		if v == nil {
@@ -13529,25 +12849,16 @@ func (o AwsIntegrationsSnsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutpu
 
 type AwsIntegrationsSqs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions []string `pulumi:"awsRegions"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
-	FetchExtendedInventory *bool `pulumi:"fetchExtendedInventory"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags *bool `pulumi:"fetchTags"`
+	AwsRegions             []string `pulumi:"awsRegions"`
+	FetchExtendedInventory *bool    `pulumi:"fetchExtendedInventory"`
+	FetchTags              *bool    `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
-	QueuePrefixes []string `pulumi:"queuePrefixes"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int     `pulumi:"metricsPollingInterval"`
+	QueuePrefixes          []string `pulumi:"queuePrefixes"`
+	TagKey                 *string  `pulumi:"tagKey"`
+	TagValue               *string  `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsSqsInput is an input type that accepts AwsIntegrationsSqsArgs and AwsIntegrationsSqsOutput values.
@@ -13563,25 +12874,16 @@ type AwsIntegrationsSqsInput interface {
 
 type AwsIntegrationsSqsArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	//
-	// Furthermore, below integration types supports the following common arguments.
-	FetchExtendedInventory pulumi.BoolPtrInput `pulumi:"fetchExtendedInventory"`
-	// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchTags pulumi.BoolPtrInput `pulumi:"fetchTags"`
+	AwsRegions             pulumi.StringArrayInput `pulumi:"awsRegions"`
+	FetchExtendedInventory pulumi.BoolPtrInput     `pulumi:"fetchExtendedInventory"`
+	FetchTags              pulumi.BoolPtrInput     `pulumi:"fetchTags"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
-	QueuePrefixes pulumi.StringArrayInput `pulumi:"queuePrefixes"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput      `pulumi:"metricsPollingInterval"`
+	QueuePrefixes          pulumi.StringArrayInput `pulumi:"queuePrefixes"`
+	TagKey                 pulumi.StringPtrInput   `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput   `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsSqsArgs) ElementType() reflect.Type {
@@ -13662,42 +12964,33 @@ func (o AwsIntegrationsSqsOutput) ToAwsIntegrationsSqsPtrOutputWithContext(ctx c
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsSqsOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsSqs) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsSqsOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsSqs) *bool { return v.FetchExtendedInventory }).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsSqsOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsSqs) *bool { return v.FetchTags }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsSqsOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsSqs) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsSqsOutput) QueuePrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsSqs) []string { return v.QueuePrefixes }).(pulumi.StringArrayOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsSqsOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsSqs) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsSqsOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsSqs) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -13727,7 +13020,6 @@ func (o AwsIntegrationsSqsPtrOutput) Elem() AwsIntegrationsSqsOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsSqsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsSqs) []string {
 		if v == nil {
@@ -13737,9 +13029,6 @@ func (o AwsIntegrationsSqsPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-//
-// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsSqsPtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsSqs) *bool {
 		if v == nil {
@@ -13749,7 +13038,6 @@ func (o AwsIntegrationsSqsPtrOutput) FetchExtendedInventory() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsSqsPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsSqs) *bool {
 		if v == nil {
@@ -13761,8 +13049,7 @@ func (o AwsIntegrationsSqsPtrOutput) FetchTags() pulumi.BoolPtrOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsSqsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsSqs) *int {
 		if v == nil {
@@ -13772,7 +13059,6 @@ func (o AwsIntegrationsSqsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsSqsPtrOutput) QueuePrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsSqs) []string {
 		if v == nil {
@@ -13782,7 +13068,6 @@ func (o AwsIntegrationsSqsPtrOutput) QueuePrefixes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsSqsPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsSqs) *string {
 		if v == nil {
@@ -13792,7 +13077,6 @@ func (o AwsIntegrationsSqsPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsSqsPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsSqs) *string {
 		if v == nil {
@@ -13805,8 +13089,7 @@ func (o AwsIntegrationsSqsPtrOutput) TagValue() pulumi.StringPtrOutput {
 type AwsIntegrationsTrustedAdvisor struct {
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -13824,8 +13107,7 @@ type AwsIntegrationsTrustedAdvisorInput interface {
 type AwsIntegrationsTrustedAdvisorArgs struct {
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -13908,8 +13190,7 @@ func (o AwsIntegrationsTrustedAdvisorOutput) ToAwsIntegrationsTrustedAdvisorPtrO
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsTrustedAdvisorOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsTrustedAdvisor) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -13940,8 +13221,7 @@ func (o AwsIntegrationsTrustedAdvisorPtrOutput) Elem() AwsIntegrationsTrustedAdv
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsTrustedAdvisorPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsTrustedAdvisor) *int {
 		if v == nil {
@@ -13953,21 +13233,15 @@ func (o AwsIntegrationsTrustedAdvisorPtrOutput) MetricsPollingInterval() pulumi.
 
 type AwsIntegrationsVpc struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions []string `pulumi:"awsRegions"`
-	// Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchNatGateway *bool `pulumi:"fetchNatGateway"`
-	// Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchVpn *bool `pulumi:"fetchVpn"`
+	AwsRegions      []string `pulumi:"awsRegions"`
+	FetchNatGateway *bool    `pulumi:"fetchNatGateway"`
+	FetchVpn        *bool    `pulumi:"fetchVpn"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey *string `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue *string `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval *int    `pulumi:"metricsPollingInterval"`
+	TagKey                 *string `pulumi:"tagKey"`
+	TagValue               *string `pulumi:"tagValue"`
 }
 
 // AwsIntegrationsVpcInput is an input type that accepts AwsIntegrationsVpcArgs and AwsIntegrationsVpcOutput values.
@@ -13983,21 +13257,15 @@ type AwsIntegrationsVpcInput interface {
 
 type AwsIntegrationsVpcArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
-	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchNatGateway pulumi.BoolPtrInput `pulumi:"fetchNatGateway"`
-	// Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
-	FetchVpn pulumi.BoolPtrInput `pulumi:"fetchVpn"`
+	AwsRegions      pulumi.StringArrayInput `pulumi:"awsRegions"`
+	FetchNatGateway pulumi.BoolPtrInput     `pulumi:"fetchNatGateway"`
+	FetchVpn        pulumi.BoolPtrInput     `pulumi:"fetchVpn"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
-	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
-	// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+	// Furthermore, below integration types supports the following common arguments.
+	MetricsPollingInterval pulumi.IntPtrInput    `pulumi:"metricsPollingInterval"`
+	TagKey                 pulumi.StringPtrInput `pulumi:"tagKey"`
+	TagValue               pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (AwsIntegrationsVpcArgs) ElementType() reflect.Type {
@@ -14078,35 +13346,29 @@ func (o AwsIntegrationsVpcOutput) ToAwsIntegrationsVpcPtrOutputWithContext(ctx c
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsVpcOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsVpc) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsVpcOutput) FetchNatGateway() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsVpc) *bool { return v.FetchNatGateway }).(pulumi.BoolPtrOutput)
 }
 
-// Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsVpcOutput) FetchVpn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsVpc) *bool { return v.FetchVpn }).(pulumi.BoolPtrOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsVpcOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsVpc) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsVpcOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsVpc) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsVpcOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsVpc) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -14136,7 +13398,6 @@ func (o AwsIntegrationsVpcPtrOutput) Elem() AwsIntegrationsVpcOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsVpcPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsVpc) []string {
 		if v == nil {
@@ -14146,7 +13407,6 @@ func (o AwsIntegrationsVpcPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsVpcPtrOutput) FetchNatGateway() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsVpc) *bool {
 		if v == nil {
@@ -14156,7 +13416,6 @@ func (o AwsIntegrationsVpcPtrOutput) FetchNatGateway() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
 func (o AwsIntegrationsVpcPtrOutput) FetchVpn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsVpc) *bool {
 		if v == nil {
@@ -14168,8 +13427,7 @@ func (o AwsIntegrationsVpcPtrOutput) FetchVpn() pulumi.BoolPtrOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsVpcPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsVpc) *int {
 		if v == nil {
@@ -14179,7 +13437,6 @@ func (o AwsIntegrationsVpcPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsVpcPtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsVpc) *string {
 		if v == nil {
@@ -14189,7 +13446,6 @@ func (o AwsIntegrationsVpcPtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
 func (o AwsIntegrationsVpcPtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsVpc) *string {
 		if v == nil {
@@ -14201,12 +13457,10 @@ func (o AwsIntegrationsVpcPtrOutput) TagValue() pulumi.StringPtrOutput {
 
 type AwsIntegrationsXRay struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions []string `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 }
 
@@ -14223,12 +13477,10 @@ type AwsIntegrationsXRayInput interface {
 
 type AwsIntegrationsXRayArgs struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
-	// </details>
 	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 	// The data polling interval in seconds.
 	//
-	// <details>
-	// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+	// Furthermore, below integration types supports the following common arguments.
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 }
 
@@ -14310,15 +13562,13 @@ func (o AwsIntegrationsXRayOutput) ToAwsIntegrationsXRayPtrOutputWithContext(ctx
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsXRayOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsIntegrationsXRay) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsXRayOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AwsIntegrationsXRay) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -14348,7 +13598,6 @@ func (o AwsIntegrationsXRayPtrOutput) Elem() AwsIntegrationsXRayOutput {
 }
 
 // Specify each AWS region that includes the resources that you want to monitor.
-// </details>
 func (o AwsIntegrationsXRayPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsIntegrationsXRay) []string {
 		if v == nil {
@@ -14360,8 +13609,7 @@ func (o AwsIntegrationsXRayPtrOutput) AwsRegions() pulumi.StringArrayOutput {
 
 // The data polling interval in seconds.
 //
-// <details>
-// <summary> Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. </summary>
+// Furthermore, below integration types supports the following common arguments.
 func (o AwsIntegrationsXRayPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsXRay) *int {
 		if v == nil {

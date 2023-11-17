@@ -59,7 +59,7 @@ class AzureIntegrationsArgs:
         :param pulumi.Input['AzureIntegrationsAppServiceArgs'] app_service: Azure App Service. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsContainersArgs'] containers: Azure Containers. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsCosmosDbArgs'] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsCostManagementArgs'] cost_management: Azure Cost Management. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsCostManagementArgs'] cost_management: The Azure cost management
         :param pulumi.Input['AzureIntegrationsDataFactoryArgs'] data_factory: Azure Data Factory. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsEventHubArgs'] event_hub: Azure Event Hub. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsExpressRouteArgs'] express_route: Azure Express Route. See Integration blocks below for details.
@@ -71,7 +71,7 @@ class AzureIntegrationsArgs:
         :param pulumi.Input['AzureIntegrationsLogicAppsArgs'] logic_apps: Azure Logic Apps. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMachineLearningArgs'] machine_learning: Azure Machine Learning. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMariaDbArgs'] maria_db: Azure MariaDB. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsMonitorArgs'] monitor: Azure Monitor. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsMonitorArgs'] monitor: The Azure Monitor
         :param pulumi.Input['AzureIntegrationsMysqlArgs'] mysql: Azure MySQL. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMysqlFlexibleArgs'] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsPostgresqlArgs'] postgresql: Azure PostgreSQL. See Integration blocks below for details.
@@ -247,7 +247,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="costManagement")
     def cost_management(self) -> Optional[pulumi.Input['AzureIntegrationsCostManagementArgs']]:
         """
-        Azure Cost Management. See Integration blocks below for details.
+        The Azure cost management
         """
         return pulumi.get(self, "cost_management")
 
@@ -391,7 +391,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter
     def monitor(self) -> Optional[pulumi.Input['AzureIntegrationsMonitorArgs']]:
         """
-        Azure Monitor. See Integration blocks below for details.
+        The Azure Monitor
         """
         return pulumi.get(self, "monitor")
 
@@ -617,7 +617,7 @@ class _AzureIntegrationsState:
         :param pulumi.Input['AzureIntegrationsAppServiceArgs'] app_service: Azure App Service. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsContainersArgs'] containers: Azure Containers. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsCosmosDbArgs'] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsCostManagementArgs'] cost_management: Azure Cost Management. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsCostManagementArgs'] cost_management: The Azure cost management
         :param pulumi.Input['AzureIntegrationsDataFactoryArgs'] data_factory: Azure Data Factory. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsEventHubArgs'] event_hub: Azure Event Hub. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsExpressRouteArgs'] express_route: Azure Express Route. See Integration blocks below for details.
@@ -630,7 +630,7 @@ class _AzureIntegrationsState:
         :param pulumi.Input['AzureIntegrationsLogicAppsArgs'] logic_apps: Azure Logic Apps. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMachineLearningArgs'] machine_learning: Azure Machine Learning. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMariaDbArgs'] maria_db: Azure MariaDB. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsMonitorArgs'] monitor: Azure Monitor. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsMonitorArgs'] monitor: The Azure Monitor
         :param pulumi.Input['AzureIntegrationsMysqlArgs'] mysql: Azure MySQL. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMysqlFlexibleArgs'] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsPostgresqlArgs'] postgresql: Azure PostgreSQL. See Integration blocks below for details.
@@ -795,7 +795,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="costManagement")
     def cost_management(self) -> Optional[pulumi.Input['AzureIntegrationsCostManagementArgs']]:
         """
-        Azure Cost Management. See Integration blocks below for details.
+        The Azure cost management
         """
         return pulumi.get(self, "cost_management")
 
@@ -951,7 +951,7 @@ class _AzureIntegrationsState:
     @pulumi.getter
     def monitor(self) -> Optional[pulumi.Input['AzureIntegrationsMonitorArgs']]:
         """
-        Azure Monitor. See Integration blocks below for details.
+        The Azure Monitor
         """
         return pulumi.get(self, "monitor")
 
@@ -1353,7 +1353,7 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsAppServiceArgs']] app_service: Azure App Service. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsContainersArgs']] containers: Azure Containers. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsCosmosDbArgs']] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsCostManagementArgs']] cost_management: Azure Cost Management. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsCostManagementArgs']] cost_management: The Azure cost management
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsDataFactoryArgs']] data_factory: Azure Data Factory. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsEventHubArgs']] event_hub: Azure Event Hub. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsExpressRouteArgs']] express_route: Azure Express Route. See Integration blocks below for details.
@@ -1366,7 +1366,7 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']] machine_learning: Azure Machine Learning. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']] maria_db: Azure MariaDB. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMonitorArgs']] monitor: Azure Monitor. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMonitorArgs']] monitor: The Azure Monitor
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']] mysql: Azure MySQL. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlFlexibleArgs']] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']] postgresql: Azure PostgreSQL. See Integration blocks below for details.
@@ -1716,7 +1716,7 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsAppServiceArgs']] app_service: Azure App Service. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsContainersArgs']] containers: Azure Containers. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsCosmosDbArgs']] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsCostManagementArgs']] cost_management: Azure Cost Management. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsCostManagementArgs']] cost_management: The Azure cost management
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsDataFactoryArgs']] data_factory: Azure Data Factory. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsEventHubArgs']] event_hub: Azure Event Hub. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsExpressRouteArgs']] express_route: Azure Express Route. See Integration blocks below for details.
@@ -1729,7 +1729,7 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']] machine_learning: Azure Machine Learning. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']] maria_db: Azure MariaDB. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMonitorArgs']] monitor: Azure Monitor. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMonitorArgs']] monitor: The Azure Monitor
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']] mysql: Azure MySQL. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlFlexibleArgs']] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']] postgresql: Azure PostgreSQL. See Integration blocks below for details.
@@ -1841,7 +1841,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="costManagement")
     def cost_management(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsCostManagement']]:
         """
-        Azure Cost Management. See Integration blocks below for details.
+        The Azure cost management
         """
         return pulumi.get(self, "cost_management")
 
@@ -1945,7 +1945,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def monitor(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsMonitor']]:
         """
-        Azure Monitor. See Integration blocks below for details.
+        The Azure Monitor
         """
         return pulumi.get(self, "monitor")
 

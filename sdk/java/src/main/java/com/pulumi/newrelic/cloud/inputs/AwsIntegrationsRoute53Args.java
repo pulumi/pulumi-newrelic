@@ -16,21 +16,9 @@ public final class AwsIntegrationsRoute53Args extends com.pulumi.resources.Resou
 
     public static final AwsIntegrationsRoute53Args Empty = new AwsIntegrationsRoute53Args();
 
-    /**
-     * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * 
-     * Furthermore, below integration types supports the following common arguments.
-     * 
-     */
     @Import(name="fetchExtendedInventory")
     private @Nullable Output<Boolean> fetchExtendedInventory;
 
-    /**
-     * @return Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * 
-     * Furthermore, below integration types supports the following common arguments.
-     * 
-     */
     public Optional<Output<Boolean>> fetchExtendedInventory() {
         return Optional.ofNullable(this.fetchExtendedInventory);
     }
@@ -38,8 +26,7 @@ public final class AwsIntegrationsRoute53Args extends com.pulumi.resources.Resou
     /**
      * The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+     * Furthermore, below integration types supports the following common arguments.
      * 
      */
     @Import(name="metricsPollingInterval")
@@ -48,8 +35,7 @@ public final class AwsIntegrationsRoute53Args extends com.pulumi.resources.Resou
     /**
      * @return The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+     * Furthermore, below integration types supports the following common arguments.
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -81,27 +67,11 @@ public final class AwsIntegrationsRoute53Args extends com.pulumi.resources.Resou
             $ = new AwsIntegrationsRoute53Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fetchExtendedInventory Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * 
-         * Furthermore, below integration types supports the following common arguments.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fetchExtendedInventory(@Nullable Output<Boolean> fetchExtendedInventory) {
             $.fetchExtendedInventory = fetchExtendedInventory;
             return this;
         }
 
-        /**
-         * @param fetchExtendedInventory Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * 
-         * Furthermore, below integration types supports the following common arguments.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fetchExtendedInventory(Boolean fetchExtendedInventory) {
             return fetchExtendedInventory(Output.of(fetchExtendedInventory));
         }
@@ -109,8 +79,7 @@ public final class AwsIntegrationsRoute53Args extends com.pulumi.resources.Resou
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
-         * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+         * Furthermore, below integration types supports the following common arguments.
          * 
          * @return builder
          * 
@@ -123,8 +92,7 @@ public final class AwsIntegrationsRoute53Args extends com.pulumi.resources.Resou
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
-         * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
+         * Furthermore, below integration types supports the following common arguments.
          * 
          * @return builder
          * 

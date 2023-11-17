@@ -522,8 +522,6 @@ type AwsIntegrations struct {
 	// The ID of the linked AWS account in New Relic.
 	//
 	// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-	// <details>
-	// <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
 	//
 	// | Block                   | Description                   |
 	// |-------------------------|-------------------------------|
@@ -579,8 +577,6 @@ type AwsIntegrations struct {
 	// | `trustedAdvisor`       | Trusted Advisor Integration   |
 	// | `vpc`                   | VPC Integration               |
 	// | `xRay`                 | X-Ray Integration             |
-	//
-	// </details>
 	LinkedAccountId pulumi.IntOutput `pulumi:"linkedAccountId"`
 	// Rds integration
 	Rds AwsIntegrationsRdsPtrOutput `pulumi:"rds"`
@@ -726,8 +722,6 @@ type awsIntegrationsState struct {
 	// The ID of the linked AWS account in New Relic.
 	//
 	// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-	// <details>
-	// <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
 	//
 	// | Block                   | Description                   |
 	// |-------------------------|-------------------------------|
@@ -783,8 +777,6 @@ type awsIntegrationsState struct {
 	// | `trustedAdvisor`       | Trusted Advisor Integration   |
 	// | `vpc`                   | VPC Integration               |
 	// | `xRay`                 | X-Ray Integration             |
-	//
-	// </details>
 	LinkedAccountId *int `pulumi:"linkedAccountId"`
 	// Rds integration
 	Rds *AwsIntegrationsRds `pulumi:"rds"`
@@ -898,8 +890,6 @@ type AwsIntegrationsState struct {
 	// The ID of the linked AWS account in New Relic.
 	//
 	// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-	// <details>
-	// <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
 	//
 	// | Block                   | Description                   |
 	// |-------------------------|-------------------------------|
@@ -955,8 +945,6 @@ type AwsIntegrationsState struct {
 	// | `trustedAdvisor`       | Trusted Advisor Integration   |
 	// | `vpc`                   | VPC Integration               |
 	// | `xRay`                 | X-Ray Integration             |
-	//
-	// </details>
 	LinkedAccountId pulumi.IntPtrInput
 	// Rds integration
 	Rds AwsIntegrationsRdsPtrInput
@@ -1074,8 +1062,6 @@ type awsIntegrationsArgs struct {
 	// The ID of the linked AWS account in New Relic.
 	//
 	// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-	// <details>
-	// <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
 	//
 	// | Block                   | Description                   |
 	// |-------------------------|-------------------------------|
@@ -1131,8 +1117,6 @@ type awsIntegrationsArgs struct {
 	// | `trustedAdvisor`       | Trusted Advisor Integration   |
 	// | `vpc`                   | VPC Integration               |
 	// | `xRay`                 | X-Ray Integration             |
-	//
-	// </details>
 	LinkedAccountId int `pulumi:"linkedAccountId"`
 	// Rds integration
 	Rds *AwsIntegrationsRds `pulumi:"rds"`
@@ -1247,8 +1231,6 @@ type AwsIntegrationsArgs struct {
 	// The ID of the linked AWS account in New Relic.
 	//
 	// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-	// <details>
-	// <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
 	//
 	// | Block                   | Description                   |
 	// |-------------------------|-------------------------------|
@@ -1304,8 +1286,6 @@ type AwsIntegrationsArgs struct {
 	// | `trustedAdvisor`       | Trusted Advisor Integration   |
 	// | `vpc`                   | VPC Integration               |
 	// | `xRay`                 | X-Ray Integration             |
-	//
-	// </details>
 	LinkedAccountId pulumi.IntInput
 	// Rds integration
 	Rds AwsIntegrationsRdsPtrInput
@@ -1634,8 +1614,6 @@ func (o AwsIntegrationsOutput) Lambda() AwsIntegrationsLambdaPtrOutput {
 // The ID of the linked AWS account in New Relic.
 //
 // All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-// <details>
-// <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
 //
 // | Block                   | Description                   |
 // |-------------------------|-------------------------------|
@@ -1691,8 +1669,6 @@ func (o AwsIntegrationsOutput) Lambda() AwsIntegrationsLambdaPtrOutput {
 // | `trustedAdvisor`       | Trusted Advisor Integration   |
 // | `vpc`                   | VPC Integration               |
 // | `xRay`                 | X-Ray Integration             |
-//
-// </details>
 func (o AwsIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *AwsIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
 }

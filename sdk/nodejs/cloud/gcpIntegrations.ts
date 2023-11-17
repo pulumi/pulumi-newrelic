@@ -157,7 +157,7 @@ export class GcpIntegrations extends pulumi.CustomResource {
      */
     public readonly appEngine!: pulumi.Output<outputs.cloud.GcpIntegrationsAppEngine | undefined>;
     /**
-     * Biq Query integration. See Integration blocks below for details.
+     * GCP biq query service
      */
     public readonly bigQuery!: pulumi.Output<outputs.cloud.GcpIntegrationsBigQuery | undefined>;
     /**
@@ -221,7 +221,7 @@ export class GcpIntegrations extends pulumi.CustomResource {
      */
     public readonly memCache!: pulumi.Output<outputs.cloud.GcpIntegrationsMemCache | undefined>;
     /**
-     * Pub/Sub integration. See Integration blocks below for details.
+     * GCP big table service
      */
     public readonly pubSub!: pulumi.Output<outputs.cloud.GcpIntegrationsPubSub | undefined>;
     /**
@@ -237,7 +237,7 @@ export class GcpIntegrations extends pulumi.CustomResource {
      */
     public readonly run!: pulumi.Output<outputs.cloud.GcpIntegrationsRun | undefined>;
     /**
-     * Spanner integration. See Integration blocks below for details.
+     * GCP big table service
      */
     public readonly spanner!: pulumi.Output<outputs.cloud.GcpIntegrationsSpanner | undefined>;
     /**
@@ -245,7 +245,7 @@ export class GcpIntegrations extends pulumi.CustomResource {
      */
     public readonly sql!: pulumi.Output<outputs.cloud.GcpIntegrationsSql | undefined>;
     /**
-     * Storage integration. See Integration blocks below for details.
+     * GCP big table service
      */
     public readonly storage!: pulumi.Output<outputs.cloud.GcpIntegrationsStorage | undefined>;
     /**
@@ -354,7 +354,7 @@ export interface GcpIntegrationsState {
      */
     appEngine?: pulumi.Input<inputs.cloud.GcpIntegrationsAppEngine>;
     /**
-     * Biq Query integration. See Integration blocks below for details.
+     * GCP biq query service
      */
     bigQuery?: pulumi.Input<inputs.cloud.GcpIntegrationsBigQuery>;
     /**
@@ -418,7 +418,7 @@ export interface GcpIntegrationsState {
      */
     memCache?: pulumi.Input<inputs.cloud.GcpIntegrationsMemCache>;
     /**
-     * Pub/Sub integration. See Integration blocks below for details.
+     * GCP big table service
      */
     pubSub?: pulumi.Input<inputs.cloud.GcpIntegrationsPubSub>;
     /**
@@ -434,7 +434,7 @@ export interface GcpIntegrationsState {
      */
     run?: pulumi.Input<inputs.cloud.GcpIntegrationsRun>;
     /**
-     * Spanner integration. See Integration blocks below for details.
+     * GCP big table service
      */
     spanner?: pulumi.Input<inputs.cloud.GcpIntegrationsSpanner>;
     /**
@@ -442,7 +442,7 @@ export interface GcpIntegrationsState {
      */
     sql?: pulumi.Input<inputs.cloud.GcpIntegrationsSql>;
     /**
-     * Storage integration. See Integration blocks below for details.
+     * GCP big table service
      */
     storage?: pulumi.Input<inputs.cloud.GcpIntegrationsStorage>;
     /**
@@ -472,7 +472,7 @@ export interface GcpIntegrationsArgs {
      */
     appEngine?: pulumi.Input<inputs.cloud.GcpIntegrationsAppEngine>;
     /**
-     * Biq Query integration. See Integration blocks below for details.
+     * GCP biq query service
      */
     bigQuery?: pulumi.Input<inputs.cloud.GcpIntegrationsBigQuery>;
     /**
@@ -536,7 +536,7 @@ export interface GcpIntegrationsArgs {
      */
     memCache?: pulumi.Input<inputs.cloud.GcpIntegrationsMemCache>;
     /**
-     * Pub/Sub integration. See Integration blocks below for details.
+     * GCP big table service
      */
     pubSub?: pulumi.Input<inputs.cloud.GcpIntegrationsPubSub>;
     /**
@@ -552,7 +552,7 @@ export interface GcpIntegrationsArgs {
      */
     run?: pulumi.Input<inputs.cloud.GcpIntegrationsRun>;
     /**
-     * Spanner integration. See Integration blocks below for details.
+     * GCP big table service
      */
     spanner?: pulumi.Input<inputs.cloud.GcpIntegrationsSpanner>;
     /**
@@ -560,7 +560,7 @@ export interface GcpIntegrationsArgs {
      */
     sql?: pulumi.Input<inputs.cloud.GcpIntegrationsSql>;
     /**
-     * Storage integration. See Integration blocks below for details.
+     * GCP big table service
      */
     storage?: pulumi.Input<inputs.cloud.GcpIntegrationsStorage>;
     /**

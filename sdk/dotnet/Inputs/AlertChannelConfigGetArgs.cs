@@ -181,7 +181,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? PayloadType { get; set; }
 
         /// <summary>
-        /// A set of recipients for targeting notifications.  Multiple values are comma separated.
+        /// Comma delimited list of email addresses.
         /// </summary>
         [Input("recipients")]
         public Input<string>? Recipients { get; set; }

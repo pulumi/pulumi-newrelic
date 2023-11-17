@@ -288,7 +288,7 @@ type AzureIntegrations struct {
 	Containers AzureIntegrationsContainersPtrOutput `pulumi:"containers"`
 	// Azure CosmosDB. See Integration blocks below for details.
 	CosmosDb AzureIntegrationsCosmosDbPtrOutput `pulumi:"cosmosDb"`
-	// Azure Cost Management. See Integration blocks below for details.
+	// The Azure cost management
 	CostManagement AzureIntegrationsCostManagementPtrOutput `pulumi:"costManagement"`
 	// Azure Data Factory. See Integration blocks below for details.
 	DataFactory AzureIntegrationsDataFactoryPtrOutput `pulumi:"dataFactory"`
@@ -314,7 +314,7 @@ type AzureIntegrations struct {
 	MachineLearning AzureIntegrationsMachineLearningPtrOutput `pulumi:"machineLearning"`
 	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb AzureIntegrationsMariaDbPtrOutput `pulumi:"mariaDb"`
-	// Azure Monitor. See Integration blocks below for details.
+	// The Azure Monitor
 	Monitor AzureIntegrationsMonitorPtrOutput `pulumi:"monitor"`
 	// Azure MySQL. See Integration blocks below for details.
 	Mysql AzureIntegrationsMysqlPtrOutput `pulumi:"mysql"`
@@ -395,7 +395,7 @@ type azureIntegrationsState struct {
 	Containers *AzureIntegrationsContainers `pulumi:"containers"`
 	// Azure CosmosDB. See Integration blocks below for details.
 	CosmosDb *AzureIntegrationsCosmosDb `pulumi:"cosmosDb"`
-	// Azure Cost Management. See Integration blocks below for details.
+	// The Azure cost management
 	CostManagement *AzureIntegrationsCostManagement `pulumi:"costManagement"`
 	// Azure Data Factory. See Integration blocks below for details.
 	DataFactory *AzureIntegrationsDataFactory `pulumi:"dataFactory"`
@@ -421,7 +421,7 @@ type azureIntegrationsState struct {
 	MachineLearning *AzureIntegrationsMachineLearning `pulumi:"machineLearning"`
 	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb *AzureIntegrationsMariaDb `pulumi:"mariaDb"`
-	// Azure Monitor. See Integration blocks below for details.
+	// The Azure Monitor
 	Monitor *AzureIntegrationsMonitor `pulumi:"monitor"`
 	// Azure MySQL. See Integration blocks below for details.
 	Mysql *AzureIntegrationsMysql `pulumi:"mysql"`
@@ -470,7 +470,7 @@ type AzureIntegrationsState struct {
 	Containers AzureIntegrationsContainersPtrInput
 	// Azure CosmosDB. See Integration blocks below for details.
 	CosmosDb AzureIntegrationsCosmosDbPtrInput
-	// Azure Cost Management. See Integration blocks below for details.
+	// The Azure cost management
 	CostManagement AzureIntegrationsCostManagementPtrInput
 	// Azure Data Factory. See Integration blocks below for details.
 	DataFactory AzureIntegrationsDataFactoryPtrInput
@@ -496,7 +496,7 @@ type AzureIntegrationsState struct {
 	MachineLearning AzureIntegrationsMachineLearningPtrInput
 	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb AzureIntegrationsMariaDbPtrInput
-	// Azure Monitor. See Integration blocks below for details.
+	// The Azure Monitor
 	Monitor AzureIntegrationsMonitorPtrInput
 	// Azure MySQL. See Integration blocks below for details.
 	Mysql AzureIntegrationsMysqlPtrInput
@@ -549,7 +549,7 @@ type azureIntegrationsArgs struct {
 	Containers *AzureIntegrationsContainers `pulumi:"containers"`
 	// Azure CosmosDB. See Integration blocks below for details.
 	CosmosDb *AzureIntegrationsCosmosDb `pulumi:"cosmosDb"`
-	// Azure Cost Management. See Integration blocks below for details.
+	// The Azure cost management
 	CostManagement *AzureIntegrationsCostManagement `pulumi:"costManagement"`
 	// Azure Data Factory. See Integration blocks below for details.
 	DataFactory *AzureIntegrationsDataFactory `pulumi:"dataFactory"`
@@ -575,7 +575,7 @@ type azureIntegrationsArgs struct {
 	MachineLearning *AzureIntegrationsMachineLearning `pulumi:"machineLearning"`
 	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb *AzureIntegrationsMariaDb `pulumi:"mariaDb"`
-	// Azure Monitor. See Integration blocks below for details.
+	// The Azure Monitor
 	Monitor *AzureIntegrationsMonitor `pulumi:"monitor"`
 	// Azure MySQL. See Integration blocks below for details.
 	Mysql *AzureIntegrationsMysql `pulumi:"mysql"`
@@ -625,7 +625,7 @@ type AzureIntegrationsArgs struct {
 	Containers AzureIntegrationsContainersPtrInput
 	// Azure CosmosDB. See Integration blocks below for details.
 	CosmosDb AzureIntegrationsCosmosDbPtrInput
-	// Azure Cost Management. See Integration blocks below for details.
+	// The Azure cost management
 	CostManagement AzureIntegrationsCostManagementPtrInput
 	// Azure Data Factory. See Integration blocks below for details.
 	DataFactory AzureIntegrationsDataFactoryPtrInput
@@ -651,7 +651,7 @@ type AzureIntegrationsArgs struct {
 	MachineLearning AzureIntegrationsMachineLearningPtrInput
 	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb AzureIntegrationsMariaDbPtrInput
-	// Azure Monitor. See Integration blocks below for details.
+	// The Azure Monitor
 	Monitor AzureIntegrationsMonitorPtrInput
 	// Azure MySQL. See Integration blocks below for details.
 	Mysql AzureIntegrationsMysqlPtrInput
@@ -804,7 +804,7 @@ func (o AzureIntegrationsOutput) CosmosDb() AzureIntegrationsCosmosDbPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsCosmosDbPtrOutput { return v.CosmosDb }).(AzureIntegrationsCosmosDbPtrOutput)
 }
 
-// Azure Cost Management. See Integration blocks below for details.
+// The Azure cost management
 func (o AzureIntegrationsOutput) CostManagement() AzureIntegrationsCostManagementPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsCostManagementPtrOutput { return v.CostManagement }).(AzureIntegrationsCostManagementPtrOutput)
 }
@@ -869,7 +869,7 @@ func (o AzureIntegrationsOutput) MariaDb() AzureIntegrationsMariaDbPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsMariaDbPtrOutput { return v.MariaDb }).(AzureIntegrationsMariaDbPtrOutput)
 }
 
-// Azure Monitor. See Integration blocks below for details.
+// The Azure Monitor
 func (o AzureIntegrationsOutput) Monitor() AzureIntegrationsMonitorPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsMonitorPtrOutput { return v.Monitor }).(AzureIntegrationsMonitorPtrOutput)
 }

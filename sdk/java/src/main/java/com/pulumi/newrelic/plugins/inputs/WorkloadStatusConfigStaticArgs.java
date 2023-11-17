@@ -32,14 +32,14 @@ public final class WorkloadStatusConfigStaticArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Whether the static status configuration is enabled or not.
+     * Whether the automatic status configuration is enabled or not.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Whether the static status configuration is enabled or not.
+     * @return Whether the automatic status configuration is enabled or not.
      * 
      */
     public Output<Boolean> enabled() {
@@ -125,7 +125,7 @@ public final class WorkloadStatusConfigStaticArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param enabled Whether the static status configuration is enabled or not.
+         * @param enabled Whether the automatic status configuration is enabled or not.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class WorkloadStatusConfigStaticArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param enabled Whether the static status configuration is enabled or not.
+         * @param enabled Whether the automatic status configuration is enabled or not.
          * 
          * @return builder
          * 

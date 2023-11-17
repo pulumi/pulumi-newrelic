@@ -138,14 +138,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Azure Cost Management. See Integration blocks below for details.
+     * The Azure cost management
      * 
      */
     @Import(name="costManagement")
     private @Nullable Output<AzureIntegrationsCostManagementArgs> costManagement;
 
     /**
-     * @return Azure Cost Management. See Integration blocks below for details.
+     * @return The Azure cost management
      * 
      */
     public Optional<Output<AzureIntegrationsCostManagementArgs>> costManagement() {
@@ -333,14 +333,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Azure Monitor. See Integration blocks below for details.
+     * The Azure Monitor
      * 
      */
     @Import(name="monitor")
     private @Nullable Output<AzureIntegrationsMonitorArgs> monitor;
 
     /**
-     * @return Azure Monitor. See Integration blocks below for details.
+     * @return The Azure Monitor
      * 
      */
     public Optional<Output<AzureIntegrationsMonitorArgs>> monitor() {
@@ -749,7 +749,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param costManagement Azure Cost Management. See Integration blocks below for details.
+         * @param costManagement The Azure cost management
          * 
          * @return builder
          * 
@@ -760,7 +760,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param costManagement Azure Cost Management. See Integration blocks below for details.
+         * @param costManagement The Azure cost management
          * 
          * @return builder
          * 
@@ -1022,7 +1022,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param monitor Azure Monitor. See Integration blocks below for details.
+         * @param monitor The Azure Monitor
          * 
          * @return builder
          * 
@@ -1033,7 +1033,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param monitor Azure Monitor. See Integration blocks below for details.
+         * @param monitor The Azure Monitor
          * 
          * @return builder
          * 

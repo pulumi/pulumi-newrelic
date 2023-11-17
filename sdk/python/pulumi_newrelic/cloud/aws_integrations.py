@@ -75,8 +75,6 @@ class AwsIntegrationsArgs:
         :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
                
                All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-               <details>
-               <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
                
                | Block                   | Description                   |
                |-------------------------|-------------------------------|
@@ -132,8 +130,6 @@ class AwsIntegrationsArgs:
                | `trusted_advisor`       | Trusted Advisor Integration   |
                | `vpc`                   | VPC Integration               |
                | `x_ray`                 | X-Ray Integration             |
-               
-               </details>
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsIntegrationsAlbArgs'] alb: ALB integration
         :param pulumi.Input['AwsIntegrationsApiGatewayArgs'] api_gateway: API Gateway integration
@@ -303,8 +299,6 @@ class AwsIntegrationsArgs:
         The ID of the linked AWS account in New Relic.
 
         All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-        <details>
-        <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
 
         | Block                   | Description                   |
         |-------------------------|-------------------------------|
@@ -360,8 +354,6 @@ class AwsIntegrationsArgs:
         | `trusted_advisor`       | Trusted Advisor Integration   |
         | `vpc`                   | VPC Integration               |
         | `x_ray`                 | X-Ray Integration             |
-
-        </details>
         """
         return pulumi.get(self, "linked_account_id")
 
@@ -1111,8 +1103,6 @@ class _AwsIntegrationsState:
         :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
                
                All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-               <details>
-               <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
                
                | Block                   | Description                   |
                |-------------------------|-------------------------------|
@@ -1168,8 +1158,6 @@ class _AwsIntegrationsState:
                | `trusted_advisor`       | Trusted Advisor Integration   |
                | `vpc`                   | VPC Integration               |
                | `x_ray`                 | X-Ray Integration             |
-               
-               </details>
         :param pulumi.Input['AwsIntegrationsRdsArgs'] rds: Rds integration
         :param pulumi.Input['AwsIntegrationsRedshiftArgs'] redshift: Redshift integration
         :param pulumi.Input['AwsIntegrationsRoute53Args'] route53: Route53 integration
@@ -1813,8 +1801,6 @@ class _AwsIntegrationsState:
         The ID of the linked AWS account in New Relic.
 
         All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-        <details>
-        <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
 
         | Block                   | Description                   |
         |-------------------------|-------------------------------|
@@ -1870,8 +1856,6 @@ class _AwsIntegrationsState:
         | `trusted_advisor`       | Trusted Advisor Integration   |
         | `vpc`                   | VPC Integration               |
         | `x_ray`                 | X-Ray Integration             |
-
-        </details>
         """
         return pulumi.get(self, "linked_account_id")
 
@@ -2418,8 +2402,6 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
                
                All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-               <details>
-               <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
                
                | Block                   | Description                   |
                |-------------------------|-------------------------------|
@@ -2475,8 +2457,6 @@ class AwsIntegrations(pulumi.CustomResource):
                | `trusted_advisor`       | Trusted Advisor Integration   |
                | `vpc`                   | VPC Integration               |
                | `x_ray`                 | X-Ray Integration             |
-               
-               </details>
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsRdsArgs']] rds: Rds integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsRedshiftArgs']] redshift: Redshift integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsRoute53Args']] route53: Route53 integration
@@ -3055,8 +3035,6 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
                
                All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-               <details>
-               <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
                
                | Block                   | Description                   |
                |-------------------------|-------------------------------|
@@ -3112,8 +3090,6 @@ class AwsIntegrations(pulumi.CustomResource):
                | `trusted_advisor`       | Trusted Advisor Integration   |
                | `vpc`                   | VPC Integration               |
                | `x_ray`                 | X-Ray Integration             |
-               
-               </details>
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsRdsArgs']] rds: Rds integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsRedshiftArgs']] redshift: Redshift integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsRoute53Args']] route53: Route53 integration
@@ -3536,8 +3512,6 @@ class AwsIntegrations(pulumi.CustomResource):
         The ID of the linked AWS account in New Relic.
 
         All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-        <details>
-        <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
 
         | Block                   | Description                   |
         |-------------------------|-------------------------------|
@@ -3593,8 +3567,6 @@ class AwsIntegrations(pulumi.CustomResource):
         | `trusted_advisor`       | Trusted Advisor Integration   |
         | `vpc`                   | VPC Integration               |
         | `x_ray`                 | X-Ray Integration             |
-
-        </details>
         """
         return pulumi.get(self, "linked_account_id")
 
