@@ -624,34 +624,29 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
-                    "type": "boolean",
-                    "description": "Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.\n\nFurthermore, below integration types supports the following common arguments.\n"
+                    "type": "boolean"
                 },
                 "fetchTags": {
-                    "type": "boolean",
-                    "description": "Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "loadBalancerPrefixes": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.\n"
+                    }
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -663,26 +658,23 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "stagePrefixes": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    }
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -694,11 +686,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -710,11 +702,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -726,11 +718,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -742,11 +734,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -758,11 +750,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -774,11 +766,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -790,11 +782,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -806,11 +798,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -822,11 +814,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -838,11 +830,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -854,11 +846,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -870,11 +862,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -886,11 +878,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -902,11 +894,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -918,11 +910,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -934,11 +926,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -950,11 +942,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -966,11 +958,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -982,11 +974,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -998,11 +990,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -1011,7 +1003,7 @@
             "properties": {
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -1019,24 +1011,20 @@
         "newrelic:cloud/AwsIntegrationsCloudfront:AwsIntegrationsCloudfront": {
             "properties": {
                 "fetchLambdasAtEdge": {
-                    "type": "boolean",
-                    "description": "Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "fetchTags": {
-                    "type": "boolean",
-                    "description": "Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1048,11 +1036,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -1064,11 +1052,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -1080,27 +1068,23 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
-                    "type": "boolean",
-                    "description": "Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.\n\nFurthermore, below integration types supports the following common arguments.\n"
+                    "type": "boolean"
                 },
                 "fetchTags": {
-                    "type": "boolean",
-                    "description": "Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1112,23 +1096,20 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
-                    "type": "boolean",
-                    "description": "Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.\n\nFurthermore, below integration types supports the following common arguments.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1140,27 +1121,23 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "duplicateEc2Tags": {
-                    "type": "boolean",
-                    "description": "Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.\n"
+                    "type": "boolean"
                 },
                 "fetchIpAddresses": {
-                    "type": "boolean",
-                    "description": "Specify if IP addresses of ec2 instance should be collected.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1172,23 +1149,20 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchTags": {
-                    "type": "boolean",
-                    "description": "Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1200,23 +1174,20 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchTags": {
-                    "type": "boolean",
-                    "description": "Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1228,23 +1199,20 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchTags": {
-                    "type": "boolean",
-                    "description": "Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1256,27 +1224,23 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
-                    "type": "boolean",
-                    "description": "Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.\n\nFurthermore, below integration types supports the following common arguments.\n"
+                    "type": "boolean"
                 },
                 "fetchTags": {
-                    "type": "boolean",
-                    "description": "Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1288,23 +1252,20 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchNodes": {
-                    "type": "boolean",
-                    "description": "Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1316,19 +1277,17 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
-                    "type": "boolean",
-                    "description": "Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.\n\nFurthermore, below integration types supports the following common arguments.\n"
+                    "type": "boolean"
                 },
                 "fetchTags": {
-                    "type": "boolean",
-                    "description": "Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -1340,23 +1299,20 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchTags": {
-                    "type": "boolean",
-                    "description": "Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1365,7 +1321,7 @@
             "properties": {
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -1374,15 +1330,13 @@
             "properties": {
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1394,11 +1348,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -1410,27 +1364,23 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchShards": {
-                    "type": "boolean",
-                    "description": "Specify if Shards should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "fetchTags": {
-                    "type": "boolean",
-                    "description": "Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1442,11 +1392,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -1458,23 +1408,20 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchTags": {
-                    "type": "boolean",
-                    "description": "Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1486,23 +1433,20 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchTags": {
-                    "type": "boolean",
-                    "description": "Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1514,19 +1458,17 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1534,12 +1476,11 @@
         "newrelic:cloud/AwsIntegrationsRoute53:AwsIntegrationsRoute53": {
             "properties": {
                 "fetchExtendedInventory": {
-                    "type": "boolean",
-                    "description": "Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.\n\nFurthermore, below integration types supports the following common arguments.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -1547,24 +1488,20 @@
         "newrelic:cloud/AwsIntegrationsS3:AwsIntegrationsS3": {
             "properties": {
                 "fetchExtendedInventory": {
-                    "type": "boolean",
-                    "description": "Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.\n\nFurthermore, below integration types supports the following common arguments.\n"
+                    "type": "boolean"
                 },
                 "fetchTags": {
-                    "type": "boolean",
-                    "description": "Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1576,11 +1513,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -1592,15 +1529,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
-                    "type": "boolean",
-                    "description": "Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.\n\nFurthermore, below integration types supports the following common arguments.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -1612,34 +1548,29 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchExtendedInventory": {
-                    "type": "boolean",
-                    "description": "Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.\n\nFurthermore, below integration types supports the following common arguments.\n"
+                    "type": "boolean"
                 },
                 "fetchTags": {
-                    "type": "boolean",
-                    "description": "Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "queuePrefixes": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.\n"
+                    }
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1648,7 +1579,7 @@
             "properties": {
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -1660,27 +1591,23 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "fetchNatGateway": {
-                    "type": "boolean",
-                    "description": "Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "fetchVpn": {
-                    "type": "boolean",
-                    "description": "Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.\n"
+                    "type": "boolean"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 },
                 "tagKey": {
-                    "type": "string",
-                    "description": "Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 },
                 "tagValue": {
-                    "type": "string",
-                    "description": "Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1692,11 +1619,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specify each AWS region that includes the resources that you want to monitor.  \n\u003c/details\u003e\n"
+                    "description": "Specify each AWS region that includes the resources that you want to monitor.\n"
                 },
                 "metricsPollingInterval": {
                     "type": "integer",
-                    "description": "The data polling interval in seconds.\n\n\u003cdetails\u003e\n\u003csummary\u003e Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. \u003c/summary\u003e\n"
+                    "description": "The data polling interval in seconds.\n\nFurthermore, below integration types supports the following common arguments.\n"
                 }
             },
             "type": "object"
@@ -2572,7 +2499,7 @@
                 },
                 "recipients": {
                     "type": "string",
-                    "description": "A set of recipients for targeting notifications.  Multiple values are comma separated.\n",
+                    "description": "Comma delimited list of email addresses.\n",
                     "willReplaceOnChanges": true
                 },
                 "region": {
@@ -6201,7 +6128,7 @@
                 },
                 "where": {
                     "type": "string",
-                    "description": "A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to\na particular entity and returned an error).\n"
+                    "description": "A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to\na particular entity and were successful).\n"
                 }
             },
             "type": "object",
@@ -6727,7 +6654,7 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "description": "Whether the static status configuration is enabled or not.\n"
+                    "description": "Whether the automatic status configuration is enabled or not.\n"
                 },
                 "remainingEntitiesRule": {
                     "$ref": "#/types/newrelic:plugins/WorkloadStatusConfigAutomaticRemainingEntitiesRule:WorkloadStatusConfigAutomaticRemainingEntitiesRule",
@@ -6857,7 +6784,7 @@
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "Whether the static status configuration is enabled or not.\n"
+                    "description": "Whether the automatic status configuration is enabled or not.\n"
                 },
                 "status": {
                     "type": "string",
@@ -7198,7 +7125,7 @@
                 },
                 "alb": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsAlb:AwsGovcloudIntegrationsAlb",
-                    "description": "Application load balancer AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The alb integration\n"
                 },
                 "apiGateway": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsApiGateway:AwsGovcloudIntegrationsApiGateway",
@@ -7218,7 +7145,7 @@
                 },
                 "cloudtrail": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsCloudtrail:AwsGovcloudIntegrationsCloudtrail",
-                    "description": "Cloudtrail AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The cloudtrail integration\n"
                 },
                 "dynamoDb": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsDynamoDb:AwsGovcloudIntegrationsDynamoDb",
@@ -7226,11 +7153,11 @@
                 },
                 "ebs": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsEbs:AwsGovcloudIntegrationsEbs",
-                    "description": "Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The ebs integration\n"
                 },
                 "ec2": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsEc2:AwsGovcloudIntegrationsEc2",
-                    "description": "EC2 AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The ec2 integration\n"
                 },
                 "elasticSearch": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsElasticSearch:AwsGovcloudIntegrationsElasticSearch",
@@ -7238,19 +7165,19 @@
                 },
                 "elb": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsElb:AwsGovcloudIntegrationsElb",
-                    "description": "Elb AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The elb integration\n"
                 },
                 "emr": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsEmr:AwsGovcloudIntegrationsEmr",
-                    "description": "Emr AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The emr integration\n"
                 },
                 "iam": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsIam:AwsGovcloudIntegrationsIam",
-                    "description": "IAM AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The iam integration\n"
                 },
                 "lambda": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsLambda:AwsGovcloudIntegrationsLambda",
-                    "description": "Lambda AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The lambda integration\n"
                 },
                 "linkedAccountId": {
                     "type": "integer",
@@ -7258,7 +7185,7 @@
                 },
                 "rds": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsRds:AwsGovcloudIntegrationsRds",
-                    "description": "RDS AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The rds integration\n"
                 },
                 "redShift": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsRedShift:AwsGovcloudIntegrationsRedShift",
@@ -7266,7 +7193,7 @@
                 },
                 "route53": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsRoute53:AwsGovcloudIntegrationsRoute53",
-                    "description": "Route53 AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The route53 integration\n"
                 },
                 "s3": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsS3:AwsGovcloudIntegrationsS3",
@@ -7274,11 +7201,11 @@
                 },
                 "sns": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsSns:AwsGovcloudIntegrationsSns",
-                    "description": "SNS AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The sns integration\n"
                 },
                 "sqs": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsSqs:AwsGovcloudIntegrationsSqs",
-                    "description": "SQS AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The sqs integration\n"
                 }
             },
             "required": [
@@ -7292,7 +7219,7 @@
                 },
                 "alb": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsAlb:AwsGovcloudIntegrationsAlb",
-                    "description": "Application load balancer AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The alb integration\n"
                 },
                 "apiGateway": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsApiGateway:AwsGovcloudIntegrationsApiGateway",
@@ -7312,7 +7239,7 @@
                 },
                 "cloudtrail": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsCloudtrail:AwsGovcloudIntegrationsCloudtrail",
-                    "description": "Cloudtrail AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The cloudtrail integration\n"
                 },
                 "dynamoDb": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsDynamoDb:AwsGovcloudIntegrationsDynamoDb",
@@ -7320,11 +7247,11 @@
                 },
                 "ebs": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsEbs:AwsGovcloudIntegrationsEbs",
-                    "description": "Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The ebs integration\n"
                 },
                 "ec2": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsEc2:AwsGovcloudIntegrationsEc2",
-                    "description": "EC2 AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The ec2 integration\n"
                 },
                 "elasticSearch": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsElasticSearch:AwsGovcloudIntegrationsElasticSearch",
@@ -7332,19 +7259,19 @@
                 },
                 "elb": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsElb:AwsGovcloudIntegrationsElb",
-                    "description": "Elb AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The elb integration\n"
                 },
                 "emr": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsEmr:AwsGovcloudIntegrationsEmr",
-                    "description": "Emr AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The emr integration\n"
                 },
                 "iam": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsIam:AwsGovcloudIntegrationsIam",
-                    "description": "IAM AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The iam integration\n"
                 },
                 "lambda": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsLambda:AwsGovcloudIntegrationsLambda",
-                    "description": "Lambda AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The lambda integration\n"
                 },
                 "linkedAccountId": {
                     "type": "integer",
@@ -7352,7 +7279,7 @@
                 },
                 "rds": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsRds:AwsGovcloudIntegrationsRds",
-                    "description": "RDS AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The rds integration\n"
                 },
                 "redShift": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsRedShift:AwsGovcloudIntegrationsRedShift",
@@ -7360,7 +7287,7 @@
                 },
                 "route53": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsRoute53:AwsGovcloudIntegrationsRoute53",
-                    "description": "Route53 AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The route53 integration\n"
                 },
                 "s3": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsS3:AwsGovcloudIntegrationsS3",
@@ -7368,11 +7295,11 @@
                 },
                 "sns": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsSns:AwsGovcloudIntegrationsSns",
-                    "description": "SNS AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The sns integration\n"
                 },
                 "sqs": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsSqs:AwsGovcloudIntegrationsSqs",
-                    "description": "SQS AwsGovCloud integration.See Integration blocks below for details.\n"
+                    "description": "The sqs integration\n"
                 }
             },
             "requiredInputs": [
@@ -7387,7 +7314,7 @@
                     },
                     "alb": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsAlb:AwsGovcloudIntegrationsAlb",
-                        "description": "Application load balancer AwsGovCloud integration.See Integration blocks below for details.\n"
+                        "description": "The alb integration\n"
                     },
                     "apiGateway": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsApiGateway:AwsGovcloudIntegrationsApiGateway",
@@ -7407,7 +7334,7 @@
                     },
                     "cloudtrail": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsCloudtrail:AwsGovcloudIntegrationsCloudtrail",
-                        "description": "Cloudtrail AwsGovCloud integration.See Integration blocks below for details.\n"
+                        "description": "The cloudtrail integration\n"
                     },
                     "dynamoDb": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsDynamoDb:AwsGovcloudIntegrationsDynamoDb",
@@ -7415,11 +7342,11 @@
                     },
                     "ebs": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsEbs:AwsGovcloudIntegrationsEbs",
-                        "description": "Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.\n"
+                        "description": "The ebs integration\n"
                     },
                     "ec2": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsEc2:AwsGovcloudIntegrationsEc2",
-                        "description": "EC2 AwsGovCloud integration.See Integration blocks below for details.\n"
+                        "description": "The ec2 integration\n"
                     },
                     "elasticSearch": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsElasticSearch:AwsGovcloudIntegrationsElasticSearch",
@@ -7427,19 +7354,19 @@
                     },
                     "elb": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsElb:AwsGovcloudIntegrationsElb",
-                        "description": "Elb AwsGovCloud integration.See Integration blocks below for details.\n"
+                        "description": "The elb integration\n"
                     },
                     "emr": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsEmr:AwsGovcloudIntegrationsEmr",
-                        "description": "Emr AwsGovCloud integration.See Integration blocks below for details.\n"
+                        "description": "The emr integration\n"
                     },
                     "iam": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsIam:AwsGovcloudIntegrationsIam",
-                        "description": "IAM AwsGovCloud integration.See Integration blocks below for details.\n"
+                        "description": "The iam integration\n"
                     },
                     "lambda": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsLambda:AwsGovcloudIntegrationsLambda",
-                        "description": "Lambda AwsGovCloud integration.See Integration blocks below for details.\n"
+                        "description": "The lambda integration\n"
                     },
                     "linkedAccountId": {
                         "type": "integer",
@@ -7447,7 +7374,7 @@
                     },
                     "rds": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsRds:AwsGovcloudIntegrationsRds",
-                        "description": "RDS AwsGovCloud integration.See Integration blocks below for details.\n"
+                        "description": "The rds integration\n"
                     },
                     "redShift": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsRedShift:AwsGovcloudIntegrationsRedShift",
@@ -7455,7 +7382,7 @@
                     },
                     "route53": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsRoute53:AwsGovcloudIntegrationsRoute53",
-                        "description": "Route53 AwsGovCloud integration.See Integration blocks below for details.\n"
+                        "description": "The route53 integration\n"
                     },
                     "s3": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsS3:AwsGovcloudIntegrationsS3",
@@ -7463,11 +7390,11 @@
                     },
                     "sns": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsSns:AwsGovcloudIntegrationsSns",
-                        "description": "SNS AwsGovCloud integration.See Integration blocks below for details.\n"
+                        "description": "The sns integration\n"
                     },
                     "sqs": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsSqs:AwsGovcloudIntegrationsSqs",
-                        "description": "SQS AwsGovCloud integration.See Integration blocks below for details.\n"
+                        "description": "The sqs integration\n"
                     }
                 },
                 "type": "object"
@@ -7753,7 +7680,7 @@
                 },
                 "linkedAccountId": {
                     "type": "integer",
-                    "description": "The ID of the linked AWS account in New Relic.\n\nAll other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**\n\u003cdetails\u003e\n\u003csummary\u003eExpand this section to view all supported AWS services supported, that may be integrated via this resource.\u003c/summary\u003e\n\n| Block                   | Description                   |\n|-------------------------|-------------------------------|\n| `alb`                   | ALB Integration               |\n| `api_gateway`           | API Gateway Integration       |\n| `auto_scaling`          | Auto Scaling Integration      |\n| `aws_app_sync`          | AppSync Integration           |\n| `aws_athena`            | Athena Integration            |\n| `aws_cognito`           | Cognito Integration           |\n| `aws_connect`           | Connect Integration           |\n| `aws_direct_connect`    | Direct Connect Integration    |\n| `aws_fsx`               | FSx Integration               |\n| `aws_glue`              | Glue Integration              |\n| `aws_kinesis_analytics` | Kinesis Analytics Integration |\n| `aws_media_convert`     | MediaConvert Integration      |\n| `aws_media_package_vod` | Media Package VOD Integration |\n| `aws_mq`                | MQ Integration                |\n| `aws_msk`               | MSK Integration               |\n| `aws_neptune`           | Neptune Integration           |\n| `aws_qldb`              | QLDB Integration              |\n| `aws_route53resolver`   | Route53 Resolver Integration  |\n| `aws_states`            | States Integration            |\n| `aws_transit_gateway`   | Transit Gateway Integration   |\n| `aws_waf`               | WAF Integration               |\n| `aws_wafv2`             | WAFv2 Integration             |\n| `billing`               | Billing Integration           |\n| `cloudfront`            | CloudFront Integration        |\n| `cloudtrail`            | CloudTrail Integration        |\n| `doc_db`                | DocumentDB Integration        |\n| `dynamodb`              | DynamoDB Integration          |\n| `ebs`                   | EBS Integration               |\n| `ec2`                   | EC2 Integration               |\n| `ecs`                   | ECS Integration               |\n| `efs`                   | EFS Integration               |\n| `elasticache`           | ElastiCache Integration       |\n| `elasticbeanstalk`      | Elastic Beanstalk Integration |\n| `elasticsearch`         | Elasticsearch Integration     |\n| `elb`                   | ELB Integration               |\n| `emr`                   | EMR Integration               |\n| `health`                | Health Integration            |\n| `iam`                   | IAM Integration               |\n| `iot`                   | IoT Integration               |\n| `kinesis`               | Kinesis Integration           |\n| `kinesis_firehose`      | Kinesis Firehose Integration  |\n| `lambda`                | Lambda Integration            |\n| `rds`                   | RDS Integration               |\n| `redshift`              | Redshift Integration          |\n| `route53`               | Route53 Integration           |\n| `s3`                    | S3 Integration                |\n| `ses`                   | SES Integration               |\n| `sns`                   | SNS Integration               |\n| `sqs`                   | SQS Integration               |\n| `trusted_advisor`       | Trusted Advisor Integration   |\n| `vpc`                   | VPC Integration               |\n| `x_ray`                 | X-Ray Integration             |\n\n\u003c/details\u003e\n"
+                    "description": "The ID of the linked AWS account in New Relic.\n\nAll other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**\n\n| Block                   | Description                   |\n|-------------------------|-------------------------------|\n| `alb`                   | ALB Integration               |\n| `api_gateway`           | API Gateway Integration       |\n| `auto_scaling`          | Auto Scaling Integration      |\n| `aws_app_sync`          | AppSync Integration           |\n| `aws_athena`            | Athena Integration            |\n| `aws_cognito`           | Cognito Integration           |\n| `aws_connect`           | Connect Integration           |\n| `aws_direct_connect`    | Direct Connect Integration    |\n| `aws_fsx`               | FSx Integration               |\n| `aws_glue`              | Glue Integration              |\n| `aws_kinesis_analytics` | Kinesis Analytics Integration |\n| `aws_media_convert`     | MediaConvert Integration      |\n| `aws_media_package_vod` | Media Package VOD Integration |\n| `aws_mq`                | MQ Integration                |\n| `aws_msk`               | MSK Integration               |\n| `aws_neptune`           | Neptune Integration           |\n| `aws_qldb`              | QLDB Integration              |\n| `aws_route53resolver`   | Route53 Resolver Integration  |\n| `aws_states`            | States Integration            |\n| `aws_transit_gateway`   | Transit Gateway Integration   |\n| `aws_waf`               | WAF Integration               |\n| `aws_wafv2`             | WAFv2 Integration             |\n| `billing`               | Billing Integration           |\n| `cloudfront`            | CloudFront Integration        |\n| `cloudtrail`            | CloudTrail Integration        |\n| `doc_db`                | DocumentDB Integration        |\n| `dynamodb`              | DynamoDB Integration          |\n| `ebs`                   | EBS Integration               |\n| `ec2`                   | EC2 Integration               |\n| `ecs`                   | ECS Integration               |\n| `efs`                   | EFS Integration               |\n| `elasticache`           | ElastiCache Integration       |\n| `elasticbeanstalk`      | Elastic Beanstalk Integration |\n| `elasticsearch`         | Elasticsearch Integration     |\n| `elb`                   | ELB Integration               |\n| `emr`                   | EMR Integration               |\n| `health`                | Health Integration            |\n| `iam`                   | IAM Integration               |\n| `iot`                   | IoT Integration               |\n| `kinesis`               | Kinesis Integration           |\n| `kinesis_firehose`      | Kinesis Firehose Integration  |\n| `lambda`                | Lambda Integration            |\n| `rds`                   | RDS Integration               |\n| `redshift`              | Redshift Integration          |\n| `route53`               | Route53 Integration           |\n| `s3`                    | S3 Integration                |\n| `ses`                   | SES Integration               |\n| `sns`                   | SNS Integration               |\n| `sqs`                   | SQS Integration               |\n| `trusted_advisor`       | Trusted Advisor Integration   |\n| `vpc`                   | VPC Integration               |\n| `x_ray`                 | X-Ray Integration             |\n"
                 },
                 "rds": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsRds:AwsIntegrationsRds",
@@ -7975,7 +7902,7 @@
                 },
                 "linkedAccountId": {
                     "type": "integer",
-                    "description": "The ID of the linked AWS account in New Relic.\n\nAll other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**\n\u003cdetails\u003e\n\u003csummary\u003eExpand this section to view all supported AWS services supported, that may be integrated via this resource.\u003c/summary\u003e\n\n| Block                   | Description                   |\n|-------------------------|-------------------------------|\n| `alb`                   | ALB Integration               |\n| `api_gateway`           | API Gateway Integration       |\n| `auto_scaling`          | Auto Scaling Integration      |\n| `aws_app_sync`          | AppSync Integration           |\n| `aws_athena`            | Athena Integration            |\n| `aws_cognito`           | Cognito Integration           |\n| `aws_connect`           | Connect Integration           |\n| `aws_direct_connect`    | Direct Connect Integration    |\n| `aws_fsx`               | FSx Integration               |\n| `aws_glue`              | Glue Integration              |\n| `aws_kinesis_analytics` | Kinesis Analytics Integration |\n| `aws_media_convert`     | MediaConvert Integration      |\n| `aws_media_package_vod` | Media Package VOD Integration |\n| `aws_mq`                | MQ Integration                |\n| `aws_msk`               | MSK Integration               |\n| `aws_neptune`           | Neptune Integration           |\n| `aws_qldb`              | QLDB Integration              |\n| `aws_route53resolver`   | Route53 Resolver Integration  |\n| `aws_states`            | States Integration            |\n| `aws_transit_gateway`   | Transit Gateway Integration   |\n| `aws_waf`               | WAF Integration               |\n| `aws_wafv2`             | WAFv2 Integration             |\n| `billing`               | Billing Integration           |\n| `cloudfront`            | CloudFront Integration        |\n| `cloudtrail`            | CloudTrail Integration        |\n| `doc_db`                | DocumentDB Integration        |\n| `dynamodb`              | DynamoDB Integration          |\n| `ebs`                   | EBS Integration               |\n| `ec2`                   | EC2 Integration               |\n| `ecs`                   | ECS Integration               |\n| `efs`                   | EFS Integration               |\n| `elasticache`           | ElastiCache Integration       |\n| `elasticbeanstalk`      | Elastic Beanstalk Integration |\n| `elasticsearch`         | Elasticsearch Integration     |\n| `elb`                   | ELB Integration               |\n| `emr`                   | EMR Integration               |\n| `health`                | Health Integration            |\n| `iam`                   | IAM Integration               |\n| `iot`                   | IoT Integration               |\n| `kinesis`               | Kinesis Integration           |\n| `kinesis_firehose`      | Kinesis Firehose Integration  |\n| `lambda`                | Lambda Integration            |\n| `rds`                   | RDS Integration               |\n| `redshift`              | Redshift Integration          |\n| `route53`               | Route53 Integration           |\n| `s3`                    | S3 Integration                |\n| `ses`                   | SES Integration               |\n| `sns`                   | SNS Integration               |\n| `sqs`                   | SQS Integration               |\n| `trusted_advisor`       | Trusted Advisor Integration   |\n| `vpc`                   | VPC Integration               |\n| `x_ray`                 | X-Ray Integration             |\n\n\u003c/details\u003e\n",
+                    "description": "The ID of the linked AWS account in New Relic.\n\nAll other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**\n\n| Block                   | Description                   |\n|-------------------------|-------------------------------|\n| `alb`                   | ALB Integration               |\n| `api_gateway`           | API Gateway Integration       |\n| `auto_scaling`          | Auto Scaling Integration      |\n| `aws_app_sync`          | AppSync Integration           |\n| `aws_athena`            | Athena Integration            |\n| `aws_cognito`           | Cognito Integration           |\n| `aws_connect`           | Connect Integration           |\n| `aws_direct_connect`    | Direct Connect Integration    |\n| `aws_fsx`               | FSx Integration               |\n| `aws_glue`              | Glue Integration              |\n| `aws_kinesis_analytics` | Kinesis Analytics Integration |\n| `aws_media_convert`     | MediaConvert Integration      |\n| `aws_media_package_vod` | Media Package VOD Integration |\n| `aws_mq`                | MQ Integration                |\n| `aws_msk`               | MSK Integration               |\n| `aws_neptune`           | Neptune Integration           |\n| `aws_qldb`              | QLDB Integration              |\n| `aws_route53resolver`   | Route53 Resolver Integration  |\n| `aws_states`            | States Integration            |\n| `aws_transit_gateway`   | Transit Gateway Integration   |\n| `aws_waf`               | WAF Integration               |\n| `aws_wafv2`             | WAFv2 Integration             |\n| `billing`               | Billing Integration           |\n| `cloudfront`            | CloudFront Integration        |\n| `cloudtrail`            | CloudTrail Integration        |\n| `doc_db`                | DocumentDB Integration        |\n| `dynamodb`              | DynamoDB Integration          |\n| `ebs`                   | EBS Integration               |\n| `ec2`                   | EC2 Integration               |\n| `ecs`                   | ECS Integration               |\n| `efs`                   | EFS Integration               |\n| `elasticache`           | ElastiCache Integration       |\n| `elasticbeanstalk`      | Elastic Beanstalk Integration |\n| `elasticsearch`         | Elasticsearch Integration     |\n| `elb`                   | ELB Integration               |\n| `emr`                   | EMR Integration               |\n| `health`                | Health Integration            |\n| `iam`                   | IAM Integration               |\n| `iot`                   | IoT Integration               |\n| `kinesis`               | Kinesis Integration           |\n| `kinesis_firehose`      | Kinesis Firehose Integration  |\n| `lambda`                | Lambda Integration            |\n| `rds`                   | RDS Integration               |\n| `redshift`              | Redshift Integration          |\n| `route53`               | Route53 Integration           |\n| `s3`                    | S3 Integration                |\n| `ses`                   | SES Integration               |\n| `sns`                   | SNS Integration               |\n| `sqs`                   | SQS Integration               |\n| `trusted_advisor`       | Trusted Advisor Integration   |\n| `vpc`                   | VPC Integration               |\n| `x_ray`                 | X-Ray Integration             |\n",
                     "willReplaceOnChanges": true
                 },
                 "rds": {
@@ -8199,7 +8126,7 @@
                     },
                     "linkedAccountId": {
                         "type": "integer",
-                        "description": "The ID of the linked AWS account in New Relic.\n\nAll other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**\n\u003cdetails\u003e\n\u003csummary\u003eExpand this section to view all supported AWS services supported, that may be integrated via this resource.\u003c/summary\u003e\n\n| Block                   | Description                   |\n|-------------------------|-------------------------------|\n| `alb`                   | ALB Integration               |\n| `api_gateway`           | API Gateway Integration       |\n| `auto_scaling`          | Auto Scaling Integration      |\n| `aws_app_sync`          | AppSync Integration           |\n| `aws_athena`            | Athena Integration            |\n| `aws_cognito`           | Cognito Integration           |\n| `aws_connect`           | Connect Integration           |\n| `aws_direct_connect`    | Direct Connect Integration    |\n| `aws_fsx`               | FSx Integration               |\n| `aws_glue`              | Glue Integration              |\n| `aws_kinesis_analytics` | Kinesis Analytics Integration |\n| `aws_media_convert`     | MediaConvert Integration      |\n| `aws_media_package_vod` | Media Package VOD Integration |\n| `aws_mq`                | MQ Integration                |\n| `aws_msk`               | MSK Integration               |\n| `aws_neptune`           | Neptune Integration           |\n| `aws_qldb`              | QLDB Integration              |\n| `aws_route53resolver`   | Route53 Resolver Integration  |\n| `aws_states`            | States Integration            |\n| `aws_transit_gateway`   | Transit Gateway Integration   |\n| `aws_waf`               | WAF Integration               |\n| `aws_wafv2`             | WAFv2 Integration             |\n| `billing`               | Billing Integration           |\n| `cloudfront`            | CloudFront Integration        |\n| `cloudtrail`            | CloudTrail Integration        |\n| `doc_db`                | DocumentDB Integration        |\n| `dynamodb`              | DynamoDB Integration          |\n| `ebs`                   | EBS Integration               |\n| `ec2`                   | EC2 Integration               |\n| `ecs`                   | ECS Integration               |\n| `efs`                   | EFS Integration               |\n| `elasticache`           | ElastiCache Integration       |\n| `elasticbeanstalk`      | Elastic Beanstalk Integration |\n| `elasticsearch`         | Elasticsearch Integration     |\n| `elb`                   | ELB Integration               |\n| `emr`                   | EMR Integration               |\n| `health`                | Health Integration            |\n| `iam`                   | IAM Integration               |\n| `iot`                   | IoT Integration               |\n| `kinesis`               | Kinesis Integration           |\n| `kinesis_firehose`      | Kinesis Firehose Integration  |\n| `lambda`                | Lambda Integration            |\n| `rds`                   | RDS Integration               |\n| `redshift`              | Redshift Integration          |\n| `route53`               | Route53 Integration           |\n| `s3`                    | S3 Integration                |\n| `ses`                   | SES Integration               |\n| `sns`                   | SNS Integration               |\n| `sqs`                   | SQS Integration               |\n| `trusted_advisor`       | Trusted Advisor Integration   |\n| `vpc`                   | VPC Integration               |\n| `x_ray`                 | X-Ray Integration             |\n\n\u003c/details\u003e\n",
+                        "description": "The ID of the linked AWS account in New Relic.\n\nAll other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**\n\n| Block                   | Description                   |\n|-------------------------|-------------------------------|\n| `alb`                   | ALB Integration               |\n| `api_gateway`           | API Gateway Integration       |\n| `auto_scaling`          | Auto Scaling Integration      |\n| `aws_app_sync`          | AppSync Integration           |\n| `aws_athena`            | Athena Integration            |\n| `aws_cognito`           | Cognito Integration           |\n| `aws_connect`           | Connect Integration           |\n| `aws_direct_connect`    | Direct Connect Integration    |\n| `aws_fsx`               | FSx Integration               |\n| `aws_glue`              | Glue Integration              |\n| `aws_kinesis_analytics` | Kinesis Analytics Integration |\n| `aws_media_convert`     | MediaConvert Integration      |\n| `aws_media_package_vod` | Media Package VOD Integration |\n| `aws_mq`                | MQ Integration                |\n| `aws_msk`               | MSK Integration               |\n| `aws_neptune`           | Neptune Integration           |\n| `aws_qldb`              | QLDB Integration              |\n| `aws_route53resolver`   | Route53 Resolver Integration  |\n| `aws_states`            | States Integration            |\n| `aws_transit_gateway`   | Transit Gateway Integration   |\n| `aws_waf`               | WAF Integration               |\n| `aws_wafv2`             | WAFv2 Integration             |\n| `billing`               | Billing Integration           |\n| `cloudfront`            | CloudFront Integration        |\n| `cloudtrail`            | CloudTrail Integration        |\n| `doc_db`                | DocumentDB Integration        |\n| `dynamodb`              | DynamoDB Integration          |\n| `ebs`                   | EBS Integration               |\n| `ec2`                   | EC2 Integration               |\n| `ecs`                   | ECS Integration               |\n| `efs`                   | EFS Integration               |\n| `elasticache`           | ElastiCache Integration       |\n| `elasticbeanstalk`      | Elastic Beanstalk Integration |\n| `elasticsearch`         | Elasticsearch Integration     |\n| `elb`                   | ELB Integration               |\n| `emr`                   | EMR Integration               |\n| `health`                | Health Integration            |\n| `iam`                   | IAM Integration               |\n| `iot`                   | IoT Integration               |\n| `kinesis`               | Kinesis Integration           |\n| `kinesis_firehose`      | Kinesis Firehose Integration  |\n| `lambda`                | Lambda Integration            |\n| `rds`                   | RDS Integration               |\n| `redshift`              | Redshift Integration          |\n| `route53`               | Route53 Integration           |\n| `s3`                    | S3 Integration                |\n| `ses`                   | SES Integration               |\n| `sns`                   | SNS Integration               |\n| `sqs`                   | SQS Integration               |\n| `trusted_advisor`       | Trusted Advisor Integration   |\n| `vpc`                   | VPC Integration               |\n| `x_ray`                 | X-Ray Integration             |\n",
                         "willReplaceOnChanges": true
                     },
                     "rds": {
@@ -8350,7 +8277,7 @@
                 },
                 "costManagement": {
                     "$ref": "#/types/newrelic:cloud/AzureIntegrationsCostManagement:AzureIntegrationsCostManagement",
-                    "description": "Azure Cost Management. See Integration blocks below for details.\n"
+                    "description": "The Azure cost management\n"
                 },
                 "dataFactory": {
                     "$ref": "#/types/newrelic:cloud/AzureIntegrationsDataFactory:AzureIntegrationsDataFactory",
@@ -8402,7 +8329,7 @@
                 },
                 "monitor": {
                     "$ref": "#/types/newrelic:cloud/AzureIntegrationsMonitor:AzureIntegrationsMonitor",
-                    "description": "Azure Monitor. See Integration blocks below for details.\n"
+                    "description": "The Azure Monitor\n"
                 },
                 "mysql": {
                     "$ref": "#/types/newrelic:cloud/AzureIntegrationsMysql:AzureIntegrationsMysql",
@@ -8492,7 +8419,7 @@
                 },
                 "costManagement": {
                     "$ref": "#/types/newrelic:cloud/AzureIntegrationsCostManagement:AzureIntegrationsCostManagement",
-                    "description": "Azure Cost Management. See Integration blocks below for details.\n"
+                    "description": "The Azure cost management\n"
                 },
                 "dataFactory": {
                     "$ref": "#/types/newrelic:cloud/AzureIntegrationsDataFactory:AzureIntegrationsDataFactory",
@@ -8545,7 +8472,7 @@
                 },
                 "monitor": {
                     "$ref": "#/types/newrelic:cloud/AzureIntegrationsMonitor:AzureIntegrationsMonitor",
-                    "description": "Azure Monitor. See Integration blocks below for details.\n"
+                    "description": "The Azure Monitor\n"
                 },
                 "mysql": {
                     "$ref": "#/types/newrelic:cloud/AzureIntegrationsMysql:AzureIntegrationsMysql",
@@ -8636,7 +8563,7 @@
                     },
                     "costManagement": {
                         "$ref": "#/types/newrelic:cloud/AzureIntegrationsCostManagement:AzureIntegrationsCostManagement",
-                        "description": "Azure Cost Management. See Integration blocks below for details.\n"
+                        "description": "The Azure cost management\n"
                     },
                     "dataFactory": {
                         "$ref": "#/types/newrelic:cloud/AzureIntegrationsDataFactory:AzureIntegrationsDataFactory",
@@ -8689,7 +8616,7 @@
                     },
                     "monitor": {
                         "$ref": "#/types/newrelic:cloud/AzureIntegrationsMonitor:AzureIntegrationsMonitor",
-                        "description": "Azure Monitor. See Integration blocks below for details.\n"
+                        "description": "The Azure Monitor\n"
                     },
                     "mysql": {
                         "$ref": "#/types/newrelic:cloud/AzureIntegrationsMysql:AzureIntegrationsMysql",
@@ -8880,7 +8807,7 @@
                 },
                 "bigQuery": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsBigQuery:GcpIntegrationsBigQuery",
-                    "description": "Biq Query integration. See Integration blocks below for details.\n"
+                    "description": "GCP biq query service\n"
                 },
                 "bigTable": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsBigTable:GcpIntegrationsBigTable",
@@ -8944,7 +8871,7 @@
                 },
                 "pubSub": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsPubSub:GcpIntegrationsPubSub",
-                    "description": "Pub/Sub integration. See Integration blocks below for details.\n"
+                    "description": "GCP big table service\n"
                 },
                 "redis": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsRedis:GcpIntegrationsRedis",
@@ -8960,7 +8887,7 @@
                 },
                 "spanner": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsSpanner:GcpIntegrationsSpanner",
-                    "description": "Spanner integration. See Integration blocks below for details.\n"
+                    "description": "GCP big table service\n"
                 },
                 "sql": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsSql:GcpIntegrationsSql",
@@ -8968,7 +8895,7 @@
                 },
                 "storage": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsStorage:GcpIntegrationsStorage",
-                    "description": "Storage integration. See Integration blocks below for details.\n"
+                    "description": "GCP big table service\n"
                 },
                 "virtualMachines": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsVirtualMachines:GcpIntegrationsVirtualMachines",
@@ -8998,7 +8925,7 @@
                 },
                 "bigQuery": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsBigQuery:GcpIntegrationsBigQuery",
-                    "description": "Biq Query integration. See Integration blocks below for details.\n"
+                    "description": "GCP biq query service\n"
                 },
                 "bigTable": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsBigTable:GcpIntegrationsBigTable",
@@ -9063,7 +8990,7 @@
                 },
                 "pubSub": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsPubSub:GcpIntegrationsPubSub",
-                    "description": "Pub/Sub integration. See Integration blocks below for details.\n"
+                    "description": "GCP big table service\n"
                 },
                 "redis": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsRedis:GcpIntegrationsRedis",
@@ -9079,7 +9006,7 @@
                 },
                 "spanner": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsSpanner:GcpIntegrationsSpanner",
-                    "description": "Spanner integration. See Integration blocks below for details.\n"
+                    "description": "GCP big table service\n"
                 },
                 "sql": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsSql:GcpIntegrationsSql",
@@ -9087,7 +9014,7 @@
                 },
                 "storage": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsStorage:GcpIntegrationsStorage",
-                    "description": "Storage integration. See Integration blocks below for details.\n"
+                    "description": "GCP big table service\n"
                 },
                 "virtualMachines": {
                     "$ref": "#/types/newrelic:cloud/GcpIntegrationsVirtualMachines:GcpIntegrationsVirtualMachines",
@@ -9118,7 +9045,7 @@
                     },
                     "bigQuery": {
                         "$ref": "#/types/newrelic:cloud/GcpIntegrationsBigQuery:GcpIntegrationsBigQuery",
-                        "description": "Biq Query integration. See Integration blocks below for details.\n"
+                        "description": "GCP biq query service\n"
                     },
                     "bigTable": {
                         "$ref": "#/types/newrelic:cloud/GcpIntegrationsBigTable:GcpIntegrationsBigTable",
@@ -9183,7 +9110,7 @@
                     },
                     "pubSub": {
                         "$ref": "#/types/newrelic:cloud/GcpIntegrationsPubSub:GcpIntegrationsPubSub",
-                        "description": "Pub/Sub integration. See Integration blocks below for details.\n"
+                        "description": "GCP big table service\n"
                     },
                     "redis": {
                         "$ref": "#/types/newrelic:cloud/GcpIntegrationsRedis:GcpIntegrationsRedis",
@@ -9199,7 +9126,7 @@
                     },
                     "spanner": {
                         "$ref": "#/types/newrelic:cloud/GcpIntegrationsSpanner:GcpIntegrationsSpanner",
-                        "description": "Spanner integration. See Integration blocks below for details.\n"
+                        "description": "GCP big table service\n"
                     },
                     "sql": {
                         "$ref": "#/types/newrelic:cloud/GcpIntegrationsSql:GcpIntegrationsSql",
@@ -9207,7 +9134,7 @@
                     },
                     "storage": {
                         "$ref": "#/types/newrelic:cloud/GcpIntegrationsStorage:GcpIntegrationsStorage",
-                        "description": "Storage integration. See Integration blocks below for details.\n"
+                        "description": "GCP big table service\n"
                     },
                     "virtualMachines": {
                         "$ref": "#/types/newrelic:cloud/GcpIntegrationsVirtualMachines:GcpIntegrationsVirtualMachines",
@@ -12601,7 +12528,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -12653,7 +12580,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -12711,7 +12638,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -12771,7 +12698,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -12827,7 +12754,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -12886,7 +12813,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -13250,7 +13177,7 @@
                 },
                 "warning": {
                     "$ref": "#/types/newrelic:synthetics/MultiLocationAlertConditionWarning:MultiLocationAlertConditionWarning",
-                    "description": "A condition term with the priority set to warning.\n\n\n\u003e **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n"
+                    "description": "A condition term with the priority set to warning.\n\n\u003e **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n"
                 }
             },
             "required": [
@@ -13295,7 +13222,7 @@
                 },
                 "warning": {
                     "$ref": "#/types/newrelic:synthetics/MultiLocationAlertConditionWarning:MultiLocationAlertConditionWarning",
-                    "description": "A condition term with the priority set to warning.\n\n\n\u003e **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n"
+                    "description": "A condition term with the priority set to warning.\n\n\u003e **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n"
                 }
             },
             "requiredInputs": [
@@ -13344,7 +13271,7 @@
                     },
                     "warning": {
                         "$ref": "#/types/newrelic:synthetics/MultiLocationAlertConditionWarning:MultiLocationAlertConditionWarning",
-                        "description": "A condition term with the priority set to warning.\n\n\n\u003e **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n"
+                        "description": "A condition term with the priority set to warning.\n\n\u003e **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n"
                     }
                 },
                 "type": "object"
