@@ -107,12 +107,12 @@ public final class ServiceLevelObjective {
             return this;
         }
         public ServiceLevelObjective build() {
-            final var o = new ServiceLevelObjective();
-            o.description = description;
-            o.name = name;
-            o.target = target;
-            o.timeWindow = timeWindow;
-            return o;
+            final var _resultValue = new ServiceLevelObjective();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.target = target;
+            _resultValue.timeWindow = timeWindow;
+            return _resultValue;
         }
     }
 }

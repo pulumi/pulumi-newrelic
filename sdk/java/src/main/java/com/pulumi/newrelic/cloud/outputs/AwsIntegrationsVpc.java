@@ -157,14 +157,14 @@ public final class AwsIntegrationsVpc {
             return this;
         }
         public AwsIntegrationsVpc build() {
-            final var o = new AwsIntegrationsVpc();
-            o.awsRegions = awsRegions;
-            o.fetchNatGateway = fetchNatGateway;
-            o.fetchVpn = fetchVpn;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsIntegrationsVpc();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.fetchNatGateway = fetchNatGateway;
+            _resultValue.fetchVpn = fetchVpn;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

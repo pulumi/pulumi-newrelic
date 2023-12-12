@@ -297,25 +297,25 @@ public final class OneDashboardPage {
             return widgetTables(List.of(widgetTables));
         }
         public OneDashboardPage build() {
-            final var o = new OneDashboardPage();
-            o.description = description;
-            o.guid = guid;
-            o.name = name;
-            o.widgetAreas = widgetAreas;
-            o.widgetBars = widgetBars;
-            o.widgetBillboards = widgetBillboards;
-            o.widgetBullets = widgetBullets;
-            o.widgetFunnels = widgetFunnels;
-            o.widgetHeatmaps = widgetHeatmaps;
-            o.widgetHistograms = widgetHistograms;
-            o.widgetJsons = widgetJsons;
-            o.widgetLines = widgetLines;
-            o.widgetLogTables = widgetLogTables;
-            o.widgetMarkdowns = widgetMarkdowns;
-            o.widgetPies = widgetPies;
-            o.widgetStackedBars = widgetStackedBars;
-            o.widgetTables = widgetTables;
-            return o;
+            final var _resultValue = new OneDashboardPage();
+            _resultValue.description = description;
+            _resultValue.guid = guid;
+            _resultValue.name = name;
+            _resultValue.widgetAreas = widgetAreas;
+            _resultValue.widgetBars = widgetBars;
+            _resultValue.widgetBillboards = widgetBillboards;
+            _resultValue.widgetBullets = widgetBullets;
+            _resultValue.widgetFunnels = widgetFunnels;
+            _resultValue.widgetHeatmaps = widgetHeatmaps;
+            _resultValue.widgetHistograms = widgetHistograms;
+            _resultValue.widgetJsons = widgetJsons;
+            _resultValue.widgetLines = widgetLines;
+            _resultValue.widgetLogTables = widgetLogTables;
+            _resultValue.widgetMarkdowns = widgetMarkdowns;
+            _resultValue.widgetPies = widgetPies;
+            _resultValue.widgetStackedBars = widgetStackedBars;
+            _resultValue.widgetTables = widgetTables;
+            return _resultValue;
         }
     }
 }

@@ -77,7 +77,7 @@ public class GcpLinkAccount extends com.pulumi.resources.CustomResource {
      * Account ID of the New Relic account.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -91,7 +91,7 @@ public class GcpLinkAccount extends com.pulumi.resources.CustomResource {
      * name of the linked account
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -105,7 +105,7 @@ public class GcpLinkAccount extends com.pulumi.resources.CustomResource {
      * Project ID of the GCP account.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**

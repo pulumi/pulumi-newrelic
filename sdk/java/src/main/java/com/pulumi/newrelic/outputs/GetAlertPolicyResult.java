@@ -128,14 +128,14 @@ public final class GetAlertPolicyResult {
             return this;
         }
         public GetAlertPolicyResult build() {
-            final var o = new GetAlertPolicyResult();
-            o.accountId = accountId;
-            o.createdAt = createdAt;
-            o.id = id;
-            o.incidentPreference = incidentPreference;
-            o.name = name;
-            o.updatedAt = updatedAt;
-            return o;
+            final var _resultValue = new GetAlertPolicyResult();
+            _resultValue.accountId = accountId;
+            _resultValue.createdAt = createdAt;
+            _resultValue.id = id;
+            _resultValue.incidentPreference = incidentPreference;
+            _resultValue.name = name;
+            _resultValue.updatedAt = updatedAt;
+            return _resultValue;
         }
     }
 }

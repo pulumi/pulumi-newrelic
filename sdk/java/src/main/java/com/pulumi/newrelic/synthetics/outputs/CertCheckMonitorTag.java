@@ -69,10 +69,10 @@ public final class CertCheckMonitorTag {
             return values(List.of(values));
         }
         public CertCheckMonitorTag build() {
-            final var o = new CertCheckMonitorTag();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new CertCheckMonitorTag();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

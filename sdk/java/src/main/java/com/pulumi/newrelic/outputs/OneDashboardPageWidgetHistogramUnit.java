@@ -72,10 +72,10 @@ public final class OneDashboardPageWidgetHistogramUnit {
             return this;
         }
         public OneDashboardPageWidgetHistogramUnit build() {
-            final var o = new OneDashboardPageWidgetHistogramUnit();
-            o.seriesOverrides = seriesOverrides;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetHistogramUnit();
+            _resultValue.seriesOverrides = seriesOverrides;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

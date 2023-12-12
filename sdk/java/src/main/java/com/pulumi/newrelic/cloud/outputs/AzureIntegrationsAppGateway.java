@@ -76,10 +76,10 @@ public final class AzureIntegrationsAppGateway {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsAppGateway build() {
-            final var o = new AzureIntegrationsAppGateway();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsAppGateway();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

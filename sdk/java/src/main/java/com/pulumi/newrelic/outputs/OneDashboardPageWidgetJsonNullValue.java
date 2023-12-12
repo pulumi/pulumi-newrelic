@@ -72,10 +72,10 @@ public final class OneDashboardPageWidgetJsonNullValue {
             return seriesOverrides(List.of(seriesOverrides));
         }
         public OneDashboardPageWidgetJsonNullValue build() {
-            final var o = new OneDashboardPageWidgetJsonNullValue();
-            o.nullValue = nullValue;
-            o.seriesOverrides = seriesOverrides;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetJsonNullValue();
+            _resultValue.nullValue = nullValue;
+            _resultValue.seriesOverrides = seriesOverrides;
+            return _resultValue;
         }
     }
 }

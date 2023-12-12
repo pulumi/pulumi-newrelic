@@ -76,10 +76,10 @@ public final class AzureIntegrationsVirtualNetworks {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsVirtualNetworks build() {
-            final var o = new AzureIntegrationsVirtualNetworks();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsVirtualNetworks();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

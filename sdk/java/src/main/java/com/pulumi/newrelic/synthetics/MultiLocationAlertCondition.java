@@ -184,7 +184,7 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      * A condition term with the priority set to critical.
      * 
      */
-    @Export(name="critical", type=MultiLocationAlertConditionCritical.class, parameters={})
+    @Export(name="critical", refs={MultiLocationAlertConditionCritical.class}, tree="[0]")
     private Output<MultiLocationAlertConditionCritical> critical;
 
     /**
@@ -198,7 +198,7 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      * Set whether to enable the alert condition.  Defaults to true.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -212,7 +212,7 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      * The Monitor GUID&#39;s of the Synthetics monitors to alert on.
      * 
      */
-    @Export(name="entities", type=List.class, parameters={String.class})
+    @Export(name="entities", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> entities;
 
     /**
@@ -226,7 +226,7 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      * The unique entity identifier of the condition in New Relic.
      * 
      */
-    @Export(name="entityGuid", type=String.class, parameters={})
+    @Export(name="entityGuid", refs={String.class}, tree="[0]")
     private Output<String> entityGuid;
 
     /**
@@ -240,7 +240,7 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      * The title of the condition.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -254,7 +254,7 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      * The ID of the policy where this condition will be used.
      * 
      */
-    @Export(name="policyId", type=Integer.class, parameters={})
+    @Export(name="policyId", refs={Integer.class}, tree="[0]")
     private Output<Integer> policyId;
 
     /**
@@ -268,7 +268,7 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      * Runbook URL to display in notifications.
      * 
      */
-    @Export(name="runbookUrl", type=String.class, parameters={})
+    @Export(name="runbookUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runbookUrl;
 
     /**
@@ -282,7 +282,7 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      * The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
      * 
      */
-    @Export(name="violationTimeLimitSeconds", type=Integer.class, parameters={})
+    @Export(name="violationTimeLimitSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> violationTimeLimitSeconds;
 
     /**
@@ -298,7 +298,7 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      * &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      * 
      */
-    @Export(name="warning", type=MultiLocationAlertConditionWarning.class, parameters={})
+    @Export(name="warning", refs={MultiLocationAlertConditionWarning.class}, tree="[0]")
     private Output</* @Nullable */ MultiLocationAlertConditionWarning> warning;
 
     /**

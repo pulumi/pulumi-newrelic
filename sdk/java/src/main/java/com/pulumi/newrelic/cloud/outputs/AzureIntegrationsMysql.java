@@ -76,10 +76,10 @@ public final class AzureIntegrationsMysql {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsMysql build() {
-            final var o = new AzureIntegrationsMysql();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsMysql();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

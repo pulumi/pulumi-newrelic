@@ -80,10 +80,10 @@ public final class AwsIntegrationsSes {
             return this;
         }
         public AwsIntegrationsSes build() {
-            final var o = new AwsIntegrationsSes();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsSes();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

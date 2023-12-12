@@ -72,10 +72,10 @@ public final class GcpIntegrationsBigQuery {
             return this;
         }
         public GcpIntegrationsBigQuery build() {
-            final var o = new GcpIntegrationsBigQuery();
-            o.fetchTags = fetchTags;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsBigQuery();
+            _resultValue.fetchTags = fetchTags;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

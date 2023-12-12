@@ -59,10 +59,10 @@ public final class OneDashboardPageWidgetPyNullValueSeriesOverride {
             return this;
         }
         public OneDashboardPageWidgetPyNullValueSeriesOverride build() {
-            final var o = new OneDashboardPageWidgetPyNullValueSeriesOverride();
-            o.nullValue = nullValue;
-            o.seriesName = seriesName;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetPyNullValueSeriesOverride();
+            _resultValue.nullValue = nullValue;
+            _resultValue.seriesName = seriesName;
+            return _resultValue;
         }
     }
 }

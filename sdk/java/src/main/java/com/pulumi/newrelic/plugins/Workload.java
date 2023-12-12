@@ -262,7 +262,7 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * The New Relic account ID where you want to create the workload.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -276,7 +276,7 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * The composite query used to compose a dynamic workload.
      * 
      */
-    @Export(name="compositeEntitySearchQuery", type=String.class, parameters={})
+    @Export(name="compositeEntitySearchQuery", refs={String.class}, tree="[0]")
     private Output<String> compositeEntitySearchQuery;
 
     /**
@@ -290,7 +290,7 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * Relevant information about the workload.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -304,7 +304,7 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
      * 
      */
-    @Export(name="entityGuids", type=List.class, parameters={String.class})
+    @Export(name="entityGuids", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> entityGuids;
 
     /**
@@ -318,7 +318,7 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
      * 
      */
-    @Export(name="entitySearchQueries", type=List.class, parameters={WorkloadEntitySearchQuery.class})
+    @Export(name="entitySearchQueries", refs={List.class,WorkloadEntitySearchQuery.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WorkloadEntitySearchQuery>> entitySearchQueries;
 
     /**
@@ -332,7 +332,7 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * The unique entity identifier of the workload in New Relic.
      * 
      */
-    @Export(name="guid", type=String.class, parameters={})
+    @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
     /**
@@ -346,7 +346,7 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * The workload&#39;s name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -360,7 +360,7 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * The URL of the workload.
      * 
      */
-    @Export(name="permalink", type=String.class, parameters={})
+    @Export(name="permalink", refs={String.class}, tree="[0]")
     private Output<String> permalink;
 
     /**
@@ -374,7 +374,7 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * A list of account IDs that will be used to get entities from.
      * 
      */
-    @Export(name="scopeAccountIds", type=List.class, parameters={Integer.class})
+    @Export(name="scopeAccountIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output<List<Integer>> scopeAccountIds;
 
     /**
@@ -388,7 +388,7 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
      * 
      */
-    @Export(name="statusConfigAutomatic", type=WorkloadStatusConfigAutomatic.class, parameters={})
+    @Export(name="statusConfigAutomatic", refs={WorkloadStatusConfigAutomatic.class}, tree="[0]")
     private Output</* @Nullable */ WorkloadStatusConfigAutomatic> statusConfigAutomatic;
 
     /**
@@ -402,7 +402,7 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
      * 
      */
-    @Export(name="statusConfigStatic", type=WorkloadStatusConfigStatic.class, parameters={})
+    @Export(name="statusConfigStatic", refs={WorkloadStatusConfigStatic.class}, tree="[0]")
     private Output</* @Nullable */ WorkloadStatusConfigStatic> statusConfigStatic;
 
     /**
@@ -416,7 +416,7 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * The unique entity identifier of the workload.
      * 
      */
-    @Export(name="workloadId", type=Integer.class, parameters={})
+    @Export(name="workloadId", refs={Integer.class}, tree="[0]")
     private Output<Integer> workloadId;
 
     /**

@@ -64,7 +64,7 @@ public class PrivateLocation extends com.pulumi.resources.CustomResource {
      * The account in which the private location will be created.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -78,7 +78,7 @@ public class PrivateLocation extends com.pulumi.resources.CustomResource {
      * The private location description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -92,7 +92,7 @@ public class PrivateLocation extends com.pulumi.resources.CustomResource {
      * The private location globally unique identifier.
      * 
      */
-    @Export(name="domainId", type=String.class, parameters={})
+    @Export(name="domainId", refs={String.class}, tree="[0]")
     private Output<String> domainId;
 
     /**
@@ -106,7 +106,7 @@ public class PrivateLocation extends com.pulumi.resources.CustomResource {
      * The unique client identifier for the private location in New Relic. Same as `id`.
      * 
      */
-    @Export(name="guid", type=String.class, parameters={})
+    @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
     /**
@@ -120,7 +120,7 @@ public class PrivateLocation extends com.pulumi.resources.CustomResource {
      * The private locations key.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -134,7 +134,7 @@ public class PrivateLocation extends com.pulumi.resources.CustomResource {
      * An alternate identifier based on name.
      * 
      */
-    @Export(name="locationId", type=String.class, parameters={})
+    @Export(name="locationId", refs={String.class}, tree="[0]")
     private Output<String> locationId;
 
     /**
@@ -148,7 +148,7 @@ public class PrivateLocation extends com.pulumi.resources.CustomResource {
      * The name of the private location.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -162,7 +162,7 @@ public class PrivateLocation extends com.pulumi.resources.CustomResource {
      * The private location requires a password to edit if value is true. Defaults to `false`
      * 
      */
-    @Export(name="verifiedScriptExecution", type=Boolean.class, parameters={})
+    @Export(name="verifiedScriptExecution", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> verifiedScriptExecution;
 
     /**

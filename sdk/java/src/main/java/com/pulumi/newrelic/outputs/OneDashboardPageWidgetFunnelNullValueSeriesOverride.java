@@ -59,10 +59,10 @@ public final class OneDashboardPageWidgetFunnelNullValueSeriesOverride {
             return this;
         }
         public OneDashboardPageWidgetFunnelNullValueSeriesOverride build() {
-            final var o = new OneDashboardPageWidgetFunnelNullValueSeriesOverride();
-            o.nullValue = nullValue;
-            o.seriesName = seriesName;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetFunnelNullValueSeriesOverride();
+            _resultValue.nullValue = nullValue;
+            _resultValue.seriesName = seriesName;
+            return _resultValue;
         }
     }
 }

@@ -80,10 +80,10 @@ public final class AwsIntegrationsAwsFsx {
             return this;
         }
         public AwsIntegrationsAwsFsx build() {
-            final var o = new AwsIntegrationsAwsFsx();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsAwsFsx();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

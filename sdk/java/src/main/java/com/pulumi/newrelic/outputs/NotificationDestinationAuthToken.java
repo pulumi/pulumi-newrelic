@@ -59,10 +59,10 @@ public final class NotificationDestinationAuthToken {
             return this;
         }
         public NotificationDestinationAuthToken build() {
-            final var o = new NotificationDestinationAuthToken();
-            o.prefix = prefix;
-            o.token = token;
-            return o;
+            final var _resultValue = new NotificationDestinationAuthToken();
+            _resultValue.prefix = prefix;
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

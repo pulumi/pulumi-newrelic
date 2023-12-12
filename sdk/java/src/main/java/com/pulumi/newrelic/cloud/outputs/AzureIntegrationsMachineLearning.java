@@ -76,10 +76,10 @@ public final class AzureIntegrationsMachineLearning {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsMachineLearning build() {
-            final var o = new AzureIntegrationsMachineLearning();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsMachineLearning();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

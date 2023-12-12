@@ -82,12 +82,12 @@ public final class GetAccountResult {
             return this;
         }
         public GetAccountResult build() {
-            final var o = new GetAccountResult();
-            o.accountId = accountId;
-            o.id = id;
-            o.name = name;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new GetAccountResult();
+            _resultValue.accountId = accountId;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

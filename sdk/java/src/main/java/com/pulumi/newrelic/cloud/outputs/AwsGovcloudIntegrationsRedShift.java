@@ -114,12 +114,12 @@ public final class AwsGovcloudIntegrationsRedShift {
             return this;
         }
         public AwsGovcloudIntegrationsRedShift build() {
-            final var o = new AwsGovcloudIntegrationsRedShift();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsGovcloudIntegrationsRedShift();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

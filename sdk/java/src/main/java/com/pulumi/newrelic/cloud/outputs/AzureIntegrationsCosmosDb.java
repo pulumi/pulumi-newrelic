@@ -76,10 +76,10 @@ public final class AzureIntegrationsCosmosDb {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsCosmosDb build() {
-            final var o = new AzureIntegrationsCosmosDb();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsCosmosDb();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

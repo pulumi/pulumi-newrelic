@@ -132,13 +132,13 @@ public final class AwsIntegrationsCloudfront {
             return this;
         }
         public AwsIntegrationsCloudfront build() {
-            final var o = new AwsIntegrationsCloudfront();
-            o.fetchLambdasAtEdge = fetchLambdasAtEdge;
-            o.fetchTags = fetchTags;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsIntegrationsCloudfront();
+            _resultValue.fetchLambdasAtEdge = fetchLambdasAtEdge;
+            _resultValue.fetchTags = fetchTags;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

@@ -50,7 +50,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -64,7 +64,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * Application load balancer AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="alb", type=AwsGovcloudIntegrationsAlb.class, parameters={})
+    @Export(name="alb", refs={AwsGovcloudIntegrationsAlb.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsAlb> alb;
 
     /**
@@ -78,7 +78,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * Api Gateway AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="apiGateway", type=AwsGovcloudIntegrationsApiGateway.class, parameters={})
+    @Export(name="apiGateway", refs={AwsGovcloudIntegrationsApiGateway.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsApiGateway> apiGateway;
 
     /**
@@ -92,7 +92,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * Autoscaling AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="autoScaling", type=AwsGovcloudIntegrationsAutoScaling.class, parameters={})
+    @Export(name="autoScaling", refs={AwsGovcloudIntegrationsAutoScaling.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsAutoScaling> autoScaling;
 
     /**
@@ -106,7 +106,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * Aws Direct Connect AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="awsDirectConnect", type=AwsGovcloudIntegrationsAwsDirectConnect.class, parameters={})
+    @Export(name="awsDirectConnect", refs={AwsGovcloudIntegrationsAwsDirectConnect.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsAwsDirectConnect> awsDirectConnect;
 
     /**
@@ -120,7 +120,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * Aws States AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="awsStates", type=AwsGovcloudIntegrationsAwsStates.class, parameters={})
+    @Export(name="awsStates", refs={AwsGovcloudIntegrationsAwsStates.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsAwsStates> awsStates;
 
     /**
@@ -134,7 +134,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="cloudtrail", type=AwsGovcloudIntegrationsCloudtrail.class, parameters={})
+    @Export(name="cloudtrail", refs={AwsGovcloudIntegrationsCloudtrail.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsCloudtrail> cloudtrail;
 
     /**
@@ -148,7 +148,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * Dynamo DB AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="dynamoDb", type=AwsGovcloudIntegrationsDynamoDb.class, parameters={})
+    @Export(name="dynamoDb", refs={AwsGovcloudIntegrationsDynamoDb.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsDynamoDb> dynamoDb;
 
     /**
@@ -162,7 +162,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="ebs", type=AwsGovcloudIntegrationsEbs.class, parameters={})
+    @Export(name="ebs", refs={AwsGovcloudIntegrationsEbs.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsEbs> ebs;
 
     /**
@@ -176,7 +176,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * EC2 AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="ec2", type=AwsGovcloudIntegrationsEc2.class, parameters={})
+    @Export(name="ec2", refs={AwsGovcloudIntegrationsEc2.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsEc2> ec2;
 
     /**
@@ -190,7 +190,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * Elastic search AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="elasticSearch", type=AwsGovcloudIntegrationsElasticSearch.class, parameters={})
+    @Export(name="elasticSearch", refs={AwsGovcloudIntegrationsElasticSearch.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsElasticSearch> elasticSearch;
 
     /**
@@ -204,7 +204,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * Elb AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="elb", type=AwsGovcloudIntegrationsElb.class, parameters={})
+    @Export(name="elb", refs={AwsGovcloudIntegrationsElb.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsElb> elb;
 
     /**
@@ -218,7 +218,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * Emr AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="emr", type=AwsGovcloudIntegrationsEmr.class, parameters={})
+    @Export(name="emr", refs={AwsGovcloudIntegrationsEmr.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsEmr> emr;
 
     /**
@@ -232,7 +232,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * IAM AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="iam", type=AwsGovcloudIntegrationsIam.class, parameters={})
+    @Export(name="iam", refs={AwsGovcloudIntegrationsIam.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsIam> iam;
 
     /**
@@ -246,7 +246,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * Lambda AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="lambda", type=AwsGovcloudIntegrationsLambda.class, parameters={})
+    @Export(name="lambda", refs={AwsGovcloudIntegrationsLambda.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsLambda> lambda;
 
     /**
@@ -260,7 +260,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * The access key of the AwsGovCloud.
      * 
      */
-    @Export(name="linkedAccountId", type=Integer.class, parameters={})
+    @Export(name="linkedAccountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> linkedAccountId;
 
     /**
@@ -274,7 +274,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * RDS AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="rds", type=AwsGovcloudIntegrationsRds.class, parameters={})
+    @Export(name="rds", refs={AwsGovcloudIntegrationsRds.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsRds> rds;
 
     /**
@@ -288,7 +288,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * Redshift AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="redShift", type=AwsGovcloudIntegrationsRedShift.class, parameters={})
+    @Export(name="redShift", refs={AwsGovcloudIntegrationsRedShift.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsRedShift> redShift;
 
     /**
@@ -302,7 +302,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * Route53 AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="route53", type=AwsGovcloudIntegrationsRoute53.class, parameters={})
+    @Export(name="route53", refs={AwsGovcloudIntegrationsRoute53.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsRoute53> route53;
 
     /**
@@ -316,7 +316,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * The s3 integration
      * 
      */
-    @Export(name="s3", type=AwsGovcloudIntegrationsS3.class, parameters={})
+    @Export(name="s3", refs={AwsGovcloudIntegrationsS3.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsS3> s3;
 
     /**
@@ -330,7 +330,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * SNS AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="sns", type=AwsGovcloudIntegrationsSns.class, parameters={})
+    @Export(name="sns", refs={AwsGovcloudIntegrationsSns.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsSns> sns;
 
     /**
@@ -344,7 +344,7 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * SQS AwsGovCloud integration.See Integration blocks below for details.
      * 
      */
-    @Export(name="sqs", type=AwsGovcloudIntegrationsSqs.class, parameters={})
+    @Export(name="sqs", refs={AwsGovcloudIntegrationsSqs.class}, tree="[0]")
     private Output</* @Nullable */ AwsGovcloudIntegrationsSqs> sqs;
 
     /**

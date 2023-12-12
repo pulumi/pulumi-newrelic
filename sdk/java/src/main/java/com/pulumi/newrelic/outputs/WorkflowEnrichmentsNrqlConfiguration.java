@@ -46,9 +46,9 @@ public final class WorkflowEnrichmentsNrqlConfiguration {
             return this;
         }
         public WorkflowEnrichmentsNrqlConfiguration build() {
-            final var o = new WorkflowEnrichmentsNrqlConfiguration();
-            o.query = query;
-            return o;
+            final var _resultValue = new WorkflowEnrichmentsNrqlConfiguration();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

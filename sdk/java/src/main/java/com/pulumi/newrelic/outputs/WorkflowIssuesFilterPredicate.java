@@ -88,11 +88,11 @@ public final class WorkflowIssuesFilterPredicate {
             return values(List.of(values));
         }
         public WorkflowIssuesFilterPredicate build() {
-            final var o = new WorkflowIssuesFilterPredicate();
-            o.attribute = attribute;
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new WorkflowIssuesFilterPredicate();
+            _resultValue.attribute = attribute;
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

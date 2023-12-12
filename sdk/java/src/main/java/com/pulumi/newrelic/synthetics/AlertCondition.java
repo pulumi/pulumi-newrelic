@@ -168,7 +168,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * ```
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -204,7 +204,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * The unique entity identifier of the condition in New Relic.
      * 
      */
-    @Export(name="entityGuid", type=String.class, parameters={})
+    @Export(name="entityGuid", refs={String.class}, tree="[0]")
     private Output<String> entityGuid;
 
     /**
@@ -218,7 +218,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * The GUID of the Synthetics monitor to be referenced in the alert condition.
      * 
      */
-    @Export(name="monitorId", type=String.class, parameters={})
+    @Export(name="monitorId", refs={String.class}, tree="[0]")
     private Output<String> monitorId;
 
     /**
@@ -232,7 +232,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * The title of this condition.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -246,7 +246,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * The ID of the policy where this condition should be used.
      * 
      */
-    @Export(name="policyId", type=Integer.class, parameters={})
+    @Export(name="policyId", refs={Integer.class}, tree="[0]")
     private Output<Integer> policyId;
 
     /**
@@ -260,7 +260,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * Runbook URL to display in notifications.
      * 
      */
-    @Export(name="runbookUrl", type=String.class, parameters={})
+    @Export(name="runbookUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runbookUrl;
 
     /**

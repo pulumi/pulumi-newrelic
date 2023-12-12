@@ -125,7 +125,7 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
      * The account in which the Synthetics monitor will be created.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -139,7 +139,7 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
      * The desired number of remaining days until the certificate expires to trigger a monitor failure.
      * 
      */
-    @Export(name="certificateExpiration", type=Integer.class, parameters={})
+    @Export(name="certificateExpiration", refs={Integer.class}, tree="[0]")
     private Output<Integer> certificateExpiration;
 
     /**
@@ -153,7 +153,7 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
      * The domain of the host that will have its certificate checked.
      * 
      */
-    @Export(name="domain", type=String.class, parameters={})
+    @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
@@ -167,7 +167,7 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
      * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
      * 
      */
-    @Export(name="locationsPrivates", type=List.class, parameters={String.class})
+    @Export(name="locationsPrivates", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> locationsPrivates;
 
     /**
@@ -181,7 +181,7 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
      * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
      * 
      */
-    @Export(name="locationsPublics", type=List.class, parameters={String.class})
+    @Export(name="locationsPublics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> locationsPublics;
 
     /**
@@ -195,7 +195,7 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
      * The name for the monitor.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -209,7 +209,7 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
      * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
      * 
      */
-    @Export(name="period", type=String.class, parameters={})
+    @Export(name="period", refs={String.class}, tree="[0]")
     private Output<String> period;
 
     /**
@@ -223,7 +223,7 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
      * The interval in minutes at which Synthetic monitor should run.
      * 
      */
-    @Export(name="periodInMinutes", type=Integer.class, parameters={})
+    @Export(name="periodInMinutes", refs={Integer.class}, tree="[0]")
     private Output<Integer> periodInMinutes;
 
     /**
@@ -239,7 +239,7 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -255,7 +255,7 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
      * The tags that will be associated with the monitor. See Nested tag blocks below for details
      * 
      */
-    @Export(name="tags", type=List.class, parameters={CertCheckMonitorTag.class})
+    @Export(name="tags", refs={List.class,CertCheckMonitorTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CertCheckMonitorTag>> tags;
 
     /**

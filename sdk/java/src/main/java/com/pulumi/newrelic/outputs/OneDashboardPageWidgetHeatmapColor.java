@@ -72,10 +72,10 @@ public final class OneDashboardPageWidgetHeatmapColor {
             return seriesOverrides(List.of(seriesOverrides));
         }
         public OneDashboardPageWidgetHeatmapColor build() {
-            final var o = new OneDashboardPageWidgetHeatmapColor();
-            o.color = color;
-            o.seriesOverrides = seriesOverrides;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetHeatmapColor();
+            _resultValue.color = color;
+            _resultValue.seriesOverrides = seriesOverrides;
+            return _resultValue;
         }
     }
 }

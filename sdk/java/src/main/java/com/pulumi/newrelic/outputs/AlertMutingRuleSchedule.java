@@ -159,15 +159,15 @@ public final class AlertMutingRuleSchedule {
             return weeklyRepeatDays(List.of(weeklyRepeatDays));
         }
         public AlertMutingRuleSchedule build() {
-            final var o = new AlertMutingRuleSchedule();
-            o.endRepeat = endRepeat;
-            o.endTime = endTime;
-            o.repeat = repeat;
-            o.repeatCount = repeatCount;
-            o.startTime = startTime;
-            o.timeZone = timeZone;
-            o.weeklyRepeatDays = weeklyRepeatDays;
-            return o;
+            final var _resultValue = new AlertMutingRuleSchedule();
+            _resultValue.endRepeat = endRepeat;
+            _resultValue.endTime = endTime;
+            _resultValue.repeat = repeat;
+            _resultValue.repeatCount = repeatCount;
+            _resultValue.startTime = startTime;
+            _resultValue.timeZone = timeZone;
+            _resultValue.weeklyRepeatDays = weeklyRepeatDays;
+            return _resultValue;
         }
     }
 }

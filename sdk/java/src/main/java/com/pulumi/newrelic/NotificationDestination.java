@@ -26,7 +26,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      * Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -40,7 +40,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      * Indicates whether the destination is active.
      * 
      */
-    @Export(name="active", type=Boolean.class, parameters={})
+    @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
     /**
@@ -54,7 +54,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      * A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
      * 
      */
-    @Export(name="authBasic", type=NotificationDestinationAuthBasic.class, parameters={})
+    @Export(name="authBasic", refs={NotificationDestinationAuthBasic.class}, tree="[0]")
     private Output</* @Nullable */ NotificationDestinationAuthBasic> authBasic;
 
     /**
@@ -68,7 +68,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      * A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
      * 
      */
-    @Export(name="authToken", type=NotificationDestinationAuthToken.class, parameters={})
+    @Export(name="authToken", refs={NotificationDestinationAuthToken.class}, tree="[0]")
     private Output</* @Nullable */ NotificationDestinationAuthToken> authToken;
 
     /**
@@ -82,7 +82,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      * The last time a notification was sent.
      * 
      */
-    @Export(name="lastSent", type=String.class, parameters={})
+    @Export(name="lastSent", refs={String.class}, tree="[0]")
     private Output<String> lastSent;
 
     /**
@@ -96,7 +96,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      * The name of the destination.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -110,7 +110,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
      * 
      */
-    @Export(name="properties", type=List.class, parameters={NotificationDestinationProperty.class})
+    @Export(name="properties", refs={List.class,NotificationDestinationProperty.class}, tree="[0,1]")
     private Output<List<NotificationDestinationProperty>> properties;
 
     /**
@@ -124,7 +124,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      * The status of the destination.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -139,7 +139,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      * PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

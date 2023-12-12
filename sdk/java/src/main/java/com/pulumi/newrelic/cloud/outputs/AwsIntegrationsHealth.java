@@ -54,9 +54,9 @@ public final class AwsIntegrationsHealth {
             return this;
         }
         public AwsIntegrationsHealth build() {
-            final var o = new AwsIntegrationsHealth();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsHealth();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

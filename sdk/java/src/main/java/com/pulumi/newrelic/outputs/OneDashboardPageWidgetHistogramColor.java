@@ -72,10 +72,10 @@ public final class OneDashboardPageWidgetHistogramColor {
             return seriesOverrides(List.of(seriesOverrides));
         }
         public OneDashboardPageWidgetHistogramColor build() {
-            final var o = new OneDashboardPageWidgetHistogramColor();
-            o.color = color;
-            o.seriesOverrides = seriesOverrides;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetHistogramColor();
+            _resultValue.color = color;
+            _resultValue.seriesOverrides = seriesOverrides;
+            return _resultValue;
         }
     }
 }

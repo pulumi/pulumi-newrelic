@@ -153,15 +153,15 @@ public final class GetNotificationDestinationResult {
             return this;
         }
         public GetNotificationDestinationResult build() {
-            final var o = new GetNotificationDestinationResult();
-            o.accountId = accountId;
-            o.active = active;
-            o.id = id;
-            o.name = name;
-            o.properties = properties;
-            o.status = status;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetNotificationDestinationResult();
+            _resultValue.accountId = accountId;
+            _resultValue.active = active;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.properties = properties;
+            _resultValue.status = status;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

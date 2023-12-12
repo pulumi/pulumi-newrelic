@@ -38,9 +38,9 @@ public final class MultiLocationAlertConditionCritical {
             return this;
         }
         public MultiLocationAlertConditionCritical build() {
-            final var o = new MultiLocationAlertConditionCritical();
-            o.threshold = threshold;
-            return o;
+            final var _resultValue = new MultiLocationAlertConditionCritical();
+            _resultValue.threshold = threshold;
+            return _resultValue;
         }
     }
 }

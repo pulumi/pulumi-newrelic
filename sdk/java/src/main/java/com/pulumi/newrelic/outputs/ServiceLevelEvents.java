@@ -110,12 +110,12 @@ public final class ServiceLevelEvents {
             return this;
         }
         public ServiceLevelEvents build() {
-            final var o = new ServiceLevelEvents();
-            o.accountId = accountId;
-            o.badEvents = badEvents;
-            o.goodEvents = goodEvents;
-            o.validEvents = validEvents;
-            return o;
+            final var _resultValue = new ServiceLevelEvents();
+            _resultValue.accountId = accountId;
+            _resultValue.badEvents = badEvents;
+            _resultValue.goodEvents = goodEvents;
+            _resultValue.validEvents = validEvents;
+            return _resultValue;
         }
     }
 }

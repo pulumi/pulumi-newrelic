@@ -59,10 +59,10 @@ public final class OneDashboardPageWidgetFunnelColorSeriesOverride {
             return this;
         }
         public OneDashboardPageWidgetFunnelColorSeriesOverride build() {
-            final var o = new OneDashboardPageWidgetFunnelColorSeriesOverride();
-            o.color = color;
-            o.seriesName = seriesName;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetFunnelColorSeriesOverride();
+            _resultValue.color = color;
+            _resultValue.seriesName = seriesName;
+            return _resultValue;
         }
     }
 }

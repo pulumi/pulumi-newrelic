@@ -206,7 +206,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -220,7 +220,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Alloy DB integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="alloyDb", type=GcpIntegrationsAlloyDb.class, parameters={})
+    @Export(name="alloyDb", refs={GcpIntegrationsAlloyDb.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsAlloyDb> alloyDb;
 
     /**
@@ -234,7 +234,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * App Engine integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="appEngine", type=GcpIntegrationsAppEngine.class, parameters={})
+    @Export(name="appEngine", refs={GcpIntegrationsAppEngine.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsAppEngine> appEngine;
 
     /**
@@ -248,7 +248,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Biq Query integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="bigQuery", type=GcpIntegrationsBigQuery.class, parameters={})
+    @Export(name="bigQuery", refs={GcpIntegrationsBigQuery.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsBigQuery> bigQuery;
 
     /**
@@ -262,7 +262,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Big Table. See Integration blocks below for details.
      * 
      */
-    @Export(name="bigTable", type=GcpIntegrationsBigTable.class, parameters={})
+    @Export(name="bigTable", refs={GcpIntegrationsBigTable.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsBigTable> bigTable;
 
     /**
@@ -276,7 +276,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Composer integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="composer", type=GcpIntegrationsComposer.class, parameters={})
+    @Export(name="composer", refs={GcpIntegrationsComposer.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsComposer> composer;
 
     /**
@@ -290,7 +290,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Data Flow integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="dataFlow", type=GcpIntegrationsDataFlow.class, parameters={})
+    @Export(name="dataFlow", refs={GcpIntegrationsDataFlow.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsDataFlow> dataFlow;
 
     /**
@@ -304,7 +304,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Data Proc integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="dataProc", type=GcpIntegrationsDataProc.class, parameters={})
+    @Export(name="dataProc", refs={GcpIntegrationsDataProc.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsDataProc> dataProc;
 
     /**
@@ -318,7 +318,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Data Store integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="dataStore", type=GcpIntegrationsDataStore.class, parameters={})
+    @Export(name="dataStore", refs={GcpIntegrationsDataStore.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsDataStore> dataStore;
 
     /**
@@ -332,7 +332,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Fire Base Database integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="fireBaseDatabase", type=GcpIntegrationsFireBaseDatabase.class, parameters={})
+    @Export(name="fireBaseDatabase", refs={GcpIntegrationsFireBaseDatabase.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsFireBaseDatabase> fireBaseDatabase;
 
     /**
@@ -346,7 +346,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Fire Base Hosting integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="fireBaseHosting", type=GcpIntegrationsFireBaseHosting.class, parameters={})
+    @Export(name="fireBaseHosting", refs={GcpIntegrationsFireBaseHosting.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsFireBaseHosting> fireBaseHosting;
 
     /**
@@ -360,7 +360,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Fire Base Storage integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="fireBaseStorage", type=GcpIntegrationsFireBaseStorage.class, parameters={})
+    @Export(name="fireBaseStorage", refs={GcpIntegrationsFireBaseStorage.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsFireBaseStorage> fireBaseStorage;
 
     /**
@@ -374,7 +374,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Fire Store integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="fireStore", type=GcpIntegrationsFireStore.class, parameters={})
+    @Export(name="fireStore", refs={GcpIntegrationsFireStore.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsFireStore> fireStore;
 
     /**
@@ -388,7 +388,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Functions integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="functions", type=GcpIntegrationsFunctions.class, parameters={})
+    @Export(name="functions", refs={GcpIntegrationsFunctions.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsFunctions> functions;
 
     /**
@@ -402,7 +402,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Interconnect integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="interconnect", type=GcpIntegrationsInterconnect.class, parameters={})
+    @Export(name="interconnect", refs={GcpIntegrationsInterconnect.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsInterconnect> interconnect;
 
     /**
@@ -416,7 +416,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Kubernetes integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="kubernetes", type=GcpIntegrationsKubernetes.class, parameters={})
+    @Export(name="kubernetes", refs={GcpIntegrationsKubernetes.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsKubernetes> kubernetes;
 
     /**
@@ -430,7 +430,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * The ID of the linked GCP account in New Relic.
      * 
      */
-    @Export(name="linkedAccountId", type=Integer.class, parameters={})
+    @Export(name="linkedAccountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> linkedAccountId;
 
     /**
@@ -444,7 +444,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Load Balancing integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="loadBalancing", type=GcpIntegrationsLoadBalancing.class, parameters={})
+    @Export(name="loadBalancing", refs={GcpIntegrationsLoadBalancing.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsLoadBalancing> loadBalancing;
 
     /**
@@ -458,7 +458,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Mem cache integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="memCache", type=GcpIntegrationsMemCache.class, parameters={})
+    @Export(name="memCache", refs={GcpIntegrationsMemCache.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsMemCache> memCache;
 
     /**
@@ -472,7 +472,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Pub/Sub integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="pubSub", type=GcpIntegrationsPubSub.class, parameters={})
+    @Export(name="pubSub", refs={GcpIntegrationsPubSub.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsPubSub> pubSub;
 
     /**
@@ -486,7 +486,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Redis integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="redis", type=GcpIntegrationsRedis.class, parameters={})
+    @Export(name="redis", refs={GcpIntegrationsRedis.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsRedis> redis;
 
     /**
@@ -500,7 +500,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Router integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="router", type=GcpIntegrationsRouter.class, parameters={})
+    @Export(name="router", refs={GcpIntegrationsRouter.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsRouter> router;
 
     /**
@@ -514,7 +514,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Run integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="run", type=GcpIntegrationsRun.class, parameters={})
+    @Export(name="run", refs={GcpIntegrationsRun.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsRun> run;
 
     /**
@@ -528,7 +528,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Spanner integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="spanner", type=GcpIntegrationsSpanner.class, parameters={})
+    @Export(name="spanner", refs={GcpIntegrationsSpanner.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsSpanner> spanner;
 
     /**
@@ -542,7 +542,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * SQL integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="sql", type=GcpIntegrationsSql.class, parameters={})
+    @Export(name="sql", refs={GcpIntegrationsSql.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsSql> sql;
 
     /**
@@ -556,7 +556,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Storage integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="storage", type=GcpIntegrationsStorage.class, parameters={})
+    @Export(name="storage", refs={GcpIntegrationsStorage.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsStorage> storage;
 
     /**
@@ -570,7 +570,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * Virtual machines integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="virtualMachines", type=GcpIntegrationsVirtualMachines.class, parameters={})
+    @Export(name="virtualMachines", refs={GcpIntegrationsVirtualMachines.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsVirtualMachines> virtualMachines;
 
     /**
@@ -584,7 +584,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * VPC Access integration. See Integration blocks below for details.
      * 
      */
-    @Export(name="vpcAccess", type=GcpIntegrationsVpcAccess.class, parameters={})
+    @Export(name="vpcAccess", refs={GcpIntegrationsVpcAccess.class}, tree="[0]")
     private Output</* @Nullable */ GcpIntegrationsVpcAccess> vpcAccess;
 
     /**

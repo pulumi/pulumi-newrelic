@@ -134,13 +134,13 @@ public final class AwsGovcloudIntegrationsElasticSearch {
             return this;
         }
         public AwsGovcloudIntegrationsElasticSearch build() {
-            final var o = new AwsGovcloudIntegrationsElasticSearch();
-            o.awsRegions = awsRegions;
-            o.fetchNodes = fetchNodes;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsGovcloudIntegrationsElasticSearch();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.fetchNodes = fetchNodes;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

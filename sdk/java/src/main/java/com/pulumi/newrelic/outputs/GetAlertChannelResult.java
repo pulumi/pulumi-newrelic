@@ -131,14 +131,14 @@ public final class GetAlertChannelResult {
             return this;
         }
         public GetAlertChannelResult build() {
-            final var o = new GetAlertChannelResult();
-            o.accountId = accountId;
-            o.config = config;
-            o.id = id;
-            o.name = name;
-            o.policyIds = policyIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetAlertChannelResult();
+            _resultValue.accountId = accountId;
+            _resultValue.config = config;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.policyIds = policyIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

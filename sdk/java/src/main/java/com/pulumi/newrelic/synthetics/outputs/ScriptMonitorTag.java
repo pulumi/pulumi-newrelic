@@ -69,10 +69,10 @@ public final class ScriptMonitorTag {
             return values(List.of(values));
         }
         public ScriptMonitorTag build() {
-            final var o = new ScriptMonitorTag();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new ScriptMonitorTag();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

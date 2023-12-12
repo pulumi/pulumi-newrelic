@@ -122,13 +122,13 @@ public final class WorkflowEnrichmentsNrql {
             return this;
         }
         public WorkflowEnrichmentsNrql build() {
-            final var o = new WorkflowEnrichmentsNrql();
-            o.accountId = accountId;
-            o.configurations = configurations;
-            o.enrichmentId = enrichmentId;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new WorkflowEnrichmentsNrql();
+            _resultValue.accountId = accountId;
+            _resultValue.configurations = configurations;
+            _resultValue.enrichmentId = enrichmentId;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

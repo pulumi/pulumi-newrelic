@@ -87,11 +87,11 @@ public final class ServiceLevelEventsGoodEventsSelect {
             return this;
         }
         public ServiceLevelEventsGoodEventsSelect build() {
-            final var o = new ServiceLevelEventsGoodEventsSelect();
-            o.attribute = attribute;
-            o.function = function;
-            o.threshold = threshold;
-            return o;
+            final var _resultValue = new ServiceLevelEventsGoodEventsSelect();
+            _resultValue.attribute = attribute;
+            _resultValue.function = function;
+            _resultValue.threshold = threshold;
+            return _resultValue;
         }
     }
 }

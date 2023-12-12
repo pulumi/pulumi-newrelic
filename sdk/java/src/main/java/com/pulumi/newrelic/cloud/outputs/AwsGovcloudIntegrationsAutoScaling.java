@@ -76,10 +76,10 @@ public final class AwsGovcloudIntegrationsAutoScaling {
             return this;
         }
         public AwsGovcloudIntegrationsAutoScaling build() {
-            final var o = new AwsGovcloudIntegrationsAutoScaling();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsGovcloudIntegrationsAutoScaling();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

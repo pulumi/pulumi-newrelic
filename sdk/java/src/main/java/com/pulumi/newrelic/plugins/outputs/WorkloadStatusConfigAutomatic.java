@@ -92,11 +92,11 @@ public final class WorkloadStatusConfigAutomatic {
             return rules(List.of(rules));
         }
         public WorkloadStatusConfigAutomatic build() {
-            final var o = new WorkloadStatusConfigAutomatic();
-            o.enabled = enabled;
-            o.remainingEntitiesRule = remainingEntitiesRule;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new WorkloadStatusConfigAutomatic();
+            _resultValue.enabled = enabled;
+            _resultValue.remainingEntitiesRule = remainingEntitiesRule;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

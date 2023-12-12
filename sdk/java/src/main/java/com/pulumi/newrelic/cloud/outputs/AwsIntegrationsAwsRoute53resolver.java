@@ -80,10 +80,10 @@ public final class AwsIntegrationsAwsRoute53resolver {
             return this;
         }
         public AwsIntegrationsAwsRoute53resolver build() {
-            final var o = new AwsIntegrationsAwsRoute53resolver();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsAwsRoute53resolver();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

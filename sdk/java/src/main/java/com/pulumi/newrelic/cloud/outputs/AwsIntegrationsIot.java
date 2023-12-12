@@ -80,10 +80,10 @@ public final class AwsIntegrationsIot {
             return this;
         }
         public AwsIntegrationsIot build() {
-            final var o = new AwsIntegrationsIot();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsIot();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

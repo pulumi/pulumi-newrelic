@@ -67,10 +67,10 @@ public final class StepMonitorLocationPrivate {
             return this;
         }
         public StepMonitorLocationPrivate build() {
-            final var o = new StepMonitorLocationPrivate();
-            o.guid = guid;
-            o.vsePassword = vsePassword;
-            return o;
+            final var _resultValue = new StepMonitorLocationPrivate();
+            _resultValue.guid = guid;
+            _resultValue.vsePassword = vsePassword;
+            return _resultValue;
         }
     }
 }

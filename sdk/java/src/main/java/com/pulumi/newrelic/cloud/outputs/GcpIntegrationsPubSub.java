@@ -72,10 +72,10 @@ public final class GcpIntegrationsPubSub {
             return this;
         }
         public GcpIntegrationsPubSub build() {
-            final var o = new GcpIntegrationsPubSub();
-            o.fetchTags = fetchTags;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsPubSub();
+            _resultValue.fetchTags = fetchTags;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

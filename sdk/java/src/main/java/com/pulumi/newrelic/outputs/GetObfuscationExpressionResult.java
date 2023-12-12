@@ -71,11 +71,11 @@ public final class GetObfuscationExpressionResult {
             return this;
         }
         public GetObfuscationExpressionResult build() {
-            final var o = new GetObfuscationExpressionResult();
-            o.accountId = accountId;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetObfuscationExpressionResult();
+            _resultValue.accountId = accountId;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

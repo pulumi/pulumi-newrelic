@@ -140,13 +140,13 @@ public final class AwsIntegrationsApiGateway {
             return this;
         }
         public AwsIntegrationsApiGateway build() {
-            final var o = new AwsIntegrationsApiGateway();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.stagePrefixes = stagePrefixes;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsIntegrationsApiGateway();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.stagePrefixes = stagePrefixes;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

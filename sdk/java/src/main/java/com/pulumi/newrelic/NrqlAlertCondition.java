@@ -249,7 +249,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -263,7 +263,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
      * 
      */
-    @Export(name="aggregationDelay", type=String.class, parameters={})
+    @Export(name="aggregationDelay", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> aggregationDelay;
 
     /**
@@ -277,7 +277,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
      * 
      */
-    @Export(name="aggregationMethod", type=String.class, parameters={})
+    @Export(name="aggregationMethod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> aggregationMethod;
 
     /**
@@ -291,7 +291,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * How long we wait after each data point arrives to make sure we&#39;ve processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
      * 
      */
-    @Export(name="aggregationTimer", type=String.class, parameters={})
+    @Export(name="aggregationTimer", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> aggregationTimer;
 
     /**
@@ -305,7 +305,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
      * 
      */
-    @Export(name="aggregationWindow", type=Integer.class, parameters={})
+    @Export(name="aggregationWindow", refs={Integer.class}, tree="[0]")
     private Output<Integer> aggregationWindow;
 
     /**
@@ -319,7 +319,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
      * 
      */
-    @Export(name="baselineDirection", type=String.class, parameters={})
+    @Export(name="baselineDirection", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> baselineDirection;
 
     /**
@@ -333,7 +333,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * Whether to close all open incidents when the signal expires.
      * 
      */
-    @Export(name="closeViolationsOnExpiration", type=Boolean.class, parameters={})
+    @Export(name="closeViolationsOnExpiration", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> closeViolationsOnExpiration;
 
     /**
@@ -347,7 +347,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      * 
      */
-    @Export(name="critical", type=NrqlAlertConditionCritical.class, parameters={})
+    @Export(name="critical", refs={NrqlAlertConditionCritical.class}, tree="[0]")
     private Output</* @Nullable */ NrqlAlertConditionCritical> critical;
 
     /**
@@ -361,7 +361,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * The description of the NRQL alert condition.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -375,7 +375,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -389,7 +389,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * The unique entity identifier of the NRQL Condition in New Relic.
      * 
      */
-    @Export(name="entityGuid", type=String.class, parameters={})
+    @Export(name="entityGuid", refs={String.class}, tree="[0]")
     private Output<String> entityGuid;
 
     /**
@@ -403,7 +403,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
      * 
      */
-    @Export(name="evaluationDelay", type=Integer.class, parameters={})
+    @Export(name="evaluationDelay", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> evaluationDelay;
 
     /**
@@ -417,7 +417,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
      * 
      */
-    @Export(name="expirationDuration", type=Integer.class, parameters={})
+    @Export(name="expirationDuration", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> expirationDuration;
 
     /**
@@ -431,7 +431,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
      * 
      */
-    @Export(name="fillOption", type=String.class, parameters={})
+    @Export(name="fillOption", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fillOption;
 
     /**
@@ -445,7 +445,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * This value will be used for filling gaps in the signal.
      * 
      */
-    @Export(name="fillValue", type=Double.class, parameters={})
+    @Export(name="fillValue", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> fillValue;
 
     /**
@@ -459,7 +459,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * The title of the condition.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -473,7 +473,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * A NRQL query. See NRQL below for details.
      * 
      */
-    @Export(name="nrql", type=NrqlAlertConditionNrql.class, parameters={})
+    @Export(name="nrql", refs={NrqlAlertConditionNrql.class}, tree="[0]")
     private Output<NrqlAlertConditionNrql> nrql;
 
     /**
@@ -487,7 +487,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * Whether to create a new incident to capture that the signal expired.
      * 
      */
-    @Export(name="openViolationOnExpiration", type=Boolean.class, parameters={})
+    @Export(name="openViolationOnExpiration", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> openViolationOnExpiration;
 
     /**
@@ -501,7 +501,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * The ID of the policy where this condition should be used.
      * 
      */
-    @Export(name="policyId", type=Integer.class, parameters={})
+    @Export(name="policyId", refs={Integer.class}, tree="[0]")
     private Output<Integer> policyId;
 
     /**
@@ -515,7 +515,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * Runbook URL to display in notifications.
      * 
      */
-    @Export(name="runbookUrl", type=String.class, parameters={})
+    @Export(name="runbookUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runbookUrl;
 
     /**
@@ -529,7 +529,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
      * 
      */
-    @Export(name="slideBy", type=Integer.class, parameters={})
+    @Export(name="slideBy", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> slideBy;
 
     /**
@@ -547,7 +547,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* use `critical` and `warning` attributes instead */
-    @Export(name="terms", type=List.class, parameters={NrqlAlertConditionTerm.class})
+    @Export(name="terms", refs={List.class,NrqlAlertConditionTerm.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NrqlAlertConditionTerm>> terms;
 
     /**
@@ -561,7 +561,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
@@ -580,7 +580,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* use `violation_time_limit_seconds` attribute instead */
-    @Export(name="violationTimeLimit", type=String.class, parameters={})
+    @Export(name="violationTimeLimit", refs={String.class}, tree="[0]")
     private Output<String> violationTimeLimit;
 
     /**
@@ -596,7 +596,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
      * 
      */
-    @Export(name="violationTimeLimitSeconds", type=Integer.class, parameters={})
+    @Export(name="violationTimeLimitSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> violationTimeLimitSeconds;
 
     /**
@@ -611,7 +611,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      * 
      */
-    @Export(name="warning", type=NrqlAlertConditionWarning.class, parameters={})
+    @Export(name="warning", refs={NrqlAlertConditionWarning.class}, tree="[0]")
     private Output</* @Nullable */ NrqlAlertConditionWarning> warning;
 
     /**

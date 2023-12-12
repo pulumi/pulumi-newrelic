@@ -80,10 +80,10 @@ public final class AwsIntegrationsDocDb {
             return this;
         }
         public AwsIntegrationsDocDb build() {
-            final var o = new AwsIntegrationsDocDb();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsDocDb();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

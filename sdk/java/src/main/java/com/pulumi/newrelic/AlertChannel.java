@@ -303,7 +303,7 @@ public class AlertChannel extends com.pulumi.resources.CustomResource {
      * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -317,7 +317,7 @@ public class AlertChannel extends com.pulumi.resources.CustomResource {
      * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      * 
      */
-    @Export(name="config", type=AlertChannelConfig.class, parameters={})
+    @Export(name="config", refs={AlertChannelConfig.class}, tree="[0]")
     private Output</* @Nullable */ AlertChannelConfig> config;
 
     /**
@@ -331,7 +331,7 @@ public class AlertChannel extends com.pulumi.resources.CustomResource {
      * The name of the channel.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -345,7 +345,7 @@ public class AlertChannel extends com.pulumi.resources.CustomResource {
      * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

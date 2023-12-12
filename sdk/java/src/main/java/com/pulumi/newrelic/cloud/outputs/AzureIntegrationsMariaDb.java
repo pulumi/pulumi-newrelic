@@ -76,10 +76,10 @@ public final class AzureIntegrationsMariaDb {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsMariaDb build() {
-            final var o = new AzureIntegrationsMariaDb();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsMariaDb();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

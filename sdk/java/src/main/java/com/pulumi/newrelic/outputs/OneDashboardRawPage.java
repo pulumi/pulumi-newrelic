@@ -110,12 +110,12 @@ public final class OneDashboardRawPage {
             return widgets(List.of(widgets));
         }
         public OneDashboardRawPage build() {
-            final var o = new OneDashboardRawPage();
-            o.description = description;
-            o.guid = guid;
-            o.name = name;
-            o.widgets = widgets;
-            return o;
+            final var _resultValue = new OneDashboardRawPage();
+            _resultValue.description = description;
+            _resultValue.guid = guid;
+            _resultValue.name = name;
+            _resultValue.widgets = widgets;
+            return _resultValue;
         }
     }
 }

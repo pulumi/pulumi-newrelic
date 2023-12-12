@@ -69,10 +69,10 @@ public final class BrokenLinksMonitorTag {
             return values(List.of(values));
         }
         public BrokenLinksMonitorTag build() {
-            final var o = new BrokenLinksMonitorTag();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new BrokenLinksMonitorTag();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

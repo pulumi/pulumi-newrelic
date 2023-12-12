@@ -59,10 +59,10 @@ public final class OneDashboardPageWidgetBulletNullValueSeriesOverride {
             return this;
         }
         public OneDashboardPageWidgetBulletNullValueSeriesOverride build() {
-            final var o = new OneDashboardPageWidgetBulletNullValueSeriesOverride();
-            o.nullValue = nullValue;
-            o.seriesName = seriesName;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetBulletNullValueSeriesOverride();
+            _resultValue.nullValue = nullValue;
+            _resultValue.seriesName = seriesName;
+            return _resultValue;
         }
     }
 }

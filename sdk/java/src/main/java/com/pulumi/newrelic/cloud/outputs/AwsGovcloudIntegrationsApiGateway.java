@@ -136,13 +136,13 @@ public final class AwsGovcloudIntegrationsApiGateway {
             return this;
         }
         public AwsGovcloudIntegrationsApiGateway build() {
-            final var o = new AwsGovcloudIntegrationsApiGateway();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.stagePrefixes = stagePrefixes;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsGovcloudIntegrationsApiGateway();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.stagePrefixes = stagePrefixes;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

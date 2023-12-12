@@ -80,10 +80,10 @@ public final class AwsIntegrationsAwsKinesisAnalytics {
             return this;
         }
         public AwsIntegrationsAwsKinesisAnalytics build() {
-            final var o = new AwsIntegrationsAwsKinesisAnalytics();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsAwsKinesisAnalytics();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

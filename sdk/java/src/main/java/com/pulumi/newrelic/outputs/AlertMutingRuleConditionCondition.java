@@ -88,11 +88,11 @@ public final class AlertMutingRuleConditionCondition {
             return values(List.of(values));
         }
         public AlertMutingRuleConditionCondition build() {
-            final var o = new AlertMutingRuleConditionCondition();
-            o.attribute = attribute;
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new AlertMutingRuleConditionCondition();
+            _resultValue.attribute = attribute;
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -76,10 +76,10 @@ public final class AwsGovcloudIntegrationsCloudtrail {
             return this;
         }
         public AwsGovcloudIntegrationsCloudtrail build() {
-            final var o = new AwsGovcloudIntegrationsCloudtrail();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsGovcloudIntegrationsCloudtrail();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

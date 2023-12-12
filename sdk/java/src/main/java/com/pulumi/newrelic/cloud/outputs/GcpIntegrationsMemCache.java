@@ -52,9 +52,9 @@ public final class GcpIntegrationsMemCache {
             return this;
         }
         public GcpIntegrationsMemCache build() {
-            final var o = new GcpIntegrationsMemCache();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsMemCache();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

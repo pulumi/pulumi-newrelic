@@ -52,9 +52,9 @@ public final class GcpIntegrationsFireBaseHosting {
             return this;
         }
         public GcpIntegrationsFireBaseHosting build() {
-            final var o = new GcpIntegrationsFireBaseHosting();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsFireBaseHosting();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

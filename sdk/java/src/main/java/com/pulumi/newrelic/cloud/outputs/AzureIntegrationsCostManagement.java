@@ -72,10 +72,10 @@ public final class AzureIntegrationsCostManagement {
             return tagKeys(List.of(tagKeys));
         }
         public AzureIntegrationsCostManagement build() {
-            final var o = new AzureIntegrationsCostManagement();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKeys = tagKeys;
-            return o;
+            final var _resultValue = new AzureIntegrationsCostManagement();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKeys = tagKeys;
+            return _resultValue;
         }
     }
 }

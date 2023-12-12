@@ -126,7 +126,7 @@ public class OneDashboardRaw extends com.pulumi.resources.CustomResource {
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -140,7 +140,7 @@ public class OneDashboardRaw extends com.pulumi.resources.CustomResource {
      * Brief text describing the dashboard.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -154,7 +154,7 @@ public class OneDashboardRaw extends com.pulumi.resources.CustomResource {
      * The unique entity identifier of the dashboard page in New Relic.
      * 
      */
-    @Export(name="guid", type=String.class, parameters={})
+    @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
     /**
@@ -168,7 +168,7 @@ public class OneDashboardRaw extends com.pulumi.resources.CustomResource {
      * The title of the dashboard.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -182,7 +182,7 @@ public class OneDashboardRaw extends com.pulumi.resources.CustomResource {
      * A nested block that describes a page. See Nested page blocks below for details.
      * 
      */
-    @Export(name="pages", type=List.class, parameters={OneDashboardRawPage.class})
+    @Export(name="pages", refs={List.class,OneDashboardRawPage.class}, tree="[0,1]")
     private Output<List<OneDashboardRawPage>> pages;
 
     /**
@@ -196,7 +196,7 @@ public class OneDashboardRaw extends com.pulumi.resources.CustomResource {
      * The URL for viewing the dashboard.
      * 
      */
-    @Export(name="permalink", type=String.class, parameters={})
+    @Export(name="permalink", refs={String.class}, tree="[0]")
     private Output<String> permalink;
 
     /**
@@ -210,7 +210,7 @@ public class OneDashboardRaw extends com.pulumi.resources.CustomResource {
      * Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`. Defaults to `public_read_only`.
      * 
      */
-    @Export(name="permissions", type=String.class, parameters={})
+    @Export(name="permissions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> permissions;
 
     /**

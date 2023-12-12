@@ -74,7 +74,7 @@ public class AwsLinkAccount extends com.pulumi.resources.CustomResource {
      * The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -88,7 +88,7 @@ public class AwsLinkAccount extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the IAM role.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -102,7 +102,7 @@ public class AwsLinkAccount extends com.pulumi.resources.CustomResource {
      * How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
      * 
      */
-    @Export(name="metricCollectionMode", type=String.class, parameters={})
+    @Export(name="metricCollectionMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metricCollectionMode;
 
     /**
@@ -116,7 +116,7 @@ public class AwsLinkAccount extends com.pulumi.resources.CustomResource {
      * The name of the linked account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

@@ -52,9 +52,9 @@ public final class GcpIntegrationsRedis {
             return this;
         }
         public GcpIntegrationsRedis build() {
-            final var o = new GcpIntegrationsRedis();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsRedis();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

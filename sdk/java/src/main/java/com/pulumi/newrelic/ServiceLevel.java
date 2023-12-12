@@ -247,7 +247,7 @@ public class ServiceLevel extends com.pulumi.resources.CustomResource {
      * The description of the SLI.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -262,7 +262,7 @@ public class ServiceLevel extends com.pulumi.resources.CustomResource {
      * See Events below for details.
      * 
      */
-    @Export(name="events", type=ServiceLevelEvents.class, parameters={})
+    @Export(name="events", refs={ServiceLevelEvents.class}, tree="[0]")
     private Output<ServiceLevelEvents> events;
 
     /**
@@ -277,7 +277,7 @@ public class ServiceLevel extends com.pulumi.resources.CustomResource {
      * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
      * 
      */
-    @Export(name="guid", type=String.class, parameters={})
+    @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
     /**
@@ -291,7 +291,7 @@ public class ServiceLevel extends com.pulumi.resources.CustomResource {
      * A short name for the SLI that will help anyone understand what it is about.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -306,7 +306,7 @@ public class ServiceLevel extends com.pulumi.resources.CustomResource {
      * See Objective below for details.
      * 
      */
-    @Export(name="objective", type=ServiceLevelObjective.class, parameters={})
+    @Export(name="objective", refs={ServiceLevelObjective.class}, tree="[0]")
     private Output<ServiceLevelObjective> objective;
 
     /**
@@ -321,7 +321,7 @@ public class ServiceLevel extends com.pulumi.resources.CustomResource {
      * The unique entity identifier of the Service Level Indicator in New Relic.
      * 
      */
-    @Export(name="sliGuid", type=String.class, parameters={})
+    @Export(name="sliGuid", refs={String.class}, tree="[0]")
     private Output<String> sliGuid;
 
     /**
@@ -335,7 +335,7 @@ public class ServiceLevel extends com.pulumi.resources.CustomResource {
      * The unique entity identifier of the Service Level Indicator.
      * 
      */
-    @Export(name="sliId", type=String.class, parameters={})
+    @Export(name="sliId", refs={String.class}, tree="[0]")
     private Output<String> sliId;
 
     /**

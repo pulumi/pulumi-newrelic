@@ -161,7 +161,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -179,7 +179,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
-    @Export(name="channelIds", type=List.class, parameters={Integer.class})
+    @Export(name="channelIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> channelIds;
 
     /**
@@ -193,7 +193,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
      * 
      */
-    @Export(name="incidentPreference", type=String.class, parameters={})
+    @Export(name="incidentPreference", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> incidentPreference;
 
     /**
@@ -207,7 +207,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * The name of the policy.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

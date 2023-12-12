@@ -52,9 +52,9 @@ public final class GcpIntegrationsFunctions {
             return this;
         }
         public GcpIntegrationsFunctions build() {
-            final var o = new GcpIntegrationsFunctions();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsFunctions();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

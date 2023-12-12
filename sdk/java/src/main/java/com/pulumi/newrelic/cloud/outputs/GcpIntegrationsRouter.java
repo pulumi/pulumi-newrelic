@@ -52,9 +52,9 @@ public final class GcpIntegrationsRouter {
             return this;
         }
         public GcpIntegrationsRouter build() {
-            final var o = new GcpIntegrationsRouter();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsRouter();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

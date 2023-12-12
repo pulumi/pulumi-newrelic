@@ -68,10 +68,10 @@ public final class OneDashboardPageWidgetPyNrqlQuery {
             return this;
         }
         public OneDashboardPageWidgetPyNrqlQuery build() {
-            final var o = new OneDashboardPageWidgetPyNrqlQuery();
-            o.accountId = accountId;
-            o.query = query;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetPyNrqlQuery();
+            _resultValue.accountId = accountId;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

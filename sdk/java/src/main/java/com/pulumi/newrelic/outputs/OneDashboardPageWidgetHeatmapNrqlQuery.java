@@ -68,10 +68,10 @@ public final class OneDashboardPageWidgetHeatmapNrqlQuery {
             return this;
         }
         public OneDashboardPageWidgetHeatmapNrqlQuery build() {
-            final var o = new OneDashboardPageWidgetHeatmapNrqlQuery();
-            o.accountId = accountId;
-            o.query = query;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetHeatmapNrqlQuery();
+            _resultValue.accountId = accountId;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

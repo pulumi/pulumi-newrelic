@@ -59,10 +59,10 @@ public final class OneDashboardPageWidgetBulletColorSeriesOverride {
             return this;
         }
         public OneDashboardPageWidgetBulletColorSeriesOverride build() {
-            final var o = new OneDashboardPageWidgetBulletColorSeriesOverride();
-            o.color = color;
-            o.seriesName = seriesName;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetBulletColorSeriesOverride();
+            _resultValue.color = color;
+            _resultValue.seriesName = seriesName;
+            return _resultValue;
         }
     }
 }

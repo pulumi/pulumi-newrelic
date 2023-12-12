@@ -77,7 +77,7 @@ public class AzureLinkAccount extends com.pulumi.resources.CustomResource {
      * Account ID of the New Relic.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -91,7 +91,7 @@ public class AzureLinkAccount extends com.pulumi.resources.CustomResource {
      * Application ID of the App.
      * 
      */
-    @Export(name="applicationId", type=String.class, parameters={})
+    @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
@@ -105,7 +105,7 @@ public class AzureLinkAccount extends com.pulumi.resources.CustomResource {
      * Secret Value of the client.
      * 
      */
-    @Export(name="clientSecret", type=String.class, parameters={})
+    @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output<String> clientSecret;
 
     /**
@@ -119,7 +119,7 @@ public class AzureLinkAccount extends com.pulumi.resources.CustomResource {
      * Name of the linked account
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -133,7 +133,7 @@ public class AzureLinkAccount extends com.pulumi.resources.CustomResource {
      * Subscription ID of the Azure cloud account.
      * 
      */
-    @Export(name="subscriptionId", type=String.class, parameters={})
+    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
     private Output<String> subscriptionId;
 
     /**
@@ -147,7 +147,7 @@ public class AzureLinkAccount extends com.pulumi.resources.CustomResource {
      * Tenant ID of the Azure cloud account.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**

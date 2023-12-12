@@ -76,10 +76,10 @@ public final class AzureIntegrationsVpnGateway {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsVpnGateway build() {
-            final var o = new AzureIntegrationsVpnGateway();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsVpnGateway();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }
