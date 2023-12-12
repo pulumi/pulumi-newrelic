@@ -2364,6 +2364,7 @@
             }
         }
     },
+    "auto-settings": {},
     "renames": {
         "resources": {
             "newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations": "newrelic_cloud_aws_govcloud_integrations",
