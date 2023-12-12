@@ -76,10 +76,10 @@ public final class AzureIntegrationsPowerBiDedicated {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsPowerBiDedicated build() {
-            final var o = new AzureIntegrationsPowerBiDedicated();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsPowerBiDedicated();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

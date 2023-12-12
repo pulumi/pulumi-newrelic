@@ -95,7 +95,7 @@ public class AlertPolicyChannel extends com.pulumi.resources.CustomResource {
      * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -109,7 +109,7 @@ public class AlertPolicyChannel extends com.pulumi.resources.CustomResource {
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      * 
      */
-    @Export(name="channelIds", type=List.class, parameters={Integer.class})
+    @Export(name="channelIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output<List<Integer>> channelIds;
 
     /**
@@ -123,7 +123,7 @@ public class AlertPolicyChannel extends com.pulumi.resources.CustomResource {
      * The ID of the policy.
      * 
      */
-    @Export(name="policyId", type=Integer.class, parameters={})
+    @Export(name="policyId", refs={Integer.class}, tree="[0]")
     private Output<Integer> policyId;
 
     /**

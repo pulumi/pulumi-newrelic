@@ -80,7 +80,7 @@ public class NrqlDropRule extends com.pulumi.resources.CustomResource {
      * Account where the drop rule will be put. Defaults to the account associated with the API key used.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -94,7 +94,7 @@ public class NrqlDropRule extends com.pulumi.resources.CustomResource {
      * An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
      * 
      */
-    @Export(name="action", type=String.class, parameters={})
+    @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
@@ -108,7 +108,7 @@ public class NrqlDropRule extends com.pulumi.resources.CustomResource {
      * The description of the drop rule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -122,7 +122,7 @@ public class NrqlDropRule extends com.pulumi.resources.CustomResource {
      * A NRQL string that specifies what data types to drop.
      * 
      */
-    @Export(name="nrql", type=String.class, parameters={})
+    @Export(name="nrql", refs={String.class}, tree="[0]")
     private Output<String> nrql;
 
     /**
@@ -136,7 +136,7 @@ public class NrqlDropRule extends com.pulumi.resources.CustomResource {
      * The id, uniquely identifying the rule.
      * 
      */
-    @Export(name="ruleId", type=String.class, parameters={})
+    @Export(name="ruleId", refs={String.class}, tree="[0]")
     private Output<String> ruleId;
 
     /**

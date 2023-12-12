@@ -548,7 +548,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -562,7 +562,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * Indicates whether the channel is active.
      * 
      */
-    @Export(name="active", type=Boolean.class, parameters={})
+    @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
     /**
@@ -576,7 +576,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * The id of the destination.
      * 
      */
-    @Export(name="destinationId", type=String.class, parameters={})
+    @Export(name="destinationId", refs={String.class}, tree="[0]")
     private Output<String> destinationId;
 
     /**
@@ -590,7 +590,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * The name of the channel.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -604,7 +604,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
      * 
      */
-    @Export(name="product", type=String.class, parameters={})
+    @Export(name="product", refs={String.class}, tree="[0]")
     private Output<String> product;
 
     /**
@@ -618,7 +618,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * A nested block that describes a notification channel property. See Nested property blocks below for details.
      * 
      */
-    @Export(name="properties", type=List.class, parameters={NotificationChannelProperty.class})
+    @Export(name="properties", refs={List.class,NotificationChannelProperty.class}, tree="[0,1]")
     private Output<List<NotificationChannelProperty>> properties;
 
     /**
@@ -632,7 +632,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * The status of the channel.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -646,7 +646,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

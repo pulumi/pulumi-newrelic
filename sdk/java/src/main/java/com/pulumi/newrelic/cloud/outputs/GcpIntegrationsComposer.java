@@ -52,9 +52,9 @@ public final class GcpIntegrationsComposer {
             return this;
         }
         public GcpIntegrationsComposer build() {
-            final var o = new GcpIntegrationsComposer();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsComposer();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

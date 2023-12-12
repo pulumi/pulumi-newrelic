@@ -90,11 +90,11 @@ public final class GetTestGrokPatternTestGrok {
             return this;
         }
         public GetTestGrokPatternTestGrok build() {
-            final var o = new GetTestGrokPatternTestGrok();
-            o.attributes = attributes;
-            o.logLine = logLine;
-            o.matched = matched;
-            return o;
+            final var _resultValue = new GetTestGrokPatternTestGrok();
+            _resultValue.attributes = attributes;
+            _resultValue.logLine = logLine;
+            _resultValue.matched = matched;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEn
             return this;
         }
         public WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup build() {
-            final var o = new WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup();
-            o.groupBy = groupBy;
-            o.strategy = strategy;
-            o.thresholdType = thresholdType;
-            o.thresholdValue = thresholdValue;
-            return o;
+            final var _resultValue = new WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup();
+            _resultValue.groupBy = groupBy;
+            _resultValue.strategy = strategy;
+            _resultValue.thresholdType = thresholdType;
+            _resultValue.thresholdValue = thresholdValue;
+            return _resultValue;
         }
     }
 }

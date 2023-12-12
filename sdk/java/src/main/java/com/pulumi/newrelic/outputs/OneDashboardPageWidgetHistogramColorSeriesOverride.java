@@ -59,10 +59,10 @@ public final class OneDashboardPageWidgetHistogramColorSeriesOverride {
             return this;
         }
         public OneDashboardPageWidgetHistogramColorSeriesOverride build() {
-            final var o = new OneDashboardPageWidgetHistogramColorSeriesOverride();
-            o.color = color;
-            o.seriesName = seriesName;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetHistogramColorSeriesOverride();
+            _resultValue.color = color;
+            _resultValue.seriesName = seriesName;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class OneDashboardPageWidgetFunnelNrqlQuery {
             return this;
         }
         public OneDashboardPageWidgetFunnelNrqlQuery build() {
-            final var o = new OneDashboardPageWidgetFunnelNrqlQuery();
-            o.accountId = accountId;
-            o.query = query;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetFunnelNrqlQuery();
+            _resultValue.accountId = accountId;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

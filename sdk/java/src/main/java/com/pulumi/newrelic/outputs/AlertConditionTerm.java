@@ -86,13 +86,13 @@ public final class AlertConditionTerm {
             return this;
         }
         public AlertConditionTerm build() {
-            final var o = new AlertConditionTerm();
-            o.duration = duration;
-            o.operator = operator;
-            o.priority = priority;
-            o.threshold = threshold;
-            o.timeFunction = timeFunction;
-            return o;
+            final var _resultValue = new AlertConditionTerm();
+            _resultValue.duration = duration;
+            _resultValue.operator = operator;
+            _resultValue.priority = priority;
+            _resultValue.threshold = threshold;
+            _resultValue.timeFunction = timeFunction;
+            return _resultValue;
         }
     }
 }

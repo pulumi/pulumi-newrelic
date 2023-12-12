@@ -68,10 +68,10 @@ public final class OneDashboardPageWidgetStackedBarNrqlQuery {
             return this;
         }
         public OneDashboardPageWidgetStackedBarNrqlQuery build() {
-            final var o = new OneDashboardPageWidgetStackedBarNrqlQuery();
-            o.accountId = accountId;
-            o.query = query;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetStackedBarNrqlQuery();
+            _resultValue.accountId = accountId;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

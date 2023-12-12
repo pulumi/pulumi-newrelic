@@ -104,11 +104,11 @@ public final class AwsIntegrationsSns {
             return this;
         }
         public AwsIntegrationsSns build() {
-            final var o = new AwsIntegrationsSns();
-            o.awsRegions = awsRegions;
-            o.fetchExtendedInventory = fetchExtendedInventory;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsSns();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.fetchExtendedInventory = fetchExtendedInventory;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

@@ -33,7 +33,7 @@ public class EntityTags extends com.pulumi.resources.CustomResource {
      * The guid of the entity to tag.
      * 
      */
-    @Export(name="guid", type=String.class, parameters={})
+    @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
     /**
@@ -47,7 +47,7 @@ public class EntityTags extends com.pulumi.resources.CustomResource {
      * A nested block that describes an entity tag. See Nested tag blocks below for details.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={EntityTagsTag.class})
+    @Export(name="tags", refs={List.class,EntityTagsTag.class}, tree="[0,1]")
     private Output<List<EntityTagsTag>> tags;
 
     /**

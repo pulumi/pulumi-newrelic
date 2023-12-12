@@ -80,10 +80,10 @@ public final class AwsIntegrationsCloudtrail {
             return this;
         }
         public AwsIntegrationsCloudtrail build() {
-            final var o = new AwsIntegrationsCloudtrail();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsCloudtrail();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

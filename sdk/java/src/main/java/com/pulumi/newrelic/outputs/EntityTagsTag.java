@@ -69,10 +69,10 @@ public final class EntityTagsTag {
             return values(List.of(values));
         }
         public EntityTagsTag build() {
-            final var o = new EntityTagsTag();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new EntityTagsTag();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

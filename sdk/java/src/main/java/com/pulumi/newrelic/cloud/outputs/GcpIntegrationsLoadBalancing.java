@@ -52,9 +52,9 @@ public final class GcpIntegrationsLoadBalancing {
             return this;
         }
         public GcpIntegrationsLoadBalancing build() {
-            final var o = new GcpIntegrationsLoadBalancing();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsLoadBalancing();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

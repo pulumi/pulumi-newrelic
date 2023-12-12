@@ -80,10 +80,10 @@ public final class AwsIntegrationsAwsTransitGateway {
             return this;
         }
         public AwsIntegrationsAwsTransitGateway build() {
-            final var o = new AwsIntegrationsAwsTransitGateway();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsAwsTransitGateway();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

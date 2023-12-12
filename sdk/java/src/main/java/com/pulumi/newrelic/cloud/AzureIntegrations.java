@@ -281,7 +281,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -295,7 +295,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure API Management. See Integration blocks below for details.
      * 
      */
-    @Export(name="apiManagement", type=AzureIntegrationsApiManagement.class, parameters={})
+    @Export(name="apiManagement", refs={AzureIntegrationsApiManagement.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsApiManagement> apiManagement;
 
     /**
@@ -309,7 +309,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure App Gateway. See Integration blocks below for details.
      * 
      */
-    @Export(name="appGateway", type=AzureIntegrationsAppGateway.class, parameters={})
+    @Export(name="appGateway", refs={AzureIntegrationsAppGateway.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsAppGateway> appGateway;
 
     /**
@@ -323,7 +323,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure App Service. See Integration blocks below for details.
      * 
      */
-    @Export(name="appService", type=AzureIntegrationsAppService.class, parameters={})
+    @Export(name="appService", refs={AzureIntegrationsAppService.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsAppService> appService;
 
     /**
@@ -337,7 +337,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Containers. See Integration blocks below for details.
      * 
      */
-    @Export(name="containers", type=AzureIntegrationsContainers.class, parameters={})
+    @Export(name="containers", refs={AzureIntegrationsContainers.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsContainers> containers;
 
     /**
@@ -351,7 +351,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure CosmosDB. See Integration blocks below for details.
      * 
      */
-    @Export(name="cosmosDb", type=AzureIntegrationsCosmosDb.class, parameters={})
+    @Export(name="cosmosDb", refs={AzureIntegrationsCosmosDb.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsCosmosDb> cosmosDb;
 
     /**
@@ -365,7 +365,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Cost Management. See Integration blocks below for details.
      * 
      */
-    @Export(name="costManagement", type=AzureIntegrationsCostManagement.class, parameters={})
+    @Export(name="costManagement", refs={AzureIntegrationsCostManagement.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsCostManagement> costManagement;
 
     /**
@@ -379,7 +379,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Data Factory. See Integration blocks below for details.
      * 
      */
-    @Export(name="dataFactory", type=AzureIntegrationsDataFactory.class, parameters={})
+    @Export(name="dataFactory", refs={AzureIntegrationsDataFactory.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsDataFactory> dataFactory;
 
     /**
@@ -393,7 +393,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Event Hub. See Integration blocks below for details.
      * 
      */
-    @Export(name="eventHub", type=AzureIntegrationsEventHub.class, parameters={})
+    @Export(name="eventHub", refs={AzureIntegrationsEventHub.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsEventHub> eventHub;
 
     /**
@@ -407,7 +407,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Express Route. See Integration blocks below for details.
      * 
      */
-    @Export(name="expressRoute", type=AzureIntegrationsExpressRoute.class, parameters={})
+    @Export(name="expressRoute", refs={AzureIntegrationsExpressRoute.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsExpressRoute> expressRoute;
 
     /**
@@ -421,7 +421,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Firewalls. See Integration blocks below for details.
      * 
      */
-    @Export(name="firewalls", type=AzureIntegrationsFirewalls.class, parameters={})
+    @Export(name="firewalls", refs={AzureIntegrationsFirewalls.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsFirewalls> firewalls;
 
     /**
@@ -435,7 +435,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Front Door. See Integration blocks below for details.
      * 
      */
-    @Export(name="frontDoor", type=AzureIntegrationsFrontDoor.class, parameters={})
+    @Export(name="frontDoor", refs={AzureIntegrationsFrontDoor.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsFrontDoor> frontDoor;
 
     /**
@@ -449,7 +449,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Functions. See Integration blocks below for details.
      * 
      */
-    @Export(name="functions", type=AzureIntegrationsFunctions.class, parameters={})
+    @Export(name="functions", refs={AzureIntegrationsFunctions.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsFunctions> functions;
 
     /**
@@ -463,7 +463,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Key Vault. See Integration blocks below for details.
      * 
      */
-    @Export(name="keyVault", type=AzureIntegrationsKeyVault.class, parameters={})
+    @Export(name="keyVault", refs={AzureIntegrationsKeyVault.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsKeyVault> keyVault;
 
     /**
@@ -477,7 +477,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * The ID of the linked Azure account in New Relic.
      * 
      */
-    @Export(name="linkedAccountId", type=Integer.class, parameters={})
+    @Export(name="linkedAccountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> linkedAccountId;
 
     /**
@@ -491,7 +491,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Load Balancer. See Integration blocks below for details.
      * 
      */
-    @Export(name="loadBalancer", type=AzureIntegrationsLoadBalancer.class, parameters={})
+    @Export(name="loadBalancer", refs={AzureIntegrationsLoadBalancer.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsLoadBalancer> loadBalancer;
 
     /**
@@ -505,7 +505,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Logic Apps. See Integration blocks below for details.
      * 
      */
-    @Export(name="logicApps", type=AzureIntegrationsLogicApps.class, parameters={})
+    @Export(name="logicApps", refs={AzureIntegrationsLogicApps.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsLogicApps> logicApps;
 
     /**
@@ -519,7 +519,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Machine Learning. See Integration blocks below for details.
      * 
      */
-    @Export(name="machineLearning", type=AzureIntegrationsMachineLearning.class, parameters={})
+    @Export(name="machineLearning", refs={AzureIntegrationsMachineLearning.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsMachineLearning> machineLearning;
 
     /**
@@ -533,7 +533,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure MariaDB. See Integration blocks below for details.
      * 
      */
-    @Export(name="mariaDb", type=AzureIntegrationsMariaDb.class, parameters={})
+    @Export(name="mariaDb", refs={AzureIntegrationsMariaDb.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsMariaDb> mariaDb;
 
     /**
@@ -547,7 +547,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Monitor. See Integration blocks below for details.
      * 
      */
-    @Export(name="monitor", type=AzureIntegrationsMonitor.class, parameters={})
+    @Export(name="monitor", refs={AzureIntegrationsMonitor.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsMonitor> monitor;
 
     /**
@@ -561,7 +561,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure MySQL. See Integration blocks below for details.
      * 
      */
-    @Export(name="mysql", type=AzureIntegrationsMysql.class, parameters={})
+    @Export(name="mysql", refs={AzureIntegrationsMysql.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsMysql> mysql;
 
     /**
@@ -575,7 +575,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure MySQL Flexible Server. See Integration blocks below for details.
      * 
      */
-    @Export(name="mysqlFlexible", type=AzureIntegrationsMysqlFlexible.class, parameters={})
+    @Export(name="mysqlFlexible", refs={AzureIntegrationsMysqlFlexible.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsMysqlFlexible> mysqlFlexible;
 
     /**
@@ -589,7 +589,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure PostgreSQL. See Integration blocks below for details.
      * 
      */
-    @Export(name="postgresql", type=AzureIntegrationsPostgresql.class, parameters={})
+    @Export(name="postgresql", refs={AzureIntegrationsPostgresql.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsPostgresql> postgresql;
 
     /**
@@ -603,7 +603,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure PostgreSQL Flexible Server. See Integration blocks below for details.
      * 
      */
-    @Export(name="postgresqlFlexible", type=AzureIntegrationsPostgresqlFlexible.class, parameters={})
+    @Export(name="postgresqlFlexible", refs={AzureIntegrationsPostgresqlFlexible.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsPostgresqlFlexible> postgresqlFlexible;
 
     /**
@@ -617,7 +617,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Power BI Dedicated. See Integration blocks below for details.
      * 
      */
-    @Export(name="powerBiDedicated", type=AzureIntegrationsPowerBiDedicated.class, parameters={})
+    @Export(name="powerBiDedicated", refs={AzureIntegrationsPowerBiDedicated.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsPowerBiDedicated> powerBiDedicated;
 
     /**
@@ -631,7 +631,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Redis Cache. See Integration blocks below for details.
      * 
      */
-    @Export(name="redisCache", type=AzureIntegrationsRedisCache.class, parameters={})
+    @Export(name="redisCache", refs={AzureIntegrationsRedisCache.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsRedisCache> redisCache;
 
     /**
@@ -645,7 +645,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Service Bus. See Integration blocks below for details.
      * 
      */
-    @Export(name="serviceBus", type=AzureIntegrationsServiceBus.class, parameters={})
+    @Export(name="serviceBus", refs={AzureIntegrationsServiceBus.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsServiceBus> serviceBus;
 
     /**
@@ -659,7 +659,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure SQL. See Integration blocks below for details.
      * 
      */
-    @Export(name="sql", type=AzureIntegrationsSql.class, parameters={})
+    @Export(name="sql", refs={AzureIntegrationsSql.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsSql> sql;
 
     /**
@@ -673,7 +673,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure SQL Managed. See Integration blocks below for details.
      * 
      */
-    @Export(name="sqlManaged", type=AzureIntegrationsSqlManaged.class, parameters={})
+    @Export(name="sqlManaged", refs={AzureIntegrationsSqlManaged.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsSqlManaged> sqlManaged;
 
     /**
@@ -687,7 +687,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * for Azure Storage. See Integration blocks below for details.
      * 
      */
-    @Export(name="storage", type=AzureIntegrationsStorage.class, parameters={})
+    @Export(name="storage", refs={AzureIntegrationsStorage.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsStorage> storage;
 
     /**
@@ -701,7 +701,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure Virtual machine. See Integration blocks below for details.
      * 
      */
-    @Export(name="virtualMachine", type=AzureIntegrationsVirtualMachine.class, parameters={})
+    @Export(name="virtualMachine", refs={AzureIntegrationsVirtualMachine.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsVirtualMachine> virtualMachine;
 
     /**
@@ -717,7 +717,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Below argument supports the minimum metric polling interval of 3600 seconds
      * 
      */
-    @Export(name="virtualNetworks", type=AzureIntegrationsVirtualNetworks.class, parameters={})
+    @Export(name="virtualNetworks", refs={AzureIntegrationsVirtualNetworks.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsVirtualNetworks> virtualNetworks;
 
     /**
@@ -733,7 +733,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Azure VMs. See Integration blocks below for details.
      * 
      */
-    @Export(name="vms", type=AzureIntegrationsVms.class, parameters={})
+    @Export(name="vms", refs={AzureIntegrationsVms.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsVms> vms;
 
     /**
@@ -749,7 +749,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * Below arguments supports the minimum metric polling interval of 900 seconds
      * 
      */
-    @Export(name="vpnGateway", type=AzureIntegrationsVpnGateway.class, parameters={})
+    @Export(name="vpnGateway", refs={AzureIntegrationsVpnGateway.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsVpnGateway> vpnGateway;
 
     /**

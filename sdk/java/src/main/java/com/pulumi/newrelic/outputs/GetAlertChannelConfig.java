@@ -250,28 +250,28 @@ public final class GetAlertChannelConfig {
             return this;
         }
         public GetAlertChannelConfig build() {
-            final var o = new GetAlertChannelConfig();
-            o.apiKey = apiKey;
-            o.authPassword = authPassword;
-            o.authType = authType;
-            o.authUsername = authUsername;
-            o.baseUrl = baseUrl;
-            o.channel = channel;
-            o.headers = headers;
-            o.includeJsonAttachment = includeJsonAttachment;
-            o.key = key;
-            o.payload = payload;
-            o.payloadString = payloadString;
-            o.payloadType = payloadType;
-            o.recipients = recipients;
-            o.region = region;
-            o.routeKey = routeKey;
-            o.serviceKey = serviceKey;
-            o.tags = tags;
-            o.teams = teams;
-            o.url = url;
-            o.userId = userId;
-            return o;
+            final var _resultValue = new GetAlertChannelConfig();
+            _resultValue.apiKey = apiKey;
+            _resultValue.authPassword = authPassword;
+            _resultValue.authType = authType;
+            _resultValue.authUsername = authUsername;
+            _resultValue.baseUrl = baseUrl;
+            _resultValue.channel = channel;
+            _resultValue.headers = headers;
+            _resultValue.includeJsonAttachment = includeJsonAttachment;
+            _resultValue.key = key;
+            _resultValue.payload = payload;
+            _resultValue.payloadString = payloadString;
+            _resultValue.payloadType = payloadType;
+            _resultValue.recipients = recipients;
+            _resultValue.region = region;
+            _resultValue.routeKey = routeKey;
+            _resultValue.serviceKey = serviceKey;
+            _resultValue.tags = tags;
+            _resultValue.teams = teams;
+            _resultValue.url = url;
+            _resultValue.userId = userId;
+            return _resultValue;
         }
     }
 }

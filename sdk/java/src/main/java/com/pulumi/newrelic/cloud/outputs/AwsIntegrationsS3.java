@@ -136,13 +136,13 @@ public final class AwsIntegrationsS3 {
             return this;
         }
         public AwsIntegrationsS3 build() {
-            final var o = new AwsIntegrationsS3();
-            o.fetchExtendedInventory = fetchExtendedInventory;
-            o.fetchTags = fetchTags;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsIntegrationsS3();
+            _resultValue.fetchExtendedInventory = fetchExtendedInventory;
+            _resultValue.fetchTags = fetchTags;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

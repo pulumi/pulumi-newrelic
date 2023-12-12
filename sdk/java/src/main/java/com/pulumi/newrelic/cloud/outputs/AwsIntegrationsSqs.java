@@ -183,15 +183,15 @@ public final class AwsIntegrationsSqs {
             return this;
         }
         public AwsIntegrationsSqs build() {
-            final var o = new AwsIntegrationsSqs();
-            o.awsRegions = awsRegions;
-            o.fetchExtendedInventory = fetchExtendedInventory;
-            o.fetchTags = fetchTags;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.queuePrefixes = queuePrefixes;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsIntegrationsSqs();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.fetchExtendedInventory = fetchExtendedInventory;
+            _resultValue.fetchTags = fetchTags;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.queuePrefixes = queuePrefixes;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

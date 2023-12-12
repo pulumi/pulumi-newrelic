@@ -76,10 +76,10 @@ public final class AzureIntegrationsKeyVault {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsKeyVault build() {
-            final var o = new AzureIntegrationsKeyVault();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsKeyVault();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

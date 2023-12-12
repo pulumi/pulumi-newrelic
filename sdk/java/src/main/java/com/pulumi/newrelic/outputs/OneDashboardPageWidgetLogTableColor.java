@@ -72,10 +72,10 @@ public final class OneDashboardPageWidgetLogTableColor {
             return seriesOverrides(List.of(seriesOverrides));
         }
         public OneDashboardPageWidgetLogTableColor build() {
-            final var o = new OneDashboardPageWidgetLogTableColor();
-            o.color = color;
-            o.seriesOverrides = seriesOverrides;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetLogTableColor();
+            _resultValue.color = color;
+            _resultValue.seriesOverrides = seriesOverrides;
+            return _resultValue;
         }
     }
 }

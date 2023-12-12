@@ -107,13 +107,13 @@ public final class GetSecureCredentialResult {
             return this;
         }
         public GetSecureCredentialResult build() {
-            final var o = new GetSecureCredentialResult();
-            o.accountId = accountId;
-            o.description = description;
-            o.id = id;
-            o.key = key;
-            o.lastUpdated = lastUpdated;
-            return o;
+            final var _resultValue = new GetSecureCredentialResult();
+            _resultValue.accountId = accountId;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.lastUpdated = lastUpdated;
+            return _resultValue;
         }
     }
 }

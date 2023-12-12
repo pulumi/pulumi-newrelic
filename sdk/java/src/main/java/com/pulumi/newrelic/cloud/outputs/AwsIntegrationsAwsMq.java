@@ -80,10 +80,10 @@ public final class AwsIntegrationsAwsMq {
             return this;
         }
         public AwsIntegrationsAwsMq build() {
-            final var o = new AwsIntegrationsAwsMq();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsAwsMq();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

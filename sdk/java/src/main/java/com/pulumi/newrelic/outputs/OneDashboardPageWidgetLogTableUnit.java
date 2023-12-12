@@ -72,10 +72,10 @@ public final class OneDashboardPageWidgetLogTableUnit {
             return this;
         }
         public OneDashboardPageWidgetLogTableUnit build() {
-            final var o = new OneDashboardPageWidgetLogTableUnit();
-            o.seriesOverrides = seriesOverrides;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetLogTableUnit();
+            _resultValue.seriesOverrides = seriesOverrides;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

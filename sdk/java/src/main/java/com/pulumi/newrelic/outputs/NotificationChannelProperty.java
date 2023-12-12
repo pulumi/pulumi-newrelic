@@ -109,12 +109,12 @@ public final class NotificationChannelProperty {
             return this;
         }
         public NotificationChannelProperty build() {
-            final var o = new NotificationChannelProperty();
-            o.displayValue = displayValue;
-            o.key = key;
-            o.label = label;
-            o.value = value;
-            return o;
+            final var _resultValue = new NotificationChannelProperty();
+            _resultValue.displayValue = displayValue;
+            _resultValue.key = key;
+            _resultValue.label = label;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

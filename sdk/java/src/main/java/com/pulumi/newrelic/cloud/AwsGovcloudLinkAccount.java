@@ -66,7 +66,7 @@ public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource 
      * The access key of the AwsGovCloud.
      * 
      */
-    @Export(name="accessKeyId", type=String.class, parameters={})
+    @Export(name="accessKeyId", refs={String.class}, tree="[0]")
     private Output<String> accessKeyId;
 
     /**
@@ -80,7 +80,7 @@ public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource 
      * The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -94,7 +94,7 @@ public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource 
      * The AwsGovCloud account ID.
      * 
      */
-    @Export(name="awsAccountId", type=String.class, parameters={})
+    @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
     /**
@@ -108,7 +108,7 @@ public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource 
      * How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
      * 
      */
-    @Export(name="metricCollectionMode", type=String.class, parameters={})
+    @Export(name="metricCollectionMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metricCollectionMode;
 
     /**
@@ -122,7 +122,7 @@ public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource 
      * The linked account name
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -136,7 +136,7 @@ public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource 
      * The secret key of the AwsGovCloud.
      * 
      */
-    @Export(name="secretAccessKey", type=String.class, parameters={})
+    @Export(name="secretAccessKey", refs={String.class}, tree="[0]")
     private Output<String> secretAccessKey;
 
     /**

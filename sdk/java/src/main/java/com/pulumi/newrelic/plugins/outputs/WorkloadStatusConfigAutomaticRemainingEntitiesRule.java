@@ -46,9 +46,9 @@ public final class WorkloadStatusConfigAutomaticRemainingEntitiesRule {
             return this;
         }
         public WorkloadStatusConfigAutomaticRemainingEntitiesRule build() {
-            final var o = new WorkloadStatusConfigAutomaticRemainingEntitiesRule();
-            o.remainingEntitiesRuleRollup = remainingEntitiesRuleRollup;
-            return o;
+            final var _resultValue = new WorkloadStatusConfigAutomaticRemainingEntitiesRule();
+            _resultValue.remainingEntitiesRuleRollup = remainingEntitiesRuleRollup;
+            return _resultValue;
         }
     }
 }

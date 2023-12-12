@@ -94,12 +94,12 @@ public final class WorkflowIssuesFilter {
             return this;
         }
         public WorkflowIssuesFilter build() {
-            final var o = new WorkflowIssuesFilter();
-            o.filterId = filterId;
-            o.name = name;
-            o.predicates = predicates;
-            o.type = type;
-            return o;
+            final var _resultValue = new WorkflowIssuesFilter();
+            _resultValue.filterId = filterId;
+            _resultValue.name = name;
+            _resultValue.predicates = predicates;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -80,10 +80,10 @@ public final class AwsIntegrationsAwsMediaConvert {
             return this;
         }
         public AwsIntegrationsAwsMediaConvert build() {
-            final var o = new AwsIntegrationsAwsMediaConvert();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsAwsMediaConvert();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

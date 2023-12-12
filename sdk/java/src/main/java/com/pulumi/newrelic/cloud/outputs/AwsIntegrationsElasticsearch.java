@@ -138,13 +138,13 @@ public final class AwsIntegrationsElasticsearch {
             return this;
         }
         public AwsIntegrationsElasticsearch build() {
-            final var o = new AwsIntegrationsElasticsearch();
-            o.awsRegions = awsRegions;
-            o.fetchNodes = fetchNodes;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsIntegrationsElasticsearch();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.fetchNodes = fetchNodes;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

@@ -68,7 +68,7 @@ public class EventsToMetricsRule extends com.pulumi.resources.CustomResource {
      * Account with the event and where the metrics will be put.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -82,7 +82,7 @@ public class EventsToMetricsRule extends com.pulumi.resources.CustomResource {
      * Provides additional information about the rule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -96,7 +96,7 @@ public class EventsToMetricsRule extends com.pulumi.resources.CustomResource {
      * True means this rule is enabled. False means the rule is currently not creating metrics.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -110,7 +110,7 @@ public class EventsToMetricsRule extends com.pulumi.resources.CustomResource {
      * The name of the rule. This must be unique within an account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -124,7 +124,7 @@ public class EventsToMetricsRule extends com.pulumi.resources.CustomResource {
      * Explains how to create metrics from events.
      * 
      */
-    @Export(name="nrql", type=String.class, parameters={})
+    @Export(name="nrql", refs={String.class}, tree="[0]")
     private Output<String> nrql;
 
     /**
@@ -138,7 +138,7 @@ public class EventsToMetricsRule extends com.pulumi.resources.CustomResource {
      * The id, uniquely identifying the rule.
      * 
      */
-    @Export(name="ruleId", type=String.class, parameters={})
+    @Export(name="ruleId", refs={String.class}, tree="[0]")
     private Output<String> ruleId;
 
     /**

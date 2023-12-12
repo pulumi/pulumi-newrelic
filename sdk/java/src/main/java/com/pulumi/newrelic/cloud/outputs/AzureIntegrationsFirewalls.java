@@ -76,10 +76,10 @@ public final class AzureIntegrationsFirewalls {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsFirewalls build() {
-            final var o = new AzureIntegrationsFirewalls();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsFirewalls();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

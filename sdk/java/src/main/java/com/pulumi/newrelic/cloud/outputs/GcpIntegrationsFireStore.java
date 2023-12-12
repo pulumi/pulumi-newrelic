@@ -52,9 +52,9 @@ public final class GcpIntegrationsFireStore {
             return this;
         }
         public GcpIntegrationsFireStore build() {
-            final var o = new GcpIntegrationsFireStore();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsFireStore();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

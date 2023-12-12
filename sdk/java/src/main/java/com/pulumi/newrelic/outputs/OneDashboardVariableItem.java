@@ -67,10 +67,10 @@ public final class OneDashboardVariableItem {
             return this;
         }
         public OneDashboardVariableItem build() {
-            final var o = new OneDashboardVariableItem();
-            o.title = title;
-            o.value = value;
-            return o;
+            final var _resultValue = new OneDashboardVariableItem();
+            _resultValue.title = title;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

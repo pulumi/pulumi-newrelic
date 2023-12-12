@@ -80,10 +80,10 @@ public final class AwsIntegrationsAwsAppSync {
             return this;
         }
         public AwsIntegrationsAwsAppSync build() {
-            final var o = new AwsIntegrationsAwsAppSync();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsAwsAppSync();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

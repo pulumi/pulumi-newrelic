@@ -76,10 +76,10 @@ public final class AzureIntegrationsServiceBus {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsServiceBus build() {
-            final var o = new AzureIntegrationsServiceBus();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsServiceBus();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

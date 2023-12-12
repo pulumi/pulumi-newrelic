@@ -52,9 +52,9 @@ public final class GcpIntegrationsAlloyDb {
             return this;
         }
         public GcpIntegrationsAlloyDb build() {
-            final var o = new GcpIntegrationsAlloyDb();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsAlloyDb();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

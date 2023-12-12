@@ -76,10 +76,10 @@ public final class AzureIntegrationsPostgresqlFlexible {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsPostgresqlFlexible build() {
-            final var o = new AzureIntegrationsPostgresqlFlexible();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsPostgresqlFlexible();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

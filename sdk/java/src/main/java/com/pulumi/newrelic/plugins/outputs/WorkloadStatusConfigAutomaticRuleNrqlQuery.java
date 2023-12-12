@@ -46,9 +46,9 @@ public final class WorkloadStatusConfigAutomaticRuleNrqlQuery {
             return this;
         }
         public WorkloadStatusConfigAutomaticRuleNrqlQuery build() {
-            final var o = new WorkloadStatusConfigAutomaticRuleNrqlQuery();
-            o.query = query;
-            return o;
+            final var _resultValue = new WorkloadStatusConfigAutomaticRuleNrqlQuery();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

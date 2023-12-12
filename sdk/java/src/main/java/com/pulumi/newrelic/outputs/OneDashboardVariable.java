@@ -191,16 +191,16 @@ public final class OneDashboardVariable {
             return this;
         }
         public OneDashboardVariable build() {
-            final var o = new OneDashboardVariable();
-            o.defaultValues = defaultValues;
-            o.isMultiSelection = isMultiSelection;
-            o.items = items;
-            o.name = name;
-            o.nrqlQuery = nrqlQuery;
-            o.replacementStrategy = replacementStrategy;
-            o.title = title;
-            o.type = type;
-            return o;
+            final var _resultValue = new OneDashboardVariable();
+            _resultValue.defaultValues = defaultValues;
+            _resultValue.isMultiSelection = isMultiSelection;
+            _resultValue.items = items;
+            _resultValue.name = name;
+            _resultValue.nrqlQuery = nrqlQuery;
+            _resultValue.replacementStrategy = replacementStrategy;
+            _resultValue.title = title;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

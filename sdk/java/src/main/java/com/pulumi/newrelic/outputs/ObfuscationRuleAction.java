@@ -88,11 +88,11 @@ public final class ObfuscationRuleAction {
             return this;
         }
         public ObfuscationRuleAction build() {
-            final var o = new ObfuscationRuleAction();
-            o.attributes = attributes;
-            o.expressionId = expressionId;
-            o.method = method;
-            return o;
+            final var _resultValue = new ObfuscationRuleAction();
+            _resultValue.attributes = attributes;
+            _resultValue.expressionId = expressionId;
+            _resultValue.method = method;
+            return _resultValue;
         }
     }
 }

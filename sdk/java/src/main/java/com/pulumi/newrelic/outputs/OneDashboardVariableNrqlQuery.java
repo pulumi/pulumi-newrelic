@@ -63,10 +63,10 @@ public final class OneDashboardVariableNrqlQuery {
             return this;
         }
         public OneDashboardVariableNrqlQuery build() {
-            final var o = new OneDashboardVariableNrqlQuery();
-            o.accountIds = accountIds;
-            o.query = query;
-            return o;
+            final var _resultValue = new OneDashboardVariableNrqlQuery();
+            _resultValue.accountIds = accountIds;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

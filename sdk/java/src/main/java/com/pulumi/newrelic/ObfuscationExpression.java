@@ -65,7 +65,7 @@ public class ObfuscationExpression extends com.pulumi.resources.CustomResource {
      * The account id associated with the obfuscation expression.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -79,7 +79,7 @@ public class ObfuscationExpression extends com.pulumi.resources.CustomResource {
      * Description of expression.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -93,7 +93,7 @@ public class ObfuscationExpression extends com.pulumi.resources.CustomResource {
      * Name of expression.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -107,7 +107,7 @@ public class ObfuscationExpression extends com.pulumi.resources.CustomResource {
      * Regex of expression. Must be wrapped in parentheses, e.g. (regex.*).
      * 
      */
-    @Export(name="regex", type=String.class, parameters={})
+    @Export(name="regex", refs={String.class}, tree="[0]")
     private Output<String> regex;
 
     /**

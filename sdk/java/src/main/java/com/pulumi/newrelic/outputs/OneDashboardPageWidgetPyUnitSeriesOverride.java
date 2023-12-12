@@ -59,10 +59,10 @@ public final class OneDashboardPageWidgetPyUnitSeriesOverride {
             return this;
         }
         public OneDashboardPageWidgetPyUnitSeriesOverride build() {
-            final var o = new OneDashboardPageWidgetPyUnitSeriesOverride();
-            o.seriesName = seriesName;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetPyUnitSeriesOverride();
+            _resultValue.seriesName = seriesName;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

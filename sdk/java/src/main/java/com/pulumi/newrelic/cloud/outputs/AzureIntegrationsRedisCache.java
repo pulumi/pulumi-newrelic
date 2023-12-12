@@ -76,10 +76,10 @@ public final class AzureIntegrationsRedisCache {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsRedisCache build() {
-            final var o = new AzureIntegrationsRedisCache();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsRedisCache();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

@@ -52,9 +52,9 @@ public final class GcpIntegrationsVpcAccess {
             return this;
         }
         public GcpIntegrationsVpcAccess build() {
-            final var o = new GcpIntegrationsVpcAccess();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsVpcAccess();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

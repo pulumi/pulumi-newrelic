@@ -52,9 +52,9 @@ public final class GcpIntegrationsKubernetes {
             return this;
         }
         public GcpIntegrationsKubernetes build() {
-            final var o = new GcpIntegrationsKubernetes();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsKubernetes();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

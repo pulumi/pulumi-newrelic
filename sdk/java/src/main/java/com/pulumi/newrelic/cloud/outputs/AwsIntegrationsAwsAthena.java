@@ -80,10 +80,10 @@ public final class AwsIntegrationsAwsAthena {
             return this;
         }
         public AwsIntegrationsAwsAthena build() {
-            final var o = new AwsIntegrationsAwsAthena();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsAwsAthena();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

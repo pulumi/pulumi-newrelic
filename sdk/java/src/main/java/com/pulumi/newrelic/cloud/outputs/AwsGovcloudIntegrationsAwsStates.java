@@ -76,10 +76,10 @@ public final class AwsGovcloudIntegrationsAwsStates {
             return this;
         }
         public AwsGovcloudIntegrationsAwsStates build() {
-            final var o = new AwsGovcloudIntegrationsAwsStates();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsGovcloudIntegrationsAwsStates();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

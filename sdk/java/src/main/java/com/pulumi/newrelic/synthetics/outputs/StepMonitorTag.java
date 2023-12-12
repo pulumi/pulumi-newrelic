@@ -69,10 +69,10 @@ public final class StepMonitorTag {
             return values(List.of(values));
         }
         public StepMonitorTag build() {
-            final var o = new StepMonitorTag();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new StepMonitorTag();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

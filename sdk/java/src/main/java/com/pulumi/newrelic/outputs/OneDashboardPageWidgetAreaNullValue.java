@@ -72,10 +72,10 @@ public final class OneDashboardPageWidgetAreaNullValue {
             return seriesOverrides(List.of(seriesOverrides));
         }
         public OneDashboardPageWidgetAreaNullValue build() {
-            final var o = new OneDashboardPageWidgetAreaNullValue();
-            o.nullValue = nullValue;
-            o.seriesOverrides = seriesOverrides;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetAreaNullValue();
+            _resultValue.nullValue = nullValue;
+            _resultValue.seriesOverrides = seriesOverrides;
+            return _resultValue;
         }
     }
 }

@@ -157,14 +157,14 @@ public final class AwsIntegrationsEc2 {
             return this;
         }
         public AwsIntegrationsEc2 build() {
-            final var o = new AwsIntegrationsEc2();
-            o.awsRegions = awsRegions;
-            o.duplicateEc2Tags = duplicateEc2Tags;
-            o.fetchIpAddresses = fetchIpAddresses;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsIntegrationsEc2();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.duplicateEc2Tags = duplicateEc2Tags;
+            _resultValue.fetchIpAddresses = fetchIpAddresses;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

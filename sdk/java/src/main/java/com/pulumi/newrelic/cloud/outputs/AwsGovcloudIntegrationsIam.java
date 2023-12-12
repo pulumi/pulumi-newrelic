@@ -91,11 +91,11 @@ public final class AwsGovcloudIntegrationsIam {
             return this;
         }
         public AwsGovcloudIntegrationsIam build() {
-            final var o = new AwsGovcloudIntegrationsIam();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsGovcloudIntegrationsIam();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

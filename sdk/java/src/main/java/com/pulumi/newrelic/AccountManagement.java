@@ -65,7 +65,7 @@ public class AccountManagement extends com.pulumi.resources.CustomResource {
      * The name of the Account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -79,7 +79,7 @@ public class AccountManagement extends com.pulumi.resources.CustomResource {
      * The region code of the account.  One of: `us01`, `eu01`.
      * 
      */
-    @Export(name="region", type=String.class, parameters={})
+    @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**

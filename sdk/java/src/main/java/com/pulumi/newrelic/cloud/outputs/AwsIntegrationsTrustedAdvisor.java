@@ -54,9 +54,9 @@ public final class AwsIntegrationsTrustedAdvisor {
             return this;
         }
         public AwsIntegrationsTrustedAdvisor build() {
-            final var o = new AwsIntegrationsTrustedAdvisor();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsTrustedAdvisor();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

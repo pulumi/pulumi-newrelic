@@ -72,10 +72,10 @@ public final class OneDashboardPageWidgetFunnelUnit {
             return this;
         }
         public OneDashboardPageWidgetFunnelUnit build() {
-            final var o = new OneDashboardPageWidgetFunnelUnit();
-            o.seriesOverrides = seriesOverrides;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetFunnelUnit();
+            _resultValue.seriesOverrides = seriesOverrides;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

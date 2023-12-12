@@ -46,9 +46,9 @@ public final class WorkloadEntitySearchQuery {
             return this;
         }
         public WorkloadEntitySearchQuery build() {
-            final var o = new WorkloadEntitySearchQuery();
-            o.query = query;
-            return o;
+            final var _resultValue = new WorkloadEntitySearchQuery();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

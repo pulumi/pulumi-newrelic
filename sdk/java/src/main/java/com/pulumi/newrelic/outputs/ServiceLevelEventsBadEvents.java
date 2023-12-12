@@ -89,11 +89,11 @@ public final class ServiceLevelEventsBadEvents {
             return this;
         }
         public ServiceLevelEventsBadEvents build() {
-            final var o = new ServiceLevelEventsBadEvents();
-            o.from = from;
-            o.select = select;
-            o.where = where;
-            return o;
+            final var _resultValue = new ServiceLevelEventsBadEvents();
+            _resultValue.from = from;
+            _resultValue.select = select;
+            _resultValue.where = where;
+            return _resultValue;
         }
     }
 }

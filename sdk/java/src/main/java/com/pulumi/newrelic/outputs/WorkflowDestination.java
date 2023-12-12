@@ -111,12 +111,12 @@ public final class WorkflowDestination {
             return this;
         }
         public WorkflowDestination build() {
-            final var o = new WorkflowDestination();
-            o.channelId = channelId;
-            o.name = name;
-            o.notificationTriggers = notificationTriggers;
-            o.type = type;
-            return o;
+            final var _resultValue = new WorkflowDestination();
+            _resultValue.channelId = channelId;
+            _resultValue.name = name;
+            _resultValue.notificationTriggers = notificationTriggers;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

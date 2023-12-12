@@ -132,15 +132,15 @@ public final class NrqlAlertConditionTerm {
             return this;
         }
         public NrqlAlertConditionTerm build() {
-            final var o = new NrqlAlertConditionTerm();
-            o.duration = duration;
-            o.operator = operator;
-            o.priority = priority;
-            o.threshold = threshold;
-            o.thresholdDuration = thresholdDuration;
-            o.thresholdOccurrences = thresholdOccurrences;
-            o.timeFunction = timeFunction;
-            return o;
+            final var _resultValue = new NrqlAlertConditionTerm();
+            _resultValue.duration = duration;
+            _resultValue.operator = operator;
+            _resultValue.priority = priority;
+            _resultValue.threshold = threshold;
+            _resultValue.thresholdDuration = thresholdDuration;
+            _resultValue.thresholdOccurrences = thresholdOccurrences;
+            _resultValue.timeFunction = timeFunction;
+            return _resultValue;
         }
     }
 }

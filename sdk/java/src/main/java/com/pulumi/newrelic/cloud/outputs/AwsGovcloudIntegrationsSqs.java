@@ -175,15 +175,15 @@ public final class AwsGovcloudIntegrationsSqs {
             return this;
         }
         public AwsGovcloudIntegrationsSqs build() {
-            final var o = new AwsGovcloudIntegrationsSqs();
-            o.awsRegions = awsRegions;
-            o.fetchExtendedInventory = fetchExtendedInventory;
-            o.fetchTags = fetchTags;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.queuePrefixes = queuePrefixes;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsGovcloudIntegrationsSqs();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.fetchExtendedInventory = fetchExtendedInventory;
+            _resultValue.fetchTags = fetchTags;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.queuePrefixes = queuePrefixes;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

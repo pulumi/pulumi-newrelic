@@ -115,12 +115,12 @@ public final class AwsGovcloudIntegrationsElb {
             return this;
         }
         public AwsGovcloudIntegrationsElb build() {
-            final var o = new AwsGovcloudIntegrationsElb();
-            o.awsRegions = awsRegions;
-            o.fetchExtendedInventory = fetchExtendedInventory;
-            o.fetchTags = fetchTags;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsGovcloudIntegrationsElb();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.fetchExtendedInventory = fetchExtendedInventory;
+            _resultValue.fetchTags = fetchTags;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

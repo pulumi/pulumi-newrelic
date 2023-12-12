@@ -59,10 +59,10 @@ public final class OneDashboardPageWidgetLogTableUnitSeriesOverride {
             return this;
         }
         public OneDashboardPageWidgetLogTableUnitSeriesOverride build() {
-            final var o = new OneDashboardPageWidgetLogTableUnitSeriesOverride();
-            o.seriesName = seriesName;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetLogTableUnitSeriesOverride();
+            _resultValue.seriesName = seriesName;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

@@ -52,9 +52,9 @@ public final class GcpIntegrationsVirtualMachines {
             return this;
         }
         public GcpIntegrationsVirtualMachines build() {
-            final var o = new GcpIntegrationsVirtualMachines();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsVirtualMachines();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

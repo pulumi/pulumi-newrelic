@@ -59,10 +59,10 @@ public final class OneDashboardPageWidgetStackedBarColorSeriesOverride {
             return this;
         }
         public OneDashboardPageWidgetStackedBarColorSeriesOverride build() {
-            final var o = new OneDashboardPageWidgetStackedBarColorSeriesOverride();
-            o.color = color;
-            o.seriesName = seriesName;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetStackedBarColorSeriesOverride();
+            _resultValue.color = color;
+            _resultValue.seriesName = seriesName;
+            return _resultValue;
         }
     }
 }

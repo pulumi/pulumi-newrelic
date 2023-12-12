@@ -157,14 +157,14 @@ public final class AwsIntegrationsKinesis {
             return this;
         }
         public AwsIntegrationsKinesis build() {
-            final var o = new AwsIntegrationsKinesis();
-            o.awsRegions = awsRegions;
-            o.fetchShards = fetchShards;
-            o.fetchTags = fetchTags;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsIntegrationsKinesis();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.fetchShards = fetchShards;
+            _resultValue.fetchTags = fetchTags;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

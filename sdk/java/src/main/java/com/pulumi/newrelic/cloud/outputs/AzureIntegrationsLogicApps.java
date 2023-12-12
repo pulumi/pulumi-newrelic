@@ -76,10 +76,10 @@ public final class AzureIntegrationsLogicApps {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsLogicApps build() {
-            final var o = new AzureIntegrationsLogicApps();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsLogicApps();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

@@ -130,13 +130,13 @@ public final class AwsGovcloudIntegrationsS3 {
             return this;
         }
         public AwsGovcloudIntegrationsS3 build() {
-            final var o = new AwsGovcloudIntegrationsS3();
-            o.fetchExtendedInventory = fetchExtendedInventory;
-            o.fetchTags = fetchTags;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsGovcloudIntegrationsS3();
+            _resultValue.fetchExtendedInventory = fetchExtendedInventory;
+            _resultValue.fetchTags = fetchTags;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

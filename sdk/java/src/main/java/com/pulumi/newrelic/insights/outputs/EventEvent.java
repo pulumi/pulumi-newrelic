@@ -68,11 +68,11 @@ public final class EventEvent {
             return this;
         }
         public EventEvent build() {
-            final var o = new EventEvent();
-            o.attributes = attributes;
-            o.timestamp = timestamp;
-            o.type = type;
-            return o;
+            final var _resultValue = new EventEvent();
+            _resultValue.attributes = attributes;
+            _resultValue.timestamp = timestamp;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

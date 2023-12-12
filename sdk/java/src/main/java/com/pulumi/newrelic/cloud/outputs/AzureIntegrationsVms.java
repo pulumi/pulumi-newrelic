@@ -76,10 +76,10 @@ public final class AzureIntegrationsVms {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsVms build() {
-            final var o = new AzureIntegrationsVms();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsVms();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

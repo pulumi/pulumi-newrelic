@@ -80,10 +80,10 @@ public final class AwsIntegrationsAutoScaling {
             return this;
         }
         public AwsIntegrationsAutoScaling build() {
-            final var o = new AwsIntegrationsAutoScaling();
-            o.awsRegions = awsRegions;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new AwsIntegrationsAutoScaling();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

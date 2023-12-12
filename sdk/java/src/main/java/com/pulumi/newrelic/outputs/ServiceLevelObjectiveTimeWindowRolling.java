@@ -66,10 +66,10 @@ public final class ServiceLevelObjectiveTimeWindowRolling {
             return this;
         }
         public ServiceLevelObjectiveTimeWindowRolling build() {
-            final var o = new ServiceLevelObjectiveTimeWindowRolling();
-            o.count = count;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new ServiceLevelObjectiveTimeWindowRolling();
+            _resultValue.count = count;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

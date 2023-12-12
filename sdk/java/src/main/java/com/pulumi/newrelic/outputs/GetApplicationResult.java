@@ -103,12 +103,12 @@ public final class GetApplicationResult {
             return this;
         }
         public GetApplicationResult build() {
-            final var o = new GetApplicationResult();
-            o.hostIds = hostIds;
-            o.id = id;
-            o.instanceIds = instanceIds;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetApplicationResult();
+            _resultValue.hostIds = hostIds;
+            _resultValue.id = id;
+            _resultValue.instanceIds = instanceIds;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

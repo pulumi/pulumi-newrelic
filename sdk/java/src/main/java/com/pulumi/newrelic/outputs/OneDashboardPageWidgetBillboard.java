@@ -356,25 +356,25 @@ public final class OneDashboardPageWidgetBillboard {
             return this;
         }
         public OneDashboardPageWidgetBillboard build() {
-            final var o = new OneDashboardPageWidgetBillboard();
-            o.colors = colors;
-            o.column = column;
-            o.critical = critical;
-            o.facetShowOtherSeries = facetShowOtherSeries;
-            o.height = height;
-            o.id = id;
-            o.ignoreTimeRange = ignoreTimeRange;
-            o.legendEnabled = legendEnabled;
-            o.nrqlQueries = nrqlQueries;
-            o.nullValues = nullValues;
-            o.row = row;
-            o.title = title;
-            o.units = units;
-            o.warning = warning;
-            o.width = width;
-            o.yAxisLeftMax = yAxisLeftMax;
-            o.yAxisLeftMin = yAxisLeftMin;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetBillboard();
+            _resultValue.colors = colors;
+            _resultValue.column = column;
+            _resultValue.critical = critical;
+            _resultValue.facetShowOtherSeries = facetShowOtherSeries;
+            _resultValue.height = height;
+            _resultValue.id = id;
+            _resultValue.ignoreTimeRange = ignoreTimeRange;
+            _resultValue.legendEnabled = legendEnabled;
+            _resultValue.nrqlQueries = nrqlQueries;
+            _resultValue.nullValues = nullValues;
+            _resultValue.row = row;
+            _resultValue.title = title;
+            _resultValue.units = units;
+            _resultValue.warning = warning;
+            _resultValue.width = width;
+            _resultValue.yAxisLeftMax = yAxisLeftMax;
+            _resultValue.yAxisLeftMin = yAxisLeftMin;
+            return _resultValue;
         }
     }
 }

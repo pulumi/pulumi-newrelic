@@ -76,10 +76,10 @@ public final class AzureIntegrationsSqlManaged {
             return resourceGroups(List.of(resourceGroups));
         }
         public AzureIntegrationsSqlManaged build() {
-            final var o = new AzureIntegrationsSqlManaged();
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.resourceGroups = resourceGroups;
-            return o;
+            final var _resultValue = new AzureIntegrationsSqlManaged();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.resourceGroups = resourceGroups;
+            return _resultValue;
         }
     }
 }

@@ -82,7 +82,7 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
      * The New Relic account ID of the account you wish to create the API access key.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -96,7 +96,7 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
      * Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
      * 
      */
-    @Export(name="ingestType", type=String.class, parameters={})
+    @Export(name="ingestType", refs={String.class}, tree="[0]")
     private Output<String> ingestType;
 
     /**
@@ -110,7 +110,7 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
      * The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -124,7 +124,7 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
      * What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
      * 
      */
-    @Export(name="keyType", type=String.class, parameters={})
+    @Export(name="keyType", refs={String.class}, tree="[0]")
     private Output<String> keyType;
 
     /**
@@ -138,7 +138,7 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
      * The name of the key.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -152,7 +152,7 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
      * Any notes about this ingest key.
      * 
      */
-    @Export(name="notes", type=String.class, parameters={})
+    @Export(name="notes", refs={String.class}, tree="[0]")
     private Output<String> notes;
 
     /**
@@ -166,7 +166,7 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
      * Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
      * 
      */
-    @Export(name="userId", type=Integer.class, parameters={})
+    @Export(name="userId", refs={Integer.class}, tree="[0]")
     private Output<Integer> userId;
 
     /**

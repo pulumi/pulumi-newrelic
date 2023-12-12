@@ -72,10 +72,10 @@ public final class GcpIntegrationsStorage {
             return this;
         }
         public GcpIntegrationsStorage build() {
-            final var o = new GcpIntegrationsStorage();
-            o.fetchTags = fetchTags;
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsStorage();
+            _resultValue.fetchTags = fetchTags;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

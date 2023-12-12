@@ -94,11 +94,11 @@ public final class WorkloadStatusConfigAutomaticRule {
             return this;
         }
         public WorkloadStatusConfigAutomaticRule build() {
-            final var o = new WorkloadStatusConfigAutomaticRule();
-            o.entityGuids = entityGuids;
-            o.nrqlQueries = nrqlQueries;
-            o.rollup = rollup;
-            return o;
+            final var _resultValue = new WorkloadStatusConfigAutomaticRule();
+            _resultValue.entityGuids = entityGuids;
+            _resultValue.nrqlQueries = nrqlQueries;
+            _resultValue.rollup = rollup;
+            return _resultValue;
         }
     }
 }

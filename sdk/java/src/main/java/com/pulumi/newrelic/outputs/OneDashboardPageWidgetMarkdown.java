@@ -314,23 +314,23 @@ public final class OneDashboardPageWidgetMarkdown {
             return this;
         }
         public OneDashboardPageWidgetMarkdown build() {
-            final var o = new OneDashboardPageWidgetMarkdown();
-            o.colors = colors;
-            o.column = column;
-            o.facetShowOtherSeries = facetShowOtherSeries;
-            o.height = height;
-            o.id = id;
-            o.ignoreTimeRange = ignoreTimeRange;
-            o.legendEnabled = legendEnabled;
-            o.nullValues = nullValues;
-            o.row = row;
-            o.text = text;
-            o.title = title;
-            o.units = units;
-            o.width = width;
-            o.yAxisLeftMax = yAxisLeftMax;
-            o.yAxisLeftMin = yAxisLeftMin;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetMarkdown();
+            _resultValue.colors = colors;
+            _resultValue.column = column;
+            _resultValue.facetShowOtherSeries = facetShowOtherSeries;
+            _resultValue.height = height;
+            _resultValue.id = id;
+            _resultValue.ignoreTimeRange = ignoreTimeRange;
+            _resultValue.legendEnabled = legendEnabled;
+            _resultValue.nullValues = nullValues;
+            _resultValue.row = row;
+            _resultValue.text = text;
+            _resultValue.title = title;
+            _resultValue.units = units;
+            _resultValue.width = width;
+            _resultValue.yAxisLeftMax = yAxisLeftMax;
+            _resultValue.yAxisLeftMin = yAxisLeftMin;
+            return _resultValue;
         }
     }
 }

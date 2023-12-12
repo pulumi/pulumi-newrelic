@@ -183,15 +183,15 @@ public final class AwsIntegrationsAlb {
             return this;
         }
         public AwsIntegrationsAlb build() {
-            final var o = new AwsIntegrationsAlb();
-            o.awsRegions = awsRegions;
-            o.fetchExtendedInventory = fetchExtendedInventory;
-            o.fetchTags = fetchTags;
-            o.loadBalancerPrefixes = loadBalancerPrefixes;
-            o.metricsPollingInterval = metricsPollingInterval;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new AwsIntegrationsAlb();
+            _resultValue.awsRegions = awsRegions;
+            _resultValue.fetchExtendedInventory = fetchExtendedInventory;
+            _resultValue.fetchTags = fetchTags;
+            _resultValue.loadBalancerPrefixes = loadBalancerPrefixes;
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

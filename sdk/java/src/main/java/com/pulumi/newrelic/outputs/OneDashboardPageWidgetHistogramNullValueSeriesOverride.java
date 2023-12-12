@@ -59,10 +59,10 @@ public final class OneDashboardPageWidgetHistogramNullValueSeriesOverride {
             return this;
         }
         public OneDashboardPageWidgetHistogramNullValueSeriesOverride build() {
-            final var o = new OneDashboardPageWidgetHistogramNullValueSeriesOverride();
-            o.nullValue = nullValue;
-            o.seriesName = seriesName;
-            return o;
+            final var _resultValue = new OneDashboardPageWidgetHistogramNullValueSeriesOverride();
+            _resultValue.nullValue = nullValue;
+            _resultValue.seriesName = seriesName;
+            return _resultValue;
         }
     }
 }

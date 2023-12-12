@@ -64,11 +64,11 @@ public final class InfraAlertConditionCritical {
             return this;
         }
         public InfraAlertConditionCritical build() {
-            final var o = new InfraAlertConditionCritical();
-            o.duration = duration;
-            o.timeFunction = timeFunction;
-            o.value = value;
-            return o;
+            final var _resultValue = new InfraAlertConditionCritical();
+            _resultValue.duration = duration;
+            _resultValue.timeFunction = timeFunction;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

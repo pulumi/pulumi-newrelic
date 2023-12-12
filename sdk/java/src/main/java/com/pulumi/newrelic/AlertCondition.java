@@ -173,7 +173,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      * 
      */
-    @Export(name="conditionScope", type=String.class, parameters={})
+    @Export(name="conditionScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> conditionScope;
 
     /**
@@ -187,7 +187,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * Whether the condition is enabled or not. Defaults to true.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -201,7 +201,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * The instance IDs associated with this condition.
      * 
      */
-    @Export(name="entities", type=List.class, parameters={Integer.class})
+    @Export(name="entities", refs={List.class,Integer.class}, tree="[0,1]")
     private Output<List<Integer>> entities;
 
     /**
@@ -215,7 +215,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * The unique entity identifier of the condition in New Relic.
      * 
      */
-    @Export(name="entityGuid", type=String.class, parameters={})
+    @Export(name="entityGuid", refs={String.class}, tree="[0]")
     private Output<String> entityGuid;
 
     /**
@@ -229,7 +229,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      * 
      */
-    @Export(name="gcMetric", type=String.class, parameters={})
+    @Export(name="gcMetric", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> gcMetric;
 
     /**
@@ -243,7 +243,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
      * 
      */
-    @Export(name="metric", type=String.class, parameters={})
+    @Export(name="metric", refs={String.class}, tree="[0]")
     private Output<String> metric;
 
     /**
@@ -257,7 +257,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * The title of the condition. Must be between 1 and 64 characters, inclusive.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -271,7 +271,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * The ID of the policy where this condition should be used.
      * 
      */
-    @Export(name="policyId", type=Integer.class, parameters={})
+    @Export(name="policyId", refs={Integer.class}, tree="[0]")
     private Output<Integer> policyId;
 
     /**
@@ -285,7 +285,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * Runbook URL to display in notifications.
      * 
      */
-    @Export(name="runbookUrl", type=String.class, parameters={})
+    @Export(name="runbookUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runbookUrl;
 
     /**
@@ -299,7 +299,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * A list of terms for this condition. See Terms below for details.
      * 
      */
-    @Export(name="terms", type=List.class, parameters={AlertConditionTerm.class})
+    @Export(name="terms", refs={List.class,AlertConditionTerm.class}, tree="[0,1]")
     private Output<List<AlertConditionTerm>> terms;
 
     /**
@@ -313,7 +313,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -327,7 +327,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * A custom metric to be evaluated.
      * 
      */
-    @Export(name="userDefinedMetric", type=String.class, parameters={})
+    @Export(name="userDefinedMetric", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userDefinedMetric;
 
     /**
@@ -365,7 +365,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * ```
      * 
      */
-    @Export(name="userDefinedValueFunction", type=String.class, parameters={})
+    @Export(name="userDefinedValueFunction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userDefinedValueFunction;
 
     /**
@@ -405,7 +405,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * * when `type` = `apm_jvm_metric`
      * 
      */
-    @Export(name="violationCloseTimer", type=Integer.class, parameters={})
+    @Export(name="violationCloseTimer", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> violationCloseTimer;
 
     /**

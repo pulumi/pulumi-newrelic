@@ -30,7 +30,7 @@ public class OneDashboardJson extends com.pulumi.resources.CustomResource {
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -44,7 +44,7 @@ public class OneDashboardJson extends com.pulumi.resources.CustomResource {
      * The unique entity identifier of the dashboard in New Relic.
      * 
      */
-    @Export(name="guid", type=String.class, parameters={})
+    @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
     /**
@@ -58,7 +58,7 @@ public class OneDashboardJson extends com.pulumi.resources.CustomResource {
      * The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
      * 
      */
-    @Export(name="json", type=String.class, parameters={})
+    @Export(name="json", refs={String.class}, tree="[0]")
     private Output<String> json;
 
     /**
@@ -72,7 +72,7 @@ public class OneDashboardJson extends com.pulumi.resources.CustomResource {
      * The URL for viewing the dashboard.
      * 
      */
-    @Export(name="permalink", type=String.class, parameters={})
+    @Export(name="permalink", refs={String.class}, tree="[0]")
     private Output<String> permalink;
 
     /**
@@ -86,7 +86,7 @@ public class OneDashboardJson extends com.pulumi.resources.CustomResource {
      * The date and time when the dashboard was last updated.
      * 
      */
-    @Export(name="updatedAt", type=String.class, parameters={})
+    @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**

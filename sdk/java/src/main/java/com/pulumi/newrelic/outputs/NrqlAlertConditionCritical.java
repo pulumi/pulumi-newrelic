@@ -121,14 +121,14 @@ public final class NrqlAlertConditionCritical {
             return this;
         }
         public NrqlAlertConditionCritical build() {
-            final var o = new NrqlAlertConditionCritical();
-            o.duration = duration;
-            o.operator = operator;
-            o.threshold = threshold;
-            o.thresholdDuration = thresholdDuration;
-            o.thresholdOccurrences = thresholdOccurrences;
-            o.timeFunction = timeFunction;
-            return o;
+            final var _resultValue = new NrqlAlertConditionCritical();
+            _resultValue.duration = duration;
+            _resultValue.operator = operator;
+            _resultValue.threshold = threshold;
+            _resultValue.thresholdDuration = thresholdDuration;
+            _resultValue.thresholdOccurrences = thresholdOccurrences;
+            _resultValue.timeFunction = timeFunction;
+            return _resultValue;
         }
     }
 }

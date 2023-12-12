@@ -52,9 +52,9 @@ public final class GcpIntegrationsDataProc {
             return this;
         }
         public GcpIntegrationsDataProc build() {
-            final var o = new GcpIntegrationsDataProc();
-            o.metricsPollingInterval = metricsPollingInterval;
-            return o;
+            final var _resultValue = new GcpIntegrationsDataProc();
+            _resultValue.metricsPollingInterval = metricsPollingInterval;
+            return _resultValue;
         }
     }
 }

@@ -114,7 +114,7 @@ public class LogParsingRule extends com.pulumi.resources.CustomResource {
      * The account id associated with the obfuscation rule.
      * 
      */
-    @Export(name="accountId", type=Integer.class, parameters={})
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
@@ -128,7 +128,7 @@ public class LogParsingRule extends com.pulumi.resources.CustomResource {
      * The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
      * 
      */
-    @Export(name="attribute", type=String.class, parameters={})
+    @Export(name="attribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> attribute;
 
     /**
@@ -142,7 +142,7 @@ public class LogParsingRule extends com.pulumi.resources.CustomResource {
      * Whether or not this rule is deleted.
      * 
      */
-    @Export(name="deleted", type=Boolean.class, parameters={})
+    @Export(name="deleted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> deleted;
 
     /**
@@ -156,7 +156,7 @@ public class LogParsingRule extends com.pulumi.resources.CustomResource {
      * Whether the rule should be applied or not to incoming data.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -170,7 +170,7 @@ public class LogParsingRule extends com.pulumi.resources.CustomResource {
      * The Grok of what to parse.
      * 
      */
-    @Export(name="grok", type=String.class, parameters={})
+    @Export(name="grok", refs={String.class}, tree="[0]")
     private Output<String> grok;
 
     /**
@@ -184,7 +184,7 @@ public class LogParsingRule extends com.pulumi.resources.CustomResource {
      * The Lucene to match events to the parsing rule.
      * 
      */
-    @Export(name="lucene", type=String.class, parameters={})
+    @Export(name="lucene", refs={String.class}, tree="[0]")
     private Output<String> lucene;
 
     /**
@@ -198,7 +198,7 @@ public class LogParsingRule extends com.pulumi.resources.CustomResource {
      * Whether the Grok pattern matched.
      * 
      */
-    @Export(name="matched", type=Boolean.class, parameters={})
+    @Export(name="matched", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> matched;
 
     /**
@@ -212,7 +212,7 @@ public class LogParsingRule extends com.pulumi.resources.CustomResource {
      * Name of rule.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -226,7 +226,7 @@ public class LogParsingRule extends com.pulumi.resources.CustomResource {
      * The NRQL to match events to the parsing rule.
      * 
      */
-    @Export(name="nrql", type=String.class, parameters={})
+    @Export(name="nrql", refs={String.class}, tree="[0]")
     private Output<String> nrql;
 
     /**
