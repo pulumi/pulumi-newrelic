@@ -231,18 +231,18 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-     * 
-     * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+     * The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The &#39;MUTED&#39; status is now deprecated, and support for this
+     * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+     * refrain from using this value and shift to alternatives.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-     * 
-     * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+     * @return The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The &#39;MUTED&#39; status is now deprecated, and support for this
+     * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+     * refrain from using this value and shift to alternatives.
      * 
      */
     public Optional<Output<String>> status() {
@@ -638,9 +638,9 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param status The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-         * 
-         * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+         * @param status The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The &#39;MUTED&#39; status is now deprecated, and support for this
+         * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+         * refrain from using this value and shift to alternatives.
          * 
          * @return builder
          * 
@@ -651,9 +651,9 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param status The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-         * 
-         * &gt; **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+         * @param status The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The &#39;MUTED&#39; status is now deprecated, and support for this
+         * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+         * refrain from using this value and shift to alternatives.
          * 
          * @return builder
          * 

@@ -12601,7 +12601,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -12653,7 +12653,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -12711,7 +12711,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                        "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -12771,7 +12771,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -12827,7 +12827,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -12886,7 +12886,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). \n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                        "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -12969,7 +12969,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -13071,7 +13071,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -13176,7 +13176,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                        "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -13524,7 +13524,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -13604,7 +13604,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -13691,7 +13691,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                        "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -13840,7 +13840,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
                 },
                 "steps": {
                     "type": "array",
@@ -13899,7 +13899,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
                 },
                 "steps": {
                     "type": "array",
@@ -13964,7 +13964,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).\n\n\u003e **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.\n"
+                        "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
                     },
                     "steps": {
                         "type": "array",

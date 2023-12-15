@@ -131,9 +131,9 @@ type BrokenLinksMonitor struct {
 	Period pulumi.StringOutput `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntOutput `pulumi:"periodInMinutes"`
-	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-	//
-	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+	// refrain from using this value and shift to alternatives.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags BrokenLinksMonitorTagArrayOutput `pulumi:"tags"`
@@ -194,9 +194,9 @@ type brokenLinksMonitorState struct {
 	Period *string `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes *int `pulumi:"periodInMinutes"`
-	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-	//
-	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+	// refrain from using this value and shift to alternatives.
 	Status *string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags []BrokenLinksMonitorTag `pulumi:"tags"`
@@ -219,9 +219,9 @@ type BrokenLinksMonitorState struct {
 	Period pulumi.StringPtrInput
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntPtrInput
-	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-	//
-	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+	// refrain from using this value and shift to alternatives.
 	Status pulumi.StringPtrInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags BrokenLinksMonitorTagArrayInput
@@ -244,9 +244,9 @@ type brokenLinksMonitorArgs struct {
 	Name *string `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period string `pulumi:"period"`
-	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-	//
-	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+	// refrain from using this value and shift to alternatives.
 	Status string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags []BrokenLinksMonitorTag `pulumi:"tags"`
@@ -266,9 +266,9 @@ type BrokenLinksMonitorArgs struct {
 	Name pulumi.StringPtrInput
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period pulumi.StringInput
-	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-	//
-	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+	// refrain from using this value and shift to alternatives.
 	Status pulumi.StringInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags BrokenLinksMonitorTagArrayInput
@@ -398,9 +398,9 @@ func (o BrokenLinksMonitorOutput) PeriodInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.IntOutput { return v.PeriodInMinutes }).(pulumi.IntOutput)
 }
 
-// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-//
-// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+// refrain from using this value and shift to alternatives.
 func (o BrokenLinksMonitorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

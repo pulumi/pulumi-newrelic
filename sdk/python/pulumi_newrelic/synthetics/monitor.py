@@ -38,9 +38,9 @@ class MonitorArgs:
                  verify_ssl: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Monitor resource.
-        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-               
-               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+        :param pulumi.Input[str] status: The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+               value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+               refrain from using this value and shift to alternatives.
         :param pulumi.Input[str] type: The monitor type. Valid values are `SIMPLE` and `BROWSER`.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
@@ -108,9 +108,9 @@ class MonitorArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
         """
-        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-
-        > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+        The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+        value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+        refrain from using this value and shift to alternatives.
         """
         return pulumi.get(self, "status")
 
@@ -393,9 +393,9 @@ class _MonitorState:
         :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run.
         :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-               
-               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+        :param pulumi.Input[str] status: The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+               value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+               refrain from using this value and shift to alternatives.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SIMPLE` monitor type supports the following additional arguments:
@@ -622,9 +622,9 @@ class _MonitorState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-
-        > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+        The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+        value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+        refrain from using this value and shift to alternatives.
         """
         return pulumi.get(self, "status")
 
@@ -878,9 +878,9 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run.
         :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-               
-               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+        :param pulumi.Input[str] status: The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+               value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+               refrain from using this value and shift to alternatives.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SIMPLE` monitor type supports the following additional arguments:
@@ -1147,9 +1147,9 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run.
         :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-               
-               > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+        :param pulumi.Input[str] status: The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+               value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+               refrain from using this value and shift to alternatives.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SIMPLE` monitor type supports the following additional arguments:
@@ -1304,9 +1304,9 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-
-        > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+        The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+        value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+        refrain from using this value and shift to alternatives.
         """
         return pulumi.get(self, "status")
 
