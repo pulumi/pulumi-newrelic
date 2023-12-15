@@ -258,9 +258,9 @@ type ScriptMonitor struct {
 	Script pulumi.StringPtrOutput `pulumi:"script"`
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrOutput `pulumi:"scriptLanguage"`
-	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-	//
-	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+	// refrain from using this value and shift to alternatives.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -337,9 +337,9 @@ type scriptMonitorState struct {
 	Script *string `pulumi:"script"`
 	// The programing language that should execute the script.
 	ScriptLanguage *string `pulumi:"scriptLanguage"`
-	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-	//
-	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+	// refrain from using this value and shift to alternatives.
 	Status *string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -378,9 +378,9 @@ type ScriptMonitorState struct {
 	Script pulumi.StringPtrInput
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrInput
-	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-	//
-	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+	// refrain from using this value and shift to alternatives.
 	Status pulumi.StringPtrInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -419,9 +419,9 @@ type scriptMonitorArgs struct {
 	Script *string `pulumi:"script"`
 	// The programing language that should execute the script.
 	ScriptLanguage *string `pulumi:"scriptLanguage"`
-	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-	//
-	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+	// refrain from using this value and shift to alternatives.
 	Status string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -457,9 +457,9 @@ type ScriptMonitorArgs struct {
 	Script pulumi.StringPtrInput
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrInput
-	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-	//
-	// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+	// refrain from using this value and shift to alternatives.
 	Status pulumi.StringInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -626,9 +626,9 @@ func (o ScriptMonitorOutput) ScriptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringPtrOutput { return v.ScriptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-//
-// > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+// refrain from using this value and shift to alternatives.
 func (o ScriptMonitorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

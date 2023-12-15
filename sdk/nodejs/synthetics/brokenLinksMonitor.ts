@@ -120,9 +120,9 @@ export class BrokenLinksMonitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly periodInMinutes!: pulumi.Output<number>;
     /**
-     * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
-     *
-     * > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+     * The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+     * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+     * refrain from using this value and shift to alternatives.
      */
     public readonly status!: pulumi.Output<string>;
     /**
@@ -217,9 +217,9 @@ export interface BrokenLinksMonitorState {
      */
     periodInMinutes?: pulumi.Input<number>;
     /**
-     * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
-     *
-     * > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+     * The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+     * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+     * refrain from using this value and shift to alternatives.
      */
     status?: pulumi.Input<string>;
     /**
@@ -257,9 +257,9 @@ export interface BrokenLinksMonitorArgs {
      */
     period: pulumi.Input<string>;
     /**
-     * The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`). 
-     *
-     * > **NOTE:** The `MUTED` status will be deprecated in a future release, and it is recommended to refrain from using it.
+     * The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
+     * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
+     * refrain from using this value and shift to alternatives.
      */
     status: pulumi.Input<string>;
     /**
