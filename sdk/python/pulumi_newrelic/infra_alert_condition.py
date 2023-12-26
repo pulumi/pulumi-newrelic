@@ -595,7 +595,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         """
         Use this resource to create and manage Infrastructure alert conditions in New Relic.
 
-        > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
+        > **WARNING:** The `InfraAlertCondition` resource is deprecated and will be removed in the next major release. The resource NrqlAlertCondition would be a preferred alternative to configure alert conditions - in most cases, feature parity can be achieved with a NRQL query.
 
         ## Example Usage
 
@@ -747,7 +747,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         """
         Use this resource to create and manage Infrastructure alert conditions in New Relic.
 
-        > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
+        > **WARNING:** The `InfraAlertCondition` resource is deprecated and will be removed in the next major release. The resource NrqlAlertCondition would be a preferred alternative to configure alert conditions - in most cases, feature parity can be achieved with a NRQL query.
 
         ## Example Usage
 

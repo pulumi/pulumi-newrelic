@@ -125,6 +125,11 @@ export type LogParsingRule = import("./logParsingRule").LogParsingRule;
 export const LogParsingRule: typeof import("./logParsingRule").LogParsingRule = null as any;
 utilities.lazyLoad(exports, ["LogParsingRule"], () => require("./logParsingRule"));
 
+export { MonitorDowntimeArgs, MonitorDowntimeState } from "./monitorDowntime";
+export type MonitorDowntime = import("./monitorDowntime").MonitorDowntime;
+export const MonitorDowntime: typeof import("./monitorDowntime").MonitorDowntime = null as any;
+utilities.lazyLoad(exports, ["MonitorDowntime"], () => require("./monitorDowntime"));
+
 export { NotificationChannelArgs, NotificationChannelState } from "./notificationChannel";
 export type NotificationChannel = import("./notificationChannel").NotificationChannel;
 export const NotificationChannel: typeof import("./notificationChannel").NotificationChannel = null as any;
@@ -233,6 +238,8 @@ const _module = {
                 return new InfraAlertCondition(name, <any>undefined, { urn })
             case "newrelic:index/logParsingRule:LogParsingRule":
                 return new LogParsingRule(name, <any>undefined, { urn })
+            case "newrelic:index/monitorDowntime:MonitorDowntime":
+                return new MonitorDowntime(name, <any>undefined, { urn })
             case "newrelic:index/notificationChannel:NotificationChannel":
                 return new NotificationChannel(name, <any>undefined, { urn })
             case "newrelic:index/notificationDestination:NotificationDestination":
@@ -273,6 +280,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/entityTags", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/eventsToMetricsRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/infraAlertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/logParsingRule", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/monitorDowntime", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/notificationChannel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/notificationDestination", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/nrqlAlertCondition", _module)

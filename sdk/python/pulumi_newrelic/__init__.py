@@ -29,6 +29,7 @@ from .get_service_level_alert_helper import *
 from .get_test_grok_pattern import *
 from .infra_alert_condition import *
 from .log_parsing_rule import *
+from .monitor_downtime import *
 from .notification_channel import *
 from .notification_destination import *
 from .nrql_alert_condition import *
@@ -232,6 +233,14 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/logParsingRule:LogParsingRule": "LogParsingRule"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/monitorDowntime",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/monitorDowntime:MonitorDowntime": "MonitorDowntime"
   }
  },
  {

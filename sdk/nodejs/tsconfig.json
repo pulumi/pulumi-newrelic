@@ -51,6 +51,7 @@
         "insights/event.ts",
         "insights/index.ts",
         "logParsingRule.ts",
+        "monitorDowntime.ts",
         "notificationChannel.ts",
         "notificationDestination.ts",
         "nrqlAlertCondition.ts",

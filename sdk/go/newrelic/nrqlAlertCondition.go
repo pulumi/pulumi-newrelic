@@ -15,6 +15,65 @@ import (
 // Use this resource to create and manage NRQL alert conditions in New Relic.
 //
 // ## Example Usage
+// ### Type: `static` (default)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewNrqlAlertCondition(ctx, "fooNrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
+//				AccountId:                   pulumi.Int(12345678),
+//				PolicyId:                    fooAlertPolicy.ID(),
+//				Type:                        pulumi.String("static"),
+//				Description:                 pulumi.String("Alert when transactions are taking too long"),
+//				RunbookUrl:                  pulumi.String("https://www.example.com"),
+//				Enabled:                     pulumi.Bool(true),
+//				ViolationTimeLimitSeconds:   pulumi.Int(3600),
+//				FillOption:                  pulumi.String("static"),
+//				FillValue:                   pulumi.Float64(1),
+//				AggregationWindow:           pulumi.Int(60),
+//				AggregationMethod:           pulumi.String("event_flow"),
+//				AggregationDelay:            pulumi.String("120"),
+//				ExpirationDuration:          pulumi.Int(120),
+//				OpenViolationOnExpiration:   pulumi.Bool(true),
+//				CloseViolationsOnExpiration: pulumi.Bool(true),
+//				SlideBy:                     pulumi.Int(30),
+//				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
+//					Query: pulumi.String("SELECT average(duration) FROM Transaction where appName = 'Your App'"),
+//				},
+//				Critical: &newrelic.NrqlAlertConditionCriticalArgs{
+//					Operator:             pulumi.String("above"),
+//					Threshold:            pulumi.Float64(5.5),
+//					ThresholdDuration:    pulumi.Int(300),
+//					ThresholdOccurrences: pulumi.String("ALL"),
+//				},
+//				Warning: &newrelic.NrqlAlertConditionWarningArgs{
+//					Operator:             pulumi.String("above"),
+//					Threshold:            pulumi.Float64(3.5),
+//					ThresholdDuration:    pulumi.Int(600),
+//					ThresholdOccurrences: pulumi.String("ALL"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## NRQL
 //
 // The `nrql` block supports the following arguments:
@@ -69,10 +128,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewAlertPolicy(ctx, "fooIndex/alertPolicyAlertPolicy", nil)
-//			if err != nil {
-//				return err
-//			}
 //			_, err = newrelic.NewNrqlAlertCondition(ctx, "fooNrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
 //				AccountId:                   pulumi.Int("your_account_id"),
 //				PolicyId:                    fooAlertPolicy.ID(),
@@ -114,6 +169,91 @@ import (
 //	}
 //
 // ```
+//
+// ## Tags
+//
+// Manage NRQL alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check `EntityTags`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooNrqlAlertCondition, err := newrelic.NewNrqlAlertCondition(ctx, "fooNrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
+//				AccountId:                   pulumi.Int(12345678),
+//				PolicyId:                    fooAlertPolicy.ID(),
+//				Type:                        pulumi.String("static"),
+//				Description:                 pulumi.String("Alert when transactions are taking too long"),
+//				RunbookUrl:                  pulumi.String("https://www.example.com"),
+//				Enabled:                     pulumi.Bool(true),
+//				ViolationTimeLimitSeconds:   pulumi.Int(3600),
+//				FillOption:                  pulumi.String("static"),
+//				FillValue:                   pulumi.Float64(1),
+//				AggregationWindow:           pulumi.Int(60),
+//				AggregationMethod:           pulumi.String("event_flow"),
+//				AggregationDelay:            pulumi.String("120"),
+//				ExpirationDuration:          pulumi.Int(120),
+//				OpenViolationOnExpiration:   pulumi.Bool(true),
+//				CloseViolationsOnExpiration: pulumi.Bool(true),
+//				SlideBy:                     pulumi.Int(30),
+//				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
+//					Query: pulumi.String("SELECT average(duration) FROM Transaction where appName = 'Your App'"),
+//				},
+//				Critical: &newrelic.NrqlAlertConditionCriticalArgs{
+//					Operator:             pulumi.String("above"),
+//					Threshold:            pulumi.Float64(5.5),
+//					ThresholdDuration:    pulumi.Int(300),
+//					ThresholdOccurrences: pulumi.String("ALL"),
+//				},
+//				Warning: &newrelic.NrqlAlertConditionWarningArgs{
+//					Operator:             pulumi.String("above"),
+//					Threshold:            pulumi.Float64(3.5),
+//					ThresholdDuration:    pulumi.Int(600),
+//					ThresholdOccurrences: pulumi.String("ALL"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
+//				Guid: fooNrqlAlertCondition.EntityGuid,
+//				Tags: newrelic.EntityTagsTagArray{
+//					&newrelic.EntityTagsTagArgs{
+//						Key: pulumi.String("my-key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("my-value"),
+//							pulumi.String("my-other-value"),
+//						},
+//					},
+//					&newrelic.EntityTagsTagArgs{
+//						Key: pulumi.String("my-key-2"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("my-value-2"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// <small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small>
 //
 // ## Upgrade from 1.x to 2.x
 //
@@ -231,7 +371,7 @@ type NrqlAlertCondition struct {
 	AggregationMethod pulumi.StringPtrOutput `pulumi:"aggregationMethod"`
 	// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
 	AggregationTimer pulumi.StringPtrOutput `pulumi:"aggregationTimer"`
-	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
+	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
 	AggregationWindow pulumi.IntOutput `pulumi:"aggregationWindow"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection pulumi.StringPtrOutput `pulumi:"baselineDirection"`
@@ -327,7 +467,7 @@ type nrqlAlertConditionState struct {
 	AggregationMethod *string `pulumi:"aggregationMethod"`
 	// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
 	AggregationTimer *string `pulumi:"aggregationTimer"`
-	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
+	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
 	AggregationWindow *int `pulumi:"aggregationWindow"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection *string `pulumi:"baselineDirection"`
@@ -388,7 +528,7 @@ type NrqlAlertConditionState struct {
 	AggregationMethod pulumi.StringPtrInput
 	// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
 	AggregationTimer pulumi.StringPtrInput
-	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
+	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
 	AggregationWindow pulumi.IntPtrInput
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection pulumi.StringPtrInput
@@ -453,7 +593,7 @@ type nrqlAlertConditionArgs struct {
 	AggregationMethod *string `pulumi:"aggregationMethod"`
 	// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
 	AggregationTimer *string `pulumi:"aggregationTimer"`
-	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
+	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
 	AggregationWindow *int `pulumi:"aggregationWindow"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection *string `pulumi:"baselineDirection"`
@@ -513,7 +653,7 @@ type NrqlAlertConditionArgs struct {
 	AggregationMethod pulumi.StringPtrInput
 	// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
 	AggregationTimer pulumi.StringPtrInput
-	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
+	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
 	AggregationWindow pulumi.IntPtrInput
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection pulumi.StringPtrInput
@@ -670,7 +810,7 @@ func (o NrqlAlertConditionOutput) AggregationTimer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.AggregationTimer }).(pulumi.StringPtrOutput)
 }
 
-// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
+// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
 func (o NrqlAlertConditionOutput) AggregationWindow() pulumi.IntOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntOutput { return v.AggregationWindow }).(pulumi.IntOutput)
 }

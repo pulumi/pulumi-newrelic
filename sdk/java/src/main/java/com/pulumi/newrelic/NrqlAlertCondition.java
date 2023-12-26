@@ -26,6 +26,71 @@ import javax.annotation.Nullable;
  * Use this resource to create and manage NRQL alert conditions in New Relic.
  * 
  * ## Example Usage
+ * ### Type: `static` (default)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.NrqlAlertCondition;
+ * import com.pulumi.newrelic.NrqlAlertConditionArgs;
+ * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
+ * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
+ * import com.pulumi.newrelic.inputs.NrqlAlertConditionWarningArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ * 
+ *         var fooNrqlAlertCondition = new NrqlAlertCondition(&#34;fooNrqlAlertCondition&#34;, NrqlAlertConditionArgs.builder()        
+ *             .accountId(12345678)
+ *             .policyId(fooAlertPolicy.id())
+ *             .type(&#34;static&#34;)
+ *             .description(&#34;Alert when transactions are taking too long&#34;)
+ *             .runbookUrl(&#34;https://www.example.com&#34;)
+ *             .enabled(true)
+ *             .violationTimeLimitSeconds(3600)
+ *             .fillOption(&#34;static&#34;)
+ *             .fillValue(1)
+ *             .aggregationWindow(60)
+ *             .aggregationMethod(&#34;event_flow&#34;)
+ *             .aggregationDelay(120)
+ *             .expirationDuration(120)
+ *             .openViolationOnExpiration(true)
+ *             .closeViolationsOnExpiration(true)
+ *             .slideBy(30)
+ *             .nrql(NrqlAlertConditionNrqlArgs.builder()
+ *                 .query(&#34;SELECT average(duration) FROM Transaction where appName = &#39;Your App&#39;&#34;)
+ *                 .build())
+ *             .critical(NrqlAlertConditionCriticalArgs.builder()
+ *                 .operator(&#34;above&#34;)
+ *                 .threshold(5.5)
+ *                 .thresholdDuration(300)
+ *                 .thresholdOccurrences(&#34;ALL&#34;)
+ *                 .build())
+ *             .warning(NrqlAlertConditionWarningArgs.builder()
+ *                 .operator(&#34;above&#34;)
+ *                 .threshold(3.5)
+ *                 .thresholdDuration(600)
+ *                 .thresholdOccurrences(&#34;ALL&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ## NRQL
  * 
  * The `nrql` block supports the following arguments:
@@ -90,8 +155,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
  * 
- *         var fooIndex_alertPolicyAlertPolicy = new AlertPolicy(&#34;fooIndex/alertPolicyAlertPolicy&#34;);
- * 
  *         var fooNrqlAlertCondition = new NrqlAlertCondition(&#34;fooNrqlAlertCondition&#34;, NrqlAlertConditionArgs.builder()        
  *             .accountId(&#34;your_account_id&#34;)
  *             .policyId(fooAlertPolicy.id())
@@ -129,6 +192,94 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * 
+ * ## Tags
+ * 
+ * Manage NRQL alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check `newrelic.EntityTags`.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.NrqlAlertCondition;
+ * import com.pulumi.newrelic.NrqlAlertConditionArgs;
+ * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
+ * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
+ * import com.pulumi.newrelic.inputs.NrqlAlertConditionWarningArgs;
+ * import com.pulumi.newrelic.EntityTags;
+ * import com.pulumi.newrelic.EntityTagsArgs;
+ * import com.pulumi.newrelic.inputs.EntityTagsTagArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ * 
+ *         var fooNrqlAlertCondition = new NrqlAlertCondition(&#34;fooNrqlAlertCondition&#34;, NrqlAlertConditionArgs.builder()        
+ *             .accountId(12345678)
+ *             .policyId(fooAlertPolicy.id())
+ *             .type(&#34;static&#34;)
+ *             .description(&#34;Alert when transactions are taking too long&#34;)
+ *             .runbookUrl(&#34;https://www.example.com&#34;)
+ *             .enabled(true)
+ *             .violationTimeLimitSeconds(3600)
+ *             .fillOption(&#34;static&#34;)
+ *             .fillValue(1)
+ *             .aggregationWindow(60)
+ *             .aggregationMethod(&#34;event_flow&#34;)
+ *             .aggregationDelay(120)
+ *             .expirationDuration(120)
+ *             .openViolationOnExpiration(true)
+ *             .closeViolationsOnExpiration(true)
+ *             .slideBy(30)
+ *             .nrql(NrqlAlertConditionNrqlArgs.builder()
+ *                 .query(&#34;SELECT average(duration) FROM Transaction where appName = &#39;Your App&#39;&#34;)
+ *                 .build())
+ *             .critical(NrqlAlertConditionCriticalArgs.builder()
+ *                 .operator(&#34;above&#34;)
+ *                 .threshold(5.5)
+ *                 .thresholdDuration(300)
+ *                 .thresholdOccurrences(&#34;ALL&#34;)
+ *                 .build())
+ *             .warning(NrqlAlertConditionWarningArgs.builder()
+ *                 .operator(&#34;above&#34;)
+ *                 .threshold(3.5)
+ *                 .thresholdDuration(600)
+ *                 .thresholdOccurrences(&#34;ALL&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var myConditionEntityTags = new EntityTags(&#34;myConditionEntityTags&#34;, EntityTagsArgs.builder()        
+ *             .guid(fooNrqlAlertCondition.entityGuid())
+ *             .tags(            
+ *                 EntityTagsTagArgs.builder()
+ *                     .key(&#34;my-key&#34;)
+ *                     .values(                    
+ *                         &#34;my-value&#34;,
+ *                         &#34;my-other-value&#34;)
+ *                     .build(),
+ *                 EntityTagsTagArgs.builder()
+ *                     .key(&#34;my-key-2&#34;)
+ *                     .values(&#34;my-value-2&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * &lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**{@literal /}policies/**\&lt;policy_id\&gt;**{@literal /}conditions/**\&lt;condition_id\&gt;**{@literal /}edit&lt;/small&gt;
  * 
  * ## Upgrade from 1.x to 2.x
  * 
@@ -302,14 +453,14 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.aggregationTimer);
     }
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
      * 
      */
     @Export(name="aggregationWindow", refs={Integer.class}, tree="[0]")
     private Output<Integer> aggregationWindow;
 
     /**
-     * @return The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
+     * @return The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
      * 
      */
     public Output<Integer> aggregationWindow() {

@@ -10,6 +10,47 @@ import * as utilities from "./utilities";
  * Use this resource to create and manage NRQL alert conditions in New Relic.
  *
  * ## Example Usage
+ * ### Type: `static` (default)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
+ *     accountId: 12345678,
+ *     policyId: fooAlertPolicy.id,
+ *     type: "static",
+ *     description: "Alert when transactions are taking too long",
+ *     runbookUrl: "https://www.example.com",
+ *     enabled: true,
+ *     violationTimeLimitSeconds: 3600,
+ *     fillOption: "static",
+ *     fillValue: 1,
+ *     aggregationWindow: 60,
+ *     aggregationMethod: "event_flow",
+ *     aggregationDelay: "120",
+ *     expirationDuration: 120,
+ *     openViolationOnExpiration: true,
+ *     closeViolationsOnExpiration: true,
+ *     slideBy: 30,
+ *     nrql: {
+ *         query: "SELECT average(duration) FROM Transaction where appName = 'Your App'",
+ *     },
+ *     critical: {
+ *         operator: "above",
+ *         threshold: 5.5,
+ *         thresholdDuration: 300,
+ *         thresholdOccurrences: "ALL",
+ *     },
+ *     warning: {
+ *         operator: "above",
+ *         threshold: 3.5,
+ *         thresholdDuration: 600,
+ *         thresholdOccurrences: "ALL",
+ *     },
+ * });
+ * ```
  * ## NRQL
  *
  * The `nrql` block supports the following arguments:
@@ -53,7 +94,6 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooIndex_alertPolicyAlertPolicy = new newrelic.AlertPolicy("fooIndex/alertPolicyAlertPolicy", {});
  * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
  *     accountId: "your_account_id",
  *     policyId: fooAlertPolicy.id,
@@ -88,6 +128,68 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ *
+ * ## Tags
+ *
+ * Manage NRQL alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check `newrelic.EntityTags`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
+ *     accountId: 12345678,
+ *     policyId: fooAlertPolicy.id,
+ *     type: "static",
+ *     description: "Alert when transactions are taking too long",
+ *     runbookUrl: "https://www.example.com",
+ *     enabled: true,
+ *     violationTimeLimitSeconds: 3600,
+ *     fillOption: "static",
+ *     fillValue: 1,
+ *     aggregationWindow: 60,
+ *     aggregationMethod: "event_flow",
+ *     aggregationDelay: "120",
+ *     expirationDuration: 120,
+ *     openViolationOnExpiration: true,
+ *     closeViolationsOnExpiration: true,
+ *     slideBy: 30,
+ *     nrql: {
+ *         query: "SELECT average(duration) FROM Transaction where appName = 'Your App'",
+ *     },
+ *     critical: {
+ *         operator: "above",
+ *         threshold: 5.5,
+ *         thresholdDuration: 300,
+ *         thresholdOccurrences: "ALL",
+ *     },
+ *     warning: {
+ *         operator: "above",
+ *         threshold: 3.5,
+ *         thresholdDuration: 600,
+ *         thresholdOccurrences: "ALL",
+ *     },
+ * });
+ * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
+ *     guid: fooNrqlAlertCondition.entityGuid,
+ *     tags: [
+ *         {
+ *             key: "my-key",
+ *             values: [
+ *                 "my-value",
+ *                 "my-other-value",
+ *             ],
+ *         },
+ *         {
+ *             key: "my-key-2",
+ *             values: ["my-value-2"],
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * <small>alerts.newrelic.com/accounts/**\<account_id\>**&#47;policies/**\<policy_id\>**&#47;conditions/**\<condition_id\>**&#47;edit</small>
  *
  * ## Upgrade from 1.x to 2.x
  *
@@ -204,7 +306,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly aggregationTimer!: pulumi.Output<string | undefined>;
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
      */
     public readonly aggregationWindow!: pulumi.Output<number>;
     /**
@@ -398,7 +500,7 @@ export interface NrqlAlertConditionState {
      */
     aggregationTimer?: pulumi.Input<string>;
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
      */
     aggregationWindow?: pulumi.Input<number>;
     /**
@@ -514,7 +616,7 @@ export interface NrqlAlertConditionArgs {
      */
     aggregationTimer?: pulumi.Input<string>;
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
      */
     aggregationWindow?: pulumi.Input<number>;
     /**
