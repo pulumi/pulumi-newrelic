@@ -13,6 +13,58 @@ namespace Pulumi.NewRelic
     /// Use this resource to create and manage NRQL alert conditions in New Relic.
     /// 
     /// ## Example Usage
+    /// ### Type: `static` (default)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    /// 
+    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("fooNrqlAlertCondition", new()
+    ///     {
+    ///         AccountId = 12345678,
+    ///         PolicyId = fooAlertPolicy.Id,
+    ///         Type = "static",
+    ///         Description = "Alert when transactions are taking too long",
+    ///         RunbookUrl = "https://www.example.com",
+    ///         Enabled = true,
+    ///         ViolationTimeLimitSeconds = 3600,
+    ///         FillOption = "static",
+    ///         FillValue = 1,
+    ///         AggregationWindow = 60,
+    ///         AggregationMethod = "event_flow",
+    ///         AggregationDelay = "120",
+    ///         ExpirationDuration = 120,
+    ///         OpenViolationOnExpiration = true,
+    ///         CloseViolationsOnExpiration = true,
+    ///         SlideBy = 30,
+    ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
+    ///         {
+    ///             Query = "SELECT average(duration) FROM Transaction where appName = 'Your App'",
+    ///         },
+    ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
+    ///         {
+    ///             Operator = "above",
+    ///             Threshold = 5.5,
+    ///             ThresholdDuration = 300,
+    ///             ThresholdOccurrences = "ALL",
+    ///         },
+    ///         Warning = new NewRelic.Inputs.NrqlAlertConditionWarningArgs
+    ///         {
+    ///             Operator = "above",
+    ///             Threshold = 3.5,
+    ///             ThresholdDuration = 600,
+    ///             ThresholdOccurrences = "ALL",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## NRQL
     /// 
     /// The `nrql` block supports the following arguments:
@@ -61,8 +113,6 @@ namespace Pulumi.NewRelic
     /// {
     ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
     /// 
-    ///     var fooIndex_alertPolicyAlertPolicy = new NewRelic.AlertPolicy("fooIndex/alertPolicyAlertPolicy");
-    /// 
     ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("fooNrqlAlertCondition", new()
     ///     {
     ///         AccountId = "your_account_id",
@@ -103,6 +153,88 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Tags
+    /// 
+    /// Manage NRQL alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check `newrelic.EntityTags`.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    /// 
+    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("fooNrqlAlertCondition", new()
+    ///     {
+    ///         AccountId = 12345678,
+    ///         PolicyId = fooAlertPolicy.Id,
+    ///         Type = "static",
+    ///         Description = "Alert when transactions are taking too long",
+    ///         RunbookUrl = "https://www.example.com",
+    ///         Enabled = true,
+    ///         ViolationTimeLimitSeconds = 3600,
+    ///         FillOption = "static",
+    ///         FillValue = 1,
+    ///         AggregationWindow = 60,
+    ///         AggregationMethod = "event_flow",
+    ///         AggregationDelay = "120",
+    ///         ExpirationDuration = 120,
+    ///         OpenViolationOnExpiration = true,
+    ///         CloseViolationsOnExpiration = true,
+    ///         SlideBy = 30,
+    ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
+    ///         {
+    ///             Query = "SELECT average(duration) FROM Transaction where appName = 'Your App'",
+    ///         },
+    ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
+    ///         {
+    ///             Operator = "above",
+    ///             Threshold = 5.5,
+    ///             ThresholdDuration = 300,
+    ///             ThresholdOccurrences = "ALL",
+    ///         },
+    ///         Warning = new NewRelic.Inputs.NrqlAlertConditionWarningArgs
+    ///         {
+    ///             Operator = "above",
+    ///             Threshold = 3.5,
+    ///             ThresholdDuration = 600,
+    ///             ThresholdOccurrences = "ALL",
+    ///         },
+    ///     });
+    /// 
+    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
+    ///     {
+    ///         Guid = fooNrqlAlertCondition.EntityGuid,
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Inputs.EntityTagsTagArgs
+    ///             {
+    ///                 Key = "my-key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "my-value",
+    ///                     "my-other-value",
+    ///                 },
+    ///             },
+    ///             new NewRelic.Inputs.EntityTagsTagArgs
+    ///             {
+    ///                 Key = "my-key-2",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "my-value-2",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**/policies/**\&lt;policy_id\&gt;**/conditions/**\&lt;condition_id\&gt;**/edit&lt;/small&gt;
     /// 
     /// ## Upgrade from 1.x to 2.x
     /// 
@@ -223,7 +355,7 @@ namespace Pulumi.NewRelic
         public Output<string?> AggregationTimer { get; private set; } = null!;
 
         /// <summary>
-        /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
+        /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
         /// </summary>
         [Output("aggregationWindow")]
         public Output<int> AggregationWindow { get; private set; } = null!;
@@ -427,7 +559,7 @@ namespace Pulumi.NewRelic
         public Input<string>? AggregationTimer { get; set; }
 
         /// <summary>
-        /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
+        /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
         /// </summary>
         [Input("aggregationWindow")]
         public Input<int>? AggregationWindow { get; set; }
@@ -594,7 +726,7 @@ namespace Pulumi.NewRelic
         public Input<string>? AggregationTimer { get; set; }
 
         /// <summary>
-        /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 7200 seconds (2 hours). Default is 60 seconds.
+        /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
         /// </summary>
         [Input("aggregationWindow")]
         public Input<int>? AggregationWindow { get; set; }

@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 /**
  * Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
  * 
- * &gt; **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
+ * &gt; **WARNING:** The `newrelic.AlertCondition` resource is deprecated and will be removed in the next major release. The resource newrelic.NrqlAlertCondition would be a preferred alternative to configure alert conditions - in most cases, feature parity can be achieved with a NRQL query.
  * 
  * ## Example Usage
  * ```java
