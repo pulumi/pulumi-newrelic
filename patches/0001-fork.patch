@@ -1,26 +1,8 @@
-From b159acd8f8c248b28ad9a102950b83431d9cb215 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Mon, 24 Apr 2023 15:00:52 -0700
 Subject: [PATCH] fork
 
----
- .githooks/commit-msg                          |  7 ---
- .../resource_newrelic_nrql_alert_condition.go | 15 +++--
- scripts/release.sh                            |  8 +--
- website/docs/d/alert_channel.html.markdown    |  3 +-
- website/docs/d/alert_policy.html.markdown     |  1 -
- website/docs/d/application.html.markdown      |  7 ++-
- website/docs/d/entity.html.markdown           |  6 +-
- website/docs/d/key_transaction.html.markdown  |  4 +-
- website/docs/r/alert_channel.html.markdown    | 59 +++++++++++++++---
- website/docs/r/alert_policy.html.markdown     | 41 ++++++-------
- .../docs/r/alert_policy_channel.html.markdown |  2 +-
- website/docs/r/entity_tags.html.markdown      |  4 --
- .../r/events_to_metrics_rule.html.markdown    |  4 --
- website/docs/r/insights_event.html.markdown   |  2 +-
- .../docs/r/nrql_alert_condition.html.markdown | 61 +++++++++----------
- 15 files changed, 121 insertions(+), 103 deletions(-)
- delete mode 100755 .githooks/commit-msg
 
 diff --git a/.githooks/commit-msg b/.githooks/commit-msg
 deleted file mode 100755
@@ -36,7 +18,7 @@ index 8d95d053..00000000
 -
 -make lint-commit COMMIT_MSG_FILE=$1
 diff --git a/newrelic/resource_newrelic_nrql_alert_condition.go b/newrelic/resource_newrelic_nrql_alert_condition.go
-index 5ec49686..4235d956 100644
+index ca782a65..c683a515 100644
 --- a/newrelic/resource_newrelic_nrql_alert_condition.go
 +++ b/newrelic/resource_newrelic_nrql_alert_condition.go
 @@ -173,14 +173,13 @@ func resourceNewRelicNrqlAlertCondition() *schema.Resource {
@@ -153,7 +135,7 @@ index 1bff5b00..d85af74d 100644
 \ No newline at end of file
 +```
 diff --git a/website/docs/d/entity.html.markdown b/website/docs/d/entity.html.markdown
-index 8616fd5d..e5ce7016 100644
+index 24002938..6603e91f 100644
 --- a/website/docs/d/entity.html.markdown
 +++ b/website/docs/d/entity.html.markdown
 @@ -8,11 +8,7 @@ description: |-
@@ -447,7 +429,7 @@ index d19049a5..d6522327 100644
  ## Example Usage
  
 diff --git a/website/docs/r/nrql_alert_condition.html.markdown b/website/docs/r/nrql_alert_condition.html.markdown
-index 2e449b88..fc9b1ff6 100644
+index 9dd9b091..962cb8eb 100644
 --- a/website/docs/r/nrql_alert_condition.html.markdown
 +++ b/website/docs/r/nrql_alert_condition.html.markdown
 @@ -10,13 +10,10 @@ description: |-
@@ -474,7 +456,7 @@ index 2e449b88..fc9b1ff6 100644
  
  ## Argument Reference
  
-@@ -131,10 +127,8 @@ In addition to all arguments above, the following attributes are exported:
+@@ -135,10 +131,8 @@ In addition to all arguments above, the following attributes are exported:
  - `id` - The ID of the NRQL alert condition. This is a composite ID with the format `<policy_id>:<condition_id>` - e.g. `538291:6789035`.
  - `entity_guid` - The unique entity identifier of the NRQL Condition in New Relic.
  
@@ -485,13 +467,12 @@ index 2e449b88..fc9b1ff6 100644
  ##### Type: `baseline`
  
  [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
-@@ -144,44 +138,49 @@ resource "newrelic_alert_policy" "foo" {
-   name = "foo"
+@@ -149,43 +143,44 @@ resource "newrelic_alert_policy" "foo" {
  }
  
--resource "newrelic_nrql_alert_condition" "foo" {
+ resource "newrelic_nrql_alert_condition" "foo" {
 -  type                         = "baseline"
--  account_id                   = <Your Account ID>
+-  account_id                   = 12345678
 -  name                         = "foo"
 -  policy_id                    = newrelic_alert_policy.foo.id
 -  description                  = "Alert when transactions are taking too long"
@@ -501,13 +482,9 @@ index 2e449b88..fc9b1ff6 100644
 -  aggregation_method           = "event_flow"
 -  aggregation_delay            = 120
 -  slide_by                     = 30
-+resource "newrelic_alert_policy" "foo" {
-+  name = "foo"
-+}
- 
+-
 -  # baseline type only
 -  baseline_direction = "upper_only"
-+resource "newrelic_nrql_alert_condition" "foo" {
 +  account_id                     = "your_account_id"
 +  policy_id                      = newrelic_alert_policy.foo.id
 +  type                           = "static"
@@ -554,7 +531,7 @@ index 2e449b88..fc9b1ff6 100644
  ## Import
  
  NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g.
-@@ -194,14 +193,9 @@ $ terraform import newrelic_nrql_alert_condition.foo 538291:6789035:baseline
+@@ -198,14 +193,9 @@ $ terraform import newrelic_nrql_alert_condition.foo 538291:6789035:baseline
  $ terraform import newrelic_nrql_alert_condition.foo 538291:6789035:static
  ```
  
@@ -570,7 +547,7 @@ index 2e449b88..fc9b1ff6 100644
  
  ```hcl
  resource "newrelic_alert_policy" "foo" {
-@@ -261,6 +255,7 @@ resource "newrelic_entity_tags" "my_condition_entity_tags" {
+@@ -265,6 +255,7 @@ resource "newrelic_entity_tags" "my_condition_entity_tags" {
  }
  ```
  
@@ -578,6 +555,3 @@ index 2e449b88..fc9b1ff6 100644
  
  ## Upgrade from 1.x to 2.x
  
--- 
-2.39.1
-

@@ -1253,6 +1253,34 @@
                 "current": "newrelic:index/logParsingRule:LogParsingRule",
                 "majorVersion": 5
             },
+            "newrelic_monitor_downtime": {
+                "current": "newrelic:index/monitorDowntime:MonitorDowntime",
+                "majorVersion": 5,
+                "fields": {
+                    "end_repeat": {
+                        "maxItemsOne": true
+                    },
+                    "frequency": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "days_of_month": {
+                                    "maxItemsOne": false
+                                },
+                                "days_of_week": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "maintenance_days": {
+                        "maxItemsOne": false
+                    },
+                    "monitor_guids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "newrelic_notification_channel": {
                 "current": "newrelic:index/notificationChannel:NotificationChannel",
                 "majorVersion": 5,
@@ -2388,6 +2416,7 @@
             "newrelic:index/eventsToMetricsRule:EventsToMetricsRule": "newrelic_events_to_metrics_rule",
             "newrelic:index/infraAlertCondition:InfraAlertCondition": "newrelic_infra_alert_condition",
             "newrelic:index/logParsingRule:LogParsingRule": "newrelic_log_parsing_rule",
+            "newrelic:index/monitorDowntime:MonitorDowntime": "newrelic_monitor_downtime",
             "newrelic:index/notificationChannel:NotificationChannel": "newrelic_notification_channel",
             "newrelic:index/notificationDestination:NotificationDestination": "newrelic_notification_destination",
             "newrelic:index/nrqlAlertCondition:NrqlAlertCondition": "newrelic_nrql_alert_condition",
@@ -3179,6 +3208,18 @@
             "newrelic:index/InfraAlertConditionWarning:InfraAlertConditionWarning": {
                 "timeFunction": "time_function"
             },
+            "newrelic:index/MonitorDowntimeEndRepeat:MonitorDowntimeEndRepeat": {
+                "onDate": "on_date",
+                "onRepeat": "on_repeat"
+            },
+            "newrelic:index/MonitorDowntimeFrequency:MonitorDowntimeFrequency": {
+                "daysOfMonths": "days_of_month",
+                "daysOfWeek": "days_of_week"
+            },
+            "newrelic:index/MonitorDowntimeFrequencyDaysOfWeek:MonitorDowntimeFrequencyDaysOfWeek": {
+                "ordinalDayOfMonth": "ordinal_day_of_month",
+                "weekDay": "week_day"
+            },
             "newrelic:index/NotificationChannelProperty:NotificationChannelProperty": {
                 "displayValue": "display_value"
             },
@@ -3853,6 +3894,15 @@
             },
             "newrelic:index/logParsingRule:LogParsingRule": {
                 "accountId": "account_id"
+            },
+            "newrelic:index/monitorDowntime:MonitorDowntime": {
+                "accountId": "account_id",
+                "endRepeat": "end_repeat",
+                "endTime": "end_time",
+                "maintenanceDays": "maintenance_days",
+                "monitorGuids": "monitor_guids",
+                "startTime": "start_time",
+                "timeZone": "time_zone"
             },
             "newrelic:index/notificationChannel:NotificationChannel": {
                 "accountId": "account_id",
