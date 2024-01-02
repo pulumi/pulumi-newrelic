@@ -5,6 +5,7 @@ package com.pulumi.newrelic.synthetics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.synthetics.inputs.MonitorCustomHeaderArgs;
 import com.pulumi.newrelic.synthetics.inputs.MonitorTagArgs;
 import java.lang.Boolean;
@@ -850,8 +851,12 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MonitorArgs build() {
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("MonitorArgs", "status");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("MonitorArgs", "type");
+            }
             return $;
         }
     }

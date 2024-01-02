@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -226,7 +227,9 @@ public final class EventsToMetricsRuleArgs extends com.pulumi.resources.Resource
         }
 
         public EventsToMetricsRuleArgs build() {
-            $.nrql = Objects.requireNonNull($.nrql, "expected parameter 'nrql' to be non-null");
+            if ($.nrql == null) {
+                throw new MissingRequiredPropertyException("EventsToMetricsRuleArgs", "nrql");
+            }
             return $;
         }
     }

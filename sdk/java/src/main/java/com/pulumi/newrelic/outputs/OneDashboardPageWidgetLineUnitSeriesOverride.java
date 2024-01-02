@@ -50,11 +50,13 @@ public final class OneDashboardPageWidgetLineUnitSeriesOverride {
 
         @CustomType.Setter
         public Builder seriesName(@Nullable String seriesName) {
+
             this.seriesName = seriesName;
             return this;
         }
         @CustomType.Setter
         public Builder unit(@Nullable String unit) {
+
             this.unit = unit;
             return this;
         }

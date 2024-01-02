@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -92,7 +93,9 @@ public final class InfraAlertConditionWarningArgs extends com.pulumi.resources.R
         }
 
         public InfraAlertConditionWarningArgs build() {
-            $.duration = Objects.requireNonNull($.duration, "expected parameter 'duration' to be non-null");
+            if ($.duration == null) {
+                throw new MissingRequiredPropertyException("InfraAlertConditionWarningArgs", "duration");
+            }
             return $;
         }
     }

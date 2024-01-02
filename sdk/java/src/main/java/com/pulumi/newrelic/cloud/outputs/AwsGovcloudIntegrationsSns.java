@@ -79,6 +79,7 @@ public final class AwsGovcloudIntegrationsSns {
 
         @CustomType.Setter
         public Builder awsRegions(@Nullable List<String> awsRegions) {
+
             this.awsRegions = awsRegions;
             return this;
         }
@@ -87,11 +88,13 @@ public final class AwsGovcloudIntegrationsSns {
         }
         @CustomType.Setter
         public Builder fetchExtendedInventory(@Nullable Boolean fetchExtendedInventory) {
+
             this.fetchExtendedInventory = fetchExtendedInventory;
             return this;
         }
         @CustomType.Setter
         public Builder metricsPollingInterval(@Nullable Integer metricsPollingInterval) {
+
             this.metricsPollingInterval = metricsPollingInterval;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -60,12 +61,18 @@ public final class MonitorDowntimeFrequencyDaysOfWeek {
 
         @CustomType.Setter
         public Builder ordinalDayOfMonth(String ordinalDayOfMonth) {
-            this.ordinalDayOfMonth = Objects.requireNonNull(ordinalDayOfMonth);
+            if (ordinalDayOfMonth == null) {
+              throw new MissingRequiredPropertyException("MonitorDowntimeFrequencyDaysOfWeek", "ordinalDayOfMonth");
+            }
+            this.ordinalDayOfMonth = ordinalDayOfMonth;
             return this;
         }
         @CustomType.Setter
         public Builder weekDay(String weekDay) {
-            this.weekDay = Objects.requireNonNull(weekDay);
+            if (weekDay == null) {
+              throw new MissingRequiredPropertyException("MonitorDowntimeFrequencyDaysOfWeek", "weekDay");
+            }
+            this.weekDay = weekDay;
             return this;
         }
         public MonitorDowntimeFrequencyDaysOfWeek build() {

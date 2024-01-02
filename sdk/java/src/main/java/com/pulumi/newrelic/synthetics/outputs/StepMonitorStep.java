@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.synthetics.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -73,16 +74,23 @@ public final class StepMonitorStep {
 
         @CustomType.Setter
         public Builder ordinal(Integer ordinal) {
-            this.ordinal = Objects.requireNonNull(ordinal);
+            if (ordinal == null) {
+              throw new MissingRequiredPropertyException("StepMonitorStep", "ordinal");
+            }
+            this.ordinal = ordinal;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("StepMonitorStep", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
+
             this.values = values;
             return this;
         }

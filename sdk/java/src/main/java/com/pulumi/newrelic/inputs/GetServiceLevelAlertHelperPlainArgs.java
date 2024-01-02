@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -230,10 +231,18 @@ public final class GetServiceLevelAlertHelperPlainArgs extends com.pulumi.resour
         }
 
         public GetServiceLevelAlertHelperPlainArgs build() {
-            $.alertType = Objects.requireNonNull($.alertType, "expected parameter 'alertType' to be non-null");
-            $.sliGuid = Objects.requireNonNull($.sliGuid, "expected parameter 'sliGuid' to be non-null");
-            $.sloPeriod = Objects.requireNonNull($.sloPeriod, "expected parameter 'sloPeriod' to be non-null");
-            $.sloTarget = Objects.requireNonNull($.sloTarget, "expected parameter 'sloTarget' to be non-null");
+            if ($.alertType == null) {
+                throw new MissingRequiredPropertyException("GetServiceLevelAlertHelperPlainArgs", "alertType");
+            }
+            if ($.sliGuid == null) {
+                throw new MissingRequiredPropertyException("GetServiceLevelAlertHelperPlainArgs", "sliGuid");
+            }
+            if ($.sloPeriod == null) {
+                throw new MissingRequiredPropertyException("GetServiceLevelAlertHelperPlainArgs", "sloPeriod");
+            }
+            if ($.sloTarget == null) {
+                throw new MissingRequiredPropertyException("GetServiceLevelAlertHelperPlainArgs", "sloTarget");
+            }
             return $;
         }
     }

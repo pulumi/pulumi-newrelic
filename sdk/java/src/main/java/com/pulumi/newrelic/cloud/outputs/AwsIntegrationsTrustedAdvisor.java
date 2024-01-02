@@ -50,6 +50,7 @@ public final class AwsIntegrationsTrustedAdvisor {
 
         @CustomType.Setter
         public Builder metricsPollingInterval(@Nullable Integer metricsPollingInterval) {
+
             this.metricsPollingInterval = metricsPollingInterval;
             return this;
         }

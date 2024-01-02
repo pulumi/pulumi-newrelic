@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -159,9 +160,15 @@ public final class ObfuscationRuleActionArgs extends com.pulumi.resources.Resour
         }
 
         public ObfuscationRuleActionArgs build() {
-            $.attributes = Objects.requireNonNull($.attributes, "expected parameter 'attributes' to be non-null");
-            $.expressionId = Objects.requireNonNull($.expressionId, "expected parameter 'expressionId' to be non-null");
-            $.method = Objects.requireNonNull($.method, "expected parameter 'method' to be non-null");
+            if ($.attributes == null) {
+                throw new MissingRequiredPropertyException("ObfuscationRuleActionArgs", "attributes");
+            }
+            if ($.expressionId == null) {
+                throw new MissingRequiredPropertyException("ObfuscationRuleActionArgs", "expressionId");
+            }
+            if ($.method == null) {
+                throw new MissingRequiredPropertyException("ObfuscationRuleActionArgs", "method");
+            }
             return $;
         }
     }

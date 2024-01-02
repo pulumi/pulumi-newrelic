@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -262,8 +263,12 @@ public final class ApiAccessKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApiAccessKeyArgs build() {
-            $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
-            $.keyType = Objects.requireNonNull($.keyType, "expected parameter 'keyType' to be non-null");
+            if ($.accountId == null) {
+                throw new MissingRequiredPropertyException("ApiAccessKeyArgs", "accountId");
+            }
+            if ($.keyType == null) {
+                throw new MissingRequiredPropertyException("ApiAccessKeyArgs", "keyType");
+            }
             return $;
         }
     }

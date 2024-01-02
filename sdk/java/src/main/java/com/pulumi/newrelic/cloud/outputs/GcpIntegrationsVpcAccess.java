@@ -48,6 +48,7 @@ public final class GcpIntegrationsVpcAccess {
 
         @CustomType.Setter
         public Builder metricsPollingInterval(@Nullable Integer metricsPollingInterval) {
+
             this.metricsPollingInterval = metricsPollingInterval;
             return this;
         }

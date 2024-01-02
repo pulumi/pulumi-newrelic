@@ -125,6 +125,7 @@ public final class AwsIntegrationsVpc {
 
         @CustomType.Setter
         public Builder awsRegions(@Nullable List<String> awsRegions) {
+
             this.awsRegions = awsRegions;
             return this;
         }
@@ -133,26 +134,31 @@ public final class AwsIntegrationsVpc {
         }
         @CustomType.Setter
         public Builder fetchNatGateway(@Nullable Boolean fetchNatGateway) {
+
             this.fetchNatGateway = fetchNatGateway;
             return this;
         }
         @CustomType.Setter
         public Builder fetchVpn(@Nullable Boolean fetchVpn) {
+
             this.fetchVpn = fetchVpn;
             return this;
         }
         @CustomType.Setter
         public Builder metricsPollingInterval(@Nullable Integer metricsPollingInterval) {
+
             this.metricsPollingInterval = metricsPollingInterval;
             return this;
         }
         @CustomType.Setter
         public Builder tagKey(@Nullable String tagKey) {
+
             this.tagKey = tagKey;
             return this;
         }
         @CustomType.Setter
         public Builder tagValue(@Nullable String tagValue) {
+
             this.tagValue = tagValue;
             return this;
         }

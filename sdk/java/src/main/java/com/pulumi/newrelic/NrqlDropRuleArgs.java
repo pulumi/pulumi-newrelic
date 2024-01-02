@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class NrqlDropRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NrqlDropRuleArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.nrql = Objects.requireNonNull($.nrql, "expected parameter 'nrql' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("NrqlDropRuleArgs", "action");
+            }
+            if ($.nrql == null) {
+                throw new MissingRequiredPropertyException("NrqlDropRuleArgs", "nrql");
+            }
             return $;
         }
     }

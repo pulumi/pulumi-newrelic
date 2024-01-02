@@ -5,6 +5,7 @@ package com.pulumi.newrelic.plugins.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEn
         }
 
         public WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs build() {
-            $.groupBy = Objects.requireNonNull($.groupBy, "expected parameter 'groupBy' to be non-null");
-            $.strategy = Objects.requireNonNull($.strategy, "expected parameter 'strategy' to be non-null");
+            if ($.groupBy == null) {
+                throw new MissingRequiredPropertyException("WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs", "groupBy");
+            }
+            if ($.strategy == null) {
+                throw new MissingRequiredPropertyException("WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs", "strategy");
+            }
             return $;
         }
     }

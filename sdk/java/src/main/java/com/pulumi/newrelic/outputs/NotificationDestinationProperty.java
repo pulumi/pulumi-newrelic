@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -90,22 +91,30 @@ public final class NotificationDestinationProperty {
 
         @CustomType.Setter
         public Builder displayValue(@Nullable String displayValue) {
+
             this.displayValue = displayValue;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("NotificationDestinationProperty", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("NotificationDestinationProperty", "value");
+            }
+            this.value = value;
             return this;
         }
         public NotificationDestinationProperty build() {

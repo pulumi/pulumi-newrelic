@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -147,7 +148,9 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
         }
 
         public NrqlAlertConditionNrqlArgs build() {
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("NrqlAlertConditionNrqlArgs", "query");
+            }
             return $;
         }
     }

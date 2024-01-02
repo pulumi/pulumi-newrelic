@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -126,9 +127,15 @@ public final class AlertConditionTermArgs extends com.pulumi.resources.ResourceA
         }
 
         public AlertConditionTermArgs build() {
-            $.duration = Objects.requireNonNull($.duration, "expected parameter 'duration' to be non-null");
-            $.threshold = Objects.requireNonNull($.threshold, "expected parameter 'threshold' to be non-null");
-            $.timeFunction = Objects.requireNonNull($.timeFunction, "expected parameter 'timeFunction' to be non-null");
+            if ($.duration == null) {
+                throw new MissingRequiredPropertyException("AlertConditionTermArgs", "duration");
+            }
+            if ($.threshold == null) {
+                throw new MissingRequiredPropertyException("AlertConditionTermArgs", "threshold");
+            }
+            if ($.timeFunction == null) {
+                throw new MissingRequiredPropertyException("AlertConditionTermArgs", "timeFunction");
+            }
             return $;
         }
     }

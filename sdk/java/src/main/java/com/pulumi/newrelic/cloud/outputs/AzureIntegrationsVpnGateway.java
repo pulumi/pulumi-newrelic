@@ -64,11 +64,13 @@ public final class AzureIntegrationsVpnGateway {
 
         @CustomType.Setter
         public Builder metricsPollingInterval(@Nullable Integer metricsPollingInterval) {
+
             this.metricsPollingInterval = metricsPollingInterval;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroups(@Nullable List<String> resourceGroups) {
+
             this.resourceGroups = resourceGroups;
             return this;
         }

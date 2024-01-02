@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHeatmapColorArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHeatmapNrqlQueryArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHeatmapNullValueArgs;
@@ -686,10 +687,18 @@ public final class OneDashboardPageWidgetHeatmapArgs extends com.pulumi.resource
         }
 
         public OneDashboardPageWidgetHeatmapArgs build() {
-            $.column = Objects.requireNonNull($.column, "expected parameter 'column' to be non-null");
-            $.nrqlQueries = Objects.requireNonNull($.nrqlQueries, "expected parameter 'nrqlQueries' to be non-null");
-            $.row = Objects.requireNonNull($.row, "expected parameter 'row' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
+            if ($.column == null) {
+                throw new MissingRequiredPropertyException("OneDashboardPageWidgetHeatmapArgs", "column");
+            }
+            if ($.nrqlQueries == null) {
+                throw new MissingRequiredPropertyException("OneDashboardPageWidgetHeatmapArgs", "nrqlQueries");
+            }
+            if ($.row == null) {
+                throw new MissingRequiredPropertyException("OneDashboardPageWidgetHeatmapArgs", "row");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("OneDashboardPageWidgetHeatmapArgs", "title");
+            }
             return $;
         }
     }

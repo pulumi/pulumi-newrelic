@@ -48,6 +48,7 @@ public final class GcpIntegrationsVirtualMachines {
 
         @CustomType.Setter
         public Builder metricsPollingInterval(@Nullable Integer metricsPollingInterval) {
+
             this.metricsPollingInterval = metricsPollingInterval;
             return this;
         }

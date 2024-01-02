@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.plugins.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.plugins.outputs.WorkloadStatusConfigAutomaticRemainingEntitiesRule;
 import com.pulumi.newrelic.plugins.outputs.WorkloadStatusConfigAutomaticRule;
 import java.lang.Boolean;
@@ -75,16 +76,21 @@ public final class WorkloadStatusConfigAutomatic {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("WorkloadStatusConfigAutomatic", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder remainingEntitiesRule(@Nullable WorkloadStatusConfigAutomaticRemainingEntitiesRule remainingEntitiesRule) {
+
             this.remainingEntitiesRule = remainingEntitiesRule;
             return this;
         }
         @CustomType.Setter
         public Builder rules(@Nullable List<WorkloadStatusConfigAutomaticRule> rules) {
+
             this.rules = rules;
             return this;
         }

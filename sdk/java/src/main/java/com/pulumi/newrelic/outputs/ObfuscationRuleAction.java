@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class ObfuscationRuleAction {
 
         @CustomType.Setter
         public Builder attributes(List<String> attributes) {
-            this.attributes = Objects.requireNonNull(attributes);
+            if (attributes == null) {
+              throw new MissingRequiredPropertyException("ObfuscationRuleAction", "attributes");
+            }
+            this.attributes = attributes;
             return this;
         }
         public Builder attributes(String... attributes) {
@@ -79,12 +83,18 @@ public final class ObfuscationRuleAction {
         }
         @CustomType.Setter
         public Builder expressionId(String expressionId) {
-            this.expressionId = Objects.requireNonNull(expressionId);
+            if (expressionId == null) {
+              throw new MissingRequiredPropertyException("ObfuscationRuleAction", "expressionId");
+            }
+            this.expressionId = expressionId;
             return this;
         }
         @CustomType.Setter
         public Builder method(String method) {
-            this.method = Objects.requireNonNull(method);
+            if (method == null) {
+              throw new MissingRequiredPropertyException("ObfuscationRuleAction", "method");
+            }
+            this.method = method;
             return this;
         }
         public ObfuscationRuleAction build() {

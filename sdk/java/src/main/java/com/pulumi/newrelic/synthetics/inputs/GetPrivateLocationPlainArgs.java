@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.synthetics.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -131,7 +132,9 @@ public final class GetPrivateLocationPlainArgs extends com.pulumi.resources.Invo
         }
 
         public GetPrivateLocationPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetPrivateLocationPlainArgs", "name");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
 import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
 import com.pulumi.newrelic.inputs.NrqlAlertConditionTermArgs;
@@ -1026,8 +1027,12 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
         }
 
         public NrqlAlertConditionArgs build() {
-            $.nrql = Objects.requireNonNull($.nrql, "expected parameter 'nrql' to be non-null");
-            $.policyId = Objects.requireNonNull($.policyId, "expected parameter 'policyId' to be non-null");
+            if ($.nrql == null) {
+                throw new MissingRequiredPropertyException("NrqlAlertConditionArgs", "nrql");
+            }
+            if ($.policyId == null) {
+                throw new MissingRequiredPropertyException("NrqlAlertConditionArgs", "policyId");
+            }
             return $;
         }
     }

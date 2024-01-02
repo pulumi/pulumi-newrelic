@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.NotificationDestinationAuthBasicArgs;
 import com.pulumi.newrelic.inputs.NotificationDestinationAuthTokenArgs;
 import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
@@ -318,8 +319,12 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         public NotificationDestinationArgs build() {
-            $.properties = Objects.requireNonNull($.properties, "expected parameter 'properties' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.properties == null) {
+                throw new MissingRequiredPropertyException("NotificationDestinationArgs", "properties");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("NotificationDestinationArgs", "type");
+            }
             return $;
         }
     }

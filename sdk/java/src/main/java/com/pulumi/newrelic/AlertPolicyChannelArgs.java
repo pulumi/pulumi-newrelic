@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -161,8 +162,12 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
         }
 
         public AlertPolicyChannelArgs build() {
-            $.channelIds = Objects.requireNonNull($.channelIds, "expected parameter 'channelIds' to be non-null");
-            $.policyId = Objects.requireNonNull($.policyId, "expected parameter 'policyId' to be non-null");
+            if ($.channelIds == null) {
+                throw new MissingRequiredPropertyException("AlertPolicyChannelArgs", "channelIds");
+            }
+            if ($.policyId == null) {
+                throw new MissingRequiredPropertyException("AlertPolicyChannelArgs", "policyId");
+            }
             return $;
         }
     }

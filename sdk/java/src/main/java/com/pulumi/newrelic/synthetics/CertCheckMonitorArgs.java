@@ -5,6 +5,7 @@ package com.pulumi.newrelic.synthetics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.synthetics.inputs.CertCheckMonitorTagArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -413,10 +414,18 @@ public final class CertCheckMonitorArgs extends com.pulumi.resources.ResourceArg
         }
 
         public CertCheckMonitorArgs build() {
-            $.certificateExpiration = Objects.requireNonNull($.certificateExpiration, "expected parameter 'certificateExpiration' to be non-null");
-            $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");
-            $.period = Objects.requireNonNull($.period, "expected parameter 'period' to be non-null");
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
+            if ($.certificateExpiration == null) {
+                throw new MissingRequiredPropertyException("CertCheckMonitorArgs", "certificateExpiration");
+            }
+            if ($.domain == null) {
+                throw new MissingRequiredPropertyException("CertCheckMonitorArgs", "domain");
+            }
+            if ($.period == null) {
+                throw new MissingRequiredPropertyException("CertCheckMonitorArgs", "period");
+            }
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("CertCheckMonitorArgs", "status");
+            }
             return $;
         }
     }

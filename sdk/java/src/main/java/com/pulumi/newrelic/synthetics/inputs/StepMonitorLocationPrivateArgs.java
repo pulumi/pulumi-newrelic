@@ -5,6 +5,7 @@ package com.pulumi.newrelic.synthetics.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class StepMonitorLocationPrivateArgs extends com.pulumi.resources.R
         }
 
         public StepMonitorLocationPrivateArgs build() {
-            $.guid = Objects.requireNonNull($.guid, "expected parameter 'guid' to be non-null");
+            if ($.guid == null) {
+                throw new MissingRequiredPropertyException("StepMonitorLocationPrivateArgs", "guid");
+            }
             return $;
         }
     }

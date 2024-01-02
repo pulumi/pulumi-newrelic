@@ -5,6 +5,7 @@ package com.pulumi.newrelic.synthetics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.synthetics.inputs.StepMonitorLocationPrivateArgs;
 import com.pulumi.newrelic.synthetics.inputs.StepMonitorStepArgs;
 import com.pulumi.newrelic.synthetics.inputs.StepMonitorTagArgs;
@@ -426,9 +427,15 @@ public final class StepMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public StepMonitorArgs build() {
-            $.period = Objects.requireNonNull($.period, "expected parameter 'period' to be non-null");
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
-            $.steps = Objects.requireNonNull($.steps, "expected parameter 'steps' to be non-null");
+            if ($.period == null) {
+                throw new MissingRequiredPropertyException("StepMonitorArgs", "period");
+            }
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("StepMonitorArgs", "status");
+            }
+            if ($.steps == null) {
+                throw new MissingRequiredPropertyException("StepMonitorArgs", "steps");
+            }
             return $;
         }
     }

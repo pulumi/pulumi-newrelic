@@ -317,106 +317,127 @@ public final class AlertChannelConfig {
 
         @CustomType.Setter
         public Builder apiKey(@Nullable String apiKey) {
+
             this.apiKey = apiKey;
             return this;
         }
         @CustomType.Setter
         public Builder authPassword(@Nullable String authPassword) {
+
             this.authPassword = authPassword;
             return this;
         }
         @CustomType.Setter
         public Builder authType(@Nullable String authType) {
+
             this.authType = authType;
             return this;
         }
         @CustomType.Setter
         public Builder authUsername(@Nullable String authUsername) {
+
             this.authUsername = authUsername;
             return this;
         }
         @CustomType.Setter
         public Builder baseUrl(@Nullable String baseUrl) {
+
             this.baseUrl = baseUrl;
             return this;
         }
         @CustomType.Setter
         public Builder channel(@Nullable String channel) {
+
             this.channel = channel;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable Map<String,String> headers) {
+
             this.headers = headers;
             return this;
         }
         @CustomType.Setter
         public Builder headersString(@Nullable String headersString) {
+
             this.headersString = headersString;
             return this;
         }
         @CustomType.Setter
         public Builder includeJsonAttachment(@Nullable String includeJsonAttachment) {
+
             this.includeJsonAttachment = includeJsonAttachment;
             return this;
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder payload(@Nullable Map<String,String> payload) {
+
             this.payload = payload;
             return this;
         }
         @CustomType.Setter
         public Builder payloadString(@Nullable String payloadString) {
+
             this.payloadString = payloadString;
             return this;
         }
         @CustomType.Setter
         public Builder payloadType(@Nullable String payloadType) {
+
             this.payloadType = payloadType;
             return this;
         }
         @CustomType.Setter
         public Builder recipients(@Nullable String recipients) {
+
             this.recipients = recipients;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder routeKey(@Nullable String routeKey) {
+
             this.routeKey = routeKey;
             return this;
         }
         @CustomType.Setter
         public Builder serviceKey(@Nullable String serviceKey) {
+
             this.serviceKey = serviceKey;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable String tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder teams(@Nullable String teams) {
+
             this.teams = teams;
             return this;
         }
         @CustomType.Setter
         public Builder url(@Nullable String url) {
+
             this.url = url;
             return this;
         }
         @CustomType.Setter
         public Builder userId(@Nullable String userId) {
+
             this.userId = userId;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -150,26 +151,35 @@ public final class OneDashboardRawPageWidget {
 
         @CustomType.Setter
         public Builder column(Integer column) {
-            this.column = Objects.requireNonNull(column);
+            if (column == null) {
+              throw new MissingRequiredPropertyException("OneDashboardRawPageWidget", "column");
+            }
+            this.column = column;
             return this;
         }
         @CustomType.Setter
         public Builder configuration(String configuration) {
-            this.configuration = Objects.requireNonNull(configuration);
+            if (configuration == null) {
+              throw new MissingRequiredPropertyException("OneDashboardRawPageWidget", "configuration");
+            }
+            this.configuration = configuration;
             return this;
         }
         @CustomType.Setter
         public Builder height(@Nullable Integer height) {
+
             this.height = height;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder linkedEntityGuids(@Nullable List<String> linkedEntityGuids) {
+
             this.linkedEntityGuids = linkedEntityGuids;
             return this;
         }
@@ -178,21 +188,31 @@ public final class OneDashboardRawPageWidget {
         }
         @CustomType.Setter
         public Builder row(Integer row) {
-            this.row = Objects.requireNonNull(row);
+            if (row == null) {
+              throw new MissingRequiredPropertyException("OneDashboardRawPageWidget", "row");
+            }
+            this.row = row;
             return this;
         }
         @CustomType.Setter
         public Builder title(String title) {
-            this.title = Objects.requireNonNull(title);
+            if (title == null) {
+              throw new MissingRequiredPropertyException("OneDashboardRawPageWidget", "title");
+            }
+            this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder visualizationId(String visualizationId) {
-            this.visualizationId = Objects.requireNonNull(visualizationId);
+            if (visualizationId == null) {
+              throw new MissingRequiredPropertyException("OneDashboardRawPageWidget", "visualizationId");
+            }
+            this.visualizationId = visualizationId;
             return this;
         }
         @CustomType.Setter
         public Builder width(@Nullable Integer width) {
+
             this.width = width;
             return this;
         }

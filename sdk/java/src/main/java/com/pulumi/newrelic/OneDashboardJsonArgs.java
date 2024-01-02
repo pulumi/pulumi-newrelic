@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class OneDashboardJsonArgs extends com.pulumi.resources.ResourceArg
         }
 
         public OneDashboardJsonArgs build() {
-            $.json = Objects.requireNonNull($.json, "expected parameter 'json' to be non-null");
+            if ($.json == null) {
+                throw new MissingRequiredPropertyException("OneDashboardJsonArgs", "json");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.AlertMutingRuleConditionConditionArgs;
 import java.lang.String;
 import java.util.List;
@@ -123,8 +124,12 @@ public final class AlertMutingRuleConditionArgs extends com.pulumi.resources.Res
         }
 
         public AlertMutingRuleConditionArgs build() {
-            $.conditions = Objects.requireNonNull($.conditions, "expected parameter 'conditions' to be non-null");
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
+            if ($.conditions == null) {
+                throw new MissingRequiredPropertyException("AlertMutingRuleConditionArgs", "conditions");
+            }
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("AlertMutingRuleConditionArgs", "operator");
+            }
             return $;
         }
     }

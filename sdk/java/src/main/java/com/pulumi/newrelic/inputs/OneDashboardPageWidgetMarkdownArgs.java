@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetMarkdownColorArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetMarkdownNullValueArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetMarkdownUnitArgs;
@@ -591,10 +592,18 @@ public final class OneDashboardPageWidgetMarkdownArgs extends com.pulumi.resourc
         }
 
         public OneDashboardPageWidgetMarkdownArgs build() {
-            $.column = Objects.requireNonNull($.column, "expected parameter 'column' to be non-null");
-            $.row = Objects.requireNonNull($.row, "expected parameter 'row' to be non-null");
-            $.text = Objects.requireNonNull($.text, "expected parameter 'text' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
+            if ($.column == null) {
+                throw new MissingRequiredPropertyException("OneDashboardPageWidgetMarkdownArgs", "column");
+            }
+            if ($.row == null) {
+                throw new MissingRequiredPropertyException("OneDashboardPageWidgetMarkdownArgs", "row");
+            }
+            if ($.text == null) {
+                throw new MissingRequiredPropertyException("OneDashboardPageWidgetMarkdownArgs", "text");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("OneDashboardPageWidgetMarkdownArgs", "title");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.MonitorDowntimeEndRepeatArgs;
 import com.pulumi.newrelic.inputs.MonitorDowntimeFrequencyArgs;
 import java.lang.String;
@@ -442,10 +443,18 @@ public final class MonitorDowntimeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public MonitorDowntimeArgs build() {
-            $.endTime = Objects.requireNonNull($.endTime, "expected parameter 'endTime' to be non-null");
-            $.mode = Objects.requireNonNull($.mode, "expected parameter 'mode' to be non-null");
-            $.startTime = Objects.requireNonNull($.startTime, "expected parameter 'startTime' to be non-null");
-            $.timeZone = Objects.requireNonNull($.timeZone, "expected parameter 'timeZone' to be non-null");
+            if ($.endTime == null) {
+                throw new MissingRequiredPropertyException("MonitorDowntimeArgs", "endTime");
+            }
+            if ($.mode == null) {
+                throw new MissingRequiredPropertyException("MonitorDowntimeArgs", "mode");
+            }
+            if ($.startTime == null) {
+                throw new MissingRequiredPropertyException("MonitorDowntimeArgs", "startTime");
+            }
+            if ($.timeZone == null) {
+                throw new MissingRequiredPropertyException("MonitorDowntimeArgs", "timeZone");
+            }
             return $;
         }
     }

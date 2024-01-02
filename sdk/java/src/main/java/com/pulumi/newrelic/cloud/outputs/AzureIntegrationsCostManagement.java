@@ -60,11 +60,13 @@ public final class AzureIntegrationsCostManagement {
 
         @CustomType.Setter
         public Builder metricsPollingInterval(@Nullable Integer metricsPollingInterval) {
+
             this.metricsPollingInterval = metricsPollingInterval;
             return this;
         }
         @CustomType.Setter
         public Builder tagKeys(@Nullable List<String> tagKeys) {
+
             this.tagKeys = tagKeys;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetEntityTag extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetEntityTag build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetEntityTag", "key");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("GetEntityTag", "value");
+            }
             return $;
         }
     }

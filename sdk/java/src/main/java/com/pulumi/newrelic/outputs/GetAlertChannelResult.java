@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.GetAlertChannelConfig;
 import java.lang.Integer;
 import java.lang.String;
@@ -99,27 +100,42 @@ public final class GetAlertChannelResult {
 
         @CustomType.Setter
         public Builder accountId(Integer accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("GetAlertChannelResult", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder config(GetAlertChannelConfig config) {
-            this.config = Objects.requireNonNull(config);
+            if (config == null) {
+              throw new MissingRequiredPropertyException("GetAlertChannelResult", "config");
+            }
+            this.config = config;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAlertChannelResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAlertChannelResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder policyIds(List<Integer> policyIds) {
-            this.policyIds = Objects.requireNonNull(policyIds);
+            if (policyIds == null) {
+              throw new MissingRequiredPropertyException("GetAlertChannelResult", "policyIds");
+            }
+            this.policyIds = policyIds;
             return this;
         }
         public Builder policyIds(Integer... policyIds) {
@@ -127,7 +143,10 @@ public final class GetAlertChannelResult {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetAlertChannelResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetAlertChannelResult build() {

@@ -60,11 +60,13 @@ public final class OneDashboardPageWidgetBulletNullValue {
 
         @CustomType.Setter
         public Builder nullValue(@Nullable String nullValue) {
+
             this.nullValue = nullValue;
             return this;
         }
         @CustomType.Setter
         public Builder seriesOverrides(@Nullable List<OneDashboardPageWidgetBulletNullValueSeriesOverride> seriesOverrides) {
+
             this.seriesOverrides = seriesOverrides;
             return this;
         }

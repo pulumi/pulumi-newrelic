@@ -60,11 +60,13 @@ public final class OneDashboardPageWidgetHistogramColor {
 
         @CustomType.Setter
         public Builder color(@Nullable String color) {
+
             this.color = color;
             return this;
         }
         @CustomType.Setter
         public Builder seriesOverrides(@Nullable List<OneDashboardPageWidgetHistogramColorSeriesOverride> seriesOverrides) {
+
             this.seriesOverrides = seriesOverrides;
             return this;
         }

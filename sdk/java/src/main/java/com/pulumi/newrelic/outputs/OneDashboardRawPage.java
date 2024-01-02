@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.OneDashboardRawPageWidget;
 import java.lang.String;
 import java.util.List;
@@ -88,21 +89,27 @@ public final class OneDashboardRawPage {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder guid(@Nullable String guid) {
+
             this.guid = guid;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("OneDashboardRawPage", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder widgets(@Nullable List<OneDashboardRawPageWidget> widgets) {
+
             this.widgets = widgets;
             return this;
         }

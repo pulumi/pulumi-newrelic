@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.ServiceLevelObjectiveTimeWindow;
 import java.lang.Double;
 import java.lang.String;
@@ -88,22 +89,30 @@ public final class ServiceLevelObjective {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder target(Double target) {
-            this.target = Objects.requireNonNull(target);
+            if (target == null) {
+              throw new MissingRequiredPropertyException("ServiceLevelObjective", "target");
+            }
+            this.target = target;
             return this;
         }
         @CustomType.Setter
         public Builder timeWindow(ServiceLevelObjectiveTimeWindow timeWindow) {
-            this.timeWindow = Objects.requireNonNull(timeWindow);
+            if (timeWindow == null) {
+              throw new MissingRequiredPropertyException("ServiceLevelObjective", "timeWindow");
+            }
+            this.timeWindow = timeWindow;
             return this;
         }
         public ServiceLevelObjective build() {
