@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.plugins.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.plugins.outputs.WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class WorkloadStatusConfigAutomaticRemainingEntitiesRule {
 
         @CustomType.Setter
         public Builder remainingEntitiesRuleRollup(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup remainingEntitiesRuleRollup) {
-            this.remainingEntitiesRuleRollup = Objects.requireNonNull(remainingEntitiesRuleRollup);
+            if (remainingEntitiesRuleRollup == null) {
+              throw new MissingRequiredPropertyException("WorkloadStatusConfigAutomaticRemainingEntitiesRule", "remainingEntitiesRuleRollup");
+            }
+            this.remainingEntitiesRuleRollup = remainingEntitiesRuleRollup;
             return this;
         }
         public WorkloadStatusConfigAutomaticRemainingEntitiesRule build() {

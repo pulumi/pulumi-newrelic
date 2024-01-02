@@ -63,11 +63,13 @@ public final class MonitorDowntimeEndRepeat {
 
         @CustomType.Setter
         public Builder onDate(@Nullable String onDate) {
+
             this.onDate = onDate;
             return this;
         }
         @CustomType.Setter
         public Builder onRepeat(@Nullable Integer onRepeat) {
+
             this.onRepeat = onRepeat;
             return this;
         }

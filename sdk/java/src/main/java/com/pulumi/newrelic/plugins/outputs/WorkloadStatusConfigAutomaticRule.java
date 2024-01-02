@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.plugins.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.plugins.outputs.WorkloadStatusConfigAutomaticRuleNrqlQuery;
 import com.pulumi.newrelic.plugins.outputs.WorkloadStatusConfigAutomaticRuleRollup;
 import java.lang.String;
@@ -74,6 +75,7 @@ public final class WorkloadStatusConfigAutomaticRule {
 
         @CustomType.Setter
         public Builder entityGuids(@Nullable List<String> entityGuids) {
+
             this.entityGuids = entityGuids;
             return this;
         }
@@ -82,6 +84,7 @@ public final class WorkloadStatusConfigAutomaticRule {
         }
         @CustomType.Setter
         public Builder nrqlQueries(@Nullable List<WorkloadStatusConfigAutomaticRuleNrqlQuery> nrqlQueries) {
+
             this.nrqlQueries = nrqlQueries;
             return this;
         }
@@ -90,7 +93,10 @@ public final class WorkloadStatusConfigAutomaticRule {
         }
         @CustomType.Setter
         public Builder rollup(WorkloadStatusConfigAutomaticRuleRollup rollup) {
-            this.rollup = Objects.requireNonNull(rollup);
+            if (rollup == null) {
+              throw new MissingRequiredPropertyException("WorkloadStatusConfigAutomaticRule", "rollup");
+            }
+            this.rollup = rollup;
             return this;
         }
         public WorkloadStatusConfigAutomaticRule build() {

@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class ServiceLevelObjectiveTimeWindowRollingArgs extends com.pulumi
         }
 
         public ServiceLevelObjectiveTimeWindowRollingArgs build() {
-            $.count = Objects.requireNonNull($.count, "expected parameter 'count' to be non-null");
-            $.unit = Objects.requireNonNull($.unit, "expected parameter 'unit' to be non-null");
+            if ($.count == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelObjectiveTimeWindowRollingArgs", "count");
+            }
+            if ($.unit == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelObjectiveTimeWindowRollingArgs", "unit");
+            }
             return $;
         }
     }

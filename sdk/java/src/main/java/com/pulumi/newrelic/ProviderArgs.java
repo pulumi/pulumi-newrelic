@@ -6,6 +6,7 @@ package com.pulumi.newrelic;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -396,7 +397,9 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         public ProviderArgs build() {
             $.accountId = Codegen.integerProp("accountId").secret().arg($.accountId).env("NEW_RELIC_ACCOUNT_ID").getNullable();
-            $.apiKey = Objects.requireNonNull($.apiKey, "expected parameter 'apiKey' to be non-null");
+            if ($.apiKey == null) {
+                throw new MissingRequiredPropertyException("ProviderArgs", "apiKey");
+            }
             $.region = Codegen.stringProp("region").output().arg($.region).env("NEW_RELIC_REGION").def("US").getNullable();
             return $;
         }

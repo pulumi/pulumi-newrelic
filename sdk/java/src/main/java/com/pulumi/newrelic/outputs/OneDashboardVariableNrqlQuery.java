@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -51,6 +52,7 @@ public final class OneDashboardVariableNrqlQuery {
 
         @CustomType.Setter
         public Builder accountIds(@Nullable List<Integer> accountIds) {
+
             this.accountIds = accountIds;
             return this;
         }
@@ -59,7 +61,10 @@ public final class OneDashboardVariableNrqlQuery {
         }
         @CustomType.Setter
         public Builder query(String query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("OneDashboardVariableNrqlQuery", "query");
+            }
+            this.query = query;
             return this;
         }
         public OneDashboardVariableNrqlQuery build() {

@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.plugins.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,21 @@ public final class WorkloadStatusConfigAutomaticRuleRollup {
 
         @CustomType.Setter
         public Builder strategy(String strategy) {
-            this.strategy = Objects.requireNonNull(strategy);
+            if (strategy == null) {
+              throw new MissingRequiredPropertyException("WorkloadStatusConfigAutomaticRuleRollup", "strategy");
+            }
+            this.strategy = strategy;
             return this;
         }
         @CustomType.Setter
         public Builder thresholdType(@Nullable String thresholdType) {
+
             this.thresholdType = thresholdType;
             return this;
         }
         @CustomType.Setter
         public Builder thresholdValue(@Nullable Integer thresholdValue) {
+
             this.thresholdValue = thresholdValue;
             return this;
         }

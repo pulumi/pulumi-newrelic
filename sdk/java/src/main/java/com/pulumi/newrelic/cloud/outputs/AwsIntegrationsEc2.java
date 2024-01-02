@@ -125,6 +125,7 @@ public final class AwsIntegrationsEc2 {
 
         @CustomType.Setter
         public Builder awsRegions(@Nullable List<String> awsRegions) {
+
             this.awsRegions = awsRegions;
             return this;
         }
@@ -133,26 +134,31 @@ public final class AwsIntegrationsEc2 {
         }
         @CustomType.Setter
         public Builder duplicateEc2Tags(@Nullable Boolean duplicateEc2Tags) {
+
             this.duplicateEc2Tags = duplicateEc2Tags;
             return this;
         }
         @CustomType.Setter
         public Builder fetchIpAddresses(@Nullable Boolean fetchIpAddresses) {
+
             this.fetchIpAddresses = fetchIpAddresses;
             return this;
         }
         @CustomType.Setter
         public Builder metricsPollingInterval(@Nullable Integer metricsPollingInterval) {
+
             this.metricsPollingInterval = metricsPollingInterval;
             return this;
         }
         @CustomType.Setter
         public Builder tagKey(@Nullable String tagKey) {
+
             this.tagKey = tagKey;
             return this;
         }
         @CustomType.Setter
         public Builder tagValue(@Nullable String tagValue) {
+
             this.tagValue = tagValue;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.plugins.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -87,21 +88,29 @@ public final class WorkloadStatusConfigStatic {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("WorkloadStatusConfigStatic", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("WorkloadStatusConfigStatic", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder summary(@Nullable String summary) {
+
             this.summary = summary;
             return this;
         }

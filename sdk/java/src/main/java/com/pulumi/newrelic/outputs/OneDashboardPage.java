@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetArea;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetBar;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetBillboard;
@@ -171,21 +172,27 @@ public final class OneDashboardPage {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder guid(@Nullable String guid) {
+
             this.guid = guid;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("OneDashboardPage", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder widgetAreas(@Nullable List<OneDashboardPageWidgetArea> widgetAreas) {
+
             this.widgetAreas = widgetAreas;
             return this;
         }
@@ -194,6 +201,7 @@ public final class OneDashboardPage {
         }
         @CustomType.Setter
         public Builder widgetBars(@Nullable List<OneDashboardPageWidgetBar> widgetBars) {
+
             this.widgetBars = widgetBars;
             return this;
         }
@@ -202,6 +210,7 @@ public final class OneDashboardPage {
         }
         @CustomType.Setter
         public Builder widgetBillboards(@Nullable List<OneDashboardPageWidgetBillboard> widgetBillboards) {
+
             this.widgetBillboards = widgetBillboards;
             return this;
         }
@@ -210,6 +219,7 @@ public final class OneDashboardPage {
         }
         @CustomType.Setter
         public Builder widgetBullets(@Nullable List<OneDashboardPageWidgetBullet> widgetBullets) {
+
             this.widgetBullets = widgetBullets;
             return this;
         }
@@ -218,6 +228,7 @@ public final class OneDashboardPage {
         }
         @CustomType.Setter
         public Builder widgetFunnels(@Nullable List<OneDashboardPageWidgetFunnel> widgetFunnels) {
+
             this.widgetFunnels = widgetFunnels;
             return this;
         }
@@ -226,6 +237,7 @@ public final class OneDashboardPage {
         }
         @CustomType.Setter
         public Builder widgetHeatmaps(@Nullable List<OneDashboardPageWidgetHeatmap> widgetHeatmaps) {
+
             this.widgetHeatmaps = widgetHeatmaps;
             return this;
         }
@@ -234,6 +246,7 @@ public final class OneDashboardPage {
         }
         @CustomType.Setter
         public Builder widgetHistograms(@Nullable List<OneDashboardPageWidgetHistogram> widgetHistograms) {
+
             this.widgetHistograms = widgetHistograms;
             return this;
         }
@@ -242,6 +255,7 @@ public final class OneDashboardPage {
         }
         @CustomType.Setter
         public Builder widgetJsons(@Nullable List<OneDashboardPageWidgetJson> widgetJsons) {
+
             this.widgetJsons = widgetJsons;
             return this;
         }
@@ -250,6 +264,7 @@ public final class OneDashboardPage {
         }
         @CustomType.Setter
         public Builder widgetLines(@Nullable List<OneDashboardPageWidgetLine> widgetLines) {
+
             this.widgetLines = widgetLines;
             return this;
         }
@@ -258,6 +273,7 @@ public final class OneDashboardPage {
         }
         @CustomType.Setter
         public Builder widgetLogTables(@Nullable List<OneDashboardPageWidgetLogTable> widgetLogTables) {
+
             this.widgetLogTables = widgetLogTables;
             return this;
         }
@@ -266,6 +282,7 @@ public final class OneDashboardPage {
         }
         @CustomType.Setter
         public Builder widgetMarkdowns(@Nullable List<OneDashboardPageWidgetMarkdown> widgetMarkdowns) {
+
             this.widgetMarkdowns = widgetMarkdowns;
             return this;
         }
@@ -274,6 +291,7 @@ public final class OneDashboardPage {
         }
         @CustomType.Setter
         public Builder widgetPies(@Nullable List<OneDashboardPageWidgetPy> widgetPies) {
+
             this.widgetPies = widgetPies;
             return this;
         }
@@ -282,6 +300,7 @@ public final class OneDashboardPage {
         }
         @CustomType.Setter
         public Builder widgetStackedBars(@Nullable List<OneDashboardPageWidgetStackedBar> widgetStackedBars) {
+
             this.widgetStackedBars = widgetStackedBars;
             return this;
         }
@@ -290,6 +309,7 @@ public final class OneDashboardPage {
         }
         @CustomType.Setter
         public Builder widgetTables(@Nullable List<OneDashboardPageWidgetTable> widgetTables) {
+
             this.widgetTables = widgetTables;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.OneDashboardVariableItem;
 import com.pulumi.newrelic.outputs.OneDashboardVariableNrqlQuery;
 import java.lang.Boolean;
@@ -146,6 +147,7 @@ public final class OneDashboardVariable {
 
         @CustomType.Setter
         public Builder defaultValues(@Nullable List<String> defaultValues) {
+
             this.defaultValues = defaultValues;
             return this;
         }
@@ -154,11 +156,13 @@ public final class OneDashboardVariable {
         }
         @CustomType.Setter
         public Builder isMultiSelection(@Nullable Boolean isMultiSelection) {
+
             this.isMultiSelection = isMultiSelection;
             return this;
         }
         @CustomType.Setter
         public Builder items(@Nullable List<OneDashboardVariableItem> items) {
+
             this.items = items;
             return this;
         }
@@ -167,27 +171,40 @@ public final class OneDashboardVariable {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("OneDashboardVariable", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nrqlQuery(@Nullable OneDashboardVariableNrqlQuery nrqlQuery) {
+
             this.nrqlQuery = nrqlQuery;
             return this;
         }
         @CustomType.Setter
         public Builder replacementStrategy(String replacementStrategy) {
-            this.replacementStrategy = Objects.requireNonNull(replacementStrategy);
+            if (replacementStrategy == null) {
+              throw new MissingRequiredPropertyException("OneDashboardVariable", "replacementStrategy");
+            }
+            this.replacementStrategy = replacementStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder title(String title) {
-            this.title = Objects.requireNonNull(title);
+            if (title == null) {
+              throw new MissingRequiredPropertyException("OneDashboardVariable", "title");
+            }
+            this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("OneDashboardVariable", "type");
+            }
+            this.type = type;
             return this;
         }
         public OneDashboardVariable build() {

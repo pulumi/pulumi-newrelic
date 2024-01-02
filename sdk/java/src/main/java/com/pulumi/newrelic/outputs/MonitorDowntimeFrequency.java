@@ -60,6 +60,7 @@ public final class MonitorDowntimeFrequency {
 
         @CustomType.Setter
         public Builder daysOfMonths(@Nullable List<Integer> daysOfMonths) {
+
             this.daysOfMonths = daysOfMonths;
             return this;
         }
@@ -68,6 +69,7 @@ public final class MonitorDowntimeFrequency {
         }
         @CustomType.Setter
         public Builder daysOfWeek(@Nullable MonitorDowntimeFrequencyDaysOfWeek daysOfWeek) {
+
             this.daysOfWeek = daysOfWeek;
             return this;
         }

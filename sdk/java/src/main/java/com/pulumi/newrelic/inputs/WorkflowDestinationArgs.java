@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -202,7 +203,9 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         }
 
         public WorkflowDestinationArgs build() {
-            $.channelId = Objects.requireNonNull($.channelId, "expected parameter 'channelId' to be non-null");
+            if ($.channelId == null) {
+                throw new MissingRequiredPropertyException("WorkflowDestinationArgs", "channelId");
+            }
             return $;
         }
     }

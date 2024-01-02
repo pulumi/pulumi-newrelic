@@ -107,6 +107,7 @@ public final class AwsGovcloudIntegrationsElasticSearch {
 
         @CustomType.Setter
         public Builder awsRegions(@Nullable List<String> awsRegions) {
+
             this.awsRegions = awsRegions;
             return this;
         }
@@ -115,21 +116,25 @@ public final class AwsGovcloudIntegrationsElasticSearch {
         }
         @CustomType.Setter
         public Builder fetchNodes(@Nullable Boolean fetchNodes) {
+
             this.fetchNodes = fetchNodes;
             return this;
         }
         @CustomType.Setter
         public Builder metricsPollingInterval(@Nullable Integer metricsPollingInterval) {
+
             this.metricsPollingInterval = metricsPollingInterval;
             return this;
         }
         @CustomType.Setter
         public Builder tagKey(@Nullable String tagKey) {
+
             this.tagKey = tagKey;
             return this;
         }
         @CustomType.Setter
         public Builder tagValue(@Nullable String tagValue) {
+
             this.tagValue = tagValue;
             return this;
         }

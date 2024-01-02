@@ -5,6 +5,7 @@ package com.pulumi.newrelic.plugins.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs;
 import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigAutomaticRuleArgs;
 import java.lang.Boolean;
@@ -163,7 +164,9 @@ public final class WorkloadStatusConfigAutomaticArgs extends com.pulumi.resource
         }
 
         public WorkloadStatusConfigAutomaticArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("WorkloadStatusConfigAutomaticArgs", "enabled");
+            }
             return $;
         }
     }

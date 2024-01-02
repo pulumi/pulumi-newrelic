@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -99,7 +100,9 @@ public final class OneDashboardVariableNrqlQueryArgs extends com.pulumi.resource
         }
 
         public OneDashboardVariableNrqlQueryArgs build() {
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("OneDashboardVariableNrqlQueryArgs", "query");
+            }
             return $;
         }
     }

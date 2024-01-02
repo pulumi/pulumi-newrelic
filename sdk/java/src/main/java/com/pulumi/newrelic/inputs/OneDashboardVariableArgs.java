@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.OneDashboardVariableItemArgs;
 import com.pulumi.newrelic.inputs.OneDashboardVariableNrqlQueryArgs;
 import java.lang.Boolean;
@@ -359,10 +360,18 @@ public final class OneDashboardVariableArgs extends com.pulumi.resources.Resourc
         }
 
         public OneDashboardVariableArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.replacementStrategy = Objects.requireNonNull($.replacementStrategy, "expected parameter 'replacementStrategy' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("OneDashboardVariableArgs", "name");
+            }
+            if ($.replacementStrategy == null) {
+                throw new MissingRequiredPropertyException("OneDashboardVariableArgs", "replacementStrategy");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("OneDashboardVariableArgs", "title");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("OneDashboardVariableArgs", "type");
+            }
             return $;
         }
     }

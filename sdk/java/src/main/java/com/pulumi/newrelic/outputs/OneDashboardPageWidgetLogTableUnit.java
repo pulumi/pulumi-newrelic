@@ -60,6 +60,7 @@ public final class OneDashboardPageWidgetLogTableUnit {
 
         @CustomType.Setter
         public Builder seriesOverrides(@Nullable List<OneDashboardPageWidgetLogTableUnitSeriesOverride> seriesOverrides) {
+
             this.seriesOverrides = seriesOverrides;
             return this;
         }
@@ -68,6 +69,7 @@ public final class OneDashboardPageWidgetLogTableUnit {
         }
         @CustomType.Setter
         public Builder unit(@Nullable String unit) {
+
             this.unit = unit;
             return this;
         }

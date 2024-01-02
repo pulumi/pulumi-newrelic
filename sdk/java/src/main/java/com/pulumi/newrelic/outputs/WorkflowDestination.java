@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -89,16 +90,21 @@ public final class WorkflowDestination {
 
         @CustomType.Setter
         public Builder channelId(String channelId) {
-            this.channelId = Objects.requireNonNull(channelId);
+            if (channelId == null) {
+              throw new MissingRequiredPropertyException("WorkflowDestination", "channelId");
+            }
+            this.channelId = channelId;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder notificationTriggers(@Nullable List<String> notificationTriggers) {
+
             this.notificationTriggers = notificationTriggers;
             return this;
         }
@@ -107,6 +113,7 @@ public final class WorkflowDestination {
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

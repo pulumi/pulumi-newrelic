@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.ServiceLevelEventsArgs;
 import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
 import java.lang.String;
@@ -234,9 +235,15 @@ public final class ServiceLevelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServiceLevelArgs build() {
-            $.events = Objects.requireNonNull($.events, "expected parameter 'events' to be non-null");
-            $.guid = Objects.requireNonNull($.guid, "expected parameter 'guid' to be non-null");
-            $.objective = Objects.requireNonNull($.objective, "expected parameter 'objective' to be non-null");
+            if ($.events == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelArgs", "events");
+            }
+            if ($.guid == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelArgs", "guid");
+            }
+            if ($.objective == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelArgs", "objective");
+            }
             return $;
         }
     }

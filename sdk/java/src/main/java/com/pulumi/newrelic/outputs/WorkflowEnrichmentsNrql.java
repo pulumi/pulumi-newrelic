@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.WorkflowEnrichmentsNrqlConfiguration;
 import java.lang.Integer;
 import java.lang.String;
@@ -95,12 +96,16 @@ public final class WorkflowEnrichmentsNrql {
 
         @CustomType.Setter
         public Builder accountId(@Nullable Integer accountId) {
+
             this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder configurations(List<WorkflowEnrichmentsNrqlConfiguration> configurations) {
-            this.configurations = Objects.requireNonNull(configurations);
+            if (configurations == null) {
+              throw new MissingRequiredPropertyException("WorkflowEnrichmentsNrql", "configurations");
+            }
+            this.configurations = configurations;
             return this;
         }
         public Builder configurations(WorkflowEnrichmentsNrqlConfiguration... configurations) {
@@ -108,16 +113,21 @@ public final class WorkflowEnrichmentsNrql {
         }
         @CustomType.Setter
         public Builder enrichmentId(@Nullable String enrichmentId) {
+
             this.enrichmentId = enrichmentId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("WorkflowEnrichmentsNrql", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

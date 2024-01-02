@@ -5,6 +5,7 @@ package com.pulumi.newrelic.synthetics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.synthetics.inputs.ScriptMonitorLocationPrivateArgs;
 import com.pulumi.newrelic.synthetics.inputs.ScriptMonitorTagArgs;
 import java.lang.Boolean;
@@ -647,9 +648,15 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ScriptMonitorArgs build() {
-            $.period = Objects.requireNonNull($.period, "expected parameter 'period' to be non-null");
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.period == null) {
+                throw new MissingRequiredPropertyException("ScriptMonitorArgs", "period");
+            }
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("ScriptMonitorArgs", "status");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ScriptMonitorArgs", "type");
+            }
             return $;
         }
     }

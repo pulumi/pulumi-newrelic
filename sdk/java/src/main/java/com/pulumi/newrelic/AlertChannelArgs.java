@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.AlertChannelConfigArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -189,7 +190,9 @@ public final class AlertChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AlertChannelArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("AlertChannelArgs", "type");
+            }
             return $;
         }
     }

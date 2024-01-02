@@ -5,6 +5,7 @@ package com.pulumi.newrelic.synthetics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.synthetics.inputs.MultiLocationAlertConditionCriticalArgs;
 import com.pulumi.newrelic.synthetics.inputs.MultiLocationAlertConditionWarningArgs;
 import java.lang.Boolean;
@@ -358,9 +359,15 @@ public final class MultiLocationAlertConditionArgs extends com.pulumi.resources.
         }
 
         public MultiLocationAlertConditionArgs build() {
-            $.critical = Objects.requireNonNull($.critical, "expected parameter 'critical' to be non-null");
-            $.entities = Objects.requireNonNull($.entities, "expected parameter 'entities' to be non-null");
-            $.policyId = Objects.requireNonNull($.policyId, "expected parameter 'policyId' to be non-null");
+            if ($.critical == null) {
+                throw new MissingRequiredPropertyException("MultiLocationAlertConditionArgs", "critical");
+            }
+            if ($.entities == null) {
+                throw new MissingRequiredPropertyException("MultiLocationAlertConditionArgs", "entities");
+            }
+            if ($.policyId == null) {
+                throw new MissingRequiredPropertyException("MultiLocationAlertConditionArgs", "policyId");
+            }
             return $;
         }
     }

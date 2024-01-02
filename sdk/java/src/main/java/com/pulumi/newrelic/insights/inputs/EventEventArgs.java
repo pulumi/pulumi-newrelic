@@ -5,6 +5,7 @@ package com.pulumi.newrelic.insights.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.insights.inputs.EventEventAttributeArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -97,8 +98,12 @@ public final class EventEventArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EventEventArgs build() {
-            $.attributes = Objects.requireNonNull($.attributes, "expected parameter 'attributes' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.attributes == null) {
+                throw new MissingRequiredPropertyException("EventEventArgs", "attributes");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("EventEventArgs", "type");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.newrelic.cloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsApiManagementArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsAppGatewayArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsAppServiceArgs;
@@ -1345,7 +1346,9 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
         }
 
         public AzureIntegrationsArgs build() {
-            $.linkedAccountId = Objects.requireNonNull($.linkedAccountId, "expected parameter 'linkedAccountId' to be non-null");
+            if ($.linkedAccountId == null) {
+                throw new MissingRequiredPropertyException("AzureIntegrationsArgs", "linkedAccountId");
+            }
             return $;
         }
     }

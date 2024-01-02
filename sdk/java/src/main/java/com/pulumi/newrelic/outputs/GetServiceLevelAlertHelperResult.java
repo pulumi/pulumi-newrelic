@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -145,62 +146,92 @@ public final class GetServiceLevelAlertHelperResult {
 
         @CustomType.Setter
         public Builder alertType(String alertType) {
-            this.alertType = Objects.requireNonNull(alertType);
+            if (alertType == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelAlertHelperResult", "alertType");
+            }
+            this.alertType = alertType;
             return this;
         }
         @CustomType.Setter
         public Builder customEvaluationPeriod(@Nullable Integer customEvaluationPeriod) {
+
             this.customEvaluationPeriod = customEvaluationPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder customToleratedBudgetConsumption(@Nullable Double customToleratedBudgetConsumption) {
+
             this.customToleratedBudgetConsumption = customToleratedBudgetConsumption;
             return this;
         }
         @CustomType.Setter
         public Builder evaluationPeriod(Integer evaluationPeriod) {
-            this.evaluationPeriod = Objects.requireNonNull(evaluationPeriod);
+            if (evaluationPeriod == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelAlertHelperResult", "evaluationPeriod");
+            }
+            this.evaluationPeriod = evaluationPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelAlertHelperResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder isBadEvents(@Nullable Boolean isBadEvents) {
+
             this.isBadEvents = isBadEvents;
             return this;
         }
         @CustomType.Setter
         public Builder nrql(String nrql) {
-            this.nrql = Objects.requireNonNull(nrql);
+            if (nrql == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelAlertHelperResult", "nrql");
+            }
+            this.nrql = nrql;
             return this;
         }
         @CustomType.Setter
         public Builder sliGuid(String sliGuid) {
-            this.sliGuid = Objects.requireNonNull(sliGuid);
+            if (sliGuid == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelAlertHelperResult", "sliGuid");
+            }
+            this.sliGuid = sliGuid;
             return this;
         }
         @CustomType.Setter
         public Builder sloPeriod(Integer sloPeriod) {
-            this.sloPeriod = Objects.requireNonNull(sloPeriod);
+            if (sloPeriod == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelAlertHelperResult", "sloPeriod");
+            }
+            this.sloPeriod = sloPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder sloTarget(Double sloTarget) {
-            this.sloTarget = Objects.requireNonNull(sloTarget);
+            if (sloTarget == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelAlertHelperResult", "sloTarget");
+            }
+            this.sloTarget = sloTarget;
             return this;
         }
         @CustomType.Setter
         public Builder threshold(Double threshold) {
-            this.threshold = Objects.requireNonNull(threshold);
+            if (threshold == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelAlertHelperResult", "threshold");
+            }
+            this.threshold = threshold;
             return this;
         }
         @CustomType.Setter
         public Builder toleratedBudgetConsumption(Double toleratedBudgetConsumption) {
-            this.toleratedBudgetConsumption = Objects.requireNonNull(toleratedBudgetConsumption);
+            if (toleratedBudgetConsumption == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelAlertHelperResult", "toleratedBudgetConsumption");
+            }
+            this.toleratedBudgetConsumption = toleratedBudgetConsumption;
             return this;
         }
         public GetServiceLevelAlertHelperResult build() {

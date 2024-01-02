@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -162,8 +163,12 @@ public final class GetTestGrokPatternArgs extends com.pulumi.resources.InvokeArg
         }
 
         public GetTestGrokPatternArgs build() {
-            $.grok = Objects.requireNonNull($.grok, "expected parameter 'grok' to be non-null");
-            $.logLines = Objects.requireNonNull($.logLines, "expected parameter 'logLines' to be non-null");
+            if ($.grok == null) {
+                throw new MissingRequiredPropertyException("GetTestGrokPatternArgs", "grok");
+            }
+            if ($.logLines == null) {
+                throw new MissingRequiredPropertyException("GetTestGrokPatternArgs", "logLines");
+            }
             return $;
         }
     }

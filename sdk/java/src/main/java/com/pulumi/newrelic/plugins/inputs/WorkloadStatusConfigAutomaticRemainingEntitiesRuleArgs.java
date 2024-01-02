@@ -5,6 +5,7 @@ package com.pulumi.newrelic.plugins.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs extend
         }
 
         public WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs build() {
-            $.remainingEntitiesRuleRollup = Objects.requireNonNull($.remainingEntitiesRuleRollup, "expected parameter 'remainingEntitiesRuleRollup' to be non-null");
+            if ($.remainingEntitiesRuleRollup == null) {
+                throw new MissingRequiredPropertyException("WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs", "remainingEntitiesRuleRollup");
+            }
             return $;
         }
     }

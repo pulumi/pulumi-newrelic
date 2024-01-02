@@ -5,6 +5,7 @@ package com.pulumi.newrelic.synthetics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.synthetics.inputs.BrokenLinksMonitorTagArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -376,9 +377,15 @@ public final class BrokenLinksMonitorArgs extends com.pulumi.resources.ResourceA
         }
 
         public BrokenLinksMonitorArgs build() {
-            $.period = Objects.requireNonNull($.period, "expected parameter 'period' to be non-null");
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
-            $.uri = Objects.requireNonNull($.uri, "expected parameter 'uri' to be non-null");
+            if ($.period == null) {
+                throw new MissingRequiredPropertyException("BrokenLinksMonitorArgs", "period");
+            }
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("BrokenLinksMonitorArgs", "status");
+            }
+            if ($.uri == null) {
+                throw new MissingRequiredPropertyException("BrokenLinksMonitorArgs", "uri");
+            }
             return $;
         }
     }

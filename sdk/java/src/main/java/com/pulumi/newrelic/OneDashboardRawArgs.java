@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.OneDashboardRawPageArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -237,7 +238,9 @@ public final class OneDashboardRawArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public OneDashboardRawArgs build() {
-            $.pages = Objects.requireNonNull($.pages, "expected parameter 'pages' to be non-null");
+            if ($.pages == null) {
+                throw new MissingRequiredPropertyException("OneDashboardRawArgs", "pages");
+            }
             return $;
         }
     }

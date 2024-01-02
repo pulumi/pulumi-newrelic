@@ -5,6 +5,7 @@ package com.pulumi.newrelic.synthetics.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -54,7 +55,9 @@ public final class MultiLocationAlertConditionCriticalArgs extends com.pulumi.re
         }
 
         public MultiLocationAlertConditionCriticalArgs build() {
-            $.threshold = Objects.requireNonNull($.threshold, "expected parameter 'threshold' to be non-null");
+            if ($.threshold == null) {
+                throw new MissingRequiredPropertyException("MultiLocationAlertConditionCriticalArgs", "threshold");
+            }
             return $;
         }
     }

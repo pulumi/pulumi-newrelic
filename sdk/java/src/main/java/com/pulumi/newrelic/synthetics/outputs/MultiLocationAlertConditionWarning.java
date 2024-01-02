@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.synthetics.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -34,7 +35,10 @@ public final class MultiLocationAlertConditionWarning {
 
         @CustomType.Setter
         public Builder threshold(Integer threshold) {
-            this.threshold = Objects.requireNonNull(threshold);
+            if (threshold == null) {
+              throw new MissingRequiredPropertyException("MultiLocationAlertConditionWarning", "threshold");
+            }
+            this.threshold = threshold;
             return this;
         }
         public MultiLocationAlertConditionWarning build() {

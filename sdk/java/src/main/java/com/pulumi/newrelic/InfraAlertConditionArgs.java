@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.InfraAlertConditionCriticalArgs;
 import com.pulumi.newrelic.inputs.InfraAlertConditionWarningArgs;
 import java.lang.Boolean;
@@ -686,8 +687,12 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         public InfraAlertConditionArgs build() {
-            $.policyId = Objects.requireNonNull($.policyId, "expected parameter 'policyId' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.policyId == null) {
+                throw new MissingRequiredPropertyException("InfraAlertConditionArgs", "policyId");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("InfraAlertConditionArgs", "type");
+            }
             return $;
         }
     }

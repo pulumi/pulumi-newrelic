@@ -121,11 +121,13 @@ public final class AzureIntegrationsMonitor {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder excludeTags(@Nullable List<String> excludeTags) {
+
             this.excludeTags = excludeTags;
             return this;
         }
@@ -134,6 +136,7 @@ public final class AzureIntegrationsMonitor {
         }
         @CustomType.Setter
         public Builder includeTags(@Nullable List<String> includeTags) {
+
             this.includeTags = includeTags;
             return this;
         }
@@ -142,11 +145,13 @@ public final class AzureIntegrationsMonitor {
         }
         @CustomType.Setter
         public Builder metricsPollingInterval(@Nullable Integer metricsPollingInterval) {
+
             this.metricsPollingInterval = metricsPollingInterval;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroups(@Nullable List<String> resourceGroups) {
+
             this.resourceGroups = resourceGroups;
             return this;
         }
@@ -155,6 +160,7 @@ public final class AzureIntegrationsMonitor {
         }
         @CustomType.Setter
         public Builder resourceTypes(@Nullable List<String> resourceTypes) {
+
             this.resourceTypes = resourceTypes;
             return this;
         }

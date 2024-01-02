@@ -5,6 +5,7 @@ package com.pulumi.newrelic.cloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -262,9 +263,15 @@ public final class AwsGovcloudLinkAccountArgs extends com.pulumi.resources.Resou
         }
 
         public AwsGovcloudLinkAccountArgs build() {
-            $.accessKeyId = Objects.requireNonNull($.accessKeyId, "expected parameter 'accessKeyId' to be non-null");
-            $.awsAccountId = Objects.requireNonNull($.awsAccountId, "expected parameter 'awsAccountId' to be non-null");
-            $.secretAccessKey = Objects.requireNonNull($.secretAccessKey, "expected parameter 'secretAccessKey' to be non-null");
+            if ($.accessKeyId == null) {
+                throw new MissingRequiredPropertyException("AwsGovcloudLinkAccountArgs", "accessKeyId");
+            }
+            if ($.awsAccountId == null) {
+                throw new MissingRequiredPropertyException("AwsGovcloudLinkAccountArgs", "awsAccountId");
+            }
+            if ($.secretAccessKey == null) {
+                throw new MissingRequiredPropertyException("AwsGovcloudLinkAccountArgs", "secretAccessKey");
+            }
             return $;
         }
     }

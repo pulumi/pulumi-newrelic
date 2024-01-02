@@ -50,11 +50,13 @@ public final class OneDashboardPageWidgetJsonNullValueSeriesOverride {
 
         @CustomType.Setter
         public Builder nullValue(@Nullable String nullValue) {
+
             this.nullValue = nullValue;
             return this;
         }
         @CustomType.Setter
         public Builder seriesName(@Nullable String seriesName) {
+
             this.seriesName = seriesName;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.insights.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.insights.outputs.EventEventAttribute;
 import java.lang.Integer;
 import java.lang.String;
@@ -51,7 +52,10 @@ public final class EventEvent {
 
         @CustomType.Setter
         public Builder attributes(List<EventEventAttribute> attributes) {
-            this.attributes = Objects.requireNonNull(attributes);
+            if (attributes == null) {
+              throw new MissingRequiredPropertyException("EventEvent", "attributes");
+            }
+            this.attributes = attributes;
             return this;
         }
         public Builder attributes(EventEventAttribute... attributes) {
@@ -59,12 +63,16 @@ public final class EventEvent {
         }
         @CustomType.Setter
         public Builder timestamp(@Nullable Integer timestamp) {
+
             this.timestamp = timestamp;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("EventEvent", "type");
+            }
+            this.type = type;
             return this;
         }
         public EventEvent build() {

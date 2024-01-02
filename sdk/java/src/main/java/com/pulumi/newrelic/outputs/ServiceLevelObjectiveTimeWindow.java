@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.ServiceLevelObjectiveTimeWindowRolling;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class ServiceLevelObjectiveTimeWindow {
 
         @CustomType.Setter
         public Builder rolling(ServiceLevelObjectiveTimeWindowRolling rolling) {
-            this.rolling = Objects.requireNonNull(rolling);
+            if (rolling == null) {
+              throw new MissingRequiredPropertyException("ServiceLevelObjectiveTimeWindow", "rolling");
+            }
+            this.rolling = rolling;
             return this;
         }
         public ServiceLevelObjectiveTimeWindow build() {

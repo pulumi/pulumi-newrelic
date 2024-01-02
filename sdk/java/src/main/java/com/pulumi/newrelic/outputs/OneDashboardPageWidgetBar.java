@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetBarColor;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetBarNrqlQuery;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetBarNullValue;
@@ -260,6 +261,7 @@ public final class OneDashboardPageWidgetBar {
 
         @CustomType.Setter
         public Builder colors(@Nullable List<OneDashboardPageWidgetBarColor> colors) {
+
             this.colors = colors;
             return this;
         }
@@ -268,41 +270,51 @@ public final class OneDashboardPageWidgetBar {
         }
         @CustomType.Setter
         public Builder column(Integer column) {
-            this.column = Objects.requireNonNull(column);
+            if (column == null) {
+              throw new MissingRequiredPropertyException("OneDashboardPageWidgetBar", "column");
+            }
+            this.column = column;
             return this;
         }
         @CustomType.Setter
         public Builder facetShowOtherSeries(@Nullable Boolean facetShowOtherSeries) {
+
             this.facetShowOtherSeries = facetShowOtherSeries;
             return this;
         }
         @CustomType.Setter
         public Builder filterCurrentDashboard(@Nullable Boolean filterCurrentDashboard) {
+
             this.filterCurrentDashboard = filterCurrentDashboard;
             return this;
         }
         @CustomType.Setter
         public Builder height(@Nullable Integer height) {
+
             this.height = height;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreTimeRange(@Nullable Boolean ignoreTimeRange) {
+
             this.ignoreTimeRange = ignoreTimeRange;
             return this;
         }
         @CustomType.Setter
         public Builder legendEnabled(@Nullable Boolean legendEnabled) {
+
             this.legendEnabled = legendEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder linkedEntityGuids(@Nullable List<String> linkedEntityGuids) {
+
             this.linkedEntityGuids = linkedEntityGuids;
             return this;
         }
@@ -311,7 +323,10 @@ public final class OneDashboardPageWidgetBar {
         }
         @CustomType.Setter
         public Builder nrqlQueries(List<OneDashboardPageWidgetBarNrqlQuery> nrqlQueries) {
-            this.nrqlQueries = Objects.requireNonNull(nrqlQueries);
+            if (nrqlQueries == null) {
+              throw new MissingRequiredPropertyException("OneDashboardPageWidgetBar", "nrqlQueries");
+            }
+            this.nrqlQueries = nrqlQueries;
             return this;
         }
         public Builder nrqlQueries(OneDashboardPageWidgetBarNrqlQuery... nrqlQueries) {
@@ -319,6 +334,7 @@ public final class OneDashboardPageWidgetBar {
         }
         @CustomType.Setter
         public Builder nullValues(@Nullable List<OneDashboardPageWidgetBarNullValue> nullValues) {
+
             this.nullValues = nullValues;
             return this;
         }
@@ -327,16 +343,23 @@ public final class OneDashboardPageWidgetBar {
         }
         @CustomType.Setter
         public Builder row(Integer row) {
-            this.row = Objects.requireNonNull(row);
+            if (row == null) {
+              throw new MissingRequiredPropertyException("OneDashboardPageWidgetBar", "row");
+            }
+            this.row = row;
             return this;
         }
         @CustomType.Setter
         public Builder title(String title) {
-            this.title = Objects.requireNonNull(title);
+            if (title == null) {
+              throw new MissingRequiredPropertyException("OneDashboardPageWidgetBar", "title");
+            }
+            this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder units(@Nullable List<OneDashboardPageWidgetBarUnit> units) {
+
             this.units = units;
             return this;
         }
@@ -345,16 +368,19 @@ public final class OneDashboardPageWidgetBar {
         }
         @CustomType.Setter
         public Builder width(@Nullable Integer width) {
+
             this.width = width;
             return this;
         }
         @CustomType.Setter
         public Builder yAxisLeftMax(@Nullable Double yAxisLeftMax) {
+
             this.yAxisLeftMax = yAxisLeftMax;
             return this;
         }
         @CustomType.Setter
         public Builder yAxisLeftMin(@Nullable Double yAxisLeftMin) {
+
             this.yAxisLeftMin = yAxisLeftMin;
             return this;
         }
