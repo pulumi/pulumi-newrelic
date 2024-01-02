@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.GetEntityTag;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -126,46 +127,69 @@ public final class GetEntityResult {
 
         @CustomType.Setter
         public Builder accountId(Integer accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("GetEntityResult", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder applicationId(Integer applicationId) {
-            this.applicationId = Objects.requireNonNull(applicationId);
+            if (applicationId == null) {
+              throw new MissingRequiredPropertyException("GetEntityResult", "applicationId");
+            }
+            this.applicationId = applicationId;
             return this;
         }
         @CustomType.Setter
         public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("GetEntityResult", "domain");
+            }
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder guid(String guid) {
-            this.guid = Objects.requireNonNull(guid);
+            if (guid == null) {
+              throw new MissingRequiredPropertyException("GetEntityResult", "guid");
+            }
+            this.guid = guid;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEntityResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreCase(@Nullable Boolean ignoreCase) {
+
             this.ignoreCase = ignoreCase;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetEntityResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder servingApmApplicationId(Integer servingApmApplicationId) {
-            this.servingApmApplicationId = Objects.requireNonNull(servingApmApplicationId);
+            if (servingApmApplicationId == null) {
+              throw new MissingRequiredPropertyException("GetEntityResult", "servingApmApplicationId");
+            }
+            this.servingApmApplicationId = servingApmApplicationId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable List<GetEntityTag> tags) {
+
             this.tags = tags;
             return this;
         }
@@ -174,7 +198,10 @@ public final class GetEntityResult {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetEntityResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetEntityResult build() {

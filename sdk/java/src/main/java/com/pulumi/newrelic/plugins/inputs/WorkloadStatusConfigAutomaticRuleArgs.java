@@ -5,6 +5,7 @@ package com.pulumi.newrelic.plugins.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigAutomaticRuleNrqlQueryArgs;
 import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigAutomaticRuleRollupArgs;
 import java.lang.String;
@@ -173,7 +174,9 @@ public final class WorkloadStatusConfigAutomaticRuleArgs extends com.pulumi.reso
         }
 
         public WorkloadStatusConfigAutomaticRuleArgs build() {
-            $.rollup = Objects.requireNonNull($.rollup, "expected parameter 'rollup' to be non-null");
+            if ($.rollup == null) {
+                throw new MissingRequiredPropertyException("WorkloadStatusConfigAutomaticRuleArgs", "rollup");
+            }
             return $;
         }
     }

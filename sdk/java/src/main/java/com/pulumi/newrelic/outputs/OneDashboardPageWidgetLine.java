@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineColor;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineNrqlQuery;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineNullValue;
@@ -246,6 +247,7 @@ public final class OneDashboardPageWidgetLine {
 
         @CustomType.Setter
         public Builder colors(@Nullable List<OneDashboardPageWidgetLineColor> colors) {
+
             this.colors = colors;
             return this;
         }
@@ -254,37 +256,48 @@ public final class OneDashboardPageWidgetLine {
         }
         @CustomType.Setter
         public Builder column(Integer column) {
-            this.column = Objects.requireNonNull(column);
+            if (column == null) {
+              throw new MissingRequiredPropertyException("OneDashboardPageWidgetLine", "column");
+            }
+            this.column = column;
             return this;
         }
         @CustomType.Setter
         public Builder facetShowOtherSeries(@Nullable Boolean facetShowOtherSeries) {
+
             this.facetShowOtherSeries = facetShowOtherSeries;
             return this;
         }
         @CustomType.Setter
         public Builder height(@Nullable Integer height) {
+
             this.height = height;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreTimeRange(@Nullable Boolean ignoreTimeRange) {
+
             this.ignoreTimeRange = ignoreTimeRange;
             return this;
         }
         @CustomType.Setter
         public Builder legendEnabled(@Nullable Boolean legendEnabled) {
+
             this.legendEnabled = legendEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder nrqlQueries(List<OneDashboardPageWidgetLineNrqlQuery> nrqlQueries) {
-            this.nrqlQueries = Objects.requireNonNull(nrqlQueries);
+            if (nrqlQueries == null) {
+              throw new MissingRequiredPropertyException("OneDashboardPageWidgetLine", "nrqlQueries");
+            }
+            this.nrqlQueries = nrqlQueries;
             return this;
         }
         public Builder nrqlQueries(OneDashboardPageWidgetLineNrqlQuery... nrqlQueries) {
@@ -292,6 +305,7 @@ public final class OneDashboardPageWidgetLine {
         }
         @CustomType.Setter
         public Builder nullValues(@Nullable List<OneDashboardPageWidgetLineNullValue> nullValues) {
+
             this.nullValues = nullValues;
             return this;
         }
@@ -300,16 +314,23 @@ public final class OneDashboardPageWidgetLine {
         }
         @CustomType.Setter
         public Builder row(Integer row) {
-            this.row = Objects.requireNonNull(row);
+            if (row == null) {
+              throw new MissingRequiredPropertyException("OneDashboardPageWidgetLine", "row");
+            }
+            this.row = row;
             return this;
         }
         @CustomType.Setter
         public Builder title(String title) {
-            this.title = Objects.requireNonNull(title);
+            if (title == null) {
+              throw new MissingRequiredPropertyException("OneDashboardPageWidgetLine", "title");
+            }
+            this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder units(@Nullable List<OneDashboardPageWidgetLineUnit> units) {
+
             this.units = units;
             return this;
         }
@@ -318,21 +339,25 @@ public final class OneDashboardPageWidgetLine {
         }
         @CustomType.Setter
         public Builder width(@Nullable Integer width) {
+
             this.width = width;
             return this;
         }
         @CustomType.Setter
         public Builder yAxisLeftMax(@Nullable Double yAxisLeftMax) {
+
             this.yAxisLeftMax = yAxisLeftMax;
             return this;
         }
         @CustomType.Setter
         public Builder yAxisLeftMin(@Nullable Double yAxisLeftMin) {
+
             this.yAxisLeftMin = yAxisLeftMin;
             return this;
         }
         @CustomType.Setter
         public Builder yAxisLeftZero(@Nullable Boolean yAxisLeftZero) {
+
             this.yAxisLeftZero = yAxisLeftZero;
             return this;
         }

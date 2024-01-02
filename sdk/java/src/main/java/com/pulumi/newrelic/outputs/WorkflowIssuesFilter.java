@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.WorkflowIssuesFilterPredicate;
 import java.lang.String;
 import java.util.List;
@@ -72,16 +73,21 @@ public final class WorkflowIssuesFilter {
 
         @CustomType.Setter
         public Builder filterId(@Nullable String filterId) {
+
             this.filterId = filterId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("WorkflowIssuesFilter", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder predicates(@Nullable List<WorkflowIssuesFilterPredicate> predicates) {
+
             this.predicates = predicates;
             return this;
         }
@@ -90,7 +96,10 @@ public final class WorkflowIssuesFilter {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("WorkflowIssuesFilter", "type");
+            }
+            this.type = type;
             return this;
         }
         public WorkflowIssuesFilter build() {

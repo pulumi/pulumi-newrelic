@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -78,7 +79,10 @@ public final class GetApplicationResult {
 
         @CustomType.Setter
         public Builder hostIds(List<Integer> hostIds) {
-            this.hostIds = Objects.requireNonNull(hostIds);
+            if (hostIds == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "hostIds");
+            }
+            this.hostIds = hostIds;
             return this;
         }
         public Builder hostIds(Integer... hostIds) {
@@ -86,12 +90,18 @@ public final class GetApplicationResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceIds(List<Integer> instanceIds) {
-            this.instanceIds = Objects.requireNonNull(instanceIds);
+            if (instanceIds == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "instanceIds");
+            }
+            this.instanceIds = instanceIds;
             return this;
         }
         public Builder instanceIds(Integer... instanceIds) {
@@ -99,7 +109,10 @@ public final class GetApplicationResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetApplicationResult build() {

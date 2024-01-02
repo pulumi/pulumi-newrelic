@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.GetTestGrokPatternTestGrok;
 import java.lang.Integer;
 import java.lang.String;
@@ -79,22 +80,32 @@ public final class GetTestGrokPatternResult {
 
         @CustomType.Setter
         public Builder accountId(@Nullable Integer accountId) {
+
             this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder grok(String grok) {
-            this.grok = Objects.requireNonNull(grok);
+            if (grok == null) {
+              throw new MissingRequiredPropertyException("GetTestGrokPatternResult", "grok");
+            }
+            this.grok = grok;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTestGrokPatternResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder logLines(List<String> logLines) {
-            this.logLines = Objects.requireNonNull(logLines);
+            if (logLines == null) {
+              throw new MissingRequiredPropertyException("GetTestGrokPatternResult", "logLines");
+            }
+            this.logLines = logLines;
             return this;
         }
         public Builder logLines(String... logLines) {
@@ -102,7 +113,10 @@ public final class GetTestGrokPatternResult {
         }
         @CustomType.Setter
         public Builder testGroks(List<GetTestGrokPatternTestGrok> testGroks) {
-            this.testGroks = Objects.requireNonNull(testGroks);
+            if (testGroks == null) {
+              throw new MissingRequiredPropertyException("GetTestGrokPatternResult", "testGroks");
+            }
+            this.testGroks = testGroks;
             return this;
         }
         public Builder testGroks(GetTestGrokPatternTestGrok... testGroks) {

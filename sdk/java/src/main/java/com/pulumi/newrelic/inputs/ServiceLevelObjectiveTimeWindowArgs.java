@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ServiceLevelObjectiveTimeWindowArgs extends com.pulumi.resour
         }
 
         public ServiceLevelObjectiveTimeWindowArgs build() {
-            $.rolling = Objects.requireNonNull($.rolling, "expected parameter 'rolling' to be non-null");
+            if ($.rolling == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelObjectiveTimeWindowArgs", "rolling");
+            }
             return $;
         }
     }

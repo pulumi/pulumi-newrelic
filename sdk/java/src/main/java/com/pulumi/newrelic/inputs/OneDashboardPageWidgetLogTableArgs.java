@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetLogTableColorArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetLogTableNrqlQueryArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetLogTableNullValueArgs;
@@ -602,10 +603,18 @@ public final class OneDashboardPageWidgetLogTableArgs extends com.pulumi.resourc
         }
 
         public OneDashboardPageWidgetLogTableArgs build() {
-            $.column = Objects.requireNonNull($.column, "expected parameter 'column' to be non-null");
-            $.nrqlQueries = Objects.requireNonNull($.nrqlQueries, "expected parameter 'nrqlQueries' to be non-null");
-            $.row = Objects.requireNonNull($.row, "expected parameter 'row' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
+            if ($.column == null) {
+                throw new MissingRequiredPropertyException("OneDashboardPageWidgetLogTableArgs", "column");
+            }
+            if ($.nrqlQueries == null) {
+                throw new MissingRequiredPropertyException("OneDashboardPageWidgetLogTableArgs", "nrqlQueries");
+            }
+            if ($.row == null) {
+                throw new MissingRequiredPropertyException("OneDashboardPageWidgetLogTableArgs", "row");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("OneDashboardPageWidgetLogTableArgs", "title");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.newrelic.cloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsAlloyDbArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsAppEngineArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsBigQueryArgs;
@@ -1101,7 +1102,9 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public GcpIntegrationsArgs build() {
-            $.linkedAccountId = Objects.requireNonNull($.linkedAccountId, "expected parameter 'linkedAccountId' to be non-null");
+            if ($.linkedAccountId == null) {
+                throw new MissingRequiredPropertyException("GcpIntegrationsArgs", "linkedAccountId");
+            }
             return $;
         }
     }

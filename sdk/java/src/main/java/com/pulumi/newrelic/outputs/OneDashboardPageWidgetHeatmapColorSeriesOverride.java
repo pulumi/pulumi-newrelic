@@ -50,11 +50,13 @@ public final class OneDashboardPageWidgetHeatmapColorSeriesOverride {
 
         @CustomType.Setter
         public Builder color(@Nullable String color) {
+
             this.color = color;
             return this;
         }
         @CustomType.Setter
         public Builder seriesName(@Nullable String seriesName) {
+
             this.seriesName = seriesName;
             return this;
         }

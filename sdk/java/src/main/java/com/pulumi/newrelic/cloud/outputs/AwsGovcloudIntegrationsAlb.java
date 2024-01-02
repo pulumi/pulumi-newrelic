@@ -135,6 +135,7 @@ public final class AwsGovcloudIntegrationsAlb {
 
         @CustomType.Setter
         public Builder awsRegions(@Nullable List<String> awsRegions) {
+
             this.awsRegions = awsRegions;
             return this;
         }
@@ -143,16 +144,19 @@ public final class AwsGovcloudIntegrationsAlb {
         }
         @CustomType.Setter
         public Builder fetchExtendedInventory(@Nullable Boolean fetchExtendedInventory) {
+
             this.fetchExtendedInventory = fetchExtendedInventory;
             return this;
         }
         @CustomType.Setter
         public Builder fetchTags(@Nullable Boolean fetchTags) {
+
             this.fetchTags = fetchTags;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerPrefixes(@Nullable List<String> loadBalancerPrefixes) {
+
             this.loadBalancerPrefixes = loadBalancerPrefixes;
             return this;
         }
@@ -161,16 +165,19 @@ public final class AwsGovcloudIntegrationsAlb {
         }
         @CustomType.Setter
         public Builder metricsPollingInterval(@Nullable Integer metricsPollingInterval) {
+
             this.metricsPollingInterval = metricsPollingInterval;
             return this;
         }
         @CustomType.Setter
         public Builder tagKey(@Nullable String tagKey) {
+
             this.tagKey = tagKey;
             return this;
         }
         @CustomType.Setter
         public Builder tagValue(@Nullable String tagValue) {
+
             this.tagValue = tagValue;
             return this;
         }

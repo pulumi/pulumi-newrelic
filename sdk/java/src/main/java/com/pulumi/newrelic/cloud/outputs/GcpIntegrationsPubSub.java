@@ -63,11 +63,13 @@ public final class GcpIntegrationsPubSub {
 
         @CustomType.Setter
         public Builder fetchTags(@Nullable Boolean fetchTags) {
+
             this.fetchTags = fetchTags;
             return this;
         }
         @CustomType.Setter
         public Builder metricsPollingInterval(@Nullable Integer metricsPollingInterval) {
+
             this.metricsPollingInterval = metricsPollingInterval;
             return this;
         }

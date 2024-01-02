@@ -5,6 +5,7 @@ package com.pulumi.newrelic.cloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -262,10 +263,18 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
         }
 
         public AzureLinkAccountArgs build() {
-            $.applicationId = Objects.requireNonNull($.applicationId, "expected parameter 'applicationId' to be non-null");
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
-            $.subscriptionId = Objects.requireNonNull($.subscriptionId, "expected parameter 'subscriptionId' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.applicationId == null) {
+                throw new MissingRequiredPropertyException("AzureLinkAccountArgs", "applicationId");
+            }
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("AzureLinkAccountArgs", "clientSecret");
+            }
+            if ($.subscriptionId == null) {
+                throw new MissingRequiredPropertyException("AzureLinkAccountArgs", "subscriptionId");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("AzureLinkAccountArgs", "tenantId");
+            }
             return $;
         }
     }

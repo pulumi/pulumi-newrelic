@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,21 @@ public final class ServiceLevelEventsGoodEventsSelect {
 
         @CustomType.Setter
         public Builder attribute(@Nullable String attribute) {
+
             this.attribute = attribute;
             return this;
         }
         @CustomType.Setter
         public Builder function(String function) {
-            this.function = Objects.requireNonNull(function);
+            if (function == null) {
+              throw new MissingRequiredPropertyException("ServiceLevelEventsGoodEventsSelect", "function");
+            }
+            this.function = function;
             return this;
         }
         @CustomType.Setter
         public Builder threshold(@Nullable Double threshold) {
+
             this.threshold = threshold;
             return this;
         }

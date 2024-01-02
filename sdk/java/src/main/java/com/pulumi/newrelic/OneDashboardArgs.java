@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.OneDashboardPageArgs;
 import com.pulumi.newrelic.inputs.OneDashboardVariableArgs;
 import java.lang.Integer;
@@ -285,7 +286,9 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OneDashboardArgs build() {
-            $.pages = Objects.requireNonNull($.pages, "expected parameter 'pages' to be non-null");
+            if ($.pages == null) {
+                throw new MissingRequiredPropertyException("OneDashboardArgs", "pages");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -364,11 +365,21 @@ public final class OneDashboardRawPageWidgetArgs extends com.pulumi.resources.Re
         }
 
         public OneDashboardRawPageWidgetArgs build() {
-            $.column = Objects.requireNonNull($.column, "expected parameter 'column' to be non-null");
-            $.configuration = Objects.requireNonNull($.configuration, "expected parameter 'configuration' to be non-null");
-            $.row = Objects.requireNonNull($.row, "expected parameter 'row' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
-            $.visualizationId = Objects.requireNonNull($.visualizationId, "expected parameter 'visualizationId' to be non-null");
+            if ($.column == null) {
+                throw new MissingRequiredPropertyException("OneDashboardRawPageWidgetArgs", "column");
+            }
+            if ($.configuration == null) {
+                throw new MissingRequiredPropertyException("OneDashboardRawPageWidgetArgs", "configuration");
+            }
+            if ($.row == null) {
+                throw new MissingRequiredPropertyException("OneDashboardRawPageWidgetArgs", "row");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("OneDashboardRawPageWidgetArgs", "title");
+            }
+            if ($.visualizationId == null) {
+                throw new MissingRequiredPropertyException("OneDashboardRawPageWidgetArgs", "visualizationId");
+            }
             return $;
         }
     }

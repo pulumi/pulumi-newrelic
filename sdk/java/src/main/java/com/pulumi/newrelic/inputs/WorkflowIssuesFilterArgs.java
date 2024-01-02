@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.WorkflowIssuesFilterPredicateArgs;
 import java.lang.String;
 import java.util.List;
@@ -159,8 +160,12 @@ public final class WorkflowIssuesFilterArgs extends com.pulumi.resources.Resourc
         }
 
         public WorkflowIssuesFilterArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("WorkflowIssuesFilterArgs", "name");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("WorkflowIssuesFilterArgs", "type");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class NotificationDestinationAuthBasicArgs extends com.pulumi.resou
         }
 
         public NotificationDestinationAuthBasicArgs build() {
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.user = Objects.requireNonNull($.user, "expected parameter 'user' to be non-null");
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("NotificationDestinationAuthBasicArgs", "password");
+            }
+            if ($.user == null) {
+                throw new MissingRequiredPropertyException("NotificationDestinationAuthBasicArgs", "user");
+            }
             return $;
         }
     }

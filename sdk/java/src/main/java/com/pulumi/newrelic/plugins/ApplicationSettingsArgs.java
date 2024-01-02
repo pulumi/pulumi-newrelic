@@ -5,6 +5,7 @@ package com.pulumi.newrelic.plugins;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -277,9 +278,15 @@ public final class ApplicationSettingsArgs extends com.pulumi.resources.Resource
         }
 
         public ApplicationSettingsArgs build() {
-            $.appApdexThreshold = Objects.requireNonNull($.appApdexThreshold, "expected parameter 'appApdexThreshold' to be non-null");
-            $.enableRealUserMonitoring = Objects.requireNonNull($.enableRealUserMonitoring, "expected parameter 'enableRealUserMonitoring' to be non-null");
-            $.endUserApdexThreshold = Objects.requireNonNull($.endUserApdexThreshold, "expected parameter 'endUserApdexThreshold' to be non-null");
+            if ($.appApdexThreshold == null) {
+                throw new MissingRequiredPropertyException("ApplicationSettingsArgs", "appApdexThreshold");
+            }
+            if ($.enableRealUserMonitoring == null) {
+                throw new MissingRequiredPropertyException("ApplicationSettingsArgs", "enableRealUserMonitoring");
+            }
+            if ($.endUserApdexThreshold == null) {
+                throw new MissingRequiredPropertyException("ApplicationSettingsArgs", "endUserApdexThreshold");
+            }
             return $;
         }
     }

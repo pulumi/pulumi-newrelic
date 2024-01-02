@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -92,31 +93,39 @@ public final class NrqlAlertConditionWarning {
 
         @CustomType.Setter
         public Builder duration(@Nullable Integer duration) {
+
             this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder operator(@Nullable String operator) {
+
             this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder threshold(Double threshold) {
-            this.threshold = Objects.requireNonNull(threshold);
+            if (threshold == null) {
+              throw new MissingRequiredPropertyException("NrqlAlertConditionWarning", "threshold");
+            }
+            this.threshold = threshold;
             return this;
         }
         @CustomType.Setter
         public Builder thresholdDuration(@Nullable Integer thresholdDuration) {
+
             this.thresholdDuration = thresholdDuration;
             return this;
         }
         @CustomType.Setter
         public Builder thresholdOccurrences(@Nullable String thresholdOccurrences) {
+
             this.thresholdOccurrences = thresholdOccurrences;
             return this;
         }
         @CustomType.Setter
         public Builder timeFunction(@Nullable String timeFunction) {
+
             this.timeFunction = timeFunction;
             return this;
         }

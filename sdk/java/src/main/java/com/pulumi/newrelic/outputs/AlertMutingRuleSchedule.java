@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -122,36 +123,45 @@ public final class AlertMutingRuleSchedule {
 
         @CustomType.Setter
         public Builder endRepeat(@Nullable String endRepeat) {
+
             this.endRepeat = endRepeat;
             return this;
         }
         @CustomType.Setter
         public Builder endTime(@Nullable String endTime) {
+
             this.endTime = endTime;
             return this;
         }
         @CustomType.Setter
         public Builder repeat(@Nullable String repeat) {
+
             this.repeat = repeat;
             return this;
         }
         @CustomType.Setter
         public Builder repeatCount(@Nullable Integer repeatCount) {
+
             this.repeatCount = repeatCount;
             return this;
         }
         @CustomType.Setter
         public Builder startTime(@Nullable String startTime) {
+
             this.startTime = startTime;
             return this;
         }
         @CustomType.Setter
         public Builder timeZone(String timeZone) {
-            this.timeZone = Objects.requireNonNull(timeZone);
+            if (timeZone == null) {
+              throw new MissingRequiredPropertyException("AlertMutingRuleSchedule", "timeZone");
+            }
+            this.timeZone = timeZone;
             return this;
         }
         @CustomType.Setter
         public Builder weeklyRepeatDays(@Nullable List<String> weeklyRepeatDays) {
+
             this.weeklyRepeatDays = weeklyRepeatDays;
             return this;
         }

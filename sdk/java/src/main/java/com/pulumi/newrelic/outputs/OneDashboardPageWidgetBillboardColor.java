@@ -60,11 +60,13 @@ public final class OneDashboardPageWidgetBillboardColor {
 
         @CustomType.Setter
         public Builder color(@Nullable String color) {
+
             this.color = color;
             return this;
         }
         @CustomType.Setter
         public Builder seriesOverrides(@Nullable List<OneDashboardPageWidgetBillboardColorSeriesOverride> seriesOverrides) {
+
             this.seriesOverrides = seriesOverrides;
             return this;
         }

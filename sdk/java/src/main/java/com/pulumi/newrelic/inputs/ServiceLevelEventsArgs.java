@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.ServiceLevelEventsBadEventsArgs;
 import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
 import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
@@ -194,8 +195,12 @@ public final class ServiceLevelEventsArgs extends com.pulumi.resources.ResourceA
         }
 
         public ServiceLevelEventsArgs build() {
-            $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
-            $.validEvents = Objects.requireNonNull($.validEvents, "expected parameter 'validEvents' to be non-null");
+            if ($.accountId == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelEventsArgs", "accountId");
+            }
+            if ($.validEvents == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelEventsArgs", "validEvents");
+            }
             return $;
         }
     }

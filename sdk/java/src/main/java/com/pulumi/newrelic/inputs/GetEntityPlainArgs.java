@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.GetEntityTag;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -214,7 +215,9 @@ public final class GetEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetEntityPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetEntityPlainArgs", "name");
+            }
             return $;
         }
     }

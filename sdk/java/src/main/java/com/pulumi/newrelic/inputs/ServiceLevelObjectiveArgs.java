@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
 import java.lang.Double;
 import java.lang.String;
@@ -189,8 +190,12 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         public ServiceLevelObjectiveArgs build() {
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
-            $.timeWindow = Objects.requireNonNull($.timeWindow, "expected parameter 'timeWindow' to be non-null");
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelObjectiveArgs", "target");
+            }
+            if ($.timeWindow == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelObjectiveArgs", "timeWindow");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.WorkflowEnrichmentsNrql;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class WorkflowEnrichments {
 
         @CustomType.Setter
         public Builder nrqls(List<WorkflowEnrichmentsNrql> nrqls) {
-            this.nrqls = Objects.requireNonNull(nrqls);
+            if (nrqls == null) {
+              throw new MissingRequiredPropertyException("WorkflowEnrichments", "nrqls");
+            }
+            this.nrqls = nrqls;
             return this;
         }
         public Builder nrqls(WorkflowEnrichmentsNrql... nrqls) {

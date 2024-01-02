@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -290,7 +291,9 @@ public final class AlertMutingRuleScheduleArgs extends com.pulumi.resources.Reso
         }
 
         public AlertMutingRuleScheduleArgs build() {
-            $.timeZone = Objects.requireNonNull($.timeZone, "expected parameter 'timeZone' to be non-null");
+            if ($.timeZone == null) {
+                throw new MissingRequiredPropertyException("AlertMutingRuleScheduleArgs", "timeZone");
+            }
             return $;
         }
     }

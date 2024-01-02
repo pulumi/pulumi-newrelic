@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.ServiceLevelEventsValidEventsSelect;
 import java.lang.String;
 import java.util.Objects;
@@ -75,16 +76,21 @@ public final class ServiceLevelEventsValidEvents {
 
         @CustomType.Setter
         public Builder from(String from) {
-            this.from = Objects.requireNonNull(from);
+            if (from == null) {
+              throw new MissingRequiredPropertyException("ServiceLevelEventsValidEvents", "from");
+            }
+            this.from = from;
             return this;
         }
         @CustomType.Setter
         public Builder select(@Nullable ServiceLevelEventsValidEventsSelect select) {
+
             this.select = select;
             return this;
         }
         @CustomType.Setter
         public Builder where(@Nullable String where) {
+
             this.where = where;
             return this;
         }

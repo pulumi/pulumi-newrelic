@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.GetTestGrokPatternTestGrokAttribute;
 import java.lang.Boolean;
 import java.lang.String;
@@ -73,7 +74,10 @@ public final class GetTestGrokPatternTestGrok {
 
         @CustomType.Setter
         public Builder attributes(List<GetTestGrokPatternTestGrokAttribute> attributes) {
-            this.attributes = Objects.requireNonNull(attributes);
+            if (attributes == null) {
+              throw new MissingRequiredPropertyException("GetTestGrokPatternTestGrok", "attributes");
+            }
+            this.attributes = attributes;
             return this;
         }
         public Builder attributes(GetTestGrokPatternTestGrokAttribute... attributes) {
@@ -81,12 +85,18 @@ public final class GetTestGrokPatternTestGrok {
         }
         @CustomType.Setter
         public Builder logLine(String logLine) {
-            this.logLine = Objects.requireNonNull(logLine);
+            if (logLine == null) {
+              throw new MissingRequiredPropertyException("GetTestGrokPatternTestGrok", "logLine");
+            }
+            this.logLine = logLine;
             return this;
         }
         @CustomType.Setter
         public Builder matched(Boolean matched) {
-            this.matched = Objects.requireNonNull(matched);
+            if (matched == null) {
+              throw new MissingRequiredPropertyException("GetTestGrokPatternTestGrok", "matched");
+            }
+            this.matched = matched;
             return this;
         }
         public GetTestGrokPatternTestGrok build() {

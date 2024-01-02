@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsSelectArgs;
 import java.lang.String;
 import java.util.Objects;
@@ -155,7 +156,9 @@ public final class ServiceLevelEventsGoodEventsArgs extends com.pulumi.resources
         }
 
         public ServiceLevelEventsGoodEventsArgs build() {
-            $.from = Objects.requireNonNull($.from, "expected parameter 'from' to be non-null");
+            if ($.from == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelEventsGoodEventsArgs", "from");
+            }
             return $;
         }
     }

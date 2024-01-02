@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -50,16 +51,21 @@ public final class InfraAlertConditionWarning {
 
         @CustomType.Setter
         public Builder duration(Integer duration) {
-            this.duration = Objects.requireNonNull(duration);
+            if (duration == null) {
+              throw new MissingRequiredPropertyException("InfraAlertConditionWarning", "duration");
+            }
+            this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder timeFunction(@Nullable String timeFunction) {
+
             this.timeFunction = timeFunction;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable Double value) {
+
             this.value = value;
             return this;
         }

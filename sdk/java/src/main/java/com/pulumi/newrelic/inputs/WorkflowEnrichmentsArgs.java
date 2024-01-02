@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.WorkflowEnrichmentsNrqlArgs;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class WorkflowEnrichmentsArgs extends com.pulumi.resources.Resource
         }
 
         public WorkflowEnrichmentsArgs build() {
-            $.nrqls = Objects.requireNonNull($.nrqls, "expected parameter 'nrqls' to be non-null");
+            if ($.nrqls == null) {
+                throw new MissingRequiredPropertyException("WorkflowEnrichmentsArgs", "nrqls");
+            }
             return $;
         }
     }

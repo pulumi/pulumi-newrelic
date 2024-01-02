@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.AlertMutingRuleConditionCondition;
 import java.lang.String;
 import java.util.List;
@@ -58,7 +59,10 @@ public final class AlertMutingRuleCondition {
 
         @CustomType.Setter
         public Builder conditions(List<AlertMutingRuleConditionCondition> conditions) {
-            this.conditions = Objects.requireNonNull(conditions);
+            if (conditions == null) {
+              throw new MissingRequiredPropertyException("AlertMutingRuleCondition", "conditions");
+            }
+            this.conditions = conditions;
             return this;
         }
         public Builder conditions(AlertMutingRuleConditionCondition... conditions) {
@@ -66,7 +70,10 @@ public final class AlertMutingRuleCondition {
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("AlertMutingRuleCondition", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         public AlertMutingRuleCondition build() {

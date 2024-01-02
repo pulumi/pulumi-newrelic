@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.ServiceLevelEventsBadEvents;
 import com.pulumi.newrelic.outputs.ServiceLevelEventsGoodEvents;
 import com.pulumi.newrelic.outputs.ServiceLevelEventsValidEvents;
@@ -91,22 +92,30 @@ public final class ServiceLevelEvents {
 
         @CustomType.Setter
         public Builder accountId(Integer accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("ServiceLevelEvents", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder badEvents(@Nullable ServiceLevelEventsBadEvents badEvents) {
+
             this.badEvents = badEvents;
             return this;
         }
         @CustomType.Setter
         public Builder goodEvents(@Nullable ServiceLevelEventsGoodEvents goodEvents) {
+
             this.goodEvents = goodEvents;
             return this;
         }
         @CustomType.Setter
         public Builder validEvents(ServiceLevelEventsValidEvents validEvents) {
-            this.validEvents = Objects.requireNonNull(validEvents);
+            if (validEvents == null) {
+              throw new MissingRequiredPropertyException("ServiceLevelEvents", "validEvents");
+            }
+            this.validEvents = validEvents;
             return this;
         }
         public ServiceLevelEvents build() {

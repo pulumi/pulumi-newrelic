@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.WorkflowDestinationArgs;
 import com.pulumi.newrelic.inputs.WorkflowEnrichmentsArgs;
 import com.pulumi.newrelic.inputs.WorkflowIssuesFilterArgs;
@@ -408,9 +409,15 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkflowArgs build() {
-            $.destinations = Objects.requireNonNull($.destinations, "expected parameter 'destinations' to be non-null");
-            $.issuesFilter = Objects.requireNonNull($.issuesFilter, "expected parameter 'issuesFilter' to be non-null");
-            $.mutingRulesHandling = Objects.requireNonNull($.mutingRulesHandling, "expected parameter 'mutingRulesHandling' to be non-null");
+            if ($.destinations == null) {
+                throw new MissingRequiredPropertyException("WorkflowArgs", "destinations");
+            }
+            if ($.issuesFilter == null) {
+                throw new MissingRequiredPropertyException("WorkflowArgs", "issuesFilter");
+            }
+            if ($.mutingRulesHandling == null) {
+                throw new MissingRequiredPropertyException("WorkflowArgs", "mutingRulesHandling");
+            }
             return $;
         }
     }

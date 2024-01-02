@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.synthetics.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -83,27 +84,42 @@ public final class GetSecureCredentialResult {
 
         @CustomType.Setter
         public Builder accountId(Integer accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("GetSecureCredentialResult", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetSecureCredentialResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSecureCredentialResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GetSecureCredentialResult", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder lastUpdated(String lastUpdated) {
-            this.lastUpdated = Objects.requireNonNull(lastUpdated);
+            if (lastUpdated == null) {
+              throw new MissingRequiredPropertyException("GetSecureCredentialResult", "lastUpdated");
+            }
+            this.lastUpdated = lastUpdated;
             return this;
         }
         public GetSecureCredentialResult build() {

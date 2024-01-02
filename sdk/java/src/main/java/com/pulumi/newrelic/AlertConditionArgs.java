@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -648,11 +649,21 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public AlertConditionArgs build() {
-            $.entities = Objects.requireNonNull($.entities, "expected parameter 'entities' to be non-null");
-            $.metric = Objects.requireNonNull($.metric, "expected parameter 'metric' to be non-null");
-            $.policyId = Objects.requireNonNull($.policyId, "expected parameter 'policyId' to be non-null");
-            $.terms = Objects.requireNonNull($.terms, "expected parameter 'terms' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.entities == null) {
+                throw new MissingRequiredPropertyException("AlertConditionArgs", "entities");
+            }
+            if ($.metric == null) {
+                throw new MissingRequiredPropertyException("AlertConditionArgs", "metric");
+            }
+            if ($.policyId == null) {
+                throw new MissingRequiredPropertyException("AlertConditionArgs", "policyId");
+            }
+            if ($.terms == null) {
+                throw new MissingRequiredPropertyException("AlertConditionArgs", "terms");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("AlertConditionArgs", "type");
+            }
             return $;
         }
     }

@@ -63,11 +63,13 @@ public final class AwsGovcloudIntegrationsRoute53 {
 
         @CustomType.Setter
         public Builder fetchExtendedInventory(@Nullable Boolean fetchExtendedInventory) {
+
             this.fetchExtendedInventory = fetchExtendedInventory;
             return this;
         }
         @CustomType.Setter
         public Builder metricsPollingInterval(@Nullable Integer metricsPollingInterval) {
+
             this.metricsPollingInterval = metricsPollingInterval;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -119,8 +120,12 @@ public final class MonitorDowntimeFrequencyDaysOfWeekArgs extends com.pulumi.res
         }
 
         public MonitorDowntimeFrequencyDaysOfWeekArgs build() {
-            $.ordinalDayOfMonth = Objects.requireNonNull($.ordinalDayOfMonth, "expected parameter 'ordinalDayOfMonth' to be non-null");
-            $.weekDay = Objects.requireNonNull($.weekDay, "expected parameter 'weekDay' to be non-null");
+            if ($.ordinalDayOfMonth == null) {
+                throw new MissingRequiredPropertyException("MonitorDowntimeFrequencyDaysOfWeekArgs", "ordinalDayOfMonth");
+            }
+            if ($.weekDay == null) {
+                throw new MissingRequiredPropertyException("MonitorDowntimeFrequencyDaysOfWeekArgs", "weekDay");
+            }
             return $;
         }
     }

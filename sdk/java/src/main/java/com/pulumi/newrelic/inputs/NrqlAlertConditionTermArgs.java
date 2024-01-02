@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -216,7 +217,9 @@ public final class NrqlAlertConditionTermArgs extends com.pulumi.resources.Resou
         }
 
         public NrqlAlertConditionTermArgs build() {
-            $.threshold = Objects.requireNonNull($.threshold, "expected parameter 'threshold' to be non-null");
+            if ($.threshold == null) {
+                throw new MissingRequiredPropertyException("NrqlAlertConditionTermArgs", "threshold");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.GetNotificationDestinationProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -116,27 +117,38 @@ public final class GetNotificationDestinationResult {
 
         @CustomType.Setter
         public Builder accountId(Integer accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("GetNotificationDestinationResult", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder active(Boolean active) {
-            this.active = Objects.requireNonNull(active);
+            if (active == null) {
+              throw new MissingRequiredPropertyException("GetNotificationDestinationResult", "active");
+            }
+            this.active = active;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder properties(List<GetNotificationDestinationProperty> properties) {
-            this.properties = Objects.requireNonNull(properties);
+            if (properties == null) {
+              throw new MissingRequiredPropertyException("GetNotificationDestinationResult", "properties");
+            }
+            this.properties = properties;
             return this;
         }
         public Builder properties(GetNotificationDestinationProperty... properties) {
@@ -144,12 +156,18 @@ public final class GetNotificationDestinationResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetNotificationDestinationResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetNotificationDestinationResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetNotificationDestinationResult build() {

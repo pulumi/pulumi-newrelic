@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -312,10 +313,18 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
         }
 
         public NotificationChannelArgs build() {
-            $.destinationId = Objects.requireNonNull($.destinationId, "expected parameter 'destinationId' to be non-null");
-            $.product = Objects.requireNonNull($.product, "expected parameter 'product' to be non-null");
-            $.properties = Objects.requireNonNull($.properties, "expected parameter 'properties' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.destinationId == null) {
+                throw new MissingRequiredPropertyException("NotificationChannelArgs", "destinationId");
+            }
+            if ($.product == null) {
+                throw new MissingRequiredPropertyException("NotificationChannelArgs", "product");
+            }
+            if ($.properties == null) {
+                throw new MissingRequiredPropertyException("NotificationChannelArgs", "properties");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("NotificationChannelArgs", "type");
+            }
             return $;
         }
     }

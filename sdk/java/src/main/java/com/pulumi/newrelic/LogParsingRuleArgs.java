@@ -5,6 +5,7 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -337,10 +338,18 @@ public final class LogParsingRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public LogParsingRuleArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.grok = Objects.requireNonNull($.grok, "expected parameter 'grok' to be non-null");
-            $.lucene = Objects.requireNonNull($.lucene, "expected parameter 'lucene' to be non-null");
-            $.nrql = Objects.requireNonNull($.nrql, "expected parameter 'nrql' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("LogParsingRuleArgs", "enabled");
+            }
+            if ($.grok == null) {
+                throw new MissingRequiredPropertyException("LogParsingRuleArgs", "grok");
+            }
+            if ($.lucene == null) {
+                throw new MissingRequiredPropertyException("LogParsingRuleArgs", "lucene");
+            }
+            if ($.nrql == null) {
+                throw new MissingRequiredPropertyException("LogParsingRuleArgs", "nrql");
+            }
             return $;
         }
     }

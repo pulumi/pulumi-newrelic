@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class ServiceLevelEventsBadEventsSelectArgs extends com.pulumi.reso
         }
 
         public ServiceLevelEventsBadEventsSelectArgs build() {
-            $.function = Objects.requireNonNull($.function, "expected parameter 'function' to be non-null");
+            if ($.function == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelEventsBadEventsSelectArgs", "function");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.WorkflowEnrichmentsNrqlConfigurationArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -217,8 +218,12 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         public WorkflowEnrichmentsNrqlArgs build() {
-            $.configurations = Objects.requireNonNull($.configurations, "expected parameter 'configurations' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.configurations == null) {
+                throw new MissingRequiredPropertyException("WorkflowEnrichmentsNrqlArgs", "configurations");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("WorkflowEnrichmentsNrqlArgs", "name");
+            }
             return $;
         }
     }
