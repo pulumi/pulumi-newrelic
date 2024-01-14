@@ -15,9 +15,10 @@
 package main
 
 import (
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
+
 	newrelic "github.com/pulumi/pulumi-newrelic/provider/v5"
 	"github.com/pulumi/pulumi-newrelic/provider/v5/pkg/version"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 )
 
 func main() {

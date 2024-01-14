@@ -24,13 +24,15 @@ import (
 	_ "embed"
 
 	"github.com/newrelic/terraform-provider-newrelic/v2/newrelic"
-	"github.com/pulumi/pulumi-newrelic/provider/v5/pkg/version"
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+
+	"github.com/pulumi/pulumi-newrelic/provider/v5/pkg/version"
 )
 
 // all of the token components used below.
