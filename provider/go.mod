@@ -4,8 +4,8 @@ go 1.21
 
 require (
 	github.com/newrelic/terraform-provider-newrelic/v2 v2.2.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.70.0
-	github.com/pulumi/pulumi/sdk/v3 v3.99.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.71.0
+	github.com/pulumi/pulumi/sdk/v3 v3.101.1
 )
 
 replace (
@@ -23,10 +23,10 @@ require (
 	cloud.google.com/go/longrunning v0.5.1 // indirect
 	cloud.google.com/go/storage v1.30.1 // indirect
 	dario.cat/mergo v1.0.0 // indirect
-	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.2.0 // indirect
+	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.4.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.2.0 // indirect
-	github.com/Azure/azure-sdk-for-go/sdk/internal v1.1.2 // indirect
-	github.com/Azure/azure-sdk-for-go/sdk/keyvault/azkeys v0.9.0 // indirect
+	github.com/Azure/azure-sdk-for-go/sdk/internal v1.2.0 // indirect
+	github.com/Azure/azure-sdk-for-go/sdk/keyvault/azkeys v0.10.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/keyvault/internal v0.7.1 // indirect
 	github.com/AzureAD/microsoft-authentication-library-for-go v0.7.0 // indirect
 	github.com/BurntSushi/toml v1.2.1 // indirect
@@ -178,10 +178,10 @@ require (
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.6.2 // indirect
-	github.com/pulumi/pulumi-java/pkg v0.9.8 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4 // indirect
-	github.com/pulumi/pulumi-yaml v1.4.4 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.99.0 // indirect
+	github.com/pulumi/pulumi-java/pkg v0.9.9 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7 // indirect
+	github.com/pulumi/pulumi-yaml v1.4.5 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.101.1 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
