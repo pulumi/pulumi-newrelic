@@ -12,7 +12,7 @@ namespace Pulumi.NewRelic
     public static class GetServiceLevelAlertHelper
     {
         /// <summary>
-        /// Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+        /// Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -123,7 +123,7 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceLevelAlertHelperResult>("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", args ?? new GetServiceLevelAlertHelperArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+        /// Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
         /// 
         /// {{% examples %}}
         /// ## Example Usage

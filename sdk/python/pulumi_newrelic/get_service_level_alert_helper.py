@@ -164,7 +164,7 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
                                    slo_target: Optional[float] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceLevelAlertHelperResult:
     """
-    Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+    Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
 
     ## Example Usage
 
@@ -282,7 +282,7 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
                                           slo_target: Optional[pulumi.Input[float]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceLevelAlertHelperResult]:
     """
-    Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+    Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
 
     ## Example Usage
 
