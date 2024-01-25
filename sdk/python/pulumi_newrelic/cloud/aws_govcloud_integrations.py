@@ -761,6 +761,18 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
                  sqs: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsSqsArgs']]] = None,
                  __props__=None):
         """
+        > **IMPORTANT!** This resource is in alpha state, and could still contain issues and missing functionality. If you encounter any issue please create a ticket on Github with all the required information.
+
+        Use this resource to integrate an AWSGovCloud account to New Relic.
+
+        ## Prerequisite
+
+        Obtain the AwsGovCloud account designed to address the specific regulatory needs of United States (federal, state, and local agencies), education institutions, and the supporting ecosystem.
+
+        It is an isolated AWS region designed to host sensitive data and regulated workloads in the cloud, helping customers support their US government compliance requirements.
+
+        To pull data from AWSGovCloud, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/connect-aws-govcloud-new-relic).
+
         ## Import
 
         Integrate AWSGovCloud accounts can be imported using the `id`, e.g. bash
@@ -801,6 +813,18 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
                  args: AwsGovcloudIntegrationsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **IMPORTANT!** This resource is in alpha state, and could still contain issues and missing functionality. If you encounter any issue please create a ticket on Github with all the required information.
+
+        Use this resource to integrate an AWSGovCloud account to New Relic.
+
+        ## Prerequisite
+
+        Obtain the AwsGovCloud account designed to address the specific regulatory needs of United States (federal, state, and local agencies), education institutions, and the supporting ecosystem.
+
+        It is an isolated AWS region designed to host sensitive data and regulated workloads in the cloud, helping customers support their US government compliance requirements.
+
+        To pull data from AWSGovCloud, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/connect-aws-govcloud-new-relic).
+
         ## Import
 
         Integrate AWSGovCloud accounts can be imported using the `id`, e.g. bash
