@@ -16,6 +16,58 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Use this resource to create, update, and delete tags for a New Relic One entity.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NewrelicFunctions;
+ * import com.pulumi.newrelic.inputs.GetEntityArgs;
+ * import com.pulumi.newrelic.EntityTags;
+ * import com.pulumi.newrelic.EntityTagsArgs;
+ * import com.pulumi.newrelic.inputs.EntityTagsTagArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var fooEntity = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+ *             .name(&#34;Example application&#34;)
+ *             .type(&#34;APPLICATION&#34;)
+ *             .domain(&#34;APM&#34;)
+ *             .build());
+ * 
+ *         var fooEntityTags = new EntityTags(&#34;fooEntityTags&#34;, EntityTagsArgs.builder()        
+ *             .guid(fooEntity.applyValue(getEntityResult -&gt; getEntityResult.guid()))
+ *             .tags(            
+ *                 EntityTagsTagArgs.builder()
+ *                     .key(&#34;my-key&#34;)
+ *                     .values(                    
+ *                         &#34;my-value&#34;,
+ *                         &#34;my-other-value&#34;)
+ *                     .build(),
+ *                 EntityTagsTagArgs.builder()
+ *                     .key(&#34;my-key-2&#34;)
+ *                     .values(&#34;my-value-2&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * New Relic One entity tags can be imported using a concatenated string of the format
