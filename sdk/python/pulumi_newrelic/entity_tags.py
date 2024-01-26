@@ -100,6 +100,34 @@ class EntityTags(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityTagsTagArgs']]]]] = None,
                  __props__=None):
         """
+        Use this resource to create, update, and delete tags for a New Relic One entity.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_entity = newrelic.get_entity(name="Example application",
+            type="APPLICATION",
+            domain="APM")
+        foo_entity_tags = newrelic.EntityTags("fooEntityTags",
+            guid=foo_entity.guid,
+            tags=[
+                newrelic.EntityTagsTagArgs(
+                    key="my-key",
+                    values=[
+                        "my-value",
+                        "my-other-value",
+                    ],
+                ),
+                newrelic.EntityTagsTagArgs(
+                    key="my-key-2",
+                    values=["my-value-2"],
+                ),
+            ])
+        ```
+
         ## Import
 
         New Relic One entity tags can be imported using a concatenated string of the format
@@ -122,6 +150,34 @@ class EntityTags(pulumi.CustomResource):
                  args: EntityTagsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Use this resource to create, update, and delete tags for a New Relic One entity.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_entity = newrelic.get_entity(name="Example application",
+            type="APPLICATION",
+            domain="APM")
+        foo_entity_tags = newrelic.EntityTags("fooEntityTags",
+            guid=foo_entity.guid,
+            tags=[
+                newrelic.EntityTagsTagArgs(
+                    key="my-key",
+                    values=[
+                        "my-value",
+                        "my-other-value",
+                    ],
+                ),
+                newrelic.EntityTagsTagArgs(
+                    key="my-key-2",
+                    values=["my-value-2"],
+                ),
+            ])
+        ```
+
         ## Import
 
         New Relic One entity tags can be imported using a concatenated string of the format
