@@ -12,9 +12,15 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class WorkflowIssuesFilterGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// filter id.
+        /// </summary>
         [Input("filterId")]
         public Input<string>? FilterId { get; set; }
 
+        /// <summary>
+        /// (Required) Filter's name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

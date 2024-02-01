@@ -14,6 +14,8 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NrqlAlertConditionNrql {
     /**
+     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluation_offset`.
+     * 
      * @deprecated
      * use `aggregation_method` attribute instead
      * 
@@ -22,6 +24,8 @@ public final class NrqlAlertConditionNrql {
     private @Nullable Integer evaluationOffset;
     private String query;
     /**
+     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `since_value`.
+     * 
      * @deprecated
      * use `aggregation_method` attribute instead
      * 
@@ -31,6 +35,8 @@ public final class NrqlAlertConditionNrql {
 
     private NrqlAlertConditionNrql() {}
     /**
+     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluation_offset`.
+     * 
      * @deprecated
      * use `aggregation_method` attribute instead
      * 
@@ -43,6 +49,8 @@ public final class NrqlAlertConditionNrql {
         return this.query;
     }
     /**
+     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `since_value`.
+     * 
      * @deprecated
      * use `aggregation_method` attribute instead
      * 

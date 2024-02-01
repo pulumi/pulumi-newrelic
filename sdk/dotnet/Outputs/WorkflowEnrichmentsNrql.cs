@@ -21,6 +21,9 @@ namespace Pulumi.NewRelic.Outputs
         /// Another wrapper block
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkflowEnrichmentsNrqlConfiguration> Configurations;
+        /// <summary>
+        /// Enrichment's id.
+        /// </summary>
         public readonly string? EnrichmentId;
         /// <summary>
         /// The name of the workflow.

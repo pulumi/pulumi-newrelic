@@ -12,18 +12,33 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class AlertConditionTermArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// In minutes, must be in the range of 5 to 120, inclusive.
+        /// </summary>
         [Input("duration", required: true)]
         public Input<int> Duration { get; set; } = null!;
 
+        /// <summary>
+        /// One of (above, below, equal). Defaults to equal.
+        /// </summary>
         [Input("operator")]
         public Input<string>? Operator { get; set; }
 
+        /// <summary>
+        /// One of (critical, warning). Defaults to critical.
+        /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
 
+        /// <summary>
+        /// Must be 0 or greater.
+        /// </summary>
         [Input("threshold", required: true)]
         public Input<double> Threshold { get; set; } = null!;
 
+        /// <summary>
+        /// One of (all, any).
+        /// </summary>
         [Input("timeFunction", required: true)]
         public Input<string> TimeFunction { get; set; } = null!;
 

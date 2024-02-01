@@ -42,19 +42,75 @@ public final class OneDashboardPage {
      * 
      */
     private String name;
+    /**
+     * @return An area widget.
+     * 
+     */
     private @Nullable List<OneDashboardPageWidgetArea> widgetAreas;
+    /**
+     * @return A bar widget.
+     * 
+     */
     private @Nullable List<OneDashboardPageWidgetBar> widgetBars;
+    /**
+     * @return A billboard widget.
+     * 
+     */
     private @Nullable List<OneDashboardPageWidgetBillboard> widgetBillboards;
+    /**
+     * @return A bullet widget.
+     * 
+     */
     private @Nullable List<OneDashboardPageWidgetBullet> widgetBullets;
+    /**
+     * @return A funnel widget.
+     * 
+     */
     private @Nullable List<OneDashboardPageWidgetFunnel> widgetFunnels;
+    /**
+     * @return A heatmap widget.
+     * 
+     */
     private @Nullable List<OneDashboardPageWidgetHeatmap> widgetHeatmaps;
+    /**
+     * @return A histogram widget.
+     * 
+     */
     private @Nullable List<OneDashboardPageWidgetHistogram> widgetHistograms;
+    /**
+     * @return A JSON widget.
+     * 
+     */
     private @Nullable List<OneDashboardPageWidgetJson> widgetJsons;
+    /**
+     * @return A line widget.
+     * 
+     */
     private @Nullable List<OneDashboardPageWidgetLine> widgetLines;
+    /**
+     * @return A log table widget.
+     * 
+     */
     private @Nullable List<OneDashboardPageWidgetLogTable> widgetLogTables;
+    /**
+     * @return A markdown widget.
+     * 
+     */
     private @Nullable List<OneDashboardPageWidgetMarkdown> widgetMarkdowns;
+    /**
+     * @return A pie widget.
+     * 
+     */
     private @Nullable List<OneDashboardPageWidgetPy> widgetPies;
+    /**
+     * @return A stacked bar widget.
+     * 
+     */
     private @Nullable List<OneDashboardPageWidgetStackedBar> widgetStackedBars;
+    /**
+     * @return A table widget.
+     * 
+     */
     private @Nullable List<OneDashboardPageWidgetTable> widgetTables;
 
     private OneDashboardPage() {}
@@ -79,45 +135,101 @@ public final class OneDashboardPage {
     public String name() {
         return this.name;
     }
+    /**
+     * @return An area widget.
+     * 
+     */
     public List<OneDashboardPageWidgetArea> widgetAreas() {
         return this.widgetAreas == null ? List.of() : this.widgetAreas;
     }
+    /**
+     * @return A bar widget.
+     * 
+     */
     public List<OneDashboardPageWidgetBar> widgetBars() {
         return this.widgetBars == null ? List.of() : this.widgetBars;
     }
+    /**
+     * @return A billboard widget.
+     * 
+     */
     public List<OneDashboardPageWidgetBillboard> widgetBillboards() {
         return this.widgetBillboards == null ? List.of() : this.widgetBillboards;
     }
+    /**
+     * @return A bullet widget.
+     * 
+     */
     public List<OneDashboardPageWidgetBullet> widgetBullets() {
         return this.widgetBullets == null ? List.of() : this.widgetBullets;
     }
+    /**
+     * @return A funnel widget.
+     * 
+     */
     public List<OneDashboardPageWidgetFunnel> widgetFunnels() {
         return this.widgetFunnels == null ? List.of() : this.widgetFunnels;
     }
+    /**
+     * @return A heatmap widget.
+     * 
+     */
     public List<OneDashboardPageWidgetHeatmap> widgetHeatmaps() {
         return this.widgetHeatmaps == null ? List.of() : this.widgetHeatmaps;
     }
+    /**
+     * @return A histogram widget.
+     * 
+     */
     public List<OneDashboardPageWidgetHistogram> widgetHistograms() {
         return this.widgetHistograms == null ? List.of() : this.widgetHistograms;
     }
+    /**
+     * @return A JSON widget.
+     * 
+     */
     public List<OneDashboardPageWidgetJson> widgetJsons() {
         return this.widgetJsons == null ? List.of() : this.widgetJsons;
     }
+    /**
+     * @return A line widget.
+     * 
+     */
     public List<OneDashboardPageWidgetLine> widgetLines() {
         return this.widgetLines == null ? List.of() : this.widgetLines;
     }
+    /**
+     * @return A log table widget.
+     * 
+     */
     public List<OneDashboardPageWidgetLogTable> widgetLogTables() {
         return this.widgetLogTables == null ? List.of() : this.widgetLogTables;
     }
+    /**
+     * @return A markdown widget.
+     * 
+     */
     public List<OneDashboardPageWidgetMarkdown> widgetMarkdowns() {
         return this.widgetMarkdowns == null ? List.of() : this.widgetMarkdowns;
     }
+    /**
+     * @return A pie widget.
+     * 
+     */
     public List<OneDashboardPageWidgetPy> widgetPies() {
         return this.widgetPies == null ? List.of() : this.widgetPies;
     }
+    /**
+     * @return A stacked bar widget.
+     * 
+     */
     public List<OneDashboardPageWidgetStackedBar> widgetStackedBars() {
         return this.widgetStackedBars == null ? List.of() : this.widgetStackedBars;
     }
+    /**
+     * @return A table widget.
+     * 
+     */
     public List<OneDashboardPageWidgetTable> widgetTables() {
         return this.widgetTables == null ? List.of() : this.widgetTables;
     }

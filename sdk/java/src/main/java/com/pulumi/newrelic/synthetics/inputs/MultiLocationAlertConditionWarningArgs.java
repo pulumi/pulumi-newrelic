@@ -14,9 +14,17 @@ public final class MultiLocationAlertConditionWarningArgs extends com.pulumi.res
 
     public static final MultiLocationAlertConditionWarningArgs Empty = new MultiLocationAlertConditionWarningArgs();
 
+    /**
+     * The minimum number of monitor locations that must be concurrently failing before an incident is opened.
+     * 
+     */
     @Import(name="threshold", required=true)
     private Output<Integer> threshold;
 
+    /**
+     * @return The minimum number of monitor locations that must be concurrently failing before an incident is opened.
+     * 
+     */
     public Output<Integer> threshold() {
         return this.threshold;
     }
@@ -45,11 +53,23 @@ public final class MultiLocationAlertConditionWarningArgs extends com.pulumi.res
             $ = new MultiLocationAlertConditionWarningArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param threshold The minimum number of monitor locations that must be concurrently failing before an incident is opened.
+         * 
+         * @return builder
+         * 
+         */
         public Builder threshold(Output<Integer> threshold) {
             $.threshold = threshold;
             return this;
         }
 
+        /**
+         * @param threshold The minimum number of monitor locations that must be concurrently failing before an incident is opened.
+         * 
+         * @return builder
+         * 
+         */
         public Builder threshold(Integer threshold) {
             return threshold(Output.of(threshold));
         }

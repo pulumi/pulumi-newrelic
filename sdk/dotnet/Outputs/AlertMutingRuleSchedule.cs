@@ -33,6 +33,9 @@ namespace Pulumi.NewRelic.Outputs
         /// The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'
         /// </summary>
         public readonly string? StartTime;
+        /// <summary>
+        /// The time zone that applies to the MutingRule schedule.
+        /// </summary>
         public readonly string TimeZone;
         /// <summary>
         /// The day(s) of the week that a muting rule should repeat when the repeat field is set to 'WEEKLY'. Example: ['MONDAY', 'WEDNESDAY']

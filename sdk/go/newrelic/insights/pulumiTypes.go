@@ -14,9 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type EventEvent struct {
+	// An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
 	Attributes []EventEventAttribute `pulumi:"attributes"`
-	Timestamp  *int                  `pulumi:"timestamp"`
-	Type       string                `pulumi:"type"`
+	// Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+	Timestamp *int `pulumi:"timestamp"`
+	// The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+	Type string `pulumi:"type"`
 }
 
 // EventEventInput is an input type that accepts EventEventArgs and EventEventOutput values.
@@ -31,9 +34,12 @@ type EventEventInput interface {
 }
 
 type EventEventArgs struct {
+	// An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
 	Attributes EventEventAttributeArrayInput `pulumi:"attributes"`
-	Timestamp  pulumi.IntPtrInput            `pulumi:"timestamp"`
-	Type       pulumi.StringInput            `pulumi:"type"`
+	// Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+	Timestamp pulumi.IntPtrInput `pulumi:"timestamp"`
+	// The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (EventEventArgs) ElementType() reflect.Type {
@@ -87,14 +93,17 @@ func (o EventEventOutput) ToEventEventOutputWithContext(ctx context.Context) Eve
 	return o
 }
 
+// An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
 func (o EventEventOutput) Attributes() EventEventAttributeArrayOutput {
 	return o.ApplyT(func(v EventEvent) []EventEventAttribute { return v.Attributes }).(EventEventAttributeArrayOutput)
 }
 
+// Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
 func (o EventEventOutput) Timestamp() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventEvent) *int { return v.Timestamp }).(pulumi.IntPtrOutput)
 }
 
+// The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
 func (o EventEventOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventEvent) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -120,9 +129,12 @@ func (o EventEventArrayOutput) Index(i pulumi.IntInput) EventEventOutput {
 }
 
 type EventEventAttribute struct {
-	Key   string  `pulumi:"key"`
-	Type  *string `pulumi:"type"`
-	Value string  `pulumi:"value"`
+	// The name of the attribute.
+	Key string `pulumi:"key"`
+	// Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
+	Type *string `pulumi:"type"`
+	// The value of the attribute.
+	Value string `pulumi:"value"`
 }
 
 // EventEventAttributeInput is an input type that accepts EventEventAttributeArgs and EventEventAttributeOutput values.
@@ -137,9 +149,12 @@ type EventEventAttributeInput interface {
 }
 
 type EventEventAttributeArgs struct {
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Type  pulumi.StringPtrInput `pulumi:"type"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// The name of the attribute.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The value of the attribute.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (EventEventAttributeArgs) ElementType() reflect.Type {
@@ -193,14 +208,17 @@ func (o EventEventAttributeOutput) ToEventEventAttributeOutputWithContext(ctx co
 	return o
 }
 
+// The name of the attribute.
 func (o EventEventAttributeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventEventAttribute) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
 func (o EventEventAttributeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventEventAttribute) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The value of the attribute.
 func (o EventEventAttributeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventEventAttribute) string { return v.Value }).(pulumi.StringOutput)
 }

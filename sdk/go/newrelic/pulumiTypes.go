@@ -53,7 +53,8 @@ type AlertChannelConfig struct {
 	// A set of teams for targeting notifications. Multiple values are comma separated.
 	Teams *string `pulumi:"teams"`
 	// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
-	Url    *string `pulumi:"url"`
+	Url *string `pulumi:"url"`
+	// The user ID for use with the user channel type.
 	UserId *string `pulumi:"userId"`
 }
 
@@ -108,7 +109,8 @@ type AlertChannelConfigArgs struct {
 	// A set of teams for targeting notifications. Multiple values are comma separated.
 	Teams pulumi.StringPtrInput `pulumi:"teams"`
 	// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
-	Url    pulumi.StringPtrInput `pulumi:"url"`
+	Url pulumi.StringPtrInput `pulumi:"url"`
+	// The user ID for use with the user channel type.
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
 }
 
@@ -289,6 +291,7 @@ func (o AlertChannelConfigOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
+// The user ID for use with the user channel type.
 func (o AlertChannelConfigOutput) UserId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.UserId }).(pulumi.StringPtrOutput)
 }
@@ -517,6 +520,7 @@ func (o AlertChannelConfigPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The user ID for use with the user channel type.
 func (o AlertChannelConfigPtrOutput) UserId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {
@@ -527,11 +531,16 @@ func (o AlertChannelConfigPtrOutput) UserId() pulumi.StringPtrOutput {
 }
 
 type AlertConditionTerm struct {
-	Duration     int     `pulumi:"duration"`
-	Operator     *string `pulumi:"operator"`
-	Priority     *string `pulumi:"priority"`
-	Threshold    float64 `pulumi:"threshold"`
-	TimeFunction string  `pulumi:"timeFunction"`
+	// In minutes, must be in the range of 5 to 120, inclusive.
+	Duration int `pulumi:"duration"`
+	// One of (above, below, equal). Defaults to equal.
+	Operator *string `pulumi:"operator"`
+	// One of (critical, warning). Defaults to critical.
+	Priority *string `pulumi:"priority"`
+	// Must be 0 or greater.
+	Threshold float64 `pulumi:"threshold"`
+	// One of (all, any).
+	TimeFunction string `pulumi:"timeFunction"`
 }
 
 // AlertConditionTermInput is an input type that accepts AlertConditionTermArgs and AlertConditionTermOutput values.
@@ -546,11 +555,16 @@ type AlertConditionTermInput interface {
 }
 
 type AlertConditionTermArgs struct {
-	Duration     pulumi.IntInput       `pulumi:"duration"`
-	Operator     pulumi.StringPtrInput `pulumi:"operator"`
-	Priority     pulumi.StringPtrInput `pulumi:"priority"`
-	Threshold    pulumi.Float64Input   `pulumi:"threshold"`
-	TimeFunction pulumi.StringInput    `pulumi:"timeFunction"`
+	// In minutes, must be in the range of 5 to 120, inclusive.
+	Duration pulumi.IntInput `pulumi:"duration"`
+	// One of (above, below, equal). Defaults to equal.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// One of (critical, warning). Defaults to critical.
+	Priority pulumi.StringPtrInput `pulumi:"priority"`
+	// Must be 0 or greater.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// One of (all, any).
+	TimeFunction pulumi.StringInput `pulumi:"timeFunction"`
 }
 
 func (AlertConditionTermArgs) ElementType() reflect.Type {
@@ -604,22 +618,27 @@ func (o AlertConditionTermOutput) ToAlertConditionTermOutputWithContext(ctx cont
 	return o
 }
 
+// In minutes, must be in the range of 5 to 120, inclusive.
 func (o AlertConditionTermOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v AlertConditionTerm) int { return v.Duration }).(pulumi.IntOutput)
 }
 
+// One of (above, below, equal). Defaults to equal.
 func (o AlertConditionTermOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertConditionTerm) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
+// One of (critical, warning). Defaults to critical.
 func (o AlertConditionTermOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertConditionTerm) *string { return v.Priority }).(pulumi.StringPtrOutput)
 }
 
+// Must be 0 or greater.
 func (o AlertConditionTermOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v AlertConditionTerm) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
+// One of (all, any).
 func (o AlertConditionTermOutput) TimeFunction() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertConditionTerm) string { return v.TimeFunction }).(pulumi.StringOutput)
 }
@@ -926,7 +945,8 @@ type AlertMutingRuleSchedule struct {
 	RepeatCount *int `pulumi:"repeatCount"`
 	// The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'
 	StartTime *string `pulumi:"startTime"`
-	TimeZone  string  `pulumi:"timeZone"`
+	// The time zone that applies to the MutingRule schedule.
+	TimeZone string `pulumi:"timeZone"`
 	// The day(s) of the week that a muting rule should repeat when the repeat field is set to 'WEEKLY'. Example: ['MONDAY', 'WEDNESDAY']
 	WeeklyRepeatDays []string `pulumi:"weeklyRepeatDays"`
 }
@@ -953,7 +973,8 @@ type AlertMutingRuleScheduleArgs struct {
 	RepeatCount pulumi.IntPtrInput `pulumi:"repeatCount"`
 	// The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-	TimeZone  pulumi.StringInput    `pulumi:"timeZone"`
+	// The time zone that applies to the MutingRule schedule.
+	TimeZone pulumi.StringInput `pulumi:"timeZone"`
 	// The day(s) of the week that a muting rule should repeat when the repeat field is set to 'WEEKLY'. Example: ['MONDAY', 'WEDNESDAY']
 	WeeklyRepeatDays pulumi.StringArrayInput `pulumi:"weeklyRepeatDays"`
 }
@@ -1060,6 +1081,7 @@ func (o AlertMutingRuleScheduleOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertMutingRuleSchedule) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
+// The time zone that applies to the MutingRule schedule.
 func (o AlertMutingRuleScheduleOutput) TimeZone() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertMutingRuleSchedule) string { return v.TimeZone }).(pulumi.StringOutput)
 }
@@ -1143,6 +1165,7 @@ func (o AlertMutingRuleSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The time zone that applies to the MutingRule schedule.
 func (o AlertMutingRuleSchedulePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertMutingRuleSchedule) *string {
 		if v == nil {
@@ -2647,12 +2670,20 @@ func (o NotificationDestinationPropertyArrayOutput) Index(i pulumi.IntInput) Not
 }
 
 type NrqlAlertConditionCritical struct {
+	// In minutes, must be in the range of 1 to 120 (inclusive).
+	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration             *int    `pulumi:"duration"`
-	Operator             *string `pulumi:"operator"`
-	Threshold            float64 `pulumi:"threshold"`
-	ThresholdDuration    *int    `pulumi:"thresholdDuration"`
+	Duration *int `pulumi:"duration"`
+	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+	Operator *string `pulumi:"operator"`
+	// For baseline conditions must be in range [1, 1000].
+	Threshold float64 `pulumi:"threshold"`
+	// The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+	ThresholdDuration *int `pulumi:"thresholdDuration"`
+	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
 	ThresholdOccurrences *string `pulumi:"thresholdOccurrences"`
+	// Valid values are: 'all' or 'any'
+	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction *string `pulumi:"timeFunction"`
 }
@@ -2669,12 +2700,20 @@ type NrqlAlertConditionCriticalInput interface {
 }
 
 type NrqlAlertConditionCriticalArgs struct {
+	// In minutes, must be in the range of 1 to 120 (inclusive).
+	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration             pulumi.IntPtrInput    `pulumi:"duration"`
-	Operator             pulumi.StringPtrInput `pulumi:"operator"`
-	Threshold            pulumi.Float64Input   `pulumi:"threshold"`
-	ThresholdDuration    pulumi.IntPtrInput    `pulumi:"thresholdDuration"`
+	Duration pulumi.IntPtrInput `pulumi:"duration"`
+	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// For baseline conditions must be in range [1, 1000].
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+	ThresholdDuration pulumi.IntPtrInput `pulumi:"thresholdDuration"`
+	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
 	ThresholdOccurrences pulumi.StringPtrInput `pulumi:"thresholdOccurrences"`
+	// Valid values are: 'all' or 'any'
+	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
 }
@@ -2756,27 +2795,35 @@ func (o NrqlAlertConditionCriticalOutput) ToNrqlAlertConditionCriticalPtrOutputW
 	}).(NrqlAlertConditionCriticalPtrOutput)
 }
 
+// In minutes, must be in the range of 1 to 120 (inclusive).
+//
 // Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionCriticalOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
+// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 func (o NrqlAlertConditionCriticalOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
+// For baseline conditions must be in range [1, 1000].
 func (o NrqlAlertConditionCriticalOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
+// The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
 func (o NrqlAlertConditionCriticalOutput) ThresholdDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *int { return v.ThresholdDuration }).(pulumi.IntPtrOutput)
 }
 
+// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
 func (o NrqlAlertConditionCriticalOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *string { return v.ThresholdOccurrences }).(pulumi.StringPtrOutput)
 }
 
+// Valid values are: 'all' or 'any'
+//
 // Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionCriticalOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
@@ -2806,6 +2853,8 @@ func (o NrqlAlertConditionCriticalPtrOutput) Elem() NrqlAlertConditionCriticalOu
 	}).(NrqlAlertConditionCriticalOutput)
 }
 
+// In minutes, must be in the range of 1 to 120 (inclusive).
+//
 // Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionCriticalPtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *int {
@@ -2816,6 +2865,7 @@ func (o NrqlAlertConditionCriticalPtrOutput) Duration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 func (o NrqlAlertConditionCriticalPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *string {
 		if v == nil {
@@ -2825,6 +2875,7 @@ func (o NrqlAlertConditionCriticalPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// For baseline conditions must be in range [1, 1000].
 func (o NrqlAlertConditionCriticalPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *float64 {
 		if v == nil {
@@ -2834,6 +2885,7 @@ func (o NrqlAlertConditionCriticalPtrOutput) Threshold() pulumi.Float64PtrOutput
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
 func (o NrqlAlertConditionCriticalPtrOutput) ThresholdDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *int {
 		if v == nil {
@@ -2843,6 +2895,7 @@ func (o NrqlAlertConditionCriticalPtrOutput) ThresholdDuration() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
 func (o NrqlAlertConditionCriticalPtrOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *string {
 		if v == nil {
@@ -2852,6 +2905,8 @@ func (o NrqlAlertConditionCriticalPtrOutput) ThresholdOccurrences() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Valid values are: 'all' or 'any'
+//
 // Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionCriticalPtrOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *string {
@@ -2863,9 +2918,13 @@ func (o NrqlAlertConditionCriticalPtrOutput) TimeFunction() pulumi.StringPtrOutp
 }
 
 type NrqlAlertConditionNrql struct {
+	// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluationOffset`.
+	//
 	// Deprecated: use `aggregation_method` attribute instead
 	EvaluationOffset *int   `pulumi:"evaluationOffset"`
 	Query            string `pulumi:"query"`
+	// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `sinceValue`.
+	//
 	// Deprecated: use `aggregation_method` attribute instead
 	SinceValue *string `pulumi:"sinceValue"`
 }
@@ -2882,9 +2941,13 @@ type NrqlAlertConditionNrqlInput interface {
 }
 
 type NrqlAlertConditionNrqlArgs struct {
+	// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluationOffset`.
+	//
 	// Deprecated: use `aggregation_method` attribute instead
 	EvaluationOffset pulumi.IntPtrInput `pulumi:"evaluationOffset"`
 	Query            pulumi.StringInput `pulumi:"query"`
+	// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `sinceValue`.
+	//
 	// Deprecated: use `aggregation_method` attribute instead
 	SinceValue pulumi.StringPtrInput `pulumi:"sinceValue"`
 }
@@ -2966,6 +3029,8 @@ func (o NrqlAlertConditionNrqlOutput) ToNrqlAlertConditionNrqlPtrOutputWithConte
 	}).(NrqlAlertConditionNrqlPtrOutput)
 }
 
+// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluationOffset`.
+//
 // Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlOutput) EvaluationOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) *int { return v.EvaluationOffset }).(pulumi.IntPtrOutput)
@@ -2975,6 +3040,8 @@ func (o NrqlAlertConditionNrqlOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) string { return v.Query }).(pulumi.StringOutput)
 }
 
+// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `sinceValue`.
+//
 // Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlOutput) SinceValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) *string { return v.SinceValue }).(pulumi.StringPtrOutput)
@@ -3004,6 +3071,8 @@ func (o NrqlAlertConditionNrqlPtrOutput) Elem() NrqlAlertConditionNrqlOutput {
 	}).(NrqlAlertConditionNrqlOutput)
 }
 
+// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluationOffset`.
+//
 // Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlPtrOutput) EvaluationOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *int {
@@ -3023,6 +3092,8 @@ func (o NrqlAlertConditionNrqlPtrOutput) Query() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `sinceValue`.
+//
 // Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *string {
@@ -3034,13 +3105,22 @@ func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringPtrOutput {
 }
 
 type NrqlAlertConditionTerm struct {
+	// In minutes, must be in the range of 1 to 120 (inclusive).
+	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration             *int    `pulumi:"duration"`
-	Operator             *string `pulumi:"operator"`
-	Priority             *string `pulumi:"priority"`
-	Threshold            float64 `pulumi:"threshold"`
-	ThresholdDuration    *int    `pulumi:"thresholdDuration"`
+	Duration *int `pulumi:"duration"`
+	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+	Operator *string `pulumi:"operator"`
+	// One of (critical, warning). Defaults to 'critical'. At least one condition term must have priority set to 'critical'.
+	Priority *string `pulumi:"priority"`
+	// For baseline conditions must be in range [1, 1000].
+	Threshold float64 `pulumi:"threshold"`
+	// The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+	ThresholdDuration *int `pulumi:"thresholdDuration"`
+	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
 	ThresholdOccurrences *string `pulumi:"thresholdOccurrences"`
+	// Valid values are: 'all' or 'any'
+	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction *string `pulumi:"timeFunction"`
 }
@@ -3057,13 +3137,22 @@ type NrqlAlertConditionTermInput interface {
 }
 
 type NrqlAlertConditionTermArgs struct {
+	// In minutes, must be in the range of 1 to 120 (inclusive).
+	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration             pulumi.IntPtrInput    `pulumi:"duration"`
-	Operator             pulumi.StringPtrInput `pulumi:"operator"`
-	Priority             pulumi.StringPtrInput `pulumi:"priority"`
-	Threshold            pulumi.Float64Input   `pulumi:"threshold"`
-	ThresholdDuration    pulumi.IntPtrInput    `pulumi:"thresholdDuration"`
+	Duration pulumi.IntPtrInput `pulumi:"duration"`
+	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// One of (critical, warning). Defaults to 'critical'. At least one condition term must have priority set to 'critical'.
+	Priority pulumi.StringPtrInput `pulumi:"priority"`
+	// For baseline conditions must be in range [1, 1000].
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+	ThresholdDuration pulumi.IntPtrInput `pulumi:"thresholdDuration"`
+	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
 	ThresholdOccurrences pulumi.StringPtrInput `pulumi:"thresholdOccurrences"`
+	// Valid values are: 'all' or 'any'
+	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
 }
@@ -3119,31 +3208,40 @@ func (o NrqlAlertConditionTermOutput) ToNrqlAlertConditionTermOutputWithContext(
 	return o
 }
 
+// In minutes, must be in the range of 1 to 120 (inclusive).
+//
 // Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionTermOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
+// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 func (o NrqlAlertConditionTermOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
+// One of (critical, warning). Defaults to 'critical'. At least one condition term must have priority set to 'critical'.
 func (o NrqlAlertConditionTermOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.Priority }).(pulumi.StringPtrOutput)
 }
 
+// For baseline conditions must be in range [1, 1000].
 func (o NrqlAlertConditionTermOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
+// The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
 func (o NrqlAlertConditionTermOutput) ThresholdDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *int { return v.ThresholdDuration }).(pulumi.IntPtrOutput)
 }
 
+// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
 func (o NrqlAlertConditionTermOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.ThresholdOccurrences }).(pulumi.StringPtrOutput)
 }
 
+// Valid values are: 'all' or 'any'
+//
 // Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionTermOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
@@ -3170,12 +3268,20 @@ func (o NrqlAlertConditionTermArrayOutput) Index(i pulumi.IntInput) NrqlAlertCon
 }
 
 type NrqlAlertConditionWarning struct {
+	// In minutes, must be in the range of 1 to 120 (inclusive).
+	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration             *int    `pulumi:"duration"`
-	Operator             *string `pulumi:"operator"`
-	Threshold            float64 `pulumi:"threshold"`
-	ThresholdDuration    *int    `pulumi:"thresholdDuration"`
+	Duration *int `pulumi:"duration"`
+	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+	Operator *string `pulumi:"operator"`
+	// For baseline conditions must be in range [1, 1000].
+	Threshold float64 `pulumi:"threshold"`
+	// The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+	ThresholdDuration *int `pulumi:"thresholdDuration"`
+	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
 	ThresholdOccurrences *string `pulumi:"thresholdOccurrences"`
+	// Valid values are: 'all' or 'any'
+	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction *string `pulumi:"timeFunction"`
 }
@@ -3192,12 +3298,20 @@ type NrqlAlertConditionWarningInput interface {
 }
 
 type NrqlAlertConditionWarningArgs struct {
+	// In minutes, must be in the range of 1 to 120 (inclusive).
+	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration             pulumi.IntPtrInput    `pulumi:"duration"`
-	Operator             pulumi.StringPtrInput `pulumi:"operator"`
-	Threshold            pulumi.Float64Input   `pulumi:"threshold"`
-	ThresholdDuration    pulumi.IntPtrInput    `pulumi:"thresholdDuration"`
+	Duration pulumi.IntPtrInput `pulumi:"duration"`
+	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// For baseline conditions must be in range [1, 1000].
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+	ThresholdDuration pulumi.IntPtrInput `pulumi:"thresholdDuration"`
+	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
 	ThresholdOccurrences pulumi.StringPtrInput `pulumi:"thresholdOccurrences"`
+	// Valid values are: 'all' or 'any'
+	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
 }
@@ -3279,27 +3393,35 @@ func (o NrqlAlertConditionWarningOutput) ToNrqlAlertConditionWarningPtrOutputWit
 	}).(NrqlAlertConditionWarningPtrOutput)
 }
 
+// In minutes, must be in the range of 1 to 120 (inclusive).
+//
 // Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionWarningOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
+// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 func (o NrqlAlertConditionWarningOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
+// For baseline conditions must be in range [1, 1000].
 func (o NrqlAlertConditionWarningOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
+// The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
 func (o NrqlAlertConditionWarningOutput) ThresholdDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *int { return v.ThresholdDuration }).(pulumi.IntPtrOutput)
 }
 
+// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
 func (o NrqlAlertConditionWarningOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *string { return v.ThresholdOccurrences }).(pulumi.StringPtrOutput)
 }
 
+// Valid values are: 'all' or 'any'
+//
 // Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionWarningOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
@@ -3329,6 +3451,8 @@ func (o NrqlAlertConditionWarningPtrOutput) Elem() NrqlAlertConditionWarningOutp
 	}).(NrqlAlertConditionWarningOutput)
 }
 
+// In minutes, must be in the range of 1 to 120 (inclusive).
+//
 // Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionWarningPtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *int {
@@ -3339,6 +3463,7 @@ func (o NrqlAlertConditionWarningPtrOutput) Duration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 func (o NrqlAlertConditionWarningPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *string {
 		if v == nil {
@@ -3348,6 +3473,7 @@ func (o NrqlAlertConditionWarningPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// For baseline conditions must be in range [1, 1000].
 func (o NrqlAlertConditionWarningPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *float64 {
 		if v == nil {
@@ -3357,6 +3483,7 @@ func (o NrqlAlertConditionWarningPtrOutput) Threshold() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
 func (o NrqlAlertConditionWarningPtrOutput) ThresholdDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *int {
 		if v == nil {
@@ -3366,6 +3493,7 @@ func (o NrqlAlertConditionWarningPtrOutput) ThresholdDuration() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
 func (o NrqlAlertConditionWarningPtrOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *string {
 		if v == nil {
@@ -3375,6 +3503,8 @@ func (o NrqlAlertConditionWarningPtrOutput) ThresholdOccurrences() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// Valid values are: 'all' or 'any'
+//
 // Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionWarningPtrOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *string {
@@ -3506,21 +3636,35 @@ type OneDashboardPage struct {
 	// The unique entity identifier of the dashboard page in New Relic.
 	Guid *string `pulumi:"guid"`
 	// The title of the dashboard.
-	Name              string                             `pulumi:"name"`
-	WidgetAreas       []OneDashboardPageWidgetArea       `pulumi:"widgetAreas"`
-	WidgetBars        []OneDashboardPageWidgetBar        `pulumi:"widgetBars"`
-	WidgetBillboards  []OneDashboardPageWidgetBillboard  `pulumi:"widgetBillboards"`
-	WidgetBullets     []OneDashboardPageWidgetBullet     `pulumi:"widgetBullets"`
-	WidgetFunnels     []OneDashboardPageWidgetFunnel     `pulumi:"widgetFunnels"`
-	WidgetHeatmaps    []OneDashboardPageWidgetHeatmap    `pulumi:"widgetHeatmaps"`
-	WidgetHistograms  []OneDashboardPageWidgetHistogram  `pulumi:"widgetHistograms"`
-	WidgetJsons       []OneDashboardPageWidgetJson       `pulumi:"widgetJsons"`
-	WidgetLines       []OneDashboardPageWidgetLine       `pulumi:"widgetLines"`
-	WidgetLogTables   []OneDashboardPageWidgetLogTable   `pulumi:"widgetLogTables"`
-	WidgetMarkdowns   []OneDashboardPageWidgetMarkdown   `pulumi:"widgetMarkdowns"`
-	WidgetPies        []OneDashboardPageWidgetPy         `pulumi:"widgetPies"`
+	Name string `pulumi:"name"`
+	// An area widget.
+	WidgetAreas []OneDashboardPageWidgetArea `pulumi:"widgetAreas"`
+	// A bar widget.
+	WidgetBars []OneDashboardPageWidgetBar `pulumi:"widgetBars"`
+	// A billboard widget.
+	WidgetBillboards []OneDashboardPageWidgetBillboard `pulumi:"widgetBillboards"`
+	// A bullet widget.
+	WidgetBullets []OneDashboardPageWidgetBullet `pulumi:"widgetBullets"`
+	// A funnel widget.
+	WidgetFunnels []OneDashboardPageWidgetFunnel `pulumi:"widgetFunnels"`
+	// A heatmap widget.
+	WidgetHeatmaps []OneDashboardPageWidgetHeatmap `pulumi:"widgetHeatmaps"`
+	// A histogram widget.
+	WidgetHistograms []OneDashboardPageWidgetHistogram `pulumi:"widgetHistograms"`
+	// A JSON widget.
+	WidgetJsons []OneDashboardPageWidgetJson `pulumi:"widgetJsons"`
+	// A line widget.
+	WidgetLines []OneDashboardPageWidgetLine `pulumi:"widgetLines"`
+	// A log table widget.
+	WidgetLogTables []OneDashboardPageWidgetLogTable `pulumi:"widgetLogTables"`
+	// A markdown widget.
+	WidgetMarkdowns []OneDashboardPageWidgetMarkdown `pulumi:"widgetMarkdowns"`
+	// A pie widget.
+	WidgetPies []OneDashboardPageWidgetPy `pulumi:"widgetPies"`
+	// A stacked bar widget.
 	WidgetStackedBars []OneDashboardPageWidgetStackedBar `pulumi:"widgetStackedBars"`
-	WidgetTables      []OneDashboardPageWidgetTable      `pulumi:"widgetTables"`
+	// A table widget.
+	WidgetTables []OneDashboardPageWidgetTable `pulumi:"widgetTables"`
 }
 
 // OneDashboardPageInput is an input type that accepts OneDashboardPageArgs and OneDashboardPageOutput values.
@@ -3540,21 +3684,35 @@ type OneDashboardPageArgs struct {
 	// The unique entity identifier of the dashboard page in New Relic.
 	Guid pulumi.StringPtrInput `pulumi:"guid"`
 	// The title of the dashboard.
-	Name              pulumi.StringInput                         `pulumi:"name"`
-	WidgetAreas       OneDashboardPageWidgetAreaArrayInput       `pulumi:"widgetAreas"`
-	WidgetBars        OneDashboardPageWidgetBarArrayInput        `pulumi:"widgetBars"`
-	WidgetBillboards  OneDashboardPageWidgetBillboardArrayInput  `pulumi:"widgetBillboards"`
-	WidgetBullets     OneDashboardPageWidgetBulletArrayInput     `pulumi:"widgetBullets"`
-	WidgetFunnels     OneDashboardPageWidgetFunnelArrayInput     `pulumi:"widgetFunnels"`
-	WidgetHeatmaps    OneDashboardPageWidgetHeatmapArrayInput    `pulumi:"widgetHeatmaps"`
-	WidgetHistograms  OneDashboardPageWidgetHistogramArrayInput  `pulumi:"widgetHistograms"`
-	WidgetJsons       OneDashboardPageWidgetJsonArrayInput       `pulumi:"widgetJsons"`
-	WidgetLines       OneDashboardPageWidgetLineArrayInput       `pulumi:"widgetLines"`
-	WidgetLogTables   OneDashboardPageWidgetLogTableArrayInput   `pulumi:"widgetLogTables"`
-	WidgetMarkdowns   OneDashboardPageWidgetMarkdownArrayInput   `pulumi:"widgetMarkdowns"`
-	WidgetPies        OneDashboardPageWidgetPyArrayInput         `pulumi:"widgetPies"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// An area widget.
+	WidgetAreas OneDashboardPageWidgetAreaArrayInput `pulumi:"widgetAreas"`
+	// A bar widget.
+	WidgetBars OneDashboardPageWidgetBarArrayInput `pulumi:"widgetBars"`
+	// A billboard widget.
+	WidgetBillboards OneDashboardPageWidgetBillboardArrayInput `pulumi:"widgetBillboards"`
+	// A bullet widget.
+	WidgetBullets OneDashboardPageWidgetBulletArrayInput `pulumi:"widgetBullets"`
+	// A funnel widget.
+	WidgetFunnels OneDashboardPageWidgetFunnelArrayInput `pulumi:"widgetFunnels"`
+	// A heatmap widget.
+	WidgetHeatmaps OneDashboardPageWidgetHeatmapArrayInput `pulumi:"widgetHeatmaps"`
+	// A histogram widget.
+	WidgetHistograms OneDashboardPageWidgetHistogramArrayInput `pulumi:"widgetHistograms"`
+	// A JSON widget.
+	WidgetJsons OneDashboardPageWidgetJsonArrayInput `pulumi:"widgetJsons"`
+	// A line widget.
+	WidgetLines OneDashboardPageWidgetLineArrayInput `pulumi:"widgetLines"`
+	// A log table widget.
+	WidgetLogTables OneDashboardPageWidgetLogTableArrayInput `pulumi:"widgetLogTables"`
+	// A markdown widget.
+	WidgetMarkdowns OneDashboardPageWidgetMarkdownArrayInput `pulumi:"widgetMarkdowns"`
+	// A pie widget.
+	WidgetPies OneDashboardPageWidgetPyArrayInput `pulumi:"widgetPies"`
+	// A stacked bar widget.
 	WidgetStackedBars OneDashboardPageWidgetStackedBarArrayInput `pulumi:"widgetStackedBars"`
-	WidgetTables      OneDashboardPageWidgetTableArrayInput      `pulumi:"widgetTables"`
+	// A table widget.
+	WidgetTables OneDashboardPageWidgetTableArrayInput `pulumi:"widgetTables"`
 }
 
 func (OneDashboardPageArgs) ElementType() reflect.Type {
@@ -3623,58 +3781,72 @@ func (o OneDashboardPageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPage) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// An area widget.
 func (o OneDashboardPageOutput) WidgetAreas() OneDashboardPageWidgetAreaArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetArea { return v.WidgetAreas }).(OneDashboardPageWidgetAreaArrayOutput)
 }
 
+// A bar widget.
 func (o OneDashboardPageOutput) WidgetBars() OneDashboardPageWidgetBarArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetBar { return v.WidgetBars }).(OneDashboardPageWidgetBarArrayOutput)
 }
 
+// A billboard widget.
 func (o OneDashboardPageOutput) WidgetBillboards() OneDashboardPageWidgetBillboardArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetBillboard { return v.WidgetBillboards }).(OneDashboardPageWidgetBillboardArrayOutput)
 }
 
+// A bullet widget.
 func (o OneDashboardPageOutput) WidgetBullets() OneDashboardPageWidgetBulletArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetBullet { return v.WidgetBullets }).(OneDashboardPageWidgetBulletArrayOutput)
 }
 
+// A funnel widget.
 func (o OneDashboardPageOutput) WidgetFunnels() OneDashboardPageWidgetFunnelArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetFunnel { return v.WidgetFunnels }).(OneDashboardPageWidgetFunnelArrayOutput)
 }
 
+// A heatmap widget.
 func (o OneDashboardPageOutput) WidgetHeatmaps() OneDashboardPageWidgetHeatmapArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetHeatmap { return v.WidgetHeatmaps }).(OneDashboardPageWidgetHeatmapArrayOutput)
 }
 
+// A histogram widget.
 func (o OneDashboardPageOutput) WidgetHistograms() OneDashboardPageWidgetHistogramArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetHistogram { return v.WidgetHistograms }).(OneDashboardPageWidgetHistogramArrayOutput)
 }
 
+// A JSON widget.
 func (o OneDashboardPageOutput) WidgetJsons() OneDashboardPageWidgetJsonArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetJson { return v.WidgetJsons }).(OneDashboardPageWidgetJsonArrayOutput)
 }
 
+// A line widget.
 func (o OneDashboardPageOutput) WidgetLines() OneDashboardPageWidgetLineArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetLine { return v.WidgetLines }).(OneDashboardPageWidgetLineArrayOutput)
 }
 
+// A log table widget.
 func (o OneDashboardPageOutput) WidgetLogTables() OneDashboardPageWidgetLogTableArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetLogTable { return v.WidgetLogTables }).(OneDashboardPageWidgetLogTableArrayOutput)
 }
 
+// A markdown widget.
 func (o OneDashboardPageOutput) WidgetMarkdowns() OneDashboardPageWidgetMarkdownArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetMarkdown { return v.WidgetMarkdowns }).(OneDashboardPageWidgetMarkdownArrayOutput)
 }
 
+// A pie widget.
 func (o OneDashboardPageOutput) WidgetPies() OneDashboardPageWidgetPyArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetPy { return v.WidgetPies }).(OneDashboardPageWidgetPyArrayOutput)
 }
 
+// A stacked bar widget.
 func (o OneDashboardPageOutput) WidgetStackedBars() OneDashboardPageWidgetStackedBarArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetStackedBar { return v.WidgetStackedBars }).(OneDashboardPageWidgetStackedBarArrayOutput)
 }
 
+// A table widget.
 func (o OneDashboardPageOutput) WidgetTables() OneDashboardPageWidgetTableArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetTable { return v.WidgetTables }).(OneDashboardPageWidgetTableArrayOutput)
 }
@@ -3707,8 +3879,9 @@ type OneDashboardPageWidgetArea struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height *int `pulumi:"height"`
+	// The ID of the widget.
+	Id *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -3749,8 +3922,9 @@ type OneDashboardPageWidgetAreaArgs struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The ID of the widget.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -3843,6 +4017,7 @@ func (o OneDashboardPageWidgetAreaOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the widget.
 func (o OneDashboardPageWidgetAreaOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -4026,7 +4201,8 @@ func (o OneDashboardPageWidgetAreaColorArrayOutput) Index(i pulumi.IntInput) One
 
 type OneDashboardPageWidgetAreaColorSeriesOverride struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -4043,7 +4219,8 @@ type OneDashboardPageWidgetAreaColorSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetAreaColorSeriesOverrideArgs struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      pulumi.StringPtrInput `pulumi:"color"`
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -4103,6 +4280,7 @@ func (o OneDashboardPageWidgetAreaColorSeriesOverrideOutput) Color() pulumi.Stri
 	return o.ApplyT(func(v OneDashboardPageWidgetAreaColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetAreaColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetAreaColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -4343,7 +4521,8 @@ func (o OneDashboardPageWidgetAreaNullValueArrayOutput) Index(i pulumi.IntInput)
 
 type OneDashboardPageWidgetAreaNullValueSeriesOverride struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  *string `pulumi:"nullValue"`
+	NullValue *string `pulumi:"nullValue"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -4360,7 +4539,8 @@ type OneDashboardPageWidgetAreaNullValueSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -4420,6 +4600,7 @@ func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput) NullValue() pul
 	return o.ApplyT(func(v OneDashboardPageWidgetAreaNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetAreaNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -4553,6 +4734,7 @@ func (o OneDashboardPageWidgetAreaUnitArrayOutput) Index(i pulumi.IntInput) OneD
 }
 
 type OneDashboardPageWidgetAreaUnitSeriesOverride struct {
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit *string `pulumi:"unit"`
@@ -4570,6 +4752,7 @@ type OneDashboardPageWidgetAreaUnitSeriesOverrideInput interface {
 }
 
 type OneDashboardPageWidgetAreaUnitSeriesOverrideArgs struct {
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
@@ -4626,6 +4809,7 @@ func (o OneDashboardPageWidgetAreaUnitSeriesOverrideOutput) ToOneDashboardPageWi
 	return o
 }
 
+// Series name
 func (o OneDashboardPageWidgetAreaUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetAreaUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -4665,8 +4849,9 @@ type OneDashboardPageWidgetBar struct {
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard *bool `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height *int `pulumi:"height"`
+	// The ID of the widget.
+	Id *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -4711,8 +4896,9 @@ type OneDashboardPageWidgetBarArgs struct {
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard pulumi.BoolPtrInput `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The ID of the widget.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -4812,6 +4998,7 @@ func (o OneDashboardPageWidgetBarOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the widget.
 func (o OneDashboardPageWidgetBarOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -5000,7 +5187,8 @@ func (o OneDashboardPageWidgetBarColorArrayOutput) Index(i pulumi.IntInput) OneD
 
 type OneDashboardPageWidgetBarColorSeriesOverride struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -5017,7 +5205,8 @@ type OneDashboardPageWidgetBarColorSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetBarColorSeriesOverrideArgs struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      pulumi.StringPtrInput `pulumi:"color"`
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -5077,6 +5266,7 @@ func (o OneDashboardPageWidgetBarColorSeriesOverrideOutput) Color() pulumi.Strin
 	return o.ApplyT(func(v OneDashboardPageWidgetBarColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetBarColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBarColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -5317,7 +5507,8 @@ func (o OneDashboardPageWidgetBarNullValueArrayOutput) Index(i pulumi.IntInput) 
 
 type OneDashboardPageWidgetBarNullValueSeriesOverride struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  *string `pulumi:"nullValue"`
+	NullValue *string `pulumi:"nullValue"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -5334,7 +5525,8 @@ type OneDashboardPageWidgetBarNullValueSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetBarNullValueSeriesOverrideArgs struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -5394,6 +5586,7 @@ func (o OneDashboardPageWidgetBarNullValueSeriesOverrideOutput) NullValue() pulu
 	return o.ApplyT(func(v OneDashboardPageWidgetBarNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetBarNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBarNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -5527,6 +5720,7 @@ func (o OneDashboardPageWidgetBarUnitArrayOutput) Index(i pulumi.IntInput) OneDa
 }
 
 type OneDashboardPageWidgetBarUnitSeriesOverride struct {
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit *string `pulumi:"unit"`
@@ -5544,6 +5738,7 @@ type OneDashboardPageWidgetBarUnitSeriesOverrideInput interface {
 }
 
 type OneDashboardPageWidgetBarUnitSeriesOverrideArgs struct {
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
@@ -5600,6 +5795,7 @@ func (o OneDashboardPageWidgetBarUnitSeriesOverrideOutput) ToOneDashboardPageWid
 	return o
 }
 
+// Series name
 func (o OneDashboardPageWidgetBarUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBarUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -5639,8 +5835,9 @@ type OneDashboardPageWidgetBillboard struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height *int `pulumi:"height"`
+	// The ID of the widget.
+	Id *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -5685,8 +5882,9 @@ type OneDashboardPageWidgetBillboardArgs struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The ID of the widget.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -5786,6 +5984,7 @@ func (o OneDashboardPageWidgetBillboardOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the widget.
 func (o OneDashboardPageWidgetBillboardOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -5978,7 +6177,8 @@ func (o OneDashboardPageWidgetBillboardColorArrayOutput) Index(i pulumi.IntInput
 
 type OneDashboardPageWidgetBillboardColorSeriesOverride struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -5995,7 +6195,8 @@ type OneDashboardPageWidgetBillboardColorSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetBillboardColorSeriesOverrideArgs struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      pulumi.StringPtrInput `pulumi:"color"`
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -6055,6 +6256,7 @@ func (o OneDashboardPageWidgetBillboardColorSeriesOverrideOutput) Color() pulumi
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboardColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetBillboardColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboardColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -6295,7 +6497,8 @@ func (o OneDashboardPageWidgetBillboardNullValueArrayOutput) Index(i pulumi.IntI
 
 type OneDashboardPageWidgetBillboardNullValueSeriesOverride struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  *string `pulumi:"nullValue"`
+	NullValue *string `pulumi:"nullValue"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -6312,7 +6515,8 @@ type OneDashboardPageWidgetBillboardNullValueSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -6372,6 +6576,7 @@ func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput) NullValue(
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboardNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboardNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -6505,6 +6710,7 @@ func (o OneDashboardPageWidgetBillboardUnitArrayOutput) Index(i pulumi.IntInput)
 }
 
 type OneDashboardPageWidgetBillboardUnitSeriesOverride struct {
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit *string `pulumi:"unit"`
@@ -6522,6 +6728,7 @@ type OneDashboardPageWidgetBillboardUnitSeriesOverrideInput interface {
 }
 
 type OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs struct {
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
@@ -6578,6 +6785,7 @@ func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput) ToOneDashboardP
 	return o
 }
 
+// Series name
 func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboardUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -6615,8 +6823,9 @@ type OneDashboardPageWidgetBullet struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height *int `pulumi:"height"`
+	// The ID of the widget.
+	Id *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -6659,8 +6868,9 @@ type OneDashboardPageWidgetBulletArgs struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The ID of the widget.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -6755,6 +6965,7 @@ func (o OneDashboardPageWidgetBulletOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the widget.
 func (o OneDashboardPageWidgetBulletOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -6943,7 +7154,8 @@ func (o OneDashboardPageWidgetBulletColorArrayOutput) Index(i pulumi.IntInput) O
 
 type OneDashboardPageWidgetBulletColorSeriesOverride struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -6960,7 +7172,8 @@ type OneDashboardPageWidgetBulletColorSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetBulletColorSeriesOverrideArgs struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      pulumi.StringPtrInput `pulumi:"color"`
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -7020,6 +7233,7 @@ func (o OneDashboardPageWidgetBulletColorSeriesOverrideOutput) Color() pulumi.St
 	return o.ApplyT(func(v OneDashboardPageWidgetBulletColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetBulletColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBulletColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -7260,7 +7474,8 @@ func (o OneDashboardPageWidgetBulletNullValueArrayOutput) Index(i pulumi.IntInpu
 
 type OneDashboardPageWidgetBulletNullValueSeriesOverride struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  *string `pulumi:"nullValue"`
+	NullValue *string `pulumi:"nullValue"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -7277,7 +7492,8 @@ type OneDashboardPageWidgetBulletNullValueSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -7337,6 +7553,7 @@ func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput) NullValue() p
 	return o.ApplyT(func(v OneDashboardPageWidgetBulletNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBulletNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -7470,6 +7687,7 @@ func (o OneDashboardPageWidgetBulletUnitArrayOutput) Index(i pulumi.IntInput) On
 }
 
 type OneDashboardPageWidgetBulletUnitSeriesOverride struct {
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit *string `pulumi:"unit"`
@@ -7487,6 +7705,7 @@ type OneDashboardPageWidgetBulletUnitSeriesOverrideInput interface {
 }
 
 type OneDashboardPageWidgetBulletUnitSeriesOverrideArgs struct {
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
@@ -7543,6 +7762,7 @@ func (o OneDashboardPageWidgetBulletUnitSeriesOverrideOutput) ToOneDashboardPage
 	return o
 }
 
+// Series name
 func (o OneDashboardPageWidgetBulletUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBulletUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -7580,8 +7800,9 @@ type OneDashboardPageWidgetFunnel struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height *int `pulumi:"height"`
+	// The ID of the widget.
+	Id *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -7622,8 +7843,9 @@ type OneDashboardPageWidgetFunnelArgs struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The ID of the widget.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -7716,6 +7938,7 @@ func (o OneDashboardPageWidgetFunnelOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the widget.
 func (o OneDashboardPageWidgetFunnelOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -7899,7 +8122,8 @@ func (o OneDashboardPageWidgetFunnelColorArrayOutput) Index(i pulumi.IntInput) O
 
 type OneDashboardPageWidgetFunnelColorSeriesOverride struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -7916,7 +8140,8 @@ type OneDashboardPageWidgetFunnelColorSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetFunnelColorSeriesOverrideArgs struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      pulumi.StringPtrInput `pulumi:"color"`
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -7976,6 +8201,7 @@ func (o OneDashboardPageWidgetFunnelColorSeriesOverrideOutput) Color() pulumi.St
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnelColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetFunnelColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnelColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -8216,7 +8442,8 @@ func (o OneDashboardPageWidgetFunnelNullValueArrayOutput) Index(i pulumi.IntInpu
 
 type OneDashboardPageWidgetFunnelNullValueSeriesOverride struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  *string `pulumi:"nullValue"`
+	NullValue *string `pulumi:"nullValue"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -8233,7 +8460,8 @@ type OneDashboardPageWidgetFunnelNullValueSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -8293,6 +8521,7 @@ func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput) NullValue() p
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnelNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnelNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -8426,6 +8655,7 @@ func (o OneDashboardPageWidgetFunnelUnitArrayOutput) Index(i pulumi.IntInput) On
 }
 
 type OneDashboardPageWidgetFunnelUnitSeriesOverride struct {
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit *string `pulumi:"unit"`
@@ -8443,6 +8673,7 @@ type OneDashboardPageWidgetFunnelUnitSeriesOverrideInput interface {
 }
 
 type OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs struct {
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
@@ -8499,6 +8730,7 @@ func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput) ToOneDashboardPage
 	return o
 }
 
+// Series name
 func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnelUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -8538,8 +8770,9 @@ type OneDashboardPageWidgetHeatmap struct {
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard *bool `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height *int `pulumi:"height"`
+	// The ID of the widget.
+	Id *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -8584,8 +8817,9 @@ type OneDashboardPageWidgetHeatmapArgs struct {
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard pulumi.BoolPtrInput `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The ID of the widget.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -8685,6 +8919,7 @@ func (o OneDashboardPageWidgetHeatmapOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the widget.
 func (o OneDashboardPageWidgetHeatmapOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -8873,7 +9108,8 @@ func (o OneDashboardPageWidgetHeatmapColorArrayOutput) Index(i pulumi.IntInput) 
 
 type OneDashboardPageWidgetHeatmapColorSeriesOverride struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -8890,7 +9126,8 @@ type OneDashboardPageWidgetHeatmapColorSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      pulumi.StringPtrInput `pulumi:"color"`
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -8950,6 +9187,7 @@ func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput) Color() pulumi.S
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -9190,7 +9428,8 @@ func (o OneDashboardPageWidgetHeatmapNullValueArrayOutput) Index(i pulumi.IntInp
 
 type OneDashboardPageWidgetHeatmapNullValueSeriesOverride struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  *string `pulumi:"nullValue"`
+	NullValue *string `pulumi:"nullValue"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -9207,7 +9446,8 @@ type OneDashboardPageWidgetHeatmapNullValueSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -9267,6 +9507,7 @@ func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput) NullValue() 
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -9400,6 +9641,7 @@ func (o OneDashboardPageWidgetHeatmapUnitArrayOutput) Index(i pulumi.IntInput) O
 }
 
 type OneDashboardPageWidgetHeatmapUnitSeriesOverride struct {
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit *string `pulumi:"unit"`
@@ -9417,6 +9659,7 @@ type OneDashboardPageWidgetHeatmapUnitSeriesOverrideInput interface {
 }
 
 type OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs struct {
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
@@ -9473,6 +9716,7 @@ func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput) ToOneDashboardPag
 	return o
 }
 
+// Series name
 func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -9510,8 +9754,9 @@ type OneDashboardPageWidgetHistogram struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height *int `pulumi:"height"`
+	// The ID of the widget.
+	Id *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -9552,8 +9797,9 @@ type OneDashboardPageWidgetHistogramArgs struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The ID of the widget.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -9646,6 +9892,7 @@ func (o OneDashboardPageWidgetHistogramOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the widget.
 func (o OneDashboardPageWidgetHistogramOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -9833,7 +10080,8 @@ func (o OneDashboardPageWidgetHistogramColorArrayOutput) Index(i pulumi.IntInput
 
 type OneDashboardPageWidgetHistogramColorSeriesOverride struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -9850,7 +10098,8 @@ type OneDashboardPageWidgetHistogramColorSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetHistogramColorSeriesOverrideArgs struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      pulumi.StringPtrInput `pulumi:"color"`
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -9910,6 +10159,7 @@ func (o OneDashboardPageWidgetHistogramColorSeriesOverrideOutput) Color() pulumi
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogramColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetHistogramColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogramColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -10150,7 +10400,8 @@ func (o OneDashboardPageWidgetHistogramNullValueArrayOutput) Index(i pulumi.IntI
 
 type OneDashboardPageWidgetHistogramNullValueSeriesOverride struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  *string `pulumi:"nullValue"`
+	NullValue *string `pulumi:"nullValue"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -10167,7 +10418,8 @@ type OneDashboardPageWidgetHistogramNullValueSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -10227,6 +10479,7 @@ func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput) NullValue(
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogramNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogramNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -10360,6 +10613,7 @@ func (o OneDashboardPageWidgetHistogramUnitArrayOutput) Index(i pulumi.IntInput)
 }
 
 type OneDashboardPageWidgetHistogramUnitSeriesOverride struct {
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit *string `pulumi:"unit"`
@@ -10377,6 +10631,7 @@ type OneDashboardPageWidgetHistogramUnitSeriesOverrideInput interface {
 }
 
 type OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs struct {
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
@@ -10433,6 +10688,7 @@ func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput) ToOneDashboardP
 	return o
 }
 
+// Series name
 func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogramUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -10470,8 +10726,9 @@ type OneDashboardPageWidgetJson struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height *int `pulumi:"height"`
+	// The ID of the widget.
+	Id *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -10512,8 +10769,9 @@ type OneDashboardPageWidgetJsonArgs struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The ID of the widget.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -10606,6 +10864,7 @@ func (o OneDashboardPageWidgetJsonOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the widget.
 func (o OneDashboardPageWidgetJsonOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -10789,7 +11048,8 @@ func (o OneDashboardPageWidgetJsonColorArrayOutput) Index(i pulumi.IntInput) One
 
 type OneDashboardPageWidgetJsonColorSeriesOverride struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -10806,7 +11066,8 @@ type OneDashboardPageWidgetJsonColorSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetJsonColorSeriesOverrideArgs struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      pulumi.StringPtrInput `pulumi:"color"`
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -10866,6 +11127,7 @@ func (o OneDashboardPageWidgetJsonColorSeriesOverrideOutput) Color() pulumi.Stri
 	return o.ApplyT(func(v OneDashboardPageWidgetJsonColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetJsonColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJsonColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -11106,7 +11368,8 @@ func (o OneDashboardPageWidgetJsonNullValueArrayOutput) Index(i pulumi.IntInput)
 
 type OneDashboardPageWidgetJsonNullValueSeriesOverride struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  *string `pulumi:"nullValue"`
+	NullValue *string `pulumi:"nullValue"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -11123,7 +11386,8 @@ type OneDashboardPageWidgetJsonNullValueSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -11183,6 +11447,7 @@ func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput) NullValue() pul
 	return o.ApplyT(func(v OneDashboardPageWidgetJsonNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJsonNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -11316,6 +11581,7 @@ func (o OneDashboardPageWidgetJsonUnitArrayOutput) Index(i pulumi.IntInput) OneD
 }
 
 type OneDashboardPageWidgetJsonUnitSeriesOverride struct {
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit *string `pulumi:"unit"`
@@ -11333,6 +11599,7 @@ type OneDashboardPageWidgetJsonUnitSeriesOverrideInput interface {
 }
 
 type OneDashboardPageWidgetJsonUnitSeriesOverrideArgs struct {
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
@@ -11389,6 +11656,7 @@ func (o OneDashboardPageWidgetJsonUnitSeriesOverrideOutput) ToOneDashboardPageWi
 	return o
 }
 
+// Series name
 func (o OneDashboardPageWidgetJsonUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJsonUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -11426,8 +11694,9 @@ type OneDashboardPageWidgetLine struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height *int `pulumi:"height"`
+	// The ID of the widget.
+	Id *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -11470,8 +11739,9 @@ type OneDashboardPageWidgetLineArgs struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The ID of the widget.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -11566,6 +11836,7 @@ func (o OneDashboardPageWidgetLineOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the widget.
 func (o OneDashboardPageWidgetLineOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -11754,7 +12025,8 @@ func (o OneDashboardPageWidgetLineColorArrayOutput) Index(i pulumi.IntInput) One
 
 type OneDashboardPageWidgetLineColorSeriesOverride struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -11771,7 +12043,8 @@ type OneDashboardPageWidgetLineColorSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetLineColorSeriesOverrideArgs struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      pulumi.StringPtrInput `pulumi:"color"`
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -11831,6 +12104,7 @@ func (o OneDashboardPageWidgetLineColorSeriesOverrideOutput) Color() pulumi.Stri
 	return o.ApplyT(func(v OneDashboardPageWidgetLineColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetLineColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLineColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -12071,7 +12345,8 @@ func (o OneDashboardPageWidgetLineNullValueArrayOutput) Index(i pulumi.IntInput)
 
 type OneDashboardPageWidgetLineNullValueSeriesOverride struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  *string `pulumi:"nullValue"`
+	NullValue *string `pulumi:"nullValue"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -12088,7 +12363,8 @@ type OneDashboardPageWidgetLineNullValueSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetLineNullValueSeriesOverrideArgs struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -12148,6 +12424,7 @@ func (o OneDashboardPageWidgetLineNullValueSeriesOverrideOutput) NullValue() pul
 	return o.ApplyT(func(v OneDashboardPageWidgetLineNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetLineNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLineNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -12281,6 +12558,7 @@ func (o OneDashboardPageWidgetLineUnitArrayOutput) Index(i pulumi.IntInput) OneD
 }
 
 type OneDashboardPageWidgetLineUnitSeriesOverride struct {
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit *string `pulumi:"unit"`
@@ -12298,6 +12576,7 @@ type OneDashboardPageWidgetLineUnitSeriesOverrideInput interface {
 }
 
 type OneDashboardPageWidgetLineUnitSeriesOverrideArgs struct {
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
@@ -12354,6 +12633,7 @@ func (o OneDashboardPageWidgetLineUnitSeriesOverrideOutput) ToOneDashboardPageWi
 	return o
 }
 
+// Series name
 func (o OneDashboardPageWidgetLineUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLineUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -12391,8 +12671,9 @@ type OneDashboardPageWidgetLogTable struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height *int `pulumi:"height"`
+	// The ID of the widget.
+	Id *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -12433,8 +12714,9 @@ type OneDashboardPageWidgetLogTableArgs struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The ID of the widget.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -12527,6 +12809,7 @@ func (o OneDashboardPageWidgetLogTableOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the widget.
 func (o OneDashboardPageWidgetLogTableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -12710,7 +12993,8 @@ func (o OneDashboardPageWidgetLogTableColorArrayOutput) Index(i pulumi.IntInput)
 
 type OneDashboardPageWidgetLogTableColorSeriesOverride struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -12727,7 +13011,8 @@ type OneDashboardPageWidgetLogTableColorSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetLogTableColorSeriesOverrideArgs struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      pulumi.StringPtrInput `pulumi:"color"`
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -12787,6 +13072,7 @@ func (o OneDashboardPageWidgetLogTableColorSeriesOverrideOutput) Color() pulumi.
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTableColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetLogTableColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTableColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -13027,7 +13313,8 @@ func (o OneDashboardPageWidgetLogTableNullValueArrayOutput) Index(i pulumi.IntIn
 
 type OneDashboardPageWidgetLogTableNullValueSeriesOverride struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  *string `pulumi:"nullValue"`
+	NullValue *string `pulumi:"nullValue"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -13044,7 +13331,8 @@ type OneDashboardPageWidgetLogTableNullValueSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -13104,6 +13392,7 @@ func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput) NullValue()
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTableNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTableNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -13237,6 +13526,7 @@ func (o OneDashboardPageWidgetLogTableUnitArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type OneDashboardPageWidgetLogTableUnitSeriesOverride struct {
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit *string `pulumi:"unit"`
@@ -13254,6 +13544,7 @@ type OneDashboardPageWidgetLogTableUnitSeriesOverrideInput interface {
 }
 
 type OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs struct {
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
@@ -13310,6 +13601,7 @@ func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput) ToOneDashboardPa
 	return o
 }
 
+// Series name
 func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTableUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -13347,8 +13639,9 @@ type OneDashboardPageWidgetMarkdown struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height *int `pulumi:"height"`
+	// The ID of the widget.
+	Id *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -13389,8 +13682,9 @@ type OneDashboardPageWidgetMarkdownArgs struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The ID of the widget.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -13483,6 +13777,7 @@ func (o OneDashboardPageWidgetMarkdownOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the widget.
 func (o OneDashboardPageWidgetMarkdownOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -13666,7 +13961,8 @@ func (o OneDashboardPageWidgetMarkdownColorArrayOutput) Index(i pulumi.IntInput)
 
 type OneDashboardPageWidgetMarkdownColorSeriesOverride struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -13683,7 +13979,8 @@ type OneDashboardPageWidgetMarkdownColorSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      pulumi.StringPtrInput `pulumi:"color"`
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -13743,6 +14040,7 @@ func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput) Color() pulumi.
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -13877,7 +14175,8 @@ func (o OneDashboardPageWidgetMarkdownNullValueArrayOutput) Index(i pulumi.IntIn
 
 type OneDashboardPageWidgetMarkdownNullValueSeriesOverride struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  *string `pulumi:"nullValue"`
+	NullValue *string `pulumi:"nullValue"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -13894,7 +14193,8 @@ type OneDashboardPageWidgetMarkdownNullValueSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -13954,6 +14254,7 @@ func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput) NullValue()
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -14087,6 +14388,7 @@ func (o OneDashboardPageWidgetMarkdownUnitArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type OneDashboardPageWidgetMarkdownUnitSeriesOverride struct {
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit *string `pulumi:"unit"`
@@ -14104,6 +14406,7 @@ type OneDashboardPageWidgetMarkdownUnitSeriesOverrideInput interface {
 }
 
 type OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs struct {
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
@@ -14160,6 +14463,7 @@ func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput) ToOneDashboardPa
 	return o
 }
 
+// Series name
 func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -14199,8 +14503,9 @@ type OneDashboardPageWidgetPy struct {
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard *bool `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height *int `pulumi:"height"`
+	// The ID of the widget.
+	Id *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -14245,8 +14550,9 @@ type OneDashboardPageWidgetPyArgs struct {
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard pulumi.BoolPtrInput `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The ID of the widget.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -14346,6 +14652,7 @@ func (o OneDashboardPageWidgetPyOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the widget.
 func (o OneDashboardPageWidgetPyOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -14534,7 +14841,8 @@ func (o OneDashboardPageWidgetPyColorArrayOutput) Index(i pulumi.IntInput) OneDa
 
 type OneDashboardPageWidgetPyColorSeriesOverride struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -14551,7 +14859,8 @@ type OneDashboardPageWidgetPyColorSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetPyColorSeriesOverrideArgs struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      pulumi.StringPtrInput `pulumi:"color"`
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -14611,6 +14920,7 @@ func (o OneDashboardPageWidgetPyColorSeriesOverrideOutput) Color() pulumi.String
 	return o.ApplyT(func(v OneDashboardPageWidgetPyColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetPyColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPyColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -14851,7 +15161,8 @@ func (o OneDashboardPageWidgetPyNullValueArrayOutput) Index(i pulumi.IntInput) O
 
 type OneDashboardPageWidgetPyNullValueSeriesOverride struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  *string `pulumi:"nullValue"`
+	NullValue *string `pulumi:"nullValue"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -14868,7 +15179,8 @@ type OneDashboardPageWidgetPyNullValueSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetPyNullValueSeriesOverrideArgs struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -14928,6 +15240,7 @@ func (o OneDashboardPageWidgetPyNullValueSeriesOverrideOutput) NullValue() pulum
 	return o.ApplyT(func(v OneDashboardPageWidgetPyNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetPyNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPyNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -15061,6 +15374,7 @@ func (o OneDashboardPageWidgetPyUnitArrayOutput) Index(i pulumi.IntInput) OneDas
 }
 
 type OneDashboardPageWidgetPyUnitSeriesOverride struct {
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit *string `pulumi:"unit"`
@@ -15078,6 +15392,7 @@ type OneDashboardPageWidgetPyUnitSeriesOverrideInput interface {
 }
 
 type OneDashboardPageWidgetPyUnitSeriesOverrideArgs struct {
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
@@ -15134,6 +15449,7 @@ func (o OneDashboardPageWidgetPyUnitSeriesOverrideOutput) ToOneDashboardPageWidg
 	return o
 }
 
+// Series name
 func (o OneDashboardPageWidgetPyUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPyUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -15171,8 +15487,9 @@ type OneDashboardPageWidgetStackedBar struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height *int `pulumi:"height"`
+	// The ID of the widget.
+	Id *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -15213,8 +15530,9 @@ type OneDashboardPageWidgetStackedBarArgs struct {
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The ID of the widget.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -15307,6 +15625,7 @@ func (o OneDashboardPageWidgetStackedBarOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the widget.
 func (o OneDashboardPageWidgetStackedBarOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -15494,7 +15813,8 @@ func (o OneDashboardPageWidgetStackedBarColorArrayOutput) Index(i pulumi.IntInpu
 
 type OneDashboardPageWidgetStackedBarColorSeriesOverride struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -15511,7 +15831,8 @@ type OneDashboardPageWidgetStackedBarColorSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      pulumi.StringPtrInput `pulumi:"color"`
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -15571,6 +15892,7 @@ func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput) Color() pulum
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -15811,7 +16133,8 @@ func (o OneDashboardPageWidgetStackedBarNullValueArrayOutput) Index(i pulumi.Int
 
 type OneDashboardPageWidgetStackedBarNullValueSeriesOverride struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  *string `pulumi:"nullValue"`
+	NullValue *string `pulumi:"nullValue"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -15828,7 +16151,8 @@ type OneDashboardPageWidgetStackedBarNullValueSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -15888,6 +16212,7 @@ func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput) NullValue
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -16021,6 +16346,7 @@ func (o OneDashboardPageWidgetStackedBarUnitArrayOutput) Index(i pulumi.IntInput
 }
 
 type OneDashboardPageWidgetStackedBarUnitSeriesOverride struct {
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit *string `pulumi:"unit"`
@@ -16038,6 +16364,7 @@ type OneDashboardPageWidgetStackedBarUnitSeriesOverrideInput interface {
 }
 
 type OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs struct {
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
@@ -16094,6 +16421,7 @@ func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput) ToOneDashboard
 	return o
 }
 
+// Series name
 func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -16133,8 +16461,9 @@ type OneDashboardPageWidgetTable struct {
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard *bool `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height *int `pulumi:"height"`
+	// The ID of the widget.
+	Id *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -16179,8 +16508,9 @@ type OneDashboardPageWidgetTableArgs struct {
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard pulumi.BoolPtrInput `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The ID of the widget.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -16280,6 +16610,7 @@ func (o OneDashboardPageWidgetTableOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the widget.
 func (o OneDashboardPageWidgetTableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -16468,7 +16799,8 @@ func (o OneDashboardPageWidgetTableColorArrayOutput) Index(i pulumi.IntInput) On
 
 type OneDashboardPageWidgetTableColorSeriesOverride struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -16485,7 +16817,8 @@ type OneDashboardPageWidgetTableColorSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetTableColorSeriesOverrideArgs struct {
 	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
-	Color      pulumi.StringPtrInput `pulumi:"color"`
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -16545,6 +16878,7 @@ func (o OneDashboardPageWidgetTableColorSeriesOverrideOutput) Color() pulumi.Str
 	return o.ApplyT(func(v OneDashboardPageWidgetTableColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetTableColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTableColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -16785,7 +17119,8 @@ func (o OneDashboardPageWidgetTableNullValueArrayOutput) Index(i pulumi.IntInput
 
 type OneDashboardPageWidgetTableNullValueSeriesOverride struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  *string `pulumi:"nullValue"`
+	NullValue *string `pulumi:"nullValue"`
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 }
 
@@ -16802,7 +17137,8 @@ type OneDashboardPageWidgetTableNullValueSeriesOverrideInput interface {
 
 type OneDashboardPageWidgetTableNullValueSeriesOverrideArgs struct {
 	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
-	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 }
 
@@ -16862,6 +17198,7 @@ func (o OneDashboardPageWidgetTableNullValueSeriesOverrideOutput) NullValue() pu
 	return o.ApplyT(func(v OneDashboardPageWidgetTableNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
 }
 
+// Series name
 func (o OneDashboardPageWidgetTableNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTableNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -16995,6 +17332,7 @@ func (o OneDashboardPageWidgetTableUnitArrayOutput) Index(i pulumi.IntInput) One
 }
 
 type OneDashboardPageWidgetTableUnitSeriesOverride struct {
+	// Series name
 	SeriesName *string `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit *string `pulumi:"unit"`
@@ -17012,6 +17350,7 @@ type OneDashboardPageWidgetTableUnitSeriesOverrideInput interface {
 }
 
 type OneDashboardPageWidgetTableUnitSeriesOverrideArgs struct {
+	// Series name
 	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
 	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
@@ -17068,6 +17407,7 @@ func (o OneDashboardPageWidgetTableUnitSeriesOverrideOutput) ToOneDashboardPageW
 	return o
 }
 
+// Series name
 func (o OneDashboardPageWidgetTableUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTableUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
 }
@@ -17227,8 +17567,9 @@ type OneDashboardRawPageWidget struct {
 	// (Required) The configuration of the widget.
 	Configuration string `pulumi:"configuration"`
 	// (Optional) Height of the widget. Valid values are `1` to `12` inclusive. Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height *int `pulumi:"height"`
+	// The ID of the widget.
+	Id *string `pulumi:"id"`
 	// (Optional) Related entity GUIDs.
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Required) Row position of widget from top left, starting at `1`.
@@ -17258,8 +17599,9 @@ type OneDashboardRawPageWidgetArgs struct {
 	// (Required) The configuration of the widget.
 	Configuration pulumi.StringInput `pulumi:"configuration"`
 	// (Optional) Height of the widget. Valid values are `1` to `12` inclusive. Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The ID of the widget.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) Related entity GUIDs.
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Required) Row position of widget from top left, starting at `1`.
@@ -17338,6 +17680,7 @@ func (o OneDashboardRawPageWidgetOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardRawPageWidget) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the widget.
 func (o OneDashboardRawPageWidgetOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardRawPageWidget) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -17654,6 +17997,7 @@ func (o OneDashboardVariableItemArrayOutput) Index(i pulumi.IntInput) OneDashboa
 }
 
 type OneDashboardVariableNrqlQuery struct {
+	// New Relic account ID(s) to issue the query against.
 	AccountIds []int `pulumi:"accountIds"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -17671,6 +18015,7 @@ type OneDashboardVariableNrqlQueryInput interface {
 }
 
 type OneDashboardVariableNrqlQueryArgs struct {
+	// New Relic account ID(s) to issue the query against.
 	AccountIds pulumi.IntArrayInput `pulumi:"accountIds"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -17753,6 +18098,7 @@ func (o OneDashboardVariableNrqlQueryOutput) ToOneDashboardVariableNrqlQueryPtrO
 	}).(OneDashboardVariableNrqlQueryPtrOutput)
 }
 
+// New Relic account ID(s) to issue the query against.
 func (o OneDashboardVariableNrqlQueryOutput) AccountIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v OneDashboardVariableNrqlQuery) []int { return v.AccountIds }).(pulumi.IntArrayOutput)
 }
@@ -17786,6 +18132,7 @@ func (o OneDashboardVariableNrqlQueryPtrOutput) Elem() OneDashboardVariableNrqlQ
 	}).(OneDashboardVariableNrqlQueryOutput)
 }
 
+// New Relic account ID(s) to issue the query against.
 func (o OneDashboardVariableNrqlQueryPtrOutput) AccountIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *OneDashboardVariableNrqlQuery) []int {
 		if v == nil {
@@ -19821,7 +20168,8 @@ type WorkflowEnrichmentsNrql struct {
 	AccountId *int `pulumi:"accountId"`
 	// Another wrapper block
 	Configurations []WorkflowEnrichmentsNrqlConfiguration `pulumi:"configurations"`
-	EnrichmentId   *string                                `pulumi:"enrichmentId"`
+	// Enrichment's id.
+	EnrichmentId *string `pulumi:"enrichmentId"`
 	// The name of the workflow.
 	Name string `pulumi:"name"`
 	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
@@ -19844,7 +20192,8 @@ type WorkflowEnrichmentsNrqlArgs struct {
 	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
 	// Another wrapper block
 	Configurations WorkflowEnrichmentsNrqlConfigurationArrayInput `pulumi:"configurations"`
-	EnrichmentId   pulumi.StringPtrInput                          `pulumi:"enrichmentId"`
+	// Enrichment's id.
+	EnrichmentId pulumi.StringPtrInput `pulumi:"enrichmentId"`
 	// The name of the workflow.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
@@ -19912,6 +20261,7 @@ func (o WorkflowEnrichmentsNrqlOutput) Configurations() WorkflowEnrichmentsNrqlC
 	return o.ApplyT(func(v WorkflowEnrichmentsNrql) []WorkflowEnrichmentsNrqlConfiguration { return v.Configurations }).(WorkflowEnrichmentsNrqlConfigurationArrayOutput)
 }
 
+// Enrichment's id.
 func (o WorkflowEnrichmentsNrqlOutput) EnrichmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowEnrichmentsNrql) *string { return v.EnrichmentId }).(pulumi.StringPtrOutput)
 }
@@ -20044,8 +20394,10 @@ func (o WorkflowEnrichmentsNrqlConfigurationArrayOutput) Index(i pulumi.IntInput
 }
 
 type WorkflowIssuesFilter struct {
+	// filter id.
 	FilterId *string `pulumi:"filterId"`
-	Name     string  `pulumi:"name"`
+	// (Required) Filter's name.
+	Name string `pulumi:"name"`
 	// A condition an issue event should satisfy to be processed by the workflow
 	Predicates []WorkflowIssuesFilterPredicate `pulumi:"predicates"`
 	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
@@ -20064,8 +20416,10 @@ type WorkflowIssuesFilterInput interface {
 }
 
 type WorkflowIssuesFilterArgs struct {
+	// filter id.
 	FilterId pulumi.StringPtrInput `pulumi:"filterId"`
-	Name     pulumi.StringInput    `pulumi:"name"`
+	// (Required) Filter's name.
+	Name pulumi.StringInput `pulumi:"name"`
 	// A condition an issue event should satisfy to be processed by the workflow
 	Predicates WorkflowIssuesFilterPredicateArrayInput `pulumi:"predicates"`
 	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
@@ -20149,10 +20503,12 @@ func (o WorkflowIssuesFilterOutput) ToWorkflowIssuesFilterPtrOutputWithContext(c
 	}).(WorkflowIssuesFilterPtrOutput)
 }
 
+// filter id.
 func (o WorkflowIssuesFilterOutput) FilterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilter) *string { return v.FilterId }).(pulumi.StringPtrOutput)
 }
 
+// (Required) Filter's name.
 func (o WorkflowIssuesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -20191,6 +20547,7 @@ func (o WorkflowIssuesFilterPtrOutput) Elem() WorkflowIssuesFilterOutput {
 	}).(WorkflowIssuesFilterOutput)
 }
 
+// filter id.
 func (o WorkflowIssuesFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowIssuesFilter) *string {
 		if v == nil {
@@ -20200,6 +20557,7 @@ func (o WorkflowIssuesFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// (Required) Filter's name.
 func (o WorkflowIssuesFilterPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowIssuesFilter) *string {
 		if v == nil {
@@ -20614,10 +20972,14 @@ func (o GetEntityTagArrayOutput) Index(i pulumi.IntInput) GetEntityTagOutput {
 }
 
 type GetNotificationDestinationProperty struct {
+	// Notification property display key.
 	DisplayValue *string `pulumi:"displayValue"`
-	Key          string  `pulumi:"key"`
-	Label        *string `pulumi:"label"`
-	Value        string  `pulumi:"value"`
+	// Notification property key.
+	Key string `pulumi:"key"`
+	// Notification property label.
+	Label *string `pulumi:"label"`
+	// Notification property value.
+	Value string `pulumi:"value"`
 }
 
 // GetNotificationDestinationPropertyInput is an input type that accepts GetNotificationDestinationPropertyArgs and GetNotificationDestinationPropertyOutput values.
@@ -20632,10 +20994,14 @@ type GetNotificationDestinationPropertyInput interface {
 }
 
 type GetNotificationDestinationPropertyArgs struct {
+	// Notification property display key.
 	DisplayValue pulumi.StringPtrInput `pulumi:"displayValue"`
-	Key          pulumi.StringInput    `pulumi:"key"`
-	Label        pulumi.StringPtrInput `pulumi:"label"`
-	Value        pulumi.StringInput    `pulumi:"value"`
+	// Notification property key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Notification property label.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Notification property value.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (GetNotificationDestinationPropertyArgs) ElementType() reflect.Type {
@@ -20689,18 +21055,22 @@ func (o GetNotificationDestinationPropertyOutput) ToGetNotificationDestinationPr
 	return o
 }
 
+// Notification property display key.
 func (o GetNotificationDestinationPropertyOutput) DisplayValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetNotificationDestinationProperty) *string { return v.DisplayValue }).(pulumi.StringPtrOutput)
 }
 
+// Notification property key.
 func (o GetNotificationDestinationPropertyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNotificationDestinationProperty) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Notification property label.
 func (o GetNotificationDestinationPropertyOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetNotificationDestinationProperty) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// Notification property value.
 func (o GetNotificationDestinationPropertyOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNotificationDestinationProperty) string { return v.Value }).(pulumi.StringOutput)
 }

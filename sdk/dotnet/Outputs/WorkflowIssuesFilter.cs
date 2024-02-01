@@ -13,7 +13,13 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class WorkflowIssuesFilter
     {
+        /// <summary>
+        /// filter id.
+        /// </summary>
         public readonly string? FilterId;
+        /// <summary>
+        /// (Required) Filter's name.
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// A condition an issue event should satisfy to be processed by the workflow

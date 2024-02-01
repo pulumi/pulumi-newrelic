@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventEventAttribute {
+    /**
+     * @return The name of the attribute.
+     * 
+     */
     private String key;
+    /**
+     * @return Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
+     * 
+     */
     private @Nullable String type;
+    /**
+     * @return The value of the attribute.
+     * 
+     */
     private String value;
 
     private EventEventAttribute() {}
+    /**
+     * @return The name of the attribute.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
+    /**
+     * @return The value of the attribute.
+     * 
+     */
     public String value() {
         return this.value;
     }

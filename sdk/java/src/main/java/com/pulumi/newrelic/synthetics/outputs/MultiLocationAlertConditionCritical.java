@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class MultiLocationAlertConditionCritical {
+    /**
+     * @return The minimum number of monitor locations that must be concurrently failing before an incident is opened.
+     * 
+     */
     private Integer threshold;
 
     private MultiLocationAlertConditionCritical() {}
+    /**
+     * @return The minimum number of monitor locations that must be concurrently failing before an incident is opened.
+     * 
+     */
     public Integer threshold() {
         return this.threshold;
     }

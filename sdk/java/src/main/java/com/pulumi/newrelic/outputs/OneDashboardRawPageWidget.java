@@ -29,6 +29,10 @@ public final class OneDashboardRawPageWidget {
      * 
      */
     private @Nullable Integer height;
+    /**
+     * @return The ID of the widget.
+     * 
+     */
     private @Nullable String id;
     /**
      * @return (Optional) Related entity GUIDs.
@@ -78,6 +82,10 @@ public final class OneDashboardRawPageWidget {
     public Optional<Integer> height() {
         return Optional.ofNullable(this.height);
     }
+    /**
+     * @return The ID of the widget.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }

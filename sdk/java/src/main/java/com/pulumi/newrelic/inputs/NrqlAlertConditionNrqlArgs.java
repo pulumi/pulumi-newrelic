@@ -18,6 +18,8 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
     public static final NrqlAlertConditionNrqlArgs Empty = new NrqlAlertConditionNrqlArgs();
 
     /**
+     * NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluation_offset`.
+     * 
      * @deprecated
      * use `aggregation_method` attribute instead
      * 
@@ -27,6 +29,8 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
     private @Nullable Output<Integer> evaluationOffset;
 
     /**
+     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluation_offset`.
+     * 
      * @deprecated
      * use `aggregation_method` attribute instead
      * 
@@ -44,6 +48,8 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `since_value`.
+     * 
      * @deprecated
      * use `aggregation_method` attribute instead
      * 
@@ -53,6 +59,8 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
     private @Nullable Output<String> sinceValue;
 
     /**
+     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `since_value`.
+     * 
      * @deprecated
      * use `aggregation_method` attribute instead
      * 
@@ -89,6 +97,8 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
         }
 
         /**
+         * @param evaluationOffset NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluation_offset`.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -102,6 +112,8 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
         }
 
         /**
+         * @param evaluationOffset NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluation_offset`.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -123,6 +135,8 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
         }
 
         /**
+         * @param sinceValue NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `since_value`.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -136,6 +150,8 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
         }
 
         /**
+         * @param sinceValue NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `since_value`.
+         * 
          * @return builder
          * 
          * @deprecated

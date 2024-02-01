@@ -25,6 +25,9 @@ namespace Pulumi.NewRelic.Outputs
         /// (Optional) Height of the widget. Valid values are `1` to `12` inclusive. Defaults to `3`.
         /// </summary>
         public readonly int? Height;
+        /// <summary>
+        /// The ID of the widget.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// (Optional) Related entity GUIDs.

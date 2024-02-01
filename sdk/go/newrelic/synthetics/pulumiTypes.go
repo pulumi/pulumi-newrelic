@@ -438,6 +438,7 @@ func (o MonitorTagArrayOutput) Index(i pulumi.IntInput) MonitorTagOutput {
 }
 
 type MultiLocationAlertConditionCritical struct {
+	// The minimum number of monitor locations that must be concurrently failing before an incident is opened.
 	Threshold int `pulumi:"threshold"`
 }
 
@@ -453,6 +454,7 @@ type MultiLocationAlertConditionCriticalInput interface {
 }
 
 type MultiLocationAlertConditionCriticalArgs struct {
+	// The minimum number of monitor locations that must be concurrently failing before an incident is opened.
 	Threshold pulumi.IntInput `pulumi:"threshold"`
 }
 
@@ -533,6 +535,7 @@ func (o MultiLocationAlertConditionCriticalOutput) ToMultiLocationAlertCondition
 	}).(MultiLocationAlertConditionCriticalPtrOutput)
 }
 
+// The minimum number of monitor locations that must be concurrently failing before an incident is opened.
 func (o MultiLocationAlertConditionCriticalOutput) Threshold() pulumi.IntOutput {
 	return o.ApplyT(func(v MultiLocationAlertConditionCritical) int { return v.Threshold }).(pulumi.IntOutput)
 }
@@ -561,6 +564,7 @@ func (o MultiLocationAlertConditionCriticalPtrOutput) Elem() MultiLocationAlertC
 	}).(MultiLocationAlertConditionCriticalOutput)
 }
 
+// The minimum number of monitor locations that must be concurrently failing before an incident is opened.
 func (o MultiLocationAlertConditionCriticalPtrOutput) Threshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MultiLocationAlertConditionCritical) *int {
 		if v == nil {
@@ -571,6 +575,7 @@ func (o MultiLocationAlertConditionCriticalPtrOutput) Threshold() pulumi.IntPtrO
 }
 
 type MultiLocationAlertConditionWarning struct {
+	// The minimum number of monitor locations that must be concurrently failing before an incident is opened.
 	Threshold int `pulumi:"threshold"`
 }
 
@@ -586,6 +591,7 @@ type MultiLocationAlertConditionWarningInput interface {
 }
 
 type MultiLocationAlertConditionWarningArgs struct {
+	// The minimum number of monitor locations that must be concurrently failing before an incident is opened.
 	Threshold pulumi.IntInput `pulumi:"threshold"`
 }
 
@@ -666,6 +672,7 @@ func (o MultiLocationAlertConditionWarningOutput) ToMultiLocationAlertConditionW
 	}).(MultiLocationAlertConditionWarningPtrOutput)
 }
 
+// The minimum number of monitor locations that must be concurrently failing before an incident is opened.
 func (o MultiLocationAlertConditionWarningOutput) Threshold() pulumi.IntOutput {
 	return o.ApplyT(func(v MultiLocationAlertConditionWarning) int { return v.Threshold }).(pulumi.IntOutput)
 }
@@ -694,6 +701,7 @@ func (o MultiLocationAlertConditionWarningPtrOutput) Elem() MultiLocationAlertCo
 	}).(MultiLocationAlertConditionWarningOutput)
 }
 
+// The minimum number of monitor locations that must be concurrently failing before an incident is opened.
 func (o MultiLocationAlertConditionWarningPtrOutput) Threshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MultiLocationAlertConditionWarning) *int {
 		if v == nil {

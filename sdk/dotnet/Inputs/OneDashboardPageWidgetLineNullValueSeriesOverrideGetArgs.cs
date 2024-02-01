@@ -18,6 +18,9 @@ namespace Pulumi.NewRelic.Inputs
         [Input("nullValue")]
         public Input<string>? NullValue { get; set; }
 
+        /// <summary>
+        /// Series name
+        /// </summary>
         [Input("seriesName")]
         public Input<string>? SeriesName { get; set; }
 

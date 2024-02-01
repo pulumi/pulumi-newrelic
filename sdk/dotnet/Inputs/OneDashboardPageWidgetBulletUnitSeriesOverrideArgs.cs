@@ -12,6 +12,9 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class OneDashboardPageWidgetBulletUnitSeriesOverrideArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Series name
+        /// </summary>
         [Input("seriesName")]
         public Input<string>? SeriesName { get; set; }
 

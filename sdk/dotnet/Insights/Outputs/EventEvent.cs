@@ -13,8 +13,17 @@ namespace Pulumi.NewRelic.Insights.Outputs
     [OutputType]
     public sealed class EventEvent
     {
+        /// <summary>
+        /// An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EventEventAttribute> Attributes;
+        /// <summary>
+        /// Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+        /// </summary>
         public readonly int? Timestamp;
+        /// <summary>
+        /// The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
