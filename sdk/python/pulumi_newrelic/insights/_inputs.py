@@ -20,6 +20,11 @@ class EventEventArgs:
                  attributes: pulumi.Input[Sequence[pulumi.Input['EventEventAttributeArgs']]],
                  type: pulumi.Input[str],
                  timestamp: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['EventEventAttributeArgs']]] attributes: An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+        :param pulumi.Input[str] type: The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+        :param pulumi.Input[int] timestamp: Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+        """
         pulumi.set(__self__, "attributes", attributes)
         pulumi.set(__self__, "type", type)
         if timestamp is not None:
@@ -28,6 +33,9 @@ class EventEventArgs:
     @property
     @pulumi.getter
     def attributes(self) -> pulumi.Input[Sequence[pulumi.Input['EventEventAttributeArgs']]]:
+        """
+        An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -37,6 +45,9 @@ class EventEventArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -46,6 +57,9 @@ class EventEventArgs:
     @property
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input[int]]:
+        """
+        Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+        """
         return pulumi.get(self, "timestamp")
 
     @timestamp.setter
@@ -59,6 +73,11 @@ class EventEventAttributeArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: The name of the attribute.
+        :param pulumi.Input[str] value: The value of the attribute.
+        :param pulumi.Input[str] type: Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if type is not None:
@@ -67,6 +86,9 @@ class EventEventAttributeArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The name of the attribute.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -76,6 +98,9 @@ class EventEventAttributeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value of the attribute.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -85,6 +110,9 @@ class EventEventAttributeArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
+        """
         return pulumi.get(self, "type")
 
     @type.setter

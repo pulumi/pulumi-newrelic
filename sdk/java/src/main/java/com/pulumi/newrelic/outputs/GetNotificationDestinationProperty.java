@@ -12,21 +12,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNotificationDestinationProperty {
+    /**
+     * @return Notification property display key.
+     * 
+     */
     private @Nullable String displayValue;
+    /**
+     * @return Notification property key.
+     * 
+     */
     private String key;
+    /**
+     * @return Notification property label.
+     * 
+     */
     private @Nullable String label;
+    /**
+     * @return Notification property value.
+     * 
+     */
     private String value;
 
     private GetNotificationDestinationProperty() {}
+    /**
+     * @return Notification property display key.
+     * 
+     */
     public Optional<String> displayValue() {
         return Optional.ofNullable(this.displayValue);
     }
+    /**
+     * @return Notification property key.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return Notification property label.
+     * 
+     */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
+    /**
+     * @return Notification property value.
+     * 
+     */
     public String value() {
         return this.value;
     }

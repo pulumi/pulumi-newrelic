@@ -15,17 +15,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventEvent {
+    /**
+     * @return An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+     * 
+     */
     private List<EventEventAttribute> attributes;
+    /**
+     * @return Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+     * 
+     */
     private @Nullable Integer timestamp;
+    /**
+     * @return The event&#39;s name. Can be a combination of alphanumeric characters, underscores, and colons.
+     * 
+     */
     private String type;
 
     private EventEvent() {}
+    /**
+     * @return An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+     * 
+     */
     public List<EventEventAttribute> attributes() {
         return this.attributes;
     }
+    /**
+     * @return Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+     * 
+     */
     public Optional<Integer> timestamp() {
         return Optional.ofNullable(this.timestamp);
     }
+    /**
+     * @return The event&#39;s name. Can be a combination of alphanumeric characters, underscores, and colons.
+     * 
+     */
     public String type() {
         return this.type;
     }

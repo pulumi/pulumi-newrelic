@@ -21,6 +21,11 @@ class EventEvent(dict):
                  attributes: Sequence['outputs.EventEventAttribute'],
                  type: str,
                  timestamp: Optional[int] = None):
+        """
+        :param Sequence['EventEventAttributeArgs'] attributes: An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+        :param str type: The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+        :param int timestamp: Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+        """
         pulumi.set(__self__, "attributes", attributes)
         pulumi.set(__self__, "type", type)
         if timestamp is not None:
@@ -29,16 +34,25 @@ class EventEvent(dict):
     @property
     @pulumi.getter
     def attributes(self) -> Sequence['outputs.EventEventAttribute']:
+        """
+        An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+        """
         return pulumi.get(self, "attributes")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def timestamp(self) -> Optional[int]:
+        """
+        Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+        """
         return pulumi.get(self, "timestamp")
 
 
@@ -48,6 +62,11 @@ class EventEventAttribute(dict):
                  key: str,
                  value: str,
                  type: Optional[str] = None):
+        """
+        :param str key: The name of the attribute.
+        :param str value: The value of the attribute.
+        :param str type: Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if type is not None:
@@ -56,16 +75,25 @@ class EventEventAttribute(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The name of the attribute.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value of the attribute.
+        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
+        """
         return pulumi.get(self, "type")
 
 

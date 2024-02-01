@@ -42,6 +42,9 @@ namespace Pulumi.NewRelic.Inputs
         [Input("height")]
         public Input<int>? Height { get; set; }
 
+        /// <summary>
+        /// The ID of the widget.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 

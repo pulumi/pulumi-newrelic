@@ -18,6 +18,9 @@ namespace Pulumi.NewRelic.Inputs
         [Input("color")]
         public Input<string>? Color { get; set; }
 
+        /// <summary>
+        /// Series name
+        /// </summary>
         [Input("seriesName")]
         public Input<string>? SeriesName { get; set; }
 

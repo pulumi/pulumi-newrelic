@@ -18,16 +18,32 @@ public final class WorkflowIssuesFilterArgs extends com.pulumi.resources.Resourc
 
     public static final WorkflowIssuesFilterArgs Empty = new WorkflowIssuesFilterArgs();
 
+    /**
+     * filter id.
+     * 
+     */
     @Import(name="filterId")
     private @Nullable Output<String> filterId;
 
+    /**
+     * @return filter id.
+     * 
+     */
     public Optional<Output<String>> filterId() {
         return Optional.ofNullable(this.filterId);
     }
 
+    /**
+     * (Required) Filter&#39;s name.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return (Required) Filter&#39;s name.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -89,20 +105,44 @@ public final class WorkflowIssuesFilterArgs extends com.pulumi.resources.Resourc
             $ = new WorkflowIssuesFilterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filterId filter id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filterId(@Nullable Output<String> filterId) {
             $.filterId = filterId;
             return this;
         }
 
+        /**
+         * @param filterId filter id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filterId(String filterId) {
             return filterId(Output.of(filterId));
         }
 
+        /**
+         * @param name (Required) Filter&#39;s name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name (Required) Filter&#39;s name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

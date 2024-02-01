@@ -15,9 +15,17 @@ public final class OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs extends
 
     public static final OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs Empty = new OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs();
 
+    /**
+     * Series name
+     * 
+     */
     @Import(name="seriesName")
     private @Nullable Output<String> seriesName;
 
+    /**
+     * @return Series name
+     * 
+     */
     public Optional<Output<String>> seriesName() {
         return Optional.ofNullable(this.seriesName);
     }
@@ -62,11 +70,23 @@ public final class OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs extends
             $ = new OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param seriesName Series name
+         * 
+         * @return builder
+         * 
+         */
         public Builder seriesName(@Nullable Output<String> seriesName) {
             $.seriesName = seriesName;
             return this;
         }
 
+        /**
+         * @param seriesName Series name
+         * 
+         * @return builder
+         * 
+         */
         public Builder seriesName(String seriesName) {
             return seriesName(Output.of(seriesName));
         }

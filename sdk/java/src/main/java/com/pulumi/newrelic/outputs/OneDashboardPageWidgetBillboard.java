@@ -45,6 +45,10 @@ public final class OneDashboardPageWidgetBillboard {
      * 
      */
     private @Nullable Integer height;
+    /**
+     * @return The ID of the widget.
+     * 
+     */
     private @Nullable String id;
     /**
      * @return (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -134,6 +138,10 @@ public final class OneDashboardPageWidgetBillboard {
     public Optional<Integer> height() {
         return Optional.ofNullable(this.height);
     }
+    /**
+     * @return The ID of the widget.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }

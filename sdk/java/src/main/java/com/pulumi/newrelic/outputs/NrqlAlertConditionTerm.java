@@ -15,18 +15,42 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NrqlAlertConditionTerm {
     /**
+     * @return In minutes, must be in the range of 1 to 120 (inclusive).
+     * 
      * @deprecated
      * use `threshold_duration` attribute instead
      * 
      */
     @Deprecated /* use `threshold_duration` attribute instead */
     private @Nullable Integer duration;
+    /**
+     * @return One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to &#39;equals&#39;.
+     * 
+     */
     private @Nullable String operator;
+    /**
+     * @return One of (critical, warning). Defaults to &#39;critical&#39;. At least one condition term must have priority set to &#39;critical&#39;.
+     * 
+     */
     private @Nullable String priority;
+    /**
+     * @return For baseline conditions must be in range [1, 1000].
+     * 
+     */
     private Double threshold;
+    /**
+     * @return The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the &#39;aggregation_window&#39; (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+     * 
+     */
     private @Nullable Integer thresholdDuration;
+    /**
+     * @return The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: &#39;ALL&#39; or &#39;AT_LEAST_ONCE&#39; (case insensitive).
+     * 
+     */
     private @Nullable String thresholdOccurrences;
     /**
+     * @return Valid values are: &#39;all&#39; or &#39;any&#39;
+     * 
      * @deprecated
      * use `threshold_occurrences` attribute instead
      * 
@@ -36,6 +60,8 @@ public final class NrqlAlertConditionTerm {
 
     private NrqlAlertConditionTerm() {}
     /**
+     * @return In minutes, must be in the range of 1 to 120 (inclusive).
+     * 
      * @deprecated
      * use `threshold_duration` attribute instead
      * 
@@ -44,22 +70,44 @@ public final class NrqlAlertConditionTerm {
     public Optional<Integer> duration() {
         return Optional.ofNullable(this.duration);
     }
+    /**
+     * @return One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to &#39;equals&#39;.
+     * 
+     */
     public Optional<String> operator() {
         return Optional.ofNullable(this.operator);
     }
+    /**
+     * @return One of (critical, warning). Defaults to &#39;critical&#39;. At least one condition term must have priority set to &#39;critical&#39;.
+     * 
+     */
     public Optional<String> priority() {
         return Optional.ofNullable(this.priority);
     }
+    /**
+     * @return For baseline conditions must be in range [1, 1000].
+     * 
+     */
     public Double threshold() {
         return this.threshold;
     }
+    /**
+     * @return The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the &#39;aggregation_window&#39; (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+     * 
+     */
     public Optional<Integer> thresholdDuration() {
         return Optional.ofNullable(this.thresholdDuration);
     }
+    /**
+     * @return The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: &#39;ALL&#39; or &#39;AT_LEAST_ONCE&#39; (case insensitive).
+     * 
+     */
     public Optional<String> thresholdOccurrences() {
         return Optional.ofNullable(this.thresholdOccurrences);
     }
     /**
+     * @return Valid values are: &#39;all&#39; or &#39;any&#39;
+     * 
      * @deprecated
      * use `threshold_occurrences` attribute instead
      * 

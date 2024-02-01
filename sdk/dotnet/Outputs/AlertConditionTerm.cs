@@ -13,10 +13,25 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class AlertConditionTerm
     {
+        /// <summary>
+        /// In minutes, must be in the range of 5 to 120, inclusive.
+        /// </summary>
         public readonly int Duration;
+        /// <summary>
+        /// One of (above, below, equal). Defaults to equal.
+        /// </summary>
         public readonly string? Operator;
+        /// <summary>
+        /// One of (critical, warning). Defaults to critical.
+        /// </summary>
         public readonly string? Priority;
+        /// <summary>
+        /// Must be 0 or greater.
+        /// </summary>
         public readonly double Threshold;
+        /// <summary>
+        /// One of (all, any).
+        /// </summary>
         public readonly string TimeFunction;
 
         [OutputConstructor]

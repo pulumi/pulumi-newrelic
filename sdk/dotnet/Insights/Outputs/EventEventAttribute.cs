@@ -13,8 +13,17 @@ namespace Pulumi.NewRelic.Insights.Outputs
     [OutputType]
     public sealed class EventEventAttribute
     {
+        /// <summary>
+        /// The name of the attribute.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
+        /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The value of the attribute.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -16,6 +16,10 @@ public final class OneDashboardPageWidgetMarkdownColorSeriesOverride {
      * 
      */
     private @Nullable String color;
+    /**
+     * @return Series name
+     * 
+     */
     private @Nullable String seriesName;
 
     private OneDashboardPageWidgetMarkdownColorSeriesOverride() {}
@@ -26,6 +30,10 @@ public final class OneDashboardPageWidgetMarkdownColorSeriesOverride {
     public Optional<String> color() {
         return Optional.ofNullable(this.color);
     }
+    /**
+     * @return Series name
+     * 
+     */
     public Optional<String> seriesName() {
         return Optional.ofNullable(this.seriesName);
     }

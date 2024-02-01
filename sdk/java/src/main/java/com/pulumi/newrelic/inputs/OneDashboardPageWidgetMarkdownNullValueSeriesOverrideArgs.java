@@ -30,9 +30,17 @@ public final class OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs ext
         return Optional.ofNullable(this.nullValue);
     }
 
+    /**
+     * Series name
+     * 
+     */
     @Import(name="seriesName")
     private @Nullable Output<String> seriesName;
 
+    /**
+     * @return Series name
+     * 
+     */
     public Optional<Output<String>> seriesName() {
         return Optional.ofNullable(this.seriesName);
     }
@@ -83,11 +91,23 @@ public final class OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs ext
             return nullValue(Output.of(nullValue));
         }
 
+        /**
+         * @param seriesName Series name
+         * 
+         * @return builder
+         * 
+         */
         public Builder seriesName(@Nullable Output<String> seriesName) {
             $.seriesName = seriesName;
             return this;
         }
 
+        /**
+         * @param seriesName Series name
+         * 
+         * @return builder
+         * 
+         */
         public Builder seriesName(String seriesName) {
             return seriesName(Output.of(seriesName));
         }

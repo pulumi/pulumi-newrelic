@@ -39,6 +39,10 @@ public final class AlertMutingRuleSchedule {
      * 
      */
     private @Nullable String startTime;
+    /**
+     * @return The time zone that applies to the MutingRule schedule.
+     * 
+     */
     private String timeZone;
     /**
      * @return The day(s) of the week that a muting rule should repeat when the repeat field is set to &#39;WEEKLY&#39;. Example: [&#39;MONDAY&#39;, &#39;WEDNESDAY&#39;]
@@ -82,6 +86,10 @@ public final class AlertMutingRuleSchedule {
     public Optional<String> startTime() {
         return Optional.ofNullable(this.startTime);
     }
+    /**
+     * @return The time zone that applies to the MutingRule schedule.
+     * 
+     */
     public String timeZone() {
         return this.timeZone;
     }

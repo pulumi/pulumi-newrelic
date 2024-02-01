@@ -252,6 +252,9 @@ namespace Pulumi.NewRelic.Inputs
             }
         }
 
+        /// <summary>
+        /// The user ID for use with the user channel type.
+        /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
 

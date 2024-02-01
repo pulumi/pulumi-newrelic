@@ -25,19 +25,61 @@ namespace Pulumi.NewRelic.Outputs
         /// The title of the dashboard.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// An area widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetArea> WidgetAreas;
+        /// <summary>
+        /// A bar widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBar> WidgetBars;
+        /// <summary>
+        /// A billboard widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBillboard> WidgetBillboards;
+        /// <summary>
+        /// A bullet widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBullet> WidgetBullets;
+        /// <summary>
+        /// A funnel widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetFunnel> WidgetFunnels;
+        /// <summary>
+        /// A heatmap widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetHeatmap> WidgetHeatmaps;
+        /// <summary>
+        /// A histogram widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetHistogram> WidgetHistograms;
+        /// <summary>
+        /// A JSON widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetJson> WidgetJsons;
+        /// <summary>
+        /// A line widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetLine> WidgetLines;
+        /// <summary>
+        /// A log table widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetLogTable> WidgetLogTables;
+        /// <summary>
+        /// A markdown widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetMarkdown> WidgetMarkdowns;
+        /// <summary>
+        /// A pie widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetPy> WidgetPies;
+        /// <summary>
+        /// A stacked bar widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetStackedBar> WidgetStackedBars;
+        /// <summary>
+        /// A table widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetTable> WidgetTables;
 
         [OutputConstructor]

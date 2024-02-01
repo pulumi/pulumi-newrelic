@@ -86,14 +86,32 @@ export interface AlertChannelConfig {
      * [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
      */
     url?: string;
+    /**
+     * The user ID for use with the user channel type.
+     */
     userId?: string;
 }
 
 export interface AlertConditionTerm {
+    /**
+     * In minutes, must be in the range of 5 to 120, inclusive.
+     */
     duration: number;
+    /**
+     * One of (above, below, equal). Defaults to equal.
+     */
     operator?: string;
+    /**
+     * One of (critical, warning). Defaults to critical.
+     */
     priority?: string;
+    /**
+     * Must be 0 or greater.
+     */
     threshold: number;
+    /**
+     * One of (all, any).
+     */
     timeFunction: string;
 }
 
@@ -144,6 +162,9 @@ export interface AlertMutingRuleSchedule {
      * The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'
      */
     startTime?: string;
+    /**
+     * The time zone that applies to the MutingRule schedule.
+     */
     timeZone: string;
     /**
      * The day(s) of the week that a muting rule should repeat when the repeat field is set to 'WEEKLY'. Example: ['MONDAY', 'WEDNESDAY']
@@ -197,9 +218,21 @@ export interface GetEntityTag {
 }
 
 export interface GetNotificationDestinationProperty {
+    /**
+     * Notification property display key.
+     */
     displayValue?: string;
+    /**
+     * Notification property key.
+     */
     key: string;
+    /**
+     * Notification property label.
+     */
     label?: string;
+    /**
+     * Notification property value.
+     */
     value: string;
 }
 
@@ -341,14 +374,30 @@ export interface NotificationDestinationProperty {
 
 export interface NrqlAlertConditionCritical {
     /**
+     * In minutes, must be in the range of 1 to 120 (inclusive).
+     *
      * @deprecated use `threshold_duration` attribute instead
      */
     duration?: number;
+    /**
+     * One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+     */
     operator?: string;
+    /**
+     * For baseline conditions must be in range [1, 1000].
+     */
     threshold: number;
+    /**
+     * The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+     */
     thresholdDuration?: number;
+    /**
+     * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
+     */
     thresholdOccurrences?: string;
     /**
+     * Valid values are: 'all' or 'any'
+     *
      * @deprecated use `threshold_occurrences` attribute instead
      */
     timeFunction?: string;
@@ -356,11 +405,15 @@ export interface NrqlAlertConditionCritical {
 
 export interface NrqlAlertConditionNrql {
     /**
+     * NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluationOffset`.
+     *
      * @deprecated use `aggregation_method` attribute instead
      */
     evaluationOffset?: number;
     query: string;
     /**
+     * NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `sinceValue`.
+     *
      * @deprecated use `aggregation_method` attribute instead
      */
     sinceValue?: string;
@@ -368,15 +421,34 @@ export interface NrqlAlertConditionNrql {
 
 export interface NrqlAlertConditionTerm {
     /**
+     * In minutes, must be in the range of 1 to 120 (inclusive).
+     *
      * @deprecated use `threshold_duration` attribute instead
      */
     duration?: number;
+    /**
+     * One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+     */
     operator?: string;
+    /**
+     * One of (critical, warning). Defaults to 'critical'. At least one condition term must have priority set to 'critical'.
+     */
     priority?: string;
+    /**
+     * For baseline conditions must be in range [1, 1000].
+     */
     threshold: number;
+    /**
+     * The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+     */
     thresholdDuration?: number;
+    /**
+     * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
+     */
     thresholdOccurrences?: string;
     /**
+     * Valid values are: 'all' or 'any'
+     *
      * @deprecated use `threshold_occurrences` attribute instead
      */
     timeFunction?: string;
@@ -384,14 +456,30 @@ export interface NrqlAlertConditionTerm {
 
 export interface NrqlAlertConditionWarning {
     /**
+     * In minutes, must be in the range of 1 to 120 (inclusive).
+     *
      * @deprecated use `threshold_duration` attribute instead
      */
     duration?: number;
+    /**
+     * One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+     */
     operator?: string;
+    /**
+     * For baseline conditions must be in range [1, 1000].
+     */
     threshold: number;
+    /**
+     * The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+     */
     thresholdDuration?: number;
+    /**
+     * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
+     */
     thresholdOccurrences?: string;
     /**
+     * Valid values are: 'all' or 'any'
+     *
      * @deprecated use `threshold_occurrences` attribute instead
      */
     timeFunction?: string;
@@ -425,19 +513,61 @@ export interface OneDashboardPage {
      * The title of the dashboard.
      */
     name: string;
+    /**
+     * An area widget.
+     */
     widgetAreas?: outputs.OneDashboardPageWidgetArea[];
+    /**
+     * A bar widget.
+     */
     widgetBars?: outputs.OneDashboardPageWidgetBar[];
+    /**
+     * A billboard widget.
+     */
     widgetBillboards?: outputs.OneDashboardPageWidgetBillboard[];
+    /**
+     * A bullet widget.
+     */
     widgetBullets?: outputs.OneDashboardPageWidgetBullet[];
+    /**
+     * A funnel widget.
+     */
     widgetFunnels?: outputs.OneDashboardPageWidgetFunnel[];
+    /**
+     * A heatmap widget.
+     */
     widgetHeatmaps?: outputs.OneDashboardPageWidgetHeatmap[];
+    /**
+     * A histogram widget.
+     */
     widgetHistograms?: outputs.OneDashboardPageWidgetHistogram[];
+    /**
+     * A JSON widget.
+     */
     widgetJsons?: outputs.OneDashboardPageWidgetJson[];
+    /**
+     * A line widget.
+     */
     widgetLines?: outputs.OneDashboardPageWidgetLine[];
+    /**
+     * A log table widget.
+     */
     widgetLogTables?: outputs.OneDashboardPageWidgetLogTable[];
+    /**
+     * A markdown widget.
+     */
     widgetMarkdowns?: outputs.OneDashboardPageWidgetMarkdown[];
+    /**
+     * A pie widget.
+     */
     widgetPies?: outputs.OneDashboardPageWidgetPy[];
+    /**
+     * A stacked bar widget.
+     */
     widgetStackedBars?: outputs.OneDashboardPageWidgetStackedBar[];
+    /**
+     * A table widget.
+     */
     widgetTables?: outputs.OneDashboardPageWidgetTable[];
 }
 
@@ -458,6 +588,9 @@ export interface OneDashboardPageWidgetArea {
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
     height?: number;
+    /**
+     * The ID of the widget.
+     */
     id: string;
     /**
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -514,6 +647,9 @@ export interface OneDashboardPageWidgetAreaColorSeriesOverride {
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
     color?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -544,6 +680,9 @@ export interface OneDashboardPageWidgetAreaNullValueSeriesOverride {
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
     nullValue?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -559,6 +698,9 @@ export interface OneDashboardPageWidgetAreaUnit {
 }
 
 export interface OneDashboardPageWidgetAreaUnitSeriesOverride {
+    /**
+     * Series name
+     */
     seriesName?: string;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
@@ -587,6 +729,9 @@ export interface OneDashboardPageWidgetBar {
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
     height?: number;
+    /**
+     * The ID of the widget.
+     */
     id: string;
     /**
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -647,6 +792,9 @@ export interface OneDashboardPageWidgetBarColorSeriesOverride {
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
     color?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -677,6 +825,9 @@ export interface OneDashboardPageWidgetBarNullValueSeriesOverride {
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
     nullValue?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -692,6 +843,9 @@ export interface OneDashboardPageWidgetBarUnit {
 }
 
 export interface OneDashboardPageWidgetBarUnitSeriesOverride {
+    /**
+     * Series name
+     */
     seriesName?: string;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
@@ -720,6 +874,9 @@ export interface OneDashboardPageWidgetBillboard {
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
     height?: number;
+    /**
+     * The ID of the widget.
+     */
     id: string;
     /**
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -780,6 +937,9 @@ export interface OneDashboardPageWidgetBillboardColorSeriesOverride {
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
     color?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -810,6 +970,9 @@ export interface OneDashboardPageWidgetBillboardNullValueSeriesOverride {
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
     nullValue?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -825,6 +988,9 @@ export interface OneDashboardPageWidgetBillboardUnit {
 }
 
 export interface OneDashboardPageWidgetBillboardUnitSeriesOverride {
+    /**
+     * Series name
+     */
     seriesName?: string;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
@@ -849,6 +1015,9 @@ export interface OneDashboardPageWidgetBullet {
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
     height?: number;
+    /**
+     * The ID of the widget.
+     */
     id: string;
     /**
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -909,6 +1078,9 @@ export interface OneDashboardPageWidgetBulletColorSeriesOverride {
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
     color?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -939,6 +1111,9 @@ export interface OneDashboardPageWidgetBulletNullValueSeriesOverride {
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
     nullValue?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -954,6 +1129,9 @@ export interface OneDashboardPageWidgetBulletUnit {
 }
 
 export interface OneDashboardPageWidgetBulletUnitSeriesOverride {
+    /**
+     * Series name
+     */
     seriesName?: string;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
@@ -978,6 +1156,9 @@ export interface OneDashboardPageWidgetFunnel {
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
     height?: number;
+    /**
+     * The ID of the widget.
+     */
     id: string;
     /**
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -1034,6 +1215,9 @@ export interface OneDashboardPageWidgetFunnelColorSeriesOverride {
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
     color?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1064,6 +1248,9 @@ export interface OneDashboardPageWidgetFunnelNullValueSeriesOverride {
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
     nullValue?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1079,6 +1266,9 @@ export interface OneDashboardPageWidgetFunnelUnit {
 }
 
 export interface OneDashboardPageWidgetFunnelUnitSeriesOverride {
+    /**
+     * Series name
+     */
     seriesName?: string;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
@@ -1107,6 +1297,9 @@ export interface OneDashboardPageWidgetHeatmap {
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
     height?: number;
+    /**
+     * The ID of the widget.
+     */
     id: string;
     /**
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -1167,6 +1360,9 @@ export interface OneDashboardPageWidgetHeatmapColorSeriesOverride {
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
     color?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1197,6 +1393,9 @@ export interface OneDashboardPageWidgetHeatmapNullValueSeriesOverride {
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
     nullValue?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1212,6 +1411,9 @@ export interface OneDashboardPageWidgetHeatmapUnit {
 }
 
 export interface OneDashboardPageWidgetHeatmapUnitSeriesOverride {
+    /**
+     * Series name
+     */
     seriesName?: string;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
@@ -1236,6 +1438,9 @@ export interface OneDashboardPageWidgetHistogram {
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
     height?: number;
+    /**
+     * The ID of the widget.
+     */
     id: string;
     /**
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -1292,6 +1497,9 @@ export interface OneDashboardPageWidgetHistogramColorSeriesOverride {
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
     color?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1322,6 +1530,9 @@ export interface OneDashboardPageWidgetHistogramNullValueSeriesOverride {
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
     nullValue?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1337,6 +1548,9 @@ export interface OneDashboardPageWidgetHistogramUnit {
 }
 
 export interface OneDashboardPageWidgetHistogramUnitSeriesOverride {
+    /**
+     * Series name
+     */
     seriesName?: string;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
@@ -1361,6 +1575,9 @@ export interface OneDashboardPageWidgetJson {
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
     height?: number;
+    /**
+     * The ID of the widget.
+     */
     id: string;
     /**
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -1417,6 +1634,9 @@ export interface OneDashboardPageWidgetJsonColorSeriesOverride {
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
     color?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1447,6 +1667,9 @@ export interface OneDashboardPageWidgetJsonNullValueSeriesOverride {
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
     nullValue?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1462,6 +1685,9 @@ export interface OneDashboardPageWidgetJsonUnit {
 }
 
 export interface OneDashboardPageWidgetJsonUnitSeriesOverride {
+    /**
+     * Series name
+     */
     seriesName?: string;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
@@ -1486,6 +1712,9 @@ export interface OneDashboardPageWidgetLine {
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
     height?: number;
+    /**
+     * The ID of the widget.
+     */
     id: string;
     /**
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -1546,6 +1775,9 @@ export interface OneDashboardPageWidgetLineColorSeriesOverride {
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
     color?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1576,6 +1808,9 @@ export interface OneDashboardPageWidgetLineNullValueSeriesOverride {
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
     nullValue?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1591,6 +1826,9 @@ export interface OneDashboardPageWidgetLineUnit {
 }
 
 export interface OneDashboardPageWidgetLineUnitSeriesOverride {
+    /**
+     * Series name
+     */
     seriesName?: string;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
@@ -1615,6 +1853,9 @@ export interface OneDashboardPageWidgetLogTable {
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
     height?: number;
+    /**
+     * The ID of the widget.
+     */
     id: string;
     /**
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -1671,6 +1912,9 @@ export interface OneDashboardPageWidgetLogTableColorSeriesOverride {
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
     color?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1701,6 +1945,9 @@ export interface OneDashboardPageWidgetLogTableNullValueSeriesOverride {
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
     nullValue?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1716,6 +1963,9 @@ export interface OneDashboardPageWidgetLogTableUnit {
 }
 
 export interface OneDashboardPageWidgetLogTableUnitSeriesOverride {
+    /**
+     * Series name
+     */
     seriesName?: string;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
@@ -1740,6 +1990,9 @@ export interface OneDashboardPageWidgetMarkdown {
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
     height?: number;
+    /**
+     * The ID of the widget.
+     */
     id: string;
     /**
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -1796,6 +2049,9 @@ export interface OneDashboardPageWidgetMarkdownColorSeriesOverride {
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
     color?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1815,6 +2071,9 @@ export interface OneDashboardPageWidgetMarkdownNullValueSeriesOverride {
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
     nullValue?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1830,6 +2089,9 @@ export interface OneDashboardPageWidgetMarkdownUnit {
 }
 
 export interface OneDashboardPageWidgetMarkdownUnitSeriesOverride {
+    /**
+     * Series name
+     */
     seriesName?: string;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
@@ -1858,6 +2120,9 @@ export interface OneDashboardPageWidgetPy {
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
     height?: number;
+    /**
+     * The ID of the widget.
+     */
     id: string;
     /**
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -1918,6 +2183,9 @@ export interface OneDashboardPageWidgetPyColorSeriesOverride {
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
     color?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1948,6 +2216,9 @@ export interface OneDashboardPageWidgetPyNullValueSeriesOverride {
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
     nullValue?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -1963,6 +2234,9 @@ export interface OneDashboardPageWidgetPyUnit {
 }
 
 export interface OneDashboardPageWidgetPyUnitSeriesOverride {
+    /**
+     * Series name
+     */
     seriesName?: string;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
@@ -1987,6 +2261,9 @@ export interface OneDashboardPageWidgetStackedBar {
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
     height?: number;
+    /**
+     * The ID of the widget.
+     */
     id: string;
     /**
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -2043,6 +2320,9 @@ export interface OneDashboardPageWidgetStackedBarColorSeriesOverride {
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
     color?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -2073,6 +2353,9 @@ export interface OneDashboardPageWidgetStackedBarNullValueSeriesOverride {
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
     nullValue?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -2088,6 +2371,9 @@ export interface OneDashboardPageWidgetStackedBarUnit {
 }
 
 export interface OneDashboardPageWidgetStackedBarUnitSeriesOverride {
+    /**
+     * Series name
+     */
     seriesName?: string;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
@@ -2116,6 +2402,9 @@ export interface OneDashboardPageWidgetTable {
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
     height?: number;
+    /**
+     * The ID of the widget.
+     */
     id: string;
     /**
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -2176,6 +2465,9 @@ export interface OneDashboardPageWidgetTableColorSeriesOverride {
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
     color?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -2206,6 +2498,9 @@ export interface OneDashboardPageWidgetTableNullValueSeriesOverride {
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
     nullValue?: string;
+    /**
+     * Series name
+     */
     seriesName?: string;
 }
 
@@ -2221,6 +2516,9 @@ export interface OneDashboardPageWidgetTableUnit {
 }
 
 export interface OneDashboardPageWidgetTableUnitSeriesOverride {
+    /**
+     * Series name
+     */
     seriesName?: string;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
@@ -2260,6 +2558,9 @@ export interface OneDashboardRawPageWidget {
      * (Optional) Height of the widget. Valid values are `1` to `12` inclusive. Defaults to `3`.
      */
     height?: number;
+    /**
+     * The ID of the widget.
+     */
     id: string;
     /**
      * (Optional) Related entity GUIDs.
@@ -2330,6 +2631,9 @@ export interface OneDashboardVariableItem {
 }
 
 export interface OneDashboardVariableNrqlQuery {
+    /**
+     * New Relic account ID(s) to issue the query against.
+     */
     accountIds?: number[];
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -2523,6 +2827,9 @@ export interface WorkflowEnrichmentsNrql {
      * Another wrapper block
      */
     configurations: outputs.WorkflowEnrichmentsNrqlConfiguration[];
+    /**
+     * Enrichment's id.
+     */
     enrichmentId: string;
     /**
      * The name of the workflow.
@@ -2542,7 +2849,13 @@ export interface WorkflowEnrichmentsNrqlConfiguration {
 }
 
 export interface WorkflowIssuesFilter {
+    /**
+     * filter id.
+     */
     filterId: string;
+    /**
+     * (Required) Filter's name.
+     */
     name: string;
     /**
      * A condition an issue event should satisfy to be processed by the workflow
@@ -4745,14 +5058,32 @@ export namespace cloud {
 
 export namespace insights {
     export interface EventEvent {
+        /**
+         * An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+         */
         attributes: outputs.insights.EventEventAttribute[];
+        /**
+         * Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+         */
         timestamp?: number;
+        /**
+         * The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+         */
         type: string;
     }
 
     export interface EventEventAttribute {
+        /**
+         * The name of the attribute.
+         */
         key: string;
+        /**
+         * Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
+         */
         type?: string;
+        /**
+         * The value of the attribute.
+         */
         value: string;
     }
 
@@ -4911,10 +5242,16 @@ export namespace synthetics {
     }
 
     export interface MultiLocationAlertConditionCritical {
+        /**
+         * The minimum number of monitor locations that must be concurrently failing before an incident is opened.
+         */
         threshold: number;
     }
 
     export interface MultiLocationAlertConditionWarning {
+        /**
+         * The minimum number of monitor locations that must be concurrently failing before an incident is opened.
+         */
         threshold: number;
     }
 
