@@ -18,9 +18,17 @@ public final class OneDashboardVariableNrqlQueryArgs extends com.pulumi.resource
 
     public static final OneDashboardVariableNrqlQueryArgs Empty = new OneDashboardVariableNrqlQueryArgs();
 
+    /**
+     * New Relic account ID(s) to issue the query against.
+     * 
+     */
     @Import(name="accountIds")
     private @Nullable Output<List<Integer>> accountIds;
 
+    /**
+     * @return New Relic account ID(s) to issue the query against.
+     * 
+     */
     public Optional<Output<List<Integer>>> accountIds() {
         return Optional.ofNullable(this.accountIds);
     }
@@ -65,15 +73,33 @@ public final class OneDashboardVariableNrqlQueryArgs extends com.pulumi.resource
             $ = new OneDashboardVariableNrqlQueryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountIds New Relic account ID(s) to issue the query against.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountIds(@Nullable Output<List<Integer>> accountIds) {
             $.accountIds = accountIds;
             return this;
         }
 
+        /**
+         * @param accountIds New Relic account ID(s) to issue the query against.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountIds(List<Integer> accountIds) {
             return accountIds(Output.of(accountIds));
         }
 
+        /**
+         * @param accountIds New Relic account ID(s) to issue the query against.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountIds(Integer... accountIds) {
             return accountIds(List.of(accountIds));
         }

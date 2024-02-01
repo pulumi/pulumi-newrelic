@@ -19,23 +19,47 @@ public final class EventEventArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EventEventArgs Empty = new EventEventArgs();
 
+    /**
+     * An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+     * 
+     */
     @Import(name="attributes", required=true)
     private Output<List<EventEventAttributeArgs>> attributes;
 
+    /**
+     * @return An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+     * 
+     */
     public Output<List<EventEventAttributeArgs>> attributes() {
         return this.attributes;
     }
 
+    /**
+     * Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+     * 
+     */
     @Import(name="timestamp")
     private @Nullable Output<Integer> timestamp;
 
+    /**
+     * @return Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+     * 
+     */
     public Optional<Output<Integer>> timestamp() {
         return Optional.ofNullable(this.timestamp);
     }
 
+    /**
+     * The event&#39;s name. Can be a combination of alphanumeric characters, underscores, and colons.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return The event&#39;s name. Can be a combination of alphanumeric characters, underscores, and colons.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -66,33 +90,75 @@ public final class EventEventArgs extends com.pulumi.resources.ResourceArgs {
             $ = new EventEventArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param attributes An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attributes(Output<List<EventEventAttributeArgs>> attributes) {
             $.attributes = attributes;
             return this;
         }
 
+        /**
+         * @param attributes An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attributes(List<EventEventAttributeArgs> attributes) {
             return attributes(Output.of(attributes));
         }
 
+        /**
+         * @param attributes An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attributes(EventEventAttributeArgs... attributes) {
             return attributes(List.of(attributes));
         }
 
+        /**
+         * @param timestamp Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timestamp(@Nullable Output<Integer> timestamp) {
             $.timestamp = timestamp;
             return this;
         }
 
+        /**
+         * @param timestamp Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timestamp(Integer timestamp) {
             return timestamp(Output.of(timestamp));
         }
 
+        /**
+         * @param type The event&#39;s name. Can be a combination of alphanumeric characters, underscores, and colons.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The event&#39;s name. Can be a combination of alphanumeric characters, underscores, and colons.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

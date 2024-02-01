@@ -14,6 +14,10 @@ namespace Pulumi.NewRelic.Inputs
     {
         [Input("accountIds")]
         private InputList<int>? _accountIds;
+
+        /// <summary>
+        /// New Relic account ID(s) to issue the query against.
+        /// </summary>
         public InputList<int> AccountIds
         {
             get => _accountIds ?? (_accountIds = new InputList<int>());

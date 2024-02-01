@@ -112,6 +112,10 @@ public final class AlertChannelConfig {
      * 
      */
     private @Nullable String url;
+    /**
+     * @return The user ID for use with the user channel type.
+     * 
+     */
     private @Nullable String userId;
 
     private AlertChannelConfig() {}
@@ -255,6 +259,10 @@ public final class AlertChannelConfig {
     public Optional<String> url() {
         return Optional.ofNullable(this.url);
     }
+    /**
+     * @return The user ID for use with the user channel type.
+     * 
+     */
     public Optional<String> userId() {
         return Optional.ofNullable(this.userId);
     }

@@ -32,6 +32,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetAreas")]
         private InputList<Inputs.OneDashboardPageWidgetAreaArgs>? _widgetAreas;
+
+        /// <summary>
+        /// An area widget.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetAreaArgs> WidgetAreas
         {
             get => _widgetAreas ?? (_widgetAreas = new InputList<Inputs.OneDashboardPageWidgetAreaArgs>());
@@ -40,6 +44,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetBars")]
         private InputList<Inputs.OneDashboardPageWidgetBarArgs>? _widgetBars;
+
+        /// <summary>
+        /// A bar widget.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetBarArgs> WidgetBars
         {
             get => _widgetBars ?? (_widgetBars = new InputList<Inputs.OneDashboardPageWidgetBarArgs>());
@@ -48,6 +56,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetBillboards")]
         private InputList<Inputs.OneDashboardPageWidgetBillboardArgs>? _widgetBillboards;
+
+        /// <summary>
+        /// A billboard widget.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetBillboardArgs> WidgetBillboards
         {
             get => _widgetBillboards ?? (_widgetBillboards = new InputList<Inputs.OneDashboardPageWidgetBillboardArgs>());
@@ -56,6 +68,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetBullets")]
         private InputList<Inputs.OneDashboardPageWidgetBulletArgs>? _widgetBullets;
+
+        /// <summary>
+        /// A bullet widget.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetBulletArgs> WidgetBullets
         {
             get => _widgetBullets ?? (_widgetBullets = new InputList<Inputs.OneDashboardPageWidgetBulletArgs>());
@@ -64,6 +80,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetFunnels")]
         private InputList<Inputs.OneDashboardPageWidgetFunnelArgs>? _widgetFunnels;
+
+        /// <summary>
+        /// A funnel widget.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetFunnelArgs> WidgetFunnels
         {
             get => _widgetFunnels ?? (_widgetFunnels = new InputList<Inputs.OneDashboardPageWidgetFunnelArgs>());
@@ -72,6 +92,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetHeatmaps")]
         private InputList<Inputs.OneDashboardPageWidgetHeatmapArgs>? _widgetHeatmaps;
+
+        /// <summary>
+        /// A heatmap widget.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetHeatmapArgs> WidgetHeatmaps
         {
             get => _widgetHeatmaps ?? (_widgetHeatmaps = new InputList<Inputs.OneDashboardPageWidgetHeatmapArgs>());
@@ -80,6 +104,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetHistograms")]
         private InputList<Inputs.OneDashboardPageWidgetHistogramArgs>? _widgetHistograms;
+
+        /// <summary>
+        /// A histogram widget.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetHistogramArgs> WidgetHistograms
         {
             get => _widgetHistograms ?? (_widgetHistograms = new InputList<Inputs.OneDashboardPageWidgetHistogramArgs>());
@@ -88,6 +116,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetJsons")]
         private InputList<Inputs.OneDashboardPageWidgetJsonArgs>? _widgetJsons;
+
+        /// <summary>
+        /// A JSON widget.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetJsonArgs> WidgetJsons
         {
             get => _widgetJsons ?? (_widgetJsons = new InputList<Inputs.OneDashboardPageWidgetJsonArgs>());
@@ -96,6 +128,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetLines")]
         private InputList<Inputs.OneDashboardPageWidgetLineArgs>? _widgetLines;
+
+        /// <summary>
+        /// A line widget.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetLineArgs> WidgetLines
         {
             get => _widgetLines ?? (_widgetLines = new InputList<Inputs.OneDashboardPageWidgetLineArgs>());
@@ -104,6 +140,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetLogTables")]
         private InputList<Inputs.OneDashboardPageWidgetLogTableArgs>? _widgetLogTables;
+
+        /// <summary>
+        /// A log table widget.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetLogTableArgs> WidgetLogTables
         {
             get => _widgetLogTables ?? (_widgetLogTables = new InputList<Inputs.OneDashboardPageWidgetLogTableArgs>());
@@ -112,6 +152,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetMarkdowns")]
         private InputList<Inputs.OneDashboardPageWidgetMarkdownArgs>? _widgetMarkdowns;
+
+        /// <summary>
+        /// A markdown widget.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetMarkdownArgs> WidgetMarkdowns
         {
             get => _widgetMarkdowns ?? (_widgetMarkdowns = new InputList<Inputs.OneDashboardPageWidgetMarkdownArgs>());
@@ -120,6 +164,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetPies")]
         private InputList<Inputs.OneDashboardPageWidgetPyArgs>? _widgetPies;
+
+        /// <summary>
+        /// A pie widget.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetPyArgs> WidgetPies
         {
             get => _widgetPies ?? (_widgetPies = new InputList<Inputs.OneDashboardPageWidgetPyArgs>());
@@ -128,6 +176,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetStackedBars")]
         private InputList<Inputs.OneDashboardPageWidgetStackedBarArgs>? _widgetStackedBars;
+
+        /// <summary>
+        /// A stacked bar widget.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetStackedBarArgs> WidgetStackedBars
         {
             get => _widgetStackedBars ?? (_widgetStackedBars = new InputList<Inputs.OneDashboardPageWidgetStackedBarArgs>());
@@ -136,6 +188,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetTables")]
         private InputList<Inputs.OneDashboardPageWidgetTableArgs>? _widgetTables;
+
+        /// <summary>
+        /// A table widget.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetTableArgs> WidgetTables
         {
             get => _widgetTables ?? (_widgetTables = new InputList<Inputs.OneDashboardPageWidgetTableArgs>());

@@ -12,12 +12,21 @@ namespace Pulumi.NewRelic.Insights.Inputs
 
     public sealed class EventEventAttributeGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the attribute.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// The value of the attribute.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

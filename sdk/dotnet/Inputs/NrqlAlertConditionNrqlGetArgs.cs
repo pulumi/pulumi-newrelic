@@ -12,12 +12,18 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class NrqlAlertConditionNrqlGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluation_offset`.
+        /// </summary>
         [Input("evaluationOffset")]
         public Input<int>? EvaluationOffset { get; set; }
 
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
+        /// <summary>
+        /// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `since_value`.
+        /// </summary>
         [Input("sinceValue")]
         public Input<string>? SinceValue { get; set; }
 

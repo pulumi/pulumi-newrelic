@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OneDashboardVariableNrqlQuery {
+    /**
+     * @return New Relic account ID(s) to issue the query against.
+     * 
+     */
     private @Nullable List<Integer> accountIds;
     /**
      * @return (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -21,6 +25,10 @@ public final class OneDashboardVariableNrqlQuery {
     private String query;
 
     private OneDashboardVariableNrqlQuery() {}
+    /**
+     * @return New Relic account ID(s) to issue the query against.
+     * 
+     */
     public List<Integer> accountIds() {
         return this.accountIds == null ? List.of() : this.accountIds;
     }

@@ -17,6 +17,9 @@ namespace Pulumi.NewRelic.Outputs
         /// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
         /// </summary>
         public readonly string? NullValue;
+        /// <summary>
+        /// Series name
+        /// </summary>
         public readonly string? SeriesName;
 
         [OutputConstructor]

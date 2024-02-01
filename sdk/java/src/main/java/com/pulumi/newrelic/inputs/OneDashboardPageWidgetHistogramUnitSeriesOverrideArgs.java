@@ -15,9 +15,17 @@ public final class OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs extends
 
     public static final OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs Empty = new OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs();
 
+    /**
+     * Series name
+     * 
+     */
     @Import(name="seriesName")
     private @Nullable Output<String> seriesName;
 
+    /**
+     * @return Series name
+     * 
+     */
     public Optional<Output<String>> seriesName() {
         return Optional.ofNullable(this.seriesName);
     }
@@ -62,11 +70,23 @@ public final class OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs extends
             $ = new OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param seriesName Series name
+         * 
+         * @return builder
+         * 
+         */
         public Builder seriesName(@Nullable Output<String> seriesName) {
             $.seriesName = seriesName;
             return this;
         }
 
+        /**
+         * @param seriesName Series name
+         * 
+         * @return builder
+         * 
+         */
         public Builder seriesName(String seriesName) {
             return seriesName(Output.of(seriesName));
         }

@@ -14,15 +14,25 @@ namespace Pulumi.NewRelic.Insights.Inputs
     {
         [Input("attributes", required: true)]
         private InputList<Inputs.EventEventAttributeArgs>? _attributes;
+
+        /// <summary>
+        /// An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+        /// </summary>
         public InputList<Inputs.EventEventAttributeArgs> Attributes
         {
             get => _attributes ?? (_attributes = new InputList<Inputs.EventEventAttributeArgs>());
             set => _attributes = value;
         }
 
+        /// <summary>
+        /// Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+        /// </summary>
         [Input("timestamp")]
         public Input<int>? Timestamp { get; set; }
 
+        /// <summary>
+        /// The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

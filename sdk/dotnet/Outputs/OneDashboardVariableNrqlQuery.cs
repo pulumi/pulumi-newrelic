@@ -13,6 +13,9 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class OneDashboardVariableNrqlQuery
     {
+        /// <summary>
+        /// New Relic account ID(s) to issue the query against.
+        /// </summary>
         public readonly ImmutableArray<int> AccountIds;
         /// <summary>
         /// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.

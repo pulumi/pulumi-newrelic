@@ -16,6 +16,10 @@ public final class OneDashboardPageWidgetPyNullValueSeriesOverride {
      * 
      */
     private @Nullable String nullValue;
+    /**
+     * @return Series name
+     * 
+     */
     private @Nullable String seriesName;
 
     private OneDashboardPageWidgetPyNullValueSeriesOverride() {}
@@ -26,6 +30,10 @@ public final class OneDashboardPageWidgetPyNullValueSeriesOverride {
     public Optional<String> nullValue() {
         return Optional.ofNullable(this.nullValue);
     }
+    /**
+     * @return Series name
+     * 
+     */
     public Optional<String> seriesName() {
         return Optional.ofNullable(this.seriesName);
     }
