@@ -18,37 +18,77 @@ public final class AlertConditionTermArgs extends com.pulumi.resources.ResourceA
 
     public static final AlertConditionTermArgs Empty = new AlertConditionTermArgs();
 
+    /**
+     * In minutes, must be in the range of 5 to 120, inclusive.
+     * 
+     */
     @Import(name="duration", required=true)
     private Output<Integer> duration;
 
+    /**
+     * @return In minutes, must be in the range of 5 to 120, inclusive.
+     * 
+     */
     public Output<Integer> duration() {
         return this.duration;
     }
 
+    /**
+     * One of (above, below, equal). Defaults to equal.
+     * 
+     */
     @Import(name="operator")
     private @Nullable Output<String> operator;
 
+    /**
+     * @return One of (above, below, equal). Defaults to equal.
+     * 
+     */
     public Optional<Output<String>> operator() {
         return Optional.ofNullable(this.operator);
     }
 
+    /**
+     * One of (critical, warning). Defaults to critical.
+     * 
+     */
     @Import(name="priority")
     private @Nullable Output<String> priority;
 
+    /**
+     * @return One of (critical, warning). Defaults to critical.
+     * 
+     */
     public Optional<Output<String>> priority() {
         return Optional.ofNullable(this.priority);
     }
 
+    /**
+     * Must be 0 or greater.
+     * 
+     */
     @Import(name="threshold", required=true)
     private Output<Double> threshold;
 
+    /**
+     * @return Must be 0 or greater.
+     * 
+     */
     public Output<Double> threshold() {
         return this.threshold;
     }
 
+    /**
+     * One of (all, any).
+     * 
+     */
     @Import(name="timeFunction", required=true)
     private Output<String> timeFunction;
 
+    /**
+     * @return One of (all, any).
+     * 
+     */
     public Output<String> timeFunction() {
         return this.timeFunction;
     }
@@ -81,47 +121,107 @@ public final class AlertConditionTermArgs extends com.pulumi.resources.ResourceA
             $ = new AlertConditionTermArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param duration In minutes, must be in the range of 5 to 120, inclusive.
+         * 
+         * @return builder
+         * 
+         */
         public Builder duration(Output<Integer> duration) {
             $.duration = duration;
             return this;
         }
 
+        /**
+         * @param duration In minutes, must be in the range of 5 to 120, inclusive.
+         * 
+         * @return builder
+         * 
+         */
         public Builder duration(Integer duration) {
             return duration(Output.of(duration));
         }
 
+        /**
+         * @param operator One of (above, below, equal). Defaults to equal.
+         * 
+         * @return builder
+         * 
+         */
         public Builder operator(@Nullable Output<String> operator) {
             $.operator = operator;
             return this;
         }
 
+        /**
+         * @param operator One of (above, below, equal). Defaults to equal.
+         * 
+         * @return builder
+         * 
+         */
         public Builder operator(String operator) {
             return operator(Output.of(operator));
         }
 
+        /**
+         * @param priority One of (critical, warning). Defaults to critical.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(@Nullable Output<String> priority) {
             $.priority = priority;
             return this;
         }
 
+        /**
+         * @param priority One of (critical, warning). Defaults to critical.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(String priority) {
             return priority(Output.of(priority));
         }
 
+        /**
+         * @param threshold Must be 0 or greater.
+         * 
+         * @return builder
+         * 
+         */
         public Builder threshold(Output<Double> threshold) {
             $.threshold = threshold;
             return this;
         }
 
+        /**
+         * @param threshold Must be 0 or greater.
+         * 
+         * @return builder
+         * 
+         */
         public Builder threshold(Double threshold) {
             return threshold(Output.of(threshold));
         }
 
+        /**
+         * @param timeFunction One of (all, any).
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeFunction(Output<String> timeFunction) {
             $.timeFunction = timeFunction;
             return this;
         }
 
+        /**
+         * @param timeFunction One of (all, any).
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeFunction(String timeFunction) {
             return timeFunction(Output.of(timeFunction));
         }

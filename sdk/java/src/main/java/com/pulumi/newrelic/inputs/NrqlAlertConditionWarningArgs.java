@@ -19,6 +19,8 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
     public static final NrqlAlertConditionWarningArgs Empty = new NrqlAlertConditionWarningArgs();
 
     /**
+     * In minutes, must be in the range of 1 to 120 (inclusive).
+     * 
      * @deprecated
      * use `threshold_duration` attribute instead
      * 
@@ -28,6 +30,8 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
     private @Nullable Output<Integer> duration;
 
     /**
+     * @return In minutes, must be in the range of 1 to 120 (inclusive).
+     * 
      * @deprecated
      * use `threshold_duration` attribute instead
      * 
@@ -37,35 +41,69 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.duration);
     }
 
+    /**
+     * One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to &#39;equals&#39;.
+     * 
+     */
     @Import(name="operator")
     private @Nullable Output<String> operator;
 
+    /**
+     * @return One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to &#39;equals&#39;.
+     * 
+     */
     public Optional<Output<String>> operator() {
         return Optional.ofNullable(this.operator);
     }
 
+    /**
+     * For baseline conditions must be in range [1, 1000].
+     * 
+     */
     @Import(name="threshold", required=true)
     private Output<Double> threshold;
 
+    /**
+     * @return For baseline conditions must be in range [1, 1000].
+     * 
+     */
     public Output<Double> threshold() {
         return this.threshold;
     }
 
+    /**
+     * The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the &#39;aggregation_window&#39; (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+     * 
+     */
     @Import(name="thresholdDuration")
     private @Nullable Output<Integer> thresholdDuration;
 
+    /**
+     * @return The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the &#39;aggregation_window&#39; (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+     * 
+     */
     public Optional<Output<Integer>> thresholdDuration() {
         return Optional.ofNullable(this.thresholdDuration);
     }
 
+    /**
+     * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: &#39;ALL&#39; or &#39;AT_LEAST_ONCE&#39; (case insensitive).
+     * 
+     */
     @Import(name="thresholdOccurrences")
     private @Nullable Output<String> thresholdOccurrences;
 
+    /**
+     * @return The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: &#39;ALL&#39; or &#39;AT_LEAST_ONCE&#39; (case insensitive).
+     * 
+     */
     public Optional<Output<String>> thresholdOccurrences() {
         return Optional.ofNullable(this.thresholdOccurrences);
     }
 
     /**
+     * Valid values are: &#39;all&#39; or &#39;any&#39;
+     * 
      * @deprecated
      * use `threshold_occurrences` attribute instead
      * 
@@ -75,6 +113,8 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
     private @Nullable Output<String> timeFunction;
 
     /**
+     * @return Valid values are: &#39;all&#39; or &#39;any&#39;
+     * 
      * @deprecated
      * use `threshold_occurrences` attribute instead
      * 
@@ -114,6 +154,8 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
         }
 
         /**
+         * @param duration In minutes, must be in the range of 1 to 120 (inclusive).
+         * 
          * @return builder
          * 
          * @deprecated
@@ -127,6 +169,8 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
         }
 
         /**
+         * @param duration In minutes, must be in the range of 1 to 120 (inclusive).
+         * 
          * @return builder
          * 
          * @deprecated
@@ -138,43 +182,93 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
             return duration(Output.of(duration));
         }
 
+        /**
+         * @param operator One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to &#39;equals&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder operator(@Nullable Output<String> operator) {
             $.operator = operator;
             return this;
         }
 
+        /**
+         * @param operator One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to &#39;equals&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder operator(String operator) {
             return operator(Output.of(operator));
         }
 
+        /**
+         * @param threshold For baseline conditions must be in range [1, 1000].
+         * 
+         * @return builder
+         * 
+         */
         public Builder threshold(Output<Double> threshold) {
             $.threshold = threshold;
             return this;
         }
 
+        /**
+         * @param threshold For baseline conditions must be in range [1, 1000].
+         * 
+         * @return builder
+         * 
+         */
         public Builder threshold(Double threshold) {
             return threshold(Output.of(threshold));
         }
 
+        /**
+         * @param thresholdDuration The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the &#39;aggregation_window&#39; (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+         * 
+         * @return builder
+         * 
+         */
         public Builder thresholdDuration(@Nullable Output<Integer> thresholdDuration) {
             $.thresholdDuration = thresholdDuration;
             return this;
         }
 
+        /**
+         * @param thresholdDuration The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the &#39;aggregation_window&#39; (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+         * 
+         * @return builder
+         * 
+         */
         public Builder thresholdDuration(Integer thresholdDuration) {
             return thresholdDuration(Output.of(thresholdDuration));
         }
 
+        /**
+         * @param thresholdOccurrences The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: &#39;ALL&#39; or &#39;AT_LEAST_ONCE&#39; (case insensitive).
+         * 
+         * @return builder
+         * 
+         */
         public Builder thresholdOccurrences(@Nullable Output<String> thresholdOccurrences) {
             $.thresholdOccurrences = thresholdOccurrences;
             return this;
         }
 
+        /**
+         * @param thresholdOccurrences The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: &#39;ALL&#39; or &#39;AT_LEAST_ONCE&#39; (case insensitive).
+         * 
+         * @return builder
+         * 
+         */
         public Builder thresholdOccurrences(String thresholdOccurrences) {
             return thresholdOccurrences(Output.of(thresholdOccurrences));
         }
 
         /**
+         * @param timeFunction Valid values are: &#39;all&#39; or &#39;any&#39;
+         * 
          * @return builder
          * 
          * @deprecated
@@ -188,6 +282,8 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
         }
 
         /**
+         * @param timeFunction Valid values are: &#39;all&#39; or &#39;any&#39;
+         * 
          * @return builder
          * 
          * @deprecated

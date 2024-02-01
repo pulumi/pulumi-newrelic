@@ -13,8 +13,14 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class NrqlAlertConditionNrql
     {
+        /// <summary>
+        /// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluation_offset`.
+        /// </summary>
         public readonly int? EvaluationOffset;
         public readonly string Query;
+        /// <summary>
+        /// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `since_value`.
+        /// </summary>
         public readonly string? SinceValue;
 
         [OutputConstructor]

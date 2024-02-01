@@ -145,11 +145,17 @@ class MonitorTag(dict):
 class MultiLocationAlertConditionCritical(dict):
     def __init__(__self__, *,
                  threshold: int):
+        """
+        :param int threshold: The minimum number of monitor locations that must be concurrently failing before an incident is opened.
+        """
         pulumi.set(__self__, "threshold", threshold)
 
     @property
     @pulumi.getter
     def threshold(self) -> int:
+        """
+        The minimum number of monitor locations that must be concurrently failing before an incident is opened.
+        """
         return pulumi.get(self, "threshold")
 
 
@@ -157,11 +163,17 @@ class MultiLocationAlertConditionCritical(dict):
 class MultiLocationAlertConditionWarning(dict):
     def __init__(__self__, *,
                  threshold: int):
+        """
+        :param int threshold: The minimum number of monitor locations that must be concurrently failing before an incident is opened.
+        """
         pulumi.set(__self__, "threshold", threshold)
 
     @property
     @pulumi.getter
     def threshold(self) -> int:
+        """
+        The minimum number of monitor locations that must be concurrently failing before an incident is opened.
+        """
         return pulumi.get(self, "threshold")
 
 

@@ -49,9 +49,17 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         return this.configurations;
     }
 
+    /**
+     * Enrichment&#39;s id.
+     * 
+     */
     @Import(name="enrichmentId")
     private @Nullable Output<String> enrichmentId;
 
+    /**
+     * @return Enrichment&#39;s id.
+     * 
+     */
     public Optional<Output<String>> enrichmentId() {
         return Optional.ofNullable(this.enrichmentId);
     }
@@ -166,11 +174,23 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
             return configurations(List.of(configurations));
         }
 
+        /**
+         * @param enrichmentId Enrichment&#39;s id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enrichmentId(@Nullable Output<String> enrichmentId) {
             $.enrichmentId = enrichmentId;
             return this;
         }
 
+        /**
+         * @param enrichmentId Enrichment&#39;s id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enrichmentId(String enrichmentId) {
             return enrichmentId(Output.of(enrichmentId));
         }

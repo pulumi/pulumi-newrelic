@@ -211,6 +211,7 @@ class AlertChannelConfigArgs:
         :param pulumi.Input[str] tags: A set of tags for targeting notifications. Multiple values are comma separated.
         :param pulumi.Input[str] teams: A set of teams for targeting notifications. Multiple values are comma separated.
         :param pulumi.Input[str] url: [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+        :param pulumi.Input[str] user_id: The user ID for use with the user channel type.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -498,6 +499,9 @@ class AlertChannelConfigArgs:
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user ID for use with the user channel type.
+        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -513,6 +517,13 @@ class AlertConditionTermArgs:
                  time_function: pulumi.Input[str],
                  operator: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] duration: In minutes, must be in the range of 5 to 120, inclusive.
+        :param pulumi.Input[float] threshold: Must be 0 or greater.
+        :param pulumi.Input[str] time_function: One of (all, any).
+        :param pulumi.Input[str] operator: One of (above, below, equal). Defaults to equal.
+        :param pulumi.Input[str] priority: One of (critical, warning). Defaults to critical.
+        """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "threshold", threshold)
         pulumi.set(__self__, "time_function", time_function)
@@ -524,6 +535,9 @@ class AlertConditionTermArgs:
     @property
     @pulumi.getter
     def duration(self) -> pulumi.Input[int]:
+        """
+        In minutes, must be in the range of 5 to 120, inclusive.
+        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -533,6 +547,9 @@ class AlertConditionTermArgs:
     @property
     @pulumi.getter
     def threshold(self) -> pulumi.Input[float]:
+        """
+        Must be 0 or greater.
+        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -542,6 +559,9 @@ class AlertConditionTermArgs:
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> pulumi.Input[str]:
+        """
+        One of (all, any).
+        """
         return pulumi.get(self, "time_function")
 
     @time_function.setter
@@ -551,6 +571,9 @@ class AlertConditionTermArgs:
     @property
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        One of (above, below, equal). Defaults to equal.
+        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -560,6 +583,9 @@ class AlertConditionTermArgs:
     @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[str]]:
+        """
+        One of (critical, warning). Defaults to critical.
+        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -667,6 +693,7 @@ class AlertMutingRuleScheduleArgs:
                  start_time: Optional[pulumi.Input[str]] = None,
                  weekly_repeat_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
+        :param pulumi.Input[str] time_zone: The time zone that applies to the MutingRule schedule.
         :param pulumi.Input[str] end_repeat: The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeat_count`
         :param pulumi.Input[str] end_time: The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
         :param pulumi.Input[str] repeat: The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
@@ -691,6 +718,9 @@ class AlertMutingRuleScheduleArgs:
     @property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> pulumi.Input[str]:
+        """
+        The time zone that applies to the MutingRule schedule.
+        """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
@@ -1236,6 +1266,14 @@ class NrqlAlertConditionCriticalArgs:
                  threshold_duration: Optional[pulumi.Input[int]] = None,
                  threshold_occurrences: Optional[pulumi.Input[str]] = None,
                  time_function: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[float] threshold: For baseline conditions must be in range [1, 1000].
+        :param pulumi.Input[int] duration: In minutes, must be in the range of 1 to 120 (inclusive).
+        :param pulumi.Input[str] operator: One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+        :param pulumi.Input[int] threshold_duration: The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+        :param pulumi.Input[str] threshold_occurrences: The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
+        :param pulumi.Input[str] time_function: Valid values are: 'all' or 'any'
+        """
         pulumi.set(__self__, "threshold", threshold)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
@@ -1257,6 +1295,9 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter
     def threshold(self) -> pulumi.Input[float]:
+        """
+        For baseline conditions must be in range [1, 1000].
+        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -1266,6 +1307,9 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        In minutes, must be in the range of 1 to 120 (inclusive).
+        """
         warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
         pulumi.log.warn("""duration is deprecated: use `threshold_duration` attribute instead""")
 
@@ -1278,6 +1322,9 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -1287,6 +1334,9 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter(name="thresholdDuration")
     def threshold_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+        """
         return pulumi.get(self, "threshold_duration")
 
     @threshold_duration.setter
@@ -1296,6 +1346,9 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter(name="thresholdOccurrences")
     def threshold_occurrences(self) -> Optional[pulumi.Input[str]]:
+        """
+        The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
+        """
         return pulumi.get(self, "threshold_occurrences")
 
     @threshold_occurrences.setter
@@ -1305,6 +1358,9 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid values are: 'all' or 'any'
+        """
         warnings.warn("""use `threshold_occurrences` attribute instead""", DeprecationWarning)
         pulumi.log.warn("""time_function is deprecated: use `threshold_occurrences` attribute instead""")
 
@@ -1321,6 +1377,10 @@ class NrqlAlertConditionNrqlArgs:
                  query: pulumi.Input[str],
                  evaluation_offset: Optional[pulumi.Input[int]] = None,
                  since_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] evaluation_offset: NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluation_offset`.
+        :param pulumi.Input[str] since_value: NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `since_value`.
+        """
         pulumi.set(__self__, "query", query)
         if evaluation_offset is not None:
             warnings.warn("""use `aggregation_method` attribute instead""", DeprecationWarning)
@@ -1345,6 +1405,9 @@ class NrqlAlertConditionNrqlArgs:
     @property
     @pulumi.getter(name="evaluationOffset")
     def evaluation_offset(self) -> Optional[pulumi.Input[int]]:
+        """
+        NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluation_offset`.
+        """
         warnings.warn("""use `aggregation_method` attribute instead""", DeprecationWarning)
         pulumi.log.warn("""evaluation_offset is deprecated: use `aggregation_method` attribute instead""")
 
@@ -1357,6 +1420,9 @@ class NrqlAlertConditionNrqlArgs:
     @property
     @pulumi.getter(name="sinceValue")
     def since_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `since_value`.
+        """
         warnings.warn("""use `aggregation_method` attribute instead""", DeprecationWarning)
         pulumi.log.warn("""since_value is deprecated: use `aggregation_method` attribute instead""")
 
@@ -1377,6 +1443,15 @@ class NrqlAlertConditionTermArgs:
                  threshold_duration: Optional[pulumi.Input[int]] = None,
                  threshold_occurrences: Optional[pulumi.Input[str]] = None,
                  time_function: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[float] threshold: For baseline conditions must be in range [1, 1000].
+        :param pulumi.Input[int] duration: In minutes, must be in the range of 1 to 120 (inclusive).
+        :param pulumi.Input[str] operator: One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+        :param pulumi.Input[str] priority: One of (critical, warning). Defaults to 'critical'. At least one condition term must have priority set to 'critical'.
+        :param pulumi.Input[int] threshold_duration: The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+        :param pulumi.Input[str] threshold_occurrences: The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
+        :param pulumi.Input[str] time_function: Valid values are: 'all' or 'any'
+        """
         pulumi.set(__self__, "threshold", threshold)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
@@ -1400,6 +1475,9 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter
     def threshold(self) -> pulumi.Input[float]:
+        """
+        For baseline conditions must be in range [1, 1000].
+        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -1409,6 +1487,9 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        In minutes, must be in the range of 1 to 120 (inclusive).
+        """
         warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
         pulumi.log.warn("""duration is deprecated: use `threshold_duration` attribute instead""")
 
@@ -1421,6 +1502,9 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -1430,6 +1514,9 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[str]]:
+        """
+        One of (critical, warning). Defaults to 'critical'. At least one condition term must have priority set to 'critical'.
+        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -1439,6 +1526,9 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter(name="thresholdDuration")
     def threshold_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+        """
         return pulumi.get(self, "threshold_duration")
 
     @threshold_duration.setter
@@ -1448,6 +1538,9 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter(name="thresholdOccurrences")
     def threshold_occurrences(self) -> Optional[pulumi.Input[str]]:
+        """
+        The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
+        """
         return pulumi.get(self, "threshold_occurrences")
 
     @threshold_occurrences.setter
@@ -1457,6 +1550,9 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid values are: 'all' or 'any'
+        """
         warnings.warn("""use `threshold_occurrences` attribute instead""", DeprecationWarning)
         pulumi.log.warn("""time_function is deprecated: use `threshold_occurrences` attribute instead""")
 
@@ -1476,6 +1572,14 @@ class NrqlAlertConditionWarningArgs:
                  threshold_duration: Optional[pulumi.Input[int]] = None,
                  threshold_occurrences: Optional[pulumi.Input[str]] = None,
                  time_function: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[float] threshold: For baseline conditions must be in range [1, 1000].
+        :param pulumi.Input[int] duration: In minutes, must be in the range of 1 to 120 (inclusive).
+        :param pulumi.Input[str] operator: One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+        :param pulumi.Input[int] threshold_duration: The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+        :param pulumi.Input[str] threshold_occurrences: The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
+        :param pulumi.Input[str] time_function: Valid values are: 'all' or 'any'
+        """
         pulumi.set(__self__, "threshold", threshold)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
@@ -1497,6 +1601,9 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter
     def threshold(self) -> pulumi.Input[float]:
+        """
+        For baseline conditions must be in range [1, 1000].
+        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -1506,6 +1613,9 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        In minutes, must be in the range of 1 to 120 (inclusive).
+        """
         warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
         pulumi.log.warn("""duration is deprecated: use `threshold_duration` attribute instead""")
 
@@ -1518,6 +1628,9 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -1527,6 +1640,9 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter(name="thresholdDuration")
     def threshold_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+        """
         return pulumi.get(self, "threshold_duration")
 
     @threshold_duration.setter
@@ -1536,6 +1652,9 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter(name="thresholdOccurrences")
     def threshold_occurrences(self) -> Optional[pulumi.Input[str]]:
+        """
+        The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
+        """
         return pulumi.get(self, "threshold_occurrences")
 
     @threshold_occurrences.setter
@@ -1545,6 +1664,9 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid values are: 'all' or 'any'
+        """
         warnings.warn("""use `threshold_occurrences` attribute instead""", DeprecationWarning)
         pulumi.log.warn("""time_function is deprecated: use `threshold_occurrences` attribute instead""")
 
@@ -1631,6 +1753,20 @@ class OneDashboardPageArgs:
         :param pulumi.Input[str] name: The title of the dashboard.
         :param pulumi.Input[str] description: Brief text describing the dashboard.
         :param pulumi.Input[str] guid: The unique entity identifier of the dashboard page in New Relic.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaArgs']]] widget_areas: An area widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarArgs']]] widget_bars: A bar widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardArgs']]] widget_billboards: A billboard widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletArgs']]] widget_bullets: A bullet widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelArgs']]] widget_funnels: A funnel widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapArgs']]] widget_heatmaps: A heatmap widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramArgs']]] widget_histograms: A histogram widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonArgs']]] widget_jsons: A JSON widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineArgs']]] widget_lines: A line widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableArgs']]] widget_log_tables: A log table widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownArgs']]] widget_markdowns: A markdown widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyArgs']]] widget_pies: A pie widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarArgs']]] widget_stacked_bars: A stacked bar widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableArgs']]] widget_tables: A table widget.
         """
         pulumi.set(__self__, "name", name)
         if description is not None:
@@ -1705,6 +1841,9 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetAreas")
     def widget_areas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaArgs']]]]:
+        """
+        An area widget.
+        """
         return pulumi.get(self, "widget_areas")
 
     @widget_areas.setter
@@ -1714,6 +1853,9 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetBars")
     def widget_bars(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarArgs']]]]:
+        """
+        A bar widget.
+        """
         return pulumi.get(self, "widget_bars")
 
     @widget_bars.setter
@@ -1723,6 +1865,9 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetBillboards")
     def widget_billboards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardArgs']]]]:
+        """
+        A billboard widget.
+        """
         return pulumi.get(self, "widget_billboards")
 
     @widget_billboards.setter
@@ -1732,6 +1877,9 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetBullets")
     def widget_bullets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletArgs']]]]:
+        """
+        A bullet widget.
+        """
         return pulumi.get(self, "widget_bullets")
 
     @widget_bullets.setter
@@ -1741,6 +1889,9 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetFunnels")
     def widget_funnels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelArgs']]]]:
+        """
+        A funnel widget.
+        """
         return pulumi.get(self, "widget_funnels")
 
     @widget_funnels.setter
@@ -1750,6 +1901,9 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetHeatmaps")
     def widget_heatmaps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapArgs']]]]:
+        """
+        A heatmap widget.
+        """
         return pulumi.get(self, "widget_heatmaps")
 
     @widget_heatmaps.setter
@@ -1759,6 +1913,9 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetHistograms")
     def widget_histograms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramArgs']]]]:
+        """
+        A histogram widget.
+        """
         return pulumi.get(self, "widget_histograms")
 
     @widget_histograms.setter
@@ -1768,6 +1925,9 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetJsons")
     def widget_jsons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonArgs']]]]:
+        """
+        A JSON widget.
+        """
         return pulumi.get(self, "widget_jsons")
 
     @widget_jsons.setter
@@ -1777,6 +1937,9 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetLines")
     def widget_lines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineArgs']]]]:
+        """
+        A line widget.
+        """
         return pulumi.get(self, "widget_lines")
 
     @widget_lines.setter
@@ -1786,6 +1949,9 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetLogTables")
     def widget_log_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableArgs']]]]:
+        """
+        A log table widget.
+        """
         return pulumi.get(self, "widget_log_tables")
 
     @widget_log_tables.setter
@@ -1795,6 +1961,9 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetMarkdowns")
     def widget_markdowns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownArgs']]]]:
+        """
+        A markdown widget.
+        """
         return pulumi.get(self, "widget_markdowns")
 
     @widget_markdowns.setter
@@ -1804,6 +1973,9 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetPies")
     def widget_pies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyArgs']]]]:
+        """
+        A pie widget.
+        """
         return pulumi.get(self, "widget_pies")
 
     @widget_pies.setter
@@ -1813,6 +1985,9 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetStackedBars")
     def widget_stacked_bars(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarArgs']]]]:
+        """
+        A stacked bar widget.
+        """
         return pulumi.get(self, "widget_stacked_bars")
 
     @widget_stacked_bars.setter
@@ -1822,6 +1997,9 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetTables")
     def widget_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableArgs']]]]:
+        """
+        A table widget.
+        """
         return pulumi.get(self, "widget_tables")
 
     @widget_tables.setter
@@ -1855,6 +2033,7 @@ class OneDashboardPageWidgetAreaArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNullValueArgs']]] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
@@ -1976,6 +2155,9 @@ class OneDashboardPageWidgetAreaArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the widget.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2110,6 +2292,7 @@ class OneDashboardPageWidgetAreaColorSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param pulumi.Input[str] series_name: Series name
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
@@ -2131,6 +2314,9 @@ class OneDashboardPageWidgetAreaColorSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -2222,6 +2408,7 @@ class OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param pulumi.Input[str] series_name: Series name
         """
         if null_value is not None:
             pulumi.set(__self__, "null_value", null_value)
@@ -2243,6 +2430,9 @@ class OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -2295,6 +2485,7 @@ class OneDashboardPageWidgetAreaUnitSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] series_name: Series name
         :param pulumi.Input[str] unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
         """
         if series_name is not None:
@@ -2305,6 +2496,9 @@ class OneDashboardPageWidgetAreaUnitSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -2353,6 +2547,7 @@ class OneDashboardPageWidgetBarArgs:
         :param pulumi.Input[bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param pulumi.Input[bool] filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -2491,6 +2686,9 @@ class OneDashboardPageWidgetBarArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the widget.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2637,6 +2835,7 @@ class OneDashboardPageWidgetBarColorSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param pulumi.Input[str] series_name: Series name
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
@@ -2658,6 +2857,9 @@ class OneDashboardPageWidgetBarColorSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -2749,6 +2951,7 @@ class OneDashboardPageWidgetBarNullValueSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param pulumi.Input[str] series_name: Series name
         """
         if null_value is not None:
             pulumi.set(__self__, "null_value", null_value)
@@ -2770,6 +2973,9 @@ class OneDashboardPageWidgetBarNullValueSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -2822,6 +3028,7 @@ class OneDashboardPageWidgetBarUnitSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] series_name: Series name
         :param pulumi.Input[str] unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
         """
         if series_name is not None:
@@ -2832,6 +3039,9 @@ class OneDashboardPageWidgetBarUnitSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -2880,6 +3090,7 @@ class OneDashboardPageWidgetBillboardArgs:
         :param pulumi.Input[str] critical: (Optional) Threshold above which the displayed value will be styled with a red color.
         :param pulumi.Input[bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNullValueArgs']]] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
@@ -3018,6 +3229,9 @@ class OneDashboardPageWidgetBillboardArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the widget.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -3164,6 +3378,7 @@ class OneDashboardPageWidgetBillboardColorSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param pulumi.Input[str] series_name: Series name
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
@@ -3185,6 +3400,9 @@ class OneDashboardPageWidgetBillboardColorSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -3276,6 +3494,7 @@ class OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param pulumi.Input[str] series_name: Series name
         """
         if null_value is not None:
             pulumi.set(__self__, "null_value", null_value)
@@ -3297,6 +3516,9 @@ class OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -3349,6 +3571,7 @@ class OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] series_name: Series name
         :param pulumi.Input[str] unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
         """
         if series_name is not None:
@@ -3359,6 +3582,9 @@ class OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -3406,6 +3632,7 @@ class OneDashboardPageWidgetBulletArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNullValueArgs']]] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
@@ -3540,6 +3767,9 @@ class OneDashboardPageWidgetBulletArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the widget.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -3674,6 +3904,7 @@ class OneDashboardPageWidgetBulletColorSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param pulumi.Input[str] series_name: Series name
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
@@ -3695,6 +3926,9 @@ class OneDashboardPageWidgetBulletColorSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -3786,6 +4020,7 @@ class OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param pulumi.Input[str] series_name: Series name
         """
         if null_value is not None:
             pulumi.set(__self__, "null_value", null_value)
@@ -3807,6 +4042,9 @@ class OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -3859,6 +4097,7 @@ class OneDashboardPageWidgetBulletUnitSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] series_name: Series name
         :param pulumi.Input[str] unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
         """
         if series_name is not None:
@@ -3869,6 +4108,9 @@ class OneDashboardPageWidgetBulletUnitSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -3914,6 +4156,7 @@ class OneDashboardPageWidgetFunnelArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNullValueArgs']]] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
@@ -4035,6 +4278,9 @@ class OneDashboardPageWidgetFunnelArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the widget.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -4169,6 +4415,7 @@ class OneDashboardPageWidgetFunnelColorSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param pulumi.Input[str] series_name: Series name
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
@@ -4190,6 +4437,9 @@ class OneDashboardPageWidgetFunnelColorSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -4281,6 +4531,7 @@ class OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param pulumi.Input[str] series_name: Series name
         """
         if null_value is not None:
             pulumi.set(__self__, "null_value", null_value)
@@ -4302,6 +4553,9 @@ class OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -4354,6 +4608,7 @@ class OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] series_name: Series name
         :param pulumi.Input[str] unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
         """
         if series_name is not None:
@@ -4364,6 +4619,9 @@ class OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -4412,6 +4670,7 @@ class OneDashboardPageWidgetHeatmapArgs:
         :param pulumi.Input[bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param pulumi.Input[bool] filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -4550,6 +4809,9 @@ class OneDashboardPageWidgetHeatmapArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the widget.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -4696,6 +4958,7 @@ class OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param pulumi.Input[str] series_name: Series name
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
@@ -4717,6 +4980,9 @@ class OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -4808,6 +5074,7 @@ class OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param pulumi.Input[str] series_name: Series name
         """
         if null_value is not None:
             pulumi.set(__self__, "null_value", null_value)
@@ -4829,6 +5096,9 @@ class OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -4881,6 +5151,7 @@ class OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] series_name: Series name
         :param pulumi.Input[str] unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
         """
         if series_name is not None:
@@ -4891,6 +5162,9 @@ class OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -4936,6 +5210,7 @@ class OneDashboardPageWidgetHistogramArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNullValueArgs']]] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
@@ -5057,6 +5332,9 @@ class OneDashboardPageWidgetHistogramArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the widget.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -5191,6 +5469,7 @@ class OneDashboardPageWidgetHistogramColorSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param pulumi.Input[str] series_name: Series name
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
@@ -5212,6 +5491,9 @@ class OneDashboardPageWidgetHistogramColorSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -5303,6 +5585,7 @@ class OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param pulumi.Input[str] series_name: Series name
         """
         if null_value is not None:
             pulumi.set(__self__, "null_value", null_value)
@@ -5324,6 +5607,9 @@ class OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -5376,6 +5662,7 @@ class OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] series_name: Series name
         :param pulumi.Input[str] unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
         """
         if series_name is not None:
@@ -5386,6 +5673,9 @@ class OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -5431,6 +5721,7 @@ class OneDashboardPageWidgetJsonArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNullValueArgs']]] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
@@ -5552,6 +5843,9 @@ class OneDashboardPageWidgetJsonArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the widget.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -5686,6 +5980,7 @@ class OneDashboardPageWidgetJsonColorSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param pulumi.Input[str] series_name: Series name
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
@@ -5707,6 +6002,9 @@ class OneDashboardPageWidgetJsonColorSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -5798,6 +6096,7 @@ class OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param pulumi.Input[str] series_name: Series name
         """
         if null_value is not None:
             pulumi.set(__self__, "null_value", null_value)
@@ -5819,6 +6118,9 @@ class OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -5871,6 +6173,7 @@ class OneDashboardPageWidgetJsonUnitSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] series_name: Series name
         :param pulumi.Input[str] unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
         """
         if series_name is not None:
@@ -5881,6 +6184,9 @@ class OneDashboardPageWidgetJsonUnitSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -5927,6 +6233,7 @@ class OneDashboardPageWidgetLineArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNullValueArgs']]] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
@@ -6051,6 +6358,9 @@ class OneDashboardPageWidgetLineArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the widget.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6197,6 +6507,7 @@ class OneDashboardPageWidgetLineColorSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param pulumi.Input[str] series_name: Series name
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
@@ -6218,6 +6529,9 @@ class OneDashboardPageWidgetLineColorSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -6309,6 +6623,7 @@ class OneDashboardPageWidgetLineNullValueSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param pulumi.Input[str] series_name: Series name
         """
         if null_value is not None:
             pulumi.set(__self__, "null_value", null_value)
@@ -6330,6 +6645,9 @@ class OneDashboardPageWidgetLineNullValueSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -6382,6 +6700,7 @@ class OneDashboardPageWidgetLineUnitSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] series_name: Series name
         :param pulumi.Input[str] unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
         """
         if series_name is not None:
@@ -6392,6 +6711,9 @@ class OneDashboardPageWidgetLineUnitSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -6437,6 +6759,7 @@ class OneDashboardPageWidgetLogTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNullValueArgs']]] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
@@ -6558,6 +6881,9 @@ class OneDashboardPageWidgetLogTableArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the widget.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -6692,6 +7018,7 @@ class OneDashboardPageWidgetLogTableColorSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param pulumi.Input[str] series_name: Series name
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
@@ -6713,6 +7040,9 @@ class OneDashboardPageWidgetLogTableColorSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -6804,6 +7134,7 @@ class OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param pulumi.Input[str] series_name: Series name
         """
         if null_value is not None:
             pulumi.set(__self__, "null_value", null_value)
@@ -6825,6 +7156,9 @@ class OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -6877,6 +7211,7 @@ class OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] series_name: Series name
         :param pulumi.Input[str] unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
         """
         if series_name is not None:
@@ -6887,6 +7222,9 @@ class OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -6932,6 +7270,7 @@ class OneDashboardPageWidgetMarkdownArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownNullValueArgs']]] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
@@ -7053,6 +7392,9 @@ class OneDashboardPageWidgetMarkdownArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the widget.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -7187,6 +7529,7 @@ class OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param pulumi.Input[str] series_name: Series name
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
@@ -7208,6 +7551,9 @@ class OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -7261,6 +7607,7 @@ class OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param pulumi.Input[str] series_name: Series name
         """
         if null_value is not None:
             pulumi.set(__self__, "null_value", null_value)
@@ -7282,6 +7629,9 @@ class OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -7334,6 +7684,7 @@ class OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] series_name: Series name
         :param pulumi.Input[str] unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
         """
         if series_name is not None:
@@ -7344,6 +7695,9 @@ class OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -7392,6 +7746,7 @@ class OneDashboardPageWidgetPyArgs:
         :param pulumi.Input[bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param pulumi.Input[bool] filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -7530,6 +7885,9 @@ class OneDashboardPageWidgetPyArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the widget.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -7676,6 +8034,7 @@ class OneDashboardPageWidgetPyColorSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param pulumi.Input[str] series_name: Series name
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
@@ -7697,6 +8056,9 @@ class OneDashboardPageWidgetPyColorSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -7788,6 +8150,7 @@ class OneDashboardPageWidgetPyNullValueSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param pulumi.Input[str] series_name: Series name
         """
         if null_value is not None:
             pulumi.set(__self__, "null_value", null_value)
@@ -7809,6 +8172,9 @@ class OneDashboardPageWidgetPyNullValueSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -7861,6 +8227,7 @@ class OneDashboardPageWidgetPyUnitSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] series_name: Series name
         :param pulumi.Input[str] unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
         """
         if series_name is not None:
@@ -7871,6 +8238,9 @@ class OneDashboardPageWidgetPyUnitSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -7916,6 +8286,7 @@ class OneDashboardPageWidgetStackedBarArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNullValueArgs']]] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
@@ -8037,6 +8408,9 @@ class OneDashboardPageWidgetStackedBarArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the widget.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -8171,6 +8545,7 @@ class OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param pulumi.Input[str] series_name: Series name
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
@@ -8192,6 +8567,9 @@ class OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -8283,6 +8661,7 @@ class OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param pulumi.Input[str] series_name: Series name
         """
         if null_value is not None:
             pulumi.set(__self__, "null_value", null_value)
@@ -8304,6 +8683,9 @@ class OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -8356,6 +8738,7 @@ class OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] series_name: Series name
         :param pulumi.Input[str] unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
         """
         if series_name is not None:
@@ -8366,6 +8749,9 @@ class OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -8414,6 +8800,7 @@ class OneDashboardPageWidgetTableArgs:
         :param pulumi.Input[bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param pulumi.Input[bool] filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -8552,6 +8939,9 @@ class OneDashboardPageWidgetTableArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the widget.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -8698,6 +9088,7 @@ class OneDashboardPageWidgetTableColorSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param pulumi.Input[str] series_name: Series name
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
@@ -8719,6 +9110,9 @@ class OneDashboardPageWidgetTableColorSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -8810,6 +9204,7 @@ class OneDashboardPageWidgetTableNullValueSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param pulumi.Input[str] series_name: Series name
         """
         if null_value is not None:
             pulumi.set(__self__, "null_value", null_value)
@@ -8831,6 +9226,9 @@ class OneDashboardPageWidgetTableNullValueSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -8883,6 +9281,7 @@ class OneDashboardPageWidgetTableUnitSeriesOverrideArgs:
                  series_name: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] series_name: Series name
         :param pulumi.Input[str] unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
         """
         if series_name is not None:
@@ -8893,6 +9292,9 @@ class OneDashboardPageWidgetTableUnitSeriesOverrideArgs:
     @property
     @pulumi.getter(name="seriesName")
     def series_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Series name
+        """
         return pulumi.get(self, "series_name")
 
     @series_name.setter
@@ -9001,6 +9403,7 @@ class OneDashboardRawPageWidgetArgs:
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[str] visualization_id: (Required) The visualization ID of the widget
         :param pulumi.Input[int] height: (Optional) Height of the widget. Valid values are `1` to `12` inclusive. Defaults to `3`.
+        :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_entity_guids: (Optional) Related entity GUIDs.
         :param pulumi.Input[int] width: (Optional) Width of the widget. Valid values are `1` to `12` inclusive. Defaults to `4`.
         """
@@ -9093,6 +9496,9 @@ class OneDashboardRawPageWidgetArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the widget.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -9300,6 +9706,7 @@ class OneDashboardVariableNrqlQueryArgs:
                  account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] account_ids: New Relic account ID(s) to issue the query against.
         """
         pulumi.set(__self__, "query", query)
         if account_ids is not None:
@@ -9320,6 +9727,9 @@ class OneDashboardVariableNrqlQueryArgs:
     @property
     @pulumi.getter(name="accountIds")
     def account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        New Relic account ID(s) to issue the query against.
+        """
         return pulumi.get(self, "account_ids")
 
     @account_ids.setter
@@ -9962,6 +10372,7 @@ class WorkflowEnrichmentsNrqlArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlConfigurationArgs']]] configurations: Another wrapper block
         :param pulumi.Input[str] name: The name of the workflow.
         :param pulumi.Input[int] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
+        :param pulumi.Input[str] enrichment_id: Enrichment's id.
         :param pulumi.Input[str] type: Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         """
         pulumi.set(__self__, "configurations", configurations)
@@ -10012,6 +10423,9 @@ class WorkflowEnrichmentsNrqlArgs:
     @property
     @pulumi.getter(name="enrichmentId")
     def enrichment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enrichment's id.
+        """
         return pulumi.get(self, "enrichment_id")
 
     @enrichment_id.setter
@@ -10061,7 +10475,9 @@ class WorkflowIssuesFilterArgs:
                  filter_id: Optional[pulumi.Input[str]] = None,
                  predicates: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowIssuesFilterPredicateArgs']]]] = None):
         """
+        :param pulumi.Input[str] name: (Required) Filter's name.
         :param pulumi.Input[str] type: Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+        :param pulumi.Input[str] filter_id: filter id.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowIssuesFilterPredicateArgs']]] predicates: A condition an issue event should satisfy to be processed by the workflow
         """
         pulumi.set(__self__, "name", name)
@@ -10074,6 +10490,9 @@ class WorkflowIssuesFilterArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        (Required) Filter's name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -10095,6 +10514,9 @@ class WorkflowIssuesFilterArgs:
     @property
     @pulumi.getter(name="filterId")
     def filter_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        filter id.
+        """
         return pulumi.get(self, "filter_id")
 
     @filter_id.setter

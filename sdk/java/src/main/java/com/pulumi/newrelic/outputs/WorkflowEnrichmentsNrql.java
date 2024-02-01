@@ -25,6 +25,10 @@ public final class WorkflowEnrichmentsNrql {
      * 
      */
     private List<WorkflowEnrichmentsNrqlConfiguration> configurations;
+    /**
+     * @return Enrichment&#39;s id.
+     * 
+     */
     private @Nullable String enrichmentId;
     /**
      * @return The name of the workflow.
@@ -52,6 +56,10 @@ public final class WorkflowEnrichmentsNrql {
     public List<WorkflowEnrichmentsNrqlConfiguration> configurations() {
         return this.configurations;
     }
+    /**
+     * @return Enrichment&#39;s id.
+     * 
+     */
     public Optional<String> enrichmentId() {
         return Optional.ofNullable(this.enrichmentId);
     }

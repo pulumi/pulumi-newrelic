@@ -14,25 +14,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AlertConditionTerm {
+    /**
+     * @return In minutes, must be in the range of 5 to 120, inclusive.
+     * 
+     */
     private Integer duration;
+    /**
+     * @return One of (above, below, equal). Defaults to equal.
+     * 
+     */
     private @Nullable String operator;
+    /**
+     * @return One of (critical, warning). Defaults to critical.
+     * 
+     */
     private @Nullable String priority;
+    /**
+     * @return Must be 0 or greater.
+     * 
+     */
     private Double threshold;
+    /**
+     * @return One of (all, any).
+     * 
+     */
     private String timeFunction;
 
     private AlertConditionTerm() {}
+    /**
+     * @return In minutes, must be in the range of 5 to 120, inclusive.
+     * 
+     */
     public Integer duration() {
         return this.duration;
     }
+    /**
+     * @return One of (above, below, equal). Defaults to equal.
+     * 
+     */
     public Optional<String> operator() {
         return Optional.ofNullable(this.operator);
     }
+    /**
+     * @return One of (critical, warning). Defaults to critical.
+     * 
+     */
     public Optional<String> priority() {
         return Optional.ofNullable(this.priority);
     }
+    /**
+     * @return Must be 0 or greater.
+     * 
+     */
     public Double threshold() {
         return this.threshold;
     }
+    /**
+     * @return One of (all, any).
+     * 
+     */
     public String timeFunction() {
         return this.timeFunction;
     }

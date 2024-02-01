@@ -84,9 +84,17 @@ public final class OneDashboardPageWidgetFunnelArgs extends com.pulumi.resources
         return Optional.ofNullable(this.height);
     }
 
+    /**
+     * The ID of the widget.
+     * 
+     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
+    /**
+     * @return The ID of the widget.
+     * 
+     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
@@ -365,11 +373,23 @@ public final class OneDashboardPageWidgetFunnelArgs extends com.pulumi.resources
             return height(Output.of(height));
         }
 
+        /**
+         * @param id The ID of the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param id The ID of the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

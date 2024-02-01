@@ -12,6 +12,9 @@ namespace Pulumi.NewRelic.Synthetics.Inputs
 
     public sealed class MultiLocationAlertConditionWarningArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The minimum number of monitor locations that must be concurrently failing before an incident is opened.
+        /// </summary>
         [Input("threshold", required: true)]
         public Input<int> Threshold { get; set; } = null!;
 

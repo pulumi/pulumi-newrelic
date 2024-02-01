@@ -316,9 +316,17 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.url);
     }
 
+    /**
+     * The user ID for use with the user channel type.
+     * 
+     */
     @Import(name="userId")
     private @Nullable Output<String> userId;
 
+    /**
+     * @return The user ID for use with the user channel type.
+     * 
+     */
     public Optional<Output<String>> userId() {
         return Optional.ofNullable(this.userId);
     }
@@ -787,11 +795,23 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
             return url(Output.of(url));
         }
 
+        /**
+         * @param userId The user ID for use with the user channel type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userId(@Nullable Output<String> userId) {
             $.userId = userId;
             return this;
         }
 
+        /**
+         * @param userId The user ID for use with the user channel type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userId(String userId) {
             return userId(Output.of(userId));
         }

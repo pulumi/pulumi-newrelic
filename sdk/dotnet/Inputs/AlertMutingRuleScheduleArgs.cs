@@ -42,6 +42,9 @@ namespace Pulumi.NewRelic.Inputs
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
+        /// <summary>
+        /// The time zone that applies to the MutingRule schedule.
+        /// </summary>
         [Input("timeZone", required: true)]
         public Input<string> TimeZone { get; set; } = null!;
 

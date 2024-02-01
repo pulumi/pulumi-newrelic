@@ -11,6 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OneDashboardPageWidgetPyUnitSeriesOverride {
+    /**
+     * @return Series name
+     * 
+     */
     private @Nullable String seriesName;
     /**
      * @return (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
@@ -19,6 +23,10 @@ public final class OneDashboardPageWidgetPyUnitSeriesOverride {
     private @Nullable String unit;
 
     private OneDashboardPageWidgetPyUnitSeriesOverride() {}
+    /**
+     * @return Series name
+     * 
+     */
     public Optional<String> seriesName() {
         return Optional.ofNullable(this.seriesName);
     }

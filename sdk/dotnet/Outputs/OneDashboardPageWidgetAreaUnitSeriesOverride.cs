@@ -13,6 +13,9 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class OneDashboardPageWidgetAreaUnitSeriesOverride
     {
+        /// <summary>
+        /// Series name
+        /// </summary>
         public readonly string? SeriesName;
         /// <summary>
         /// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.

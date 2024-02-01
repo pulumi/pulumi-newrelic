@@ -93,9 +93,17 @@ public final class AlertMutingRuleScheduleArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.startTime);
     }
 
+    /**
+     * The time zone that applies to the MutingRule schedule.
+     * 
+     */
     @Import(name="timeZone", required=true)
     private Output<String> timeZone;
 
+    /**
+     * @return The time zone that applies to the MutingRule schedule.
+     * 
+     */
     public Output<String> timeZone() {
         return this.timeZone;
     }
@@ -250,11 +258,23 @@ public final class AlertMutingRuleScheduleArgs extends com.pulumi.resources.Reso
             return startTime(Output.of(startTime));
         }
 
+        /**
+         * @param timeZone The time zone that applies to the MutingRule schedule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeZone(Output<String> timeZone) {
             $.timeZone = timeZone;
             return this;
         }
 
+        /**
+         * @param timeZone The time zone that applies to the MutingRule schedule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeZone(String timeZone) {
             return timeZone(Output.of(timeZone));
         }

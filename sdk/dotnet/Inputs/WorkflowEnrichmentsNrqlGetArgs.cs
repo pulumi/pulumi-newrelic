@@ -30,6 +30,9 @@ namespace Pulumi.NewRelic.Inputs
             set => _configurations = value;
         }
 
+        /// <summary>
+        /// Enrichment's id.
+        /// </summary>
         [Input("enrichmentId")]
         public Input<string>? EnrichmentId { get; set; }
 

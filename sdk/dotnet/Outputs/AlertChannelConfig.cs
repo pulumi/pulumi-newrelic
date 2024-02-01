@@ -93,6 +93,9 @@ namespace Pulumi.NewRelic.Outputs
         /// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
         /// </summary>
         public readonly string? Url;
+        /// <summary>
+        /// The user ID for use with the user channel type.
+        /// </summary>
         public readonly string? UserId;
 
         [OutputConstructor]

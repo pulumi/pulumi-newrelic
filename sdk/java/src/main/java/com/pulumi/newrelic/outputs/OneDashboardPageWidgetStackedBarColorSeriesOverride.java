@@ -16,6 +16,10 @@ public final class OneDashboardPageWidgetStackedBarColorSeriesOverride {
      * 
      */
     private @Nullable String color;
+    /**
+     * @return Series name
+     * 
+     */
     private @Nullable String seriesName;
 
     private OneDashboardPageWidgetStackedBarColorSeriesOverride() {}
@@ -26,6 +30,10 @@ public final class OneDashboardPageWidgetStackedBarColorSeriesOverride {
     public Optional<String> color() {
         return Optional.ofNullable(this.color);
     }
+    /**
+     * @return Series name
+     * 
+     */
     public Optional<String> seriesName() {
         return Optional.ofNullable(this.seriesName);
     }
