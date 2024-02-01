@@ -2610,6 +2610,7 @@
                 },
                 "userId": {
                     "type": "string",
+                    "description": "The user ID for use with the user channel type.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -2618,19 +2619,24 @@
         "newrelic:index/AlertConditionTerm:AlertConditionTerm": {
             "properties": {
                 "duration": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "In minutes, must be in the range of 5 to 120, inclusive.\n"
                 },
                 "operator": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "One of (above, below, equal). Defaults to equal.\n"
                 },
                 "priority": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "One of (critical, warning). Defaults to critical.\n"
                 },
                 "threshold": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "Must be 0 or greater.\n"
                 },
                 "timeFunction": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "One of (all, any).\n"
                 }
             },
             "type": "object",
@@ -2708,7 +2714,8 @@
                     "description": "The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'\n"
                 },
                 "timeZone": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The time zone that applies to the MutingRule schedule.\n"
                 },
                 "weeklyRepeatDays": {
                     "type": "array",
@@ -2911,22 +2918,28 @@
             "properties": {
                 "duration": {
                     "type": "integer",
+                    "description": "In minutes, must be in the range of 1 to 120 (inclusive).\n",
                     "deprecationMessage": "use `threshold_duration` attribute instead"
                 },
                 "operator": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.\n"
                 },
                 "threshold": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "For baseline conditions must be in range [1, 1000].\n"
                 },
                 "thresholdDuration": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions\n"
                 },
                 "thresholdOccurrences": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).\n"
                 },
                 "timeFunction": {
                     "type": "string",
+                    "description": "Valid values are: 'all' or 'any'\n",
                     "deprecationMessage": "use `threshold_occurrences` attribute instead"
                 }
             },
@@ -2939,6 +2952,7 @@
             "properties": {
                 "evaluationOffset": {
                     "type": "integer",
+                    "description": "NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluation_offset`.\n",
                     "deprecationMessage": "use `aggregation_method` attribute instead"
                 },
                 "query": {
@@ -2946,6 +2960,7 @@
                 },
                 "sinceValue": {
                     "type": "string",
+                    "description": "NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `since_value`.\n",
                     "deprecationMessage": "use `aggregation_method` attribute instead"
                 }
             },
@@ -2958,25 +2973,32 @@
             "properties": {
                 "duration": {
                     "type": "integer",
+                    "description": "In minutes, must be in the range of 1 to 120 (inclusive).\n",
                     "deprecationMessage": "use `threshold_duration` attribute instead"
                 },
                 "operator": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.\n"
                 },
                 "priority": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "One of (critical, warning). Defaults to 'critical'. At least one condition term must have priority set to 'critical'.\n"
                 },
                 "threshold": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "For baseline conditions must be in range [1, 1000].\n"
                 },
                 "thresholdDuration": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions\n"
                 },
                 "thresholdOccurrences": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).\n"
                 },
                 "timeFunction": {
                     "type": "string",
+                    "description": "Valid values are: 'all' or 'any'\n",
                     "deprecationMessage": "use `threshold_occurrences` attribute instead"
                 }
             },
@@ -2989,22 +3011,28 @@
             "properties": {
                 "duration": {
                     "type": "integer",
+                    "description": "In minutes, must be in the range of 1 to 120 (inclusive).\n",
                     "deprecationMessage": "use `threshold_duration` attribute instead"
                 },
                 "operator": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.\n"
                 },
                 "threshold": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "For baseline conditions must be in range [1, 1000].\n"
                 },
                 "thresholdDuration": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions\n"
                 },
                 "thresholdOccurrences": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).\n"
                 },
                 "timeFunction": {
                     "type": "string",
+                    "description": "Valid values are: 'all' or 'any'\n",
                     "deprecationMessage": "use `threshold_occurrences` attribute instead"
                 }
             },
@@ -3056,85 +3084,99 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetArea:OneDashboardPageWidgetArea"
-                    }
+                    },
+                    "description": "An area widget.\n"
                 },
                 "widgetBars": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBar:OneDashboardPageWidgetBar"
-                    }
+                    },
+                    "description": "A bar widget.\n"
                 },
                 "widgetBillboards": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBillboard:OneDashboardPageWidgetBillboard"
-                    }
+                    },
+                    "description": "A billboard widget.\n"
                 },
                 "widgetBullets": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBullet:OneDashboardPageWidgetBullet"
-                    }
+                    },
+                    "description": "A bullet widget.\n"
                 },
                 "widgetFunnels": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetFunnel:OneDashboardPageWidgetFunnel"
-                    }
+                    },
+                    "description": "A funnel widget.\n"
                 },
                 "widgetHeatmaps": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetHeatmap:OneDashboardPageWidgetHeatmap"
-                    }
+                    },
+                    "description": "A heatmap widget.\n"
                 },
                 "widgetHistograms": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetHistogram:OneDashboardPageWidgetHistogram"
-                    }
+                    },
+                    "description": "A histogram widget.\n"
                 },
                 "widgetJsons": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetJson:OneDashboardPageWidgetJson"
-                    }
+                    },
+                    "description": "A JSON widget.\n"
                 },
                 "widgetLines": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLine:OneDashboardPageWidgetLine"
-                    }
+                    },
+                    "description": "A line widget.\n"
                 },
                 "widgetLogTables": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLogTable:OneDashboardPageWidgetLogTable"
-                    }
+                    },
+                    "description": "A log table widget.\n"
                 },
                 "widgetMarkdowns": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetMarkdown:OneDashboardPageWidgetMarkdown"
-                    }
+                    },
+                    "description": "A markdown widget.\n"
                 },
                 "widgetPies": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetPy:OneDashboardPageWidgetPy"
-                    }
+                    },
+                    "description": "A pie widget.\n"
                 },
                 "widgetStackedBars": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetStackedBar:OneDashboardPageWidgetStackedBar"
-                    }
+                    },
+                    "description": "A stacked bar widget.\n"
                 },
                 "widgetTables": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetTable:OneDashboardPageWidgetTable"
-                    }
+                    },
+                    "description": "A table widget.\n"
                 }
             },
             "type": "object",
@@ -3172,7 +3214,8 @@
                     "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the widget.\n"
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
@@ -3265,7 +3308,8 @@
                     "description": "(Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -3317,7 +3361,8 @@
                     "description": "Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -3341,7 +3386,8 @@
         "newrelic:index/OneDashboardPageWidgetAreaUnitSeriesOverride:OneDashboardPageWidgetAreaUnitSeriesOverride": {
             "properties": {
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 },
                 "unit": {
                     "type": "string",
@@ -3376,7 +3422,8 @@
                     "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the widget.\n"
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
@@ -3477,7 +3524,8 @@
                     "description": "(Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -3529,7 +3577,8 @@
                     "description": "Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -3553,7 +3602,8 @@
         "newrelic:index/OneDashboardPageWidgetBarUnitSeriesOverride:OneDashboardPageWidgetBarUnitSeriesOverride": {
             "properties": {
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 },
                 "unit": {
                     "type": "string",
@@ -3588,7 +3638,8 @@
                     "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the widget.\n"
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
@@ -3685,7 +3736,8 @@
                     "description": "(Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -3737,7 +3789,8 @@
                     "description": "Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -3761,7 +3814,8 @@
         "newrelic:index/OneDashboardPageWidgetBillboardUnitSeriesOverride:OneDashboardPageWidgetBillboardUnitSeriesOverride": {
             "properties": {
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 },
                 "unit": {
                     "type": "string",
@@ -3792,7 +3846,8 @@
                     "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the widget.\n"
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
@@ -3891,7 +3946,8 @@
                     "description": "(Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -3943,7 +3999,8 @@
                     "description": "Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -3967,7 +4024,8 @@
         "newrelic:index/OneDashboardPageWidgetBulletUnitSeriesOverride:OneDashboardPageWidgetBulletUnitSeriesOverride": {
             "properties": {
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 },
                 "unit": {
                     "type": "string",
@@ -3998,7 +4056,8 @@
                     "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the widget.\n"
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
@@ -4091,7 +4150,8 @@
                     "description": "(Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -4143,7 +4203,8 @@
                     "description": "Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -4167,7 +4228,8 @@
         "newrelic:index/OneDashboardPageWidgetFunnelUnitSeriesOverride:OneDashboardPageWidgetFunnelUnitSeriesOverride": {
             "properties": {
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 },
                 "unit": {
                     "type": "string",
@@ -4202,7 +4264,8 @@
                     "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the widget.\n"
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
@@ -4303,7 +4366,8 @@
                     "description": "(Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -4355,7 +4419,8 @@
                     "description": "Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -4379,7 +4444,8 @@
         "newrelic:index/OneDashboardPageWidgetHeatmapUnitSeriesOverride:OneDashboardPageWidgetHeatmapUnitSeriesOverride": {
             "properties": {
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 },
                 "unit": {
                     "type": "string",
@@ -4410,7 +4476,8 @@
                     "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the widget.\n"
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
@@ -4503,7 +4570,8 @@
                     "description": "(Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -4555,7 +4623,8 @@
                     "description": "Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -4579,7 +4648,8 @@
         "newrelic:index/OneDashboardPageWidgetHistogramUnitSeriesOverride:OneDashboardPageWidgetHistogramUnitSeriesOverride": {
             "properties": {
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 },
                 "unit": {
                     "type": "string",
@@ -4610,7 +4680,8 @@
                     "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the widget.\n"
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
@@ -4703,7 +4774,8 @@
                     "description": "(Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -4755,7 +4827,8 @@
                     "description": "Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -4779,7 +4852,8 @@
         "newrelic:index/OneDashboardPageWidgetJsonUnitSeriesOverride:OneDashboardPageWidgetJsonUnitSeriesOverride": {
             "properties": {
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 },
                 "unit": {
                     "type": "string",
@@ -4810,7 +4884,8 @@
                     "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the widget.\n"
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
@@ -4907,7 +4982,8 @@
                     "description": "(Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -4959,7 +5035,8 @@
                     "description": "Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -4983,7 +5060,8 @@
         "newrelic:index/OneDashboardPageWidgetLineUnitSeriesOverride:OneDashboardPageWidgetLineUnitSeriesOverride": {
             "properties": {
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 },
                 "unit": {
                     "type": "string",
@@ -5014,7 +5092,8 @@
                     "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the widget.\n"
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
@@ -5107,7 +5186,8 @@
                     "description": "(Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -5159,7 +5239,8 @@
                     "description": "Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -5183,7 +5264,8 @@
         "newrelic:index/OneDashboardPageWidgetLogTableUnitSeriesOverride:OneDashboardPageWidgetLogTableUnitSeriesOverride": {
             "properties": {
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 },
                 "unit": {
                     "type": "string",
@@ -5214,7 +5296,8 @@
                     "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the widget.\n"
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
@@ -5304,7 +5387,8 @@
                     "description": "(Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -5332,7 +5416,8 @@
                     "description": "Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -5356,7 +5441,8 @@
         "newrelic:index/OneDashboardPageWidgetMarkdownUnitSeriesOverride:OneDashboardPageWidgetMarkdownUnitSeriesOverride": {
             "properties": {
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 },
                 "unit": {
                     "type": "string",
@@ -5391,7 +5477,8 @@
                     "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the widget.\n"
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
@@ -5492,7 +5579,8 @@
                     "description": "(Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -5544,7 +5632,8 @@
                     "description": "Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -5568,7 +5657,8 @@
         "newrelic:index/OneDashboardPageWidgetPyUnitSeriesOverride:OneDashboardPageWidgetPyUnitSeriesOverride": {
             "properties": {
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 },
                 "unit": {
                     "type": "string",
@@ -5599,7 +5689,8 @@
                     "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the widget.\n"
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
@@ -5692,7 +5783,8 @@
                     "description": "(Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -5744,7 +5836,8 @@
                     "description": "Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -5768,7 +5861,8 @@
         "newrelic:index/OneDashboardPageWidgetStackedBarUnitSeriesOverride:OneDashboardPageWidgetStackedBarUnitSeriesOverride": {
             "properties": {
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 },
                 "unit": {
                     "type": "string",
@@ -5803,7 +5897,8 @@
                     "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the widget.\n"
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
@@ -5904,7 +5999,8 @@
                     "description": "(Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -5956,7 +6052,8 @@
                     "description": "Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.\n"
                 },
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 }
             },
             "type": "object"
@@ -5980,7 +6077,8 @@
         "newrelic:index/OneDashboardPageWidgetTableUnitSeriesOverride:OneDashboardPageWidgetTableUnitSeriesOverride": {
             "properties": {
                 "seriesName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Series name\n"
                 },
                 "unit": {
                     "type": "string",
@@ -6039,7 +6137,8 @@
                     "description": "(Optional) Height of the widget. Valid values are `1` to `12` inclusive. Defaults to `3`.\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the widget.\n"
                 },
                 "linkedEntityGuids": {
                     "type": "array",
@@ -6157,7 +6256,8 @@
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    }
+                    },
+                    "description": "New Relic account ID(s) to issue the query against.\n"
                 },
                 "query": {
                     "type": "string",
@@ -6435,7 +6535,8 @@
                     "description": "Another wrapper block\n"
                 },
                 "enrichmentId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Enrichment's id.\n"
                 },
                 "name": {
                     "type": "string",
@@ -6478,10 +6579,12 @@
         "newrelic:index/WorkflowIssuesFilter:WorkflowIssuesFilter": {
             "properties": {
                 "filterId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "filter id.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(Required) Filter's name.\n"
                 },
                 "predicates": {
                     "type": "array",
@@ -6637,16 +6740,20 @@
         "newrelic:index/getNotificationDestinationProperty:getNotificationDestinationProperty": {
             "properties": {
                 "displayValue": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Notification property display key.\n"
                 },
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Notification property key.\n"
                 },
                 "label": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Notification property label.\n"
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Notification property value.\n"
                 }
             },
             "type": "object",
@@ -6719,14 +6826,17 @@
                     "items": {
                         "$ref": "#/types/newrelic:insights/EventEventAttribute:EventEventAttribute"
                     },
+                    "description": "An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.\n",
                     "willReplaceOnChanges": true
                 },
                 "timestamp": {
                     "type": "integer",
+                    "description": "Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.\n",
                     "willReplaceOnChanges": true
                 },
                 "type": {
                     "type": "string",
+                    "description": "The event's name. Can be a combination of alphanumeric characters, underscores, and colons.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -6740,14 +6850,17 @@
             "properties": {
                 "key": {
                     "type": "string",
+                    "description": "The name of the attribute.\n",
                     "willReplaceOnChanges": true
                 },
                 "type": {
                     "type": "string",
+                    "description": "Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.\n",
                     "willReplaceOnChanges": true
                 },
                 "value": {
                     "type": "string",
+                    "description": "The value of the attribute.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -6996,7 +7109,8 @@
         "newrelic:synthetics/MultiLocationAlertConditionCritical:MultiLocationAlertConditionCritical": {
             "properties": {
                 "threshold": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The minimum number of monitor locations that must be concurrently failing before an incident is opened.\n"
                 }
             },
             "type": "object",
@@ -7007,7 +7121,8 @@
         "newrelic:synthetics/MultiLocationAlertConditionWarning:MultiLocationAlertConditionWarning": {
             "properties": {
                 "threshold": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The minimum number of monitor locations that must be concurrently failing before an incident is opened.\n"
                 }
             },
             "type": "object",
