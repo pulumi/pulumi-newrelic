@@ -70,6 +70,56 @@ namespace Pulumi.NewRelic
         /// Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
         /// If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
         /// 
+        /// Here is an example of a `slow_burn` alert.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var fooSlowBurn = NewRelic.GetServiceLevelAlertHelper.Invoke(new()
+        ///     {
+        ///         AlertType = "slow_burn",
+        ///         SliGuid = newrelic_service_level.Foo.Sli_guid,
+        ///         SloTarget = local.Foo_target,
+        ///         SloPeriod = local.Foo_period,
+        ///         IsBadEvents = true,
+        ///     });
+        /// 
+        ///     var yourCondition = new NewRelic.NrqlAlertCondition("yourCondition", new()
+        ///     {
+        ///         AccountId = 12345678,
+        ///         PolicyId = 67890,
+        ///         Type = "static",
+        ///         Enabled = true,
+        ///         ViolationTimeLimitSeconds = 259200,
+        ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
+        ///         {
+        ///             Query = fooSlowBurn.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.Nrql),
+        ///         },
+        ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
+        ///         {
+        ///             Operator = "above_or_equals",
+        ///             Threshold = fooSlowBurn.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.Threshold),
+        ///             ThresholdDuration = 900,
+        ///             ThresholdOccurrences = "at_least_once",
+        ///         },
+        ///         FillOption = "none",
+        ///         AggregationWindow = fooSlowBurn.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.EvaluationPeriod),
+        ///         AggregationMethod = "event_flow",
+        ///         AggregationDelay = "120",
+        ///         SlideBy = 900,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// Here is an example of a custom alert:
+        /// 
+        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -84,8 +134,8 @@ namespace Pulumi.NewRelic
         ///         SliGuid = newrelic_service_level.Foo.Sli_guid,
         ///         SloTarget = local.Foo_target,
         ///         SloPeriod = local.Foo_period,
-        ///         CustomToleratedBudgetConsumption = 5,
-        ///         CustomEvaluationPeriod = 90,
+        ///         CustomToleratedBudgetConsumption = 4,
+        ///         CustomEvaluationPeriod = 5400,
         ///         IsBadEvents = true,
         ///     });
         /// 
@@ -104,11 +154,11 @@ namespace Pulumi.NewRelic
         ///         {
         ///             Operator = "above_or_equals",
         ///             Threshold = fooCustom.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.Threshold),
-        ///             ThresholdDuration = fooCustom.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.EvaluationPeriod),
+        ///             ThresholdDuration = 900,
         ///             ThresholdOccurrences = "at_least_once",
         ///         },
         ///         FillOption = "none",
-        ///         AggregationWindow = 3600,
+        ///         AggregationWindow = fooCustom.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.EvaluationPeriod),
         ///         AggregationMethod = "event_flow",
         ///         AggregationDelay = "120",
         ///         SlideBy = 60,
@@ -181,6 +231,56 @@ namespace Pulumi.NewRelic
         /// Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
         /// If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
         /// 
+        /// Here is an example of a `slow_burn` alert.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var fooSlowBurn = NewRelic.GetServiceLevelAlertHelper.Invoke(new()
+        ///     {
+        ///         AlertType = "slow_burn",
+        ///         SliGuid = newrelic_service_level.Foo.Sli_guid,
+        ///         SloTarget = local.Foo_target,
+        ///         SloPeriod = local.Foo_period,
+        ///         IsBadEvents = true,
+        ///     });
+        /// 
+        ///     var yourCondition = new NewRelic.NrqlAlertCondition("yourCondition", new()
+        ///     {
+        ///         AccountId = 12345678,
+        ///         PolicyId = 67890,
+        ///         Type = "static",
+        ///         Enabled = true,
+        ///         ViolationTimeLimitSeconds = 259200,
+        ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
+        ///         {
+        ///             Query = fooSlowBurn.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.Nrql),
+        ///         },
+        ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
+        ///         {
+        ///             Operator = "above_or_equals",
+        ///             Threshold = fooSlowBurn.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.Threshold),
+        ///             ThresholdDuration = 900,
+        ///             ThresholdOccurrences = "at_least_once",
+        ///         },
+        ///         FillOption = "none",
+        ///         AggregationWindow = fooSlowBurn.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.EvaluationPeriod),
+        ///         AggregationMethod = "event_flow",
+        ///         AggregationDelay = "120",
+        ///         SlideBy = 900,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// Here is an example of a custom alert:
+        /// 
+        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -195,8 +295,8 @@ namespace Pulumi.NewRelic
         ///         SliGuid = newrelic_service_level.Foo.Sli_guid,
         ///         SloTarget = local.Foo_target,
         ///         SloPeriod = local.Foo_period,
-        ///         CustomToleratedBudgetConsumption = 5,
-        ///         CustomEvaluationPeriod = 90,
+        ///         CustomToleratedBudgetConsumption = 4,
+        ///         CustomEvaluationPeriod = 5400,
         ///         IsBadEvents = true,
         ///     });
         /// 
@@ -215,11 +315,11 @@ namespace Pulumi.NewRelic
         ///         {
         ///             Operator = "above_or_equals",
         ///             Threshold = fooCustom.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.Threshold),
-        ///             ThresholdDuration = fooCustom.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.EvaluationPeriod),
+        ///             ThresholdDuration = 900,
         ///             ThresholdOccurrences = "at_least_once",
         ///         },
         ///         FillOption = "none",
-        ///         AggregationWindow = 3600,
+        ///         AggregationWindow = fooCustom.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.EvaluationPeriod),
         ///         AggregationMethod = "event_flow",
         ///         AggregationDelay = "120",
         ///         SlideBy = 60,
@@ -244,7 +344,7 @@ namespace Pulumi.NewRelic
         public string AlertType { get; set; } = null!;
 
         /// <summary>
-        /// Aggregation window taken into consideration in minutes. Mandatory if `alert_type` is `custom`.
+        /// Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
         /// </summary>
         [Input("customEvaluationPeriod")]
         public int? CustomEvaluationPeriod { get; set; }
@@ -294,7 +394,7 @@ namespace Pulumi.NewRelic
         public Input<string> AlertType { get; set; } = null!;
 
         /// <summary>
-        /// Aggregation window taken into consideration in minutes. Mandatory if `alert_type` is `custom`.
+        /// Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
         /// </summary>
         [Input("customEvaluationPeriod")]
         public Input<int>? CustomEvaluationPeriod { get; set; }

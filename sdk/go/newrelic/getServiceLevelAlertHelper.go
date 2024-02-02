@@ -67,6 +67,62 @@ import (
 // Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
 // If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
 //
+// Here is an example of a `slowBurn` alert.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooSlowBurn, err := newrelic.GetServiceLevelAlertHelper(ctx, &newrelic.GetServiceLevelAlertHelperArgs{
+//				AlertType:   "slow_burn",
+//				SliGuid:     newrelic_service_level.Foo.Sli_guid,
+//				SloTarget:   local.Foo_target,
+//				SloPeriod:   local.Foo_period,
+//				IsBadEvents: pulumi.BoolRef(true),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewNrqlAlertCondition(ctx, "yourCondition", &newrelic.NrqlAlertConditionArgs{
+//				AccountId:                 pulumi.Int(12345678),
+//				PolicyId:                  pulumi.Int(67890),
+//				Type:                      pulumi.String("static"),
+//				Enabled:                   pulumi.Bool(true),
+//				ViolationTimeLimitSeconds: pulumi.Int(259200),
+//				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
+//					Query: *pulumi.String(fooSlowBurn.Nrql),
+//				},
+//				Critical: &newrelic.NrqlAlertConditionCriticalArgs{
+//					Operator:             pulumi.String("above_or_equals"),
+//					Threshold:            *pulumi.Float64(fooSlowBurn.Threshold),
+//					ThresholdDuration:    pulumi.Int(900),
+//					ThresholdOccurrences: pulumi.String("at_least_once"),
+//				},
+//				FillOption:        pulumi.String("none"),
+//				AggregationWindow: *pulumi.Int(fooSlowBurn.EvaluationPeriod),
+//				AggregationMethod: pulumi.String("event_flow"),
+//				AggregationDelay:  pulumi.String("120"),
+//				SlideBy:           pulumi.Int(900),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// Here is an example of a custom alert:
+//
 // ```go
 // package main
 //
@@ -84,8 +140,8 @@ import (
 //				SliGuid:                          newrelic_service_level.Foo.Sli_guid,
 //				SloTarget:                        local.Foo_target,
 //				SloPeriod:                        local.Foo_period,
-//				CustomToleratedBudgetConsumption: pulumi.Float64Ref(5),
-//				CustomEvaluationPeriod:           pulumi.IntRef(90),
+//				CustomToleratedBudgetConsumption: pulumi.Float64Ref(4),
+//				CustomEvaluationPeriod:           pulumi.IntRef(5400),
 //				IsBadEvents:                      pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
@@ -103,11 +159,11 @@ import (
 //				Critical: &newrelic.NrqlAlertConditionCriticalArgs{
 //					Operator:             pulumi.String("above_or_equals"),
 //					Threshold:            *pulumi.Float64(fooCustom.Threshold),
-//					ThresholdDuration:    *pulumi.Int(fooCustom.EvaluationPeriod),
+//					ThresholdDuration:    pulumi.Int(900),
 //					ThresholdOccurrences: pulumi.String("at_least_once"),
 //				},
 //				FillOption:        pulumi.String("none"),
-//				AggregationWindow: pulumi.Int(3600),
+//				AggregationWindow: *pulumi.Int(fooCustom.EvaluationPeriod),
 //				AggregationMethod: pulumi.String("event_flow"),
 //				AggregationDelay:  pulumi.String("120"),
 //				SlideBy:           pulumi.Int(60),
@@ -134,7 +190,7 @@ func GetServiceLevelAlertHelper(ctx *pulumi.Context, args *GetServiceLevelAlertH
 type GetServiceLevelAlertHelperArgs struct {
 	// The type of alert we want to set. Valid values are:
 	AlertType string `pulumi:"alertType"`
-	// Aggregation window taken into consideration in minutes. Mandatory if `alertType` is `custom`.
+	// Aggregation window taken into consideration in seconds. Mandatory if `alertType` is `custom`.
 	CustomEvaluationPeriod *int `pulumi:"customEvaluationPeriod"`
 	// How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
 	CustomToleratedBudgetConsumption *float64 `pulumi:"customToleratedBudgetConsumption"`
@@ -186,7 +242,7 @@ func GetServiceLevelAlertHelperOutput(ctx *pulumi.Context, args GetServiceLevelA
 type GetServiceLevelAlertHelperOutputArgs struct {
 	// The type of alert we want to set. Valid values are:
 	AlertType pulumi.StringInput `pulumi:"alertType"`
-	// Aggregation window taken into consideration in minutes. Mandatory if `alertType` is `custom`.
+	// Aggregation window taken into consideration in seconds. Mandatory if `alertType` is `custom`.
 	CustomEvaluationPeriod pulumi.IntPtrInput `pulumi:"customEvaluationPeriod"`
 	// How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
 	CustomToleratedBudgetConsumption pulumi.Float64PtrInput `pulumi:"customToleratedBudgetConsumption"`

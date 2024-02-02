@@ -273,7 +273,7 @@ type MonitorDowntime struct {
 	pulumi.CustomResourceState
 
 	// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `accountId` specified in the `provider{}`), if not specified.
-	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
+	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
 	EndRepeat MonitorDowntimeEndRepeatPtrOutput `pulumi:"endRepeat"`
 	// The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
@@ -339,7 +339,7 @@ func GetMonitorDowntime(ctx *pulumi.Context,
 // Input properties used for looking up and filtering MonitorDowntime resources.
 type monitorDowntimeState struct {
 	// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `accountId` specified in the `provider{}`), if not specified.
-	AccountId *string `pulumi:"accountId"`
+	AccountId *int `pulumi:"accountId"`
 	// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
 	EndRepeat *MonitorDowntimeEndRepeat `pulumi:"endRepeat"`
 	// The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
@@ -364,7 +364,7 @@ type monitorDowntimeState struct {
 
 type MonitorDowntimeState struct {
 	// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `accountId` specified in the `provider{}`), if not specified.
-	AccountId pulumi.StringPtrInput
+	AccountId pulumi.IntPtrInput
 	// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
 	EndRepeat MonitorDowntimeEndRepeatPtrInput
 	// The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
@@ -393,7 +393,7 @@ func (MonitorDowntimeState) ElementType() reflect.Type {
 
 type monitorDowntimeArgs struct {
 	// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `accountId` specified in the `provider{}`), if not specified.
-	AccountId *string `pulumi:"accountId"`
+	AccountId *int `pulumi:"accountId"`
 	// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
 	EndRepeat *MonitorDowntimeEndRepeat `pulumi:"endRepeat"`
 	// The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
@@ -419,7 +419,7 @@ type monitorDowntimeArgs struct {
 // The set of arguments for constructing a MonitorDowntime resource.
 type MonitorDowntimeArgs struct {
 	// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `accountId` specified in the `provider{}`), if not specified.
-	AccountId pulumi.StringPtrInput
+	AccountId pulumi.IntPtrInput
 	// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
 	EndRepeat MonitorDowntimeEndRepeatPtrInput
 	// The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
@@ -530,8 +530,8 @@ func (o MonitorDowntimeOutput) ToMonitorDowntimeOutputWithContext(ctx context.Co
 }
 
 // The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `accountId` specified in the `provider{}`), if not specified.
-func (o MonitorDowntimeOutput) AccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MonitorDowntime) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
+func (o MonitorDowntimeOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *MonitorDowntime) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
 
 // Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -

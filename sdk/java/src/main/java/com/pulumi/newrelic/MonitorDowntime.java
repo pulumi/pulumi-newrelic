@@ -12,6 +12,7 @@ import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.MonitorDowntimeState;
 import com.pulumi.newrelic.outputs.MonitorDowntimeEndRepeat;
 import com.pulumi.newrelic.outputs.MonitorDowntimeFrequency;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -304,15 +305,15 @@ public class MonitorDowntime extends com.pulumi.resources.CustomResource {
      * The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
      * 
      */
-    @Export(name="accountId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> accountId;
+    @Export(name="accountId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> accountId;
 
     /**
      * @return The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
      * 
      */
-    public Output<Optional<String>> accountId() {
-        return Codegen.optional(this.accountId);
+    public Output<Integer> accountId() {
+        return this.accountId;
     }
     /**
      * Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -

@@ -16,6 +16,8 @@ import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
 import com.pulumi.newrelic.inputs.GetAlertPolicyPlainArgs;
 import com.pulumi.newrelic.inputs.GetApplicationArgs;
 import com.pulumi.newrelic.inputs.GetApplicationPlainArgs;
+import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+import com.pulumi.newrelic.inputs.GetAuthenticationDomainPlainArgs;
 import com.pulumi.newrelic.inputs.GetCloudAccountArgs;
 import com.pulumi.newrelic.inputs.GetCloudAccountPlainArgs;
 import com.pulumi.newrelic.inputs.GetEntityArgs;
@@ -34,6 +36,7 @@ import com.pulumi.newrelic.outputs.GetAccountResult;
 import com.pulumi.newrelic.outputs.GetAlertChannelResult;
 import com.pulumi.newrelic.outputs.GetAlertPolicyResult;
 import com.pulumi.newrelic.outputs.GetApplicationResult;
+import com.pulumi.newrelic.outputs.GetAuthenticationDomainResult;
 import com.pulumi.newrelic.outputs.GetCloudAccountResult;
 import com.pulumi.newrelic.outputs.GetEntityResult;
 import com.pulumi.newrelic.outputs.GetKeyTransactionResult;
@@ -917,6 +920,158 @@ public final class NewrelicFunctions {
      */
     public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getApplication:getApplication", TypeShape.of(GetApplicationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to fetch the ID of an authentication domain belonging to your account, matching the specified name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;foo&#34;, fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAuthenticationDomainResult> getAuthenticationDomain(GetAuthenticationDomainArgs args) {
+        return getAuthenticationDomain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to fetch the ID of an authentication domain belonging to your account, matching the specified name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;foo&#34;, fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAuthenticationDomainResult> getAuthenticationDomainPlain(GetAuthenticationDomainPlainArgs args) {
+        return getAuthenticationDomainPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to fetch the ID of an authentication domain belonging to your account, matching the specified name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;foo&#34;, fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAuthenticationDomainResult> getAuthenticationDomain(GetAuthenticationDomainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getAuthenticationDomain:getAuthenticationDomain", TypeShape.of(GetAuthenticationDomainResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to fetch the ID of an authentication domain belonging to your account, matching the specified name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;foo&#34;, fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAuthenticationDomainResult> getAuthenticationDomainPlain(GetAuthenticationDomainPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("newrelic:index/getAuthenticationDomain:getAuthenticationDomain", TypeShape.of(GetAuthenticationDomainResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific cloud account linked to New Relic.
@@ -1916,6 +2071,68 @@ public final class NewrelicFunctions {
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
      * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
      * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
+     * 
+     * Here is an example of a `slow_burn` alert.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetServiceLevelAlertHelperArgs;
+     * import com.pulumi.newrelic.NrqlAlertCondition;
+     * import com.pulumi.newrelic.NrqlAlertConditionArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooSlowBurn = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
+     *             .alertType(&#34;slow_burn&#34;)
+     *             .sliGuid(newrelic_service_level.foo().sli_guid())
+     *             .sloTarget(local.foo_target())
+     *             .sloPeriod(local.foo_period())
+     *             .isBadEvents(true)
+     *             .build());
+     * 
+     *         var yourCondition = new NrqlAlertCondition(&#34;yourCondition&#34;, NrqlAlertConditionArgs.builder()        
+     *             .accountId(12345678)
+     *             .policyId(67890)
+     *             .type(&#34;static&#34;)
+     *             .enabled(true)
+     *             .violationTimeLimitSeconds(259200)
+     *             .nrql(NrqlAlertConditionNrqlArgs.builder()
+     *                 .query(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.nrql()))
+     *                 .build())
+     *             .critical(NrqlAlertConditionCriticalArgs.builder()
+     *                 .operator(&#34;above_or_equals&#34;)
+     *                 .threshold(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
+     *                 .thresholdDuration(900)
+     *                 .thresholdOccurrences(&#34;at_least_once&#34;)
+     *                 .build())
+     *             .fillOption(&#34;none&#34;)
+     *             .aggregationWindow(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationMethod(&#34;event_flow&#34;)
+     *             .aggregationDelay(120)
+     *             .slideBy(900)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * Here is an example of a custom alert:
      * ```java
      * package generated_program;
      * 
@@ -1946,8 +2163,8 @@ public final class NewrelicFunctions {
      *             .sliGuid(newrelic_service_level.foo().sli_guid())
      *             .sloTarget(local.foo_target())
      *             .sloPeriod(local.foo_period())
-     *             .customToleratedBudgetConsumption(5)
-     *             .customEvaluationPeriod(90)
+     *             .customToleratedBudgetConsumption(4)
+     *             .customEvaluationPeriod(5400)
      *             .isBadEvents(true)
      *             .build());
      * 
@@ -1963,11 +2180,11 @@ public final class NewrelicFunctions {
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
      *                 .operator(&#34;above_or_equals&#34;)
      *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
-     *                 .thresholdDuration(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *                 .thresholdDuration(900)
      *                 .thresholdOccurrences(&#34;at_least_once&#34;)
      *                 .build())
      *             .fillOption(&#34;none&#34;)
-     *             .aggregationWindow(3600)
+     *             .aggregationWindow(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
      *             .aggregationMethod(&#34;event_flow&#34;)
      *             .aggregationDelay(120)
      *             .slideBy(60)
@@ -2049,6 +2266,68 @@ public final class NewrelicFunctions {
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
      * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
      * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
+     * 
+     * Here is an example of a `slow_burn` alert.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetServiceLevelAlertHelperArgs;
+     * import com.pulumi.newrelic.NrqlAlertCondition;
+     * import com.pulumi.newrelic.NrqlAlertConditionArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooSlowBurn = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
+     *             .alertType(&#34;slow_burn&#34;)
+     *             .sliGuid(newrelic_service_level.foo().sli_guid())
+     *             .sloTarget(local.foo_target())
+     *             .sloPeriod(local.foo_period())
+     *             .isBadEvents(true)
+     *             .build());
+     * 
+     *         var yourCondition = new NrqlAlertCondition(&#34;yourCondition&#34;, NrqlAlertConditionArgs.builder()        
+     *             .accountId(12345678)
+     *             .policyId(67890)
+     *             .type(&#34;static&#34;)
+     *             .enabled(true)
+     *             .violationTimeLimitSeconds(259200)
+     *             .nrql(NrqlAlertConditionNrqlArgs.builder()
+     *                 .query(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.nrql()))
+     *                 .build())
+     *             .critical(NrqlAlertConditionCriticalArgs.builder()
+     *                 .operator(&#34;above_or_equals&#34;)
+     *                 .threshold(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
+     *                 .thresholdDuration(900)
+     *                 .thresholdOccurrences(&#34;at_least_once&#34;)
+     *                 .build())
+     *             .fillOption(&#34;none&#34;)
+     *             .aggregationWindow(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationMethod(&#34;event_flow&#34;)
+     *             .aggregationDelay(120)
+     *             .slideBy(900)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * Here is an example of a custom alert:
      * ```java
      * package generated_program;
      * 
@@ -2079,8 +2358,8 @@ public final class NewrelicFunctions {
      *             .sliGuid(newrelic_service_level.foo().sli_guid())
      *             .sloTarget(local.foo_target())
      *             .sloPeriod(local.foo_period())
-     *             .customToleratedBudgetConsumption(5)
-     *             .customEvaluationPeriod(90)
+     *             .customToleratedBudgetConsumption(4)
+     *             .customEvaluationPeriod(5400)
      *             .isBadEvents(true)
      *             .build());
      * 
@@ -2096,11 +2375,11 @@ public final class NewrelicFunctions {
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
      *                 .operator(&#34;above_or_equals&#34;)
      *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
-     *                 .thresholdDuration(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *                 .thresholdDuration(900)
      *                 .thresholdOccurrences(&#34;at_least_once&#34;)
      *                 .build())
      *             .fillOption(&#34;none&#34;)
-     *             .aggregationWindow(3600)
+     *             .aggregationWindow(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
      *             .aggregationMethod(&#34;event_flow&#34;)
      *             .aggregationDelay(120)
      *             .slideBy(60)
@@ -2182,6 +2461,68 @@ public final class NewrelicFunctions {
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
      * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
      * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
+     * 
+     * Here is an example of a `slow_burn` alert.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetServiceLevelAlertHelperArgs;
+     * import com.pulumi.newrelic.NrqlAlertCondition;
+     * import com.pulumi.newrelic.NrqlAlertConditionArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooSlowBurn = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
+     *             .alertType(&#34;slow_burn&#34;)
+     *             .sliGuid(newrelic_service_level.foo().sli_guid())
+     *             .sloTarget(local.foo_target())
+     *             .sloPeriod(local.foo_period())
+     *             .isBadEvents(true)
+     *             .build());
+     * 
+     *         var yourCondition = new NrqlAlertCondition(&#34;yourCondition&#34;, NrqlAlertConditionArgs.builder()        
+     *             .accountId(12345678)
+     *             .policyId(67890)
+     *             .type(&#34;static&#34;)
+     *             .enabled(true)
+     *             .violationTimeLimitSeconds(259200)
+     *             .nrql(NrqlAlertConditionNrqlArgs.builder()
+     *                 .query(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.nrql()))
+     *                 .build())
+     *             .critical(NrqlAlertConditionCriticalArgs.builder()
+     *                 .operator(&#34;above_or_equals&#34;)
+     *                 .threshold(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
+     *                 .thresholdDuration(900)
+     *                 .thresholdOccurrences(&#34;at_least_once&#34;)
+     *                 .build())
+     *             .fillOption(&#34;none&#34;)
+     *             .aggregationWindow(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationMethod(&#34;event_flow&#34;)
+     *             .aggregationDelay(120)
+     *             .slideBy(900)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * Here is an example of a custom alert:
      * ```java
      * package generated_program;
      * 
@@ -2212,8 +2553,8 @@ public final class NewrelicFunctions {
      *             .sliGuid(newrelic_service_level.foo().sli_guid())
      *             .sloTarget(local.foo_target())
      *             .sloPeriod(local.foo_period())
-     *             .customToleratedBudgetConsumption(5)
-     *             .customEvaluationPeriod(90)
+     *             .customToleratedBudgetConsumption(4)
+     *             .customEvaluationPeriod(5400)
      *             .isBadEvents(true)
      *             .build());
      * 
@@ -2229,11 +2570,11 @@ public final class NewrelicFunctions {
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
      *                 .operator(&#34;above_or_equals&#34;)
      *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
-     *                 .thresholdDuration(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *                 .thresholdDuration(900)
      *                 .thresholdOccurrences(&#34;at_least_once&#34;)
      *                 .build())
      *             .fillOption(&#34;none&#34;)
-     *             .aggregationWindow(3600)
+     *             .aggregationWindow(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
      *             .aggregationMethod(&#34;event_flow&#34;)
      *             .aggregationDelay(120)
      *             .slideBy(60)
@@ -2315,6 +2656,68 @@ public final class NewrelicFunctions {
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
      * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
      * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
+     * 
+     * Here is an example of a `slow_burn` alert.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetServiceLevelAlertHelperArgs;
+     * import com.pulumi.newrelic.NrqlAlertCondition;
+     * import com.pulumi.newrelic.NrqlAlertConditionArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooSlowBurn = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
+     *             .alertType(&#34;slow_burn&#34;)
+     *             .sliGuid(newrelic_service_level.foo().sli_guid())
+     *             .sloTarget(local.foo_target())
+     *             .sloPeriod(local.foo_period())
+     *             .isBadEvents(true)
+     *             .build());
+     * 
+     *         var yourCondition = new NrqlAlertCondition(&#34;yourCondition&#34;, NrqlAlertConditionArgs.builder()        
+     *             .accountId(12345678)
+     *             .policyId(67890)
+     *             .type(&#34;static&#34;)
+     *             .enabled(true)
+     *             .violationTimeLimitSeconds(259200)
+     *             .nrql(NrqlAlertConditionNrqlArgs.builder()
+     *                 .query(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.nrql()))
+     *                 .build())
+     *             .critical(NrqlAlertConditionCriticalArgs.builder()
+     *                 .operator(&#34;above_or_equals&#34;)
+     *                 .threshold(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
+     *                 .thresholdDuration(900)
+     *                 .thresholdOccurrences(&#34;at_least_once&#34;)
+     *                 .build())
+     *             .fillOption(&#34;none&#34;)
+     *             .aggregationWindow(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationMethod(&#34;event_flow&#34;)
+     *             .aggregationDelay(120)
+     *             .slideBy(900)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * Here is an example of a custom alert:
      * ```java
      * package generated_program;
      * 
@@ -2345,8 +2748,8 @@ public final class NewrelicFunctions {
      *             .sliGuid(newrelic_service_level.foo().sli_guid())
      *             .sloTarget(local.foo_target())
      *             .sloPeriod(local.foo_period())
-     *             .customToleratedBudgetConsumption(5)
-     *             .customEvaluationPeriod(90)
+     *             .customToleratedBudgetConsumption(4)
+     *             .customEvaluationPeriod(5400)
      *             .isBadEvents(true)
      *             .build());
      * 
@@ -2362,11 +2765,11 @@ public final class NewrelicFunctions {
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
      *                 .operator(&#34;above_or_equals&#34;)
      *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.threshold()))
-     *                 .thresholdDuration(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *                 .thresholdDuration(900)
      *                 .thresholdOccurrences(&#34;at_least_once&#34;)
      *                 .build())
      *             .fillOption(&#34;none&#34;)
-     *             .aggregationWindow(3600)
+     *             .aggregationWindow(fooCustom.applyValue(getServiceLevelAlertHelperResult -&gt; getServiceLevelAlertHelperResult.evaluationPeriod()))
      *             .aggregationMethod(&#34;event_flow&#34;)
      *             .aggregationDelay(120)
      *             .slideBy(60)

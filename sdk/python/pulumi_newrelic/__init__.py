@@ -20,6 +20,7 @@ from .get_account import *
 from .get_alert_channel import *
 from .get_alert_policy import *
 from .get_application import *
+from .get_authentication_domain import *
 from .get_cloud_account import *
 from .get_entity import *
 from .get_key_transaction import *

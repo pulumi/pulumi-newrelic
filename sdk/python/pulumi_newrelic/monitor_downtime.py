@@ -20,7 +20,7 @@ class MonitorDowntimeArgs:
                  mode: pulumi.Input[str],
                  start_time: pulumi.Input[str],
                  time_zone: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[str]] = None,
+                 account_id: Optional[pulumi.Input[int]] = None,
                  end_repeat: Optional[pulumi.Input['MonitorDowntimeEndRepeatArgs']] = None,
                  frequency: Optional[pulumi.Input['MonitorDowntimeFrequencyArgs']] = None,
                  maintenance_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -32,7 +32,7 @@ class MonitorDowntimeArgs:
         :param pulumi.Input[str] mode: One of the four modes of operation of monitor downtimes - `ONE_TIME`, `DAILY`, `MONTHLY` or `WEEKLY`.
         :param pulumi.Input[str] start_time: The time at which the monitor downtime would begin to operate, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2023-12-20T10:48:53`.
         :param pulumi.Input[str] time_zone: The timezone that applies to the Monitor Downtime schedule.
-        :param pulumi.Input[str] account_id: The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
+        :param pulumi.Input[int] account_id: The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
         :param pulumi.Input['MonitorDowntimeEndRepeatArgs'] end_repeat: Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
         :param pulumi.Input['MonitorDowntimeFrequencyArgs'] frequency: Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
         :param pulumi.Input[Sequence[pulumi.Input[str]]] maintenance_days: A list of days on which weekly monitor downtimes would function. Valid values which go into this list would be `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` and/or `"SATURDAY"`.
@@ -108,14 +108,14 @@ class MonitorDowntimeArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[str]]:
+    def account_id(self) -> Optional[pulumi.Input[int]]:
         """
         The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[str]]):
+    def account_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -184,7 +184,7 @@ class MonitorDowntimeArgs:
 @pulumi.input_type
 class _MonitorDowntimeState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[str]] = None,
+                 account_id: Optional[pulumi.Input[int]] = None,
                  end_repeat: Optional[pulumi.Input['MonitorDowntimeEndRepeatArgs']] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
                  frequency: Optional[pulumi.Input['MonitorDowntimeFrequencyArgs']] = None,
@@ -196,7 +196,7 @@ class _MonitorDowntimeState:
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MonitorDowntime resources.
-        :param pulumi.Input[str] account_id: The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
+        :param pulumi.Input[int] account_id: The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
         :param pulumi.Input['MonitorDowntimeEndRepeatArgs'] end_repeat: Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
         :param pulumi.Input[str] end_time: The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
         :param pulumi.Input['MonitorDowntimeFrequencyArgs'] frequency: Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
@@ -232,14 +232,14 @@ class _MonitorDowntimeState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[str]]:
+    def account_id(self) -> Optional[pulumi.Input[int]]:
         """
         The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[str]]):
+    def account_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -358,7 +358,7 @@ class MonitorDowntime(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[str]] = None,
+                 account_id: Optional[pulumi.Input[int]] = None,
                  end_repeat: Optional[pulumi.Input[pulumi.InputType['MonitorDowntimeEndRepeatArgs']]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
                  frequency: Optional[pulumi.Input[pulumi.InputType['MonitorDowntimeFrequencyArgs']]] = None,
@@ -532,7 +532,7 @@ class MonitorDowntime(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
+        :param pulumi.Input[int] account_id: The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
         :param pulumi.Input[pulumi.InputType['MonitorDowntimeEndRepeatArgs']] end_repeat: Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
         :param pulumi.Input[str] end_time: The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
         :param pulumi.Input[pulumi.InputType['MonitorDowntimeFrequencyArgs']] frequency: Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
@@ -727,7 +727,7 @@ class MonitorDowntime(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[str]] = None,
+                 account_id: Optional[pulumi.Input[int]] = None,
                  end_repeat: Optional[pulumi.Input[pulumi.InputType['MonitorDowntimeEndRepeatArgs']]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
                  frequency: Optional[pulumi.Input[pulumi.InputType['MonitorDowntimeFrequencyArgs']]] = None,
@@ -774,7 +774,7 @@ class MonitorDowntime(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[str]] = None,
+            account_id: Optional[pulumi.Input[int]] = None,
             end_repeat: Optional[pulumi.Input[pulumi.InputType['MonitorDowntimeEndRepeatArgs']]] = None,
             end_time: Optional[pulumi.Input[str]] = None,
             frequency: Optional[pulumi.Input[pulumi.InputType['MonitorDowntimeFrequencyArgs']]] = None,
@@ -791,7 +791,7 @@ class MonitorDowntime(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
+        :param pulumi.Input[int] account_id: The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
         :param pulumi.Input[pulumi.InputType['MonitorDowntimeEndRepeatArgs']] end_repeat: Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
         :param pulumi.Input[str] end_time: The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
         :param pulumi.Input[pulumi.InputType['MonitorDowntimeFrequencyArgs']] frequency: Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
@@ -822,7 +822,7 @@ class MonitorDowntime(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[Optional[str]]:
+    def account_id(self) -> pulumi.Output[int]:
         """
         The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
         """

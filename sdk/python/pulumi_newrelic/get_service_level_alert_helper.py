@@ -204,6 +204,41 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
     Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
     If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
 
+    Here is an example of a `slow_burn` alert.
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    foo_slow_burn = newrelic.get_service_level_alert_helper(alert_type="slow_burn",
+        sli_guid=newrelic_service_level["foo"]["sli_guid"],
+        slo_target=local["foo_target"],
+        slo_period=local["foo_period"],
+        is_bad_events=True)
+    your_condition = newrelic.NrqlAlertCondition("yourCondition",
+        account_id=12345678,
+        policy_id=67890,
+        type="static",
+        enabled=True,
+        violation_time_limit_seconds=259200,
+        nrql=newrelic.NrqlAlertConditionNrqlArgs(
+            query=foo_slow_burn.nrql,
+        ),
+        critical=newrelic.NrqlAlertConditionCriticalArgs(
+            operator="above_or_equals",
+            threshold=foo_slow_burn.threshold,
+            threshold_duration=900,
+            threshold_occurrences="at_least_once",
+        ),
+        fill_option="none",
+        aggregation_window=foo_slow_burn.evaluation_period,
+        aggregation_method="event_flow",
+        aggregation_delay="120",
+        slide_by=900)
+    ```
+
+    Here is an example of a custom alert:
+
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -212,8 +247,8 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
         sli_guid=newrelic_service_level["foo"]["sli_guid"],
         slo_target=local["foo_target"],
         slo_period=local["foo_period"],
-        custom_tolerated_budget_consumption=5,
-        custom_evaluation_period=90,
+        custom_tolerated_budget_consumption=4,
+        custom_evaluation_period=5400,
         is_bad_events=True)
     your_condition = newrelic.NrqlAlertCondition("yourCondition",
         account_id=12345678,
@@ -227,11 +262,11 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
         critical=newrelic.NrqlAlertConditionCriticalArgs(
             operator="above_or_equals",
             threshold=foo_custom.threshold,
-            threshold_duration=foo_custom.evaluation_period,
+            threshold_duration=900,
             threshold_occurrences="at_least_once",
         ),
         fill_option="none",
-        aggregation_window=3600,
+        aggregation_window=foo_custom.evaluation_period,
         aggregation_method="event_flow",
         aggregation_delay="120",
         slide_by=60)
@@ -239,7 +274,7 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
 
 
     :param str alert_type: The type of alert we want to set. Valid values are:
-    :param int custom_evaluation_period: Aggregation window taken into consideration in minutes. Mandatory if `alert_type` is `custom`.
+    :param int custom_evaluation_period: Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
     :param float custom_tolerated_budget_consumption: How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
     :param bool is_bad_events: If the SLI is defined using bad events. Defaults to `false`
     :param str sli_guid: The guid of the sli we want to set the alert on.
@@ -322,6 +357,41 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
     Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
     If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
 
+    Here is an example of a `slow_burn` alert.
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    foo_slow_burn = newrelic.get_service_level_alert_helper(alert_type="slow_burn",
+        sli_guid=newrelic_service_level["foo"]["sli_guid"],
+        slo_target=local["foo_target"],
+        slo_period=local["foo_period"],
+        is_bad_events=True)
+    your_condition = newrelic.NrqlAlertCondition("yourCondition",
+        account_id=12345678,
+        policy_id=67890,
+        type="static",
+        enabled=True,
+        violation_time_limit_seconds=259200,
+        nrql=newrelic.NrqlAlertConditionNrqlArgs(
+            query=foo_slow_burn.nrql,
+        ),
+        critical=newrelic.NrqlAlertConditionCriticalArgs(
+            operator="above_or_equals",
+            threshold=foo_slow_burn.threshold,
+            threshold_duration=900,
+            threshold_occurrences="at_least_once",
+        ),
+        fill_option="none",
+        aggregation_window=foo_slow_burn.evaluation_period,
+        aggregation_method="event_flow",
+        aggregation_delay="120",
+        slide_by=900)
+    ```
+
+    Here is an example of a custom alert:
+
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -330,8 +400,8 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
         sli_guid=newrelic_service_level["foo"]["sli_guid"],
         slo_target=local["foo_target"],
         slo_period=local["foo_period"],
-        custom_tolerated_budget_consumption=5,
-        custom_evaluation_period=90,
+        custom_tolerated_budget_consumption=4,
+        custom_evaluation_period=5400,
         is_bad_events=True)
     your_condition = newrelic.NrqlAlertCondition("yourCondition",
         account_id=12345678,
@@ -345,11 +415,11 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
         critical=newrelic.NrqlAlertConditionCriticalArgs(
             operator="above_or_equals",
             threshold=foo_custom.threshold,
-            threshold_duration=foo_custom.evaluation_period,
+            threshold_duration=900,
             threshold_occurrences="at_least_once",
         ),
         fill_option="none",
-        aggregation_window=3600,
+        aggregation_window=foo_custom.evaluation_period,
         aggregation_method="event_flow",
         aggregation_delay="120",
         slide_by=60)
@@ -357,7 +427,7 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
 
 
     :param str alert_type: The type of alert we want to set. Valid values are:
-    :param int custom_evaluation_period: Aggregation window taken into consideration in minutes. Mandatory if `alert_type` is `custom`.
+    :param int custom_evaluation_period: Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
     :param float custom_tolerated_budget_consumption: How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
     :param bool is_bad_events: If the SLI is defined using bad events. Defaults to `false`
     :param str sli_guid: The guid of the sli we want to set the alert on.

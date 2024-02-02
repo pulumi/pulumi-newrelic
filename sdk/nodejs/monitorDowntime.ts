@@ -204,7 +204,7 @@ export class MonitorDowntime extends pulumi.CustomResource {
     /**
      * The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `accountId` specified in the `provider{}`), if not specified.
      */
-    public readonly accountId!: pulumi.Output<string | undefined>;
+    public readonly accountId!: pulumi.Output<number>;
     /**
      * Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
      */
@@ -304,7 +304,7 @@ export interface MonitorDowntimeState {
     /**
      * The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `accountId` specified in the `provider{}`), if not specified.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<number>;
     /**
      * Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
      */
@@ -352,7 +352,7 @@ export interface MonitorDowntimeArgs {
     /**
      * The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `accountId` specified in the `provider{}`), if not specified.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<number>;
     /**
      * Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
      */

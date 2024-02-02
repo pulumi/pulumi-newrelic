@@ -46,6 +46,44 @@ import * as utilities from "./utilities";
  * Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
  * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
  *
+ * Here is an example of a `slowBurn` alert.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooSlowBurn = newrelic.getServiceLevelAlertHelper({
+ *     alertType: "slow_burn",
+ *     sliGuid: newrelic_service_level.foo.sli_guid,
+ *     sloTarget: local.foo_target,
+ *     sloPeriod: local.foo_period,
+ *     isBadEvents: true,
+ * });
+ * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
+ *     accountId: 12345678,
+ *     policyId: 67890,
+ *     type: "static",
+ *     enabled: true,
+ *     violationTimeLimitSeconds: 259200,
+ *     nrql: {
+ *         query: fooSlowBurn.then(fooSlowBurn => fooSlowBurn.nrql),
+ *     },
+ *     critical: {
+ *         operator: "above_or_equals",
+ *         threshold: fooSlowBurn.then(fooSlowBurn => fooSlowBurn.threshold),
+ *         thresholdDuration: 900,
+ *         thresholdOccurrences: "at_least_once",
+ *     },
+ *     fillOption: "none",
+ *     aggregationWindow: fooSlowBurn.then(fooSlowBurn => fooSlowBurn.evaluationPeriod),
+ *     aggregationMethod: "event_flow",
+ *     aggregationDelay: "120",
+ *     slideBy: 900,
+ * });
+ * ```
+ *
+ * Here is an example of a custom alert:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -55,8 +93,8 @@ import * as utilities from "./utilities";
  *     sliGuid: newrelic_service_level.foo.sli_guid,
  *     sloTarget: local.foo_target,
  *     sloPeriod: local.foo_period,
- *     customToleratedBudgetConsumption: 5,
- *     customEvaluationPeriod: 90,
+ *     customToleratedBudgetConsumption: 4,
+ *     customEvaluationPeriod: 5400,
  *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
@@ -71,11 +109,11 @@ import * as utilities from "./utilities";
  *     critical: {
  *         operator: "above_or_equals",
  *         threshold: fooCustom.then(fooCustom => fooCustom.threshold),
- *         thresholdDuration: fooCustom.then(fooCustom => fooCustom.evaluationPeriod),
+ *         thresholdDuration: 900,
  *         thresholdOccurrences: "at_least_once",
  *     },
  *     fillOption: "none",
- *     aggregationWindow: 3600,
+ *     aggregationWindow: fooCustom.then(fooCustom => fooCustom.evaluationPeriod),
  *     aggregationMethod: "event_flow",
  *     aggregationDelay: "120",
  *     slideBy: 60,
@@ -105,7 +143,7 @@ export interface GetServiceLevelAlertHelperArgs {
      */
     alertType: string;
     /**
-     * Aggregation window taken into consideration in minutes. Mandatory if `alertType` is `custom`.
+     * Aggregation window taken into consideration in seconds. Mandatory if `alertType` is `custom`.
      */
     customEvaluationPeriod?: number;
     /**
@@ -204,6 +242,44 @@ export interface GetServiceLevelAlertHelperResult {
  * Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
  * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
  *
+ * Here is an example of a `slowBurn` alert.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooSlowBurn = newrelic.getServiceLevelAlertHelper({
+ *     alertType: "slow_burn",
+ *     sliGuid: newrelic_service_level.foo.sli_guid,
+ *     sloTarget: local.foo_target,
+ *     sloPeriod: local.foo_period,
+ *     isBadEvents: true,
+ * });
+ * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
+ *     accountId: 12345678,
+ *     policyId: 67890,
+ *     type: "static",
+ *     enabled: true,
+ *     violationTimeLimitSeconds: 259200,
+ *     nrql: {
+ *         query: fooSlowBurn.then(fooSlowBurn => fooSlowBurn.nrql),
+ *     },
+ *     critical: {
+ *         operator: "above_or_equals",
+ *         threshold: fooSlowBurn.then(fooSlowBurn => fooSlowBurn.threshold),
+ *         thresholdDuration: 900,
+ *         thresholdOccurrences: "at_least_once",
+ *     },
+ *     fillOption: "none",
+ *     aggregationWindow: fooSlowBurn.then(fooSlowBurn => fooSlowBurn.evaluationPeriod),
+ *     aggregationMethod: "event_flow",
+ *     aggregationDelay: "120",
+ *     slideBy: 900,
+ * });
+ * ```
+ *
+ * Here is an example of a custom alert:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -213,8 +289,8 @@ export interface GetServiceLevelAlertHelperResult {
  *     sliGuid: newrelic_service_level.foo.sli_guid,
  *     sloTarget: local.foo_target,
  *     sloPeriod: local.foo_period,
- *     customToleratedBudgetConsumption: 5,
- *     customEvaluationPeriod: 90,
+ *     customToleratedBudgetConsumption: 4,
+ *     customEvaluationPeriod: 5400,
  *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
@@ -229,11 +305,11 @@ export interface GetServiceLevelAlertHelperResult {
  *     critical: {
  *         operator: "above_or_equals",
  *         threshold: fooCustom.then(fooCustom => fooCustom.threshold),
- *         thresholdDuration: fooCustom.then(fooCustom => fooCustom.evaluationPeriod),
+ *         thresholdDuration: 900,
  *         thresholdOccurrences: "at_least_once",
  *     },
  *     fillOption: "none",
- *     aggregationWindow: 3600,
+ *     aggregationWindow: fooCustom.then(fooCustom => fooCustom.evaluationPeriod),
  *     aggregationMethod: "event_flow",
  *     aggregationDelay: "120",
  *     slideBy: 60,
@@ -253,7 +329,7 @@ export interface GetServiceLevelAlertHelperOutputArgs {
      */
     alertType: pulumi.Input<string>;
     /**
-     * Aggregation window taken into consideration in minutes. Mandatory if `alertType` is `custom`.
+     * Aggregation window taken into consideration in seconds. Mandatory if `alertType` is `custom`.
      */
     customEvaluationPeriod?: pulumi.Input<number>;
     /**
