@@ -80,6 +80,11 @@ export const getApplication: typeof import("./getApplication").getApplication = 
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
 utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
 
+export { GetAuthenticationDomainArgs, GetAuthenticationDomainResult, GetAuthenticationDomainOutputArgs } from "./getAuthenticationDomain";
+export const getAuthenticationDomain: typeof import("./getAuthenticationDomain").getAuthenticationDomain = null as any;
+export const getAuthenticationDomainOutput: typeof import("./getAuthenticationDomain").getAuthenticationDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthenticationDomain","getAuthenticationDomainOutput"], () => require("./getAuthenticationDomain"));
+
 export { GetCloudAccountArgs, GetCloudAccountResult, GetCloudAccountOutputArgs } from "./getCloudAccount";
 export const getCloudAccount: typeof import("./getCloudAccount").getCloudAccount = null as any;
 export const getCloudAccountOutput: typeof import("./getCloudAccount").getCloudAccountOutput = null as any;

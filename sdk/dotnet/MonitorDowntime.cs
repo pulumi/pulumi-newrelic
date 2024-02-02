@@ -241,7 +241,7 @@ namespace Pulumi.NewRelic
         /// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
         /// </summary>
         [Output("accountId")]
-        public Output<string?> AccountId { get; private set; } = null!;
+        public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
@@ -349,7 +349,7 @@ namespace Pulumi.NewRelic
         /// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
         /// </summary>
         [Input("accountId")]
-        public Input<string>? AccountId { get; set; }
+        public Input<int>? AccountId { get; set; }
 
         /// <summary>
         /// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
@@ -431,7 +431,7 @@ namespace Pulumi.NewRelic
         /// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
         /// </summary>
         [Input("accountId")]
-        public Input<string>? AccountId { get; set; }
+        public Input<int>? AccountId { get; set; }
 
         /// <summary>
         /// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -

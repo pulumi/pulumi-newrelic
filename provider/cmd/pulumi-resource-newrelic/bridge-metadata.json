@@ -2324,6 +2324,10 @@
                     }
                 }
             },
+            "newrelic_authentication_domain": {
+                "current": "newrelic:index/getAuthenticationDomain:getAuthenticationDomain",
+                "majorVersion": 5
+            },
             "newrelic_cloud_account": {
                 "current": "newrelic:index/getCloudAccount:getCloudAccount",
                 "majorVersion": 5
@@ -2446,6 +2450,7 @@
             "newrelic:index/getAlertChannel:getAlertChannel": "newrelic_alert_channel",
             "newrelic:index/getAlertPolicy:getAlertPolicy": "newrelic_alert_policy",
             "newrelic:index/getApplication:getApplication": "newrelic_application",
+            "newrelic:index/getAuthenticationDomain:getAuthenticationDomain": "newrelic_authentication_domain",
             "newrelic:index/getCloudAccount:getCloudAccount": "newrelic_cloud_account",
             "newrelic:index/getEntity:getEntity": "newrelic_entity",
             "newrelic:index/getKeyTransaction:getKeyTransaction": "newrelic_key_transaction",

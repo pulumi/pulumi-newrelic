@@ -35,14 +35,14 @@ public final class GetServiceLevelAlertHelperArgs extends com.pulumi.resources.I
     }
 
     /**
-     * Aggregation window taken into consideration in minutes. Mandatory if `alert_type` is `custom`.
+     * Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
      * 
      */
     @Import(name="customEvaluationPeriod")
     private @Nullable Output<Integer> customEvaluationPeriod;
 
     /**
-     * @return Aggregation window taken into consideration in minutes. Mandatory if `alert_type` is `custom`.
+     * @return Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
      * 
      */
     public Optional<Output<Integer>> customEvaluationPeriod() {
@@ -176,7 +176,7 @@ public final class GetServiceLevelAlertHelperArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param customEvaluationPeriod Aggregation window taken into consideration in minutes. Mandatory if `alert_type` is `custom`.
+         * @param customEvaluationPeriod Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class GetServiceLevelAlertHelperArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param customEvaluationPeriod Aggregation window taken into consideration in minutes. Mandatory if `alert_type` is `custom`.
+         * @param customEvaluationPeriod Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
          * 
          * @return builder
          * 
