@@ -12,10 +12,12 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// ## Import
     /// 
-    /// New Relic dashboards can be imported using their GUID, e.g. bash
+    /// New Relic dashboards can be imported using their GUID, e.g.
+    /// 
+    ///  bash
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard &lt;dashboard GUID&gt;
+    /// $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard &lt;dashboard GUID&gt;
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/oneDashboardJson:OneDashboardJson")]

@@ -262,12 +262,12 @@ import (
 //
 // ## Import
 //
-// A monitor downtime can be imported into Terraform configuration using its `guid`, i.e. bash
+// A monitor downtime can be imported into Terraform configuration using its `guid`, i.e.
+//
+//	bash
 //
 // ```sh
-//
-//	$ pulumi import newrelic:index/monitorDowntime:MonitorDowntime monitor <guid>
-//
+// $ pulumi import newrelic:index/monitorDowntime:MonitorDowntime monitor <guid>
 // ```
 type MonitorDowntime struct {
 	pulumi.CustomResourceState

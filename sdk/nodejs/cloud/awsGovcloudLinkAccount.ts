@@ -34,10 +34,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Linked AWSGovCloud accounts can be imported using the `id`, e.g. bash
+ * Linked AWSGovCloud accounts can be imported using the `id`, e.g.
+ *
+ *  bash
  *
  * ```sh
- *  $ pulumi import newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount foo <id>
+ * $ pulumi import newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount foo <id>
  * ```
  */
 export class AwsGovcloudLinkAccount extends pulumi.CustomResource {

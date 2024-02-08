@@ -33,10 +33,12 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * New Relic obfuscation rule can be imported using the rule ID, e.g. bash
+ * New Relic obfuscation rule can be imported using the rule ID, e.g.
+ *
+ *  bash
  *
  * ```sh
- *  $ pulumi import newrelic:index/obfuscationRule:ObfuscationRule foo 34567
+ * $ pulumi import newrelic:index/obfuscationRule:ObfuscationRule foo 34567
  * ```
  */
 export class ObfuscationRule extends pulumi.CustomResource {

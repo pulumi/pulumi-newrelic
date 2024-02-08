@@ -170,7 +170,7 @@ class AlertPolicyChannel(pulumi.CustomResource):
 
         ## Import
 
-        Alert policy channels can be imported using the following notation`<policyID>:<channelID>:<channelID>`, e.g.
+        Alert policy channels can be imported using the following notation: `<policyID>:<channelID>:<channelID>`, e.g.
 
         ```sh
          $ pulumi import newrelic:index/alertPolicyChannel:AlertPolicyChannel foo 123456:3462754:2938324
@@ -229,7 +229,7 @@ class AlertPolicyChannel(pulumi.CustomResource):
 
         ## Import
 
-        Alert policy channels can be imported using the following notation`<policyID>:<channelID>:<channelID>`, e.g.
+        Alert policy channels can be imported using the following notation: `<policyID>:<channelID>:<channelID>`, e.g.
 
         ```sh
          $ pulumi import newrelic:index/alertPolicyChannel:AlertPolicyChannel foo 123456:3462754:2938324

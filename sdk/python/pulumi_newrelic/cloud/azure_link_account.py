@@ -256,10 +256,12 @@ class AzureLinkAccount(pulumi.CustomResource):
 
         ## Import
 
-        Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic bash
+        Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:cloud/azureLinkAccount:AzureLinkAccount foo <id>
+        $ pulumi import newrelic:cloud/azureLinkAccount:AzureLinkAccount foo <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -306,10 +308,12 @@ class AzureLinkAccount(pulumi.CustomResource):
 
         ## Import
 
-        Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic bash
+        Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:cloud/azureLinkAccount:AzureLinkAccount foo <id>
+        $ pulumi import newrelic:cloud/azureLinkAccount:AzureLinkAccount foo <id>
         ```
 
         :param str resource_name: The name of the resource.

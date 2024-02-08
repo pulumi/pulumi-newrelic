@@ -21,10 +21,12 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * New Relic dashboards can be imported using their GUID, e.g. bash
+ * New Relic dashboards can be imported using their GUID, e.g.
+ * 
+ *  bash
  * 
  * ```sh
- *  $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard &lt;dashboard GUID&gt;
+ * $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard &lt;dashboard GUID&gt;
  * ```
  * 
  */

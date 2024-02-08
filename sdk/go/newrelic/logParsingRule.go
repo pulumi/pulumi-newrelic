@@ -88,12 +88,12 @@ import (
 //
 // ## Import
 //
-// New Relic log parsing rule can be imported using the rule ID, e.g. bash
+// New Relic log parsing rule can be imported using the rule ID, e.g.
+//
+//	bash
 //
 // ```sh
-//
-//	$ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789
-//
+// $ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789
 // ```
 type LogParsingRule struct {
 	pulumi.CustomResourceState

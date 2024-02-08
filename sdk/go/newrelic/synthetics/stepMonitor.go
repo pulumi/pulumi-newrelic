@@ -67,12 +67,12 @@ import (
 //
 // ## Import
 //
-// Synthetics step monitor scripts can be imported using the `guid`, e.g. bash
+// Synthetics step monitor scripts can be imported using the `guid`, e.g.
+//
+//	bash
 //
 // ```sh
-//
-//	$ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor <guid>
-//
+// $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor <guid>
 // ```
 type StepMonitor struct {
 	pulumi.CustomResourceState

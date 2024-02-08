@@ -237,10 +237,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Synthetics monitor can be imported using the `guid`, e.g. bash
+ * Synthetics monitor can be imported using the `guid`, e.g.
+ * 
+ *  bash
  * 
  * ```sh
- *  $ pulumi import newrelic:synthetics/monitor:Monitor monitor &lt;guid&gt;
+ * $ pulumi import newrelic:synthetics/monitor:Monitor monitor &lt;guid&gt;
  * ```
  * 
  */

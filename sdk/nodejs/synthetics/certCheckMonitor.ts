@@ -58,10 +58,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Synthetics certificate check monitor scripts can be imported using the `guid`, e.g. bash
+ * Synthetics certificate check monitor scripts can be imported using the `guid`, e.g.
+ *
+ *  bash
  *
  * ```sh
- *  $ pulumi import newrelic:synthetics/certCheckMonitor:CertCheckMonitor monitor <guid>
+ * $ pulumi import newrelic:synthetics/certCheckMonitor:CertCheckMonitor monitor <guid>
  * ```
  */
 export class CertCheckMonitor extends pulumi.CustomResource {
