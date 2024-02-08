@@ -228,10 +228,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Synthetics monitor scripts can be imported using the `guid`, e.g. bash
+ * Synthetics monitor scripts can be imported using the `guid`, e.g.
+ * 
+ *  bash
  * 
  * ```sh
- *  $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor &lt;guid&gt;
+ * $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor &lt;guid&gt;
  * ```
  * 
  */

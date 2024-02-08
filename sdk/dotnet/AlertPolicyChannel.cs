@@ -70,7 +70,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Import
     /// 
-    /// Alert policy channels can be imported using the following notation`&lt;policyID&gt;:&lt;channelID&gt;:&lt;channelID&gt;`, e.g.
+    /// Alert policy channels can be imported using the following notation: `&lt;policyID&gt;:&lt;channelID&gt;:&lt;channelID&gt;`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import newrelic:index/alertPolicyChannel:AlertPolicyChannel foo 123456:3462754:2938324

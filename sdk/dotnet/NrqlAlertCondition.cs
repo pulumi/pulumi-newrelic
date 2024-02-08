@@ -315,16 +315,18 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Import
     /// 
-    /// NRQL alert conditions can be imported using a composite ID of `&lt;policy_id&gt;:&lt;condition_id&gt;:&lt;conditionType&gt;`, e.g. // For `baseline` conditions
+    /// NRQL alert conditions can be imported using a composite ID of `&lt;policy_id&gt;:&lt;condition_id&gt;:&lt;conditionType&gt;`, e.g.
+    /// 
+    ///  // For `baseline` conditions
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
+    /// $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
     /// ```
     /// 
     ///  // For `static` conditions
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
+    /// $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/nrqlAlertCondition:NrqlAlertCondition")]

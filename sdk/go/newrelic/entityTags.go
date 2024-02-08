@@ -67,12 +67,12 @@ import (
 //
 // # New Relic One entity tags can be imported using a concatenated string of the format
 //
-// `<guid>`, e.g. bash
+// `<guid>`, e.g.
+//
+//	bash
 //
 // ```sh
-//
-//	$ pulumi import newrelic:index/entityTags:EntityTags foo MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
-//
+// $ pulumi import newrelic:index/entityTags:EntityTags foo MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
 // ```
 type EntityTags struct {
 	pulumi.CustomResourceState

@@ -102,10 +102,12 @@ import * as utilities from "../utilities";
  *
  * New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
  *
- * `<policy_id>:<condition_id>`, e.g. bash
+ * `<policy_id>:<condition_id>`, e.g.
+ *
+ *  bash
  *
  * ```sh
- *  $ pulumi import newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition example 12345678:1456
+ * $ pulumi import newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition example 12345678:1456
  * ```
  */
 export class MultiLocationAlertCondition extends pulumi.CustomResource {

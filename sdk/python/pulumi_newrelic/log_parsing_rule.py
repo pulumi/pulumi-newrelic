@@ -347,10 +347,12 @@ class LogParsingRule(pulumi.CustomResource):
 
         ## Import
 
-        New Relic log parsing rule can be imported using the rule ID, e.g. bash
+        New Relic log parsing rule can be imported using the rule ID, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789
+        $ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789
         ```
 
         :param str resource_name: The name of the resource.
@@ -408,10 +410,12 @@ class LogParsingRule(pulumi.CustomResource):
 
         ## Import
 
-        New Relic log parsing rule can be imported using the rule ID, e.g. bash
+        New Relic log parsing rule can be imported using the rule ID, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789
+        $ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789
         ```
 
         :param str resource_name: The name of the resource.

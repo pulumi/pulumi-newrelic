@@ -190,10 +190,12 @@ class AwsLinkAccount(pulumi.CustomResource):
 
         ## Import
 
-        Linked AWS accounts can be imported using the `id`, e.g. bash
+        Linked AWS accounts can be imported using the `id`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>
+        $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -235,10 +237,12 @@ class AwsLinkAccount(pulumi.CustomResource):
 
         ## Import
 
-        Linked AWS accounts can be imported using the `id`, e.g. bash
+        Linked AWS accounts can be imported using the `id`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>
+        $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>
         ```
 
         :param str resource_name: The name of the resource.

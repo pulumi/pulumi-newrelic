@@ -35,10 +35,12 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Import
     /// 
-    /// Accounts can be imported using the `id`, e.g. bash
+    /// Accounts can be imported using the `id`, e.g.
+    /// 
+    ///  bash
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:index/accountManagement:AccountManagement foo &lt;id&gt;
+    /// $ pulumi import newrelic:index/accountManagement:AccountManagement foo &lt;id&gt;
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/accountManagement:AccountManagement")]

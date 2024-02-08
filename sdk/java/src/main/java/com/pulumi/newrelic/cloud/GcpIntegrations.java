@@ -193,10 +193,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Linked GCP account integrations can be imported using the `id`, e.g. bash
+ * Linked GCP account integrations can be imported using the `id`, e.g.
+ * 
+ *  bash
  * 
  * ```sh
- *  $ pulumi import newrelic:cloud/gcpIntegrations:GcpIntegrations foo &lt;id&gt;
+ * $ pulumi import newrelic:cloud/gcpIntegrations:GcpIntegrations foo &lt;id&gt;
  * ```
  * 
  */

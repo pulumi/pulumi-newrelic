@@ -9,10 +9,12 @@ import * as utilities from "./utilities";
 /**
  * ## Import
  *
- * New Relic dashboards can be imported using their GUID, e.g. bash
+ * New Relic dashboards can be imported using their GUID, e.g.
+ *
+ *  bash
  *
  * ```sh
- *  $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <dashboard GUID>
+ * $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <dashboard GUID>
  * ```
  */
 export class OneDashboard extends pulumi.CustomResource {
