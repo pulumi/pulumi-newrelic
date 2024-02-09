@@ -21,10 +21,12 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Accounts can be imported using the `id`, e.g. bash
+ * Accounts can be imported using the `id`, e.g.
+ *
+ *  bash
  *
  * ```sh
- *  $ pulumi import newrelic:index/accountManagement:AccountManagement foo <id>
+ * $ pulumi import newrelic:index/accountManagement:AccountManagement foo <id>
  * ```
  */
 export class AccountManagement extends pulumi.CustomResource {

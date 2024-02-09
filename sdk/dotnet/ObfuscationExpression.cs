@@ -34,10 +34,12 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Import
     /// 
-    /// New Relic obfuscation expression can be imported using the expression ID, e.g. bash
+    /// New Relic obfuscation expression can be imported using the expression ID, e.g.
+    /// 
+    ///  bash
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:index/obfuscationExpression:ObfuscationExpression foo 34567
+    /// $ pulumi import newrelic:index/obfuscationExpression:ObfuscationExpression foo 34567
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/obfuscationExpression:ObfuscationExpression")]

@@ -855,10 +855,12 @@ class Monitor(pulumi.CustomResource):
 
         ## Import
 
-        Synthetics monitor can be imported using the `guid`, e.g. bash
+        Synthetics monitor can be imported using the `guid`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>
+        $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>
         ```
 
         :param str resource_name: The name of the resource.
@@ -1018,10 +1020,12 @@ class Monitor(pulumi.CustomResource):
 
         ## Import
 
-        Synthetics monitor can be imported using the `guid`, e.g. bash
+        Synthetics monitor can be imported using the `guid`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>
+        $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>
         ```
 
         :param str resource_name: The name of the resource.

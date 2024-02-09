@@ -53,12 +53,12 @@ import (
 //
 // ## Import
 //
-// Linked AWS accounts can be imported using the `id`, e.g. bash
+// Linked AWS accounts can be imported using the `id`, e.g.
+//
+//	bash
 //
 // ```sh
-//
-//	$ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>
-//
+// $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>
 // ```
 type AwsLinkAccount struct {
 	pulumi.CustomResourceState

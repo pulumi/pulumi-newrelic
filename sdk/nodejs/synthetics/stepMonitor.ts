@@ -39,10 +39,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Synthetics step monitor scripts can be imported using the `guid`, e.g. bash
+ * Synthetics step monitor scripts can be imported using the `guid`, e.g.
+ *
+ *  bash
  *
  * ```sh
- *  $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor <guid>
+ * $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor <guid>
  * ```
  */
 export class StepMonitor extends pulumi.CustomResource {

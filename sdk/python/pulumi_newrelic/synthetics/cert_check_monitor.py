@@ -401,10 +401,12 @@ class CertCheckMonitor(pulumi.CustomResource):
 
         ## Import
 
-        Synthetics certificate check monitor scripts can be imported using the `guid`, e.g. bash
+        Synthetics certificate check monitor scripts can be imported using the `guid`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:synthetics/certCheckMonitor:CertCheckMonitor monitor <guid>
+        $ pulumi import newrelic:synthetics/certCheckMonitor:CertCheckMonitor monitor <guid>
         ```
 
         :param str resource_name: The name of the resource.
@@ -476,10 +478,12 @@ class CertCheckMonitor(pulumi.CustomResource):
 
         ## Import
 
-        Synthetics certificate check monitor scripts can be imported using the `guid`, e.g. bash
+        Synthetics certificate check monitor scripts can be imported using the `guid`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:synthetics/certCheckMonitor:CertCheckMonitor monitor <guid>
+        $ pulumi import newrelic:synthetics/certCheckMonitor:CertCheckMonitor monitor <guid>
         ```
 
         :param str resource_name: The name of the resource.

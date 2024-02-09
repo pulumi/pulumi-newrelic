@@ -290,10 +290,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Alert channels can be imported using the `id`, e.g. bash
+ * Alert channels can be imported using the `id`, e.g.
+ * 
+ *  bash
  * 
  * ```sh
- *  $ pulumi import newrelic:index/alertChannel:AlertChannel main &lt;id&gt;
+ * $ pulumi import newrelic:index/alertChannel:AlertChannel main &lt;id&gt;
  * ```
  * 
  */

@@ -135,12 +135,12 @@ import (
 //
 // ## Import
 //
-// Linked GCP account integrations can be imported using the `id`, e.g. bash
+// Linked GCP account integrations can be imported using the `id`, e.g.
+//
+//	bash
 //
 // ```sh
-//
-//	$ pulumi import newrelic:cloud/gcpIntegrations:GcpIntegrations foo <id>
-//
+// $ pulumi import newrelic:cloud/gcpIntegrations:GcpIntegrations foo <id>
 // ```
 type GcpIntegrations struct {
 	pulumi.CustomResourceState

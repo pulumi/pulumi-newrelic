@@ -57,10 +57,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Synthetics broken links monitor scripts can be imported using the `guid`, e.g. bash
+ * Synthetics broken links monitor scripts can be imported using the `guid`, e.g.
+ *
+ *  bash
  *
  * ```sh
- *  $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor monitor <guid>
+ * $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor monitor <guid>
  * ```
  */
 export class BrokenLinksMonitor extends pulumi.CustomResource {

@@ -265,10 +265,12 @@ class DataPartitionRule(pulumi.CustomResource):
 
         ## Import
 
-        New Relic data partition rule can be imported using the rule ID, e.g. bash
+        New Relic data partition rule can be imported using the rule ID, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo <id>
+        $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -308,10 +310,12 @@ class DataPartitionRule(pulumi.CustomResource):
 
         ## Import
 
-        New Relic data partition rule can be imported using the rule ID, e.g. bash
+        New Relic data partition rule can be imported using the rule ID, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo <id>
+        $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo <id>
         ```
 
         :param str resource_name: The name of the resource.

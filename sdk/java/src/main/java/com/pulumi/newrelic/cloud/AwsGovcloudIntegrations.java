@@ -49,10 +49,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Integrate AWSGovCloud accounts can be imported using the `id`, e.g. bash
+ * Integrate AWSGovCloud accounts can be imported using the `id`, e.g.
+ * 
+ *  bash
  * 
  * ```sh
- *  $ pulumi import newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations foo &lt;id&gt;
+ * $ pulumi import newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations foo &lt;id&gt;
  * ```
  * 
  */

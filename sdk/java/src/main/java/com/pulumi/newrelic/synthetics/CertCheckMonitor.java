@@ -112,10 +112,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Synthetics certificate check monitor scripts can be imported using the `guid`, e.g. bash
+ * Synthetics certificate check monitor scripts can be imported using the `guid`, e.g.
+ * 
+ *  bash
  * 
  * ```sh
- *  $ pulumi import newrelic:synthetics/certCheckMonitor:CertCheckMonitor monitor &lt;guid&gt;
+ * $ pulumi import newrelic:synthetics/certCheckMonitor:CertCheckMonitor monitor &lt;guid&gt;
  * ```
  * 
  */

@@ -132,10 +132,12 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Alert channels can be imported using the `id`, e.g. bash
+ * Alert channels can be imported using the `id`, e.g.
+ *
+ *  bash
  *
  * ```sh
- *  $ pulumi import newrelic:index/alertChannel:AlertChannel main <id>
+ * $ pulumi import newrelic:index/alertChannel:AlertChannel main <id>
  * ```
  */
 export class AlertChannel extends pulumi.CustomResource {

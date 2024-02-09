@@ -64,10 +64,12 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Import
     /// 
-    /// Synthetics step monitor scripts can be imported using the `guid`, e.g. bash
+    /// Synthetics step monitor scripts can be imported using the `guid`, e.g.
+    /// 
+    ///  bash
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor &lt;guid&gt;
+    /// $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor &lt;guid&gt;
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/stepMonitor:StepMonitor")]
