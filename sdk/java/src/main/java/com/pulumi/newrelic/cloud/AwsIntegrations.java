@@ -443,10 +443,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Linked AWS account integrations can be imported using the `id`, e.g. bash
+ * Linked AWS account integrations can be imported using the `id`, e.g.
+ * 
+ *  bash
  * 
  * ```sh
- *  $ pulumi import newrelic:cloud/awsIntegrations:AwsIntegrations foo &lt;id&gt;
+ * $ pulumi import newrelic:cloud/awsIntegrations:AwsIntegrations foo &lt;id&gt;
  * ```
  * 
  */

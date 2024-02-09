@@ -44,12 +44,12 @@ import (
 //
 // ## Import
 //
-// Browser applications can be imported using the GUID of the browser application. bash
+// Browser applications can be imported using the GUID of the browser application.
+//
+//	bash
 //
 // ```sh
-//
-//	$ pulumi import newrelic:index/browserApplication:BrowserApplication foo <GUID>
-//
+// $ pulumi import newrelic:index/browserApplication:BrowserApplication foo <GUID>
 // ```
 type BrowserApplication struct {
 	pulumi.CustomResourceState

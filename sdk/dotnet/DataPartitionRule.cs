@@ -39,10 +39,12 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Import
     /// 
-    /// New Relic data partition rule can be imported using the rule ID, e.g. bash
+    /// New Relic data partition rule can be imported using the rule ID, e.g.
+    /// 
+    ///  bash
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo &lt;id&gt;
+    /// $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo &lt;id&gt;
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/dataPartitionRule:DataPartitionRule")]

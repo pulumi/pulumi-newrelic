@@ -237,12 +237,12 @@ import (
 //
 // ## Import
 //
-// Synthetics monitor can be imported using the `guid`, e.g. bash
+// Synthetics monitor can be imported using the `guid`, e.g.
+//
+//	bash
 //
 // ```sh
-//
-//	$ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>
-//
+// $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>
 // ```
 type Monitor struct {
 	pulumi.CustomResourceState

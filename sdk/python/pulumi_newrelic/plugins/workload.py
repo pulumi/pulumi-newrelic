@@ -374,10 +374,12 @@ class Workload(pulumi.CustomResource):
 
         New Relic workloads can be imported using a concatenated string of the format
 
-        `<account_id>:<workload_id>:<guid>`, e.g. bash
+        `<account_id>:<workload_id>:<guid>`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+        $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
         ```
 
         :param str resource_name: The name of the resource.
@@ -408,10 +410,12 @@ class Workload(pulumi.CustomResource):
 
         New Relic workloads can be imported using a concatenated string of the format
 
-        `<account_id>:<workload_id>:<guid>`, e.g. bash
+        `<account_id>:<workload_id>:<guid>`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+        $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
         ```
 
         :param str resource_name: The name of the resource.

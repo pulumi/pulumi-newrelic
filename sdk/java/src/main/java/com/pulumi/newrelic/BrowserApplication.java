@@ -55,10 +55,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Browser applications can be imported using the GUID of the browser application. bash
+ * Browser applications can be imported using the GUID of the browser application.
+ * 
+ *  bash
  * 
  * ```sh
- *  $ pulumi import newrelic:index/browserApplication:BrowserApplication foo &lt;GUID&gt;
+ * $ pulumi import newrelic:index/browserApplication:BrowserApplication foo &lt;GUID&gt;
  * ```
  * 
  */

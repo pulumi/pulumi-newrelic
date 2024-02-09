@@ -775,10 +775,12 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
 
         ## Import
 
-        Integrate AWSGovCloud accounts can be imported using the `id`, e.g. bash
+        Integrate AWSGovCloud accounts can be imported using the `id`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations foo <id>
+        $ pulumi import newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations foo <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -827,10 +829,12 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
 
         ## Import
 
-        Integrate AWSGovCloud accounts can be imported using the `id`, e.g. bash
+        Integrate AWSGovCloud accounts can be imported using the `id`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations foo <id>
+        $ pulumi import newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations foo <id>
         ```
 
         :param str resource_name: The name of the resource.

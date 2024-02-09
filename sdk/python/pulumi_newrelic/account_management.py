@@ -115,10 +115,12 @@ class AccountManagement(pulumi.CustomResource):
 
         ## Import
 
-        Accounts can be imported using the `id`, e.g. bash
+        Accounts can be imported using the `id`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:index/accountManagement:AccountManagement foo <id>
+        $ pulumi import newrelic:index/accountManagement:AccountManagement foo <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -149,10 +151,12 @@ class AccountManagement(pulumi.CustomResource):
 
         ## Import
 
-        Accounts can be imported using the `id`, e.g. bash
+        Accounts can be imported using the `id`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:index/accountManagement:AccountManagement foo <id>
+        $ pulumi import newrelic:index/accountManagement:AccountManagement foo <id>
         ```
 
         :param str resource_name: The name of the resource.

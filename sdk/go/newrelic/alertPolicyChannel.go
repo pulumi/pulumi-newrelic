@@ -76,7 +76,7 @@ import (
 //
 // ## Import
 //
-// Alert policy channels can be imported using the following notation`<policyID>:<channelID>:<channelID>`, e.g.
+// Alert policy channels can be imported using the following notation: `<policyID>:<channelID>:<channelID>`, e.g.
 //
 // ```sh
 //

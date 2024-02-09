@@ -257,10 +257,12 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
 
         ## Import
 
-        Linked AWSGovCloud accounts can be imported using the `id`, e.g. bash
+        Linked AWSGovCloud accounts can be imported using the `id`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount foo <id>
+        $ pulumi import newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount foo <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -307,10 +309,12 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
 
         ## Import
 
-        Linked AWSGovCloud accounts can be imported using the `id`, e.g. bash
+        Linked AWSGovCloud accounts can be imported using the `id`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount foo <id>
+        $ pulumi import newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount foo <id>
         ```
 
         :param str resource_name: The name of the resource.

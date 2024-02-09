@@ -345,20 +345,18 @@ import (
 //
 // ## Import
 //
-// NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
+// NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g.
+//
+//	// For `baseline` conditions
 //
 // ```sh
-//
-//	$ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
-//
+// $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
 // ```
 //
 //	// For `static` conditions
 //
 // ```sh
-//
-//	$ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
-//
+// $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
 // ```
 type NrqlAlertCondition struct {
 	pulumi.CustomResourceState

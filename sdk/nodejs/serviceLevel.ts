@@ -145,10 +145,14 @@ import * as utilities from "./utilities";
  *
  * New Relic Service Levels can be imported using a concatenated string of the format
  *
- * `<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to. Examplebash
+ * `<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to.
+ *
+ *  Example:
+ *
+ *  bash
  *
  * ```sh
- *  $ pulumi import newrelic:index/serviceLevel:ServiceLevel foo 12345678:4321:MXxBUE18QVBQTElDQVRJT058MQ
+ * $ pulumi import newrelic:index/serviceLevel:ServiceLevel foo 12345678:4321:MXxBUE18QVBQTElDQVRJT058MQ
  * ```
  */
 export class ServiceLevel extends pulumi.CustomResource {

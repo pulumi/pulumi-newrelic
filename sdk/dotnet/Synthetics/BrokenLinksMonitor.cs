@@ -96,10 +96,12 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Import
     /// 
-    /// Synthetics broken links monitor scripts can be imported using the `guid`, e.g. bash
+    /// Synthetics broken links monitor scripts can be imported using the `guid`, e.g.
+    /// 
+    ///  bash
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor monitor &lt;guid&gt;
+    /// $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor monitor &lt;guid&gt;
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor")]

@@ -149,10 +149,12 @@ class OneDashboardJson(pulumi.CustomResource):
         """
         ## Import
 
-        New Relic dashboards can be imported using their GUID, e.g. bash
+        New Relic dashboards can be imported using their GUID, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard <dashboard GUID>
+        $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard <dashboard GUID>
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,10 +171,12 @@ class OneDashboardJson(pulumi.CustomResource):
         """
         ## Import
 
-        New Relic dashboards can be imported using their GUID, e.g. bash
+        New Relic dashboards can be imported using their GUID, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard <dashboard GUID>
+        $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard <dashboard GUID>
         ```
 
         :param str resource_name: The name of the resource.
