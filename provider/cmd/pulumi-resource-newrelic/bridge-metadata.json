@@ -2189,6 +2189,10 @@
                     }
                 }
             },
+            "newrelic_user": {
+                "current": "newrelic:index/user:User",
+                "majorVersion": 5
+            },
             "newrelic_workflow": {
                 "current": "newrelic:index/workflow:Workflow",
                 "majorVersion": 5,
@@ -2393,6 +2397,10 @@
                         }
                     }
                 }
+            },
+            "newrelic_user": {
+                "current": "newrelic:index/getUser:getUser",
+                "majorVersion": 5
             }
         }
     },
@@ -2431,6 +2439,7 @@
             "newrelic:index/oneDashboardJson:OneDashboardJson": "newrelic_one_dashboard_json",
             "newrelic:index/oneDashboardRaw:OneDashboardRaw": "newrelic_one_dashboard_raw",
             "newrelic:index/serviceLevel:ServiceLevel": "newrelic_service_level",
+            "newrelic:index/user:User": "newrelic_user",
             "newrelic:index/workflow:Workflow": "newrelic_workflow",
             "newrelic:insights/event:Event": "newrelic_insights_event",
             "newrelic:plugins/applicationSettings:ApplicationSettings": "newrelic_application_settings",
@@ -2458,6 +2467,7 @@
             "newrelic:index/getObfuscationExpression:getObfuscationExpression": "newrelic_obfuscation_expression",
             "newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper": "newrelic_service_level_alert_helper",
             "newrelic:index/getTestGrokPattern:getTestGrokPattern": "newrelic_test_grok_pattern",
+            "newrelic:index/getUser:getUser": "newrelic_user",
             "newrelic:synthetics/getPrivateLocation:getPrivateLocation": "newrelic_synthetics_private_location",
             "newrelic:synthetics/getSecureCredential:getSecureCredential": "newrelic_synthetics_secure_credential"
         },
@@ -3887,6 +3897,10 @@
             "newrelic:index/getTestGrokPatternTestGrok:getTestGrokPatternTestGrok": {
                 "logLine": "log_line"
             },
+            "newrelic:index/getUser:getUser": {
+                "authenticationDomainId": "authentication_domain_id",
+                "emailId": "email_id"
+            },
             "newrelic:index/infraAlertCondition:InfraAlertCondition": {
                 "createdAt": "created_at",
                 "entityGuid": "entity_guid",
@@ -3969,6 +3983,11 @@
             "newrelic:index/serviceLevel:ServiceLevel": {
                 "sliGuid": "sli_guid",
                 "sliId": "sli_id"
+            },
+            "newrelic:index/user:User": {
+                "authenticationDomainId": "authentication_domain_id",
+                "emailId": "email_id",
+                "userType": "user_type"
             },
             "newrelic:index/workflow:Workflow": {
                 "accountId": "account_id",
