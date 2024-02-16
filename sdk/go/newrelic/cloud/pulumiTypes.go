@@ -17153,6 +17153,8 @@ func (o AzureIntegrationsMariaDbPtrOutput) ResourceGroups() pulumi.StringArrayOu
 
 type AzureIntegrationsMonitor struct {
 	// A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
+	//
+	// > **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic's documentation on the Azure Monitor integration.
 	Enabled *bool `pulumi:"enabled"`
 	// A list of resource tags associated with the resources that need to be excluded from monitoring.
 	ExcludeTags []string `pulumi:"excludeTags"`
@@ -17181,6 +17183,8 @@ type AzureIntegrationsMonitorInput interface {
 
 type AzureIntegrationsMonitorArgs struct {
 	// A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
+	//
+	// > **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic's documentation on the Azure Monitor integration.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// A list of resource tags associated with the resources that need to be excluded from monitoring.
 	ExcludeTags pulumi.StringArrayInput `pulumi:"excludeTags"`
@@ -17274,6 +17278,8 @@ func (o AzureIntegrationsMonitorOutput) ToAzureIntegrationsMonitorPtrOutputWithC
 }
 
 // A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
+//
+// > **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic's documentation on the Azure Monitor integration.
 func (o AzureIntegrationsMonitorOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIntegrationsMonitor) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -17330,6 +17336,8 @@ func (o AzureIntegrationsMonitorPtrOutput) Elem() AzureIntegrationsMonitorOutput
 }
 
 // A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
+//
+// > **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic's documentation on the Azure Monitor integration.
 func (o AzureIntegrationsMonitorPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrationsMonitor) *bool {
 		if v == nil {

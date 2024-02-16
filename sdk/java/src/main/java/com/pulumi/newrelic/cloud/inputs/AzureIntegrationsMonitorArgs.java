@@ -21,12 +21,16 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
     /**
      * A boolean value, that specifies if the integration needs to be active. Defaults to &#39;true&#39; if not specified.
      * 
+     * &gt; **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic&#39;s documentation on the Azure Monitor integration.
+     * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
      * @return A boolean value, that specifies if the integration needs to be active. Defaults to &#39;true&#39; if not specified.
+     * 
+     * &gt; **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic&#39;s documentation on the Azure Monitor integration.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -144,6 +148,8 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         /**
          * @param enabled A boolean value, that specifies if the integration needs to be active. Defaults to &#39;true&#39; if not specified.
          * 
+         * &gt; **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic&#39;s documentation on the Azure Monitor integration.
+         * 
          * @return builder
          * 
          */
@@ -154,6 +160,8 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
 
         /**
          * @param enabled A boolean value, that specifies if the integration needs to be active. Defaults to &#39;true&#39; if not specified.
+         * 
+         * &gt; **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic&#39;s documentation on the Azure Monitor integration.
          * 
          * @return builder
          * 

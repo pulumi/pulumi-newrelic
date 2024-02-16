@@ -120,6 +120,11 @@ export const getTestGrokPattern: typeof import("./getTestGrokPattern").getTestGr
 export const getTestGrokPatternOutput: typeof import("./getTestGrokPattern").getTestGrokPatternOutput = null as any;
 utilities.lazyLoad(exports, ["getTestGrokPattern","getTestGrokPatternOutput"], () => require("./getTestGrokPattern"));
 
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+
 export { InfraAlertConditionArgs, InfraAlertConditionState } from "./infraAlertCondition";
 export type InfraAlertCondition = import("./infraAlertCondition").InfraAlertCondition;
 export const InfraAlertCondition: typeof import("./infraAlertCondition").InfraAlertCondition = null as any;
@@ -189,6 +194,11 @@ export { ServiceLevelArgs, ServiceLevelState } from "./serviceLevel";
 export type ServiceLevel = import("./serviceLevel").ServiceLevel;
 export const ServiceLevel: typeof import("./serviceLevel").ServiceLevel = null as any;
 utilities.lazyLoad(exports, ["ServiceLevel"], () => require("./serviceLevel"));
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
 export { WorkflowArgs, WorkflowState } from "./workflow";
 export type Workflow = import("./workflow").Workflow;
@@ -265,6 +275,8 @@ const _module = {
                 return new OneDashboardRaw(name, <any>undefined, { urn })
             case "newrelic:index/serviceLevel:ServiceLevel":
                 return new ServiceLevel(name, <any>undefined, { urn })
+            case "newrelic:index/user:User":
+                return new User(name, <any>undefined, { urn })
             case "newrelic:index/workflow:Workflow":
                 return new Workflow(name, <any>undefined, { urn })
             default:
@@ -296,6 +308,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboard", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboardJson", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboardRaw", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/serviceLevel", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/user", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/workflow", _module)
 pulumi.runtime.registerResourcePackage("newrelic", {
     version: utilities.getVersion(),

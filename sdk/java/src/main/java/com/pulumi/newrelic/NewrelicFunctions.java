@@ -32,6 +32,8 @@ import com.pulumi.newrelic.inputs.GetServiceLevelAlertHelperArgs;
 import com.pulumi.newrelic.inputs.GetServiceLevelAlertHelperPlainArgs;
 import com.pulumi.newrelic.inputs.GetTestGrokPatternArgs;
 import com.pulumi.newrelic.inputs.GetTestGrokPatternPlainArgs;
+import com.pulumi.newrelic.inputs.GetUserArgs;
+import com.pulumi.newrelic.inputs.GetUserPlainArgs;
 import com.pulumi.newrelic.outputs.GetAccountResult;
 import com.pulumi.newrelic.outputs.GetAlertChannelResult;
 import com.pulumi.newrelic.outputs.GetAlertPolicyResult;
@@ -44,6 +46,7 @@ import com.pulumi.newrelic.outputs.GetNotificationDestinationResult;
 import com.pulumi.newrelic.outputs.GetObfuscationExpressionResult;
 import com.pulumi.newrelic.outputs.GetServiceLevelAlertHelperResult;
 import com.pulumi.newrelic.outputs.GetTestGrokPatternResult;
+import com.pulumi.newrelic.outputs.GetUserResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class NewrelicFunctions {
@@ -2934,5 +2937,205 @@ public final class NewrelicFunctions {
      */
     public static CompletableFuture<GetTestGrokPatternResult> getTestGrokPatternPlain(GetTestGrokPatternPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getTestGrokPattern:getTestGrokPattern", TypeShape.of(GetTestGrokPatternResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The `newrelic.User` data source may be used to search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.
+     * 
+     * ## Example Usage
+     * 
+     * The below example illustrates fetching a user&#39;s ID (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import com.pulumi.newrelic.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         final var userOne = NewrelicFunctions.getUser(GetUserArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .name(&#34;Test User&#34;)
+     *             .build());
+     * 
+     *         final var userTwo = NewrelicFunctions.getUser(GetUserArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .emailId(&#34;test_user@random.com&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUserResult> getUser(GetUserArgs args) {
+        return getUser(args, InvokeOptions.Empty);
+    }
+    /**
+     * The `newrelic.User` data source may be used to search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.
+     * 
+     * ## Example Usage
+     * 
+     * The below example illustrates fetching a user&#39;s ID (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import com.pulumi.newrelic.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         final var userOne = NewrelicFunctions.getUser(GetUserArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .name(&#34;Test User&#34;)
+     *             .build());
+     * 
+     *         final var userTwo = NewrelicFunctions.getUser(GetUserArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .emailId(&#34;test_user@random.com&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
+        return getUserPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * The `newrelic.User` data source may be used to search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.
+     * 
+     * ## Example Usage
+     * 
+     * The below example illustrates fetching a user&#39;s ID (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import com.pulumi.newrelic.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         final var userOne = NewrelicFunctions.getUser(GetUserArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .name(&#34;Test User&#34;)
+     *             .build());
+     * 
+     *         final var userTwo = NewrelicFunctions.getUser(GetUserArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .emailId(&#34;test_user@random.com&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The `newrelic.User` data source may be used to search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.
+     * 
+     * ## Example Usage
+     * 
+     * The below example illustrates fetching a user&#39;s ID (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import com.pulumi.newrelic.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         final var userOne = NewrelicFunctions.getUser(GetUserArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .name(&#34;Test User&#34;)
+     *             .build());
+     * 
+     *         final var userTwo = NewrelicFunctions.getUser(GetUserArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .emailId(&#34;test_user@random.com&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("newrelic:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
 }

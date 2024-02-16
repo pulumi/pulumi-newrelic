@@ -47,6 +47,7 @@
         "getObfuscationExpression.ts",
         "getServiceLevelAlertHelper.ts",
         "getTestGrokPattern.ts",
+        "getUser.ts",
         "index.ts",
         "infraAlertCondition.ts",
         "insights/event.ts",
@@ -82,6 +83,7 @@
         "types/index.ts",
         "types/input.ts",
         "types/output.ts",
+        "user.ts",
         "utilities.ts",
         "workflow.ts"
     ]
