@@ -69,6 +69,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OneDashboardRaw{}
 	case "newrelic:index/serviceLevel:ServiceLevel":
 		r = &ServiceLevel{}
+	case "newrelic:index/user:User":
+		r = &User{}
 	case "newrelic:index/workflow:Workflow":
 		r = &Workflow{}
 	default:
@@ -220,6 +222,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/serviceLevel",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/user",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

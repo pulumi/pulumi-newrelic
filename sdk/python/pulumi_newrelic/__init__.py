@@ -28,6 +28,7 @@ from .get_notification_destination import *
 from .get_obfuscation_expression import *
 from .get_service_level_alert_helper import *
 from .get_test_grok_pattern import *
+from .get_user import *
 from .infra_alert_condition import *
 from .log_parsing_rule import *
 from .monitor_downtime import *
@@ -42,6 +43,7 @@ from .one_dashboard_json import *
 from .one_dashboard_raw import *
 from .provider import *
 from .service_level import *
+from .user import *
 from .workflow import *
 from ._inputs import *
 from . import outputs
@@ -322,6 +324,14 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/serviceLevel:ServiceLevel": "ServiceLevel"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/user",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/user:User": "User"
   }
  },
  {

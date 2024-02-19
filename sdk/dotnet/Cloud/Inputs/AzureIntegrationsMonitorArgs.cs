@@ -14,6 +14,8 @@ namespace Pulumi.NewRelic.Cloud.Inputs
     {
         /// <summary>
         /// A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
+        /// 
+        /// &gt; **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic's documentation on the Azure Monitor integration.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

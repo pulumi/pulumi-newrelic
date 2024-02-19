@@ -5966,6 +5966,8 @@ class AzureIntegrationsMonitorArgs:
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[bool] enabled: A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
+               
+               > **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic's documentation on the Azure Monitor integration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_tags: A list of resource tags associated with the resources that need to be excluded from monitoring.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] include_tags: A list of resource tags associated with the resources that need to be monitored, in a "key:value" format. If this is not specified, all resources will be monitored.
         :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
@@ -5992,6 +5994,8 @@ class AzureIntegrationsMonitorArgs:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
+
+        > **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic's documentation on the Azure Monitor integration.
         """
         return pulumi.get(self, "enabled")
 
