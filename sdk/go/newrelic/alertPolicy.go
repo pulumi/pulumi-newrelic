@@ -53,6 +53,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Provision a Slack notification channel.
 //			slackChannel, err := newrelic.NewAlertChannel(ctx, "slackChannel", &newrelic.AlertChannelArgs{
 //				Type: pulumi.String("slack"),
 //				Config: &newrelic.AlertChannelConfigArgs{
@@ -63,6 +64,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Provision an email notification channel.
 //			emailChannel, err := newrelic.NewAlertChannel(ctx, "emailChannel", &newrelic.AlertChannelArgs{
 //				Type: pulumi.String("email"),
 //				Config: &newrelic.AlertChannelConfigArgs{
@@ -73,6 +75,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Provision the alert policy.
 //			_, err = newrelic.NewAlertPolicy(ctx, "policyWithChannels", &newrelic.AlertPolicyArgs{
 //				IncidentPreference: pulumi.String("PER_CONDITION"),
 //				ChannelIds: pulumi.IntArray{
@@ -113,6 +116,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Provision the alert policy.
 //			_, err = newrelic.NewAlertPolicy(ctx, "policyWithChannels", &newrelic.AlertPolicyArgs{
 //				IncidentPreference: pulumi.String("PER_CONDITION"),
 //				ChannelIds: pulumi.IntArray{
