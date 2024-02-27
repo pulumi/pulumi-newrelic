@@ -74,10 +74,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a policy to track
 //			_, err := newrelic.NewAlertPolicy(ctx, "my-policy", nil)
 //			if err != nil {
 //				return err
 //			}
+//			// Create a reusable notification destination
 //			_, err = newrelic.NewNotificationDestination(ctx, "webhook-destination", &newrelic.NotificationDestinationArgs{
 //				Type: pulumi.String("WEBHOOK"),
 //				Properties: newrelic.NotificationDestinationPropertyArray{
@@ -94,6 +96,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a notification channel to use in the workflow
 //			_, err = newrelic.NewNotificationChannel(ctx, "webhook-channel", &newrelic.NotificationChannelArgs{
 //				Type:          pulumi.String("WEBHOOK"),
 //				DestinationId: webhook_destination.ID(),
@@ -109,6 +112,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// A workflow that matches issues that include incidents triggered by the policy
 //			_, err = newrelic.NewWorkflow(ctx, "workflow-example", &newrelic.WorkflowArgs{
 //				MutingRulesHandling: pulumi.String("NOTIFY_ALL_ISSUES"),
 //				IssuesFilter: &newrelic.WorkflowIssuesFilterArgs{
