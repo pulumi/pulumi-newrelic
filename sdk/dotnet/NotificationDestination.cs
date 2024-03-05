@@ -9,6 +9,77 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Destination id can be found in the Destinations page -&gt; three dots at the right of the chosen destination -&gt; copy destination id to clipboard.
+    /// 
+    ///  This example is especially useful for slack destinations which *must* be imported.
+    /// 
+    ///  1. Add an empty resource to your terraform file:
+    /// 
+    ///  terraform
+    /// 
+    ///  resource "newrelic_notification_destination" "foo" {
+    /// 
+    ///  }
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:index/notificationDestination:NotificationDestination
+    /// 
+    /// Run import command: `newrelic_notification_destination.foo &lt;destination_id&gt;`
+    /// ```
+    /// 
+    ///  3. Run the following command after the import successfully done and copy the information to your resource:
+    /// 
+    ///  `terraform state show newrelic_notification_destination.foo`
+    /// 
+    ///  4. Add `ignore_changes` attribute on `auth_token` in your imported resource:
+    /// 
+    ///  terraform
+    /// 
+    ///  lifecycle {
+    /// 
+    ///  ignore_changes = [auth_token]
+    /// 
+    ///  }
+    /// 
+    ///  Your imported destination should look like that:
+    /// 
+    ///  terraform
+    /// 
+    ///  resource "newrelic_notification_destination" "foo" {
+    /// 
+    ///  lifecycle {
+    /// 
+    ///  ignore_changes = [auth_token]
+    /// 
+    ///  }
+    /// 
+    ///  name = "*********"
+    /// 
+    ///  type = "SLACK"
+    /// 
+    ///  auth_token {
+    /// 
+    ///  prefix = "Bearer"
+    /// 
+    ///  }
+    /// 
+    ///  property {
+    /// 
+    ///  key
+    /// 
+    ///  = "teamName"
+    /// 
+    ///  label = "Team Name"
+    /// 
+    ///  value = "******"
+    /// 
+    ///  }
+    /// 
+    ///  }
+    /// </summary>
     [NewRelicResourceType("newrelic:index/notificationDestination:NotificationDestination")]
     public partial class NotificationDestination : global::Pulumi.CustomResource
     {

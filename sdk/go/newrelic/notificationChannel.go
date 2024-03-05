@@ -205,6 +205,7 @@ import (
 //					},
 //					&newrelic.NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("service"),
+//						Label: pulumi.String("Service Name"),
 //						Value: pulumi.String("PTQK3FM"),
 //					},
 //					&newrelic.NotificationChannelPropertyArgs{
@@ -481,6 +482,18 @@ import (
 // More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
 //
 // > **NOTE:** `AlertChannel` are legacy resources.
+//
+// ## Import
+//
+// Channels can only be used by a single workflow, therefore importing them is not particularly useful, because in the UI channels are created upon workflow creation.
+//
+//	Additionally, the channel id isn't available via the UI, and you'd need to look it up with the `channels` query in the NerdGraph API.
+//
+//	That being said, importing is possible using -
+//
+// ```sh
+// $ pulumi import newrelic:index/notificationChannel:NotificationChannel foo <destination_id>
+// ```
 type NotificationChannel struct {
 	pulumi.CustomResourceState
 

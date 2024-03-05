@@ -26,7 +26,7 @@ func LookupAlertPolicy(ctx *pulumi.Context, args *LookupAlertPolicyArgs, opts ..
 type LookupAlertPolicyArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *int `pulumi:"accountId"`
-	// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+	// The rollup strategy for the policy, which can have one of the following values:
 	IncidentPreference *string `pulumi:"incidentPreference"`
 	// The name of the alert policy in New Relic.
 	Name string `pulumi:"name"`
@@ -39,7 +39,7 @@ type LookupAlertPolicyResult struct {
 	CreatedAt string `pulumi:"createdAt"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+	// The rollup strategy for the policy, which can have one of the following values:
 	IncidentPreference *string `pulumi:"incidentPreference"`
 	Name               string  `pulumi:"name"`
 	// The time the policy was last updated.
@@ -63,7 +63,7 @@ func LookupAlertPolicyOutput(ctx *pulumi.Context, args LookupAlertPolicyOutputAr
 type LookupAlertPolicyOutputArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
-	// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+	// The rollup strategy for the policy, which can have one of the following values:
 	IncidentPreference pulumi.StringPtrInput `pulumi:"incidentPreference"`
 	// The name of the alert policy in New Relic.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -102,7 +102,7 @@ func (o LookupAlertPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAlertPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+// The rollup strategy for the policy, which can have one of the following values:
 func (o LookupAlertPolicyResultOutput) IncidentPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAlertPolicyResult) *string { return v.IncidentPreference }).(pulumi.StringPtrOutput)
 }

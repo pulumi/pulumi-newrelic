@@ -95,6 +95,11 @@ export const getEntity: typeof import("./getEntity").getEntity = null as any;
 export const getEntityOutput: typeof import("./getEntity").getEntityOutput = null as any;
 utilities.lazyLoad(exports, ["getEntity","getEntityOutput"], () => require("./getEntity"));
 
+export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
+export const getGroup: typeof import("./getGroup").getGroup = null as any;
+export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
+
 export { GetKeyTransactionArgs, GetKeyTransactionResult, GetKeyTransactionOutputArgs } from "./getKeyTransaction";
 export const getKeyTransaction: typeof import("./getKeyTransaction").getKeyTransaction = null as any;
 export const getKeyTransactionOutput: typeof import("./getKeyTransaction").getKeyTransactionOutput = null as any;
@@ -124,6 +129,11 @@ export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+
+export { GroupArgs, GroupState } from "./group";
+export type Group = import("./group").Group;
+export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 
 export { InfraAlertConditionArgs, InfraAlertConditionState } from "./infraAlertCondition";
 export type InfraAlertCondition = import("./infraAlertCondition").InfraAlertCondition;
@@ -249,6 +259,8 @@ const _module = {
                 return new EntityTags(name, <any>undefined, { urn })
             case "newrelic:index/eventsToMetricsRule:EventsToMetricsRule":
                 return new EventsToMetricsRule(name, <any>undefined, { urn })
+            case "newrelic:index/group:Group":
+                return new Group(name, <any>undefined, { urn })
             case "newrelic:index/infraAlertCondition:InfraAlertCondition":
                 return new InfraAlertCondition(name, <any>undefined, { urn })
             case "newrelic:index/logParsingRule:LogParsingRule":
@@ -295,6 +307,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/browserApplication", _m
 pulumi.runtime.registerResourceModule("newrelic", "index/dataPartitionRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/entityTags", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/eventsToMetricsRule", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/group", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/infraAlertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/logParsingRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/monitorDowntime", _module)

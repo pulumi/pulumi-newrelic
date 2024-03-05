@@ -301,7 +301,76 @@ class NotificationDestination(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a NotificationDestination resource with the given unique name, props, and options.
+        ## Import
+
+        Destination id can be found in the Destinations page -> three dots at the right of the chosen destination -> copy destination id to clipboard.
+
+         This example is especially useful for slack destinations which *must* be imported.
+
+         1. Add an empty resource to your terraform file:
+
+         terraform
+
+         resource "newrelic_notification_destination" "foo" {
+
+         }
+
+        ```sh
+        $ pulumi import newrelic:index/notificationDestination:NotificationDestination
+
+        Run import command: `newrelic_notification_destination.foo <destination_id>`
+        ```
+
+         3. Run the following command after the import successfully done and copy the information to your resource:
+
+         `terraform state show newrelic_notification_destination.foo`
+
+         4. Add `ignore_changes` attribute on `auth_token` in your imported resource:
+
+         terraform
+
+         lifecycle {
+
+         ignore_changes = [auth_token]
+
+         }
+
+         Your imported destination should look like that:
+
+         terraform
+
+         resource "newrelic_notification_destination" "foo" {
+
+         lifecycle {
+
+         ignore_changes = [auth_token]
+
+         }
+
+         name = "*********"
+
+         type = "SLACK"
+
+         auth_token {
+
+         prefix = "Bearer"
+
+         }
+
+         property {
+
+         key
+
+         = "teamName"
+
+         label = "Team Name"
+
+         value = "******"
+
+         }
+
+         }
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
@@ -320,7 +389,76 @@ class NotificationDestination(pulumi.CustomResource):
                  args: NotificationDestinationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a NotificationDestination resource with the given unique name, props, and options.
+        ## Import
+
+        Destination id can be found in the Destinations page -> three dots at the right of the chosen destination -> copy destination id to clipboard.
+
+         This example is especially useful for slack destinations which *must* be imported.
+
+         1. Add an empty resource to your terraform file:
+
+         terraform
+
+         resource "newrelic_notification_destination" "foo" {
+
+         }
+
+        ```sh
+        $ pulumi import newrelic:index/notificationDestination:NotificationDestination
+
+        Run import command: `newrelic_notification_destination.foo <destination_id>`
+        ```
+
+         3. Run the following command after the import successfully done and copy the information to your resource:
+
+         `terraform state show newrelic_notification_destination.foo`
+
+         4. Add `ignore_changes` attribute on `auth_token` in your imported resource:
+
+         terraform
+
+         lifecycle {
+
+         ignore_changes = [auth_token]
+
+         }
+
+         Your imported destination should look like that:
+
+         terraform
+
+         resource "newrelic_notification_destination" "foo" {
+
+         lifecycle {
+
+         ignore_changes = [auth_token]
+
+         }
+
+         name = "*********"
+
+         type = "SLACK"
+
+         auth_token {
+
+         prefix = "Bearer"
+
+         }
+
+         property {
+
+         key
+
+         = "teamName"
+
+         label = "Team Name"
+
+         value = "******"
+
+         }
+
+         }
+
         :param str resource_name: The name of the resource.
         :param NotificationDestinationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

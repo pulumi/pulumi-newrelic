@@ -22,6 +22,8 @@ import com.pulumi.newrelic.inputs.GetCloudAccountArgs;
 import com.pulumi.newrelic.inputs.GetCloudAccountPlainArgs;
 import com.pulumi.newrelic.inputs.GetEntityArgs;
 import com.pulumi.newrelic.inputs.GetEntityPlainArgs;
+import com.pulumi.newrelic.inputs.GetGroupArgs;
+import com.pulumi.newrelic.inputs.GetGroupPlainArgs;
 import com.pulumi.newrelic.inputs.GetKeyTransactionArgs;
 import com.pulumi.newrelic.inputs.GetKeyTransactionPlainArgs;
 import com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;
@@ -41,6 +43,7 @@ import com.pulumi.newrelic.outputs.GetApplicationResult;
 import com.pulumi.newrelic.outputs.GetAuthenticationDomainResult;
 import com.pulumi.newrelic.outputs.GetCloudAccountResult;
 import com.pulumi.newrelic.outputs.GetEntityResult;
+import com.pulumi.newrelic.outputs.GetGroupResult;
 import com.pulumi.newrelic.outputs.GetKeyTransactionResult;
 import com.pulumi.newrelic.outputs.GetNotificationDestinationResult;
 import com.pulumi.newrelic.outputs.GetObfuscationExpressionResult;
@@ -1549,6 +1552,186 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invokeAsync("newrelic:index/getEntity:getEntity", TypeShape.of(GetEntityResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * The `newrelic.Group` data source helps search for a group by its name and retrieve the ID of the matching group and other associated attributes.
+     * 
+     * ## Example Usage
+     * 
+     * The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import com.pulumi.newrelic.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         final var fooGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
+     *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .name(&#34;Test Group&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
+        return getGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * The `newrelic.Group` data source helps search for a group by its name and retrieve the ID of the matching group and other associated attributes.
+     * 
+     * ## Example Usage
+     * 
+     * The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import com.pulumi.newrelic.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         final var fooGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
+     *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .name(&#34;Test Group&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
+        return getGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * The `newrelic.Group` data source helps search for a group by its name and retrieve the ID of the matching group and other associated attributes.
+     * 
+     * ## Example Usage
+     * 
+     * The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import com.pulumi.newrelic.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         final var fooGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
+     *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .name(&#34;Test Group&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The `newrelic.Group` data source helps search for a group by its name and retrieve the ID of the matching group and other associated attributes.
+     * 
+     * ## Example Usage
+     * 
+     * The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import com.pulumi.newrelic.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         final var fooGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
+     *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .name(&#34;Test Group&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("newrelic:index/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to get information about a specific key transaction in New Relic that already exists.
      * 
      * ## Example Usage
@@ -2939,11 +3122,11 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invokeAsync("newrelic:index/getTestGrokPattern:getTestGrokPattern", TypeShape.of(GetTestGrokPatternResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * The `newrelic.User` data source may be used to search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.
+     * The `newrelic.User` data source helps search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.
      * 
      * ## Example Usage
      * 
-     * The below example illustrates fetching a user&#39;s ID (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
+     * The below example illustrates fetching a the ID of a user (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
      * ```java
      * package generated_program;
      * 
@@ -2989,11 +3172,11 @@ public final class NewrelicFunctions {
         return getUser(args, InvokeOptions.Empty);
     }
     /**
-     * The `newrelic.User` data source may be used to search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.
+     * The `newrelic.User` data source helps search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.
      * 
      * ## Example Usage
      * 
-     * The below example illustrates fetching a user&#39;s ID (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
+     * The below example illustrates fetching a the ID of a user (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
      * ```java
      * package generated_program;
      * 
@@ -3039,11 +3222,11 @@ public final class NewrelicFunctions {
         return getUserPlain(args, InvokeOptions.Empty);
     }
     /**
-     * The `newrelic.User` data source may be used to search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.
+     * The `newrelic.User` data source helps search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.
      * 
      * ## Example Usage
      * 
-     * The below example illustrates fetching a user&#39;s ID (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
+     * The below example illustrates fetching a the ID of a user (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
      * ```java
      * package generated_program;
      * 
@@ -3089,11 +3272,11 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invoke("newrelic:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * The `newrelic.User` data source may be used to search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.
+     * The `newrelic.User` data source helps search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.
      * 
      * ## Example Usage
      * 
-     * The below example illustrates fetching a user&#39;s ID (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
+     * The below example illustrates fetching a the ID of a user (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
      * ```java
      * package generated_program;
      * 

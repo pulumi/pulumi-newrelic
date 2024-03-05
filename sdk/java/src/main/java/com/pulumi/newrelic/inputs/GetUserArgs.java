@@ -36,7 +36,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
      * 
      * It should be noted that either `name` or `email_id` must be specified in order to retrieve a matching user.
      * 
-     * &gt; **NOTE** If the specified `name` matches, or is contained in the names of multiple users in the account, the data source will return the first match from the list of all matching users retrieved from the API. However, when using the `email_id` argument as the search criterion, only the user with the specified email ID will be returned, as each user has a unique email ID and multiple users cannot have the same email ID.
+     * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple users in the account, the data source will return the first match from the list of all matching users retrieved from the API. However, when using the `email_id` argument as the search criterion, only the user with the specified email ID will be returned, as each user has a unique email ID and multiple users cannot have the same email ID.
      * 
      * &gt; **NOTE** The ID of an authentication domain can be retrieved using its name, via the data source `newrelic.getAuthenticationDomain`, as shown in the example above. Head over to the documentation of this data source for more details and examples.
      * 
@@ -49,7 +49,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
      * 
      * It should be noted that either `name` or `email_id` must be specified in order to retrieve a matching user.
      * 
-     * &gt; **NOTE** If the specified `name` matches, or is contained in the names of multiple users in the account, the data source will return the first match from the list of all matching users retrieved from the API. However, when using the `email_id` argument as the search criterion, only the user with the specified email ID will be returned, as each user has a unique email ID and multiple users cannot have the same email ID.
+     * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple users in the account, the data source will return the first match from the list of all matching users retrieved from the API. However, when using the `email_id` argument as the search criterion, only the user with the specified email ID will be returned, as each user has a unique email ID and multiple users cannot have the same email ID.
      * 
      * &gt; **NOTE** The ID of an authentication domain can be retrieved using its name, via the data source `newrelic.getAuthenticationDomain`, as shown in the example above. Head over to the documentation of this data source for more details and examples.
      * 
@@ -125,7 +125,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * It should be noted that either `name` or `email_id` must be specified in order to retrieve a matching user.
          * 
-         * &gt; **NOTE** If the specified `name` matches, or is contained in the names of multiple users in the account, the data source will return the first match from the list of all matching users retrieved from the API. However, when using the `email_id` argument as the search criterion, only the user with the specified email ID will be returned, as each user has a unique email ID and multiple users cannot have the same email ID.
+         * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple users in the account, the data source will return the first match from the list of all matching users retrieved from the API. However, when using the `email_id` argument as the search criterion, only the user with the specified email ID will be returned, as each user has a unique email ID and multiple users cannot have the same email ID.
          * 
          * &gt; **NOTE** The ID of an authentication domain can be retrieved using its name, via the data source `newrelic.getAuthenticationDomain`, as shown in the example above. Head over to the documentation of this data source for more details and examples.
          * 
@@ -142,7 +142,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * It should be noted that either `name` or `email_id` must be specified in order to retrieve a matching user.
          * 
-         * &gt; **NOTE** If the specified `name` matches, or is contained in the names of multiple users in the account, the data source will return the first match from the list of all matching users retrieved from the API. However, when using the `email_id` argument as the search criterion, only the user with the specified email ID will be returned, as each user has a unique email ID and multiple users cannot have the same email ID.
+         * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple users in the account, the data source will return the first match from the list of all matching users retrieved from the API. However, when using the `email_id` argument as the search criterion, only the user with the specified email ID will be returned, as each user has a unique email ID and multiple users cannot have the same email ID.
          * 
          * &gt; **NOTE** The ID of an authentication domain can be retrieved using its name, via the data source `newrelic.getAuthenticationDomain`, as shown in the example above. Head over to the documentation of this data source for more details and examples.
          * 
