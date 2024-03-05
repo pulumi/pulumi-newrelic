@@ -26,7 +26,7 @@ export interface GetAlertPolicyArgs {
      */
     accountId?: number;
     /**
-     * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+     * The rollup strategy for the policy, which can have one of the following values:
      */
     incidentPreference?: string;
     /**
@@ -49,7 +49,7 @@ export interface GetAlertPolicyResult {
      */
     readonly id: string;
     /**
-     * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+     * The rollup strategy for the policy, which can have one of the following values:
      */
     readonly incidentPreference?: string;
     readonly name: string;
@@ -74,7 +74,7 @@ export interface GetAlertPolicyOutputArgs {
      */
     accountId?: pulumi.Input<number>;
     /**
-     * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+     * The rollup strategy for the policy, which can have one of the following values:
      */
     incidentPreference?: pulumi.Input<string>;
     /**

@@ -32,6 +32,18 @@ namespace Pulumi.NewRelic
     /// ```
     /// ### Provision multiple notification channels and add those channels to a policy
     /// 
+    /// The following arguments are supported:
+    /// 
+    ///   * `name` - (Required) The name of the policy.
+    ///   * `incident_preference` - (Optional) The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
+    ///     * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
+    ///     * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
+    ///     * `PER_CONDITION_AND_TARGET` - This sets the incident grouping preference of the policy to **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
+    ///   * `channel_ids` - (Optional) **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
+    ///   * `account_id` - (Optional) The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+    /// ## Additional Examples
+    /// 
+    /// ##### Provision multiple notification channels and add those channels to a policy
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,6 +87,7 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// 
     /// ### Reference existing notification channels and add those channel to a policy
     /// ```csharp
     /// using System.Collections.Generic;

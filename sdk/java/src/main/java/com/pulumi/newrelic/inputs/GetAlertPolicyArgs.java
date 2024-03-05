@@ -33,14 +33,14 @@ public final class GetAlertPolicyArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+     * The rollup strategy for the policy, which can have one of the following values:
      * 
      */
     @Import(name="incidentPreference")
     private @Nullable Output<String> incidentPreference;
 
     /**
-     * @return The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+     * @return The rollup strategy for the policy, which can have one of the following values:
      * 
      */
     public Optional<Output<String>> incidentPreference() {
@@ -110,7 +110,7 @@ public final class GetAlertPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param incidentPreference The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+         * @param incidentPreference The rollup strategy for the policy, which can have one of the following values:
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class GetAlertPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param incidentPreference The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+         * @param incidentPreference The rollup strategy for the policy, which can have one of the following values:
          * 
          * @return builder
          * 

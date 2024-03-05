@@ -34,7 +34,7 @@ namespace Pulumi.NewRelic
         public int? AccountId { get; set; }
 
         /// <summary>
-        /// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+        /// The rollup strategy for the policy, which can have one of the following values:
         /// </summary>
         [Input("incidentPreference")]
         public string? IncidentPreference { get; set; }
@@ -60,7 +60,7 @@ namespace Pulumi.NewRelic
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+        /// The rollup strategy for the policy, which can have one of the following values:
         /// </summary>
         [Input("incidentPreference")]
         public Input<string>? IncidentPreference { get; set; }
@@ -91,7 +91,7 @@ namespace Pulumi.NewRelic
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+        /// The rollup strategy for the policy, which can have one of the following values:
         /// </summary>
         public readonly string? IncidentPreference;
         public readonly string Name;

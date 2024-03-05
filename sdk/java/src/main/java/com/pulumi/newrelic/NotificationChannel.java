@@ -240,6 +240,7 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
  *                     .key(&#34;service&#34;)
+ *                     .label(&#34;Service Name&#34;)
  *                     .value(&#34;PTQK3FM&#34;)
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
@@ -540,6 +541,18 @@ import javax.annotation.Nullable;
  * More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
  * 
  * &gt; **NOTE:** `newrelic.AlertChannel` are legacy resources.
+ * 
+ * ## Import
+ * 
+ * Channels can only be used by a single workflow, therefore importing them is not particularly useful, because in the UI channels are created upon workflow creation.
+ * 
+ *  Additionally, the channel id isn&#39;t available via the UI, and you&#39;d need to look it up with the `channels` query in the NerdGraph API.
+ * 
+ *  That being said, importing is possible using -
+ * 
+ * ```sh
+ * $ pulumi import newrelic:index/notificationChannel:NotificationChannel foo &lt;destination_id&gt;
+ * ```
  * 
  */
 @ResourceType(type="newrelic:index/notificationChannel:NotificationChannel")

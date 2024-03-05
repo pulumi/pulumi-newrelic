@@ -184,6 +184,7 @@ namespace Pulumi.NewRelic
     ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
     ///             {
     ///                 Key = "service",
+    ///                 Label = "Service Name",
     ///                 Value = "PTQK3FM",
     ///             },
     ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
@@ -421,6 +422,18 @@ namespace Pulumi.NewRelic
     /// More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
     /// 
     /// &gt; **NOTE:** `newrelic.AlertChannel` are legacy resources.
+    /// 
+    /// ## Import
+    /// 
+    /// Channels can only be used by a single workflow, therefore importing them is not particularly useful, because in the UI channels are created upon workflow creation.
+    /// 
+    ///  Additionally, the channel id isn't available via the UI, and you'd need to look it up with the `channels` query in the NerdGraph API.
+    /// 
+    ///  That being said, importing is possible using -
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:index/notificationChannel:NotificationChannel foo &lt;destination_id&gt;
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/notificationChannel:NotificationChannel")]
     public partial class NotificationChannel : global::Pulumi.CustomResource

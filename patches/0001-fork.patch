@@ -99,7 +99,7 @@ index 3c3c4d54..0c49eb15 100644
  Warning: This data source will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
  ```
 diff --git a/website/docs/d/alert_policy.html.markdown b/website/docs/d/alert_policy.html.markdown
-index 442eecc5..8c8a5fb3 100644
+index a475f9b9..b2efa53b 100644
 --- a/website/docs/d/alert_policy.html.markdown
 +++ b/website/docs/d/alert_policy.html.markdown
 @@ -9,7 +9,6 @@ description: |-
@@ -291,10 +291,10 @@ index a99ddef0..593e23d3 100644
  
  Alert channels can be imported using the `id`, e.g.
 diff --git a/website/docs/r/alert_policy.html.markdown b/website/docs/r/alert_policy.html.markdown
-index 10bda6b2..ce35f5da 100644
+index dc642798..eb10c510 100644
 --- a/website/docs/r/alert_policy.html.markdown
 +++ b/website/docs/r/alert_policy.html.markdown
-@@ -12,32 +12,17 @@ Use this resource to create and manage New Relic alert policies.
+@@ -12,15 +12,16 @@ Use this resource to create and manage New Relic alert policies.
  
  ## Example Usage
  
@@ -307,30 +307,13 @@ index 10bda6b2..ce35f5da 100644
  }
  ```
 -See additional [examples](#additional-examples).
--
--## Argument Reference
--
--The following arguments are supported:
--
--  * `name` - (Required) The name of the policy.
--  * `incident_preference` - (Optional) The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
--  * `channel_ids` - (Optional) **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `terraform import` (see [Import](#import) for info).
--  * `account_id` - (Optional) The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
--
--## Attributes Reference
--
--In addition to all arguments above, the following attributes are exported:
--
--  * `id` - The ID of the policy.
  
--## Additional Examples
+-## Argument Reference
 +### Provision multiple notification channels and add those channels to a policy
  
--##### Provision multiple notification channels and add those channels to a policy
- ```hcl
- # Provision a Slack notification channel.
- resource "newrelic_alert_channel" "slack_channel" {
-@@ -45,7 +30,7 @@ resource "newrelic_alert_channel" "slack_channel" {
+ The following arguments are supported:
+ 
+@@ -48,7 +49,7 @@ resource "newrelic_alert_channel" "slack_channel" {
    type = "slack"
  
    config {
@@ -339,7 +322,7 @@ index 10bda6b2..ce35f5da 100644
      channel = "example-alerts-channel"
    }
  }
-@@ -74,9 +59,8 @@ resource "newrelic_alert_policy" "policy_with_channels" {
+@@ -77,9 +78,8 @@ resource "newrelic_alert_policy" "policy_with_channels" {
    ]
  }
  ```
@@ -350,7 +333,7 @@ index 10bda6b2..ce35f5da 100644
  ```hcl
  # Reference an existing Slack notification channel.
  data "newrelic_alert_channel" "slack_channel" {
-@@ -102,6 +86,21 @@ resource "newrelic_alert_policy" "policy_with_channels" {
+@@ -105,6 +105,21 @@ resource "newrelic_alert_policy" "policy_with_channels" {
  }
  ```
  

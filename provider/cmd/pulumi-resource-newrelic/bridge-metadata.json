@@ -1221,6 +1221,15 @@
                 "current": "newrelic:index/eventsToMetricsRule:EventsToMetricsRule",
                 "majorVersion": 5
             },
+            "newrelic_group": {
+                "current": "newrelic:index/group:Group",
+                "majorVersion": 5,
+                "fields": {
+                    "user_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "newrelic_infra_alert_condition": {
                 "current": "newrelic:index/infraAlertCondition:InfraAlertCondition",
                 "majorVersion": 5,
@@ -2341,6 +2350,15 @@
                 "majorVersion": 5,
                 "fields": {
                     "tag": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "newrelic_group": {
+                "current": "newrelic:index/getGroup:getGroup",
+                "majorVersion": 5,
+                "fields": {
+                    "user_ids": {
                         "maxItemsOne": false
                     }
                 }

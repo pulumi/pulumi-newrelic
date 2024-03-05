@@ -20,6 +20,78 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * Destination id can be found in the Destinations page -&gt; three dots at the right of the chosen destination -&gt; copy destination id to clipboard.
+ * 
+ *  This example is especially useful for slack destinations which *must* be imported.
+ * 
+ *  1. Add an empty resource to your terraform file:
+ * 
+ *  terraform
+ * 
+ *  resource &#34;newrelic_notification_destination&#34; &#34;foo&#34; {
+ * 
+ *  }
+ * 
+ * ```sh
+ * $ pulumi import newrelic:index/notificationDestination:NotificationDestination
+ * 
+ * Run import command: `newrelic_notification_destination.foo &lt;destination_id&gt;`
+ * ```
+ * 
+ *  3. Run the following command after the import successfully done and copy the information to your resource:
+ * 
+ *  `terraform state show newrelic_notification_destination.foo`
+ * 
+ *  4. Add `ignore_changes` attribute on `auth_token` in your imported resource:
+ * 
+ *  terraform
+ * 
+ *  lifecycle {
+ * 
+ *  ignore_changes = [auth_token]
+ * 
+ *  }
+ * 
+ *  Your imported destination should look like that:
+ * 
+ *  terraform
+ * 
+ *  resource &#34;newrelic_notification_destination&#34; &#34;foo&#34; {
+ * 
+ *  lifecycle {
+ * 
+ *  ignore_changes = [auth_token]
+ * 
+ *  }
+ * 
+ *  name = &#34;*********&#34;
+ * 
+ *  type = &#34;SLACK&#34;
+ * 
+ *  auth_token {
+ * 
+ *  prefix = &#34;Bearer&#34;
+ * 
+ *  }
+ * 
+ *  property {
+ * 
+ *  key
+ * 
+ *  = &#34;teamName&#34;
+ * 
+ *  label = &#34;Team Name&#34;
+ * 
+ *  value = &#34;******&#34;
+ * 
+ *  }
+ * 
+ *  }
+ * 
+ */
 @ResourceType(type="newrelic:index/notificationDestination:NotificationDestination")
 public class NotificationDestination extends com.pulumi.resources.CustomResource {
     /**

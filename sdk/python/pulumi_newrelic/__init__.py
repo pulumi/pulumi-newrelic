@@ -23,12 +23,14 @@ from .get_application import *
 from .get_authentication_domain import *
 from .get_cloud_account import *
 from .get_entity import *
+from .get_group import *
 from .get_key_transaction import *
 from .get_notification_destination import *
 from .get_obfuscation_expression import *
 from .get_service_level_alert_helper import *
 from .get_test_grok_pattern import *
 from .get_user import *
+from .group import *
 from .infra_alert_condition import *
 from .log_parsing_rule import *
 from .monitor_downtime import *
@@ -220,6 +222,14 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/eventsToMetricsRule:EventsToMetricsRule": "EventsToMetricsRule"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/group",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/group:Group": "Group"
   }
  },
  {

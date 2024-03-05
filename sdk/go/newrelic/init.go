@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EntityTags{}
 	case "newrelic:index/eventsToMetricsRule:EventsToMetricsRule":
 		r = &EventsToMetricsRule{}
+	case "newrelic:index/group:Group":
+		r = &Group{}
 	case "newrelic:index/infraAlertCondition:InfraAlertCondition":
 		r = &InfraAlertCondition{}
 	case "newrelic:index/logParsingRule:LogParsingRule":
@@ -157,6 +159,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/eventsToMetricsRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/group",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
