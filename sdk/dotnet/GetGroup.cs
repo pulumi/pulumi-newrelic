@@ -14,12 +14,11 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// The `newrelic.Group` data source helps search for a group by its name and retrieve the ID of the matching group and other associated attributes.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
         ///     
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -41,8 +40,7 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("newrelic:index/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
@@ -50,12 +48,11 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// The `newrelic.Group` data source helps search for a group by its name and retrieve the ID of the matching group and other associated attributes.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
         ///     
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -77,8 +74,7 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("newrelic:index/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());

@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **WARNING:** The `newrelic.synthetics.AlertCondition` resource is deprecated and will be removed in the next major release. The resource newrelic.NrqlAlertCondition would be a preferred alternative to configure alert conditions - in most cases, feature parity can be achieved with a NRQL query.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,9 +54,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Tags
  * 
  * Manage synthetics alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -130,13 +136,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Synthetics alert conditions can be imported using a composite ID of `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g.
  * 
  * ```sh
- *  $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
+ * $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
  * ```
  * 
  */
@@ -144,6 +151,8 @@ import javax.annotation.Nullable;
 public class AlertCondition extends com.pulumi.resources.CustomResource {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -166,6 +175,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
@@ -173,6 +183,8 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Set whether to enable the alert condition. Defaults to `true`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -195,6 +207,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<Optional<Boolean>> enabled() {

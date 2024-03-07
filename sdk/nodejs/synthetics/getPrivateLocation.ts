@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -19,7 +20,9 @@ import * as utilities from "../utilities";
  * });
  * const foo = new newrelic.synthetics.Monitor("foo", {locationsPrivates: [example.then(example => example.id)]});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -32,6 +35,7 @@ import * as utilities from "../utilities";
  *     guid: example.then(example => example.id),
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrivateLocation(args: GetPrivateLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLocationResult> {
 
@@ -81,6 +85,7 @@ export interface GetPrivateLocationResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -91,7 +96,9 @@ export interface GetPrivateLocationResult {
  * });
  * const foo = new newrelic.synthetics.Monitor("foo", {locationsPrivates: [example.then(example => example.id)]});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -104,6 +111,7 @@ export interface GetPrivateLocationResult {
  *     guid: example.then(example => example.id),
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrivateLocationOutput(args: GetPrivateLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLocationResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLocation(a, opts))

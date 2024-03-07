@@ -16,71 +16,67 @@ import (
 //
 // Destination id can be found in the Destinations page -> three dots at the right of the chosen destination -> copy destination id to clipboard.
 //
-//	This example is especially useful for slack destinations which *must* be imported.
+// This example is especially useful for slack destinations which *must* be imported.
 //
-//	1. Add an empty resource to your terraform file:
+// 1. Add an empty resource to your terraform file:
 //
-//	terraform
+// terraform
 //
-//	resource "newrelic_notification_destination" "foo" {
+// resource "newrelic_notification_destination" "foo" {
+//
+// }
+//
+// ```sh
+// $ pulumi import newrelic:index/notificationDestination:NotificationDestination  Run import command: `newrelic_notification_destination.foo <destination_id>`
+// ```
+//
+// 3. Run the following command after the import successfully done and copy the information to your resource:
+//
+// `terraform state show newrelic_notification_destination.foo`
+//
+// 4. Add `ignore_changes` attribute on `auth_token` in your imported resource:
+//
+// terraform
+//
+// lifecycle {
+//
+//	  ignore_changes = [auth_token]
 //
 //	}
 //
-// ```sh
-// $ pulumi import newrelic:index/notificationDestination:NotificationDestination
+// Your imported destination should look like that:
 //
-// Run import command: `newrelic_notification_destination.foo <destination_id>`
-// ```
+// terraform
 //
-//  3. Run the following command after the import successfully done and copy the information to your resource:
+// resource "newrelic_notification_destination" "foo" {
 //
-//     `terraform state show newrelic_notification_destination.foo`
+//	lifecycle {
 //
-//  4. Add `ignore_changes` attribute on `auth_token` in your imported resource:
+//	  ignore_changes = [auth_token]
 //
-//     terraform
+//	}
 //
-//     lifecycle {
+//	name = "*********"
 //
-//     ignore_changes = [auth_token]
+//	type = "SLACK"
 //
-//     }
+//	auth_token {
 //
-//     Your imported destination should look like that:
+//	  prefix = "Bearer"
 //
-//     terraform
+//	}
 //
-//     resource "newrelic_notification_destination" "foo" {
+//	property {
 //
-//     lifecycle {
+//	    key   = "teamName"
 //
-//     ignore_changes = [auth_token]
+//	    label = "Team Name"
 //
-//     }
+//	    value = "******"
 //
-//     name = "*********"
+//	}
 //
-//     type = "SLACK"
-//
-//     auth_token {
-//
-//     prefix = "Bearer"
-//
-//     }
-//
-//     property {
-//
-//     key
-//
-//     = "teamName"
-//
-//     label = "Team Name"
-//
-//     value = "******"
-//
-//     }
-//
-//     }
+// }
 type NotificationDestination struct {
 	pulumi.CustomResourceState
 

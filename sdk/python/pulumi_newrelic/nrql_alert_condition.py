@@ -910,8 +910,10 @@ class NrqlAlertCondition(pulumi.CustomResource):
         Use this resource to create and manage NRQL alert conditions in New Relic.
 
         ## Example Usage
+
         ### Type: `static` (default)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -950,6 +952,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 threshold_occurrences="ALL",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## NRQL
 
         The `nrql` block supports the following arguments:
@@ -988,6 +992,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -1026,11 +1031,13 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 threshold_occurrences="ALL",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Tags
 
         Manage NRQL alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check `EntityTags`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -1084,6 +1091,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         <small>alerts.newrelic.com/accounts/**\\<account_id\\>**/policies/**\\<policy_id\\>**/conditions/**\\<condition_id\\>**/edit</small>
 
@@ -1095,6 +1103,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         An example resource from 1.x might look like the following.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -1115,10 +1124,12 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         After making the appropriate adjustments mentioned in the deprecation warnings,
         the resource now looks like the following.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -1140,18 +1151,19 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g.
 
-         // For `baseline` conditions
+        // For `baseline` conditions
 
         ```sh
         $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
         ```
 
-         // For `static` conditions
+        // For `static` conditions
 
         ```sh
         $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
@@ -1197,8 +1209,10 @@ class NrqlAlertCondition(pulumi.CustomResource):
         Use this resource to create and manage NRQL alert conditions in New Relic.
 
         ## Example Usage
+
         ### Type: `static` (default)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -1237,6 +1251,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 threshold_occurrences="ALL",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## NRQL
 
         The `nrql` block supports the following arguments:
@@ -1275,6 +1291,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -1313,11 +1330,13 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 threshold_occurrences="ALL",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Tags
 
         Manage NRQL alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check `EntityTags`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -1371,6 +1390,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         <small>alerts.newrelic.com/accounts/**\\<account_id\\>**/policies/**\\<policy_id\\>**/conditions/**\\<condition_id\\>**/edit</small>
 
@@ -1382,6 +1402,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         An example resource from 1.x might look like the following.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -1402,10 +1423,12 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         After making the appropriate adjustments mentioned in the deprecation warnings,
         the resource now looks like the following.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -1427,18 +1450,19 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g.
 
-         // For `baseline` conditions
+        // For `baseline` conditions
 
         ```sh
         $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
         ```
 
-         // For `static` conditions
+        // For `static` conditions
 
         ```sh
         $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static

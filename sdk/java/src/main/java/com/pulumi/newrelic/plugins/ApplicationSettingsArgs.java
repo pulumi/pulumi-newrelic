@@ -35,6 +35,8 @@ public final class ApplicationSettingsArgs extends com.pulumi.resources.Resource
 
     /**
      * Enable or disable real user monitoring for the New Relic application.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -57,6 +59,7 @@ public final class ApplicationSettingsArgs extends com.pulumi.resources.Resource
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="enableRealUserMonitoring", required=true)
@@ -64,6 +67,8 @@ public final class ApplicationSettingsArgs extends com.pulumi.resources.Resource
 
     /**
      * @return Enable or disable real user monitoring for the New Relic application.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -86,6 +91,7 @@ public final class ApplicationSettingsArgs extends com.pulumi.resources.Resource
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<Boolean> enableRealUserMonitoring() {
@@ -172,6 +178,8 @@ public final class ApplicationSettingsArgs extends com.pulumi.resources.Resource
 
         /**
          * @param enableRealUserMonitoring Enable or disable real user monitoring for the New Relic application.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -194,6 +202,7 @@ public final class ApplicationSettingsArgs extends com.pulumi.resources.Resource
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -205,6 +214,8 @@ public final class ApplicationSettingsArgs extends com.pulumi.resources.Resource
 
         /**
          * @param enableRealUserMonitoring Enable or disable real user monitoring for the New Relic application.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -227,6 +238,7 @@ public final class ApplicationSettingsArgs extends com.pulumi.resources.Resource
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

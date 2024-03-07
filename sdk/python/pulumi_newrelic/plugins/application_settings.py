@@ -23,9 +23,11 @@ class ApplicationSettingsArgs:
         :param pulumi.Input[float] app_apdex_threshold: The apdex threshold for the New Relic application.
         :param pulumi.Input[bool] enable_real_user_monitoring: Enable or disable real user monitoring for the New Relic application.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
         :param pulumi.Input[str] name: The name of the application in New Relic APM.
         """
@@ -53,9 +55,11 @@ class ApplicationSettingsArgs:
         """
         Enable or disable real user monitoring for the New Relic application.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "enable_real_user_monitoring")
 
@@ -100,9 +104,11 @@ class _ApplicationSettingsState:
         :param pulumi.Input[float] app_apdex_threshold: The apdex threshold for the New Relic application.
         :param pulumi.Input[bool] enable_real_user_monitoring: Enable or disable real user monitoring for the New Relic application.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
         :param pulumi.Input[str] name: The name of the application in New Relic APM.
         """
@@ -133,9 +139,11 @@ class _ApplicationSettingsState:
         """
         Enable or disable real user monitoring for the New Relic application.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "enable_real_user_monitoring")
 
@@ -187,6 +195,7 @@ class ApplicationSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -196,6 +205,8 @@ class ApplicationSettings(pulumi.CustomResource):
             enable_real_user_monitoring=False,
             end_user_apdex_threshold=0.8)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Notes
 
         > **NOTE:** Applications that have reported data in the last twelve hours
@@ -206,7 +217,7 @@ class ApplicationSettings(pulumi.CustomResource):
         Applications can be imported using notation `application_id`, e.g.
 
         ```sh
-         $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+        $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
         ```
 
         :param str resource_name: The name of the resource.
@@ -214,9 +225,11 @@ class ApplicationSettings(pulumi.CustomResource):
         :param pulumi.Input[float] app_apdex_threshold: The apdex threshold for the New Relic application.
         :param pulumi.Input[bool] enable_real_user_monitoring: Enable or disable real user monitoring for the New Relic application.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
         :param pulumi.Input[str] name: The name of the application in New Relic APM.
         """
@@ -235,6 +248,7 @@ class ApplicationSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -244,6 +258,8 @@ class ApplicationSettings(pulumi.CustomResource):
             enable_real_user_monitoring=False,
             end_user_apdex_threshold=0.8)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Notes
 
         > **NOTE:** Applications that have reported data in the last twelve hours
@@ -254,7 +270,7 @@ class ApplicationSettings(pulumi.CustomResource):
         Applications can be imported using notation `application_id`, e.g.
 
         ```sh
-         $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+        $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
         ```
 
         :param str resource_name: The name of the resource.
@@ -319,9 +335,11 @@ class ApplicationSettings(pulumi.CustomResource):
         :param pulumi.Input[float] app_apdex_threshold: The apdex threshold for the New Relic application.
         :param pulumi.Input[bool] enable_real_user_monitoring: Enable or disable real user monitoring for the New Relic application.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
         :param pulumi.Input[str] name: The name of the application in New Relic APM.
         """
@@ -349,9 +367,11 @@ class ApplicationSettings(pulumi.CustomResource):
         """
         Enable or disable real user monitoring for the New Relic application.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "enable_real_user_monitoring")
 

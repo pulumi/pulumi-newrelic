@@ -14,6 +14,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// A Synthetics private location can be imported using the `guid`
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
+    /// $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/privateLocation:PrivateLocation")]

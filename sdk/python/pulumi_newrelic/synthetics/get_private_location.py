@@ -83,6 +83,7 @@ def get_private_location(account_id: Optional[int] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -91,7 +92,9 @@ def get_private_location(account_id: Optional[int] = None,
         name="My private location")
     foo = newrelic.synthetics.Monitor("foo", locations_privates=[example.id])
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -102,6 +105,7 @@ def get_private_location(account_id: Optional[int] = None,
         guid=example.id,
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param int account_id: The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
@@ -132,6 +136,7 @@ def get_private_location_output(account_id: Optional[pulumi.Input[Optional[int]]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -140,7 +145,9 @@ def get_private_location_output(account_id: Optional[pulumi.Input[Optional[int]]
         name="My private location")
     foo = newrelic.synthetics.Monitor("foo", locations_privates=[example.id])
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -151,6 +158,7 @@ def get_private_location_output(account_id: Optional[pulumi.Input[Optional[int]]
         guid=example.id,
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param int account_id: The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.

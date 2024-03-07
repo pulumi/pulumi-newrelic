@@ -26,6 +26,7 @@ import (
 //
 // You can also use the full example, including the Azure set up, found in our guides.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,12 +54,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic
+// # Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import newrelic:cloud/azureLinkAccount:AzureLinkAccount foo <id>

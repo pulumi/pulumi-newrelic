@@ -18,6 +18,7 @@ namespace Pulumi.NewRelic
     /// 
     /// The example below will apply multiple alert channels to an existing New Relic alert policy.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,15 +68,16 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Alert policy channels can be imported using the following notation: `&lt;policyID&gt;:&lt;channelID&gt;:&lt;channelID&gt;`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:index/alertPolicyChannel:AlertPolicyChannel foo 123456:3462754:2938324
+    /// $ pulumi import newrelic:index/alertPolicyChannel:AlertPolicyChannel foo 123456:3462754:2938324
     /// ```
-    ///  When importing `newrelic_alert_policy_channel` resource, the attribute `channel_ids`* will be set in your Terraform state. You can import multiple channels as long as those channel IDs are included as part of the import ID hash.
+    /// When importing `newrelic_alert_policy_channel` resource, the attribute `channel_ids`* will be set in your Terraform state. You can import multiple channels as long as those channel IDs are included as part of the import ID hash.
     /// </summary>
     [NewRelicResourceType("newrelic:index/alertPolicyChannel:AlertPolicyChannel")]
     public partial class AlertPolicyChannel : global::Pulumi.CustomResource

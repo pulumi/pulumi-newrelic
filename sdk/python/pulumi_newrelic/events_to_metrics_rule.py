@@ -218,6 +218,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -227,14 +228,15 @@ class EventsToMetricsRule(pulumi.CustomResource):
             description="Example description",
             nrql="SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         New Relic Events to Metrics rules can be imported using a concatenated string of the format
 
-        `<account_id>:<rule_id>`, e.g.
+         `<account_id>:<rule_id>`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567
@@ -259,6 +261,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -268,14 +271,15 @@ class EventsToMetricsRule(pulumi.CustomResource):
             description="Example description",
             nrql="SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         New Relic Events to Metrics rules can be imported using a concatenated string of the format
 
-        `<account_id>:<rule_id>`, e.g.
+         `<account_id>:<rule_id>`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567

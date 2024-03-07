@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * &gt; **WARNING:** The `newrelic.AlertCondition` resource is deprecated and will be removed in the next major release. The resource newrelic.NrqlAlertCondition would be a preferred alternative to configure alert conditions - in most cases, feature parity can be achieved with a NRQL query.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -76,6 +78,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Terms
  * 
  * The `term` mapping supports the following arguments:
@@ -89,6 +93,8 @@ import javax.annotation.Nullable;
  * ## Tags
  * 
  * Manage alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -157,13 +163,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Alert conditions can be imported using notation `alert_policy_id:alert_condition_id`, e.g.
  * 
  * ```sh
- *  $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
+ * $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
  * ```
  * 
  */
@@ -341,6 +348,8 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
      * 
      * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -363,6 +372,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Export(name="userDefinedValueFunction", refs={String.class}, tree="[0]")
@@ -372,6 +382,8 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * @return One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
      * 
      * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -394,6 +406,7 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<Optional<String>> userDefinedValueFunction() {

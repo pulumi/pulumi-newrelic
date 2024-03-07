@@ -86,6 +86,7 @@ def get_application(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -106,6 +107,7 @@ def get_application(name: Optional[str] = None,
             time_function="all",
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the application in New Relic.
@@ -132,6 +134,7 @@ def get_application_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -152,6 +155,7 @@ def get_application_output(name: Optional[pulumi.Input[str]] = None,
             time_function="all",
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the application in New Relic.

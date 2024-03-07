@@ -13,8 +13,10 @@ namespace Pulumi.NewRelic
     /// &gt; **NOTE:** The newrelic.OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will receive less investment compared to newrelic_one_dashboard_json.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Create A New Relic One Dashboard With RawConfiguration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -112,6 +114,7 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [NewRelicResourceType("newrelic:index/oneDashboardRaw:OneDashboardRaw")]
     public partial class OneDashboardRaw : global::Pulumi.CustomResource

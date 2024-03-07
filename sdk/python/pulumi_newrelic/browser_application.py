@@ -236,6 +236,7 @@ class BrowserApplication(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage to create a standalone browser application.
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -245,12 +246,13 @@ class BrowserApplication(pulumi.CustomResource):
             distributed_tracing_enabled=True,
             loader_type="SPA")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Browser applications can be imported using the GUID of the browser application.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/browserApplication:BrowserApplication foo <GUID>
@@ -276,6 +278,7 @@ class BrowserApplication(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage to create a standalone browser application.
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -285,12 +288,13 @@ class BrowserApplication(pulumi.CustomResource):
             distributed_tracing_enabled=True,
             loader_type="SPA")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Browser applications can be imported using the GUID of the browser application.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/browserApplication:BrowserApplication foo <GUID>

@@ -16,6 +16,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,10 +34,13 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Tags
     /// 
     /// Manage synthetics alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -116,13 +120,14 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Synthetics alert conditions can be imported using a composite ID of `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
+    /// $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/alertCondition:AlertCondition")]
@@ -131,6 +136,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -140,6 +146,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -223,6 +230,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -232,6 +240,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -271,6 +280,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -280,6 +290,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

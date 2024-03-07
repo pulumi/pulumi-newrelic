@@ -315,6 +315,7 @@ class LogParsingRule(pulumi.CustomResource):
         ## Example Usage
 
         Use this example to create the log parse rule.
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -326,10 +327,13 @@ class LogParsingRule(pulumi.CustomResource):
             lucene="logtype:linux_messages",
             nrql="SELECT * FROM Log WHERE logtype = 'linux_messages'")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Additional Example
 
         Use this example to validate a grok pattern and create the log parse rule.  More
         information on grok pattern can be found [here](https://docs.newrelic.com/docs/logs/ui-data/parsing/#grok)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -344,12 +348,13 @@ class LogParsingRule(pulumi.CustomResource):
             nrql="SELECT * FROM Log WHERE logtype = 'linux_messages'",
             matched=grok.test_groks[0].matched)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         New Relic log parsing rule can be imported using the rule ID, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789
@@ -378,6 +383,7 @@ class LogParsingRule(pulumi.CustomResource):
         ## Example Usage
 
         Use this example to create the log parse rule.
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -389,10 +395,13 @@ class LogParsingRule(pulumi.CustomResource):
             lucene="logtype:linux_messages",
             nrql="SELECT * FROM Log WHERE logtype = 'linux_messages'")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Additional Example
 
         Use this example to validate a grok pattern and create the log parse rule.  More
         information on grok pattern can be found [here](https://docs.newrelic.com/docs/logs/ui-data/parsing/#grok)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -407,12 +416,13 @@ class LogParsingRule(pulumi.CustomResource):
             nrql="SELECT * FROM Log WHERE logtype = 'linux_messages'",
             matched=grok.test_groks[0].matched)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         New Relic log parsing rule can be imported using the rule ID, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789

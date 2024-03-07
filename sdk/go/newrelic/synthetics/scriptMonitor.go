@@ -18,6 +18,7 @@ import (
 //
 // ##### Type: `SCRIPT_API`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,8 +60,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 // ##### Type: `SCRIPT_BROWSER`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -103,7 +106,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 // See additional examples.
+//
 // ## Additional Examples
 //
 // ### Create a monitor with a private location
@@ -114,6 +119,7 @@ import (
 //
 // ##### Type: `SCRIPT_API`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -164,8 +170,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 // ##### Type: `SCRIPT_BROWSER`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -217,12 +225,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Synthetics monitor scripts can be imported using the `guid`, e.g.
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor <guid>

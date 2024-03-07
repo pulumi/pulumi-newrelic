@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  *
  * Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -309,12 +310,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Linked AWS account integrations can be imported using the `id`, e.g.
  *
- *  bash
+ * bash
  *
  * ```sh
  * $ pulumi import newrelic:cloud/awsIntegrations:AwsIntegrations foo <id>

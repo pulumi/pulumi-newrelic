@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -19,14 +20,15 @@ import * as utilities from "./utilities";
  *     nrql: "SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * New Relic Events to Metrics rules can be imported using a concatenated string of the format
  *
- * `<account_id>:<rule_id>`, e.g.
+ *  `<account_id>:<rule_id>`, e.g.
  *
- *  bash
+ * bash
  *
  * ```sh
  * $ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567

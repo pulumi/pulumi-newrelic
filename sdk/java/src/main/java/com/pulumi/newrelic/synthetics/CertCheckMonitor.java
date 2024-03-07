@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,7 +60,9 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * See additional examples.
+ * 
  * ## Additional Examples
  * 
  * ### Create a monitor with a private location
@@ -66,6 +70,8 @@ import javax.annotation.Nullable;
  * The below example shows how you can define a private location and attach it to a monitor.
  * 
  * &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -109,12 +115,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Synthetics certificate check monitor scripts can be imported using the `guid`, e.g.
  * 
- *  bash
+ * bash
  * 
  * ```sh
  * $ pulumi import newrelic:synthetics/certCheckMonitor:CertCheckMonitor monitor &lt;guid&gt;

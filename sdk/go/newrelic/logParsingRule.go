@@ -17,6 +17,7 @@ import (
 // ## Example Usage
 //
 // Use this example to create the log parse rule.
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,10 +45,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Additional Example
 //
 // Use this example to validate a grok pattern and create the log parse rule.  More
 // information on grok pattern can be found [here](https://docs.newrelic.com/docs/logs/ui-data/parsing/#grok)
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,12 +89,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // New Relic log parsing rule can be imported using the rule ID, e.g.
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789
