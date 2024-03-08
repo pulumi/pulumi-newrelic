@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -68,7 +70,9 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * See additional examples.
+ * 
  * ## Additional Examples
  * 
  * ### Create a monitor with a private location
@@ -77,6 +81,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -130,12 +135,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Synthetics step monitor scripts can be imported using the `guid`, e.g.
  * 
- *  bash
+ * bash
  * 
  * ```sh
  * $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor &lt;guid&gt;

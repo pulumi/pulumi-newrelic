@@ -91,6 +91,7 @@ def get_test_grok_pattern(account_id: Optional[int] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -101,6 +102,7 @@ def get_test_grok_pattern(account_id: Optional[int] = None,
             "bytes_received: 2048",
         ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -130,6 +132,7 @@ def get_test_grok_pattern_output(account_id: Optional[pulumi.Input[Optional[int]
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -140,6 +143,7 @@ def get_test_grok_pattern_output(account_id: Optional[pulumi.Input[Optional[int]
             "bytes_received: 2048",
         ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.

@@ -242,6 +242,7 @@ class AzureLinkAccount(pulumi.CustomResource):
 
         You can also use the full example, including the Azure set up, found in our guides.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -253,12 +254,13 @@ class AzureLinkAccount(pulumi.CustomResource):
             subscription_id="Subscription ID of Azure",
             tenant_id="Tenant ID of the Azure")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:cloud/azureLinkAccount:AzureLinkAccount foo <id>
@@ -294,6 +296,7 @@ class AzureLinkAccount(pulumi.CustomResource):
 
         You can also use the full example, including the Azure set up, found in our guides.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -305,12 +308,13 @@ class AzureLinkAccount(pulumi.CustomResource):
             subscription_id="Subscription ID of Azure",
             tenant_id="Tenant ID of the Azure")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:cloud/azureLinkAccount:AzureLinkAccount foo <id>

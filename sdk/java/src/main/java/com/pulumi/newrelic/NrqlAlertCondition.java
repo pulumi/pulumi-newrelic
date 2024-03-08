@@ -26,7 +26,10 @@ import javax.annotation.Nullable;
  * Use this resource to create and manage NRQL alert conditions in New Relic.
  * 
  * ## Example Usage
+ * 
  * ### Type: `static` (default)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -91,6 +94,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## NRQL
  * 
  * The `nrql` block supports the following arguments:
@@ -128,6 +133,8 @@ import javax.annotation.Nullable;
  * ##### Type: `baseline`
  * 
  * [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -192,10 +199,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Tags
  * 
  * Manage NRQL alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check `newrelic.EntityTags`.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -278,6 +288,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**{@literal /}policies/**\&lt;policy_id\&gt;**{@literal /}conditions/**\&lt;condition_id\&gt;**{@literal /}edit&lt;/small&gt;
  * 
@@ -288,6 +299,8 @@ import javax.annotation.Nullable;
  * upgrade.
  * 
  * An example resource from 1.x might look like the following.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -331,9 +344,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * After making the appropriate adjustments mentioned in the deprecation warnings,
  * the resource now looks like the following.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -378,18 +394,19 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * NRQL alert conditions can be imported using a composite ID of `&lt;policy_id&gt;:&lt;condition_id&gt;:&lt;conditionType&gt;`, e.g.
  * 
- *  // For `baseline` conditions
+ * // For `baseline` conditions
  * 
  * ```sh
  * $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
  * ```
  * 
- *  // For `static` conditions
+ * // For `static` conditions
  * 
  * ```sh
  * $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static

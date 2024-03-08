@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,10 +44,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Tags
 //
 // Manage synthetics alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -128,21 +132,21 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
-//
+// $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
 // ```
 type AlertCondition struct {
 	pulumi.CustomResourceState
 
 	// Set whether to enable the alert condition. Defaults to `true`.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -156,6 +160,7 @@ type AlertCondition struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
@@ -207,6 +212,7 @@ func GetAlertCondition(ctx *pulumi.Context,
 type alertConditionState struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -220,6 +226,7 @@ type alertConditionState struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Enabled *bool `pulumi:"enabled"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid *string `pulumi:"entityGuid"`
@@ -236,6 +243,7 @@ type alertConditionState struct {
 type AlertConditionState struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -249,6 +257,7 @@ type AlertConditionState struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Enabled pulumi.BoolPtrInput
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringPtrInput
@@ -269,6 +278,7 @@ func (AlertConditionState) ElementType() reflect.Type {
 type alertConditionArgs struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -282,6 +292,7 @@ type alertConditionArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Enabled *bool `pulumi:"enabled"`
 	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId string `pulumi:"monitorId"`
@@ -297,6 +308,7 @@ type alertConditionArgs struct {
 type AlertConditionArgs struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -310,6 +322,7 @@ type AlertConditionArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Enabled pulumi.BoolPtrInput
 	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId pulumi.StringInput
@@ -410,6 +423,7 @@ func (o AlertConditionOutput) ToAlertConditionOutputWithContext(ctx context.Cont
 
 // Set whether to enable the alert condition. Defaults to `true`.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -426,6 +440,7 @@ func (o AlertConditionOutput) ToAlertConditionOutputWithContext(ctx context.Cont
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o AlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

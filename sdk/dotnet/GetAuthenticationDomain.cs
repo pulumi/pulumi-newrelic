@@ -14,10 +14,9 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Use this data source to fetch the ID of an authentication domain belonging to your account, matching the specified name.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,8 +36,7 @@ namespace Pulumi.NewRelic
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAuthenticationDomainResult> InvokeAsync(GetAuthenticationDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthenticationDomainResult>("newrelic:index/getAuthenticationDomain:getAuthenticationDomain", args ?? new GetAuthenticationDomainArgs(), options.WithDefaults());
@@ -46,10 +44,9 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Use this data source to fetch the ID of an authentication domain belonging to your account, matching the specified name.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,8 +66,7 @@ namespace Pulumi.NewRelic
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAuthenticationDomainResult> Invoke(GetAuthenticationDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthenticationDomainResult>("newrelic:index/getAuthenticationDomain:getAuthenticationDomain", args ?? new GetAuthenticationDomainInvokeArgs(), options.WithDefaults());

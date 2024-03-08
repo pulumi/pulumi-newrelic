@@ -235,8 +235,10 @@ class OneDashboardRaw(pulumi.CustomResource):
         > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will receive less investment compared to newrelic_one_dashboard_json.
 
         ## Example Usage
+
         ### Create A New Relic One Dashboard With RawConfiguration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -308,6 +310,7 @@ class OneDashboardRaw(pulumi.CustomResource):
             ],
         )])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -327,8 +330,10 @@ class OneDashboardRaw(pulumi.CustomResource):
         > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will receive less investment compared to newrelic_one_dashboard_json.
 
         ## Example Usage
+
         ### Create A New Relic One Dashboard With RawConfiguration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -400,6 +405,7 @@ class OneDashboardRaw(pulumi.CustomResource):
             ],
         )])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param OneDashboardRawArgs args: The arguments to use to populate this resource's properties.

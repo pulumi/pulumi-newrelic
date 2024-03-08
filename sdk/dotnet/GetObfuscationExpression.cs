@@ -14,10 +14,9 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -53,8 +52,7 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetObfuscationExpressionResult> InvokeAsync(GetObfuscationExpressionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetObfuscationExpressionResult>("newrelic:index/getObfuscationExpression:getObfuscationExpression", args ?? new GetObfuscationExpressionArgs(), options.WithDefaults());
@@ -62,10 +60,9 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -101,8 +98,7 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetObfuscationExpressionResult> Invoke(GetObfuscationExpressionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetObfuscationExpressionResult>("newrelic:index/getObfuscationExpression:getObfuscationExpression", args ?? new GetObfuscationExpressionInvokeArgs(), options.WithDefaults());

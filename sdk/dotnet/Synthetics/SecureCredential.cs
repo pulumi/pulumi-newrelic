@@ -14,6 +14,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,14 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// A Synthetics secure credential can be imported using its `key`:
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
+    /// $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/secureCredential:SecureCredential")]

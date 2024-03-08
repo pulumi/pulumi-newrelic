@@ -374,6 +374,7 @@ class StepMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -396,14 +397,16 @@ class StepMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
         See additional examples.
+
         ## Additional Examples
 
         ## Import
 
         Synthetics step monitor scripts can be imported using the `guid`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor <guid>
@@ -434,6 +437,7 @@ class StepMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -456,14 +460,16 @@ class StepMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
         See additional examples.
+
         ## Additional Examples
 
         ## Import
 
         Synthetics step monitor scripts can be imported using the `guid`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor <guid>

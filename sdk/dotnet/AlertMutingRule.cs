@@ -12,6 +12,7 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,13 +68,14 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Alert conditions can be imported using a composite ID of `&lt;account_id&gt;:&lt;muting_rule_id&gt;`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
+    /// $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/alertMutingRule:AlertMutingRule")]

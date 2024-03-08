@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Use this resource to create and manage New Relic Synthetic private location.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * A Synthetics private location can be imported using the `guid`
  * 
  * ```sh
- *  $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
+ * $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
  * ```
  * 
  */

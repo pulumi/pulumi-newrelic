@@ -16,6 +16,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -59,6 +60,8 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Terms
     /// 
     /// The `term` mapping supports the following arguments:
@@ -73,6 +76,7 @@ namespace Pulumi.NewRelic
     /// 
     /// Manage alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -139,13 +143,14 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Alert conditions can be imported using notation `alert_policy_id:alert_condition_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
+    /// $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/alertCondition:AlertCondition")]
@@ -228,6 +233,7 @@ namespace Pulumi.NewRelic
         /// 
         /// &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -237,6 +243,7 @@ namespace Pulumi.NewRelic
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Output("userDefinedValueFunction")]
         public Output<string?> UserDefinedValueFunction { get; private set; } = null!;
@@ -378,6 +385,7 @@ namespace Pulumi.NewRelic
         /// 
         /// &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -387,6 +395,7 @@ namespace Pulumi.NewRelic
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("userDefinedValueFunction")]
         public Input<string>? UserDefinedValueFunction { get; set; }
@@ -496,6 +505,7 @@ namespace Pulumi.NewRelic
         /// 
         /// &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -505,6 +515,7 @@ namespace Pulumi.NewRelic
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("userDefinedValueFunction")]
         public Input<string>? UserDefinedValueFunction { get; set; }

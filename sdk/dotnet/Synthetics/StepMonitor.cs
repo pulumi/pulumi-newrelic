@@ -14,6 +14,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -59,14 +60,16 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// See additional examples.
+    /// 
     /// ## Additional Examples
     /// 
     /// ## Import
     /// 
     /// Synthetics step monitor scripts can be imported using the `guid`, e.g.
     /// 
-    ///  bash
+    /// bash
     /// 
     /// ```sh
     /// $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor &lt;guid&gt;

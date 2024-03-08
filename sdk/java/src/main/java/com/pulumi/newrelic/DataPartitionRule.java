@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Use this resource to create, update and delete New Relic Data partition rule.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,6 +54,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Additional Information
  * 
  * More details about the data partition can be found [here](https://docs.newrelic.com/docs/logs/ui-data/data-partitions/)
@@ -60,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  * New Relic data partition rule can be imported using the rule ID, e.g.
  * 
- *  bash
+ * bash
  * 
  * ```sh
  * $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo &lt;id&gt;

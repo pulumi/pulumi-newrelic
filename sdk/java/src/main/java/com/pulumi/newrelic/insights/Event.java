@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Use this resource to create one or more Insights events.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -65,6 +67,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Events
  * 
  * The `event` mapping supports the following arguments:

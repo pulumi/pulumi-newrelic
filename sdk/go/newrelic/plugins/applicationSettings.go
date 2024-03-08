@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,6 +46,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Notes
 //
 // > **NOTE:** Applications that have reported data in the last twelve hours
@@ -55,9 +58,7 @@ import (
 // Applications can be imported using notation `application_id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
-//
+// $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
 // ```
 type ApplicationSettings struct {
 	pulumi.CustomResourceState
@@ -66,6 +67,7 @@ type ApplicationSettings struct {
 	AppApdexThreshold pulumi.Float64Output `pulumi:"appApdexThreshold"`
 	// Enable or disable real user monitoring for the New Relic application.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -79,6 +81,7 @@ type ApplicationSettings struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	EnableRealUserMonitoring pulumi.BoolOutput `pulumi:"enableRealUserMonitoring"`
 	// The user's apdex threshold for the New Relic application.
 	EndUserApdexThreshold pulumi.Float64Output `pulumi:"endUserApdexThreshold"`
@@ -129,6 +132,7 @@ type applicationSettingsState struct {
 	AppApdexThreshold *float64 `pulumi:"appApdexThreshold"`
 	// Enable or disable real user monitoring for the New Relic application.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -142,6 +146,7 @@ type applicationSettingsState struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	EnableRealUserMonitoring *bool `pulumi:"enableRealUserMonitoring"`
 	// The user's apdex threshold for the New Relic application.
 	EndUserApdexThreshold *float64 `pulumi:"endUserApdexThreshold"`
@@ -154,6 +159,7 @@ type ApplicationSettingsState struct {
 	AppApdexThreshold pulumi.Float64PtrInput
 	// Enable or disable real user monitoring for the New Relic application.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -167,6 +173,7 @@ type ApplicationSettingsState struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	EnableRealUserMonitoring pulumi.BoolPtrInput
 	// The user's apdex threshold for the New Relic application.
 	EndUserApdexThreshold pulumi.Float64PtrInput
@@ -183,6 +190,7 @@ type applicationSettingsArgs struct {
 	AppApdexThreshold float64 `pulumi:"appApdexThreshold"`
 	// Enable or disable real user monitoring for the New Relic application.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -196,6 +204,7 @@ type applicationSettingsArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	EnableRealUserMonitoring bool `pulumi:"enableRealUserMonitoring"`
 	// The user's apdex threshold for the New Relic application.
 	EndUserApdexThreshold float64 `pulumi:"endUserApdexThreshold"`
@@ -209,6 +218,7 @@ type ApplicationSettingsArgs struct {
 	AppApdexThreshold pulumi.Float64Input
 	// Enable or disable real user monitoring for the New Relic application.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -222,6 +232,7 @@ type ApplicationSettingsArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	EnableRealUserMonitoring pulumi.BoolInput
 	// The user's apdex threshold for the New Relic application.
 	EndUserApdexThreshold pulumi.Float64Input
@@ -323,6 +334,7 @@ func (o ApplicationSettingsOutput) AppApdexThreshold() pulumi.Float64Output {
 
 // Enable or disable real user monitoring for the New Relic application.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -339,6 +351,7 @@ func (o ApplicationSettingsOutput) AppApdexThreshold() pulumi.Float64Output {
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o ApplicationSettingsOutput) EnableRealUserMonitoring() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ApplicationSettings) pulumi.BoolOutput { return v.EnableRealUserMonitoring }).(pulumi.BoolOutput)
 }

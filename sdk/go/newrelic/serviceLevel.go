@@ -24,6 +24,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,10 +69,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Additional Example
 //
 // Service level with tags:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -137,9 +141,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // # Using `select` for events
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -193,18 +199,19 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // # For up-to-date documentation about the tagging resource, please check EntityTags
 //
 // ## Import
 //
-// # New Relic Service Levels can be imported using a concatenated string of the format
+// New Relic Service Levels can be imported using a concatenated string of the format
 //
-// `<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to.
+//	`<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to.
 //
-//	Example:
+// Example:
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import newrelic:index/serviceLevel:ServiceLevel foo 12345678:4321:MXxBUE18QVBQTElDQVRJT058MQ

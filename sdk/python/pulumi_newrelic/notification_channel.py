@@ -286,6 +286,7 @@ class NotificationChannel(pulumi.CustomResource):
         ## Example Usage
 
         ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -301,7 +302,9 @@ class NotificationChannel(pulumi.CustomResource):
             )],
             type="WEBHOOK")
         ```
+        <!--End PulumiCodeChooser -->
         See additional examples.
+
         ## Additional Examples
 
         > **NOTE:** We support all properties. The mentioned properties are just an example.
@@ -309,6 +312,7 @@ class NotificationChannel(pulumi.CustomResource):
         ##### [ServiceNow](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenow)
         To see the properties’ keys for your account, check ServiceNow incidents table.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -329,8 +333,10 @@ class NotificationChannel(pulumi.CustomResource):
             ],
             type="SERVICENOW_INCIDENTS")
         ```
+        <!--End PulumiCodeChooser -->
 
         ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -351,8 +357,10 @@ class NotificationChannel(pulumi.CustomResource):
             ],
             type="EMAIL")
         ```
+        <!--End PulumiCodeChooser -->
 
         ##### [Jira Classic](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#jira)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -381,8 +389,10 @@ class NotificationChannel(pulumi.CustomResource):
             ],
             type="JIRA_CLASSIC")
         ```
+        <!--End PulumiCodeChooser -->
 
         ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -426,8 +436,10 @@ class NotificationChannel(pulumi.CustomResource):
             ],
             type="PAGERDUTY_ACCOUNT_INTEGRATION")
         ```
+        <!--End PulumiCodeChooser -->
 
         ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -462,8 +474,10 @@ class NotificationChannel(pulumi.CustomResource):
             ],
             type="PAGERDUTY_SERVICE_INTEGRATION")
         ```
+        <!--End PulumiCodeChooser -->
 
         #### Mobile Push
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -474,8 +488,10 @@ class NotificationChannel(pulumi.CustomResource):
             product="IINT",
             type="MOBILE_PUSH")
         ```
+        <!--End PulumiCodeChooser -->
 
         #### [AWS Event Bridge](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#eventBridge)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -496,8 +512,10 @@ class NotificationChannel(pulumi.CustomResource):
             ],
             type="EVENT_BRIDGE")
         ```
+        <!--End PulumiCodeChooser -->
 
         #### [SLACK](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#slack)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -518,6 +536,7 @@ class NotificationChannel(pulumi.CustomResource):
             ],
             type="SLACK")
         ```
+        <!--End PulumiCodeChooser -->
 
         > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
 
@@ -526,6 +545,7 @@ class NotificationChannel(pulumi.CustomResource):
         Create a destination resource and reference that destination to the channel resource:
 
         ### Create a destination
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -542,8 +562,10 @@ class NotificationChannel(pulumi.CustomResource):
             )],
             type="WEBHOOK")
         ```
+        <!--End PulumiCodeChooser -->
 
         ### Create a channel
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -559,6 +581,7 @@ class NotificationChannel(pulumi.CustomResource):
                 label="Payload Template",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Additional Information
 
@@ -570,9 +593,9 @@ class NotificationChannel(pulumi.CustomResource):
 
         Channels can only be used by a single workflow, therefore importing them is not particularly useful, because in the UI channels are created upon workflow creation.
 
-         Additionally, the channel id isn't available via the UI, and you'd need to look it up with the `channels` query in the NerdGraph API.
+        Additionally, the channel id isn't available via the UI, and you'd need to look it up with the `channels` query in the NerdGraph API.
 
-         That being said, importing is possible using -
+        That being said, importing is possible using -
 
         ```sh
         $ pulumi import newrelic:index/notificationChannel:NotificationChannel foo <destination_id>
@@ -602,6 +625,7 @@ class NotificationChannel(pulumi.CustomResource):
         ## Example Usage
 
         ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -617,7 +641,9 @@ class NotificationChannel(pulumi.CustomResource):
             )],
             type="WEBHOOK")
         ```
+        <!--End PulumiCodeChooser -->
         See additional examples.
+
         ## Additional Examples
 
         > **NOTE:** We support all properties. The mentioned properties are just an example.
@@ -625,6 +651,7 @@ class NotificationChannel(pulumi.CustomResource):
         ##### [ServiceNow](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenow)
         To see the properties’ keys for your account, check ServiceNow incidents table.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -645,8 +672,10 @@ class NotificationChannel(pulumi.CustomResource):
             ],
             type="SERVICENOW_INCIDENTS")
         ```
+        <!--End PulumiCodeChooser -->
 
         ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -667,8 +696,10 @@ class NotificationChannel(pulumi.CustomResource):
             ],
             type="EMAIL")
         ```
+        <!--End PulumiCodeChooser -->
 
         ##### [Jira Classic](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#jira)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -697,8 +728,10 @@ class NotificationChannel(pulumi.CustomResource):
             ],
             type="JIRA_CLASSIC")
         ```
+        <!--End PulumiCodeChooser -->
 
         ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -742,8 +775,10 @@ class NotificationChannel(pulumi.CustomResource):
             ],
             type="PAGERDUTY_ACCOUNT_INTEGRATION")
         ```
+        <!--End PulumiCodeChooser -->
 
         ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -778,8 +813,10 @@ class NotificationChannel(pulumi.CustomResource):
             ],
             type="PAGERDUTY_SERVICE_INTEGRATION")
         ```
+        <!--End PulumiCodeChooser -->
 
         #### Mobile Push
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -790,8 +827,10 @@ class NotificationChannel(pulumi.CustomResource):
             product="IINT",
             type="MOBILE_PUSH")
         ```
+        <!--End PulumiCodeChooser -->
 
         #### [AWS Event Bridge](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#eventBridge)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -812,8 +851,10 @@ class NotificationChannel(pulumi.CustomResource):
             ],
             type="EVENT_BRIDGE")
         ```
+        <!--End PulumiCodeChooser -->
 
         #### [SLACK](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#slack)
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -834,6 +875,7 @@ class NotificationChannel(pulumi.CustomResource):
             ],
             type="SLACK")
         ```
+        <!--End PulumiCodeChooser -->
 
         > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
 
@@ -842,6 +884,7 @@ class NotificationChannel(pulumi.CustomResource):
         Create a destination resource and reference that destination to the channel resource:
 
         ### Create a destination
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -858,8 +901,10 @@ class NotificationChannel(pulumi.CustomResource):
             )],
             type="WEBHOOK")
         ```
+        <!--End PulumiCodeChooser -->
 
         ### Create a channel
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -875,6 +920,7 @@ class NotificationChannel(pulumi.CustomResource):
                 label="Payload Template",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Additional Information
 
@@ -886,9 +932,9 @@ class NotificationChannel(pulumi.CustomResource):
 
         Channels can only be used by a single workflow, therefore importing them is not particularly useful, because in the UI channels are created upon workflow creation.
 
-         Additionally, the channel id isn't available via the UI, and you'd need to look it up with the `channels` query in the NerdGraph API.
+        Additionally, the channel id isn't available via the UI, and you'd need to look it up with the `channels` query in the NerdGraph API.
 
-         That being said, importing is possible using -
+        That being said, importing is possible using -
 
         ```sh
         $ pulumi import newrelic:index/notificationChannel:NotificationChannel foo <destination_id>

@@ -201,6 +201,7 @@ class SecureCredential(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -210,13 +211,14 @@ class SecureCredential(pulumi.CustomResource):
             key="MY_KEY",
             value="My value")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         A Synthetics secure credential can be imported using its `key`:
 
         ```sh
-         $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
+        $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
         ```
 
         :param str resource_name: The name of the resource.
@@ -238,6 +240,7 @@ class SecureCredential(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -247,13 +250,14 @@ class SecureCredential(pulumi.CustomResource):
             key="MY_KEY",
             value="My value")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         A Synthetics secure credential can be imported using its `key`:
 
         ```sh
-         $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
+        $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
         ```
 
         :param str resource_name: The name of the resource.

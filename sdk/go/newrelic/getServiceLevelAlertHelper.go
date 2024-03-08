@@ -17,6 +17,7 @@ import (
 //
 // Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,12 +64,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 // Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
 // Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
 // If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
 //
 // Here is an example of a `slowBurn` alert.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -120,9 +123,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Here is an example of a custom alert:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -176,6 +181,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetServiceLevelAlertHelper(ctx *pulumi.Context, args *GetServiceLevelAlertHelperArgs, opts ...pulumi.InvokeOption) (*GetServiceLevelAlertHelperResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceLevelAlertHelperResult

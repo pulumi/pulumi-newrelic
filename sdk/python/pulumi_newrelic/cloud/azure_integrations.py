@@ -1187,6 +1187,7 @@ class AzureIntegrations(pulumi.CustomResource):
 
         Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -1336,12 +1337,13 @@ class AzureIntegrations(pulumi.CustomResource):
                 resource_groups=["resource_groups"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:cloud/azureIntegrations:AzureIntegrations foo <id>
@@ -1409,6 +1411,7 @@ class AzureIntegrations(pulumi.CustomResource):
 
         Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -1558,12 +1561,13 @@ class AzureIntegrations(pulumi.CustomResource):
                 resource_groups=["resource_groups"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:cloud/azureIntegrations:AzureIntegrations foo <id>

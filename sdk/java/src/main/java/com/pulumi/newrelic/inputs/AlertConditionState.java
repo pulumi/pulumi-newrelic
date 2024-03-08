@@ -203,6 +203,8 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
      * One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
      * 
      * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -225,6 +227,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="userDefinedValueFunction")
@@ -234,6 +237,8 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
      * @return One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
      * 
      * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -256,6 +261,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<String>> userDefinedValueFunction() {
@@ -594,6 +600,8 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
          * @param userDefinedValueFunction One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
          * 
          * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -616,6 +624,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -629,6 +638,8 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
          * @param userDefinedValueFunction One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
          * 
          * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -651,6 +662,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

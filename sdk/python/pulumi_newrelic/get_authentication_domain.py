@@ -60,6 +60,7 @@ def get_authentication_domain(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -67,6 +68,7 @@ def get_authentication_domain(name: Optional[str] = None,
     foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
     pulumi.export("foo", foo_authentication_domain.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the authentication domain to be searched for. An error is thrown, if no authentication domain is found with the specified name.
@@ -89,6 +91,7 @@ def get_authentication_domain_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -96,6 +99,7 @@ def get_authentication_domain_output(name: Optional[pulumi.Input[str]] = None,
     foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
     pulumi.export("foo", foo_authentication_domain.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the authentication domain to be searched for. An error is thrown, if no authentication domain is found with the specified name.

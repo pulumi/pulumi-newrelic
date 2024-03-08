@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,7 +71,10 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * ##### Type: `SIMPLE BROWSER`
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -115,7 +120,9 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * See additional examples.
+ * 
  * ## Additional Examples
  * 
  * ### Create a monitor with a private location
@@ -125,6 +132,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
  * 
  * ##### Type: `SIMPLE`
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -178,7 +187,10 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * ##### Type: `BROWSER`
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -234,12 +246,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Synthetics monitor can be imported using the `guid`, e.g.
  * 
- *  bash
+ * bash
  * 
  * ```sh
  * $ pulumi import newrelic:synthetics/monitor:Monitor monitor &lt;guid&gt;

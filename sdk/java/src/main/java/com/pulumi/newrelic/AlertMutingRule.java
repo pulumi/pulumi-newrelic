@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -76,13 +78,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Alert conditions can be imported using a composite ID of `&lt;account_id&gt;:&lt;muting_rule_id&gt;`, e.g.
  * 
  * ```sh
- *  $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
+ * $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
  * ```
  * 
  */

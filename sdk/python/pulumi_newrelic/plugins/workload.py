@@ -370,13 +370,67 @@ class Workload(pulumi.CustomResource):
         attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
         variable with your User API key.
 
+        ## Example Usage
+
+        Include entities with a certain string on the name.
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.plugins.Workload("foo",
+            account_id=12345678,
+            entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
+                query="name like '%Example application%'",
+            )],
+            scope_account_ids=[12345678])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        Include entities with a set of tags.
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.plugins.Workload("foo",
+            account_id=12345678,
+            entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
+                query="tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
+            )],
+            scope_account_ids=[12345678])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        Include entities with a set of tags.
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.plugins.Workload("foo",
+            account_id=12345678,
+            entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
+                query="tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
+            )],
+            scope_account_ids=[12345678])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        Include automatic status
+
+        > The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
+
         ## Import
 
         New Relic workloads can be imported using a concatenated string of the format
 
-        `<account_id>:<workload_id>:<guid>`, e.g.
+         `<account_id>:<workload_id>:<guid>`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
@@ -406,13 +460,67 @@ class Workload(pulumi.CustomResource):
         attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
         variable with your User API key.
 
+        ## Example Usage
+
+        Include entities with a certain string on the name.
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.plugins.Workload("foo",
+            account_id=12345678,
+            entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
+                query="name like '%Example application%'",
+            )],
+            scope_account_ids=[12345678])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        Include entities with a set of tags.
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.plugins.Workload("foo",
+            account_id=12345678,
+            entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
+                query="tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
+            )],
+            scope_account_ids=[12345678])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        Include entities with a set of tags.
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.plugins.Workload("foo",
+            account_id=12345678,
+            entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
+                query="tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
+            )],
+            scope_account_ids=[12345678])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        Include automatic status
+
+        > The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
+
         ## Import
 
         New Relic workloads can be imported using a concatenated string of the format
 
-        `<account_id>:<workload_id>:<guid>`, e.g.
+         `<account_id>:<workload_id>:<guid>`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1

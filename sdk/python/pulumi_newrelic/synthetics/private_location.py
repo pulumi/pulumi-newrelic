@@ -233,19 +233,21 @@ class PrivateLocation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         location = newrelic.synthetics.PrivateLocation("location", description="The private location description")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         A Synthetics private location can be imported using the `guid`
 
         ```sh
-         $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
+        $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
         ```
 
         :param str resource_name: The name of the resource.
@@ -266,19 +268,21 @@ class PrivateLocation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         location = newrelic.synthetics.PrivateLocation("location", description="The private location description")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         A Synthetics private location can be imported using the `guid`
 
         ```sh
-         $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
+        $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
         ```
 
         :param str resource_name: The name of the resource.

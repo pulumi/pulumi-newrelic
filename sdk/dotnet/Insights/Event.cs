@@ -14,6 +14,7 @@ namespace Pulumi.NewRelic.Insights
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,6 +57,8 @@ namespace Pulumi.NewRelic.Insights
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Events
     /// 
     /// The `event` mapping supports the following arguments:

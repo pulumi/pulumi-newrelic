@@ -19,6 +19,7 @@ import (
 // ## Example Usage
 //
 // ##### Create Account
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,12 +43,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Accounts can be imported using the `id`, e.g.
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import newrelic:index/accountManagement:AccountManagement foo <id>

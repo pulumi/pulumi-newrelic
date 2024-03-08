@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -74,6 +75,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Thresholds
  *
  * The `critical` and `warning` threshold mapping supports the following arguments:
@@ -86,6 +89,7 @@ import * as utilities from "./utilities";
  *
  * Manage infra alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -127,13 +131,14 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Infrastructure alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
  *
  * ```sh
- *  $ pulumi import newrelic:index/infraAlertCondition:InfraAlertCondition main 12345:67890
+ * $ pulumi import newrelic:index/infraAlertCondition:InfraAlertCondition main 12345:67890
  * ```
  */
 export class InfraAlertCondition extends pulumi.CustomResource {
@@ -227,9 +232,11 @@ export class InfraAlertCondition extends pulumi.CustomResource {
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     public readonly violationCloseTimer!: pulumi.Output<number | undefined>;
     /**
@@ -237,7 +244,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public readonly warning!: pulumi.Output<outputs.InfraAlertConditionWarning | undefined>;
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
      */
     public readonly where!: pulumi.Output<string | undefined>;
 
@@ -371,9 +378,11 @@ export interface InfraAlertConditionState {
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     violationCloseTimer?: pulumi.Input<number>;
     /**
@@ -381,7 +390,7 @@ export interface InfraAlertConditionState {
      */
     warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
      */
     where?: pulumi.Input<string>;
 }
@@ -441,9 +450,11 @@ export interface InfraAlertConditionArgs {
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     violationCloseTimer?: pulumi.Input<number>;
     /**
@@ -451,7 +462,7 @@ export interface InfraAlertConditionArgs {
      */
     warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
      */
     where?: pulumi.Input<string>;
 }

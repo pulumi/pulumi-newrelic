@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,6 +44,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Additional Information
 //
 // More details about the data partition can be found [here](https://docs.newrelic.com/docs/logs/ui-data/data-partitions/)
@@ -51,7 +54,7 @@ import (
 //
 // New Relic data partition rule can be imported using the rule ID, e.g.
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo <id>

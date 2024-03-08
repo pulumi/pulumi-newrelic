@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     key: "MY_KEY",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetSecureCredentialResult> {
 
@@ -69,6 +71,7 @@ export interface GetSecureCredentialResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -77,6 +80,7 @@ export interface GetSecureCredentialResult {
  *     key: "MY_KEY",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecureCredentialOutput(args: GetSecureCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecureCredentialResult> {
     return pulumi.output(args).apply((a: any) => getSecureCredential(a, opts))

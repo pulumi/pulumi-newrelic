@@ -21,6 +21,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * ##### Create Account
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,12 +50,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Accounts can be imported using the `id`, e.g.
  * 
- *  bash
+ * bash
  * 
  * ```sh
  * $ pulumi import newrelic:index/accountManagement:AccountManagement foo &lt;id&gt;

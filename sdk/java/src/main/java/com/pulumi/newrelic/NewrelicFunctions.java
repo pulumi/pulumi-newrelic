@@ -59,6 +59,8 @@ public final class NewrelicFunctions {
      * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -87,6 +89,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountResult> getAccount() {
@@ -98,6 +101,8 @@ public final class NewrelicFunctions {
      * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +131,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain() {
@@ -137,6 +143,8 @@ public final class NewrelicFunctions {
      * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -165,6 +173,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
@@ -176,6 +185,8 @@ public final class NewrelicFunctions {
      * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -204,6 +215,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -215,6 +227,8 @@ public final class NewrelicFunctions {
      * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -243,6 +257,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
@@ -254,6 +269,8 @@ public final class NewrelicFunctions {
      * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -282,6 +299,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
@@ -294,6 +312,7 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -332,6 +351,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAlertChannelResult> getAlertChannel(GetAlertChannelArgs args) {
@@ -344,6 +364,7 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -382,6 +403,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAlertChannelResult> getAlertChannelPlain(GetAlertChannelPlainArgs args) {
@@ -394,6 +416,7 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -432,6 +455,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAlertChannelResult> getAlertChannel(GetAlertChannelArgs args, InvokeOptions options) {
@@ -444,6 +468,7 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -482,6 +507,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAlertChannelResult> getAlertChannelPlain(GetAlertChannelPlainArgs args, InvokeOptions options) {
@@ -492,6 +518,7 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -532,6 +559,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAlertPolicyResult> getAlertPolicy(GetAlertPolicyArgs args) {
@@ -542,6 +570,7 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -582,6 +611,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAlertPolicyResult> getAlertPolicyPlain(GetAlertPolicyPlainArgs args) {
@@ -592,6 +622,7 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -632,6 +663,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAlertPolicyResult> getAlertPolicy(GetAlertPolicyArgs args, InvokeOptions options) {
@@ -642,6 +674,7 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -682,6 +715,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAlertPolicyResult> getAlertPolicyPlain(GetAlertPolicyPlainArgs args, InvokeOptions options) {
@@ -693,6 +727,8 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific application in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -742,6 +778,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationResult> getApplication(GetApplicationArgs args) {
@@ -753,6 +790,8 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific application in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -802,6 +841,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args) {
@@ -813,6 +853,8 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific application in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -862,6 +904,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationResult> getApplication(GetApplicationArgs args, InvokeOptions options) {
@@ -873,6 +916,8 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific application in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -922,6 +967,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args, InvokeOptions options) {
@@ -931,6 +977,8 @@ public final class NewrelicFunctions {
      * Use this data source to fetch the ID of an authentication domain belonging to your account, matching the specified name.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -960,6 +1008,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthenticationDomainResult> getAuthenticationDomain(GetAuthenticationDomainArgs args) {
@@ -969,6 +1018,8 @@ public final class NewrelicFunctions {
      * Use this data source to fetch the ID of an authentication domain belonging to your account, matching the specified name.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -998,6 +1049,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthenticationDomainResult> getAuthenticationDomainPlain(GetAuthenticationDomainPlainArgs args) {
@@ -1007,6 +1059,8 @@ public final class NewrelicFunctions {
      * Use this data source to fetch the ID of an authentication domain belonging to your account, matching the specified name.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1036,6 +1090,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthenticationDomainResult> getAuthenticationDomain(GetAuthenticationDomainArgs args, InvokeOptions options) {
@@ -1045,6 +1100,8 @@ public final class NewrelicFunctions {
      * Use this data source to fetch the ID of an authentication domain belonging to your account, matching the specified name.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1074,6 +1131,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthenticationDomainResult> getAuthenticationDomainPlain(GetAuthenticationDomainPlainArgs args, InvokeOptions options) {
@@ -1084,6 +1142,8 @@ public final class NewrelicFunctions {
      * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1114,6 +1174,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCloudAccountResult> getCloudAccount(GetCloudAccountArgs args) {
@@ -1124,6 +1185,8 @@ public final class NewrelicFunctions {
      * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1154,6 +1217,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCloudAccountResult> getCloudAccountPlain(GetCloudAccountPlainArgs args) {
@@ -1164,6 +1228,8 @@ public final class NewrelicFunctions {
      * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1194,6 +1260,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCloudAccountResult> getCloudAccount(GetCloudAccountArgs args, InvokeOptions options) {
@@ -1204,6 +1271,8 @@ public final class NewrelicFunctions {
      * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1234,6 +1303,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCloudAccountResult> getCloudAccountPlain(GetCloudAccountPlainArgs args, InvokeOptions options) {
@@ -1242,11 +1312,84 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific entity in New Relic One that already exists.
      * 
-     * ## Additional Examples
+     * ### Example: Filter By Account ID
      * 
-     * &gt; If the entities are not found please try again without providing the `type` field.
+     * The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `name`, `domain`, `type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
      * 
+     * This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .domain(&#34;APM&#34;)
+     *             .name(&#34;my-app&#34;)
+     *             .type(&#34;APPLICATION&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `account_id` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `account_id` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `account_id`.
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .accountId(654321)
+     *             .domain(&#34;APM&#34;)
+     *             .name(&#34;my-app&#34;)
+     *             .type(&#34;APPLICATION&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * The following example explains a use case along the lines of the aforementioned; using the `account_id` argument in the data source to allow the filtering criteria to be the `account_id` specified (of the subaccount), and not the account ID in the provider configuration.
+     * 
+     * In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `account_id` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `account_id`.
      * ### Query for an OTEL entity
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1281,8 +1424,11 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Query for an entity by type (AWS Lambda entity in this example)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1312,6 +1458,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEntityResult> getEntity(GetEntityArgs args) {
@@ -1320,11 +1467,84 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific entity in New Relic One that already exists.
      * 
-     * ## Additional Examples
+     * ### Example: Filter By Account ID
      * 
-     * &gt; If the entities are not found please try again without providing the `type` field.
+     * The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `name`, `domain`, `type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
      * 
+     * This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .domain(&#34;APM&#34;)
+     *             .name(&#34;my-app&#34;)
+     *             .type(&#34;APPLICATION&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `account_id` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `account_id` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `account_id`.
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .accountId(654321)
+     *             .domain(&#34;APM&#34;)
+     *             .name(&#34;my-app&#34;)
+     *             .type(&#34;APPLICATION&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * The following example explains a use case along the lines of the aforementioned; using the `account_id` argument in the data source to allow the filtering criteria to be the `account_id` specified (of the subaccount), and not the account ID in the provider configuration.
+     * 
+     * In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `account_id` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `account_id`.
      * ### Query for an OTEL entity
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1359,8 +1579,11 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Query for an entity by type (AWS Lambda entity in this example)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1390,6 +1613,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEntityResult> getEntityPlain(GetEntityPlainArgs args) {
@@ -1398,11 +1622,84 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific entity in New Relic One that already exists.
      * 
-     * ## Additional Examples
+     * ### Example: Filter By Account ID
      * 
-     * &gt; If the entities are not found please try again without providing the `type` field.
+     * The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `name`, `domain`, `type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
      * 
+     * This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .domain(&#34;APM&#34;)
+     *             .name(&#34;my-app&#34;)
+     *             .type(&#34;APPLICATION&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `account_id` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `account_id` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `account_id`.
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .accountId(654321)
+     *             .domain(&#34;APM&#34;)
+     *             .name(&#34;my-app&#34;)
+     *             .type(&#34;APPLICATION&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * The following example explains a use case along the lines of the aforementioned; using the `account_id` argument in the data source to allow the filtering criteria to be the `account_id` specified (of the subaccount), and not the account ID in the provider configuration.
+     * 
+     * In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `account_id` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `account_id`.
      * ### Query for an OTEL entity
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1437,8 +1734,11 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Query for an entity by type (AWS Lambda entity in this example)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1468,6 +1768,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEntityResult> getEntity(GetEntityArgs args, InvokeOptions options) {
@@ -1476,11 +1777,84 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific entity in New Relic One that already exists.
      * 
-     * ## Additional Examples
+     * ### Example: Filter By Account ID
      * 
-     * &gt; If the entities are not found please try again without providing the `type` field.
+     * The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `name`, `domain`, `type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
      * 
+     * This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .domain(&#34;APM&#34;)
+     *             .name(&#34;my-app&#34;)
+     *             .type(&#34;APPLICATION&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `account_id` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `account_id` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `account_id`.
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .accountId(654321)
+     *             .domain(&#34;APM&#34;)
+     *             .name(&#34;my-app&#34;)
+     *             .type(&#34;APPLICATION&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * The following example explains a use case along the lines of the aforementioned; using the `account_id` argument in the data source to allow the filtering criteria to be the `account_id` specified (of the subaccount), and not the account ID in the provider configuration.
+     * 
+     * In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `account_id` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `account_id`.
      * ### Query for an OTEL entity
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1515,8 +1889,11 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Query for an entity by type (AWS Lambda entity in this example)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1546,6 +1923,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEntityResult> getEntityPlain(GetEntityPlainArgs args, InvokeOptions options) {
@@ -1557,6 +1935,8 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1591,6 +1971,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
@@ -1602,6 +1983,8 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1636,6 +2019,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -1647,6 +2031,8 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1681,6 +2067,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
@@ -1692,6 +2079,8 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1726,6 +2115,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
@@ -1735,6 +2125,8 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific key transaction in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1784,6 +2176,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKeyTransactionResult> getKeyTransaction(GetKeyTransactionArgs args) {
@@ -1793,6 +2186,8 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific key transaction in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1842,6 +2237,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKeyTransactionResult> getKeyTransactionPlain(GetKeyTransactionPlainArgs args) {
@@ -1851,6 +2247,8 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific key transaction in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1900,6 +2298,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKeyTransactionResult> getKeyTransaction(GetKeyTransactionArgs args, InvokeOptions options) {
@@ -1909,6 +2308,8 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific key transaction in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1958,6 +2359,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKeyTransactionResult> getKeyTransactionPlain(GetKeyTransactionPlainArgs args, InvokeOptions options) {
@@ -1985,6 +2387,8 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2028,6 +2432,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetObfuscationExpressionResult> getObfuscationExpression(GetObfuscationExpressionArgs args) {
@@ -2037,6 +2442,8 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2080,6 +2487,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetObfuscationExpressionResult> getObfuscationExpressionPlain(GetObfuscationExpressionPlainArgs args) {
@@ -2089,6 +2497,8 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2132,6 +2542,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetObfuscationExpressionResult> getObfuscationExpression(GetObfuscationExpressionArgs args, InvokeOptions options) {
@@ -2141,6 +2552,8 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2184,6 +2597,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetObfuscationExpressionResult> getObfuscationExpressionPlain(GetObfuscationExpressionPlainArgs args, InvokeOptions options) {
@@ -2195,6 +2609,8 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2254,11 +2670,14 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
      * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
      * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
      * 
      * Here is an example of a `slow_burn` alert.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2317,8 +2736,11 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Here is an example of a custom alert:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2379,6 +2801,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceLevelAlertHelperResult> getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs args) {
@@ -2390,6 +2813,8 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2449,11 +2874,14 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
      * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
      * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
      * 
      * Here is an example of a `slow_burn` alert.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2512,8 +2940,11 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Here is an example of a custom alert:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2574,6 +3005,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceLevelAlertHelperResult> getServiceLevelAlertHelperPlain(GetServiceLevelAlertHelperPlainArgs args) {
@@ -2585,6 +3017,8 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2644,11 +3078,14 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
      * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
      * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
      * 
      * Here is an example of a `slow_burn` alert.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2707,8 +3144,11 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Here is an example of a custom alert:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2769,6 +3209,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceLevelAlertHelperResult> getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs args, InvokeOptions options) {
@@ -2780,6 +3221,8 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2839,11 +3282,14 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
      * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
      * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
      * 
      * Here is an example of a `slow_burn` alert.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2902,8 +3348,11 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Here is an example of a custom alert:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2964,6 +3413,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceLevelAlertHelperResult> getServiceLevelAlertHelperPlain(GetServiceLevelAlertHelperPlainArgs args, InvokeOptions options) {
@@ -2971,6 +3421,8 @@ public final class NewrelicFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3002,6 +3454,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTestGrokPatternResult> getTestGrokPattern(GetTestGrokPatternArgs args) {
@@ -3009,6 +3462,8 @@ public final class NewrelicFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3040,6 +3495,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTestGrokPatternResult> getTestGrokPatternPlain(GetTestGrokPatternPlainArgs args) {
@@ -3047,6 +3503,8 @@ public final class NewrelicFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3078,6 +3536,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTestGrokPatternResult> getTestGrokPattern(GetTestGrokPatternArgs args, InvokeOptions options) {
@@ -3085,6 +3544,8 @@ public final class NewrelicFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3116,6 +3577,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTestGrokPatternResult> getTestGrokPatternPlain(GetTestGrokPatternPlainArgs args, InvokeOptions options) {
@@ -3127,6 +3589,7 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * The below example illustrates fetching a the ID of a user (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3166,6 +3629,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args) {
@@ -3177,6 +3641,7 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * The below example illustrates fetching a the ID of a user (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3216,6 +3681,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
@@ -3227,6 +3693,7 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * The below example illustrates fetching a the ID of a user (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3266,6 +3733,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
@@ -3277,6 +3745,7 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * The below example illustrates fetching a the ID of a user (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3316,6 +3785,7 @@ public final class NewrelicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {

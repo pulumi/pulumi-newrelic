@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,12 +58,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // New Relic obfuscation rule can be imported using the rule ID, e.g.
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import newrelic:index/obfuscationRule:ObfuscationRule foo 34567

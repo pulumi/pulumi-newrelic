@@ -22,6 +22,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage to create a standalone browser application.
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,12 +53,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Browser applications can be imported using the GUID of the browser application.
  * 
- *  bash
+ * bash
  * 
  * ```sh
  * $ pulumi import newrelic:index/browserApplication:BrowserApplication foo &lt;GUID&gt;
