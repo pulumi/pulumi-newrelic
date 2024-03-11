@@ -82,12 +82,14 @@ def get_account(account_id: Optional[int] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
     acc = newrelic.get_account(scope="global")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param int account_id: The account ID in New Relic.
@@ -120,12 +122,14 @@ def get_account_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
     acc = newrelic.get_account(scope="global")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param int account_id: The account ID in New Relic.

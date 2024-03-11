@@ -738,6 +738,7 @@ class Monitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -761,8 +762,10 @@ class Monitor(pulumi.CustomResource):
             validation_string="success",
             verify_ssl=True)
         ```
+        <!--End PulumiCodeChooser -->
         ##### Type: `SIMPLE BROWSER`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -785,7 +788,9 @@ class Monitor(pulumi.CustomResource):
             validation_string="success",
             verify_ssl=True)
         ```
+        <!--End PulumiCodeChooser -->
         See additional examples.
+
         ## Additional Examples
 
         ### Create a monitor with a private location
@@ -796,6 +801,7 @@ class Monitor(pulumi.CustomResource):
 
         ##### Type: `SIMPLE`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -822,8 +828,10 @@ class Monitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
         ##### Type: `BROWSER`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -852,12 +860,13 @@ class Monitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Synthetics monitor can be imported using the `guid`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>
@@ -903,6 +912,7 @@ class Monitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -926,8 +936,10 @@ class Monitor(pulumi.CustomResource):
             validation_string="success",
             verify_ssl=True)
         ```
+        <!--End PulumiCodeChooser -->
         ##### Type: `SIMPLE BROWSER`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -950,7 +962,9 @@ class Monitor(pulumi.CustomResource):
             validation_string="success",
             verify_ssl=True)
         ```
+        <!--End PulumiCodeChooser -->
         See additional examples.
+
         ## Additional Examples
 
         ### Create a monitor with a private location
@@ -961,6 +975,7 @@ class Monitor(pulumi.CustomResource):
 
         ##### Type: `SIMPLE`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -987,8 +1002,10 @@ class Monitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
         ##### Type: `BROWSER`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -1017,12 +1034,13 @@ class Monitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Synthetics monitor can be imported using the `guid`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>

@@ -26,7 +26,7 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// Integrate AWSGovCloud accounts can be imported using the `id`, e.g.
     /// 
-    ///  bash
+    /// bash
     /// 
     /// ```sh
     /// $ pulumi import newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations foo &lt;id&gt;

@@ -16,7 +16,7 @@ import (
 //
 // New Relic dashboards can be imported using their GUID, e.g.
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <dashboard GUID>

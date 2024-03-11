@@ -104,6 +104,7 @@ class EntityTags(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -127,14 +128,15 @@ class EntityTags(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         New Relic One entity tags can be imported using a concatenated string of the format
 
-        `<guid>`, e.g.
+         `<guid>`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/entityTags:EntityTags foo MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
@@ -156,6 +158,7 @@ class EntityTags(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -179,14 +182,15 @@ class EntityTags(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         New Relic One entity tags can be imported using a concatenated string of the format
 
-        `<guid>`, e.g.
+         `<guid>`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/entityTags:EntityTags foo MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1

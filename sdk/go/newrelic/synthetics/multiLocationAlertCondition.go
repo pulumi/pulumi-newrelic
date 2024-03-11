@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,10 +71,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 // ## Tags
 //
 // Manage synthetics multilocation alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -165,14 +168,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// # New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
+// New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
 //
-// `<policy_id>:<condition_id>`, e.g.
+//	`<policy_id>:<condition_id>`, e.g.
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition example 12345678:1456

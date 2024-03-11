@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetAuthenticationDomain(ctx *pulumi.Context, args *GetAuthenticationDomainArgs, opts ...pulumi.InvokeOption) (*GetAuthenticationDomainResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAuthenticationDomainResult

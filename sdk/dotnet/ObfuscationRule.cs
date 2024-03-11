@@ -14,6 +14,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,12 +50,13 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// New Relic obfuscation rule can be imported using the rule ID, e.g.
     /// 
-    ///  bash
+    /// bash
     /// 
     /// ```sh
     /// $ pulumi import newrelic:index/obfuscationRule:ObfuscationRule foo 34567

@@ -25,9 +25,11 @@ class AlertConditionArgs:
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[str] name: The title of this condition.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         """
@@ -70,9 +72,11 @@ class AlertConditionArgs:
         """
         Set whether to enable the alert condition. Defaults to `true`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "enabled")
 
@@ -118,9 +122,11 @@ class _AlertConditionState:
         Input properties used for looking up and filtering AlertCondition resources.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
@@ -146,9 +152,11 @@ class _AlertConditionState:
         """
         Set whether to enable the alert condition. Defaults to `true`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "enabled")
 
@@ -235,6 +243,7 @@ class AlertCondition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -244,10 +253,13 @@ class AlertCondition(pulumi.CustomResource):
             monitor_id=newrelic_synthetics_monitor["foo"]["id"],
             runbook_url="https://www.example.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Tags
 
         Manage synthetics alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -291,22 +303,25 @@ class AlertCondition(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
 
         ```sh
-         $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
+        $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
@@ -325,6 +340,7 @@ class AlertCondition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -334,10 +350,13 @@ class AlertCondition(pulumi.CustomResource):
             monitor_id=newrelic_synthetics_monitor["foo"]["id"],
             runbook_url="https://www.example.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Tags
 
         Manage synthetics alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -381,13 +400,14 @@ class AlertCondition(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
 
         ```sh
-         $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
+        $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
         ```
 
         :param str resource_name: The name of the resource.
@@ -454,9 +474,11 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
@@ -481,9 +503,11 @@ class AlertCondition(pulumi.CustomResource):
         """
         Set whether to enable the alert condition. Defaults to `true`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "enabled")
 

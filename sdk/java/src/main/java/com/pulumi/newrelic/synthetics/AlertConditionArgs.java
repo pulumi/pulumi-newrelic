@@ -20,6 +20,8 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
 
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -42,6 +44,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="enabled")
@@ -49,6 +52,8 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
 
     /**
      * @return Set whether to enable the alert condition. Defaults to `true`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -71,6 +76,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -167,6 +173,8 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param enabled Set whether to enable the alert condition. Defaults to `true`.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -189,6 +197,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -200,6 +209,8 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param enabled Set whether to enable the alert condition. Defaults to `true`.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -222,6 +233,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

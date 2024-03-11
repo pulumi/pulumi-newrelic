@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ##### Type: `SCRIPT_API`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -35,8 +36,10 @@ import * as utilities from "../utilities";
  *     type: "SCRIPT_API",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  * ##### Type: `SCRIPT_BROWSER`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -60,7 +63,9 @@ import * as utilities from "../utilities";
  *     type: "SCRIPT_BROWSER",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  * See additional examples.
+ *
  * ## Additional Examples
  *
  * ### Create a monitor with a private location
@@ -71,6 +76,7 @@ import * as utilities from "../utilities";
  *
  * ##### Type: `SCRIPT_API`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -97,8 +103,10 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  * ##### Type: `SCRIPT_BROWSER`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -126,12 +134,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Synthetics monitor scripts can be imported using the `guid`, e.g.
  *
- *  bash
+ * bash
  *
  * ```sh
  * $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor <guid>

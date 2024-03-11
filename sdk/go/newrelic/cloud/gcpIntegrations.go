@@ -24,6 +24,7 @@ import (
 //
 // Leave an integration block empty to use its default configuration. You can also use the full example, including the GCP set up, found in our guides.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -132,12 +133,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Linked GCP account integrations can be imported using the `id`, e.g.
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import newrelic:cloud/gcpIntegrations:GcpIntegrations foo <id>

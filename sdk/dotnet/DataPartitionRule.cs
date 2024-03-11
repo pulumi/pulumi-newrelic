@@ -14,6 +14,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,6 +34,8 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Additional Information
     /// 
     /// More details about the data partition can be found [here](https://docs.newrelic.com/docs/logs/ui-data/data-partitions/)
@@ -41,7 +44,7 @@ namespace Pulumi.NewRelic
     /// 
     /// New Relic data partition rule can be imported using the rule ID, e.g.
     /// 
-    ///  bash
+    /// bash
     /// 
     /// ```sh
     /// $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo &lt;id&gt;

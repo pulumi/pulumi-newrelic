@@ -15,6 +15,7 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// Basic usage to create a standalone browser application.
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,12 +33,13 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Browser applications can be imported using the GUID of the browser application.
     /// 
-    ///  bash
+    /// bash
     /// 
     /// ```sh
     /// $ pulumi import newrelic:index/browserApplication:BrowserApplication foo &lt;GUID&gt;

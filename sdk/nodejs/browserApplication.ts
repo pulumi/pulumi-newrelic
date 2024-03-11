@@ -10,6 +10,7 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * Basic usage to create a standalone browser application.
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -20,12 +21,13 @@ import * as utilities from "./utilities";
  *     loaderType: "SPA",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Browser applications can be imported using the GUID of the browser application.
  *
- *  bash
+ * bash
  *
  * ```sh
  * $ pulumi import newrelic:index/browserApplication:BrowserApplication foo <GUID>

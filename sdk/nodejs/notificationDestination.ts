@@ -11,71 +11,67 @@ import * as utilities from "./utilities";
  *
  * Destination id can be found in the Destinations page -> three dots at the right of the chosen destination -> copy destination id to clipboard.
  *
- *  This example is especially useful for slack destinations which *must* be imported.
+ * This example is especially useful for slack destinations which *must* be imported.
  *
- *  1. Add an empty resource to your terraform file:
+ * 1. Add an empty resource to your terraform file:
  *
- *  terraform
+ * terraform
  *
- *  resource "newrelic_notification_destination" "foo" {
+ * resource "newrelic_notification_destination" "foo" {
  *
- *  }
+ * }
  *
  * ```sh
- * $ pulumi import newrelic:index/notificationDestination:NotificationDestination
- *
- * Run import command: `newrelic_notification_destination.foo <destination_id>`
+ * $ pulumi import newrelic:index/notificationDestination:NotificationDestination  Run import command: `newrelic_notification_destination.foo <destination_id>`
  * ```
  *
- *  3. Run the following command after the import successfully done and copy the information to your resource:
+ * 3. Run the following command after the import successfully done and copy the information to your resource:
  *
- *  `terraform state show newrelic_notification_destination.foo`
+ * `terraform state show newrelic_notification_destination.foo`
  *
- *  4. Add `ignore_changes` attribute on `auth_token` in your imported resource:
+ * 4. Add `ignore_changes` attribute on `auth_token` in your imported resource:
  *
- *  terraform
+ * terraform
  *
- *  lifecycle {
+ * lifecycle {
  *
- *  ignore_changes = [auth_token]
+ *     ignore_changes = [auth_token]
  *
- *  }
+ *   }
  *
- *  Your imported destination should look like that:
+ * Your imported destination should look like that:
  *
- *  terraform
+ * terraform
  *
- *  resource "newrelic_notification_destination" "foo" {
+ * resource "newrelic_notification_destination" "foo" {
  *
- *  lifecycle {
+ *   lifecycle {
  *
- *  ignore_changes = [auth_token]
+ *     ignore_changes = [auth_token]
  *
- *  }
+ *   }
  *
- *  name = "*********"
+ *   name = "*********"
  *
- *  type = "SLACK"
+ *   type = "SLACK"
  *
- *  auth_token {
+ *   auth_token {
  *
- *  prefix = "Bearer"
+ *     prefix = "Bearer"
  *
- *  }
+ *   }
  *
- *  property {
+ *   property {
  *
- *  key
+ *       key   = "teamName"
+ *     
+ *       label = "Team Name"
+ *     
+ *       value = "******"
  *
- *  = "teamName"
+ *   }
  *
- *  label = "Team Name"
- *
- *  value = "******"
- *
- *  }
- *
- *  }
+ * }
  */
 export class NotificationDestination extends pulumi.CustomResource {
     /**

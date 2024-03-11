@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -35,8 +36,10 @@ import * as utilities from "../utilities";
  *     verifySsl: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  * ##### Type: `SIMPLE BROWSER`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -60,7 +63,9 @@ import * as utilities from "../utilities";
  *     verifySsl: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  * See additional examples.
+ *
  * ## Additional Examples
  *
  * ### Create a monitor with a private location
@@ -71,6 +76,7 @@ import * as utilities from "../utilities";
  *
  * ##### Type: `SIMPLE`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -99,8 +105,10 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  * ##### Type: `BROWSER`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -131,12 +139,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Synthetics monitor can be imported using the `guid`, e.g.
  *
- *  bash
+ * bash
  *
  * ```sh
  * $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>

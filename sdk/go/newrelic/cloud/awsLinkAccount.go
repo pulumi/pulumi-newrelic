@@ -26,6 +26,7 @@ import (
 //
 // You can also use the full example, including the AWS set up, found in our guides.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,12 +51,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Linked AWS accounts can be imported using the `id`, e.g.
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>

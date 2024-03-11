@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Use this resource to create, update and delete New Relic Obfuscation Rule.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -65,12 +67,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * New Relic obfuscation rule can be imported using the rule ID, e.g.
  * 
- *  bash
+ * bash
  * 
  * ```sh
  * $ pulumi import newrelic:index/obfuscationRule:ObfuscationRule foo 34567

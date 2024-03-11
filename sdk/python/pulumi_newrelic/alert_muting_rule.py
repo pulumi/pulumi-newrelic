@@ -234,6 +234,7 @@ class AlertMutingRule(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -269,13 +270,14 @@ class AlertMutingRule(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
 
         ```sh
-         $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
+        $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
         ```
 
         :param str resource_name: The name of the resource.
@@ -296,6 +298,7 @@ class AlertMutingRule(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -331,13 +334,14 @@ class AlertMutingRule(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
 
         ```sh
-         $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
+        $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
         ```
 
         :param str resource_name: The name of the resource.

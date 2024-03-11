@@ -17,6 +17,7 @@ import (
 // ## Example Usage
 //
 // ##### Workflow
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,10 +59,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Policy-Based Workflow Example
 //
 // # This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,9 +146,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ### An example of a workflow with enrichments
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -198,9 +204,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ### An example of a workflow with notification triggers
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -245,6 +253,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Additional Information
 //
@@ -263,13 +272,13 @@ import (
 //
 // Workflows can be imported using the `id`, e.g.
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import newrelic:index/workflow:Workflow foo <id>
 // ```
 //
-//	You can find the workflow ID from the workflow table by clicking on ... at the end of the row and choosing `Copy workflow id to clipboard`.
+// You can find the workflow ID from the workflow table by clicking on ... at the end of the row and choosing `Copy workflow id to clipboard`.
 type Workflow struct {
 	pulumi.CustomResourceState
 

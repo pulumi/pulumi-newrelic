@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * ##### Type: `SCRIPT_API`
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,7 +69,10 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * ##### Type: `SCRIPT_BROWSER`
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -111,7 +116,9 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * See additional examples.
+ * 
  * ## Additional Examples
  * 
  * ### Create a monitor with a private location
@@ -121,6 +128,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
  * 
  * ##### Type: `SCRIPT_API`
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -172,7 +181,10 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * ##### Type: `SCRIPT_BROWSER`
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -225,12 +237,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Synthetics monitor scripts can be imported using the `guid`, e.g.
  * 
- *  bash
+ * bash
  * 
  * ```sh
  * $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor &lt;guid&gt;

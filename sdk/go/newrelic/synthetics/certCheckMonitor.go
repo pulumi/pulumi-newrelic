@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,7 +54,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 // See additional examples.
+//
 // ## Additional Examples
 //
 // ### Create a monitor with a private location
@@ -62,6 +65,7 @@ import (
 //
 // > **NOTE:** It can take up to 10 minutes for a private location to become available.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -105,12 +109,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Synthetics certificate check monitor scripts can be imported using the `guid`, e.g.
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import newrelic:synthetics/certCheckMonitor:CertCheckMonitor monitor <guid>

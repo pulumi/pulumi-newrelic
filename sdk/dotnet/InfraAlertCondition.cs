@@ -16,6 +16,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -96,6 +97,8 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Thresholds
     /// 
     /// The `critical` and `warning` threshold mapping supports the following arguments:
@@ -108,6 +111,7 @@ namespace Pulumi.NewRelic
     /// 
     /// Manage infra alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -168,13 +172,14 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Infrastructure alert conditions can be imported using a composite ID of `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:index/infraAlertCondition:InfraAlertCondition main 12345:67890
+    /// $ pulumi import newrelic:index/infraAlertCondition:InfraAlertCondition main 12345:67890
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/infraAlertCondition:InfraAlertCondition")]
@@ -273,6 +278,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -282,6 +288,7 @@ namespace Pulumi.NewRelic
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Output("violationCloseTimer")]
         public Output<int?> ViolationCloseTimer { get; private set; } = null!;
@@ -293,7 +300,7 @@ namespace Pulumi.NewRelic
         public Output<Outputs.InfraAlertConditionWarning?> Warning { get; private set; } = null!;
 
         /// <summary>
-        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
+        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
         /// </summary>
         [Output("where")]
         public Output<string?> Where { get; private set; } = null!;
@@ -419,6 +426,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -428,6 +436,7 @@ namespace Pulumi.NewRelic
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("violationCloseTimer")]
         public Input<int>? ViolationCloseTimer { get; set; }
@@ -439,7 +448,7 @@ namespace Pulumi.NewRelic
         public Input<Inputs.InfraAlertConditionWarningArgs>? Warning { get; set; }
 
         /// <summary>
-        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
+        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
         /// </summary>
         [Input("where")]
         public Input<string>? Where { get; set; }
@@ -545,6 +554,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -554,6 +564,7 @@ namespace Pulumi.NewRelic
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("violationCloseTimer")]
         public Input<int>? ViolationCloseTimer { get; set; }
@@ -565,7 +576,7 @@ namespace Pulumi.NewRelic
         public Input<Inputs.InfraAlertConditionWarningGetArgs>? Warning { get; set; }
 
         /// <summary>
-        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
+        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
         /// </summary>
         [Input("where")]
         public Input<string>? Where { get; set; }

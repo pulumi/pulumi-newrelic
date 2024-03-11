@@ -18,6 +18,7 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,6 +36,8 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Notes
     /// 
     /// &gt; **NOTE:** Applications that have reported data in the last twelve hours
@@ -45,7 +48,7 @@ namespace Pulumi.NewRelic.Plugins
     /// Applications can be imported using notation `application_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+    /// $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:plugins/applicationSettings:ApplicationSettings")]
@@ -60,6 +63,7 @@ namespace Pulumi.NewRelic.Plugins
         /// <summary>
         /// Enable or disable real user monitoring for the New Relic application.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,6 +73,7 @@ namespace Pulumi.NewRelic.Plugins
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Output("enableRealUserMonitoring")]
         public Output<bool> EnableRealUserMonitoring { get; private set; } = null!;
@@ -140,6 +145,7 @@ namespace Pulumi.NewRelic.Plugins
         /// <summary>
         /// Enable or disable real user monitoring for the New Relic application.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -149,6 +155,7 @@ namespace Pulumi.NewRelic.Plugins
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("enableRealUserMonitoring", required: true)]
         public Input<bool> EnableRealUserMonitoring { get; set; } = null!;
@@ -182,6 +189,7 @@ namespace Pulumi.NewRelic.Plugins
         /// <summary>
         /// Enable or disable real user monitoring for the New Relic application.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -191,6 +199,7 @@ namespace Pulumi.NewRelic.Plugins
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("enableRealUserMonitoring")]
         public Input<bool>? EnableRealUserMonitoring { get; set; }

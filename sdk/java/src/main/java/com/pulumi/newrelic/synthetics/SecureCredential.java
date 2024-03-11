@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Use this resource to create and manage New Relic Synthetic secure credentials.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * A Synthetics secure credential can be imported using its `key`:
  * 
  * ```sh
- *  $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
+ * $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
  * ```
  * 
  */

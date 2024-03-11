@@ -12,10 +12,9 @@ namespace Pulumi.NewRelic
     public static class GetTestGrokPattern
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,17 +35,15 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTestGrokPatternResult> InvokeAsync(GetTestGrokPatternArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestGrokPatternResult>("newrelic:index/getTestGrokPattern:getTestGrokPattern", args ?? new GetTestGrokPatternArgs(), options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,8 +64,7 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTestGrokPatternResult> Invoke(GetTestGrokPatternInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestGrokPatternResult>("newrelic:index/getTestGrokPattern:getTestGrokPattern", args ?? new GetTestGrokPatternInvokeArgs(), options.WithDefaults());

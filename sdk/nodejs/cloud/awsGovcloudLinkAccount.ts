@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -31,12 +32,13 @@ import * as utilities from "../utilities";
  *     secretAccessKey: "secret access key of the aws govcloud account",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Linked AWSGovCloud accounts can be imported using the `id`, e.g.
  *
- *  bash
+ * bash
  *
  * ```sh
  * $ pulumi import newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount foo <id>

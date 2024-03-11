@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,6 +107,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Thresholds
 //
 // The `critical` and `warning` threshold mapping supports the following arguments:
@@ -118,6 +121,7 @@ import (
 //
 // Manage infra alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -182,15 +186,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Infrastructure alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import newrelic:index/infraAlertCondition:InfraAlertCondition main 12345:67890
-//
+// $ pulumi import newrelic:index/infraAlertCondition:InfraAlertCondition main 12345:67890
 // ```
 type InfraAlertCondition struct {
 	pulumi.CustomResourceState
@@ -227,6 +230,7 @@ type InfraAlertCondition struct {
 	UpdatedAt pulumi.IntOutput `pulumi:"updatedAt"`
 	// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -240,10 +244,11 @@ type InfraAlertCondition struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	ViolationCloseTimer pulumi.IntPtrOutput `pulumi:"violationCloseTimer"`
 	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrOutput `pulumi:"warning"`
-	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
 	Where pulumi.StringPtrOutput `pulumi:"where"`
 }
 
@@ -315,6 +320,7 @@ type infraAlertConditionState struct {
 	UpdatedAt *int `pulumi:"updatedAt"`
 	// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -328,10 +334,11 @@ type infraAlertConditionState struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
 	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning *InfraAlertConditionWarning `pulumi:"warning"`
-	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
 	Where *string `pulumi:"where"`
 }
 
@@ -368,6 +375,7 @@ type InfraAlertConditionState struct {
 	UpdatedAt pulumi.IntPtrInput
 	// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -381,10 +389,11 @@ type InfraAlertConditionState struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	ViolationCloseTimer pulumi.IntPtrInput
 	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrInput
-	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
 	Where pulumi.StringPtrInput
 }
 
@@ -419,6 +428,7 @@ type infraAlertConditionArgs struct {
 	Type string `pulumi:"type"`
 	// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -432,10 +442,11 @@ type infraAlertConditionArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
 	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning *InfraAlertConditionWarning `pulumi:"warning"`
-	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
 	Where *string `pulumi:"where"`
 }
 
@@ -467,6 +478,7 @@ type InfraAlertConditionArgs struct {
 	Type pulumi.StringInput
 	// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -480,10 +492,11 @@ type InfraAlertConditionArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	ViolationCloseTimer pulumi.IntPtrInput
 	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrInput
-	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
 	Where pulumi.StringPtrInput
 }
 
@@ -651,6 +664,7 @@ func (o InfraAlertConditionOutput) UpdatedAt() pulumi.IntOutput {
 
 // Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -667,6 +681,7 @@ func (o InfraAlertConditionOutput) UpdatedAt() pulumi.IntOutput {
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o InfraAlertConditionOutput) ViolationCloseTimer() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.IntPtrOutput { return v.ViolationCloseTimer }).(pulumi.IntPtrOutput)
 }
@@ -676,7 +691,7 @@ func (o InfraAlertConditionOutput) Warning() InfraAlertConditionWarningPtrOutput
 	return o.ApplyT(func(v *InfraAlertCondition) InfraAlertConditionWarningPtrOutput { return v.Warning }).(InfraAlertConditionWarningPtrOutput)
 }
 
-// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
+// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
 func (o InfraAlertConditionOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringPtrOutput { return v.Where }).(pulumi.StringPtrOutput)
 }

@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -23,6 +24,8 @@ import * as utilities from "../utilities";
  *     endUserApdexThreshold: 0.8,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Notes
  *
  * > **NOTE:** Applications that have reported data in the last twelve hours
@@ -33,7 +36,7 @@ import * as utilities from "../utilities";
  * Applications can be imported using notation `application_id`, e.g.
  *
  * ```sh
- *  $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+ * $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
  * ```
  */
 export class ApplicationSettings extends pulumi.CustomResource {
@@ -71,9 +74,11 @@ export class ApplicationSettings extends pulumi.CustomResource {
     /**
      * Enable or disable real user monitoring for the New Relic application.
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     public readonly enableRealUserMonitoring!: pulumi.Output<boolean>;
     /**
@@ -134,9 +139,11 @@ export interface ApplicationSettingsState {
     /**
      * Enable or disable real user monitoring for the New Relic application.
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     enableRealUserMonitoring?: pulumi.Input<boolean>;
     /**
@@ -160,9 +167,11 @@ export interface ApplicationSettingsArgs {
     /**
      * Enable or disable real user monitoring for the New Relic application.
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     enableRealUserMonitoring: pulumi.Input<boolean>;
     /**

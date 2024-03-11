@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  *
  * You can also use the full example, including the GCP set up, found in our guides.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -32,12 +33,13 @@ import * as utilities from "../utilities";
  *     projectId: "id of the Project",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console.
  *
- *  bash
+ * bash
  *
  * ```sh
  * $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount newrelic_cloud_gcp_link_account.foo <id>

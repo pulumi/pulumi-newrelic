@@ -16,13 +16,121 @@ namespace Pulumi.NewRelic.Plugins
     /// attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
     /// variable with your User API key.
     /// 
+    /// ## Example Usage
+    /// 
+    /// Include entities with a certain string on the name.
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.Plugins.Workload("foo", new()
+    ///     {
+    ///         AccountId = 12345678,
+    ///         EntityGuids = new[]
+    ///         {
+    ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///         },
+    ///         EntitySearchQueries = new[]
+    ///         {
+    ///             new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
+    ///             {
+    ///                 Query = "name like '%Example application%'",
+    ///             },
+    ///         },
+    ///         ScopeAccountIds = new[]
+    ///         {
+    ///             12345678,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// Include entities with a set of tags.
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.Plugins.Workload("foo", new()
+    ///     {
+    ///         AccountId = 12345678,
+    ///         EntityGuids = new[]
+    ///         {
+    ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///         },
+    ///         EntitySearchQueries = new[]
+    ///         {
+    ///             new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
+    ///             {
+    ///                 Query = "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
+    ///             },
+    ///         },
+    ///         ScopeAccountIds = new[]
+    ///         {
+    ///             12345678,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// Include entities with a set of tags.
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.Plugins.Workload("foo", new()
+    ///     {
+    ///         AccountId = 12345678,
+    ///         EntityGuids = new[]
+    ///         {
+    ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///         },
+    ///         EntitySearchQueries = new[]
+    ///         {
+    ///             new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
+    ///             {
+    ///                 Query = "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
+    ///             },
+    ///         },
+    ///         ScopeAccountIds = new[]
+    ///         {
+    ///             12345678,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// Include automatic status
+    /// 
+    /// &gt; The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
+    /// 
     /// ## Import
     /// 
     /// New Relic workloads can be imported using a concatenated string of the format
     /// 
-    /// `&lt;account_id&gt;:&lt;workload_id&gt;:&lt;guid&gt;`, e.g.
+    ///  `&lt;account_id&gt;:&lt;workload_id&gt;:&lt;guid&gt;`, e.g.
     /// 
-    ///  bash
+    /// bash
     /// 
     /// ```sh
     /// $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
