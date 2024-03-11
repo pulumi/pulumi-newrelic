@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * Integrate AWSGovCloud accounts can be imported using the `id`, e.g.
  *
- *  bash
+ * bash
  *
  * ```sh
  * $ pulumi import newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations foo <id>

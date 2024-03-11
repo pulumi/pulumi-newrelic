@@ -9,12 +9,44 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to get information about a specific entity in New Relic One that already exists.
  *
- * ## Additional Examples
+ * ### Example: Filter By Account ID
  *
- * > If the entities are not found please try again without providing the `type` field.
+ * The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `name`, `domain`, `type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
  *
+ * This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     domain: "APM",
+ *     name: "my-app",
+ *     type: "APPLICATION",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ * However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `accountId` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `accountId` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `accountId`.
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     accountId: 654321,
+ *     domain: "APM",
+ *     name: "my-app",
+ *     type: "APPLICATION",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ * The following example explains a use case along the lines of the aforementioned; using the `accountId` argument in the data source to allow the filtering criteria to be the `accountId` specified (of the subaccount), and not the account ID in the provider configuration.
+ *
+ * In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `accountId` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `accountId`.
  * ### Query for an OTEL entity
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -29,9 +61,11 @@ import * as utilities from "./utilities";
  *     type: "SERVICE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ### Query for an entity by type (AWS Lambda entity in this example)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -41,6 +75,7 @@ import * as utilities from "./utilities";
  *     type: "AWSLAMBDAFUNCTION",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
 
@@ -115,12 +150,44 @@ export interface GetEntityResult {
 /**
  * Use this data source to get information about a specific entity in New Relic One that already exists.
  *
- * ## Additional Examples
+ * ### Example: Filter By Account ID
  *
- * > If the entities are not found please try again without providing the `type` field.
+ * The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `name`, `domain`, `type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
  *
+ * This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     domain: "APM",
+ *     name: "my-app",
+ *     type: "APPLICATION",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ * However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `accountId` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `accountId` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `accountId`.
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     accountId: 654321,
+ *     domain: "APM",
+ *     name: "my-app",
+ *     type: "APPLICATION",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ * The following example explains a use case along the lines of the aforementioned; using the `accountId` argument in the data source to allow the filtering criteria to be the `accountId` specified (of the subaccount), and not the account ID in the provider configuration.
+ *
+ * In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `accountId` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `accountId`.
  * ### Query for an OTEL entity
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -135,9 +202,11 @@ export interface GetEntityResult {
  *     type: "SERVICE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ### Query for an entity by type (AWS Lambda entity in this example)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -147,6 +216,7 @@ export interface GetEntityResult {
  *     type: "AWSLAMBDAFUNCTION",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
     return pulumi.output(args).apply((a: any) => getEntity(a, opts))

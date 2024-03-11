@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -21,6 +22,8 @@ import * as utilities from "./utilities";
  *     targetDataPartition: "Log_name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Additional Information
  *
  * More details about the data partition can be found [here](https://docs.newrelic.com/docs/logs/ui-data/data-partitions/)
@@ -29,7 +32,7 @@ import * as utilities from "./utilities";
  *
  * New Relic data partition rule can be imported using the rule ID, e.g.
  *
- *  bash
+ * bash
  *
  * ```sh
  * $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo <id>

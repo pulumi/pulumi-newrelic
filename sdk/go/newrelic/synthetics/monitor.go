@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,8 +64,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 // ##### Type: `SIMPLE BROWSER`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -111,7 +114,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 // See additional examples.
+//
 // ## Additional Examples
 //
 // ### Create a monitor with a private location
@@ -122,6 +127,7 @@ import (
 //
 // ##### Type: `SIMPLE`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -176,8 +182,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 // ##### Type: `BROWSER`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -234,12 +242,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Synthetics monitor can be imported using the `guid`, e.g.
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>

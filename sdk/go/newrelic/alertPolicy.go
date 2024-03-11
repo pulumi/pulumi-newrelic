@@ -14,8 +14,10 @@ import (
 // Use this resource to create and manage New Relic alert policies.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Provision multiple notification channels and add those channels to a policy
 //
 // The following arguments are supported:
@@ -54,6 +58,7 @@ import (
 // ## Additional Examples
 //
 // ##### Provision multiple notification channels and add those channels to a policy
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -104,8 +109,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ### Reference existing notification channels and add those channel to a policy
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -146,6 +153,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -154,12 +162,9 @@ import (
 // Example import:
 //
 // ```sh
-//
-//	$ pulumi import newrelic:index/alertPolicy:AlertPolicy foo 23423556:4593020
-//
+// $ pulumi import newrelic:index/alertPolicy:AlertPolicy foo 23423556:4593020
 // ```
-//
-//	Please note that channel IDs (`channel_ids`) _cannot_ be imported due channels being a separate resource. However, to add channels to an imported alert policy, you can import the policy, add the `channel_ids` attribute with the associated channel IDs, then run `pulumi up`. This will result in the original alert policy being destroyed and a new alert policy being created along with the channels being added to the policy.
+// Please note that channel IDs (`channel_ids`) _cannot_ be imported due channels being a separate resource. However, to add channels to an imported alert policy, you can import the policy, add the `channel_ids` attribute with the associated channel IDs, then run `pulumi up`. This will result in the original alert policy being destroyed and a new alert policy being created along with the channels being added to the policy.
 type AlertPolicy struct {
 	pulumi.CustomResourceState
 

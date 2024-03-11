@@ -248,6 +248,7 @@ class DataPartitionRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -259,6 +260,8 @@ class DataPartitionRule(pulumi.CustomResource):
             retention_policy="STANDARD",
             target_data_partition="Log_name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Additional Information
 
         More details about the data partition can be found [here](https://docs.newrelic.com/docs/logs/ui-data/data-partitions/)
@@ -267,7 +270,7 @@ class DataPartitionRule(pulumi.CustomResource):
 
         New Relic data partition rule can be imported using the rule ID, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo <id>
@@ -293,6 +296,7 @@ class DataPartitionRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -304,6 +308,8 @@ class DataPartitionRule(pulumi.CustomResource):
             retention_policy="STANDARD",
             target_data_partition="Log_name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Additional Information
 
         More details about the data partition can be found [here](https://docs.newrelic.com/docs/logs/ui-data/data-partitions/)
@@ -312,7 +318,7 @@ class DataPartitionRule(pulumi.CustomResource):
 
         New Relic data partition rule can be imported using the rule ID, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo <id>

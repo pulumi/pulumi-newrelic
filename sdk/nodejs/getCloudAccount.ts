@@ -10,6 +10,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -20,6 +21,7 @@ import * as utilities from "./utilities";
  *     name: "my aws account",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCloudAccount(args: GetCloudAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudAccountResult> {
 
@@ -67,6 +69,7 @@ export interface GetCloudAccountResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -77,6 +80,7 @@ export interface GetCloudAccountResult {
  *     name: "my aws account",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCloudAccountOutput(args: GetCloudAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudAccountResult> {
     return pulumi.output(args).apply((a: any) => getCloudAccount(a, opts))

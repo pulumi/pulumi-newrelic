@@ -14,12 +14,11 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,12 +65,14 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
         /// Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
         /// If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
         /// 
         /// Here is an example of a `slow_burn` alert.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -116,10 +117,12 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// Here is an example of a custom alert:
         /// 
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -166,8 +169,7 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServiceLevelAlertHelperResult> InvokeAsync(GetServiceLevelAlertHelperArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceLevelAlertHelperResult>("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", args ?? new GetServiceLevelAlertHelperArgs(), options.WithDefaults());
@@ -175,12 +177,11 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -227,12 +228,14 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
         /// Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
         /// If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
         /// 
         /// Here is an example of a `slow_burn` alert.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -277,10 +280,12 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// Here is an example of a custom alert:
         /// 
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -327,8 +332,7 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServiceLevelAlertHelperResult> Invoke(GetServiceLevelAlertHelperInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceLevelAlertHelperResult>("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", args ?? new GetServiceLevelAlertHelperInvokeArgs(), options.WithDefaults());

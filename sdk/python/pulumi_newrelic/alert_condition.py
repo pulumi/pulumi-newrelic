@@ -46,9 +46,11 @@ class AlertConditionArgs:
                
                > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
                * when `type` = `apm_app_metric` and `condition_scope` = `instance`
                * when `type` = `apm_jvm_metric`
@@ -215,9 +217,11 @@ class AlertConditionArgs:
 
         > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "user_defined_value_function")
 
@@ -275,9 +279,11 @@ class _AlertConditionState:
                
                > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
                * when `type` = `apm_app_metric` and `condition_scope` = `instance`
                * when `type` = `apm_jvm_metric`
@@ -463,9 +469,11 @@ class _AlertConditionState:
 
         > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "user_defined_value_function")
 
@@ -514,6 +522,7 @@ class AlertCondition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -537,6 +546,8 @@ class AlertCondition(pulumi.CustomResource):
                 time_function="all",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Terms
 
         The `term` mapping supports the following arguments:
@@ -551,6 +562,7 @@ class AlertCondition(pulumi.CustomResource):
 
         Manage alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -587,13 +599,14 @@ class AlertCondition(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Alert conditions can be imported using notation `alert_policy_id:alert_condition_id`, e.g.
 
         ```sh
-         $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
+        $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
         ```
 
         :param str resource_name: The name of the resource.
@@ -613,9 +626,11 @@ class AlertCondition(pulumi.CustomResource):
                
                > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
                * when `type` = `apm_app_metric` and `condition_scope` = `instance`
                * when `type` = `apm_jvm_metric`
@@ -633,6 +648,7 @@ class AlertCondition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -656,6 +672,8 @@ class AlertCondition(pulumi.CustomResource):
                 time_function="all",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Terms
 
         The `term` mapping supports the following arguments:
@@ -670,6 +688,7 @@ class AlertCondition(pulumi.CustomResource):
 
         Manage alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -706,13 +725,14 @@ class AlertCondition(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Alert conditions can be imported using notation `alert_policy_id:alert_condition_id`, e.g.
 
         ```sh
-         $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
+        $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
         ```
 
         :param str resource_name: The name of the resource.
@@ -823,9 +843,11 @@ class AlertCondition(pulumi.CustomResource):
                
                > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[int] violation_close_timer: Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
                * when `type` = `apm_app_metric` and `condition_scope` = `instance`
                * when `type` = `apm_jvm_metric`
@@ -954,9 +976,11 @@ class AlertCondition(pulumi.CustomResource):
 
         > **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "user_defined_value_function")
 

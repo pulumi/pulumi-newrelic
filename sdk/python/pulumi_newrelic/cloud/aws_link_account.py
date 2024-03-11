@@ -179,6 +179,7 @@ class AwsLinkAccount(pulumi.CustomResource):
 
         You can also use the full example, including the AWS set up, found in our guides.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -187,12 +188,13 @@ class AwsLinkAccount(pulumi.CustomResource):
             arn="arn:aws:service:region:account-id:resource-id",
             metric_collection_mode="PUSH")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Linked AWS accounts can be imported using the `id`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>
@@ -226,6 +228,7 @@ class AwsLinkAccount(pulumi.CustomResource):
 
         You can also use the full example, including the AWS set up, found in our guides.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -234,12 +237,13 @@ class AwsLinkAccount(pulumi.CustomResource):
             arn="arn:aws:service:region:account-id:resource-id",
             metric_collection_mode="PUSH")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Linked AWS accounts can be imported using the `id`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>

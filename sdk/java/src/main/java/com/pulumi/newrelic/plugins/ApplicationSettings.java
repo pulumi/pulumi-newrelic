@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * exists in New Relic.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,6 +55,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Notes
  * 
  * &gt; **NOTE:** Applications that have reported data in the last twelve hours
@@ -63,7 +67,7 @@ import javax.annotation.Nullable;
  * Applications can be imported using notation `application_id`, e.g.
  * 
  * ```sh
- *  $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+ * $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
  * ```
  * 
  */
@@ -85,6 +89,8 @@ public class ApplicationSettings extends com.pulumi.resources.CustomResource {
     }
     /**
      * Enable or disable real user monitoring for the New Relic application.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -107,6 +113,7 @@ public class ApplicationSettings extends com.pulumi.resources.CustomResource {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Export(name="enableRealUserMonitoring", refs={Boolean.class}, tree="[0]")
@@ -114,6 +121,8 @@ public class ApplicationSettings extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Enable or disable real user monitoring for the New Relic application.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -136,6 +145,7 @@ public class ApplicationSettings extends com.pulumi.resources.CustomResource {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<Boolean> enableRealUserMonitoring() {

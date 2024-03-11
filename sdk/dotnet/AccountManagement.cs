@@ -17,6 +17,7 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// ##### Create Account
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,12 +33,13 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Accounts can be imported using the `id`, e.g.
     /// 
-    ///  bash
+    /// bash
     /// 
     /// ```sh
     /// $ pulumi import newrelic:index/accountManagement:AccountManagement foo &lt;id&gt;

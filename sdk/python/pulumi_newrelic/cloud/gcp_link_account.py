@@ -150,6 +150,7 @@ class GcpLinkAccount(pulumi.CustomResource):
 
         You can also use the full example, including the GCP set up, found in our guides.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -158,12 +159,13 @@ class GcpLinkAccount(pulumi.CustomResource):
             account_id="account id of newrelic account",
             project_id="id of the Project")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount newrelic_cloud_gcp_link_account.foo <id>
@@ -200,6 +202,7 @@ class GcpLinkAccount(pulumi.CustomResource):
 
         You can also use the full example, including the GCP set up, found in our guides.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -208,12 +211,13 @@ class GcpLinkAccount(pulumi.CustomResource):
             account_id="account id of newrelic account",
             project_id="id of the Project")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount newrelic_cloud_gcp_link_account.foo <id>

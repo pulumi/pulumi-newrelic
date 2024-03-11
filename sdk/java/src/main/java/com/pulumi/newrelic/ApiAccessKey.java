@@ -31,48 +31,18 @@ import javax.annotation.Nullable;
  * invalidate the previous API key(s).
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.ApiAccessKey;
- * import com.pulumi.newrelic.ApiAccessKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foobar = new ApiAccessKey(&#34;foobar&#34;, ApiAccessKeyArgs.builder()        
- *             .accountId(1234567)
- *             .ingestType(&#34;LICENSE&#34;)
- *             .keyType(&#34;INGEST&#34;)
- *             .notes(&#34;To be used with service X&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * &gt; **WARNING:** Creating &#39;Ingest - License&#39; and &#39;Ingest - Browser&#39; keys using this resource is restricted to &#39;core&#39; or &#39;full platform&#39; New Relic user accounts. If you&#39;ve signed up as a &#39;basic&#39; user with New Relic, or have been added as a &#39;basic&#39; user to your organization on New Relic, you would not be able to use your account to create &#39;Ingest&#39; keys. If you see the message `&#34;You do not have permission to create this key&#34;` in the response of the API called by this resource, it could be owing to the aforementioned. For more insights into user account types on New Relic and associated privileges, please check out this [page](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/user-type/#api-access).
  * 
  * ## Import
  * 
- * Existing API access keys can be imported using a composite ID of `&lt;api_access_key_id&gt;:&lt;key_type&gt;`. `&lt;key_type&gt;` will be either `INGEST` or `USER`.
+ * Existing API access keys can be imported using a composite ID of `&lt;api_access_key_id&gt;:&lt;key_type&gt;`. `&lt;key_type&gt;`
+ * will be either `INGEST` or `USER`.
  * 
  * For example:
  * 
  * ```sh
- *  $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar &#34;1234567:INGEST&#34;
+ * $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar &#34;1234567:INGEST&#34;
  * ```
  * 
  */

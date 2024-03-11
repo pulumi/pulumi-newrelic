@@ -72,6 +72,7 @@ class Event(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -97,6 +98,8 @@ class Event(pulumi.CustomResource):
             type="MyEvent",
         )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Events
 
         The `event` mapping supports the following arguments:
@@ -128,6 +131,7 @@ class Event(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -153,6 +157,8 @@ class Event(pulumi.CustomResource):
             type="MyEvent",
         )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Events
 
         The `event` mapping supports the following arguments:

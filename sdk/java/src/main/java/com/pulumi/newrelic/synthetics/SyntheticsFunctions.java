@@ -21,6 +21,8 @@ public final class SyntheticsFunctions {
      * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -56,6 +58,9 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -94,6 +99,7 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPrivateLocationResult> getPrivateLocation(GetPrivateLocationArgs args) {
@@ -103,6 +109,8 @@ public final class SyntheticsFunctions {
      * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -138,6 +146,9 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -176,6 +187,7 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrivateLocationResult> getPrivateLocationPlain(GetPrivateLocationPlainArgs args) {
@@ -185,6 +197,8 @@ public final class SyntheticsFunctions {
      * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -220,6 +234,9 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -258,6 +275,7 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPrivateLocationResult> getPrivateLocation(GetPrivateLocationArgs args, InvokeOptions options) {
@@ -267,6 +285,8 @@ public final class SyntheticsFunctions {
      * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -302,6 +322,9 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -340,6 +363,7 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrivateLocationResult> getPrivateLocationPlain(GetPrivateLocationPlainArgs args, InvokeOptions options) {
@@ -351,6 +375,8 @@ public final class SyntheticsFunctions {
      * Note that the secure credential&#39;s value is not returned as an attribute for security reasons.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -379,6 +405,7 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecureCredentialResult> getSecureCredential(GetSecureCredentialArgs args) {
@@ -390,6 +417,8 @@ public final class SyntheticsFunctions {
      * Note that the secure credential&#39;s value is not returned as an attribute for security reasons.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -418,6 +447,7 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecureCredentialResult> getSecureCredentialPlain(GetSecureCredentialPlainArgs args) {
@@ -429,6 +459,8 @@ public final class SyntheticsFunctions {
      * Note that the secure credential&#39;s value is not returned as an attribute for security reasons.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -457,6 +489,7 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecureCredentialResult> getSecureCredential(GetSecureCredentialArgs args, InvokeOptions options) {
@@ -468,6 +501,8 @@ public final class SyntheticsFunctions {
      * Note that the secure credential&#39;s value is not returned as an attribute for security reasons.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -496,6 +531,7 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecureCredentialResult> getSecureCredentialPlain(GetSecureCredentialPlainArgs args, InvokeOptions options) {

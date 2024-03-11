@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // A Synthetics private location can be imported using the `guid`
 //
 // ```sh
-//
-//	$ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
-//
+// $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
 // ```
 type PrivateLocation struct {
 	pulumi.CustomResourceState

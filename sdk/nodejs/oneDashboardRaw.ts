@@ -10,8 +10,10 @@ import * as utilities from "./utilities";
  * > **NOTE:** The newrelic.OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will receive less investment compared to newrelic_one_dashboard_json.
  *
  * ## Example Usage
+ *
  * ### Create A New Relic One Dashboard With RawConfiguration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -82,6 +84,7 @@ import * as utilities from "./utilities";
  *     ],
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class OneDashboardRaw extends pulumi.CustomResource {
     /**

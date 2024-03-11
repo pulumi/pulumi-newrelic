@@ -106,18 +106,20 @@ class AccountManagement(pulumi.CustomResource):
         ## Example Usage
 
         ##### Create Account
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AccountManagement("foo", region="us01")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Accounts can be imported using the `id`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/accountManagement:AccountManagement foo <id>
@@ -142,18 +144,20 @@ class AccountManagement(pulumi.CustomResource):
         ## Example Usage
 
         ##### Create Account
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AccountManagement("foo", region="us01")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Accounts can be imported using the `id`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/accountManagement:AccountManagement foo <id>

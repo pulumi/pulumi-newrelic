@@ -582,6 +582,7 @@ class ScriptMonitor(pulumi.CustomResource):
 
         ##### Type: `SCRIPT_API`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -603,8 +604,10 @@ class ScriptMonitor(pulumi.CustomResource):
             )],
             type="SCRIPT_API")
         ```
+        <!--End PulumiCodeChooser -->
         ##### Type: `SCRIPT_BROWSER`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -627,7 +630,9 @@ class ScriptMonitor(pulumi.CustomResource):
             )],
             type="SCRIPT_BROWSER")
         ```
+        <!--End PulumiCodeChooser -->
         See additional examples.
+
         ## Additional Examples
 
         ### Create a monitor with a private location
@@ -638,6 +643,7 @@ class ScriptMonitor(pulumi.CustomResource):
 
         ##### Type: `SCRIPT_API`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -662,8 +668,10 @@ class ScriptMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
         ##### Type: `SCRIPT_BROWSER`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -689,12 +697,13 @@ class ScriptMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Synthetics monitor scripts can be imported using the `guid`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor <guid>
@@ -735,6 +744,7 @@ class ScriptMonitor(pulumi.CustomResource):
 
         ##### Type: `SCRIPT_API`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -756,8 +766,10 @@ class ScriptMonitor(pulumi.CustomResource):
             )],
             type="SCRIPT_API")
         ```
+        <!--End PulumiCodeChooser -->
         ##### Type: `SCRIPT_BROWSER`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -780,7 +792,9 @@ class ScriptMonitor(pulumi.CustomResource):
             )],
             type="SCRIPT_BROWSER")
         ```
+        <!--End PulumiCodeChooser -->
         See additional examples.
+
         ## Additional Examples
 
         ### Create a monitor with a private location
@@ -791,6 +805,7 @@ class ScriptMonitor(pulumi.CustomResource):
 
         ##### Type: `SCRIPT_API`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -815,8 +830,10 @@ class ScriptMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
         ##### Type: `SCRIPT_BROWSER`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -842,12 +859,13 @@ class ScriptMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Synthetics monitor scripts can be imported using the `guid`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor <guid>

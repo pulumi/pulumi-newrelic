@@ -250,6 +250,7 @@ class ServiceLevel(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -278,10 +279,13 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Additional Example
 
         Service level with tags:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -325,9 +329,11 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         Using `select` for events
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -365,6 +371,7 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         For up-to-date documentation about the tagging resource, please check EntityTags
 
@@ -372,11 +379,11 @@ class ServiceLevel(pulumi.CustomResource):
 
         New Relic Service Levels can be imported using a concatenated string of the format
 
-        `<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to.
+         `<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to.
 
-         Example:
+        Example:
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/serviceLevel:ServiceLevel foo 12345678:4321:MXxBUE18QVBQTElDQVRJT058MQ
@@ -411,6 +418,7 @@ class ServiceLevel(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -439,10 +447,13 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Additional Example
 
         Service level with tags:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -486,9 +497,11 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         Using `select` for events
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -526,6 +539,7 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         For up-to-date documentation about the tagging resource, please check EntityTags
 
@@ -533,11 +547,11 @@ class ServiceLevel(pulumi.CustomResource):
 
         New Relic Service Levels can be imported using a concatenated string of the format
 
-        `<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to.
+         `<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to.
 
-         Example:
+        Example:
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/serviceLevel:ServiceLevel foo 12345678:4321:MXxBUE18QVBQTElDQVRJT058MQ

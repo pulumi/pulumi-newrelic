@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -39,6 +40,8 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Terms
  *
  * The `term` mapping supports the following arguments:
@@ -53,6 +56,7 @@ import * as utilities from "./utilities";
  *
  * Manage alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -93,13 +97,14 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Alert conditions can be imported using notation `alert_policy_id:alert_condition_id`, e.g.
  *
  * ```sh
- *  $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
+ * $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
  * ```
  */
 export class AlertCondition extends pulumi.CustomResource {
@@ -183,9 +188,11 @@ export class AlertCondition extends pulumi.CustomResource {
      *
      * > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     public readonly userDefinedValueFunction!: pulumi.Output<string | undefined>;
     /**
@@ -316,9 +323,11 @@ export interface AlertConditionState {
      *
      * > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     userDefinedValueFunction?: pulumi.Input<string>;
     /**
@@ -382,9 +391,11 @@ export interface AlertConditionArgs {
      *
      * > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     userDefinedValueFunction?: pulumi.Input<string>;
     /**

@@ -52,6 +52,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Leave an integration block empty to use its default configuration. You can also use the full example, including the GCP set up, found in our guides.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -190,12 +192,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Linked GCP account integrations can be imported using the `id`, e.g.
  * 
- *  bash
+ * bash
  * 
  * ```sh
  * $ pulumi import newrelic:cloud/gcpIntegrations:GcpIntegrations foo &lt;id&gt;

@@ -12,6 +12,7 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,14 +47,26 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## Using `newrelic-cli` to List Out Drop Rules
+    /// 
+    /// All NRQL Drop Rules associated with a New Relic account may be listed out using the following newrelic-cli command:
+    /// 
+    /// This would print all drop rules associated with your New Relic account to the terminal.
+    /// The number of rules to be printed can be customized using the `limit` argument of this command.
+    /// For instance, the following command limits the number of drop rules printed to two.
+    /// 
+    /// More details on the command and its arguments (for instance, the format in which the droprules are to be listed in the terminal, which is JSON by default) can be found in the output of the `newrelic nrql droprules --help` command.
+    /// If you do not have **newrelic-cli** installed on your device already, head over to [this page](https://github.com/newrelic/newrelic-cli#installation--upgrades) for instructions.
     /// 
     /// ## Import
     /// 
     /// New Relic NRQL drop rules can be imported using a concatenated string of the format
     /// 
-    /// `&lt;account_id&gt;:&lt;rule_id&gt;`, e.g.
+    ///  `&lt;account_id&gt;:&lt;rule_id&gt;`, e.g.
     /// 
-    ///  bash
+    /// bash
     /// 
     /// ```sh
     /// $ pulumi import newrelic:index/nrqlDropRule:NrqlDropRule foo 12345:34567

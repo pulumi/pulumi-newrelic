@@ -151,7 +151,7 @@ class OneDashboardJson(pulumi.CustomResource):
 
         New Relic dashboards can be imported using their GUID, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard <dashboard GUID>
@@ -173,7 +173,7 @@ class OneDashboardJson(pulumi.CustomResource):
 
         New Relic dashboards can be imported using their GUID, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard <dashboard GUID>

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // A Synthetics secure credential can be imported using its `key`:
 //
 // ```sh
-//
-//	$ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
-//
+// $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
 // ```
 type SecureCredential struct {
 	pulumi.CustomResourceState

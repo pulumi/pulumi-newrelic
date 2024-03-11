@@ -17,13 +17,133 @@ import (
 // attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
 // variable with your User API key.
 //
+// ## Example Usage
+//
+// Include entities with a certain string on the name.
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/plugins"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
+//				AccountId: pulumi.Int(12345678),
+//				EntityGuids: pulumi.StringArray{
+//					pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
+//				},
+//				EntitySearchQueries: plugins.WorkloadEntitySearchQueryArray{
+//					&plugins.WorkloadEntitySearchQueryArgs{
+//						Query: pulumi.String("name like '%Example application%'"),
+//					},
+//				},
+//				ScopeAccountIds: pulumi.IntArray{
+//					pulumi.Int(12345678),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// Include entities with a set of tags.
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/plugins"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
+//				AccountId: pulumi.Int(12345678),
+//				EntityGuids: pulumi.StringArray{
+//					pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
+//				},
+//				EntitySearchQueries: plugins.WorkloadEntitySearchQueryArray{
+//					&plugins.WorkloadEntitySearchQueryArgs{
+//						Query: pulumi.String("tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'"),
+//					},
+//				},
+//				ScopeAccountIds: pulumi.IntArray{
+//					pulumi.Int(12345678),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// Include entities with a set of tags.
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/plugins"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
+//				AccountId: pulumi.Int(12345678),
+//				EntityGuids: pulumi.StringArray{
+//					pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
+//				},
+//				EntitySearchQueries: plugins.WorkloadEntitySearchQueryArray{
+//					&plugins.WorkloadEntitySearchQueryArgs{
+//						Query: pulumi.String("tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'"),
+//					},
+//				},
+//				ScopeAccountIds: pulumi.IntArray{
+//					pulumi.Int(12345678),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// # Include automatic status
+//
+// > The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
+//
 // ## Import
 //
-// # New Relic workloads can be imported using a concatenated string of the format
+// New Relic workloads can be imported using a concatenated string of the format
 //
-// `<account_id>:<workload_id>:<guid>`, e.g.
+//	`<account_id>:<workload_id>:<guid>`, e.g.
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1

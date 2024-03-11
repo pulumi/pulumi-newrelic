@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -45,13 +46,14 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
  *
  * ```sh
- *  $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
+ * $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
  * ```
  */
 export class AlertMutingRule extends pulumi.CustomResource {

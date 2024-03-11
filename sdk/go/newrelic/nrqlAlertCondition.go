@@ -15,8 +15,10 @@ import (
 // Use this resource to create and manage NRQL alert conditions in New Relic.
 //
 // ## Example Usage
+//
 // ### Type: `static` (default)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,6 +76,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## NRQL
 //
 // The `nrql` block supports the following arguments:
@@ -112,6 +116,7 @@ import (
 //
 // [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -169,11 +174,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Tags
 //
 // Manage NRQL alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check `EntityTags`.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -252,6 +259,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // <small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small>
 //
@@ -263,6 +271,7 @@ import (
 //
 // An example resource from 1.x might look like the following.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -299,10 +308,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // After making the appropriate adjustments mentioned in the deprecation warnings,
 // the resource now looks like the following.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -342,18 +353,19 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g.
 //
-//	// For `baseline` conditions
+// // For `baseline` conditions
 //
 // ```sh
 // $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
 // ```
 //
-//	// For `static` conditions
+// // For `static` conditions
 //
 // ```sh
 // $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static

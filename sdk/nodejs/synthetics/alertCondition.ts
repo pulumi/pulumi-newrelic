@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -21,10 +22,13 @@ import * as utilities from "../utilities";
  *     runbookUrl: "https://www.example.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Tags
  *
  * Manage synthetics alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -71,13 +75,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
  *
  * ```sh
- *  $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
+ * $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
  * ```
  */
 export class AlertCondition extends pulumi.CustomResource {
@@ -111,9 +116,11 @@ export class AlertCondition extends pulumi.CustomResource {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -183,9 +190,11 @@ export interface AlertConditionState {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -217,9 +226,11 @@ export interface AlertConditionArgs {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     enabled?: pulumi.Input<boolean>;
     /**

@@ -341,6 +341,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -355,7 +356,9 @@ class BrokenLinksMonitor(pulumi.CustomResource):
             )],
             uri="https://www.one.example.com")
         ```
+        <!--End PulumiCodeChooser -->
         See additional examples.
+
         ## Additional Examples
 
         ### Create a monitor with a private location
@@ -364,6 +367,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
 
         > **NOTE:** It can take up to 10 minutes for a private location to become available.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -381,12 +385,13 @@ class BrokenLinksMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Synthetics broken links monitor scripts can be imported using the `guid`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor monitor <guid>
@@ -416,6 +421,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -430,7 +436,9 @@ class BrokenLinksMonitor(pulumi.CustomResource):
             )],
             uri="https://www.one.example.com")
         ```
+        <!--End PulumiCodeChooser -->
         See additional examples.
+
         ## Additional Examples
 
         ### Create a monitor with a private location
@@ -439,6 +447,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
 
         > **NOTE:** It can take up to 10 minutes for a private location to become available.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -456,12 +465,13 @@ class BrokenLinksMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Synthetics broken links monitor scripts can be imported using the `guid`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor monitor <guid>

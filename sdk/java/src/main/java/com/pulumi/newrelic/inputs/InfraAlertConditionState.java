@@ -246,6 +246,8 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
 
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -268,6 +270,7 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="violationCloseTimer")
@@ -275,6 +278,8 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
 
     /**
      * @return Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -297,6 +302,7 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<Integer>> violationCloseTimer() {
@@ -319,14 +325,14 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%!c(MISSING)assandra%!&#39;(MISSING)`.
      * 
      */
     @Import(name="where")
     private @Nullable Output<String> where;
 
     /**
-     * @return If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
+     * @return If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%!c(MISSING)assandra%!&#39;(MISSING)`.
      * 
      */
     public Optional<Output<String>> where() {
@@ -691,6 +697,8 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
 
         /**
          * @param violationCloseTimer Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -713,6 +721,7 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -724,6 +733,8 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
 
         /**
          * @param violationCloseTimer Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -746,6 +757,7 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -776,7 +788,7 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param where If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
+         * @param where If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%!c(MISSING)assandra%!&#39;(MISSING)`.
          * 
          * @return builder
          * 
@@ -787,7 +799,7 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param where If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
+         * @param where If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%!c(MISSING)assandra%!&#39;(MISSING)`.
          * 
          * @return builder
          * 
