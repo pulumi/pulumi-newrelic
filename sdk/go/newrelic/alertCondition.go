@@ -47,7 +47,7 @@ import (
 //				PolicyId: fooAlertPolicy.ID(),
 //				Type:     pulumi.String("apm_app_metric"),
 //				Entities: pulumi.IntArray{
-//					*pulumi.Int(app.ApplicationId),
+//					pulumi.Int(app.ApplicationId),
 //				},
 //				Metric:         pulumi.String("apdex"),
 //				RunbookUrl:     pulumi.String("https://www.example.com"),
@@ -113,7 +113,7 @@ import (
 //				PolicyId: fooAlertPolicy.ID(),
 //				Type:     pulumi.String("apm_app_metric"),
 //				Entities: pulumi.IntArray{
-//					*pulumi.Int(fooEntity.ApplicationId),
+//					pulumi.Int(fooEntity.ApplicationId),
 //				},
 //				Metric:         pulumi.String("apdex"),
 //				RunbookUrl:     pulumi.String("https://www.example.com"),

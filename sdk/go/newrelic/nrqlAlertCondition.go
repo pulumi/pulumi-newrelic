@@ -424,7 +424,7 @@ type NrqlAlertCondition struct {
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	//
-	// Deprecated: use `violation_time_limit_seconds` attribute instead
+	// Deprecated: use `violationTimeLimitSeconds` attribute instead
 	ViolationTimeLimit pulumi.StringOutput `pulumi:"violationTimeLimit"`
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
@@ -520,7 +520,7 @@ type nrqlAlertConditionState struct {
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	//
-	// Deprecated: use `violation_time_limit_seconds` attribute instead
+	// Deprecated: use `violationTimeLimitSeconds` attribute instead
 	ViolationTimeLimit *string `pulumi:"violationTimeLimit"`
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
@@ -581,7 +581,7 @@ type NrqlAlertConditionState struct {
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	//
-	// Deprecated: use `violation_time_limit_seconds` attribute instead
+	// Deprecated: use `violationTimeLimitSeconds` attribute instead
 	ViolationTimeLimit pulumi.StringPtrInput
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
@@ -644,7 +644,7 @@ type nrqlAlertConditionArgs struct {
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	//
-	// Deprecated: use `violation_time_limit_seconds` attribute instead
+	// Deprecated: use `violationTimeLimitSeconds` attribute instead
 	ViolationTimeLimit *string `pulumi:"violationTimeLimit"`
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
@@ -704,7 +704,7 @@ type NrqlAlertConditionArgs struct {
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	//
-	// Deprecated: use `violation_time_limit_seconds` attribute instead
+	// Deprecated: use `violationTimeLimitSeconds` attribute instead
 	ViolationTimeLimit pulumi.StringPtrInput
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
@@ -920,7 +920,7 @@ func (o NrqlAlertConditionOutput) Type() pulumi.StringPtrOutput {
 // **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 // <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 //
-// Deprecated: use `violation_time_limit_seconds` attribute instead
+// Deprecated: use `violationTimeLimitSeconds` attribute instead
 func (o NrqlAlertConditionOutput) ViolationTimeLimit() pulumi.StringOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringOutput { return v.ViolationTimeLimit }).(pulumi.StringOutput)
 }

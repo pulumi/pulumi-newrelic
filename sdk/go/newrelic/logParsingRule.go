@@ -76,10 +76,10 @@ import (
 //			_, err = newrelic.NewLogParsingRule(ctx, "foo", &newrelic.LogParsingRuleArgs{
 //				Attribute: pulumi.String("message"),
 //				Enabled:   pulumi.Bool(true),
-//				Grok:      *pulumi.String(grok.Grok),
+//				Grok:      pulumi.String(grok.Grok),
 //				Lucene:    pulumi.String("logtype:linux_messages"),
 //				Nrql:      pulumi.String("SELECT * FROM Log WHERE logtype = 'linux_messages'"),
-//				Matched:   *pulumi.Bool(grok.TestGroks[0].Matched),
+//				Matched:   pulumi.Bool(grok.TestGroks[0].Matched),
 //			})
 //			if err != nil {
 //				return err
