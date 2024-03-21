@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewGroup(ctx, "fooGroup", &newrelic.GroupArgs{
-//				AuthenticationDomainId: *pulumi.String(fooAuthenticationDomain.Id),
+//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
 //				UserIds: pulumi.StringArray{
 //					pulumi.String("0001112222"),
 //					pulumi.String("2221110000"),
@@ -79,7 +79,7 @@ import (
 //			}
 //			fooUser, err := newrelic.NewUser(ctx, "fooUser", &newrelic.UserArgs{
 //				EmailId:                pulumi.String("test_user_one@test.com"),
-//				AuthenticationDomainId: *pulumi.String(fooAuthenticationDomain.Id),
+//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
 //				UserType:               pulumi.String("CORE_USER_TIER"),
 //			})
 //			if err != nil {
@@ -87,14 +87,14 @@ import (
 //			}
 //			bar, err := newrelic.NewUser(ctx, "bar", &newrelic.UserArgs{
 //				EmailId:                pulumi.String("test_user_two@test.com"),
-//				AuthenticationDomainId: *pulumi.String(fooAuthenticationDomain.Id),
+//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
 //				UserType:               pulumi.String("BASIC_USER_TIER"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = newrelic.NewGroup(ctx, "fooGroup", &newrelic.GroupArgs{
-//				AuthenticationDomainId: *pulumi.String(fooAuthenticationDomain.Id),
+//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
 //				UserIds: pulumi.StringArray{
 //					fooUser.ID(),
 //					bar.ID(),
@@ -148,10 +148,10 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewGroup(ctx, "fooGroup", &newrelic.GroupArgs{
-//				AuthenticationDomainId: *pulumi.String(fooAuthenticationDomain.Id),
+//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
 //				UserIds: pulumi.StringArray{
-//					*pulumi.String(fooUser.Id),
-//					*pulumi.String(bar.Id),
+//					pulumi.String(fooUser.Id),
+//					pulumi.String(bar.Id),
 //				},
 //			})
 //			if err != nil {

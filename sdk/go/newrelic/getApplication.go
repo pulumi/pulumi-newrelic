@@ -44,7 +44,7 @@ import (
 //				PolicyId: fooAlertPolicy.ID(),
 //				Type:     pulumi.String("apm_app_metric"),
 //				Entities: pulumi.IntArray{
-//					*pulumi.String(app.Id),
+//					pulumi.String(app.Id),
 //				},
 //				Metric:     pulumi.String("apdex"),
 //				RunbookUrl: pulumi.String("https://www.example.com"),

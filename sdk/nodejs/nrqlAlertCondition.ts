@@ -401,7 +401,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      *
-     * @deprecated use `violation_time_limit_seconds` attribute instead
+     * @deprecated use `violationTimeLimitSeconds` attribute instead
      */
     public readonly violationTimeLimit!: pulumi.Output<string>;
     /**
@@ -595,7 +595,7 @@ export interface NrqlAlertConditionState {
      * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      *
-     * @deprecated use `violation_time_limit_seconds` attribute instead
+     * @deprecated use `violationTimeLimitSeconds` attribute instead
      */
     violationTimeLimit?: pulumi.Input<string>;
     /**
@@ -707,7 +707,7 @@ export interface NrqlAlertConditionArgs {
      * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      *
-     * @deprecated use `violation_time_limit_seconds` attribute instead
+     * @deprecated use `violationTimeLimitSeconds` attribute instead
      */
     violationTimeLimit?: pulumi.Input<string>;
     /**

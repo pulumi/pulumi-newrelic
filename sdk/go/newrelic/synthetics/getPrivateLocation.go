@@ -37,7 +37,7 @@ import (
 //			}
 //			_, err = synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
 //				LocationsPrivates: pulumi.StringArray{
-//					*pulumi.String(example.Id),
+//					pulumi.String(example.Id),
 //				},
 //			})
 //			if err != nil {
@@ -73,7 +73,7 @@ import (
 //			_, err = synthetics.NewStepMonitor(ctx, "foo", &synthetics.StepMonitorArgs{
 //				LocationPrivates: synthetics.StepMonitorLocationPrivateArray{
 //					&synthetics.StepMonitorLocationPrivateArgs{
-//						Guid: *pulumi.String(example.Id),
+//						Guid: pulumi.String(example.Id),
 //					},
 //				},
 //			})
