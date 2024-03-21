@@ -42,7 +42,7 @@ import (
 //				PolicyId: fooAlertPolicy.ID(),
 //				Type:     pulumi.String("apm_kt_metric"),
 //				Entities: pulumi.IntArray{
-//					*pulumi.String(txn.Id),
+//					pulumi.String(txn.Id),
 //				},
 //				Metric:     pulumi.String("error_percentage"),
 //				RunbookUrl: pulumi.String("https://www.example.com"),

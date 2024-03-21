@@ -376,7 +376,7 @@ export interface NrqlAlertConditionCritical {
     /**
      * In minutes, must be in the range of 1 to 120 (inclusive).
      *
-     * @deprecated use `threshold_duration` attribute instead
+     * @deprecated use `thresholdDuration` attribute instead
      */
     duration?: number;
     /**
@@ -398,7 +398,7 @@ export interface NrqlAlertConditionCritical {
     /**
      * Valid values are: 'all' or 'any'
      *
-     * @deprecated use `threshold_occurrences` attribute instead
+     * @deprecated use `thresholdOccurrences` attribute instead
      */
     timeFunction?: string;
 }
@@ -407,14 +407,14 @@ export interface NrqlAlertConditionNrql {
     /**
      * NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluationOffset`.
      *
-     * @deprecated use `aggregation_method` attribute instead
+     * @deprecated use `aggregationMethod` attribute instead
      */
     evaluationOffset?: number;
     query: string;
     /**
      * NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `sinceValue`.
      *
-     * @deprecated use `aggregation_method` attribute instead
+     * @deprecated use `aggregationMethod` attribute instead
      */
     sinceValue?: string;
 }
@@ -423,7 +423,7 @@ export interface NrqlAlertConditionTerm {
     /**
      * In minutes, must be in the range of 1 to 120 (inclusive).
      *
-     * @deprecated use `threshold_duration` attribute instead
+     * @deprecated use `thresholdDuration` attribute instead
      */
     duration?: number;
     /**
@@ -449,7 +449,7 @@ export interface NrqlAlertConditionTerm {
     /**
      * Valid values are: 'all' or 'any'
      *
-     * @deprecated use `threshold_occurrences` attribute instead
+     * @deprecated use `thresholdOccurrences` attribute instead
      */
     timeFunction?: string;
 }
@@ -458,7 +458,7 @@ export interface NrqlAlertConditionWarning {
     /**
      * In minutes, must be in the range of 1 to 120 (inclusive).
      *
-     * @deprecated use `threshold_duration` attribute instead
+     * @deprecated use `thresholdDuration` attribute instead
      */
     duration?: number;
     /**
@@ -480,7 +480,7 @@ export interface NrqlAlertConditionWarning {
     /**
      * Valid values are: 'all' or 'any'
      *
-     * @deprecated use `threshold_occurrences` attribute instead
+     * @deprecated use `thresholdOccurrences` attribute instead
      */
     timeFunction?: string;
 }

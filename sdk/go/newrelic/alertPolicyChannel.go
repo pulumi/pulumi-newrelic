@@ -64,7 +64,7 @@ import (
 //			// Applies the created channels above to the alert policy
 //			// referenced at the top of the config.
 //			_, err = newrelic.NewAlertPolicyChannel(ctx, "foo", &newrelic.AlertPolicyChannelArgs{
-//				PolicyId: *pulumi.String(examplePolicy.Id),
+//				PolicyId: pulumi.String(examplePolicy.Id),
 //				ChannelIds: pulumi.IntArray{
 //					emailChannel.ID(),
 //					slackChannel.ID(),
