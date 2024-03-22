@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class WorkloadEntitySearchQuery {
     /**
-     * @return The query.
+     * @return A valid entity search query; empty, and null values are considered invalid.
      * 
      */
     private String query;
 
     private WorkloadEntitySearchQuery() {}
     /**
-     * @return The query.
+     * @return A valid entity search query; empty, and null values are considered invalid.
      * 
      */
     public String query() {

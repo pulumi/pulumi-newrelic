@@ -147,6 +147,20 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.authToken);
     }
     /**
+     * The unique entity identifier of the destination in New Relic.
+     * 
+     */
+    @Export(name="guid", refs={String.class}, tree="[0]")
+    private Output<String> guid;
+
+    /**
+     * @return The unique entity identifier of the destination in New Relic.
+     * 
+     */
+    public Output<String> guid() {
+        return this.guid;
+    }
+    /**
      * The last time a notification was sent.
      * 
      */

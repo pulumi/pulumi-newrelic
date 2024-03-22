@@ -88,6 +88,8 @@ type NotificationDestination struct {
 	AuthBasic NotificationDestinationAuthBasicPtrOutput `pulumi:"authBasic"`
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken NotificationDestinationAuthTokenPtrOutput `pulumi:"authToken"`
+	// The unique entity identifier of the destination in New Relic.
+	Guid pulumi.StringOutput `pulumi:"guid"`
 	// The last time a notification was sent.
 	LastSent pulumi.StringOutput `pulumi:"lastSent"`
 	// The name of the destination.
@@ -145,6 +147,8 @@ type notificationDestinationState struct {
 	AuthBasic *NotificationDestinationAuthBasic `pulumi:"authBasic"`
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken *NotificationDestinationAuthToken `pulumi:"authToken"`
+	// The unique entity identifier of the destination in New Relic.
+	Guid *string `pulumi:"guid"`
 	// The last time a notification was sent.
 	LastSent *string `pulumi:"lastSent"`
 	// The name of the destination.
@@ -167,6 +171,8 @@ type NotificationDestinationState struct {
 	AuthBasic NotificationDestinationAuthBasicPtrInput
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken NotificationDestinationAuthTokenPtrInput
+	// The unique entity identifier of the destination in New Relic.
+	Guid pulumi.StringPtrInput
 	// The last time a notification was sent.
 	LastSent pulumi.StringPtrInput
 	// The name of the destination.
@@ -326,6 +332,11 @@ func (o NotificationDestinationOutput) AuthBasic() NotificationDestinationAuthBa
 // A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 func (o NotificationDestinationOutput) AuthToken() NotificationDestinationAuthTokenPtrOutput {
 	return o.ApplyT(func(v *NotificationDestination) NotificationDestinationAuthTokenPtrOutput { return v.AuthToken }).(NotificationDestinationAuthTokenPtrOutput)
+}
+
+// The unique entity identifier of the destination in New Relic.
+func (o NotificationDestinationOutput) Guid() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationDestination) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }
 
 // The last time a notification was sent.

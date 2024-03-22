@@ -536,7 +536,7 @@ export interface OneDashboardPageWidgetArea {
      */
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -677,7 +677,7 @@ export interface OneDashboardPageWidgetBar {
      */
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -822,7 +822,7 @@ export interface OneDashboardPageWidgetBillboard {
      */
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -963,7 +963,7 @@ export interface OneDashboardPageWidgetBullet {
      */
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -1104,7 +1104,7 @@ export interface OneDashboardPageWidgetFunnel {
      */
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -1245,7 +1245,7 @@ export interface OneDashboardPageWidgetHeatmap {
      */
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -1386,7 +1386,7 @@ export interface OneDashboardPageWidgetHistogram {
      */
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -1523,7 +1523,7 @@ export interface OneDashboardPageWidgetJson {
      */
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -1660,7 +1660,7 @@ export interface OneDashboardPageWidgetLine {
      */
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -1801,7 +1801,7 @@ export interface OneDashboardPageWidgetLogTable {
      */
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -1938,7 +1938,7 @@ export interface OneDashboardPageWidgetMarkdown {
      */
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -2068,7 +2068,7 @@ export interface OneDashboardPageWidgetPy {
      */
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -2209,7 +2209,7 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -2350,7 +2350,7 @@ export interface OneDashboardPageWidgetTable {
      */
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -2549,6 +2549,10 @@ export interface OneDashboardVariable {
      */
     nrqlQuery?: pulumi.Input<inputs.OneDashboardVariableNrqlQuery>;
     /**
+     * (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
+     */
+    options?: pulumi.Input<pulumi.Input<inputs.OneDashboardVariableOption>[]>;
+    /**
      * (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
      */
     replacementStrategy: pulumi.Input<string>;
@@ -2582,6 +2586,13 @@ export interface OneDashboardVariableNrqlQuery {
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
     query: pulumi.Input<string>;
+}
+
+export interface OneDashboardVariableOption {
+    /**
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: pulumi.Input<boolean>;
 }
 
 export interface ServiceLevelEvents {
@@ -5034,7 +5045,7 @@ export namespace insights {
 export namespace plugins {
     export interface WorkloadEntitySearchQuery {
         /**
-         * The query.
+         * A valid entity search query; empty, and null values are considered invalid.
          */
         query: pulumi.Input<string>;
     }

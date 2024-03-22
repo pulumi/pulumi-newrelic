@@ -22,6 +22,11 @@ public final class GetNotificationDestinationResult {
      * 
      */
     private Boolean active;
+    /**
+     * @return The unique entity identifier of the destination in New Relic.
+     * 
+     */
+    private String guid;
     private @Nullable String id;
     /**
      * @return The name of the notification destination.
@@ -54,6 +59,13 @@ public final class GetNotificationDestinationResult {
      */
     public Boolean active() {
         return this.active;
+    }
+    /**
+     * @return The unique entity identifier of the destination in New Relic.
+     * 
+     */
+    public String guid() {
+        return this.guid;
     }
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -98,6 +110,7 @@ public final class GetNotificationDestinationResult {
     public static final class Builder {
         private Integer accountId;
         private Boolean active;
+        private String guid;
         private @Nullable String id;
         private @Nullable String name;
         private List<GetNotificationDestinationProperty> properties;
@@ -108,6 +121,7 @@ public final class GetNotificationDestinationResult {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
     	      this.active = defaults.active;
+    	      this.guid = defaults.guid;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.properties = defaults.properties;
@@ -129,6 +143,14 @@ public final class GetNotificationDestinationResult {
               throw new MissingRequiredPropertyException("GetNotificationDestinationResult", "active");
             }
             this.active = active;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder guid(String guid) {
+            if (guid == null) {
+              throw new MissingRequiredPropertyException("GetNotificationDestinationResult", "guid");
+            }
+            this.guid = guid;
             return this;
         }
         @CustomType.Setter
@@ -174,6 +196,7 @@ public final class GetNotificationDestinationResult {
             final var _resultValue = new GetNotificationDestinationResult();
             _resultValue.accountId = accountId;
             _resultValue.active = active;
+            _resultValue.guid = guid;
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.properties = properties;

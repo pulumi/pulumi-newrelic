@@ -15,14 +15,14 @@ public final class WorkloadEntitySearchQueryArgs extends com.pulumi.resources.Re
     public static final WorkloadEntitySearchQueryArgs Empty = new WorkloadEntitySearchQueryArgs();
 
     /**
-     * The query.
+     * A valid entity search query; empty, and null values are considered invalid.
      * 
      */
     @Import(name="query", required=true)
     private Output<String> query;
 
     /**
-     * @return The query.
+     * @return A valid entity search query; empty, and null values are considered invalid.
      * 
      */
     public Output<String> query() {
@@ -54,7 +54,7 @@ public final class WorkloadEntitySearchQueryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param query The query.
+         * @param query A valid entity search query; empty, and null values are considered invalid.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WorkloadEntitySearchQueryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param query The query.
+         * @param query A valid entity search query; empty, and null values are considered invalid.
          * 
          * @return builder
          * 

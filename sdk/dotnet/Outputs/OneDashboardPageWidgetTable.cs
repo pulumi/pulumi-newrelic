@@ -38,7 +38,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        /// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         /// </summary>
         public readonly bool? IgnoreTimeRange;
         /// <summary>

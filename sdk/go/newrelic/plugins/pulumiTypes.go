@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type WorkloadEntitySearchQuery struct {
-	// The query.
+	// A valid entity search query; empty, and null values are considered invalid.
 	Query string `pulumi:"query"`
 }
 
@@ -30,7 +30,7 @@ type WorkloadEntitySearchQueryInput interface {
 }
 
 type WorkloadEntitySearchQueryArgs struct {
-	// The query.
+	// A valid entity search query; empty, and null values are considered invalid.
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -85,7 +85,7 @@ func (o WorkloadEntitySearchQueryOutput) ToWorkloadEntitySearchQueryOutputWithCo
 	return o
 }
 
-// The query.
+// A valid entity search query; empty, and null values are considered invalid.
 func (o WorkloadEntitySearchQueryOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkloadEntitySearchQuery) string { return v.Query }).(pulumi.StringOutput)
 }

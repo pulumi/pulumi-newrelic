@@ -96,9 +96,7 @@ type StepMonitor struct {
 	Period pulumi.StringOutput `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntOutput `pulumi:"periodInMinutes"`
-	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-	// refrain from using this value and shift to alternatives.
+	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps StepMonitorStepArrayOutput `pulumi:"steps"`
@@ -161,9 +159,7 @@ type stepMonitorState struct {
 	Period *string `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes *int `pulumi:"periodInMinutes"`
-	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-	// refrain from using this value and shift to alternatives.
+	// The monitor status (ENABLED or DISABLED).
 	Status *string `pulumi:"status"`
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps []StepMonitorStep `pulumi:"steps"`
@@ -188,9 +184,7 @@ type StepMonitorState struct {
 	Period pulumi.StringPtrInput
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntPtrInput
-	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-	// refrain from using this value and shift to alternatives.
+	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringPtrInput
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps StepMonitorStepArrayInput
@@ -215,9 +209,7 @@ type stepMonitorArgs struct {
 	Name *string `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period string `pulumi:"period"`
-	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-	// refrain from using this value and shift to alternatives.
+	// The monitor status (ENABLED or DISABLED).
 	Status string `pulumi:"status"`
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps []StepMonitorStep `pulumi:"steps"`
@@ -239,9 +231,7 @@ type StepMonitorArgs struct {
 	Name pulumi.StringPtrInput
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period pulumi.StringInput
-	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-	// refrain from using this value and shift to alternatives.
+	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringInput
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps StepMonitorStepArrayInput
@@ -376,9 +366,7 @@ func (o StepMonitorOutput) PeriodInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.IntOutput { return v.PeriodInMinutes }).(pulumi.IntOutput)
 }
 
-// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-// refrain from using this value and shift to alternatives.
+// The monitor status (ENABLED or DISABLED).
 func (o StepMonitorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

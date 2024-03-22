@@ -332,9 +332,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string?> ScriptLanguage { get; private set; } = null!;
 
         /// <summary>
-        /// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-        /// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-        /// refrain from using this value and shift to alternatives.
+        /// The monitor status (ENABLED or DISABLED).
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -522,9 +520,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? ScriptLanguage { get; set; }
 
         /// <summary>
-        /// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-        /// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-        /// refrain from using this value and shift to alternatives.
+        /// The monitor status (ENABLED or DISABLED).
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
@@ -686,9 +682,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? ScriptLanguage { get; set; }
 
         /// <summary>
-        /// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-        /// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-        /// refrain from using this value and shift to alternatives.
+        /// The monitor status (ENABLED or DISABLED).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

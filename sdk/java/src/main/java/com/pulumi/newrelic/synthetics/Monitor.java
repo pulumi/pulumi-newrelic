@@ -462,18 +462,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.scriptLanguage);
     }
     /**
-     * The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The &#39;MUTED&#39; status is now deprecated, and support for this
-     * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-     * refrain from using this value and shift to alternatives.
+     * The monitor status (ENABLED or DISABLED).
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The &#39;MUTED&#39; status is now deprecated, and support for this
-     * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-     * refrain from using this value and shift to alternatives.
+     * @return The monitor status (ENABLED or DISABLED).
      * 
      */
     public Output<String> status() {

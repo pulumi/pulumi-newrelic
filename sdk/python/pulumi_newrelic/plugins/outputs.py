@@ -26,7 +26,7 @@ class WorkloadEntitySearchQuery(dict):
     def __init__(__self__, *,
                  query: str):
         """
-        :param str query: The query.
+        :param str query: A valid entity search query; empty, and null values are considered invalid.
         """
         pulumi.set(__self__, "query", query)
 
@@ -34,7 +34,7 @@ class WorkloadEntitySearchQuery(dict):
     @pulumi.getter
     def query(self) -> str:
         """
-        The query.
+        A valid entity search query; empty, and null values are considered invalid.
         """
         return pulumi.get(self, "query")
 

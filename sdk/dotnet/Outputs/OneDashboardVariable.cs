@@ -34,6 +34,10 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly Outputs.OneDashboardVariableNrqlQuery? NrqlQuery;
         /// <summary>
+        /// (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OneDashboardVariableOption> Options;
+        /// <summary>
         /// (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
         /// </summary>
         public readonly string ReplacementStrategy;
@@ -58,6 +62,8 @@ namespace Pulumi.NewRelic.Outputs
 
             Outputs.OneDashboardVariableNrqlQuery? nrqlQuery,
 
+            ImmutableArray<Outputs.OneDashboardVariableOption> options,
+
             string replacementStrategy,
 
             string title,
@@ -69,6 +75,7 @@ namespace Pulumi.NewRelic.Outputs
             Items = items;
             Name = name;
             NrqlQuery = nrqlQuery;
+            Options = options;
             ReplacementStrategy = replacementStrategy;
             Title = title;
             Type = type;

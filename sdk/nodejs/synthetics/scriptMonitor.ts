@@ -231,9 +231,7 @@ export class ScriptMonitor extends pulumi.CustomResource {
      */
     public readonly scriptLanguage!: pulumi.Output<string | undefined>;
     /**
-     * The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-     * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-     * refrain from using this value and shift to alternatives.
+     * The monitor status (ENABLED or DISABLED).
      */
     public readonly status!: pulumi.Output<string>;
     /**
@@ -372,9 +370,7 @@ export interface ScriptMonitorState {
      */
     scriptLanguage?: pulumi.Input<string>;
     /**
-     * The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-     * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-     * refrain from using this value and shift to alternatives.
+     * The monitor status (ENABLED or DISABLED).
      */
     status?: pulumi.Input<string>;
     /**
@@ -442,9 +438,7 @@ export interface ScriptMonitorArgs {
      */
     scriptLanguage?: pulumi.Input<string>;
     /**
-     * The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-     * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-     * refrain from using this value and shift to alternatives.
+     * The monitor status (ENABLED or DISABLED).
      */
     status: pulumi.Input<string>;
     /**

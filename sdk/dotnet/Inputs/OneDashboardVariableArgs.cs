@@ -54,6 +54,18 @@ namespace Pulumi.NewRelic.Inputs
         [Input("nrqlQuery")]
         public Input<Inputs.OneDashboardVariableNrqlQueryArgs>? NrqlQuery { get; set; }
 
+        [Input("options")]
+        private InputList<Inputs.OneDashboardVariableOptionArgs>? _options;
+
+        /// <summary>
+        /// (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
+        /// </summary>
+        public InputList<Inputs.OneDashboardVariableOptionArgs> Options
+        {
+            get => _options ?? (_options = new InputList<Inputs.OneDashboardVariableOptionArgs>());
+            set => _options = value;
+        }
+
         /// <summary>
         /// (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
         /// </summary>

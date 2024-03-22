@@ -37,8 +37,10 @@ type LookupNotificationDestinationArgs struct {
 type LookupNotificationDestinationResult struct {
 	AccountId int `pulumi:"accountId"`
 	// An indication whether the notification destination is active or not.
-	Active bool    `pulumi:"active"`
-	Id     *string `pulumi:"id"`
+	Active bool `pulumi:"active"`
+	// The unique entity identifier of the destination in New Relic.
+	Guid string  `pulumi:"guid"`
+	Id   *string `pulumi:"id"`
 	// The name of the notification destination.
 	Name *string `pulumi:"name"`
 	// A nested block that describes a notification destination property.
@@ -100,6 +102,11 @@ func (o LookupNotificationDestinationResultOutput) AccountId() pulumi.IntOutput 
 // An indication whether the notification destination is active or not.
 func (o LookupNotificationDestinationResultOutput) Active() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupNotificationDestinationResult) bool { return v.Active }).(pulumi.BoolOutput)
+}
+
+// The unique entity identifier of the destination in New Relic.
+func (o LookupNotificationDestinationResultOutput) Guid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotificationDestinationResult) string { return v.Guid }).(pulumi.StringOutput)
 }
 
 func (o LookupNotificationDestinationResultOutput) Id() pulumi.StringPtrOutput {

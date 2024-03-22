@@ -118,6 +118,10 @@ export class NotificationDestination extends pulumi.CustomResource {
      */
     public readonly authToken!: pulumi.Output<outputs.NotificationDestinationAuthToken | undefined>;
     /**
+     * The unique entity identifier of the destination in New Relic.
+     */
+    public /*out*/ readonly guid!: pulumi.Output<string>;
+    /**
      * The last time a notification was sent.
      */
     public /*out*/ readonly lastSent!: pulumi.Output<string>;
@@ -156,6 +160,7 @@ export class NotificationDestination extends pulumi.CustomResource {
             resourceInputs["active"] = state ? state.active : undefined;
             resourceInputs["authBasic"] = state ? state.authBasic : undefined;
             resourceInputs["authToken"] = state ? state.authToken : undefined;
+            resourceInputs["guid"] = state ? state.guid : undefined;
             resourceInputs["lastSent"] = state ? state.lastSent : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["properties"] = state ? state.properties : undefined;
@@ -176,6 +181,7 @@ export class NotificationDestination extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["lastSent"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }
@@ -204,6 +210,10 @@ export interface NotificationDestinationState {
      * A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
      */
     authToken?: pulumi.Input<inputs.NotificationDestinationAuthToken>;
+    /**
+     * The unique entity identifier of the destination in New Relic.
+     */
+    guid?: pulumi.Input<string>;
     /**
      * The last time a notification was sent.
      */

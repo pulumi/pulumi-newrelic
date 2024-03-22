@@ -34,9 +34,7 @@ class ScriptMonitorArgs:
         """
         The set of arguments for constructing a ScriptMonitor resource.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
-        :param pulumi.Input[str] status: The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-               value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-               refrain from using this value and shift to alternatives.
+        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
@@ -97,9 +95,7 @@ class ScriptMonitorArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
         """
-        The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-        value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-        refrain from using this value and shift to alternatives.
+        The monitor status (ENABLED or DISABLED).
         """
         return pulumi.get(self, "status")
 
@@ -302,9 +298,7 @@ class _ScriptMonitorState:
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
         :param pulumi.Input[str] script: The script that the monitor runs.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-               value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-               refrain from using this value and shift to alternatives.
+        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
@@ -517,9 +511,7 @@ class _ScriptMonitorState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-        value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-        refrain from using this value and shift to alternatives.
+        The monitor status (ENABLED or DISABLED).
         """
         return pulumi.get(self, "status")
 
@@ -723,9 +715,7 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
         :param pulumi.Input[str] script: The script that the monitor runs.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-               value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-               refrain from using this value and shift to alternatives.
+        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
@@ -981,9 +971,7 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
         :param pulumi.Input[str] script: The script that the monitor runs.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-               value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-               refrain from using this value and shift to alternatives.
+        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
@@ -1128,9 +1116,7 @@ class ScriptMonitor(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-        value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-        refrain from using this value and shift to alternatives.
+        The monitor status (ENABLED or DISABLED).
         """
         return pulumi.get(self, "status")
 

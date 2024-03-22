@@ -46,6 +46,10 @@ export interface GetNotificationDestinationResult {
      * An indication whether the notification destination is active or not.
      */
     readonly active: boolean;
+    /**
+     * The unique entity identifier of the destination in New Relic.
+     */
+    readonly guid: string;
     readonly id?: string;
     /**
      * The name of the notification destination.
