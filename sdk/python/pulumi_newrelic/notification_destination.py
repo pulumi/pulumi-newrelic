@@ -140,6 +140,7 @@ class _NotificationDestinationState:
                  active: Optional[pulumi.Input[bool]] = None,
                  auth_basic: Optional[pulumi.Input['NotificationDestinationAuthBasicArgs']] = None,
                  auth_token: Optional[pulumi.Input['NotificationDestinationAuthTokenArgs']] = None,
+                 guid: Optional[pulumi.Input[str]] = None,
                  last_sent: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]]] = None,
@@ -151,6 +152,7 @@ class _NotificationDestinationState:
         :param pulumi.Input[bool] active: Indicates whether the destination is active.
         :param pulumi.Input['NotificationDestinationAuthBasicArgs'] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
         :param pulumi.Input['NotificationDestinationAuthTokenArgs'] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
+        :param pulumi.Input[str] guid: The unique entity identifier of the destination in New Relic.
         :param pulumi.Input[str] last_sent: The last time a notification was sent.
         :param pulumi.Input[str] name: The name of the destination.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
@@ -166,6 +168,8 @@ class _NotificationDestinationState:
             pulumi.set(__self__, "auth_basic", auth_basic)
         if auth_token is not None:
             pulumi.set(__self__, "auth_token", auth_token)
+        if guid is not None:
+            pulumi.set(__self__, "guid", guid)
         if last_sent is not None:
             pulumi.set(__self__, "last_sent", last_sent)
         if name is not None:
@@ -224,6 +228,18 @@ class _NotificationDestinationState:
     @auth_token.setter
     def auth_token(self, value: Optional[pulumi.Input['NotificationDestinationAuthTokenArgs']]):
         pulumi.set(self, "auth_token", value)
+
+    @property
+    @pulumi.getter
+    def guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique entity identifier of the destination in New Relic.
+        """
+        return pulumi.get(self, "guid")
+
+    @guid.setter
+    def guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "guid", value)
 
     @property
     @pulumi.getter(name="lastSent")
@@ -493,6 +509,7 @@ class NotificationDestination(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["guid"] = None
             __props__.__dict__["last_sent"] = None
             __props__.__dict__["status"] = None
         super(NotificationDestination, __self__).__init__(
@@ -509,6 +526,7 @@ class NotificationDestination(pulumi.CustomResource):
             active: Optional[pulumi.Input[bool]] = None,
             auth_basic: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationAuthBasicArgs']]] = None,
             auth_token: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationAuthTokenArgs']]] = None,
+            guid: Optional[pulumi.Input[str]] = None,
             last_sent: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationDestinationPropertyArgs']]]]] = None,
@@ -525,6 +543,7 @@ class NotificationDestination(pulumi.CustomResource):
         :param pulumi.Input[bool] active: Indicates whether the destination is active.
         :param pulumi.Input[pulumi.InputType['NotificationDestinationAuthBasicArgs']] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
         :param pulumi.Input[pulumi.InputType['NotificationDestinationAuthTokenArgs']] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
+        :param pulumi.Input[str] guid: The unique entity identifier of the destination in New Relic.
         :param pulumi.Input[str] last_sent: The last time a notification was sent.
         :param pulumi.Input[str] name: The name of the destination.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationDestinationPropertyArgs']]]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
@@ -540,6 +559,7 @@ class NotificationDestination(pulumi.CustomResource):
         __props__.__dict__["active"] = active
         __props__.__dict__["auth_basic"] = auth_basic
         __props__.__dict__["auth_token"] = auth_token
+        __props__.__dict__["guid"] = guid
         __props__.__dict__["last_sent"] = last_sent
         __props__.__dict__["name"] = name
         __props__.__dict__["properties"] = properties
@@ -578,6 +598,14 @@ class NotificationDestination(pulumi.CustomResource):
         A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
         """
         return pulumi.get(self, "auth_token")
+
+    @property
+    @pulumi.getter
+    def guid(self) -> pulumi.Output[str]:
+        """
+        The unique entity identifier of the destination in New Relic.
+        """
+        return pulumi.get(self, "guid")
 
     @property
     @pulumi.getter(name="lastSent")

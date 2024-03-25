@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.OneDashboardVariableItemArgs;
 import com.pulumi.newrelic.inputs.OneDashboardVariableNrqlQueryArgs;
+import com.pulumi.newrelic.inputs.OneDashboardVariableOptionArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -96,6 +97,21 @@ public final class OneDashboardVariableArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
+     * 
+     */
+    @Import(name="options")
+    private @Nullable Output<List<OneDashboardVariableOptionArgs>> options;
+
+    /**
+     * @return (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
+     * 
+     */
+    public Optional<Output<List<OneDashboardVariableOptionArgs>>> options() {
+        return Optional.ofNullable(this.options);
+    }
+
+    /**
      * (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
      * 
      */
@@ -148,6 +164,7 @@ public final class OneDashboardVariableArgs extends com.pulumi.resources.Resourc
         this.items = $.items;
         this.name = $.name;
         this.nrqlQuery = $.nrqlQuery;
+        this.options = $.options;
         this.replacementStrategy = $.replacementStrategy;
         this.title = $.title;
         this.type = $.type;
@@ -294,6 +311,37 @@ public final class OneDashboardVariableArgs extends com.pulumi.resources.Resourc
          */
         public Builder nrqlQuery(OneDashboardVariableNrqlQueryArgs nrqlQuery) {
             return nrqlQuery(Output.of(nrqlQuery));
+        }
+
+        /**
+         * @param options (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
+         * 
+         * @return builder
+         * 
+         */
+        public Builder options(@Nullable Output<List<OneDashboardVariableOptionArgs>> options) {
+            $.options = options;
+            return this;
+        }
+
+        /**
+         * @param options (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
+         * 
+         * @return builder
+         * 
+         */
+        public Builder options(List<OneDashboardVariableOptionArgs> options) {
+            return options(Output.of(options));
+        }
+
+        /**
+         * @param options (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
+         * 
+         * @return builder
+         * 
+         */
+        public Builder options(OneDashboardVariableOptionArgs... options) {
+            return options(List.of(options));
         }
 
         /**

@@ -148,6 +148,7 @@ __all__ = [
     'OneDashboardVariable',
     'OneDashboardVariableItem',
     'OneDashboardVariableNrqlQuery',
+    'OneDashboardVariableOption',
     'ServiceLevelEvents',
     'ServiceLevelEventsBadEvents',
     'ServiceLevelEventsBadEventsSelect',
@@ -1970,7 +1971,7 @@ class OneDashboardPageWidgetArea(dict):
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
-        :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetAreaNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param Sequence['OneDashboardPageWidgetAreaUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -2072,7 +2073,7 @@ class OneDashboardPageWidgetArea(dict):
     @pulumi.getter(name="ignoreTimeRange")
     def ignore_time_range(self) -> Optional[bool]:
         """
-        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
         return pulumi.get(self, "ignore_time_range")
 
@@ -2524,7 +2525,7 @@ class OneDashboardPageWidgetBar(dict):
         :param bool filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
-        :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence[str] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param Sequence['OneDashboardPageWidgetBarNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
@@ -2639,7 +2640,7 @@ class OneDashboardPageWidgetBar(dict):
     @pulumi.getter(name="ignoreTimeRange")
     def ignore_time_range(self) -> Optional[bool]:
         """
-        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
         return pulumi.get(self, "ignore_time_range")
 
@@ -3095,7 +3096,7 @@ class OneDashboardPageWidgetBillboard(dict):
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
-        :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetBillboardNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param Sequence['OneDashboardPageWidgetBillboardUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -3210,7 +3211,7 @@ class OneDashboardPageWidgetBillboard(dict):
     @pulumi.getter(name="ignoreTimeRange")
     def ignore_time_range(self) -> Optional[bool]:
         """
-        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
         return pulumi.get(self, "ignore_time_range")
 
@@ -3665,7 +3666,7 @@ class OneDashboardPageWidgetBullet(dict):
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
-        :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetBulletNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param Sequence['OneDashboardPageWidgetBulletUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -3776,7 +3777,7 @@ class OneDashboardPageWidgetBullet(dict):
     @pulumi.getter(name="ignoreTimeRange")
     def ignore_time_range(self) -> Optional[bool]:
         """
-        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
         return pulumi.get(self, "ignore_time_range")
 
@@ -4221,7 +4222,7 @@ class OneDashboardPageWidgetFunnel(dict):
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
-        :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetFunnelNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param Sequence['OneDashboardPageWidgetFunnelUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -4323,7 +4324,7 @@ class OneDashboardPageWidgetFunnel(dict):
     @pulumi.getter(name="ignoreTimeRange")
     def ignore_time_range(self) -> Optional[bool]:
         """
-        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
         return pulumi.get(self, "ignore_time_range")
 
@@ -4775,7 +4776,7 @@ class OneDashboardPageWidgetHeatmap(dict):
         :param bool filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
-        :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence[str] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param Sequence['OneDashboardPageWidgetHeatmapNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
@@ -4890,7 +4891,7 @@ class OneDashboardPageWidgetHeatmap(dict):
     @pulumi.getter(name="ignoreTimeRange")
     def ignore_time_range(self) -> Optional[bool]:
         """
-        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
         return pulumi.get(self, "ignore_time_range")
 
@@ -5343,7 +5344,7 @@ class OneDashboardPageWidgetHistogram(dict):
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
-        :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetHistogramNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param Sequence['OneDashboardPageWidgetHistogramUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -5445,7 +5446,7 @@ class OneDashboardPageWidgetHistogram(dict):
     @pulumi.getter(name="ignoreTimeRange")
     def ignore_time_range(self) -> Optional[bool]:
         """
-        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
         return pulumi.get(self, "ignore_time_range")
 
@@ -5890,7 +5891,7 @@ class OneDashboardPageWidgetJson(dict):
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
-        :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetJsonNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param Sequence['OneDashboardPageWidgetJsonUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -5992,7 +5993,7 @@ class OneDashboardPageWidgetJson(dict):
     @pulumi.getter(name="ignoreTimeRange")
     def ignore_time_range(self) -> Optional[bool]:
         """
-        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
         return pulumi.get(self, "ignore_time_range")
 
@@ -6440,7 +6441,7 @@ class OneDashboardPageWidgetLine(dict):
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
-        :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetLineNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param Sequence['OneDashboardPageWidgetLineUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -6545,7 +6546,7 @@ class OneDashboardPageWidgetLine(dict):
     @pulumi.getter(name="ignoreTimeRange")
     def ignore_time_range(self) -> Optional[bool]:
         """
-        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
         return pulumi.get(self, "ignore_time_range")
 
@@ -6998,7 +6999,7 @@ class OneDashboardPageWidgetLogTable(dict):
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
-        :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetLogTableNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param Sequence['OneDashboardPageWidgetLogTableUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -7100,7 +7101,7 @@ class OneDashboardPageWidgetLogTable(dict):
     @pulumi.getter(name="ignoreTimeRange")
     def ignore_time_range(self) -> Optional[bool]:
         """
-        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
         return pulumi.get(self, "ignore_time_range")
 
@@ -7543,7 +7544,7 @@ class OneDashboardPageWidgetMarkdown(dict):
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
-        :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetMarkdownNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param Sequence['OneDashboardPageWidgetMarkdownUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -7645,7 +7646,7 @@ class OneDashboardPageWidgetMarkdown(dict):
     @pulumi.getter(name="ignoreTimeRange")
     def ignore_time_range(self) -> Optional[bool]:
         """
-        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
         return pulumi.get(self, "ignore_time_range")
 
@@ -8050,7 +8051,7 @@ class OneDashboardPageWidgetPy(dict):
         :param bool filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
-        :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence[str] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param Sequence['OneDashboardPageWidgetPyNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
@@ -8165,7 +8166,7 @@ class OneDashboardPageWidgetPy(dict):
     @pulumi.getter(name="ignoreTimeRange")
     def ignore_time_range(self) -> Optional[bool]:
         """
-        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
         return pulumi.get(self, "ignore_time_range")
 
@@ -8618,7 +8619,7 @@ class OneDashboardPageWidgetStackedBar(dict):
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
-        :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetStackedBarNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param Sequence['OneDashboardPageWidgetStackedBarUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -8720,7 +8721,7 @@ class OneDashboardPageWidgetStackedBar(dict):
     @pulumi.getter(name="ignoreTimeRange")
     def ignore_time_range(self) -> Optional[bool]:
         """
-        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
         return pulumi.get(self, "ignore_time_range")
 
@@ -9172,7 +9173,7 @@ class OneDashboardPageWidgetTable(dict):
         :param bool filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
-        :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence[str] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param Sequence['OneDashboardPageWidgetTableNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
@@ -9287,7 +9288,7 @@ class OneDashboardPageWidgetTable(dict):
     @pulumi.getter(name="ignoreTimeRange")
     def ignore_time_range(self) -> Optional[bool]:
         """
-        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
         return pulumi.get(self, "ignore_time_range")
 
@@ -9900,7 +9901,8 @@ class OneDashboardVariable(dict):
                  default_values: Optional[Sequence[str]] = None,
                  is_multi_selection: Optional[bool] = None,
                  items: Optional[Sequence['outputs.OneDashboardVariableItem']] = None,
-                 nrql_query: Optional['outputs.OneDashboardVariableNrqlQuery'] = None):
+                 nrql_query: Optional['outputs.OneDashboardVariableNrqlQuery'] = None,
+                 options: Optional[Sequence['outputs.OneDashboardVariableOption']] = None):
         """
         :param str name: The title of the dashboard.
         :param str replacement_strategy: (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
@@ -9910,6 +9912,7 @@ class OneDashboardVariable(dict):
         :param bool is_multi_selection: (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
         :param Sequence['OneDashboardVariableItemArgs'] items: (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
         :param 'OneDashboardVariableNrqlQueryArgs' nrql_query: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        :param Sequence['OneDashboardVariableOptionArgs'] options: (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "replacement_strategy", replacement_strategy)
@@ -9923,6 +9926,8 @@ class OneDashboardVariable(dict):
             pulumi.set(__self__, "items", items)
         if nrql_query is not None:
             pulumi.set(__self__, "nrql_query", nrql_query)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
 
     @property
     @pulumi.getter
@@ -9987,6 +9992,14 @@ class OneDashboardVariable(dict):
         (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         """
         return pulumi.get(self, "nrql_query")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Sequence['outputs.OneDashboardVariableOption']]:
+        """
+        (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
+        """
+        return pulumi.get(self, "options")
 
 
 @pulumi.output_type
@@ -10064,6 +10077,42 @@ class OneDashboardVariableNrqlQuery(dict):
         New Relic account ID(s) to issue the query against.
         """
         return pulumi.get(self, "account_ids")
+
+
+@pulumi.output_type
+class OneDashboardVariableOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreTimeRange":
+            suggest = "ignore_time_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardVariableOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardVariableOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardVariableOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ignore_time_range: Optional[bool] = None):
+        """
+        :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        if ignore_time_range is not None:
+            pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+
+    @property
+    @pulumi.getter(name="ignoreTimeRange")
+    def ignore_time_range(self) -> Optional[bool]:
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        return pulumi.get(self, "ignore_time_range")
 
 
 @pulumi.output_type

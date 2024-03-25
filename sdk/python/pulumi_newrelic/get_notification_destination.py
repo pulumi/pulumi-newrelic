@@ -22,13 +22,16 @@ class GetNotificationDestinationResult:
     """
     A collection of values returned by getNotificationDestination.
     """
-    def __init__(__self__, account_id=None, active=None, id=None, name=None, properties=None, status=None, type=None):
+    def __init__(__self__, account_id=None, active=None, guid=None, id=None, name=None, properties=None, status=None, type=None):
         if account_id and not isinstance(account_id, int):
             raise TypeError("Expected argument 'account_id' to be a int")
         pulumi.set(__self__, "account_id", account_id)
         if active and not isinstance(active, bool):
             raise TypeError("Expected argument 'active' to be a bool")
         pulumi.set(__self__, "active", active)
+        if guid and not isinstance(guid, str):
+            raise TypeError("Expected argument 'guid' to be a str")
+        pulumi.set(__self__, "guid", guid)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -57,6 +60,14 @@ class GetNotificationDestinationResult:
         An indication whether the notification destination is active or not.
         """
         return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter
+    def guid(self) -> str:
+        """
+        The unique entity identifier of the destination in New Relic.
+        """
+        return pulumi.get(self, "guid")
 
     @property
     @pulumi.getter
@@ -104,6 +115,7 @@ class AwaitableGetNotificationDestinationResult(GetNotificationDestinationResult
         return GetNotificationDestinationResult(
             account_id=self.account_id,
             active=self.active,
+            guid=self.guid,
             id=self.id,
             name=self.name,
             properties=self.properties,
@@ -134,6 +146,7 @@ def get_notification_destination(account_id: Optional[int] = None,
     return AwaitableGetNotificationDestinationResult(
         account_id=pulumi.get(__ret__, 'account_id'),
         active=pulumi.get(__ret__, 'active'),
+        guid=pulumi.get(__ret__, 'guid'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),

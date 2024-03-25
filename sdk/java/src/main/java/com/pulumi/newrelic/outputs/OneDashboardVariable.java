@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.OneDashboardVariableItem;
 import com.pulumi.newrelic.outputs.OneDashboardVariableNrqlQuery;
+import com.pulumi.newrelic.outputs.OneDashboardVariableOption;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -41,6 +42,11 @@ public final class OneDashboardVariable {
      * 
      */
     private @Nullable OneDashboardVariableNrqlQuery nrqlQuery;
+    /**
+     * @return (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
+     * 
+     */
+    private @Nullable List<OneDashboardVariableOption> options;
     /**
      * @return (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
      * 
@@ -94,6 +100,13 @@ public final class OneDashboardVariable {
         return Optional.ofNullable(this.nrqlQuery);
     }
     /**
+     * @return (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
+     * 
+     */
+    public List<OneDashboardVariableOption> options() {
+        return this.options == null ? List.of() : this.options;
+    }
+    /**
      * @return (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
      * 
      */
@@ -129,6 +142,7 @@ public final class OneDashboardVariable {
         private @Nullable List<OneDashboardVariableItem> items;
         private String name;
         private @Nullable OneDashboardVariableNrqlQuery nrqlQuery;
+        private @Nullable List<OneDashboardVariableOption> options;
         private String replacementStrategy;
         private String title;
         private String type;
@@ -140,6 +154,7 @@ public final class OneDashboardVariable {
     	      this.items = defaults.items;
     	      this.name = defaults.name;
     	      this.nrqlQuery = defaults.nrqlQuery;
+    	      this.options = defaults.options;
     	      this.replacementStrategy = defaults.replacementStrategy;
     	      this.title = defaults.title;
     	      this.type = defaults.type;
@@ -184,6 +199,15 @@ public final class OneDashboardVariable {
             return this;
         }
         @CustomType.Setter
+        public Builder options(@Nullable List<OneDashboardVariableOption> options) {
+
+            this.options = options;
+            return this;
+        }
+        public Builder options(OneDashboardVariableOption... options) {
+            return options(List.of(options));
+        }
+        @CustomType.Setter
         public Builder replacementStrategy(String replacementStrategy) {
             if (replacementStrategy == null) {
               throw new MissingRequiredPropertyException("OneDashboardVariable", "replacementStrategy");
@@ -214,6 +238,7 @@ public final class OneDashboardVariable {
             _resultValue.items = items;
             _resultValue.name = name;
             _resultValue.nrqlQuery = nrqlQuery;
+            _resultValue.options = options;
             _resultValue.replacementStrategy = replacementStrategy;
             _resultValue.title = title;
             _resultValue.type = type;

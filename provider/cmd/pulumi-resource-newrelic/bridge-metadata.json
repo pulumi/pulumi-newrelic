@@ -1955,6 +1955,9 @@
                                             }
                                         }
                                     }
+                                },
+                                "options": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }

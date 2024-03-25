@@ -82,6 +82,21 @@ public final class NotificationDestinationState extends com.pulumi.resources.Res
     }
 
     /**
+     * The unique entity identifier of the destination in New Relic.
+     * 
+     */
+    @Import(name="guid")
+    private @Nullable Output<String> guid;
+
+    /**
+     * @return The unique entity identifier of the destination in New Relic.
+     * 
+     */
+    public Optional<Output<String>> guid() {
+        return Optional.ofNullable(this.guid);
+    }
+
+    /**
      * The last time a notification was sent.
      * 
      */
@@ -165,6 +180,7 @@ public final class NotificationDestinationState extends com.pulumi.resources.Res
         this.active = $.active;
         this.authBasic = $.authBasic;
         this.authToken = $.authToken;
+        this.guid = $.guid;
         this.lastSent = $.lastSent;
         this.name = $.name;
         this.properties = $.properties;
@@ -272,6 +288,27 @@ public final class NotificationDestinationState extends com.pulumi.resources.Res
          */
         public Builder authToken(NotificationDestinationAuthTokenArgs authToken) {
             return authToken(Output.of(authToken));
+        }
+
+        /**
+         * @param guid The unique entity identifier of the destination in New Relic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder guid(@Nullable Output<String> guid) {
+            $.guid = guid;
+            return this;
+        }
+
+        /**
+         * @param guid The unique entity identifier of the destination in New Relic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder guid(String guid) {
+            return guid(Output.of(guid));
         }
 
         /**

@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Plugins.Inputs
     public sealed class WorkloadEntitySearchQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The query.
+        /// A valid entity search query; empty, and null values are considered invalid.
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;

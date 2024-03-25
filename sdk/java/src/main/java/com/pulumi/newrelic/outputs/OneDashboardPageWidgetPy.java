@@ -51,7 +51,7 @@ public final class OneDashboardPageWidgetPy {
      */
     private @Nullable String id;
     /**
-     * @return (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * @return (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      * 
      */
     private @Nullable Boolean ignoreTimeRange;
@@ -146,7 +146,7 @@ public final class OneDashboardPageWidgetPy {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     * @return (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      * 
      */
     public Optional<Boolean> ignoreTimeRange() {

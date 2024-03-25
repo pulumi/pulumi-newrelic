@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Plugins.Outputs
     public sealed class WorkloadEntitySearchQuery
     {
         /// <summary>
-        /// The query.
+        /// A valid entity search query; empty, and null values are considered invalid.
         /// </summary>
         public readonly string Query;
 

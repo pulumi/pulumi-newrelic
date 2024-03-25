@@ -104,6 +104,12 @@ namespace Pulumi.NewRelic
         public Output<Outputs.NotificationDestinationAuthToken?> AuthToken { get; private set; } = null!;
 
         /// <summary>
+        /// The unique entity identifier of the destination in New Relic.
+        /// </summary>
+        [Output("guid")]
+        public Output<string> Guid { get; private set; } = null!;
+
+        /// <summary>
         /// The last time a notification was sent.
         /// </summary>
         [Output("lastSent")]
@@ -260,6 +266,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("authToken")]
         public Input<Inputs.NotificationDestinationAuthTokenGetArgs>? AuthToken { get; set; }
+
+        /// <summary>
+        /// The unique entity identifier of the destination in New Relic.
+        /// </summary>
+        [Input("guid")]
+        public Input<string>? Guid { get; set; }
 
         /// <summary>
         /// The last time a notification was sent.

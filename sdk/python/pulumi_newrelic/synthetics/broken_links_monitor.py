@@ -27,9 +27,7 @@ class BrokenLinksMonitorArgs:
         """
         The set of arguments for constructing a BrokenLinksMonitor resource.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
-        :param pulumi.Input[str] status: The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-               value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-               refrain from using this value and shift to alternatives.
+        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[str] uri: The URI the monitor runs against.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
@@ -67,9 +65,7 @@ class BrokenLinksMonitorArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
         """
-        The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-        value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-        refrain from using this value and shift to alternatives.
+        The monitor status (ENABLED or DISABLED).
         """
         return pulumi.get(self, "status")
 
@@ -172,9 +168,7 @@ class _BrokenLinksMonitorState:
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
-        :param pulumi.Input[str] status: The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-               value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-               refrain from using this value and shift to alternatives.
+        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         :param pulumi.Input[str] uri: The URI the monitor runs against.
         """
@@ -287,9 +281,7 @@ class _BrokenLinksMonitorState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-        value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-        refrain from using this value and shift to alternatives.
+        The monitor status (ENABLED or DISABLED).
         """
         return pulumi.get(self, "status")
 
@@ -404,9 +396,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
-        :param pulumi.Input[str] status: The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-               value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-               refrain from using this value and shift to alternatives.
+        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokenLinksMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         :param pulumi.Input[str] uri: The URI the monitor runs against.
         """
@@ -559,9 +549,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
-        :param pulumi.Input[str] status: The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-               value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-               refrain from using this value and shift to alternatives.
+        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokenLinksMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         :param pulumi.Input[str] uri: The URI the monitor runs against.
         """
@@ -641,9 +629,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-        value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-        refrain from using this value and shift to alternatives.
+        The monitor status (ENABLED or DISABLED).
         """
         return pulumi.get(self, "status")
 

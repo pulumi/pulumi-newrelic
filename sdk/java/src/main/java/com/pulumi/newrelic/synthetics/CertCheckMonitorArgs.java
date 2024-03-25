@@ -125,18 +125,14 @@ public final class CertCheckMonitorArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The &#39;MUTED&#39; status is now deprecated, and support for this
-     * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-     * refrain from using this value and shift to alternatives.
+     * The monitor status (ENABLED or DISABLED).
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The &#39;MUTED&#39; status is now deprecated, and support for this
-     * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-     * refrain from using this value and shift to alternatives.
+     * @return The monitor status (ENABLED or DISABLED).
      * 
      */
     public Output<String> status() {
@@ -358,9 +354,7 @@ public final class CertCheckMonitorArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param status The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The &#39;MUTED&#39; status is now deprecated, and support for this
-         * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-         * refrain from using this value and shift to alternatives.
+         * @param status The monitor status (ENABLED or DISABLED).
          * 
          * @return builder
          * 
@@ -371,9 +365,7 @@ public final class CertCheckMonitorArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param status The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The &#39;MUTED&#39; status is now deprecated, and support for this
-         * value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-         * refrain from using this value and shift to alternatives.
+         * @param status The monitor status (ENABLED or DISABLED).
          * 
          * @return builder
          * 

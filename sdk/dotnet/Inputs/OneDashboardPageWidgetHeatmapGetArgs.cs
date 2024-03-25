@@ -55,7 +55,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        /// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         /// </summary>
         [Input("ignoreTimeRange")]
         public Input<bool>? IgnoreTimeRange { get; set; }

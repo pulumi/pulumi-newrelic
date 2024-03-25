@@ -286,9 +286,7 @@ type Monitor struct {
 	RuntimeTypeVersion pulumi.StringPtrOutput `pulumi:"runtimeTypeVersion"`
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrOutput `pulumi:"scriptLanguage"`
-	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-	// refrain from using this value and shift to alternatives.
+	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -372,9 +370,7 @@ type monitorState struct {
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The programing language that should execute the script.
 	ScriptLanguage *string `pulumi:"scriptLanguage"`
-	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-	// refrain from using this value and shift to alternatives.
+	// The monitor status (ENABLED or DISABLED).
 	Status *string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -423,9 +419,7 @@ type MonitorState struct {
 	RuntimeTypeVersion pulumi.StringPtrInput
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrInput
-	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-	// refrain from using this value and shift to alternatives.
+	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringPtrInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -476,9 +470,7 @@ type monitorArgs struct {
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The programing language that should execute the script.
 	ScriptLanguage *string `pulumi:"scriptLanguage"`
-	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-	// refrain from using this value and shift to alternatives.
+	// The monitor status (ENABLED or DISABLED).
 	Status string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -526,9 +518,7 @@ type MonitorArgs struct {
 	RuntimeTypeVersion pulumi.StringPtrInput
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrInput
-	// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-	// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-	// refrain from using this value and shift to alternatives.
+	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -705,9 +695,7 @@ func (o MonitorOutput) ScriptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.ScriptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this
-// value will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to
-// refrain from using this value and shift to alternatives.
+// The monitor status (ENABLED or DISABLED).
 func (o MonitorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

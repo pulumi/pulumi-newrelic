@@ -3219,7 +3219,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n"
+                    "description": "(Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
                 },
                 "legendEnabled": {
                     "type": "boolean",
@@ -3427,7 +3427,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n"
+                    "description": "(Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
                 },
                 "legendEnabled": {
                     "type": "boolean",
@@ -3643,7 +3643,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n"
+                    "description": "(Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
                 },
                 "legendEnabled": {
                     "type": "boolean",
@@ -3851,7 +3851,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n"
+                    "description": "(Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
                 },
                 "legendEnabled": {
                     "type": "boolean",
@@ -4061,7 +4061,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n"
+                    "description": "(Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
                 },
                 "legendEnabled": {
                     "type": "boolean",
@@ -4269,7 +4269,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n"
+                    "description": "(Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
                 },
                 "legendEnabled": {
                     "type": "boolean",
@@ -4481,7 +4481,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n"
+                    "description": "(Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
                 },
                 "legendEnabled": {
                     "type": "boolean",
@@ -4685,7 +4685,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n"
+                    "description": "(Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
                 },
                 "legendEnabled": {
                     "type": "boolean",
@@ -4889,7 +4889,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n"
+                    "description": "(Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
                 },
                 "legendEnabled": {
                     "type": "boolean",
@@ -5097,7 +5097,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n"
+                    "description": "(Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
                 },
                 "legendEnabled": {
                     "type": "boolean",
@@ -5301,7 +5301,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n"
+                    "description": "(Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
                 },
                 "legendEnabled": {
                     "type": "boolean",
@@ -5482,7 +5482,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n"
+                    "description": "(Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
                 },
                 "legendEnabled": {
                     "type": "boolean",
@@ -5694,7 +5694,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n"
+                    "description": "(Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
                 },
                 "legendEnabled": {
                     "type": "boolean",
@@ -5902,7 +5902,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n"
+                    "description": "(Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
                 },
                 "legendEnabled": {
                     "type": "boolean",
@@ -6213,6 +6213,13 @@
                     "$ref": "#/types/newrelic:index/OneDashboardVariableNrqlQuery:OneDashboardVariableNrqlQuery",
                     "description": "(Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.\n"
                 },
+                "options": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardVariableOption:OneDashboardVariableOption"
+                    },
+                    "description": "(Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -\n"
+                },
                 "replacementStrategy": {
                     "type": "string",
                     "description": "(Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.\n"
@@ -6268,6 +6275,15 @@
             "required": [
                 "query"
             ]
+        },
+        "newrelic:index/OneDashboardVariableOption:OneDashboardVariableOption": {
+            "properties": {
+                "ignoreTimeRange": {
+                    "type": "boolean",
+                    "description": "(Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
+                }
+            },
+            "type": "object"
         },
         "newrelic:index/ServiceLevelEvents:ServiceLevelEvents": {
             "properties": {
@@ -6874,7 +6890,7 @@
             "properties": {
                 "query": {
                     "type": "string",
-                    "description": "The query.\n"
+                    "description": "A valid entity search query; empty, and null values are considered invalid.\n"
                 }
             },
             "type": "object",
@@ -11255,6 +11271,10 @@
                     "$ref": "#/types/newrelic:index/NotificationDestinationAuthToken:NotificationDestinationAuthToken",
                     "description": "A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.\n"
                 },
+                "guid": {
+                    "type": "string",
+                    "description": "The unique entity identifier of the destination in New Relic.\n"
+                },
                 "lastSent": {
                     "type": "string",
                     "description": "The last time a notification was sent.\n"
@@ -11281,6 +11301,7 @@
             },
             "required": [
                 "accountId",
+                "guid",
                 "lastSent",
                 "name",
                 "properties",
@@ -11345,6 +11366,10 @@
                     "authToken": {
                         "$ref": "#/types/newrelic:index/NotificationDestinationAuthToken:NotificationDestinationAuthToken",
                         "description": "A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.\n"
+                    },
+                    "guid": {
+                        "type": "string",
+                        "description": "The unique entity identifier of the destination in New Relic.\n"
                     },
                     "lastSent": {
                         "type": "string",
@@ -13069,7 +13094,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
+                    "description": "The monitor status (ENABLED or DISABLED).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -13122,7 +13147,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
+                    "description": "The monitor status (ENABLED or DISABLED).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -13181,7 +13206,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
+                        "description": "The monitor status (ENABLED or DISABLED).\n"
                     },
                     "tags": {
                         "type": "array",
@@ -13241,7 +13266,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
+                    "description": "The monitor status (ENABLED or DISABLED).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -13297,7 +13322,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
+                    "description": "The monitor status (ENABLED or DISABLED).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -13356,7 +13381,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
+                        "description": "The monitor status (ENABLED or DISABLED).\n"
                     },
                     "tags": {
                         "type": "array",
@@ -13439,7 +13464,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
+                    "description": "The monitor status (ENABLED or DISABLED).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -13541,7 +13566,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
+                    "description": "The monitor status (ENABLED or DISABLED).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -13646,7 +13671,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
+                        "description": "The monitor status (ENABLED or DISABLED).\n"
                     },
                     "tags": {
                         "type": "array",
@@ -13996,7 +14021,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
+                    "description": "The monitor status (ENABLED or DISABLED).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -14077,7 +14102,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
+                    "description": "The monitor status (ENABLED or DISABLED).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -14165,7 +14190,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
+                        "description": "The monitor status (ENABLED or DISABLED).\n"
                     },
                     "tags": {
                         "type": "array",
@@ -14316,7 +14341,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
+                    "description": "The monitor status (ENABLED or DISABLED).\n"
                 },
                 "steps": {
                     "type": "array",
@@ -14376,7 +14401,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
+                    "description": "The monitor status (ENABLED or DISABLED).\n"
                 },
                 "steps": {
                     "type": "array",
@@ -14442,7 +14467,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The monitor status (i.e. ENABLED, MUTED, DISABLED). Note: The 'MUTED' status is now deprecated, and support for this\nvalue will soon be removed from the Terraform Provider in an upcoming release. It is highly recommended for users to\nrefrain from using this value and shift to alternatives.\n"
+                        "description": "The monitor status (ENABLED or DISABLED).\n"
                     },
                     "steps": {
                         "type": "array",
@@ -14960,6 +14985,10 @@
                         "type": "boolean",
                         "description": "An indication whether the notification destination is active or not.\n"
                     },
+                    "guid": {
+                        "type": "string",
+                        "description": "The unique entity identifier of the destination in New Relic.\n"
+                    },
                     "id": {
                         "type": "string"
                     },
@@ -14987,6 +15016,7 @@
                 "required": [
                     "accountId",
                     "active",
+                    "guid",
                     "properties",
                     "status",
                     "type"

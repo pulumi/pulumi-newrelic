@@ -84,6 +84,10 @@ namespace Pulumi.NewRelic
         /// An indication whether the notification destination is active or not.
         /// </summary>
         public readonly bool Active;
+        /// <summary>
+        /// The unique entity identifier of the destination in New Relic.
+        /// </summary>
+        public readonly string Guid;
         public readonly string? Id;
         /// <summary>
         /// The name of the notification destination.
@@ -108,6 +112,8 @@ namespace Pulumi.NewRelic
 
             bool active,
 
+            string guid,
+
             string? id,
 
             string? name,
@@ -120,6 +126,7 @@ namespace Pulumi.NewRelic
         {
             AccountId = accountId;
             Active = active;
+            Guid = guid;
             Id = id;
             Name = name;
             Properties = properties;
