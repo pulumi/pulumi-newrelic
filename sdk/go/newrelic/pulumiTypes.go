@@ -2672,7 +2672,7 @@ func (o NotificationDestinationPropertyArrayOutput) Index(i pulumi.IntInput) Not
 type NrqlAlertConditionCritical struct {
 	// In minutes, must be in the range of 1 to 120 (inclusive).
 	//
-	// Deprecated: use `thresholdDuration` attribute instead
+	// Deprecated: use `threshold_duration` attribute instead
 	Duration *int `pulumi:"duration"`
 	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 	Operator *string `pulumi:"operator"`
@@ -2684,7 +2684,7 @@ type NrqlAlertConditionCritical struct {
 	ThresholdOccurrences *string `pulumi:"thresholdOccurrences"`
 	// Valid values are: 'all' or 'any'
 	//
-	// Deprecated: use `thresholdOccurrences` attribute instead
+	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction *string `pulumi:"timeFunction"`
 }
 
@@ -2702,7 +2702,7 @@ type NrqlAlertConditionCriticalInput interface {
 type NrqlAlertConditionCriticalArgs struct {
 	// In minutes, must be in the range of 1 to 120 (inclusive).
 	//
-	// Deprecated: use `thresholdDuration` attribute instead
+	// Deprecated: use `threshold_duration` attribute instead
 	Duration pulumi.IntPtrInput `pulumi:"duration"`
 	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
@@ -2714,7 +2714,7 @@ type NrqlAlertConditionCriticalArgs struct {
 	ThresholdOccurrences pulumi.StringPtrInput `pulumi:"thresholdOccurrences"`
 	// Valid values are: 'all' or 'any'
 	//
-	// Deprecated: use `thresholdOccurrences` attribute instead
+	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
 }
 
@@ -2797,7 +2797,7 @@ func (o NrqlAlertConditionCriticalOutput) ToNrqlAlertConditionCriticalPtrOutputW
 
 // In minutes, must be in the range of 1 to 120 (inclusive).
 //
-// Deprecated: use `thresholdDuration` attribute instead
+// Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionCriticalOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
@@ -2824,7 +2824,7 @@ func (o NrqlAlertConditionCriticalOutput) ThresholdOccurrences() pulumi.StringPt
 
 // Valid values are: 'all' or 'any'
 //
-// Deprecated: use `thresholdOccurrences` attribute instead
+// Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionCriticalOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
 }
@@ -2855,7 +2855,7 @@ func (o NrqlAlertConditionCriticalPtrOutput) Elem() NrqlAlertConditionCriticalOu
 
 // In minutes, must be in the range of 1 to 120 (inclusive).
 //
-// Deprecated: use `thresholdDuration` attribute instead
+// Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionCriticalPtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *int {
 		if v == nil {
@@ -2907,7 +2907,7 @@ func (o NrqlAlertConditionCriticalPtrOutput) ThresholdOccurrences() pulumi.Strin
 
 // Valid values are: 'all' or 'any'
 //
-// Deprecated: use `thresholdOccurrences` attribute instead
+// Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionCriticalPtrOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *string {
 		if v == nil {
@@ -2920,12 +2920,12 @@ func (o NrqlAlertConditionCriticalPtrOutput) TimeFunction() pulumi.StringPtrOutp
 type NrqlAlertConditionNrql struct {
 	// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluationOffset`.
 	//
-	// Deprecated: use `aggregationMethod` attribute instead
+	// Deprecated: use `aggregation_method` attribute instead
 	EvaluationOffset *int   `pulumi:"evaluationOffset"`
 	Query            string `pulumi:"query"`
 	// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `sinceValue`.
 	//
-	// Deprecated: use `aggregationMethod` attribute instead
+	// Deprecated: use `aggregation_method` attribute instead
 	SinceValue *string `pulumi:"sinceValue"`
 }
 
@@ -2943,12 +2943,12 @@ type NrqlAlertConditionNrqlInput interface {
 type NrqlAlertConditionNrqlArgs struct {
 	// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluationOffset`.
 	//
-	// Deprecated: use `aggregationMethod` attribute instead
+	// Deprecated: use `aggregation_method` attribute instead
 	EvaluationOffset pulumi.IntPtrInput `pulumi:"evaluationOffset"`
 	Query            pulumi.StringInput `pulumi:"query"`
 	// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `sinceValue`.
 	//
-	// Deprecated: use `aggregationMethod` attribute instead
+	// Deprecated: use `aggregation_method` attribute instead
 	SinceValue pulumi.StringPtrInput `pulumi:"sinceValue"`
 }
 
@@ -3031,7 +3031,7 @@ func (o NrqlAlertConditionNrqlOutput) ToNrqlAlertConditionNrqlPtrOutputWithConte
 
 // NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluationOffset`.
 //
-// Deprecated: use `aggregationMethod` attribute instead
+// Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlOutput) EvaluationOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) *int { return v.EvaluationOffset }).(pulumi.IntPtrOutput)
 }
@@ -3042,7 +3042,7 @@ func (o NrqlAlertConditionNrqlOutput) Query() pulumi.StringOutput {
 
 // NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `sinceValue`.
 //
-// Deprecated: use `aggregationMethod` attribute instead
+// Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlOutput) SinceValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) *string { return v.SinceValue }).(pulumi.StringPtrOutput)
 }
@@ -3073,7 +3073,7 @@ func (o NrqlAlertConditionNrqlPtrOutput) Elem() NrqlAlertConditionNrqlOutput {
 
 // NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluationOffset`.
 //
-// Deprecated: use `aggregationMethod` attribute instead
+// Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlPtrOutput) EvaluationOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *int {
 		if v == nil {
@@ -3094,7 +3094,7 @@ func (o NrqlAlertConditionNrqlPtrOutput) Query() pulumi.StringPtrOutput {
 
 // NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `sinceValue`.
 //
-// Deprecated: use `aggregationMethod` attribute instead
+// Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *string {
 		if v == nil {
@@ -3107,7 +3107,7 @@ func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringPtrOutput {
 type NrqlAlertConditionTerm struct {
 	// In minutes, must be in the range of 1 to 120 (inclusive).
 	//
-	// Deprecated: use `thresholdDuration` attribute instead
+	// Deprecated: use `threshold_duration` attribute instead
 	Duration *int `pulumi:"duration"`
 	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 	Operator *string `pulumi:"operator"`
@@ -3121,7 +3121,7 @@ type NrqlAlertConditionTerm struct {
 	ThresholdOccurrences *string `pulumi:"thresholdOccurrences"`
 	// Valid values are: 'all' or 'any'
 	//
-	// Deprecated: use `thresholdOccurrences` attribute instead
+	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction *string `pulumi:"timeFunction"`
 }
 
@@ -3139,7 +3139,7 @@ type NrqlAlertConditionTermInput interface {
 type NrqlAlertConditionTermArgs struct {
 	// In minutes, must be in the range of 1 to 120 (inclusive).
 	//
-	// Deprecated: use `thresholdDuration` attribute instead
+	// Deprecated: use `threshold_duration` attribute instead
 	Duration pulumi.IntPtrInput `pulumi:"duration"`
 	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
@@ -3153,7 +3153,7 @@ type NrqlAlertConditionTermArgs struct {
 	ThresholdOccurrences pulumi.StringPtrInput `pulumi:"thresholdOccurrences"`
 	// Valid values are: 'all' or 'any'
 	//
-	// Deprecated: use `thresholdOccurrences` attribute instead
+	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
 }
 
@@ -3210,7 +3210,7 @@ func (o NrqlAlertConditionTermOutput) ToNrqlAlertConditionTermOutputWithContext(
 
 // In minutes, must be in the range of 1 to 120 (inclusive).
 //
-// Deprecated: use `thresholdDuration` attribute instead
+// Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionTermOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
@@ -3242,7 +3242,7 @@ func (o NrqlAlertConditionTermOutput) ThresholdOccurrences() pulumi.StringPtrOut
 
 // Valid values are: 'all' or 'any'
 //
-// Deprecated: use `thresholdOccurrences` attribute instead
+// Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionTermOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
 }
@@ -3270,7 +3270,7 @@ func (o NrqlAlertConditionTermArrayOutput) Index(i pulumi.IntInput) NrqlAlertCon
 type NrqlAlertConditionWarning struct {
 	// In minutes, must be in the range of 1 to 120 (inclusive).
 	//
-	// Deprecated: use `thresholdDuration` attribute instead
+	// Deprecated: use `threshold_duration` attribute instead
 	Duration *int `pulumi:"duration"`
 	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 	Operator *string `pulumi:"operator"`
@@ -3282,7 +3282,7 @@ type NrqlAlertConditionWarning struct {
 	ThresholdOccurrences *string `pulumi:"thresholdOccurrences"`
 	// Valid values are: 'all' or 'any'
 	//
-	// Deprecated: use `thresholdOccurrences` attribute instead
+	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction *string `pulumi:"timeFunction"`
 }
 
@@ -3300,7 +3300,7 @@ type NrqlAlertConditionWarningInput interface {
 type NrqlAlertConditionWarningArgs struct {
 	// In minutes, must be in the range of 1 to 120 (inclusive).
 	//
-	// Deprecated: use `thresholdDuration` attribute instead
+	// Deprecated: use `threshold_duration` attribute instead
 	Duration pulumi.IntPtrInput `pulumi:"duration"`
 	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
@@ -3312,7 +3312,7 @@ type NrqlAlertConditionWarningArgs struct {
 	ThresholdOccurrences pulumi.StringPtrInput `pulumi:"thresholdOccurrences"`
 	// Valid values are: 'all' or 'any'
 	//
-	// Deprecated: use `thresholdOccurrences` attribute instead
+	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
 }
 
@@ -3395,7 +3395,7 @@ func (o NrqlAlertConditionWarningOutput) ToNrqlAlertConditionWarningPtrOutputWit
 
 // In minutes, must be in the range of 1 to 120 (inclusive).
 //
-// Deprecated: use `thresholdDuration` attribute instead
+// Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionWarningOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
@@ -3422,7 +3422,7 @@ func (o NrqlAlertConditionWarningOutput) ThresholdOccurrences() pulumi.StringPtr
 
 // Valid values are: 'all' or 'any'
 //
-// Deprecated: use `thresholdOccurrences` attribute instead
+// Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionWarningOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
 }
@@ -3453,7 +3453,7 @@ func (o NrqlAlertConditionWarningPtrOutput) Elem() NrqlAlertConditionWarningOutp
 
 // In minutes, must be in the range of 1 to 120 (inclusive).
 //
-// Deprecated: use `thresholdDuration` attribute instead
+// Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionWarningPtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *int {
 		if v == nil {
@@ -3505,7 +3505,7 @@ func (o NrqlAlertConditionWarningPtrOutput) ThresholdOccurrences() pulumi.String
 
 // Valid values are: 'all' or 'any'
 //
-// Deprecated: use `thresholdOccurrences` attribute instead
+// Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionWarningPtrOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *string {
 		if v == nil {
