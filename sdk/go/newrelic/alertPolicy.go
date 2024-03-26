@@ -172,7 +172,7 @@ type AlertPolicy struct {
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
 	//
-	// Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
+	// Deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
 	ChannelIds pulumi.IntArrayOutput `pulumi:"channelIds"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrOutput `pulumi:"incidentPreference"`
@@ -214,7 +214,7 @@ type alertPolicyState struct {
 	AccountId *int `pulumi:"accountId"`
 	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
 	//
-	// Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
+	// Deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
 	ChannelIds []int `pulumi:"channelIds"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference *string `pulumi:"incidentPreference"`
@@ -227,7 +227,7 @@ type AlertPolicyState struct {
 	AccountId pulumi.IntPtrInput
 	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
 	//
-	// Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
+	// Deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
 	ChannelIds pulumi.IntArrayInput
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrInput
@@ -244,7 +244,7 @@ type alertPolicyArgs struct {
 	AccountId *int `pulumi:"accountId"`
 	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
 	//
-	// Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
+	// Deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
 	ChannelIds []int `pulumi:"channelIds"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference *string `pulumi:"incidentPreference"`
@@ -258,7 +258,7 @@ type AlertPolicyArgs struct {
 	AccountId pulumi.IntPtrInput
 	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
 	//
-	// Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
+	// Deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
 	ChannelIds pulumi.IntArrayInput
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrInput
@@ -360,7 +360,7 @@ func (o AlertPolicyOutput) AccountId() pulumi.IntOutput {
 
 // An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
 //
-// Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
+// Deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
 func (o AlertPolicyOutput) ChannelIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *AlertPolicy) pulumi.IntArrayOutput { return v.ChannelIds }).(pulumi.IntArrayOutput)
 }
