@@ -29,14 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewStepMonitor(ctx, "monitor", &synthetics.StepMonitorArgs{
+//			_, err := synthetics.NewStepMonitor(ctx, "foo", &synthetics.StepMonitorArgs{
 //				EnableScreenshotOnFailureAndScript: pulumi.Bool(true),
 //				LocationsPublics: pulumi.StringArray{
 //					pulumi.String("US_EAST_1"),
 //					pulumi.String("US_EAST_2"),
 //				},
-//				Period: pulumi.String("EVERY_6_HOURS"),
-//				Status: pulumi.String("ENABLED"),
+//				Period:             pulumi.String("EVERY_6_HOURS"),
+//				RuntimeType:        pulumi.String("CHROME_BROWSER"),
+//				RuntimeTypeVersion: pulumi.String("100"),
+//				Status:             pulumi.String("ENABLED"),
 //				Steps: synthetics.StepMonitorStepArray{
 //					&synthetics.StepMonitorStepArgs{
 //						Ordinal: pulumi.Int(0),
@@ -68,9 +70,72 @@ import (
 //
 // ## Additional Examples
 //
+// ### Create a monitor with a private location
+//
+// The below example shows how you can define a private location and attach it to a monitor.
+//
+// > **NOTE:** It can take up to 10 minutes for a private location to become available.
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooPrivateLocation, err := synthetics.NewPrivateLocation(ctx, "fooPrivateLocation", &synthetics.PrivateLocationArgs{
+//				Description:             pulumi.String("Sample Private Location Description"),
+//				VerifiedScriptExecution: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synthetics.NewStepMonitor(ctx, "fooStepMonitor", &synthetics.StepMonitorArgs{
+//				Period: pulumi.String("EVERY_6_HOURS"),
+//				Status: pulumi.String("ENABLED"),
+//				LocationPrivates: synthetics.StepMonitorLocationPrivateArray{
+//					&synthetics.StepMonitorLocationPrivateArgs{
+//						Guid:        fooPrivateLocation.ID(),
+//						VsePassword: pulumi.String("secret"),
+//					},
+//				},
+//				Steps: synthetics.StepMonitorStepArray{
+//					&synthetics.StepMonitorStepArgs{
+//						Ordinal: pulumi.Int(0),
+//						Type:    pulumi.String("NAVIGATE"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("https://google.com"),
+//						},
+//					},
+//				},
+//				Tags: synthetics.StepMonitorTagArray{
+//					&synthetics.StepMonitorTagArgs{
+//						Key: pulumi.String("some_key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("some_value"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
-// Synthetics step monitor scripts can be imported using the `guid`, e.g.
+// A step monitor can be imported using its GUID, using the following command.
 //
 // bash
 //
@@ -96,6 +161,12 @@ type StepMonitor struct {
 	Period pulumi.StringOutput `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntOutput `pulumi:"periodInMinutes"`
+	// The runtime that the monitor will use to run jobs.
+	RuntimeType pulumi.StringPtrOutput `pulumi:"runtimeType"`
+	// The specific version of the runtime type selected.
+	//
+	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	RuntimeTypeVersion pulumi.StringPtrOutput `pulumi:"runtimeTypeVersion"`
 	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
@@ -159,6 +230,12 @@ type stepMonitorState struct {
 	Period *string `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes *int `pulumi:"periodInMinutes"`
+	// The runtime that the monitor will use to run jobs.
+	RuntimeType *string `pulumi:"runtimeType"`
+	// The specific version of the runtime type selected.
+	//
+	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The monitor status (ENABLED or DISABLED).
 	Status *string `pulumi:"status"`
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
@@ -184,6 +261,12 @@ type StepMonitorState struct {
 	Period pulumi.StringPtrInput
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntPtrInput
+	// The runtime that the monitor will use to run jobs.
+	RuntimeType pulumi.StringPtrInput
+	// The specific version of the runtime type selected.
+	//
+	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	RuntimeTypeVersion pulumi.StringPtrInput
 	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringPtrInput
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
@@ -209,6 +292,12 @@ type stepMonitorArgs struct {
 	Name *string `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period string `pulumi:"period"`
+	// The runtime that the monitor will use to run jobs.
+	RuntimeType *string `pulumi:"runtimeType"`
+	// The specific version of the runtime type selected.
+	//
+	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The monitor status (ENABLED or DISABLED).
 	Status string `pulumi:"status"`
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
@@ -231,6 +320,12 @@ type StepMonitorArgs struct {
 	Name pulumi.StringPtrInput
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period pulumi.StringInput
+	// The runtime that the monitor will use to run jobs.
+	RuntimeType pulumi.StringPtrInput
+	// The specific version of the runtime type selected.
+	//
+	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	RuntimeTypeVersion pulumi.StringPtrInput
 	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringInput
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
@@ -364,6 +459,18 @@ func (o StepMonitorOutput) Period() pulumi.StringOutput {
 // The interval in minutes at which Synthetic monitor should run.
 func (o StepMonitorOutput) PeriodInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.IntOutput { return v.PeriodInMinutes }).(pulumi.IntOutput)
+}
+
+// The runtime that the monitor will use to run jobs.
+func (o StepMonitorOutput) RuntimeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StepMonitor) pulumi.StringPtrOutput { return v.RuntimeType }).(pulumi.StringPtrOutput)
+}
+
+// The specific version of the runtime type selected.
+//
+// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+func (o StepMonitorOutput) RuntimeTypeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StepMonitor) pulumi.StringPtrOutput { return v.RuntimeTypeVersion }).(pulumi.StringPtrOutput)
 }
 
 // The monitor status (ENABLED or DISABLED).

@@ -4,19 +4,6 @@ Date: Mon, 24 Apr 2023 15:00:52 -0700
 Subject: [PATCH] fork
 
 
-diff --git a/.githooks/commit-msg b/.githooks/commit-msg
-deleted file mode 100755
-index 8d95d053..00000000
---- a/.githooks/commit-msg
-+++ /dev/null
-@@ -1,7 +0,0 @@
--#!/bin/sh
--
--echo
--echo "Checking commit message format..."
--echo
--
--make lint-commit COMMIT_MSG_FILE=$1
 diff --git a/newrelic/resource_newrelic_nrql_alert_condition.go b/newrelic/resource_newrelic_nrql_alert_condition.go
 index ca782a65..c683a515 100644
 --- a/newrelic/resource_newrelic_nrql_alert_condition.go

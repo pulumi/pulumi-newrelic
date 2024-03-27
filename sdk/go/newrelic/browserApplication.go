@@ -11,42 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this resource to create, update, and delete a standalone New Relic browser application.
-//
-// ## Example Usage
-//
-// Basic usage to create a standalone browser application.
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewBrowserApplication(ctx, "foo", &newrelic.BrowserApplicationArgs{
-//				CookiesEnabled:            pulumi.Bool(true),
-//				DistributedTracingEnabled: pulumi.Bool(true),
-//				LoaderType:                pulumi.String("SPA"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ## Import
 //
-// Browser applications can be imported using the GUID of the browser application.
+// A browser application can be imported using its GUID, i.e.
 //
 // bash
 //
@@ -56,17 +23,19 @@ import (
 type BrowserApplication struct {
 	pulumi.CustomResourceState
 
-	// The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+	// The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
-	// Configure cookies. The default is enabled: true.
+	// The application ID of the browser application (not to be confused with GUID).
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// Configures cookies. Defaults to `true`, if not specified.
 	CookiesEnabled pulumi.BoolPtrOutput `pulumi:"cookiesEnabled"`
-	// Configure distributed tracing in browser apps. The default is enabled: true.
+	// Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
 	DistributedTracingEnabled pulumi.BoolPtrOutput `pulumi:"distributedTracingEnabled"`
 	// The GUID of the browser application.
 	Guid pulumi.StringOutput `pulumi:"guid"`
-	// JavaScript configuration of the browser application encoded into a string.
+	// The JavaScript configuration of the browser application, encoded into a string.
 	JsConfig pulumi.StringOutput `pulumi:"jsConfig"`
-	// Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
+	// Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
 	LoaderType pulumi.StringPtrOutput `pulumi:"loaderType"`
 	// The name of the browser application.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -102,34 +71,38 @@ func GetBrowserApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BrowserApplication resources.
 type browserApplicationState struct {
-	// The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+	// The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
 	AccountId *int `pulumi:"accountId"`
-	// Configure cookies. The default is enabled: true.
+	// The application ID of the browser application (not to be confused with GUID).
+	ApplicationId *string `pulumi:"applicationId"`
+	// Configures cookies. Defaults to `true`, if not specified.
 	CookiesEnabled *bool `pulumi:"cookiesEnabled"`
-	// Configure distributed tracing in browser apps. The default is enabled: true.
+	// Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
 	DistributedTracingEnabled *bool `pulumi:"distributedTracingEnabled"`
 	// The GUID of the browser application.
 	Guid *string `pulumi:"guid"`
-	// JavaScript configuration of the browser application encoded into a string.
+	// The JavaScript configuration of the browser application, encoded into a string.
 	JsConfig *string `pulumi:"jsConfig"`
-	// Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
+	// Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
 	LoaderType *string `pulumi:"loaderType"`
 	// The name of the browser application.
 	Name *string `pulumi:"name"`
 }
 
 type BrowserApplicationState struct {
-	// The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+	// The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
 	AccountId pulumi.IntPtrInput
-	// Configure cookies. The default is enabled: true.
+	// The application ID of the browser application (not to be confused with GUID).
+	ApplicationId pulumi.StringPtrInput
+	// Configures cookies. Defaults to `true`, if not specified.
 	CookiesEnabled pulumi.BoolPtrInput
-	// Configure distributed tracing in browser apps. The default is enabled: true.
+	// Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
 	DistributedTracingEnabled pulumi.BoolPtrInput
 	// The GUID of the browser application.
 	Guid pulumi.StringPtrInput
-	// JavaScript configuration of the browser application encoded into a string.
+	// The JavaScript configuration of the browser application, encoded into a string.
 	JsConfig pulumi.StringPtrInput
-	// Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
+	// Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
 	LoaderType pulumi.StringPtrInput
 	// The name of the browser application.
 	Name pulumi.StringPtrInput
@@ -140,13 +113,13 @@ func (BrowserApplicationState) ElementType() reflect.Type {
 }
 
 type browserApplicationArgs struct {
-	// The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+	// The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
 	AccountId *int `pulumi:"accountId"`
-	// Configure cookies. The default is enabled: true.
+	// Configures cookies. Defaults to `true`, if not specified.
 	CookiesEnabled *bool `pulumi:"cookiesEnabled"`
-	// Configure distributed tracing in browser apps. The default is enabled: true.
+	// Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
 	DistributedTracingEnabled *bool `pulumi:"distributedTracingEnabled"`
-	// Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
+	// Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
 	LoaderType *string `pulumi:"loaderType"`
 	// The name of the browser application.
 	Name *string `pulumi:"name"`
@@ -154,13 +127,13 @@ type browserApplicationArgs struct {
 
 // The set of arguments for constructing a BrowserApplication resource.
 type BrowserApplicationArgs struct {
-	// The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+	// The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
 	AccountId pulumi.IntPtrInput
-	// Configure cookies. The default is enabled: true.
+	// Configures cookies. Defaults to `true`, if not specified.
 	CookiesEnabled pulumi.BoolPtrInput
-	// Configure distributed tracing in browser apps. The default is enabled: true.
+	// Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
 	DistributedTracingEnabled pulumi.BoolPtrInput
-	// Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
+	// Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
 	LoaderType pulumi.StringPtrInput
 	// The name of the browser application.
 	Name pulumi.StringPtrInput
@@ -253,17 +226,22 @@ func (o BrowserApplicationOutput) ToBrowserApplicationOutputWithContext(ctx cont
 	return o
 }
 
-// The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+// The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
 func (o BrowserApplicationOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *BrowserApplication) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
 
-// Configure cookies. The default is enabled: true.
+// The application ID of the browser application (not to be confused with GUID).
+func (o BrowserApplicationOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BrowserApplication) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// Configures cookies. Defaults to `true`, if not specified.
 func (o BrowserApplicationOutput) CookiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BrowserApplication) pulumi.BoolPtrOutput { return v.CookiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Configure distributed tracing in browser apps. The default is enabled: true.
+// Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
 func (o BrowserApplicationOutput) DistributedTracingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BrowserApplication) pulumi.BoolPtrOutput { return v.DistributedTracingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -273,12 +251,12 @@ func (o BrowserApplicationOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrowserApplication) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }
 
-// JavaScript configuration of the browser application encoded into a string.
+// The JavaScript configuration of the browser application, encoded into a string.
 func (o BrowserApplicationOutput) JsConfig() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrowserApplication) pulumi.StringOutput { return v.JsConfig }).(pulumi.StringOutput)
 }
 
-// Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
+// Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
 func (o BrowserApplicationOutput) LoaderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrowserApplication) pulumi.StringPtrOutput { return v.LoaderType }).(pulumi.StringPtrOutput)
 }

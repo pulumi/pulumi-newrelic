@@ -29,14 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewCertCheckMonitor(ctx, "cert-check-monitor", &synthetics.CertCheckMonitorArgs{
+//			_, err := synthetics.NewCertCheckMonitor(ctx, "foo", &synthetics.CertCheckMonitorArgs{
 //				CertificateExpiration: pulumi.Int(10),
 //				Domain:                pulumi.String("www.example.com"),
 //				LocationsPublics: pulumi.StringArray{
 //					pulumi.String("AP_SOUTH_1"),
 //				},
-//				Period: pulumi.String("EVERY_6_HOURS"),
-//				Status: pulumi.String("ENABLED"),
+//				Period:             pulumi.String("EVERY_6_HOURS"),
+//				RuntimeType:        pulumi.String("NODE_API"),
+//				RuntimeTypeVersion: pulumi.String("16.10"),
+//				Status:             pulumi.String("ENABLED"),
 //				Tags: synthetics.CertCheckMonitorTagArray{
 //					&synthetics.CertCheckMonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -78,20 +80,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
-//				Description:             pulumi.String("Test Description"),
+//			fooPrivateLocation, err := synthetics.NewPrivateLocation(ctx, "fooPrivateLocation", &synthetics.PrivateLocationArgs{
+//				Description:             pulumi.String("Sample Private Location Description"),
 //				VerifiedScriptExecution: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = synthetics.NewCertCheckMonitor(ctx, "monitor", &synthetics.CertCheckMonitorArgs{
-//				Domain: pulumi.String("https://www.one.example.com"),
+//			_, err = synthetics.NewCertCheckMonitor(ctx, "fooCertCheckMonitor", &synthetics.CertCheckMonitorArgs{
+//				Domain: pulumi.String("www.one.example.com"),
 //				LocationsPrivates: pulumi.StringArray{
-//					location.ID(),
+//					fooPrivateLocation.ID(),
 //				},
-//				Period: pulumi.String("EVERY_6_HOURS"),
-//				Status: pulumi.String("ENABLED"),
+//				CertificateExpiration: pulumi.Int(10),
+//				Period:                pulumi.String("EVERY_6_HOURS"),
+//				Status:                pulumi.String("ENABLED"),
 //				Tags: synthetics.CertCheckMonitorTagArray{
 //					&synthetics.CertCheckMonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -113,7 +116,7 @@ import (
 //
 // ## Import
 //
-// Synthetics certificate check monitor scripts can be imported using the `guid`, e.g.
+// A cert check monitor can be imported using its GUID, using the following command.
 //
 // bash
 //
@@ -139,6 +142,12 @@ type CertCheckMonitor struct {
 	Period pulumi.StringOutput `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntOutput `pulumi:"periodInMinutes"`
+	// The runtime that the monitor will use to run jobs.
+	RuntimeType pulumi.StringPtrOutput `pulumi:"runtimeType"`
+	// The specific version of the runtime type selected.
+	//
+	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	RuntimeTypeVersion pulumi.StringPtrOutput `pulumi:"runtimeTypeVersion"`
 	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -203,6 +212,12 @@ type certCheckMonitorState struct {
 	Period *string `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes *int `pulumi:"periodInMinutes"`
+	// The runtime that the monitor will use to run jobs.
+	RuntimeType *string `pulumi:"runtimeType"`
+	// The specific version of the runtime type selected.
+	//
+	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The monitor status (ENABLED or DISABLED).
 	Status *string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -226,6 +241,12 @@ type CertCheckMonitorState struct {
 	Period pulumi.StringPtrInput
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntPtrInput
+	// The runtime that the monitor will use to run jobs.
+	RuntimeType pulumi.StringPtrInput
+	// The specific version of the runtime type selected.
+	//
+	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	RuntimeTypeVersion pulumi.StringPtrInput
 	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringPtrInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -251,6 +272,12 @@ type certCheckMonitorArgs struct {
 	Name *string `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period string `pulumi:"period"`
+	// The runtime that the monitor will use to run jobs.
+	RuntimeType *string `pulumi:"runtimeType"`
+	// The specific version of the runtime type selected.
+	//
+	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The monitor status (ENABLED or DISABLED).
 	Status string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -273,6 +300,12 @@ type CertCheckMonitorArgs struct {
 	Name pulumi.StringPtrInput
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period pulumi.StringInput
+	// The runtime that the monitor will use to run jobs.
+	RuntimeType pulumi.StringPtrInput
+	// The specific version of the runtime type selected.
+	//
+	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	RuntimeTypeVersion pulumi.StringPtrInput
 	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -404,6 +437,18 @@ func (o CertCheckMonitorOutput) Period() pulumi.StringOutput {
 // The interval in minutes at which Synthetic monitor should run.
 func (o CertCheckMonitorOutput) PeriodInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *CertCheckMonitor) pulumi.IntOutput { return v.PeriodInMinutes }).(pulumi.IntOutput)
+}
+
+// The runtime that the monitor will use to run jobs.
+func (o CertCheckMonitorOutput) RuntimeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertCheckMonitor) pulumi.StringPtrOutput { return v.RuntimeType }).(pulumi.StringPtrOutput)
+}
+
+// The specific version of the runtime type selected.
+//
+// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+func (o CertCheckMonitorOutput) RuntimeTypeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertCheckMonitor) pulumi.StringPtrOutput { return v.RuntimeTypeVersion }).(pulumi.StringPtrOutput)
 }
 
 // The monitor status (ENABLED or DISABLED).

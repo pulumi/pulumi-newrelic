@@ -45,11 +45,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cert_check_monitor = new CertCheckMonitor(&#34;cert-check-monitor&#34;, CertCheckMonitorArgs.builder()        
+ *         var foo = new CertCheckMonitor(&#34;foo&#34;, CertCheckMonitorArgs.builder()        
  *             .certificateExpiration(&#34;10&#34;)
  *             .domain(&#34;www.example.com&#34;)
  *             .locationsPublics(&#34;AP_SOUTH_1&#34;)
  *             .period(&#34;EVERY_6_HOURS&#34;)
+ *             .runtimeType(&#34;NODE_API&#34;)
+ *             .runtimeTypeVersion(&#34;16.10&#34;)
  *             .status(&#34;ENABLED&#34;)
  *             .tags(CertCheckMonitorTagArgs.builder()
  *                 .key(&#34;some_key&#34;)
@@ -96,14 +98,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
- *             .description(&#34;Test Description&#34;)
+ *         var fooPrivateLocation = new PrivateLocation(&#34;fooPrivateLocation&#34;, PrivateLocationArgs.builder()        
+ *             .description(&#34;Sample Private Location Description&#34;)
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
- *         var monitor = new CertCheckMonitor(&#34;monitor&#34;, CertCheckMonitorArgs.builder()        
- *             .domain(&#34;https://www.one.example.com&#34;)
- *             .locationsPrivates(location.id())
+ *         var fooCertCheckMonitor = new CertCheckMonitor(&#34;fooCertCheckMonitor&#34;, CertCheckMonitorArgs.builder()        
+ *             .domain(&#34;www.one.example.com&#34;)
+ *             .locationsPrivates(fooPrivateLocation.id())
+ *             .certificateExpiration(&#34;10&#34;)
  *             .period(&#34;EVERY_6_HOURS&#34;)
  *             .status(&#34;ENABLED&#34;)
  *             .tags(CertCheckMonitorTagArgs.builder()
@@ -119,7 +122,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Synthetics certificate check monitor scripts can be imported using the `guid`, e.g.
+ * A cert check monitor can be imported using its GUID, using the following command.
  * 
  * bash
  * 
@@ -241,6 +244,38 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> periodInMinutes() {
         return this.periodInMinutes;
+    }
+    /**
+     * The runtime that the monitor will use to run jobs.
+     * 
+     */
+    @Export(name="runtimeType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> runtimeType;
+
+    /**
+     * @return The runtime that the monitor will use to run jobs.
+     * 
+     */
+    public Output<Optional<String>> runtimeType() {
+        return Codegen.optional(this.runtimeType);
+    }
+    /**
+     * The specific version of the runtime type selected.
+     * 
+     * &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+     * 
+     */
+    @Export(name="runtimeTypeVersion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> runtimeTypeVersion;
+
+    /**
+     * @return The specific version of the runtime type selected.
+     * 
+     * &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+     * 
+     */
+    public Output<Optional<String>> runtimeTypeVersion() {
+        return Codegen.optional(this.runtimeTypeVersion);
     }
     /**
      * The monitor status (ENABLED or DISABLED).
