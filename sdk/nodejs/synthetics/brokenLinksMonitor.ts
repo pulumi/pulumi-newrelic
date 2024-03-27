@@ -16,9 +16,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const monitor = new newrelic.synthetics.BrokenLinksMonitor("monitor", {
+ * const foo = new newrelic.synthetics.BrokenLinksMonitor("foo", {
  *     locationsPublics: ["AP_SOUTH_1"],
  *     period: "EVERY_6_HOURS",
+ *     runtimeType: "NODE_API",
+ *     runtimeTypeVersion: "16.10",
  *     status: "ENABLED",
  *     tags: [{
  *         key: "some_key",
@@ -43,13 +45,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const location = new newrelic.synthetics.PrivateLocation("location", {
- *     description: "Test Description",
+ * const fooPrivateLocation = new newrelic.synthetics.PrivateLocation("fooPrivateLocation", {
+ *     description: "Sample Private Location Description",
  *     verifiedScriptExecution: false,
  * });
- * const monitor = new newrelic.synthetics.BrokenLinksMonitor("monitor", {
+ * const fooBrokenLinksMonitor = new newrelic.synthetics.BrokenLinksMonitor("fooBrokenLinksMonitor", {
  *     uri: "https://www.one.example.com",
- *     locationsPrivates: [location.id],
+ *     locationsPrivates: [fooPrivateLocation.id],
  *     period: "EVERY_6_HOURS",
  *     status: "ENABLED",
  *     tags: [{
@@ -62,7 +64,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Synthetics broken links monitor scripts can be imported using the `guid`, e.g.
+ * A broken links monitor can be imported using its GUID, using the following command.
  *
  * bash
  *
@@ -127,6 +129,16 @@ export class BrokenLinksMonitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly periodInMinutes!: pulumi.Output<number>;
     /**
+     * The runtime that the monitor will use to run jobs.
+     */
+    public readonly runtimeType!: pulumi.Output<string | undefined>;
+    /**
+     * The specific version of the runtime type selected.
+     *
+     * > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+     */
+    public readonly runtimeTypeVersion!: pulumi.Output<string | undefined>;
+    /**
      * The monitor status (ENABLED or DISABLED).
      */
     public readonly status!: pulumi.Output<string>;
@@ -159,6 +171,8 @@ export class BrokenLinksMonitor extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["period"] = state ? state.period : undefined;
             resourceInputs["periodInMinutes"] = state ? state.periodInMinutes : undefined;
+            resourceInputs["runtimeType"] = state ? state.runtimeType : undefined;
+            resourceInputs["runtimeTypeVersion"] = state ? state.runtimeTypeVersion : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["uri"] = state ? state.uri : undefined;
@@ -178,6 +192,8 @@ export class BrokenLinksMonitor extends pulumi.CustomResource {
             resourceInputs["locationsPublics"] = args ? args.locationsPublics : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["period"] = args ? args.period : undefined;
+            resourceInputs["runtimeType"] = args ? args.runtimeType : undefined;
+            resourceInputs["runtimeTypeVersion"] = args ? args.runtimeTypeVersion : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["uri"] = args ? args.uri : undefined;
@@ -222,6 +238,16 @@ export interface BrokenLinksMonitorState {
      */
     periodInMinutes?: pulumi.Input<number>;
     /**
+     * The runtime that the monitor will use to run jobs.
+     */
+    runtimeType?: pulumi.Input<string>;
+    /**
+     * The specific version of the runtime type selected.
+     *
+     * > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+     */
+    runtimeTypeVersion?: pulumi.Input<string>;
+    /**
      * The monitor status (ENABLED or DISABLED).
      */
     status?: pulumi.Input<string>;
@@ -259,6 +285,16 @@ export interface BrokenLinksMonitorArgs {
      * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
      */
     period: pulumi.Input<string>;
+    /**
+     * The runtime that the monitor will use to run jobs.
+     */
+    runtimeType?: pulumi.Input<string>;
+    /**
+     * The specific version of the runtime type selected.
+     *
+     * > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+     */
+    runtimeTypeVersion?: pulumi.Input<string>;
     /**
      * The monitor status (ENABLED or DISABLED).
      */

@@ -29,12 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewBrokenLinksMonitor(ctx, "monitor", &synthetics.BrokenLinksMonitorArgs{
+//			_, err := synthetics.NewBrokenLinksMonitor(ctx, "foo", &synthetics.BrokenLinksMonitorArgs{
 //				LocationsPublics: pulumi.StringArray{
 //					pulumi.String("AP_SOUTH_1"),
 //				},
-//				Period: pulumi.String("EVERY_6_HOURS"),
-//				Status: pulumi.String("ENABLED"),
+//				Period:             pulumi.String("EVERY_6_HOURS"),
+//				RuntimeType:        pulumi.String("NODE_API"),
+//				RuntimeTypeVersion: pulumi.String("16.10"),
+//				Status:             pulumi.String("ENABLED"),
 //				Tags: synthetics.BrokenLinksMonitorTagArray{
 //					&synthetics.BrokenLinksMonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -77,17 +79,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
-//				Description:             pulumi.String("Test Description"),
+//			fooPrivateLocation, err := synthetics.NewPrivateLocation(ctx, "fooPrivateLocation", &synthetics.PrivateLocationArgs{
+//				Description:             pulumi.String("Sample Private Location Description"),
 //				VerifiedScriptExecution: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = synthetics.NewBrokenLinksMonitor(ctx, "monitor", &synthetics.BrokenLinksMonitorArgs{
+//			_, err = synthetics.NewBrokenLinksMonitor(ctx, "fooBrokenLinksMonitor", &synthetics.BrokenLinksMonitorArgs{
 //				Uri: pulumi.String("https://www.one.example.com"),
 //				LocationsPrivates: pulumi.StringArray{
-//					location.ID(),
+//					fooPrivateLocation.ID(),
 //				},
 //				Period: pulumi.String("EVERY_6_HOURS"),
 //				Status: pulumi.String("ENABLED"),
@@ -112,7 +114,7 @@ import (
 //
 // ## Import
 //
-// Synthetics broken links monitor scripts can be imported using the `guid`, e.g.
+// A broken links monitor can be imported using its GUID, using the following command.
 //
 // bash
 //
@@ -136,6 +138,12 @@ type BrokenLinksMonitor struct {
 	Period pulumi.StringOutput `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntOutput `pulumi:"periodInMinutes"`
+	// The runtime that the monitor will use to run jobs.
+	RuntimeType pulumi.StringPtrOutput `pulumi:"runtimeType"`
+	// The specific version of the runtime type selected.
+	//
+	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	RuntimeTypeVersion pulumi.StringPtrOutput `pulumi:"runtimeTypeVersion"`
 	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -197,6 +205,12 @@ type brokenLinksMonitorState struct {
 	Period *string `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes *int `pulumi:"periodInMinutes"`
+	// The runtime that the monitor will use to run jobs.
+	RuntimeType *string `pulumi:"runtimeType"`
+	// The specific version of the runtime type selected.
+	//
+	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The monitor status (ENABLED or DISABLED).
 	Status *string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -220,6 +234,12 @@ type BrokenLinksMonitorState struct {
 	Period pulumi.StringPtrInput
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntPtrInput
+	// The runtime that the monitor will use to run jobs.
+	RuntimeType pulumi.StringPtrInput
+	// The specific version of the runtime type selected.
+	//
+	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	RuntimeTypeVersion pulumi.StringPtrInput
 	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringPtrInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -243,6 +263,12 @@ type brokenLinksMonitorArgs struct {
 	Name *string `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period string `pulumi:"period"`
+	// The runtime that the monitor will use to run jobs.
+	RuntimeType *string `pulumi:"runtimeType"`
+	// The specific version of the runtime type selected.
+	//
+	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The monitor status (ENABLED or DISABLED).
 	Status string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -263,6 +289,12 @@ type BrokenLinksMonitorArgs struct {
 	Name pulumi.StringPtrInput
 	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
 	Period pulumi.StringInput
+	// The runtime that the monitor will use to run jobs.
+	RuntimeType pulumi.StringPtrInput
+	// The specific version of the runtime type selected.
+	//
+	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	RuntimeTypeVersion pulumi.StringPtrInput
 	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
@@ -391,6 +423,18 @@ func (o BrokenLinksMonitorOutput) Period() pulumi.StringOutput {
 // The interval in minutes at which Synthetic monitor should run.
 func (o BrokenLinksMonitorOutput) PeriodInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.IntOutput { return v.PeriodInMinutes }).(pulumi.IntOutput)
+}
+
+// The runtime that the monitor will use to run jobs.
+func (o BrokenLinksMonitorOutput) RuntimeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.StringPtrOutput { return v.RuntimeType }).(pulumi.StringPtrOutput)
+}
+
+// The specific version of the runtime type selected.
+//
+// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+func (o BrokenLinksMonitorOutput) RuntimeTypeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.StringPtrOutput { return v.RuntimeTypeVersion }).(pulumi.StringPtrOutput)
 }
 
 // The monitor status (ENABLED or DISABLED).

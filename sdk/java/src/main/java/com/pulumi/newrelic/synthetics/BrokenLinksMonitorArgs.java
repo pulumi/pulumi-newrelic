@@ -95,6 +95,40 @@ public final class BrokenLinksMonitorArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The runtime that the monitor will use to run jobs.
+     * 
+     */
+    @Import(name="runtimeType")
+    private @Nullable Output<String> runtimeType;
+
+    /**
+     * @return The runtime that the monitor will use to run jobs.
+     * 
+     */
+    public Optional<Output<String>> runtimeType() {
+        return Optional.ofNullable(this.runtimeType);
+    }
+
+    /**
+     * The specific version of the runtime type selected.
+     * 
+     * &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+     * 
+     */
+    @Import(name="runtimeTypeVersion")
+    private @Nullable Output<String> runtimeTypeVersion;
+
+    /**
+     * @return The specific version of the runtime type selected.
+     * 
+     * &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+     * 
+     */
+    public Optional<Output<String>> runtimeTypeVersion() {
+        return Optional.ofNullable(this.runtimeTypeVersion);
+    }
+
+    /**
      * The monitor status (ENABLED or DISABLED).
      * 
      */
@@ -147,6 +181,8 @@ public final class BrokenLinksMonitorArgs extends com.pulumi.resources.ResourceA
         this.locationsPublics = $.locationsPublics;
         this.name = $.name;
         this.period = $.period;
+        this.runtimeType = $.runtimeType;
+        this.runtimeTypeVersion = $.runtimeTypeVersion;
         this.status = $.status;
         this.tags = $.tags;
         this.uri = $.uri;
@@ -293,6 +329,52 @@ public final class BrokenLinksMonitorArgs extends com.pulumi.resources.ResourceA
          */
         public Builder period(String period) {
             return period(Output.of(period));
+        }
+
+        /**
+         * @param runtimeType The runtime that the monitor will use to run jobs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtimeType(@Nullable Output<String> runtimeType) {
+            $.runtimeType = runtimeType;
+            return this;
+        }
+
+        /**
+         * @param runtimeType The runtime that the monitor will use to run jobs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtimeType(String runtimeType) {
+            return runtimeType(Output.of(runtimeType));
+        }
+
+        /**
+         * @param runtimeTypeVersion The specific version of the runtime type selected.
+         * 
+         * &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtimeTypeVersion(@Nullable Output<String> runtimeTypeVersion) {
+            $.runtimeTypeVersion = runtimeTypeVersion;
+            return this;
+        }
+
+        /**
+         * @param runtimeTypeVersion The specific version of the runtime type selected.
+         * 
+         * &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtimeTypeVersion(String runtimeTypeVersion) {
+            return runtimeTypeVersion(Output.of(runtimeTypeVersion));
         }
 
         /**

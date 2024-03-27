@@ -17,47 +17,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Use this resource to create, update, and delete a standalone New Relic browser application.
- * 
- * ## Example Usage
- * 
- * Basic usage to create a standalone browser application.
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.BrowserApplication;
- * import com.pulumi.newrelic.BrowserApplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new BrowserApplication(&#34;foo&#34;, BrowserApplicationArgs.builder()        
- *             .cookiesEnabled(true)
- *             .distributedTracingEnabled(true)
- *             .loaderType(&#34;SPA&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
- * Browser applications can be imported using the GUID of the browser application.
+ * A browser application can be imported using its GUID, i.e.
  * 
  * bash
  * 
@@ -69,42 +31,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/browserApplication:BrowserApplication")
 public class BrowserApplication extends com.pulumi.resources.CustomResource {
     /**
-     * The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
      * 
      */
     @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
-     * @return The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * @return The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
      * 
      */
     public Output<Integer> accountId() {
         return this.accountId;
     }
     /**
-     * Configure cookies. The default is enabled: true.
+     * The application ID of the browser application (not to be confused with GUID).
+     * 
+     */
+    @Export(name="applicationId", refs={String.class}, tree="[0]")
+    private Output<String> applicationId;
+
+    /**
+     * @return The application ID of the browser application (not to be confused with GUID).
+     * 
+     */
+    public Output<String> applicationId() {
+        return this.applicationId;
+    }
+    /**
+     * Configures cookies. Defaults to `true`, if not specified.
      * 
      */
     @Export(name="cookiesEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cookiesEnabled;
 
     /**
-     * @return Configure cookies. The default is enabled: true.
+     * @return Configures cookies. Defaults to `true`, if not specified.
      * 
      */
     public Output<Optional<Boolean>> cookiesEnabled() {
         return Codegen.optional(this.cookiesEnabled);
     }
     /**
-     * Configure distributed tracing in browser apps. The default is enabled: true.
+     * Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
      * 
      */
     @Export(name="distributedTracingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> distributedTracingEnabled;
 
     /**
-     * @return Configure distributed tracing in browser apps. The default is enabled: true.
+     * @return Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
      * 
      */
     public Output<Optional<Boolean>> distributedTracingEnabled() {
@@ -125,28 +101,28 @@ public class BrowserApplication extends com.pulumi.resources.CustomResource {
         return this.guid;
     }
     /**
-     * JavaScript configuration of the browser application encoded into a string.
+     * The JavaScript configuration of the browser application, encoded into a string.
      * 
      */
     @Export(name="jsConfig", refs={String.class}, tree="[0]")
     private Output<String> jsConfig;
 
     /**
-     * @return JavaScript configuration of the browser application encoded into a string.
+     * @return The JavaScript configuration of the browser application, encoded into a string.
      * 
      */
     public Output<String> jsConfig() {
         return this.jsConfig;
     }
     /**
-     * Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
+     * Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
      * 
      */
     @Export(name="loaderType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> loaderType;
 
     /**
-     * @return Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
+     * @return Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
      * 
      */
     public Output<Optional<String>> loaderType() {

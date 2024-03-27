@@ -24,6 +24,8 @@ class CertCheckMonitorArgs:
                  locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 runtime_type: Optional[pulumi.Input[str]] = None,
+                 runtime_type_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]]] = None):
         """
         The set of arguments for constructing a CertCheckMonitor resource.
@@ -35,6 +37,10 @@ class CertCheckMonitorArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
+        :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
+               
+               > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
         :param pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         pulumi.set(__self__, "certificate_expiration", certificate_expiration)
@@ -49,6 +55,10 @@ class CertCheckMonitorArgs:
             pulumi.set(__self__, "locations_publics", locations_publics)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if runtime_type is not None:
+            pulumi.set(__self__, "runtime_type", runtime_type)
+        if runtime_type_version is not None:
+            pulumi.set(__self__, "runtime_type_version", runtime_type_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -149,6 +159,32 @@ class CertCheckMonitorArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="runtimeType")
+    def runtime_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The runtime that the monitor will use to run jobs.
+        """
+        return pulumi.get(self, "runtime_type")
+
+    @runtime_type.setter
+    def runtime_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_type", value)
+
+    @property
+    @pulumi.getter(name="runtimeTypeVersion")
+    def runtime_type_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The specific version of the runtime type selected.
+
+        > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+        """
+        return pulumi.get(self, "runtime_type_version")
+
+    @runtime_type_version.setter
+    def runtime_type_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_type_version", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]]]:
         """
@@ -172,6 +208,8 @@ class _CertCheckMonitorState:
                  name: Optional[pulumi.Input[str]] = None,
                  period: Optional[pulumi.Input[str]] = None,
                  period_in_minutes: Optional[pulumi.Input[int]] = None,
+                 runtime_type: Optional[pulumi.Input[str]] = None,
+                 runtime_type_version: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]]] = None):
         """
@@ -184,6 +222,10 @@ class _CertCheckMonitorState:
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
+        :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
+               
+               > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
@@ -203,6 +245,10 @@ class _CertCheckMonitorState:
             pulumi.set(__self__, "period", period)
         if period_in_minutes is not None:
             pulumi.set(__self__, "period_in_minutes", period_in_minutes)
+        if runtime_type is not None:
+            pulumi.set(__self__, "runtime_type", runtime_type)
+        if runtime_type_version is not None:
+            pulumi.set(__self__, "runtime_type_version", runtime_type_version)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -305,6 +351,32 @@ class _CertCheckMonitorState:
         pulumi.set(self, "period_in_minutes", value)
 
     @property
+    @pulumi.getter(name="runtimeType")
+    def runtime_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The runtime that the monitor will use to run jobs.
+        """
+        return pulumi.get(self, "runtime_type")
+
+    @runtime_type.setter
+    def runtime_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_type", value)
+
+    @property
+    @pulumi.getter(name="runtimeTypeVersion")
+    def runtime_type_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The specific version of the runtime type selected.
+
+        > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+        """
+        return pulumi.get(self, "runtime_type_version")
+
+    @runtime_type_version.setter
+    def runtime_type_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_type_version", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -341,6 +413,8 @@ class CertCheckMonitor(pulumi.CustomResource):
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  period: Optional[pulumi.Input[str]] = None,
+                 runtime_type: Optional[pulumi.Input[str]] = None,
+                 runtime_type_version: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]]] = None,
                  __props__=None):
@@ -354,11 +428,13 @@ class CertCheckMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        cert_check_monitor = newrelic.synthetics.CertCheckMonitor("cert-check-monitor",
+        foo = newrelic.synthetics.CertCheckMonitor("foo",
             certificate_expiration=10,
             domain="www.example.com",
             locations_publics=["AP_SOUTH_1"],
             period="EVERY_6_HOURS",
+            runtime_type="NODE_API",
+            runtime_type_version="16.10",
             status="ENABLED",
             tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
                 key="some_key",
@@ -381,12 +457,13 @@ class CertCheckMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        location = newrelic.synthetics.PrivateLocation("location",
-            description="Test Description",
+        foo_private_location = newrelic.synthetics.PrivateLocation("fooPrivateLocation",
+            description="Sample Private Location Description",
             verified_script_execution=False)
-        monitor = newrelic.synthetics.CertCheckMonitor("monitor",
-            domain="https://www.one.example.com",
-            locations_privates=[location.id],
+        foo_cert_check_monitor = newrelic.synthetics.CertCheckMonitor("fooCertCheckMonitor",
+            domain="www.one.example.com",
+            locations_privates=[foo_private_location.id],
+            certificate_expiration=10,
             period="EVERY_6_HOURS",
             status="ENABLED",
             tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
@@ -398,7 +475,7 @@ class CertCheckMonitor(pulumi.CustomResource):
 
         ## Import
 
-        Synthetics certificate check monitor scripts can be imported using the `guid`, e.g.
+        A cert check monitor can be imported using its GUID, using the following command.
 
         bash
 
@@ -415,6 +492,10 @@ class CertCheckMonitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
+        :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
+               
+               > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
@@ -434,11 +515,13 @@ class CertCheckMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        cert_check_monitor = newrelic.synthetics.CertCheckMonitor("cert-check-monitor",
+        foo = newrelic.synthetics.CertCheckMonitor("foo",
             certificate_expiration=10,
             domain="www.example.com",
             locations_publics=["AP_SOUTH_1"],
             period="EVERY_6_HOURS",
+            runtime_type="NODE_API",
+            runtime_type_version="16.10",
             status="ENABLED",
             tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
                 key="some_key",
@@ -461,12 +544,13 @@ class CertCheckMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        location = newrelic.synthetics.PrivateLocation("location",
-            description="Test Description",
+        foo_private_location = newrelic.synthetics.PrivateLocation("fooPrivateLocation",
+            description="Sample Private Location Description",
             verified_script_execution=False)
-        monitor = newrelic.synthetics.CertCheckMonitor("monitor",
-            domain="https://www.one.example.com",
-            locations_privates=[location.id],
+        foo_cert_check_monitor = newrelic.synthetics.CertCheckMonitor("fooCertCheckMonitor",
+            domain="www.one.example.com",
+            locations_privates=[foo_private_location.id],
+            certificate_expiration=10,
             period="EVERY_6_HOURS",
             status="ENABLED",
             tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
@@ -478,7 +562,7 @@ class CertCheckMonitor(pulumi.CustomResource):
 
         ## Import
 
-        Synthetics certificate check monitor scripts can be imported using the `guid`, e.g.
+        A cert check monitor can be imported using its GUID, using the following command.
 
         bash
 
@@ -508,6 +592,8 @@ class CertCheckMonitor(pulumi.CustomResource):
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  period: Optional[pulumi.Input[str]] = None,
+                 runtime_type: Optional[pulumi.Input[str]] = None,
+                 runtime_type_version: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]]] = None,
                  __props__=None):
@@ -532,6 +618,8 @@ class CertCheckMonitor(pulumi.CustomResource):
             if period is None and not opts.urn:
                 raise TypeError("Missing required property 'period'")
             __props__.__dict__["period"] = period
+            __props__.__dict__["runtime_type"] = runtime_type
+            __props__.__dict__["runtime_type_version"] = runtime_type_version
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status
@@ -555,6 +643,8 @@ class CertCheckMonitor(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             period: Optional[pulumi.Input[str]] = None,
             period_in_minutes: Optional[pulumi.Input[int]] = None,
+            runtime_type: Optional[pulumi.Input[str]] = None,
+            runtime_type_version: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]]] = None) -> 'CertCheckMonitor':
         """
@@ -572,6 +662,10 @@ class CertCheckMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
+        :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
+               
+               > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
@@ -587,6 +681,8 @@ class CertCheckMonitor(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["period"] = period
         __props__.__dict__["period_in_minutes"] = period_in_minutes
+        __props__.__dict__["runtime_type"] = runtime_type
+        __props__.__dict__["runtime_type_version"] = runtime_type_version
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         return CertCheckMonitor(resource_name, opts=opts, __props__=__props__)
@@ -654,6 +750,24 @@ class CertCheckMonitor(pulumi.CustomResource):
         The interval in minutes at which Synthetic monitor should run.
         """
         return pulumi.get(self, "period_in_minutes")
+
+    @property
+    @pulumi.getter(name="runtimeType")
+    def runtime_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The runtime that the monitor will use to run jobs.
+        """
+        return pulumi.get(self, "runtime_type")
+
+    @property
+    @pulumi.getter(name="runtimeTypeVersion")
+    def runtime_type_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The specific version of the runtime type selected.
+
+        > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+        """
+        return pulumi.get(self, "runtime_type_version")
 
     @property
     @pulumi.getter

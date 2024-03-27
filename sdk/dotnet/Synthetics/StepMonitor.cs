@@ -23,7 +23,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var monitor = new NewRelic.Synthetics.StepMonitor("monitor", new()
+    ///     var foo = new NewRelic.Synthetics.StepMonitor("foo", new()
     ///     {
     ///         EnableScreenshotOnFailureAndScript = true,
     ///         LocationsPublics = new[]
@@ -32,6 +32,8 @@ namespace Pulumi.NewRelic.Synthetics
     ///             "US_EAST_2",
     ///         },
     ///         Period = "EVERY_6_HOURS",
+    ///         RuntimeType = "CHROME_BROWSER",
+    ///         RuntimeTypeVersion = "100",
     ///         Status = "ENABLED",
     ///         Steps = new[]
     ///         {
@@ -65,9 +67,71 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Additional Examples
     /// 
+    /// ### Create a monitor with a private location
+    /// 
+    /// The below example shows how you can define a private location and attach it to a monitor.
+    /// 
+    /// &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooPrivateLocation = new NewRelic.Synthetics.PrivateLocation("fooPrivateLocation", new()
+    ///     {
+    ///         Description = "Sample Private Location Description",
+    ///         VerifiedScriptExecution = true,
+    ///     });
+    /// 
+    ///     var fooStepMonitor = new NewRelic.Synthetics.StepMonitor("fooStepMonitor", new()
+    ///     {
+    ///         Period = "EVERY_6_HOURS",
+    ///         Status = "ENABLED",
+    ///         LocationPrivates = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.StepMonitorLocationPrivateArgs
+    ///             {
+    ///                 Guid = fooPrivateLocation.Id,
+    ///                 VsePassword = "secret",
+    ///             },
+    ///         },
+    ///         Steps = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.StepMonitorStepArgs
+    ///             {
+    ///                 Ordinal = 0,
+    ///                 Type = "NAVIGATE",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "https://google.com",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.StepMonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
-    /// Synthetics step monitor scripts can be imported using the `guid`, e.g.
+    /// A step monitor can be imported using its GUID, using the following command.
     /// 
     /// bash
     /// 
@@ -125,6 +189,20 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Output("periodInMinutes")]
         public Output<int> PeriodInMinutes { get; private set; } = null!;
+
+        /// <summary>
+        /// The runtime that the monitor will use to run jobs.
+        /// </summary>
+        [Output("runtimeType")]
+        public Output<string?> RuntimeType { get; private set; } = null!;
+
+        /// <summary>
+        /// The specific version of the runtime type selected.
+        /// 
+        /// &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+        /// </summary>
+        [Output("runtimeTypeVersion")]
+        public Output<string?> RuntimeTypeVersion { get; private set; } = null!;
 
         /// <summary>
         /// The monitor status (ENABLED or DISABLED).
@@ -239,6 +317,20 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string> Period { get; set; } = null!;
 
         /// <summary>
+        /// The runtime that the monitor will use to run jobs.
+        /// </summary>
+        [Input("runtimeType")]
+        public Input<string>? RuntimeType { get; set; }
+
+        /// <summary>
+        /// The specific version of the runtime type selected.
+        /// 
+        /// &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+        /// </summary>
+        [Input("runtimeTypeVersion")]
+        public Input<string>? RuntimeTypeVersion { get; set; }
+
+        /// <summary>
         /// The monitor status (ENABLED or DISABLED).
         /// </summary>
         [Input("status", required: true)]
@@ -335,6 +427,20 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Input("periodInMinutes")]
         public Input<int>? PeriodInMinutes { get; set; }
+
+        /// <summary>
+        /// The runtime that the monitor will use to run jobs.
+        /// </summary>
+        [Input("runtimeType")]
+        public Input<string>? RuntimeType { get; set; }
+
+        /// <summary>
+        /// The specific version of the runtime type selected.
+        /// 
+        /// &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+        /// </summary>
+        [Input("runtimeTypeVersion")]
+        public Input<string>? RuntimeTypeVersion { get; set; }
 
         /// <summary>
         /// The monitor status (ENABLED or DISABLED).

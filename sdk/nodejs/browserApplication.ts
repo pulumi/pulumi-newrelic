@@ -5,27 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this resource to create, update, and delete a standalone New Relic browser application.
- *
- * ## Example Usage
- *
- * Basic usage to create a standalone browser application.
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.BrowserApplication("foo", {
- *     cookiesEnabled: true,
- *     distributedTracingEnabled: true,
- *     loaderType: "SPA",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
- * Browser applications can be imported using the GUID of the browser application.
+ * A browser application can be imported using its GUID, i.e.
  *
  * bash
  *
@@ -62,15 +44,19 @@ export class BrowserApplication extends pulumi.CustomResource {
     }
 
     /**
-     * The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
-     * Configure cookies. The default is enabled: true.
+     * The application ID of the browser application (not to be confused with GUID).
+     */
+    public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    /**
+     * Configures cookies. Defaults to `true`, if not specified.
      */
     public readonly cookiesEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Configure distributed tracing in browser apps. The default is enabled: true.
+     * Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
      */
     public readonly distributedTracingEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -78,11 +64,11 @@ export class BrowserApplication extends pulumi.CustomResource {
      */
     public /*out*/ readonly guid!: pulumi.Output<string>;
     /**
-     * JavaScript configuration of the browser application encoded into a string.
+     * The JavaScript configuration of the browser application, encoded into a string.
      */
     public /*out*/ readonly jsConfig!: pulumi.Output<string>;
     /**
-     * Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
+     * Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
      */
     public readonly loaderType!: pulumi.Output<string | undefined>;
     /**
@@ -104,6 +90,7 @@ export class BrowserApplication extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BrowserApplicationState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
             resourceInputs["cookiesEnabled"] = state ? state.cookiesEnabled : undefined;
             resourceInputs["distributedTracingEnabled"] = state ? state.distributedTracingEnabled : undefined;
             resourceInputs["guid"] = state ? state.guid : undefined;
@@ -117,6 +104,7 @@ export class BrowserApplication extends pulumi.CustomResource {
             resourceInputs["distributedTracingEnabled"] = args ? args.distributedTracingEnabled : undefined;
             resourceInputs["loaderType"] = args ? args.loaderType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["jsConfig"] = undefined /*out*/;
         }
@@ -130,15 +118,19 @@ export class BrowserApplication extends pulumi.CustomResource {
  */
 export interface BrowserApplicationState {
     /**
-     * The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
      */
     accountId?: pulumi.Input<number>;
     /**
-     * Configure cookies. The default is enabled: true.
+     * The application ID of the browser application (not to be confused with GUID).
+     */
+    applicationId?: pulumi.Input<string>;
+    /**
+     * Configures cookies. Defaults to `true`, if not specified.
      */
     cookiesEnabled?: pulumi.Input<boolean>;
     /**
-     * Configure distributed tracing in browser apps. The default is enabled: true.
+     * Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
      */
     distributedTracingEnabled?: pulumi.Input<boolean>;
     /**
@@ -146,11 +138,11 @@ export interface BrowserApplicationState {
      */
     guid?: pulumi.Input<string>;
     /**
-     * JavaScript configuration of the browser application encoded into a string.
+     * The JavaScript configuration of the browser application, encoded into a string.
      */
     jsConfig?: pulumi.Input<string>;
     /**
-     * Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
+     * Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
      */
     loaderType?: pulumi.Input<string>;
     /**
@@ -164,19 +156,19 @@ export interface BrowserApplicationState {
  */
 export interface BrowserApplicationArgs {
     /**
-     * The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
      */
     accountId?: pulumi.Input<number>;
     /**
-     * Configure cookies. The default is enabled: true.
+     * Configures cookies. Defaults to `true`, if not specified.
      */
     cookiesEnabled?: pulumi.Input<boolean>;
     /**
-     * Configure distributed tracing in browser apps. The default is enabled: true.
+     * Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
      */
     distributedTracingEnabled?: pulumi.Input<boolean>;
     /**
-     * Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
+     * Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
      */
     loaderType?: pulumi.Input<string>;
     /**

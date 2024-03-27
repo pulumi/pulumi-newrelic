@@ -18,14 +18,14 @@ public final class BrowserApplicationArgs extends com.pulumi.resources.ResourceA
     public static final BrowserApplicationArgs Empty = new BrowserApplicationArgs();
 
     /**
-     * The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<Integer> accountId;
 
     /**
-     * @return The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * @return The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
      * 
      */
     public Optional<Output<Integer>> accountId() {
@@ -33,14 +33,14 @@ public final class BrowserApplicationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Configure cookies. The default is enabled: true.
+     * Configures cookies. Defaults to `true`, if not specified.
      * 
      */
     @Import(name="cookiesEnabled")
     private @Nullable Output<Boolean> cookiesEnabled;
 
     /**
-     * @return Configure cookies. The default is enabled: true.
+     * @return Configures cookies. Defaults to `true`, if not specified.
      * 
      */
     public Optional<Output<Boolean>> cookiesEnabled() {
@@ -48,14 +48,14 @@ public final class BrowserApplicationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Configure distributed tracing in browser apps. The default is enabled: true.
+     * Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
      * 
      */
     @Import(name="distributedTracingEnabled")
     private @Nullable Output<Boolean> distributedTracingEnabled;
 
     /**
-     * @return Configure distributed tracing in browser apps. The default is enabled: true.
+     * @return Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
      * 
      */
     public Optional<Output<Boolean>> distributedTracingEnabled() {
@@ -63,14 +63,14 @@ public final class BrowserApplicationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
+     * Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
      * 
      */
     @Import(name="loaderType")
     private @Nullable Output<String> loaderType;
 
     /**
-     * @return Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
+     * @return Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
      * 
      */
     public Optional<Output<String>> loaderType() {
@@ -121,7 +121,7 @@ public final class BrowserApplicationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param accountId The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+         * @param accountId The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class BrowserApplicationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param accountId The New Relic account ID of the account you wish to create the browser application. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+         * @param accountId The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class BrowserApplicationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param cookiesEnabled Configure cookies. The default is enabled: true.
+         * @param cookiesEnabled Configures cookies. Defaults to `true`, if not specified.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class BrowserApplicationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param cookiesEnabled Configure cookies. The default is enabled: true.
+         * @param cookiesEnabled Configures cookies. Defaults to `true`, if not specified.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class BrowserApplicationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param distributedTracingEnabled Configure distributed tracing in browser apps. The default is enabled: true.
+         * @param distributedTracingEnabled Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class BrowserApplicationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param distributedTracingEnabled Configure distributed tracing in browser apps. The default is enabled: true.
+         * @param distributedTracingEnabled Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class BrowserApplicationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param loaderType Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
+         * @param loaderType Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class BrowserApplicationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param loaderType Determines which browser loader is configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. See the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for a for information on the valid loader types.
+         * @param loaderType Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
          * 
          * @return builder
          * 
