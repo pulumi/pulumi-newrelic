@@ -107,8 +107,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a policy to track
  *         var my_policy = new AlertPolicy(&#34;my-policy&#34;);
  * 
+ *         // Create a reusable notification destination
  *         var webhook_destination = new NotificationDestination(&#34;webhook-destination&#34;, NotificationDestinationArgs.builder()        
  *             .type(&#34;WEBHOOK&#34;)
  *             .properties(NotificationDestinationPropertyArgs.builder()
@@ -121,6 +123,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Create a notification channel to use in the workflow
  *         var webhook_channel = new NotificationChannel(&#34;webhook-channel&#34;, NotificationChannelArgs.builder()        
  *             .type(&#34;WEBHOOK&#34;)
  *             .destinationId(webhook_destination.id())
@@ -132,6 +135,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // A workflow that matches issues that include incidents triggered by the policy
  *         var workflow_example = new Workflow(&#34;workflow-example&#34;, WorkflowArgs.builder()        
  *             .mutingRulesHandling(&#34;NOTIFY_ALL_ISSUES&#34;)
  *             .issuesFilter(WorkflowIssuesFilterArgs.builder()

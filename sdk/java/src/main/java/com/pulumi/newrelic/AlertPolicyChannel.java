@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;my-alert-policy&#34;)
  *             .build());
  * 
+ *         // Creates an email alert channel.
  *         var emailChannel = new AlertChannel(&#34;emailChannel&#34;, AlertChannelArgs.builder()        
  *             .type(&#34;email&#34;)
  *             .config(AlertChannelConfigArgs.builder()
@@ -62,6 +63,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Creates a Slack alert channel.
  *         var slackChannel = new AlertChannel(&#34;slackChannel&#34;, AlertChannelArgs.builder()        
  *             .type(&#34;slack&#34;)
  *             .config(AlertChannelConfigArgs.builder()
@@ -70,6 +72,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Applies the created channels above to the alert policy
+ *         // referenced at the top of the config.
  *         var foo = new AlertPolicyChannel(&#34;foo&#34;, AlertPolicyChannelArgs.builder()        
  *             .policyId(examplePolicy.applyValue(getAlertPolicyResult -&gt; getAlertPolicyResult.id()))
  *             .channelIds(            
