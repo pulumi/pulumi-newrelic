@@ -94,6 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Provision a Slack notification channel.
  *         var slackChannel = new AlertChannel(&#34;slackChannel&#34;, AlertChannelArgs.builder()        
  *             .type(&#34;slack&#34;)
  *             .config(AlertChannelConfigArgs.builder()
@@ -102,6 +103,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Provision an email notification channel.
  *         var emailChannel = new AlertChannel(&#34;emailChannel&#34;, AlertChannelArgs.builder()        
  *             .type(&#34;email&#34;)
  *             .config(AlertChannelConfigArgs.builder()
@@ -110,6 +112,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Provision the alert policy.
  *         var policyWithChannels = new AlertPolicy(&#34;policyWithChannels&#34;, AlertPolicyArgs.builder()        
  *             .incidentPreference(&#34;PER_CONDITION&#34;)
  *             .channelIds(            
@@ -155,6 +158,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;test@example.com&#34;)
  *             .build());
  * 
+ *         // Provision the alert policy.
  *         var policyWithChannels = new AlertPolicy(&#34;policyWithChannels&#34;, AlertPolicyArgs.builder()        
  *             .incidentPreference(&#34;PER_CONDITION&#34;)
  *             .channelIds(            
