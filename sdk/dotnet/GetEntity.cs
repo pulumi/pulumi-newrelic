@@ -246,6 +246,14 @@ namespace Pulumi.NewRelic
         public bool? IgnoreCase { get; set; }
 
         /// <summary>
+        /// A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
+        /// 
+        /// &gt; **WARNING:** Setting the `ignore_not_found` argument to `true` will display an 'entity not found' warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+        /// </summary>
+        [Input("ignoreNotFound")]
+        public bool? IgnoreNotFound { get; set; }
+
+        /// <summary>
         /// The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
         /// </summary>
         [Input("name", required: true)]
@@ -296,6 +304,14 @@ namespace Pulumi.NewRelic
         public Input<bool>? IgnoreCase { get; set; }
 
         /// <summary>
+        /// A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
+        /// 
+        /// &gt; **WARNING:** Setting the `ignore_not_found` argument to `true` will display an 'entity not found' warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+        /// </summary>
+        [Input("ignoreNotFound")]
+        public Input<bool>? IgnoreNotFound { get; set; }
+
+        /// <summary>
         /// The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
         /// </summary>
         [Input("name", required: true)]
@@ -344,6 +360,7 @@ namespace Pulumi.NewRelic
         /// </summary>
         public readonly string Id;
         public readonly bool? IgnoreCase;
+        public readonly bool? IgnoreNotFound;
         public readonly string Name;
         /// <summary>
         /// The browser-specific ID of the backing APM entity. Only returned for Browser applications.
@@ -366,6 +383,8 @@ namespace Pulumi.NewRelic
 
             bool? ignoreCase,
 
+            bool? ignoreNotFound,
+
             string name,
 
             int servingApmApplicationId,
@@ -380,6 +399,7 @@ namespace Pulumi.NewRelic
             Guid = guid;
             Id = id;
             IgnoreCase = ignoreCase;
+            IgnoreNotFound = ignoreNotFound;
             Name = name;
             ServingApmApplicationId = servingApmApplicationId;
             Tags = tags;

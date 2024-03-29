@@ -84,6 +84,7 @@ export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Pro
         "accountId": args.accountId,
         "domain": args.domain,
         "ignoreCase": args.ignoreCase,
+        "ignoreNotFound": args.ignoreNotFound,
         "name": args.name,
         "tags": args.tags,
         "type": args.type,
@@ -106,6 +107,12 @@ export interface GetEntityArgs {
      * Ignore case of the `name` when searching for the entity. Defaults to false.
      */
     ignoreCase?: boolean;
+    /**
+     * A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
+     *
+     * > **WARNING:** Setting the `ignoreNotFound` argument to `true` will display an 'entity not found' warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+     */
+    ignoreNotFound?: boolean;
     /**
      * The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
      */
@@ -139,6 +146,7 @@ export interface GetEntityResult {
      */
     readonly id: string;
     readonly ignoreCase?: boolean;
+    readonly ignoreNotFound?: boolean;
     readonly name: string;
     /**
      * The browser-specific ID of the backing APM entity. Only returned for Browser applications.
@@ -238,6 +246,12 @@ export interface GetEntityOutputArgs {
      * Ignore case of the `name` when searching for the entity. Defaults to false.
      */
     ignoreCase?: pulumi.Input<boolean>;
+    /**
+     * A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
+     *
+     * > **WARNING:** Setting the `ignoreNotFound` argument to `true` will display an 'entity not found' warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+     */
+    ignoreNotFound?: pulumi.Input<boolean>;
     /**
      * The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
      */

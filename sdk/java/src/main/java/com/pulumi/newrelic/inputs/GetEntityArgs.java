@@ -66,6 +66,25 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
+     * 
+     * &gt; **WARNING:** Setting the `ignore_not_found` argument to `true` will display an &#39;entity not found&#39; warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+     * 
+     */
+    @Import(name="ignoreNotFound")
+    private @Nullable Output<Boolean> ignoreNotFound;
+
+    /**
+     * @return A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
+     * 
+     * &gt; **WARNING:** Setting the `ignore_not_found` argument to `true` will display an &#39;entity not found&#39; warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+     * 
+     */
+    public Optional<Output<Boolean>> ignoreNotFound() {
+        return Optional.ofNullable(this.ignoreNotFound);
+    }
+
+    /**
      * The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
      * 
      */
@@ -116,6 +135,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
         this.accountId = $.accountId;
         this.domain = $.domain;
         this.ignoreCase = $.ignoreCase;
+        this.ignoreNotFound = $.ignoreNotFound;
         this.name = $.name;
         this.tags = $.tags;
         this.type = $.type;
@@ -200,6 +220,31 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder ignoreCase(Boolean ignoreCase) {
             return ignoreCase(Output.of(ignoreCase));
+        }
+
+        /**
+         * @param ignoreNotFound A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
+         * 
+         * &gt; **WARNING:** Setting the `ignore_not_found` argument to `true` will display an &#39;entity not found&#39; warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreNotFound(@Nullable Output<Boolean> ignoreNotFound) {
+            $.ignoreNotFound = ignoreNotFound;
+            return this;
+        }
+
+        /**
+         * @param ignoreNotFound A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
+         * 
+         * &gt; **WARNING:** Setting the `ignore_not_found` argument to `true` will display an &#39;entity not found&#39; warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreNotFound(Boolean ignoreNotFound) {
+            return ignoreNotFound(Output.of(ignoreNotFound));
         }
 
         /**
