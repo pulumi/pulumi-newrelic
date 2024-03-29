@@ -341,8 +341,10 @@ public final class NewrelicFunctions {
      *             .name(&#34;foo@example.com&#34;)
      *             .build());
      * 
+     *         // Resource
      *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
      * 
+     *         // Using the data source and resource together
      *         var fooAlertPolicyChannel = new AlertPolicyChannel(&#34;fooAlertPolicyChannel&#34;, AlertPolicyChannelArgs.builder()        
      *             .policyId(fooAlertPolicy.id())
      *             .channelId(fooAlertChannel.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
@@ -393,8 +395,10 @@ public final class NewrelicFunctions {
      *             .name(&#34;foo@example.com&#34;)
      *             .build());
      * 
+     *         // Resource
      *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
      * 
+     *         // Using the data source and resource together
      *         var fooAlertPolicyChannel = new AlertPolicyChannel(&#34;fooAlertPolicyChannel&#34;, AlertPolicyChannelArgs.builder()        
      *             .policyId(fooAlertPolicy.id())
      *             .channelId(fooAlertChannel.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
@@ -445,8 +449,10 @@ public final class NewrelicFunctions {
      *             .name(&#34;foo@example.com&#34;)
      *             .build());
      * 
+     *         // Resource
      *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
      * 
+     *         // Using the data source and resource together
      *         var fooAlertPolicyChannel = new AlertPolicyChannel(&#34;fooAlertPolicyChannel&#34;, AlertPolicyChannelArgs.builder()        
      *             .policyId(fooAlertPolicy.id())
      *             .channelId(fooAlertChannel.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
@@ -497,8 +503,10 @@ public final class NewrelicFunctions {
      *             .name(&#34;foo@example.com&#34;)
      *             .build());
      * 
+     *         // Resource
      *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
      * 
+     *         // Using the data source and resource together
      *         var fooAlertPolicyChannel = new AlertPolicyChannel(&#34;fooAlertPolicyChannel&#34;, AlertPolicyChannelArgs.builder()        
      *             .policyId(fooAlertPolicy.id())
      *             .channelId(fooAlertChannel.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
