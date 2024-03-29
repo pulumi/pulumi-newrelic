@@ -23,7 +23,7 @@ class GetEntityResult:
     """
     A collection of values returned by getEntity.
     """
-    def __init__(__self__, account_id=None, application_id=None, domain=None, guid=None, id=None, ignore_case=None, name=None, serving_apm_application_id=None, tags=None, type=None):
+    def __init__(__self__, account_id=None, application_id=None, domain=None, guid=None, id=None, ignore_case=None, ignore_not_found=None, name=None, serving_apm_application_id=None, tags=None, type=None):
         if account_id and not isinstance(account_id, int):
             raise TypeError("Expected argument 'account_id' to be a int")
         pulumi.set(__self__, "account_id", account_id)
@@ -42,6 +42,9 @@ class GetEntityResult:
         if ignore_case and not isinstance(ignore_case, bool):
             raise TypeError("Expected argument 'ignore_case' to be a bool")
         pulumi.set(__self__, "ignore_case", ignore_case)
+        if ignore_not_found and not isinstance(ignore_not_found, bool):
+            raise TypeError("Expected argument 'ignore_not_found' to be a bool")
+        pulumi.set(__self__, "ignore_not_found", ignore_not_found)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -95,6 +98,11 @@ class GetEntityResult:
         return pulumi.get(self, "ignore_case")
 
     @property
+    @pulumi.getter(name="ignoreNotFound")
+    def ignore_not_found(self) -> Optional[bool]:
+        return pulumi.get(self, "ignore_not_found")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
@@ -130,6 +138,7 @@ class AwaitableGetEntityResult(GetEntityResult):
             guid=self.guid,
             id=self.id,
             ignore_case=self.ignore_case,
+            ignore_not_found=self.ignore_not_found,
             name=self.name,
             serving_apm_application_id=self.serving_apm_application_id,
             tags=self.tags,
@@ -139,6 +148,7 @@ class AwaitableGetEntityResult(GetEntityResult):
 def get_entity(account_id: Optional[int] = None,
                domain: Optional[str] = None,
                ignore_case: Optional[bool] = None,
+               ignore_not_found: Optional[bool] = None,
                name: Optional[str] = None,
                tags: Optional[Sequence[pulumi.InputType['GetEntityTagArgs']]] = None,
                type: Optional[str] = None,
@@ -210,6 +220,9 @@ def get_entity(account_id: Optional[int] = None,
     :param int account_id: The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
     :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
     :param bool ignore_case: Ignore case of the `name` when searching for the entity. Defaults to false.
+    :param bool ignore_not_found: A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
+           
+           > **WARNING:** Setting the `ignore_not_found` argument to `true` will display an 'entity not found' warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
     :param str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
     :param Sequence[pulumi.InputType['GetEntityTagArgs']] tags: A tag applied to the entity. See Nested tag blocks below for details.
     :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
@@ -218,6 +231,7 @@ def get_entity(account_id: Optional[int] = None,
     __args__['accountId'] = account_id
     __args__['domain'] = domain
     __args__['ignoreCase'] = ignore_case
+    __args__['ignoreNotFound'] = ignore_not_found
     __args__['name'] = name
     __args__['tags'] = tags
     __args__['type'] = type
@@ -231,6 +245,7 @@ def get_entity(account_id: Optional[int] = None,
         guid=pulumi.get(__ret__, 'guid'),
         id=pulumi.get(__ret__, 'id'),
         ignore_case=pulumi.get(__ret__, 'ignore_case'),
+        ignore_not_found=pulumi.get(__ret__, 'ignore_not_found'),
         name=pulumi.get(__ret__, 'name'),
         serving_apm_application_id=pulumi.get(__ret__, 'serving_apm_application_id'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -241,6 +256,7 @@ def get_entity(account_id: Optional[int] = None,
 def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
                       domain: Optional[pulumi.Input[Optional[str]]] = None,
                       ignore_case: Optional[pulumi.Input[Optional[bool]]] = None,
+                      ignore_not_found: Optional[pulumi.Input[Optional[bool]]] = None,
                       name: Optional[pulumi.Input[str]] = None,
                       tags: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEntityTagArgs']]]]] = None,
                       type: Optional[pulumi.Input[Optional[str]]] = None,
@@ -312,6 +328,9 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
     :param int account_id: The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
     :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
     :param bool ignore_case: Ignore case of the `name` when searching for the entity. Defaults to false.
+    :param bool ignore_not_found: A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
+           
+           > **WARNING:** Setting the `ignore_not_found` argument to `true` will display an 'entity not found' warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
     :param str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
     :param Sequence[pulumi.InputType['GetEntityTagArgs']] tags: A tag applied to the entity. See Nested tag blocks below for details.
     :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.

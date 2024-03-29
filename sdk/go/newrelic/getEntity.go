@@ -160,6 +160,10 @@ type GetEntityArgs struct {
 	Domain *string `pulumi:"domain"`
 	// Ignore case of the `name` when searching for the entity. Defaults to false.
 	IgnoreCase *bool `pulumi:"ignoreCase"`
+	// A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
+	//
+	// > **WARNING:** Setting the `ignoreNotFound` argument to `true` will display an 'entity not found' warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+	IgnoreNotFound *bool `pulumi:"ignoreNotFound"`
 	// The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
 	Name string `pulumi:"name"`
 	// A tag applied to the entity. See Nested tag blocks below for details.
@@ -177,9 +181,10 @@ type GetEntityResult struct {
 	// The unique GUID of the entity.
 	Guid string `pulumi:"guid"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	IgnoreCase *bool  `pulumi:"ignoreCase"`
-	Name       string `pulumi:"name"`
+	Id             string `pulumi:"id"`
+	IgnoreCase     *bool  `pulumi:"ignoreCase"`
+	IgnoreNotFound *bool  `pulumi:"ignoreNotFound"`
+	Name           string `pulumi:"name"`
 	// The browser-specific ID of the backing APM entity. Only returned for Browser applications.
 	ServingApmApplicationId int            `pulumi:"servingApmApplicationId"`
 	Tags                    []GetEntityTag `pulumi:"tags"`
@@ -207,6 +212,10 @@ type GetEntityOutputArgs struct {
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
 	// Ignore case of the `name` when searching for the entity. Defaults to false.
 	IgnoreCase pulumi.BoolPtrInput `pulumi:"ignoreCase"`
+	// A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
+	//
+	// > **WARNING:** Setting the `ignoreNotFound` argument to `true` will display an 'entity not found' warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+	IgnoreNotFound pulumi.BoolPtrInput `pulumi:"ignoreNotFound"`
 	// The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
 	Name pulumi.StringInput `pulumi:"name"`
 	// A tag applied to the entity. See Nested tag blocks below for details.
@@ -259,6 +268,10 @@ func (o GetEntityResultOutput) Id() pulumi.StringOutput {
 
 func (o GetEntityResultOutput) IgnoreCase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetEntityResult) *bool { return v.IgnoreCase }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetEntityResultOutput) IgnoreNotFound() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEntityResult) *bool { return v.IgnoreNotFound }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetEntityResultOutput) Name() pulumi.StringOutput {

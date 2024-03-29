@@ -34,6 +34,7 @@ public final class GetEntityResult {
      */
     private String id;
     private @Nullable Boolean ignoreCase;
+    private @Nullable Boolean ignoreNotFound;
     private String name;
     /**
      * @return The browser-specific ID of the backing APM entity. Only returned for Browser applications.
@@ -74,6 +75,9 @@ public final class GetEntityResult {
     public Optional<Boolean> ignoreCase() {
         return Optional.ofNullable(this.ignoreCase);
     }
+    public Optional<Boolean> ignoreNotFound() {
+        return Optional.ofNullable(this.ignoreNotFound);
+    }
     public String name() {
         return this.name;
     }
@@ -106,6 +110,7 @@ public final class GetEntityResult {
         private String guid;
         private String id;
         private @Nullable Boolean ignoreCase;
+        private @Nullable Boolean ignoreNotFound;
         private String name;
         private Integer servingApmApplicationId;
         private @Nullable List<GetEntityTag> tags;
@@ -119,6 +124,7 @@ public final class GetEntityResult {
     	      this.guid = defaults.guid;
     	      this.id = defaults.id;
     	      this.ignoreCase = defaults.ignoreCase;
+    	      this.ignoreNotFound = defaults.ignoreNotFound;
     	      this.name = defaults.name;
     	      this.servingApmApplicationId = defaults.servingApmApplicationId;
     	      this.tags = defaults.tags;
@@ -172,6 +178,12 @@ public final class GetEntityResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ignoreNotFound(@Nullable Boolean ignoreNotFound) {
+
+            this.ignoreNotFound = ignoreNotFound;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetEntityResult", "name");
@@ -212,6 +224,7 @@ public final class GetEntityResult {
             _resultValue.guid = guid;
             _resultValue.id = id;
             _resultValue.ignoreCase = ignoreCase;
+            _resultValue.ignoreNotFound = ignoreNotFound;
             _resultValue.name = name;
             _resultValue.servingApmApplicationId = servingApmApplicationId;
             _resultValue.tags = tags;
