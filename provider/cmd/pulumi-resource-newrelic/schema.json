@@ -10661,7 +10661,7 @@
                 },
                 "where": {
                     "type": "string",
-                    "description": "If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.\n"
+                    "description": "If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.\n"
                 }
             },
             "required": [
@@ -10735,7 +10735,7 @@
                 },
                 "where": {
                     "type": "string",
-                    "description": "If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.\n"
+                    "description": "If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.\n"
                 }
             },
             "requiredInputs": [
@@ -10818,7 +10818,7 @@
                     },
                     "where": {
                         "type": "string",
-                        "description": "If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.\n"
+                        "description": "If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.\n"
                     }
                 },
                 "type": "object"
