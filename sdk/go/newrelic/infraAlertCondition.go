@@ -248,7 +248,7 @@ type InfraAlertCondition struct {
 	ViolationCloseTimer pulumi.IntPtrOutput `pulumi:"violationCloseTimer"`
 	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrOutput `pulumi:"warning"`
-	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where pulumi.StringPtrOutput `pulumi:"where"`
 }
 
@@ -338,7 +338,7 @@ type infraAlertConditionState struct {
 	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
 	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning *InfraAlertConditionWarning `pulumi:"warning"`
-	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where *string `pulumi:"where"`
 }
 
@@ -393,7 +393,7 @@ type InfraAlertConditionState struct {
 	ViolationCloseTimer pulumi.IntPtrInput
 	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrInput
-	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where pulumi.StringPtrInput
 }
 
@@ -446,7 +446,7 @@ type infraAlertConditionArgs struct {
 	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
 	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning *InfraAlertConditionWarning `pulumi:"warning"`
-	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where *string `pulumi:"where"`
 }
 
@@ -496,7 +496,7 @@ type InfraAlertConditionArgs struct {
 	ViolationCloseTimer pulumi.IntPtrInput
 	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrInput
-	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where pulumi.StringPtrInput
 }
 
@@ -691,7 +691,7 @@ func (o InfraAlertConditionOutput) Warning() InfraAlertConditionWarningPtrOutput
 	return o.ApplyT(func(v *InfraAlertCondition) InfraAlertConditionWarningPtrOutput { return v.Warning }).(InfraAlertConditionWarningPtrOutput)
 }
 
-// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 func (o InfraAlertConditionOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringPtrOutput { return v.Where }).(pulumi.StringPtrOutput)
 }

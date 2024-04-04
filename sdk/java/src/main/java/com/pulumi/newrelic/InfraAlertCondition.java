@@ -498,14 +498,14 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.warning);
     }
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%!c(MISSING)assandra%!&#39;(MISSING)`.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
      * 
      */
     @Export(name="where", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> where;
 
     /**
-     * @return If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%!c(MISSING)assandra%!&#39;(MISSING)`.
+     * @return If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
      * 
      */
     public Output<Optional<String>> where() {

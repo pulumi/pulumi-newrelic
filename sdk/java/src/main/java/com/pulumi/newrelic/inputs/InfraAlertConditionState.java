@@ -325,14 +325,14 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%!c(MISSING)assandra%!&#39;(MISSING)`.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
      * 
      */
     @Import(name="where")
     private @Nullable Output<String> where;
 
     /**
-     * @return If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%!c(MISSING)assandra%!&#39;(MISSING)`.
+     * @return If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
      * 
      */
     public Optional<Output<String>> where() {
@@ -788,7 +788,7 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param where If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%!c(MISSING)assandra%!&#39;(MISSING)`.
+         * @param where If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
          * 
          * @return builder
          * 
@@ -799,7 +799,7 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param where If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%!c(MISSING)assandra%!&#39;(MISSING)`.
+         * @param where If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
          * 
          * @return builder
          * 

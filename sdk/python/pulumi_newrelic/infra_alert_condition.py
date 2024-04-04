@@ -53,7 +53,7 @@ class InfraAlertConditionArgs:
                ```
                <!--End PulumiCodeChooser -->
         :param pulumi.Input['InfraAlertConditionWarningArgs'] warning: Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
-        :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+        :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
         pulumi.set(__self__, "policy_id", policy_id)
         pulumi.set(__self__, "type", type)
@@ -262,7 +262,7 @@ class InfraAlertConditionArgs:
     @pulumi.getter
     def where(self) -> Optional[pulumi.Input[str]]:
         """
-        If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+        If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
         return pulumi.get(self, "where")
 
@@ -317,7 +317,7 @@ class _InfraAlertConditionState:
                ```
                <!--End PulumiCodeChooser -->
         :param pulumi.Input['InfraAlertConditionWarningArgs'] warning: Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
-        :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+        :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
         if comparison is not None:
             pulumi.set(__self__, "comparison", comparison)
@@ -570,7 +570,7 @@ class _InfraAlertConditionState:
     @pulumi.getter
     def where(self) -> Optional[pulumi.Input[str]]:
         """
-        If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+        If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
         return pulumi.get(self, "where")
 
@@ -751,7 +751,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                ```
                <!--End PulumiCodeChooser -->
         :param pulumi.Input[pulumi.InputType['InfraAlertConditionWarningArgs']] warning: Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
-        :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+        :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
         ...
     @overload
@@ -1007,7 +1007,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                ```
                <!--End PulumiCodeChooser -->
         :param pulumi.Input[pulumi.InputType['InfraAlertConditionWarningArgs']] warning: Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
-        :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+        :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1179,7 +1179,7 @@ class InfraAlertCondition(pulumi.CustomResource):
     @pulumi.getter
     def where(self) -> pulumi.Output[Optional[str]]:
         """
-        If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+        If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
         return pulumi.get(self, "where")
 

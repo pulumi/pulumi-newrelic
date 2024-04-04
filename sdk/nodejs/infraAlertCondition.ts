@@ -244,7 +244,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public readonly warning!: pulumi.Output<outputs.InfraAlertConditionWarning | undefined>;
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
      */
     public readonly where!: pulumi.Output<string | undefined>;
 
@@ -390,7 +390,7 @@ export interface InfraAlertConditionState {
      */
     warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
      */
     where?: pulumi.Input<string>;
 }
@@ -462,7 +462,7 @@ export interface InfraAlertConditionArgs {
      */
     warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
      */
     where?: pulumi.Input<string>;
 }

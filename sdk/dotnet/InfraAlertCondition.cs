@@ -300,7 +300,7 @@ namespace Pulumi.NewRelic
         public Output<Outputs.InfraAlertConditionWarning?> Warning { get; private set; } = null!;
 
         /// <summary>
-        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         /// </summary>
         [Output("where")]
         public Output<string?> Where { get; private set; } = null!;
@@ -448,7 +448,7 @@ namespace Pulumi.NewRelic
         public Input<Inputs.InfraAlertConditionWarningArgs>? Warning { get; set; }
 
         /// <summary>
-        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         /// </summary>
         [Input("where")]
         public Input<string>? Where { get; set; }
@@ -576,7 +576,7 @@ namespace Pulumi.NewRelic
         public Input<Inputs.InfraAlertConditionWarningGetArgs>? Warning { get; set; }
 
         /// <summary>
-        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         /// </summary>
         [Input("where")]
         public Input<string>? Where { get; set; }
