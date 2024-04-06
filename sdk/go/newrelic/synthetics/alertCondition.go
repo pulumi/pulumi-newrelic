@@ -145,22 +145,6 @@ type AlertCondition struct {
 	pulumi.CustomResourceState
 
 	// Set whether to enable the alert condition. Defaults to `true`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
@@ -211,22 +195,6 @@ func GetAlertCondition(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AlertCondition resources.
 type alertConditionState struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Enabled *bool `pulumi:"enabled"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid *string `pulumi:"entityGuid"`
@@ -242,22 +210,6 @@ type alertConditionState struct {
 
 type AlertConditionState struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Enabled pulumi.BoolPtrInput
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringPtrInput
@@ -277,22 +229,6 @@ func (AlertConditionState) ElementType() reflect.Type {
 
 type alertConditionArgs struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Enabled *bool `pulumi:"enabled"`
 	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId string `pulumi:"monitorId"`
@@ -307,22 +243,6 @@ type alertConditionArgs struct {
 // The set of arguments for constructing a AlertCondition resource.
 type AlertConditionArgs struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Enabled pulumi.BoolPtrInput
 	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId pulumi.StringInput
@@ -422,25 +342,6 @@ func (o AlertConditionOutput) ToAlertConditionOutputWithContext(ctx context.Cont
 }
 
 // Set whether to enable the alert condition. Defaults to `true`.
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 func (o AlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

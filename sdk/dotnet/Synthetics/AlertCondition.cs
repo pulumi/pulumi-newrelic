@@ -136,17 +136,9 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        /// ```
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -230,17 +222,9 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        /// ```
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -280,17 +264,9 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        /// ```
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

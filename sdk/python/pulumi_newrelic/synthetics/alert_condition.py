@@ -25,11 +25,9 @@ class AlertConditionArgs:
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
                
-               <!--Start PulumiCodeChooser -->
-               ```python
-               import pulumi
                ```
-               <!--End PulumiCodeChooser -->
+               Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+               ```
         :param pulumi.Input[str] name: The title of this condition.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         """
@@ -72,11 +70,9 @@ class AlertConditionArgs:
         """
         Set whether to enable the alert condition. Defaults to `true`.
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
         ```
-        <!--End PulumiCodeChooser -->
+        Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        ```
         """
         return pulumi.get(self, "enabled")
 
@@ -122,11 +118,9 @@ class _AlertConditionState:
         Input properties used for looking up and filtering AlertCondition resources.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
                
-               <!--Start PulumiCodeChooser -->
-               ```python
-               import pulumi
                ```
-               <!--End PulumiCodeChooser -->
+               Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+               ```
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
@@ -152,11 +146,9 @@ class _AlertConditionState:
         """
         Set whether to enable the alert condition. Defaults to `true`.
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
         ```
-        <!--End PulumiCodeChooser -->
+        Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        ```
         """
         return pulumi.get(self, "enabled")
 
@@ -317,11 +309,9 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
                
-               <!--Start PulumiCodeChooser -->
-               ```python
-               import pulumi
                ```
-               <!--End PulumiCodeChooser -->
+               Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+               ```
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
@@ -474,11 +464,9 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
                
-               <!--Start PulumiCodeChooser -->
-               ```python
-               import pulumi
                ```
-               <!--End PulumiCodeChooser -->
+               Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+               ```
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
@@ -503,11 +491,9 @@ class AlertCondition(pulumi.CustomResource):
         """
         Set whether to enable the alert condition. Defaults to `true`.
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
         ```
-        <!--End PulumiCodeChooser -->
+        Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        ```
         """
         return pulumi.get(self, "enabled")
 

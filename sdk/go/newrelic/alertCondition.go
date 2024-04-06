@@ -196,22 +196,6 @@ type AlertCondition struct {
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 	//
 	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	UserDefinedValueFunction pulumi.StringPtrOutput `pulumi:"userDefinedValueFunction"`
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
 	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
@@ -291,22 +275,6 @@ type alertConditionState struct {
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 	//
 	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	UserDefinedValueFunction *string `pulumi:"userDefinedValueFunction"`
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
 	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
@@ -342,22 +310,6 @@ type AlertConditionState struct {
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 	//
 	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	UserDefinedValueFunction pulumi.StringPtrInput
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
 	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
@@ -395,22 +347,6 @@ type alertConditionArgs struct {
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 	//
 	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	UserDefinedValueFunction *string `pulumi:"userDefinedValueFunction"`
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
 	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
@@ -445,22 +381,6 @@ type AlertConditionArgs struct {
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 	//
 	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	UserDefinedValueFunction pulumi.StringPtrInput
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
 	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
@@ -618,25 +538,6 @@ func (o AlertConditionOutput) UserDefinedMetric() pulumi.StringPtrOutput {
 // One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 //
 // > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 func (o AlertConditionOutput) UserDefinedValueFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.StringPtrOutput { return v.UserDefinedValueFunction }).(pulumi.StringPtrOutput)
 }

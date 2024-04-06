@@ -422,62 +422,12 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     @Export(name="violationCloseTimer", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> violationCloseTimer;
 
     /**
      * @return Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<Optional<Integer>> violationCloseTimer() {
@@ -498,14 +448,14 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.warning);
     }
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%!c(MISSING)assandra%!&#39;(MISSING)`.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
      * 
      */
     @Export(name="where", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> where;
 
     /**
-     * @return If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%!c(MISSING)assandra%!&#39;(MISSING)`.
+     * @return If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
      * 
      */
     public Output<Optional<String>> where() {

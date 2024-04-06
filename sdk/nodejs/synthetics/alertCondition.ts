@@ -116,11 +116,9 @@ export class AlertCondition extends pulumi.CustomResource {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
      * ```
-     * <!--End PulumiCodeChooser -->
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -190,11 +188,9 @@ export interface AlertConditionState {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
      * ```
-     * <!--End PulumiCodeChooser -->
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -226,11 +222,9 @@ export interface AlertConditionArgs {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
      * ```
-     * <!--End PulumiCodeChooser -->
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     enabled?: pulumi.Input<boolean>;
     /**
