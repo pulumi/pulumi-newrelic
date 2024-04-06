@@ -63,17 +63,9 @@ namespace Pulumi.NewRelic.Plugins
         /// <summary>
         /// Enable or disable real user monitoring for the New Relic application.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        /// ```
         /// </summary>
         [Output("enableRealUserMonitoring")]
         public Output<bool> EnableRealUserMonitoring { get; private set; } = null!;
@@ -145,17 +137,9 @@ namespace Pulumi.NewRelic.Plugins
         /// <summary>
         /// Enable or disable real user monitoring for the New Relic application.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        /// ```
         /// </summary>
         [Input("enableRealUserMonitoring", required: true)]
         public Input<bool> EnableRealUserMonitoring { get; set; } = null!;
@@ -189,17 +173,9 @@ namespace Pulumi.NewRelic.Plugins
         /// <summary>
         /// Enable or disable real user monitoring for the New Relic application.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        /// ```
         /// </summary>
         [Input("enableRealUserMonitoring")]
         public Input<bool>? EnableRealUserMonitoring { get; set; }

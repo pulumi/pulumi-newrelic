@@ -9637,7 +9637,7 @@
                 },
                 "userDefinedValueFunction": {
                     "type": "string",
-                    "description": "One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.\n\n\u003e **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n"
+                    "description": "One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.\n\n\u003e **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.\n\n```\nWarning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n```\n"
                 },
                 "violationCloseTimer": {
                     "type": "integer",
@@ -9707,7 +9707,7 @@
                 },
                 "userDefinedValueFunction": {
                     "type": "string",
-                    "description": "One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.\n\n\u003e **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n"
+                    "description": "One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.\n\n\u003e **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.\n\n```\nWarning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n```\n"
                 },
                 "violationCloseTimer": {
                     "type": "integer",
@@ -9781,7 +9781,7 @@
                     },
                     "userDefinedValueFunction": {
                         "type": "string",
-                        "description": "One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.\n\n\u003e **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n"
+                        "description": "One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.\n\n\u003e **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.\n\n```\nWarning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n```\n"
                     },
                     "violationCloseTimer": {
                         "type": "integer",
@@ -10653,7 +10653,7 @@
                 },
                 "violationCloseTimer": {
                     "type": "integer",
-                    "description": "Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n"
+                    "description": "Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.\n\n```\nWarning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n```\n"
                 },
                 "warning": {
                     "$ref": "#/types/newrelic:index/InfraAlertConditionWarning:InfraAlertConditionWarning",
@@ -10661,7 +10661,7 @@
                 },
                 "where": {
                     "type": "string",
-                    "description": "If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.\n"
+                    "description": "If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.\n"
                 }
             },
             "required": [
@@ -10726,7 +10726,7 @@
                 },
                 "violationCloseTimer": {
                     "type": "integer",
-                    "description": "Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n"
+                    "description": "Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.\n\n```\nWarning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n```\n"
                 },
                 "warning": {
                     "$ref": "#/types/newrelic:index/InfraAlertConditionWarning:InfraAlertConditionWarning",
@@ -10735,7 +10735,7 @@
                 },
                 "where": {
                     "type": "string",
-                    "description": "If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.\n"
+                    "description": "If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.\n"
                 }
             },
             "requiredInputs": [
@@ -10809,7 +10809,7 @@
                     },
                     "violationCloseTimer": {
                         "type": "integer",
-                        "description": "Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n"
+                        "description": "Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.\n\n```\nWarning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n```\n"
                     },
                     "warning": {
                         "$ref": "#/types/newrelic:index/InfraAlertConditionWarning:InfraAlertConditionWarning",
@@ -10818,7 +10818,7 @@
                     },
                     "where": {
                         "type": "string",
-                        "description": "If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.\n"
+                        "description": "If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.\n"
                     }
                 },
                 "type": "object"
@@ -12730,7 +12730,7 @@
                 },
                 "enableRealUserMonitoring": {
                     "type": "boolean",
-                    "description": "Enable or disable real user monitoring for the New Relic application.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n"
+                    "description": "Enable or disable real user monitoring for the New Relic application.\n\n```\nWarning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n```\n"
                 },
                 "endUserApdexThreshold": {
                     "type": "number",
@@ -12754,7 +12754,7 @@
                 },
                 "enableRealUserMonitoring": {
                     "type": "boolean",
-                    "description": "Enable or disable real user monitoring for the New Relic application.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n"
+                    "description": "Enable or disable real user monitoring for the New Relic application.\n\n```\nWarning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n```\n"
                 },
                 "endUserApdexThreshold": {
                     "type": "number",
@@ -12779,7 +12779,7 @@
                     },
                     "enableRealUserMonitoring": {
                         "type": "boolean",
-                        "description": "Enable or disable real user monitoring for the New Relic application.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n"
+                        "description": "Enable or disable real user monitoring for the New Relic application.\n\n```\nWarning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n```\n"
                     },
                     "endUserApdexThreshold": {
                         "type": "number",
@@ -12976,7 +12976,7 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "description": "Set whether to enable the alert condition. Defaults to `true`.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n"
+                    "description": "Set whether to enable the alert condition. Defaults to `true`.\n\n```\nWarning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n```\n"
                 },
                 "entityGuid": {
                     "type": "string",
@@ -13008,7 +13008,7 @@
             "inputProperties": {
                 "enabled": {
                     "type": "boolean",
-                    "description": "Set whether to enable the alert condition. Defaults to `true`.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n"
+                    "description": "Set whether to enable the alert condition. Defaults to `true`.\n\n```\nWarning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n```\n"
                 },
                 "monitorId": {
                     "type": "string",
@@ -13037,7 +13037,7 @@
                 "properties": {
                     "enabled": {
                         "type": "boolean",
-                        "description": "Set whether to enable the alert condition. Defaults to `true`.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n"
+                        "description": "Set whether to enable the alert condition. Defaults to `true`.\n\n```\nWarning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n```\n"
                     },
                     "entityGuid": {
                         "type": "string",
