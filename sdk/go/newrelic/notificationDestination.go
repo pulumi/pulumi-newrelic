@@ -81,7 +81,7 @@ type NotificationDestination struct {
 	pulumi.CustomResourceState
 
 	// Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Indicates whether the destination is active.
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
@@ -144,7 +144,7 @@ func GetNotificationDestination(ctx *pulumi.Context,
 // Input properties used for looking up and filtering NotificationDestination resources.
 type notificationDestinationState struct {
 	// Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Indicates whether the destination is active.
 	Active *bool `pulumi:"active"`
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
@@ -172,7 +172,7 @@ type notificationDestinationState struct {
 
 type NotificationDestinationState struct {
 	// Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Indicates whether the destination is active.
 	Active pulumi.BoolPtrInput
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
@@ -204,7 +204,7 @@ func (NotificationDestinationState) ElementType() reflect.Type {
 
 type notificationDestinationArgs struct {
 	// Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Indicates whether the destination is active.
 	Active *bool `pulumi:"active"`
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
@@ -227,7 +227,7 @@ type notificationDestinationArgs struct {
 // The set of arguments for constructing a NotificationDestination resource.
 type NotificationDestinationArgs struct {
 	// Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Indicates whether the destination is active.
 	Active pulumi.BoolPtrInput
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
@@ -335,8 +335,8 @@ func (o NotificationDestinationOutput) ToNotificationDestinationOutputWithContex
 }
 
 // Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
-func (o NotificationDestinationOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *NotificationDestination) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o NotificationDestinationOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationDestination) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Indicates whether the destination is active.

@@ -35,7 +35,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public int? AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         /// <summary>
         /// The name of the alert channel in New Relic.
@@ -55,7 +55,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The name of the alert channel in New Relic.
@@ -73,7 +73,7 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetAlertChannelResult
     {
-        public readonly int AccountId;
+        public readonly string AccountId;
         /// <summary>
         /// Alert channel configuration.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// A list of policy IDs associated with the alert channel.
         /// </summary>
-        public readonly ImmutableArray<int> PolicyIds;
+        public readonly ImmutableArray<string> PolicyIds;
         /// <summary>
         /// Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetAlertChannelResult(
-            int accountId,
+            string accountId,
 
             Outputs.GetAlertChannelConfigResult config,
 
@@ -102,7 +102,7 @@ namespace Pulumi.NewRelic
 
             string name,
 
-            ImmutableArray<int> policyIds,
+            ImmutableArray<string> policyIds,
 
             string type)
         {

@@ -211,7 +211,7 @@ class ServiceLevel(pulumi.CustomResource):
             name="Latency",
             description="Proportion of requests that are served faster than a threshold.",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
+                account_id="12345678",
                 valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                     from_="Transaction",
                     where="appName = 'Example application' AND (transactionType='Web')",
@@ -245,7 +245,7 @@ class ServiceLevel(pulumi.CustomResource):
             name="My synthethic monitor - Success",
             description="Proportion of successful synthetic checks.",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
+                account_id="12345678",
                 valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                     from_="SyntheticCheck",
                     where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
@@ -292,7 +292,7 @@ class ServiceLevel(pulumi.CustomResource):
             name="Duration distribution is under 7",
             description="Monitor created to test concurrent request from terraform",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=313870,
+                account_id="313870",
                 valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                     from_="Metric",
                     select=newrelic.ServiceLevelEventsValidEventsSelectArgs(
@@ -369,7 +369,7 @@ class ServiceLevel(pulumi.CustomResource):
             name="Latency",
             description="Proportion of requests that are served faster than a threshold.",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
+                account_id="12345678",
                 valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                     from_="Transaction",
                     where="appName = 'Example application' AND (transactionType='Web')",
@@ -403,7 +403,7 @@ class ServiceLevel(pulumi.CustomResource):
             name="My synthethic monitor - Success",
             description="Proportion of successful synthetic checks.",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
+                account_id="12345678",
                 valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                     from_="SyntheticCheck",
                     where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
@@ -450,7 +450,7 @@ class ServiceLevel(pulumi.CustomResource):
             name="Duration distribution is under 7",
             description="Monitor created to test concurrent request from terraform",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=313870,
+                account_id="313870",
                 valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                     from_="Metric",
                     select=newrelic.ServiceLevelEventsValidEventsSelectArgs(

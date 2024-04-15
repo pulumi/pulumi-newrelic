@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Inputs
         /// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("configurations", required: true)]
         private InputList<Inputs.WorkflowEnrichmentsNrqlConfigurationGetArgs>? _configurations;

@@ -18,7 +18,7 @@ class AlertMutingRuleArgs:
     def __init__(__self__, *,
                  condition: pulumi.Input['AlertMutingRuleConditionArgs'],
                  enabled: pulumi.Input[bool],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input['AlertMutingRuleScheduleArgs']] = None):
@@ -26,7 +26,7 @@ class AlertMutingRuleArgs:
         The set of arguments for constructing a AlertMutingRule resource.
         :param pulumi.Input['AlertMutingRuleConditionArgs'] condition: The condition that defines which incidents to target.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
-        :param pulumi.Input[int] account_id: The account id of the MutingRule..
+        :param pulumi.Input[str] account_id: The account id of the MutingRule..
         :param pulumi.Input[str] description: The description of the MutingRule.
         :param pulumi.Input[str] name: The name of the MutingRule.
         :param pulumi.Input['AlertMutingRuleScheduleArgs'] schedule: The time window when the MutingRule should actively mute incidents.
@@ -68,14 +68,14 @@ class AlertMutingRuleArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account id of the MutingRule..
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -118,7 +118,7 @@ class AlertMutingRuleArgs:
 @pulumi.input_type
 class _AlertMutingRuleState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  condition: Optional[pulumi.Input['AlertMutingRuleConditionArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -126,7 +126,7 @@ class _AlertMutingRuleState:
                  schedule: Optional[pulumi.Input['AlertMutingRuleScheduleArgs']] = None):
         """
         Input properties used for looking up and filtering AlertMutingRule resources.
-        :param pulumi.Input[int] account_id: The account id of the MutingRule..
+        :param pulumi.Input[str] account_id: The account id of the MutingRule..
         :param pulumi.Input['AlertMutingRuleConditionArgs'] condition: The condition that defines which incidents to target.
         :param pulumi.Input[str] description: The description of the MutingRule.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
@@ -148,14 +148,14 @@ class _AlertMutingRuleState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account id of the MutingRule..
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -224,7 +224,7 @@ class AlertMutingRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  condition: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -281,7 +281,7 @@ class AlertMutingRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account id of the MutingRule..
+        :param pulumi.Input[str] account_id: The account id of the MutingRule..
         :param pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']] condition: The condition that defines which incidents to target.
         :param pulumi.Input[str] description: The description of the MutingRule.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
@@ -357,7 +357,7 @@ class AlertMutingRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  condition: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -392,7 +392,7 @@ class AlertMutingRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             condition: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -405,7 +405,7 @@ class AlertMutingRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account id of the MutingRule..
+        :param pulumi.Input[str] account_id: The account id of the MutingRule..
         :param pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']] condition: The condition that defines which incidents to target.
         :param pulumi.Input[str] description: The description of the MutingRule.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
@@ -426,7 +426,7 @@ class AlertMutingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The account id of the MutingRule..
         """

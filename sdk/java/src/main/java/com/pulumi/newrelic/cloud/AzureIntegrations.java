@@ -42,7 +42,7 @@ import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsVirtualMachine;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsVirtualNetworks;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsVms;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsVpnGateway;
-import java.lang.Integer;
+import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -289,14 +289,14 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**
@@ -487,8 +487,8 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
      * 
      */
-    @Export(name="linkedAccountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> linkedAccountId;
+    @Export(name="linkedAccountId", refs={String.class}, tree="[0]")
+    private Output<String> linkedAccountId;
 
     /**
      * @return The ID of the linked Azure account in New Relic.
@@ -496,7 +496,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
      * 
      */
-    public Output<Integer> linkedAccountId() {
+    public Output<String> linkedAccountId() {
         return this.linkedAccountId;
     }
     /**

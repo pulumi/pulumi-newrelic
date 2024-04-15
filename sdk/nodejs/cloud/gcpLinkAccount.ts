@@ -75,7 +75,7 @@ export class GcpLinkAccount extends pulumi.CustomResource {
     /**
      * Account ID of the New Relic account.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * name of the linked account
      */
@@ -122,7 +122,7 @@ export interface GcpLinkAccountState {
     /**
      * Account ID of the New Relic account.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * name of the linked account
      */
@@ -140,7 +140,7 @@ export interface GcpLinkAccountArgs {
     /**
      * Account ID of the New Relic account.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * name of the linked account
      */

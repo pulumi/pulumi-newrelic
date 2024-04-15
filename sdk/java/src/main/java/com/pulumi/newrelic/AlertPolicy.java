@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.AlertPolicyArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.AlertPolicyState;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -202,14 +201,14 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * The New Relic account ID to operate on.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The New Relic account ID to operate on.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**
@@ -218,10 +217,10 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
-    @Export(name="channelIds", refs={List.class,Integer.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<Integer>> channelIds;
+    @Export(name="channelIds", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> channelIds;
 
-    public Output<Optional<List<Integer>>> channelIds() {
+    public Output<Optional<List<String>>> channelIds() {
         return Codegen.optional(this.channelIds);
     }
     /**

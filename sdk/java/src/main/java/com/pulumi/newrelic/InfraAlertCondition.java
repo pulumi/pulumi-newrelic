@@ -356,14 +356,14 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * The ID of the alert policy where this condition should be used.
      * 
      */
-    @Export(name="policyId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> policyId;
+    @Export(name="policyId", refs={String.class}, tree="[0]")
+    private Output<String> policyId;
 
     /**
      * @return The ID of the alert policy where this condition should be used.
      * 
      */
-    public Output<Integer> policyId() {
+    public Output<String> policyId() {
         return this.policyId;
     }
     /**

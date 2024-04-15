@@ -11,14 +11,14 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-func GetAccountId(ctx *pulumi.Context) int {
-	v, err := config.TryInt(ctx, "newrelic:accountId")
+func GetAccountId(ctx *pulumi.Context) string {
+	v, err := config.Try(ctx, "newrelic:accountId")
 	if err == nil {
 		return v
 	}
-	var value int
-	if d := internal.GetEnvOrDefault(nil, internal.ParseEnvInt, "NEW_RELIC_ACCOUNT_ID"); d != nil {
-		value = d.(int)
+	var value string
+	if d := internal.GetEnvOrDefault(nil, nil, "NEW_RELIC_ACCOUNT_ID"); d != nil {
+		value = d.(string)
 	}
 	return value
 }

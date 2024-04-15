@@ -124,7 +124,7 @@ type BrokenLinksMonitor struct {
 	pulumi.CustomResourceState
 
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The unique entity identifier of the monitor in New Relic.
 	Guid pulumi.StringOutput `pulumi:"guid"`
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -191,7 +191,7 @@ func GetBrokenLinksMonitor(ctx *pulumi.Context,
 // Input properties used for looking up and filtering BrokenLinksMonitor resources.
 type brokenLinksMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The unique entity identifier of the monitor in New Relic.
 	Guid *string `pulumi:"guid"`
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -220,7 +220,7 @@ type brokenLinksMonitorState struct {
 
 type BrokenLinksMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The unique entity identifier of the monitor in New Relic.
 	Guid pulumi.StringPtrInput
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -253,7 +253,7 @@ func (BrokenLinksMonitorState) ElementType() reflect.Type {
 
 type brokenLinksMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates []string `pulumi:"locationsPrivates"`
 	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
@@ -279,7 +279,7 @@ type brokenLinksMonitorArgs struct {
 // The set of arguments for constructing a BrokenLinksMonitor resource.
 type BrokenLinksMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates pulumi.StringArrayInput
 	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
@@ -390,8 +390,8 @@ func (o BrokenLinksMonitorOutput) ToBrokenLinksMonitorOutputWithContext(ctx cont
 }
 
 // The account in which the Synthetics monitor will be created.
-func (o BrokenLinksMonitorOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o BrokenLinksMonitorOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The unique entity identifier of the monitor in New Relic.

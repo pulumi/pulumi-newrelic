@@ -9,7 +9,6 @@ import com.pulumi.newrelic.inputs.WorkflowDestinationArgs;
 import com.pulumi.newrelic.inputs.WorkflowEnrichmentsArgs;
 import com.pulumi.newrelic.inputs.WorkflowIssuesFilterArgs;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -26,13 +25,13 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -252,7 +251,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -263,7 +262,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 

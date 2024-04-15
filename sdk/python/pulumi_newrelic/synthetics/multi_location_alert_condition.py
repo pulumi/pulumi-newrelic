@@ -18,7 +18,7 @@ class MultiLocationAlertConditionArgs:
     def __init__(__self__, *,
                  critical: pulumi.Input['MultiLocationAlertConditionCriticalArgs'],
                  entities: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 policy_id: pulumi.Input[int],
+                 policy_id: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class MultiLocationAlertConditionArgs:
         The set of arguments for constructing a MultiLocationAlertCondition resource.
         :param pulumi.Input['MultiLocationAlertConditionCriticalArgs'] critical: A condition term with priority set to critical.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The GUIDs of the Synthetics monitors to alert on.
-        :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
+        :param pulumi.Input[str] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to true.
         :param pulumi.Input[str] name: The title of this condition.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -76,14 +76,14 @@ class MultiLocationAlertConditionArgs:
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> pulumi.Input[int]:
+    def policy_id(self) -> pulumi.Input[str]:
         """
         The ID of the policy where this condition will be used.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: pulumi.Input[int]):
+    def policy_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "policy_id", value)
 
     @property
@@ -156,7 +156,7 @@ class _MultiLocationAlertConditionState:
                  entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  entity_guid: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_id: Optional[pulumi.Input[int]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
                  warning: Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']] = None):
@@ -167,7 +167,7 @@ class _MultiLocationAlertConditionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The GUIDs of the Synthetics monitors to alert on.
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] name: The title of this condition.
-        :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
+        :param pulumi.Input[str] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
                select. Must be in the range of 300 to 2592000 (inclusive)
@@ -254,14 +254,14 @@ class _MultiLocationAlertConditionState:
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[int]]:
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the policy where this condition will be used.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[int]]):
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_id", value)
 
     @property
@@ -311,7 +311,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_id: Optional[pulumi.Input[int]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
                  warning: Optional[pulumi.Input[pulumi.InputType['MultiLocationAlertConditionWarningArgs']]] = None,
@@ -425,7 +425,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to true.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The GUIDs of the Synthetics monitors to alert on.
         :param pulumi.Input[str] name: The title of this condition.
-        :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
+        :param pulumi.Input[str] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
                select. Must be in the range of 300 to 2592000 (inclusive)
@@ -559,7 +559,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_id: Optional[pulumi.Input[int]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
                  warning: Optional[pulumi.Input[pulumi.InputType['MultiLocationAlertConditionWarningArgs']]] = None,
@@ -602,7 +602,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
             entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             entity_guid: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            policy_id: Optional[pulumi.Input[int]] = None,
+            policy_id: Optional[pulumi.Input[str]] = None,
             runbook_url: Optional[pulumi.Input[str]] = None,
             violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
             warning: Optional[pulumi.Input[pulumi.InputType['MultiLocationAlertConditionWarningArgs']]] = None) -> 'MultiLocationAlertCondition':
@@ -618,7 +618,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The GUIDs of the Synthetics monitors to alert on.
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] name: The title of this condition.
-        :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
+        :param pulumi.Input[str] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
                select. Must be in the range of 300 to 2592000 (inclusive)
@@ -681,7 +681,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> pulumi.Output[int]:
+    def policy_id(self) -> pulumi.Output[str]:
         """
         The ID of the policy where this condition will be used.
         """

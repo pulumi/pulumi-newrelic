@@ -118,7 +118,7 @@ export class OneDashboardRaw extends pulumi.CustomResource {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Brief text describing the dashboard.
      */
@@ -189,7 +189,7 @@ export interface OneDashboardRawState {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Brief text describing the dashboard.
      */
@@ -223,7 +223,7 @@ export interface OneDashboardRawArgs {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Brief text describing the dashboard.
      */

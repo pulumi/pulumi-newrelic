@@ -5,7 +5,6 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,7 +16,7 @@ public final class OneDashboardPageWidgetHistogramNrqlQuery {
      * @return The account id used for the NRQL query.
      * 
      */
-    private @Nullable Integer accountId;
+    private @Nullable String accountId;
     /**
      * @return (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      * 
@@ -29,7 +28,7 @@ public final class OneDashboardPageWidgetHistogramNrqlQuery {
      * @return The account id used for the NRQL query.
      * 
      */
-    public Optional<Integer> accountId() {
+    public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
     /**
@@ -49,7 +48,7 @@ public final class OneDashboardPageWidgetHistogramNrqlQuery {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Integer accountId;
+        private @Nullable String accountId;
         private String query;
         public Builder() {}
         public Builder(OneDashboardPageWidgetHistogramNrqlQuery defaults) {
@@ -59,7 +58,7 @@ public final class OneDashboardPageWidgetHistogramNrqlQuery {
         }
 
         @CustomType.Setter
-        public Builder accountId(@Nullable Integer accountId) {
+        public Builder accountId(@Nullable String accountId) {
 
             this.accountId = accountId;
             return this;

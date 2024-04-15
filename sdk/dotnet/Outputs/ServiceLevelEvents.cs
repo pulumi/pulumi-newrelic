@@ -13,14 +13,14 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class ServiceLevelEvents
     {
-        public readonly int AccountId;
+        public readonly string AccountId;
         public readonly Outputs.ServiceLevelEventsBadEvents? BadEvents;
         public readonly Outputs.ServiceLevelEventsGoodEvents? GoodEvents;
         public readonly Outputs.ServiceLevelEventsValidEvents ValidEvents;
 
         [OutputConstructor]
         private ServiceLevelEvents(
-            int accountId,
+            string accountId,
 
             Outputs.ServiceLevelEventsBadEvents? badEvents,
 

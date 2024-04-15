@@ -46,7 +46,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in which the private location will be created.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The private location description.
@@ -140,7 +140,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in which the private location will be created.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The private location description.
@@ -172,7 +172,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in which the private location will be created.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The private location description.

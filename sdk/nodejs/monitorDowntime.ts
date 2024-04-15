@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const foo = new newrelic.MonitorDowntime("foo", {
+ * const foo = new newrelic.synthetics.MonitorDowntime("foo", {
  *     name: "Sample Monitor Downtime",
  *     monitorGuids: [
  *         "<GUID-1>",
@@ -46,7 +46,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const sampleOneTimeNewrelicMonitorDowntime = new newrelic.MonitorDowntime("sample_one_time_newrelic_monitor_downtime", {
+ * const sampleOneTimeNewrelicMonitorDowntime = new newrelic.synthetics.MonitorDowntime("sample_one_time_newrelic_monitor_downtime", {
  *     name: "Sample One Time Monitor Downtime",
  *     monitorGuids: [
  *         "<GUID-1>",
@@ -69,7 +69,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const sampleDailyNewrelicMonitorDowntime = new newrelic.MonitorDowntime("sample_daily_newrelic_monitor_downtime", {
+ * const sampleDailyNewrelicMonitorDowntime = new newrelic.synthetics.MonitorDowntime("sample_daily_newrelic_monitor_downtime", {
  *     name: "Sample Daily Monitor Downtime",
  *     monitorGuids: [
  *         "<GUID-1>",
@@ -95,7 +95,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const sampleWeeklyNewrelicMonitorDowntime = new newrelic.MonitorDowntime("sample_weekly_newrelic_monitor_downtime", {
+ * const sampleWeeklyNewrelicMonitorDowntime = new newrelic.synthetics.MonitorDowntime("sample_weekly_newrelic_monitor_downtime", {
  *     name: "Sample Weekly Monitor Downtime",
  *     monitorGuids: [
  *         "<GUID-1>",
@@ -122,7 +122,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const sampleMonthlyNewrelicMonitorDowntime = new newrelic.MonitorDowntime("sample_monthly_newrelic_monitor_downtime", {
+ * const sampleMonthlyNewrelicMonitorDowntime = new newrelic.synthetics.MonitorDowntime("sample_monthly_newrelic_monitor_downtime", {
  *     name: "Sample Monthly Monitor Downtime",
  *     monitorGuids: [
  *         "<GUID-1>",
@@ -148,7 +148,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const sampleMonthlyNewrelicMonitorDowntime = new newrelic.MonitorDowntime("sample_monthly_newrelic_monitor_downtime", {
+ * const sampleMonthlyNewrelicMonitorDowntime = new newrelic.synthetics.MonitorDowntime("sample_monthly_newrelic_monitor_downtime", {
  *     name: "Sample Monthly Monitor Downtime",
  *     monitorGuids: [
  *         "<GUID-1>",
@@ -181,6 +181,8 @@ import * as utilities from "./utilities";
  * ```sh
  * $ pulumi import newrelic:index/monitorDowntime:MonitorDowntime monitor <guid>
  * ```
+ *
+ * @deprecated newrelic.index/monitordowntime.MonitorDowntime has been deprecated in favor of newrelic.synthetics/monitordowntime.MonitorDowntime
  */
 export class MonitorDowntime extends pulumi.CustomResource {
     /**
@@ -193,6 +195,7 @@ export class MonitorDowntime extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MonitorDowntimeState, opts?: pulumi.CustomResourceOptions): MonitorDowntime {
+        pulumi.log.warn("MonitorDowntime is deprecated: newrelic.index/monitordowntime.MonitorDowntime has been deprecated in favor of newrelic.synthetics/monitordowntime.MonitorDowntime")
         return new MonitorDowntime(name, <any>state, { ...opts, id: id });
     }
 
@@ -214,7 +217,7 @@ export class MonitorDowntime extends pulumi.CustomResource {
      * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
      * provider{} configuration if not specified.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
      */
@@ -259,8 +262,11 @@ export class MonitorDowntime extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated newrelic.index/monitordowntime.MonitorDowntime has been deprecated in favor of newrelic.synthetics/monitordowntime.MonitorDowntime */
     constructor(name: string, args: MonitorDowntimeArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated newrelic.index/monitordowntime.MonitorDowntime has been deprecated in favor of newrelic.synthetics/monitordowntime.MonitorDowntime */
     constructor(name: string, argsOrState?: MonitorDowntimeArgs | MonitorDowntimeState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MonitorDowntime is deprecated: newrelic.index/monitordowntime.MonitorDowntime has been deprecated in favor of newrelic.synthetics/monitordowntime.MonitorDowntime")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
@@ -313,7 +319,7 @@ export interface MonitorDowntimeState {
      * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
      * provider{} configuration if not specified.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
      */
@@ -360,7 +366,7 @@ export interface MonitorDowntimeArgs {
      * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
      * provider{} configuration if not specified.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
      */

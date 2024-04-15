@@ -31,7 +31,7 @@ namespace Pulumi.NewRelic
     /// 
     ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         PolicyId = foo.Id,
     ///         Type = "static",
     ///         Name = "foo",
@@ -183,7 +183,7 @@ namespace Pulumi.NewRelic
     /// 
     ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         PolicyId = foo.Id,
     ///         Type = "static",
     ///         Name = "foo",
@@ -352,7 +352,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
@@ -460,7 +460,7 @@ namespace Pulumi.NewRelic
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Output("policyId")]
-        public Output<int> PolicyId { get; private set; } = null!;
+        public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
         /// Runbook URL to display in notifications.
@@ -556,7 +556,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
@@ -658,7 +658,7 @@ namespace Pulumi.NewRelic
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Input("policyId", required: true)]
-        public Input<int> PolicyId { get; set; } = null!;
+        public Input<string> PolicyId { get; set; } = null!;
 
         /// <summary>
         /// Runbook URL to display in notifications.
@@ -723,7 +723,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
@@ -831,7 +831,7 @@ namespace Pulumi.NewRelic
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Input("policyId")]
-        public Input<int>? PolicyId { get; set; }
+        public Input<string>? PolicyId { get; set; }
 
         /// <summary>
         /// Runbook URL to display in notifications.

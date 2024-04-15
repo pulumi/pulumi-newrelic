@@ -36,7 +36,7 @@ import (
 //				Name:        pulumi.String("Latency"),
 //				Description: pulumi.String("Proportion of requests that are served faster than a threshold."),
 //				Events: &newrelic.ServiceLevelEventsArgs{
-//					AccountId: pulumi.Int(12345678),
+//					AccountId: pulumi.String("12345678"),
 //					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
 //						From:  pulumi.String("Transaction"),
 //						Where: pulumi.String("appName = 'Example application' AND (transactionType='Web')"),
@@ -93,8 +93,8 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewNrqlAlertCondition(ctx, "your_condition", &newrelic.NrqlAlertConditionArgs{
-//				AccountId:                 pulumi.Int(12345678),
-//				PolicyId:                  pulumi.Int(67890),
+//				AccountId:                 pulumi.String("12345678"),
+//				PolicyId:                  pulumi.String("67890"),
 //				Type:                      pulumi.String("static"),
 //				Name:                      pulumi.String("Slow burn alert"),
 //				Enabled:                   pulumi.Bool(true),
@@ -150,8 +150,8 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewNrqlAlertCondition(ctx, "your_condition", &newrelic.NrqlAlertConditionArgs{
-//				AccountId:                 pulumi.Int(12345678),
-//				PolicyId:                  pulumi.Int(67890),
+//				AccountId:                 pulumi.String("12345678"),
+//				PolicyId:                  pulumi.String("67890"),
 //				Type:                      pulumi.String("static"),
 //				Name:                      pulumi.String("Custom burn alert"),
 //				Enabled:                   pulumi.Bool(true),

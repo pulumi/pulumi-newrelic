@@ -58,7 +58,7 @@ export class PrivateLocation extends pulumi.CustomResource {
     /**
      * The account in which the private location will be created.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The private location description.
      */
@@ -135,7 +135,7 @@ export interface PrivateLocationState {
     /**
      * The account in which the private location will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The private location description.
      */
@@ -173,7 +173,7 @@ export interface PrivateLocationArgs {
     /**
      * The account in which the private location will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The private location description.
      */

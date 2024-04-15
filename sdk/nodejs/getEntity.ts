@@ -38,7 +38,7 @@ import * as utilities from "./utilities";
  * // specified in the configuration below, i.e. 654321.
  * const app = newrelic.getEntity({
  *     name: "my-app",
- *     accountId: 654321,
+ *     accountId: "654321",
  *     domain: "APM",
  *     type: "APPLICATION",
  * });
@@ -96,7 +96,7 @@ export interface GetEntityArgs {
     /**
      * The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `accountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
      */
-    accountId?: number;
+    accountId?: string;
     /**
      * The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
      */
@@ -129,11 +129,11 @@ export interface GetEntityArgs {
  * A collection of values returned by getEntity.
  */
 export interface GetEntityResult {
-    readonly accountId: number;
+    readonly accountId: string;
     /**
      * The domain-specific application ID of the entity. Only returned for APM and Browser applications.
      */
-    readonly applicationId: number;
+    readonly applicationId: string;
     readonly domain: string;
     /**
      * The unique GUID of the entity.
@@ -149,7 +149,7 @@ export interface GetEntityResult {
     /**
      * The browser-specific ID of the backing APM entity. Only returned for Browser applications.
      */
-    readonly servingApmApplicationId: number;
+    readonly servingApmApplicationId: string;
     readonly tags?: outputs.GetEntityTag[];
     readonly type: string;
 }
@@ -185,7 +185,7 @@ export interface GetEntityResult {
  * // specified in the configuration below, i.e. 654321.
  * const app = newrelic.getEntity({
  *     name: "my-app",
- *     accountId: 654321,
+ *     accountId: "654321",
  *     domain: "APM",
  *     type: "APPLICATION",
  * });
@@ -233,7 +233,7 @@ export interface GetEntityOutputArgs {
     /**
      * The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `accountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
      */

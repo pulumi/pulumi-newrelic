@@ -27,7 +27,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNrqlDropRule(ctx, "foo", &newrelic.NrqlDropRuleArgs{
-//				AccountId:   pulumi.Int(12345),
+//				AccountId:   pulumi.String("12345"),
 //				Description: pulumi.String("Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it."),
 //				Action:      pulumi.String("drop_data"),
 //				Nrql:        pulumi.String("SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'"),
@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewNrqlDropRule(ctx, "bar", &newrelic.NrqlDropRuleArgs{
-//				AccountId:   pulumi.Int(12345),
+//				AccountId:   pulumi.String("12345"),
 //				Description: pulumi.String("Removes the user name and email fields from MyCustomEvent"),
 //				Action:      pulumi.String("drop_attributes"),
 //				Nrql:        pulumi.String("SELECT userEmail, userName FROM MyCustomEvent"),
@@ -45,7 +45,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewNrqlDropRule(ctx, "baz", &newrelic.NrqlDropRuleArgs{
-//				AccountId:   pulumi.Int(12345),
+//				AccountId:   pulumi.String("12345"),
 //				Description: pulumi.String("Removes containerId from metric aggregates to reduce metric cardinality."),
 //				Action:      pulumi.String("drop_attributes_from_metric_aggregates"),
 //				Nrql:        pulumi.String("SELECT containerId FROM Metric"),
@@ -85,7 +85,7 @@ type NrqlDropRule struct {
 	pulumi.CustomResourceState
 
 	// Account with the NRQL drop rule will be put.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
 	Action pulumi.StringOutput `pulumi:"action"`
 	// Provides additional information about the rule.
@@ -133,7 +133,7 @@ func GetNrqlDropRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering NrqlDropRule resources.
 type nrqlDropRuleState struct {
 	// Account with the NRQL drop rule will be put.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
 	Action *string `pulumi:"action"`
 	// Provides additional information about the rule.
@@ -146,7 +146,7 @@ type nrqlDropRuleState struct {
 
 type NrqlDropRuleState struct {
 	// Account with the NRQL drop rule will be put.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
 	Action pulumi.StringPtrInput
 	// Provides additional information about the rule.
@@ -163,7 +163,7 @@ func (NrqlDropRuleState) ElementType() reflect.Type {
 
 type nrqlDropRuleArgs struct {
 	// Account with the NRQL drop rule will be put.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
 	Action string `pulumi:"action"`
 	// Provides additional information about the rule.
@@ -175,7 +175,7 @@ type nrqlDropRuleArgs struct {
 // The set of arguments for constructing a NrqlDropRule resource.
 type NrqlDropRuleArgs struct {
 	// Account with the NRQL drop rule will be put.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
 	Action pulumi.StringInput
 	// Provides additional information about the rule.
@@ -272,8 +272,8 @@ func (o NrqlDropRuleOutput) ToNrqlDropRuleOutputWithContext(ctx context.Context)
 }
 
 // Account with the NRQL drop rule will be put.
-func (o NrqlDropRuleOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *NrqlDropRule) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o NrqlDropRuleOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrqlDropRule) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).

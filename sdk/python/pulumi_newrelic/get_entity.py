@@ -24,11 +24,11 @@ class GetEntityResult:
     A collection of values returned by getEntity.
     """
     def __init__(__self__, account_id=None, application_id=None, domain=None, guid=None, id=None, ignore_case=None, ignore_not_found=None, name=None, serving_apm_application_id=None, tags=None, type=None):
-        if account_id and not isinstance(account_id, int):
-            raise TypeError("Expected argument 'account_id' to be a int")
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
-        if application_id and not isinstance(application_id, int):
-            raise TypeError("Expected argument 'application_id' to be a int")
+        if application_id and not isinstance(application_id, str):
+            raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
         if domain and not isinstance(domain, str):
             raise TypeError("Expected argument 'domain' to be a str")
@@ -48,8 +48,8 @@ class GetEntityResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if serving_apm_application_id and not isinstance(serving_apm_application_id, int):
-            raise TypeError("Expected argument 'serving_apm_application_id' to be a int")
+        if serving_apm_application_id and not isinstance(serving_apm_application_id, str):
+            raise TypeError("Expected argument 'serving_apm_application_id' to be a str")
         pulumi.set(__self__, "serving_apm_application_id", serving_apm_application_id)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
@@ -60,12 +60,12 @@ class GetEntityResult:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> int:
+    def account_id(self) -> str:
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> int:
+    def application_id(self) -> str:
         """
         The domain-specific application ID of the entity. Only returned for APM and Browser applications.
         """
@@ -109,7 +109,7 @@ class GetEntityResult:
 
     @property
     @pulumi.getter(name="servingApmApplicationId")
-    def serving_apm_application_id(self) -> int:
+    def serving_apm_application_id(self) -> str:
         """
         The browser-specific ID of the backing APM entity. Only returned for Browser applications.
         """
@@ -145,7 +145,7 @@ class AwaitableGetEntityResult(GetEntityResult):
             type=self.type)
 
 
-def get_entity(account_id: Optional[int] = None,
+def get_entity(account_id: Optional[str] = None,
                domain: Optional[str] = None,
                ignore_case: Optional[bool] = None,
                ignore_not_found: Optional[bool] = None,
@@ -182,7 +182,7 @@ def get_entity(account_id: Optional[int] = None,
     # the above example, would have to belong to the account_id 
     # specified in the configuration below, i.e. 654321.
     app = newrelic.get_entity(name="my-app",
-        account_id=654321,
+        account_id="654321",
         domain="APM",
         type="APPLICATION")
     ```
@@ -215,7 +215,7 @@ def get_entity(account_id: Optional[int] = None,
     ```
 
 
-    :param int account_id: The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+    :param str account_id: The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
     :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
     :param bool ignore_case: Ignore case of the `name` when searching for the entity. Defaults to false.
     :param bool ignore_not_found: A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
@@ -251,7 +251,7 @@ def get_entity(account_id: Optional[int] = None,
 
 
 @_utilities.lift_output_func(get_entity)
-def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
+def get_entity_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                       domain: Optional[pulumi.Input[Optional[str]]] = None,
                       ignore_case: Optional[pulumi.Input[Optional[bool]]] = None,
                       ignore_not_found: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -288,7 +288,7 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
     # the above example, would have to belong to the account_id 
     # specified in the configuration below, i.e. 654321.
     app = newrelic.get_entity(name="my-app",
-        account_id=654321,
+        account_id="654321",
         domain="APM",
         type="APPLICATION")
     ```
@@ -321,7 +321,7 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
     ```
 
 
-    :param int account_id: The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+    :param str account_id: The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
     :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
     :param bool ignore_case: Ignore case of the `name` when searching for the entity. Defaults to false.
     :param bool ignore_not_found: A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.

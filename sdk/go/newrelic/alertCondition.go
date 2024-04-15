@@ -48,8 +48,8 @@ import (
 //				PolicyId: foo.ID(),
 //				Name:     pulumi.String("foo"),
 //				Type:     pulumi.String("apm_app_metric"),
-//				Entities: pulumi.IntArray{
-//					pulumi.Int(app.ApplicationId),
+//				Entities: pulumi.StringArray{
+//					pulumi.String(app.ApplicationId),
 //				},
 //				Metric:         pulumi.String("apdex"),
 //				RunbookUrl:     pulumi.String("https://www.example.com"),
@@ -115,8 +115,8 @@ import (
 //				PolicyId: fooAlertPolicy.ID(),
 //				Name:     pulumi.String("foo condition"),
 //				Type:     pulumi.String("apm_app_metric"),
-//				Entities: pulumi.IntArray{
-//					pulumi.Int(foo.ApplicationId),
+//				Entities: pulumi.StringArray{
+//					pulumi.String(foo.ApplicationId),
 //				},
 //				Metric:         pulumi.String("apdex"),
 //				RunbookUrl:     pulumi.String("https://www.example.com"),
@@ -177,7 +177,7 @@ type AlertCondition struct {
 	// Whether the condition is enabled.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The instance IDs associated with this condition.
-	Entities pulumi.IntArrayOutput `pulumi:"entities"`
+	Entities pulumi.StringArrayOutput `pulumi:"entities"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
 	// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
@@ -188,7 +188,7 @@ type AlertCondition struct {
 	// The title of the condition. Must be between 1 and 128 characters, inclusive.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the policy where this condition should be used.
-	PolicyId pulumi.IntOutput `pulumi:"policyId"`
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrOutput        `pulumi:"runbookUrl"`
 	Terms      AlertConditionTermArrayOutput `pulumi:"terms"`
@@ -255,7 +255,7 @@ type alertConditionState struct {
 	// Whether the condition is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// The instance IDs associated with this condition.
-	Entities []int `pulumi:"entities"`
+	Entities []string `pulumi:"entities"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid *string `pulumi:"entityGuid"`
 	// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
@@ -266,7 +266,7 @@ type alertConditionState struct {
 	// The title of the condition. Must be between 1 and 128 characters, inclusive.
 	Name *string `pulumi:"name"`
 	// The ID of the policy where this condition should be used.
-	PolicyId *int `pulumi:"policyId"`
+	PolicyId *string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string              `pulumi:"runbookUrl"`
 	Terms      []AlertConditionTerm `pulumi:"terms"`
@@ -289,7 +289,7 @@ type AlertConditionState struct {
 	// Whether the condition is enabled.
 	Enabled pulumi.BoolPtrInput
 	// The instance IDs associated with this condition.
-	Entities pulumi.IntArrayInput
+	Entities pulumi.StringArrayInput
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringPtrInput
 	// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
@@ -300,7 +300,7 @@ type AlertConditionState struct {
 	// The title of the condition. Must be between 1 and 128 characters, inclusive.
 	Name pulumi.StringPtrInput
 	// The ID of the policy where this condition should be used.
-	PolicyId pulumi.IntPtrInput
+	PolicyId pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
 	Terms      AlertConditionTermArrayInput
@@ -327,7 +327,7 @@ type alertConditionArgs struct {
 	// Whether the condition is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// The instance IDs associated with this condition.
-	Entities []int `pulumi:"entities"`
+	Entities []string `pulumi:"entities"`
 	// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
 	// gcCpuTime condition type.
 	GcMetric *string `pulumi:"gcMetric"`
@@ -336,7 +336,7 @@ type alertConditionArgs struct {
 	// The title of the condition. Must be between 1 and 128 characters, inclusive.
 	Name *string `pulumi:"name"`
 	// The ID of the policy where this condition should be used.
-	PolicyId int `pulumi:"policyId"`
+	PolicyId string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string              `pulumi:"runbookUrl"`
 	Terms      []AlertConditionTerm `pulumi:"terms"`
@@ -360,7 +360,7 @@ type AlertConditionArgs struct {
 	// Whether the condition is enabled.
 	Enabled pulumi.BoolPtrInput
 	// The instance IDs associated with this condition.
-	Entities pulumi.IntArrayInput
+	Entities pulumi.StringArrayInput
 	// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
 	// gcCpuTime condition type.
 	GcMetric pulumi.StringPtrInput
@@ -369,7 +369,7 @@ type AlertConditionArgs struct {
 	// The title of the condition. Must be between 1 and 128 characters, inclusive.
 	Name pulumi.StringPtrInput
 	// The ID of the policy where this condition should be used.
-	PolicyId pulumi.IntInput
+	PolicyId pulumi.StringInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
 	Terms      AlertConditionTermArrayInput
@@ -484,8 +484,8 @@ func (o AlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // The instance IDs associated with this condition.
-func (o AlertConditionOutput) Entities() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *AlertCondition) pulumi.IntArrayOutput { return v.Entities }).(pulumi.IntArrayOutput)
+func (o AlertConditionOutput) Entities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringArrayOutput { return v.Entities }).(pulumi.StringArrayOutput)
 }
 
 // The unique entity identifier of the condition in New Relic.
@@ -510,8 +510,8 @@ func (o AlertConditionOutput) Name() pulumi.StringOutput {
 }
 
 // The ID of the policy where this condition should be used.
-func (o AlertConditionOutput) PolicyId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AlertCondition) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+func (o AlertConditionOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
 // Runbook URL to display in notifications.

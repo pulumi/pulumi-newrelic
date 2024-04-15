@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class ServiceLevelEventsArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountId", required: true)]
-        public Input<int> AccountId { get; set; } = null!;
+        public Input<string> AccountId { get; set; } = null!;
 
         [Input("badEvents")]
         public Input<Inputs.ServiceLevelEventsBadEventsArgs>? BadEvents { get; set; }

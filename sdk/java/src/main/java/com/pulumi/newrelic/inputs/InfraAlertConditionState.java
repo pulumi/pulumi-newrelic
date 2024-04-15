@@ -161,13 +161,13 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
      * 
      */
     @Import(name="policyId")
-    private @Nullable Output<Integer> policyId;
+    private @Nullable Output<String> policyId;
 
     /**
      * @return The ID of the alert policy where this condition should be used.
      * 
      */
-    public Optional<Output<Integer>> policyId() {
+    public Optional<Output<String>> policyId() {
         return Optional.ofNullable(this.policyId);
     }
 
@@ -541,7 +541,7 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder policyId(@Nullable Output<Integer> policyId) {
+        public Builder policyId(@Nullable Output<String> policyId) {
             $.policyId = policyId;
             return this;
         }
@@ -552,7 +552,7 @@ public final class InfraAlertConditionState extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder policyId(Integer policyId) {
+        public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
         }
 

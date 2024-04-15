@@ -19,6 +19,7 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
+	AccountId   pulumi.StringPtrOutput `pulumi:"accountId"`
 	AdminApiKey pulumi.StringPtrOutput `pulumi:"adminApiKey"`
 	ApiKey      pulumi.StringOutput    `pulumi:"apiKey"`
 	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
@@ -48,8 +49,8 @@ func NewProvider(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ApiKey'")
 	}
 	if args.AccountId == nil {
-		if d := internal.GetEnvOrDefault(nil, internal.ParseEnvInt, "NEW_RELIC_ACCOUNT_ID"); d != nil {
-			args.AccountId = pulumi.IntPtr(d.(int))
+		if d := internal.GetEnvOrDefault(nil, nil, "NEW_RELIC_ACCOUNT_ID"); d != nil {
+			args.AccountId = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.Region == nil {
@@ -58,7 +59,7 @@ func NewProvider(ctx *pulumi.Context,
 		}
 	}
 	if args.AccountId != nil {
-		args.AccountId = pulumi.ToSecret(args.AccountId).(pulumi.IntPtrInput)
+		args.AccountId = pulumi.ToSecret(args.AccountId).(pulumi.StringPtrInput)
 	}
 	if args.AdminApiKey != nil {
 		args.AdminApiKey = pulumi.ToSecret(args.AdminApiKey).(pulumi.StringPtrInput)
@@ -70,6 +71,7 @@ func NewProvider(ctx *pulumi.Context,
 		args.InsightsInsertKey = pulumi.ToSecret(args.InsightsInsertKey).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"accountId",
 		"adminApiKey",
 		"apiKey",
 		"insightsInsertKey",
@@ -85,7 +87,7 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	AccountId   *int    `pulumi:"accountId"`
+	AccountId   *string `pulumi:"accountId"`
 	AdminApiKey *string `pulumi:"adminApiKey"`
 	ApiKey      string  `pulumi:"apiKey"`
 	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
@@ -107,7 +109,7 @@ type providerArgs struct {
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	AccountId   pulumi.IntPtrInput
+	AccountId   pulumi.StringPtrInput
 	AdminApiKey pulumi.StringPtrInput
 	ApiKey      pulumi.StringInput
 	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
@@ -162,6 +164,10 @@ func (o ProviderOutput) ToProviderOutput() ProviderOutput {
 
 func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) ProviderOutput {
 	return o
+}
+
+func (o ProviderOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderOutput) AdminApiKey() pulumi.StringPtrOutput {

@@ -22,8 +22,8 @@ class GetAccountResult:
     A collection of values returned by getAccount.
     """
     def __init__(__self__, account_id=None, id=None, name=None, scope=None):
-        if account_id and not isinstance(account_id, int):
-            raise TypeError("Expected argument 'account_id' to be a int")
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -37,7 +37,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         return pulumi.get(self, "account_id")
 
     @property
@@ -71,7 +71,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             scope=self.scope)
 
 
-def get_account(account_id: Optional[int] = None,
+def get_account(account_id: Optional[str] = None,
                 name: Optional[str] = None,
                 scope: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
@@ -90,7 +90,7 @@ def get_account(account_id: Optional[int] = None,
     ```
 
 
-    :param int account_id: The account ID in New Relic.
+    :param str account_id: The account ID in New Relic.
     :param str name: The account name in New Relic.
     :param str scope: The scope of the account in New Relic.  Valid values are "global" and "in_region".  Defaults to "in_region".
     """
@@ -109,7 +109,7 @@ def get_account(account_id: Optional[int] = None,
 
 
 @_utilities.lift_output_func(get_account)
-def get_account_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
+def get_account_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                        name: Optional[pulumi.Input[Optional[str]]] = None,
                        scope: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
@@ -128,7 +128,7 @@ def get_account_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
     ```
 
 
-    :param int account_id: The account ID in New Relic.
+    :param str account_id: The account ID in New Relic.
     :param str name: The account name in New Relic.
     :param str scope: The scope of the account in New Relic.  Valid values are "global" and "in_region".  Defaults to "in_region".
     """

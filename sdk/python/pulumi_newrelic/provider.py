@@ -15,7 +15,7 @@ __all__ = ['ProviderArgs', 'Provider']
 class ProviderArgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  admin_api_key: Optional[pulumi.Input[str]] = None,
                  api_url: Optional[pulumi.Input[str]] = None,
                  cacert_file: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class ProviderArgs:
         """
         pulumi.set(__self__, "api_key", api_key)
         if account_id is None:
-            account_id = _utilities.get_env_int('NEW_RELIC_ACCOUNT_ID')
+            account_id = _utilities.get_env('NEW_RELIC_ACCOUNT_ID')
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if admin_api_key is not None:
@@ -84,11 +84,11 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -211,7 +211,7 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  admin_api_key: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_url: Optional[pulumi.Input[str]] = None,
@@ -262,7 +262,7 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  admin_api_key: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_url: Optional[pulumi.Input[str]] = None,
@@ -285,8 +285,8 @@ class Provider(pulumi.ProviderResource):
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
             if account_id is None:
-                account_id = _utilities.get_env_int('NEW_RELIC_ACCOUNT_ID')
-            __props__.__dict__["account_id"] = pulumi.Output.secret(account_id).apply(pulumi.runtime.to_json) if account_id is not None else None
+                account_id = _utilities.get_env('NEW_RELIC_ACCOUNT_ID')
+            __props__.__dict__["account_id"] = None if account_id is None else pulumi.Output.secret(account_id)
             __props__.__dict__["admin_api_key"] = None if admin_api_key is None else pulumi.Output.secret(admin_api_key)
             if api_key is None and not opts.urn:
                 raise TypeError("Missing required property 'api_key'")
@@ -303,13 +303,18 @@ class Provider(pulumi.ProviderResource):
                 region = (_utilities.get_env('NEW_RELIC_REGION') or 'US')
             __props__.__dict__["region"] = region
             __props__.__dict__["synthetics_api_url"] = synthetics_api_url
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["adminApiKey", "apiKey", "insightsInsertKey"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accountId", "adminApiKey", "apiKey", "insightsInsertKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'newrelic',
             resource_name,
             __props__,
             opts)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="adminApiKey")

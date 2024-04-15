@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  *     name: "Latency",
  *     description: "Proportion of requests that are served faster than a threshold.",
  *     events: {
- *         accountId: 12345678,
+ *         accountId: "12345678",
  *         validEvents: {
  *             from: "Transaction",
  *             where: "appName = 'Example application' AND (transactionType='Web')",
@@ -61,8 +61,8 @@ import * as utilities from "./utilities";
  *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("your_condition", {
- *     accountId: 12345678,
- *     policyId: 67890,
+ *     accountId: "12345678",
+ *     policyId: "67890",
  *     type: "static",
  *     name: "Slow burn alert",
  *     enabled: true,
@@ -100,8 +100,8 @@ import * as utilities from "./utilities";
  *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("your_condition", {
- *     accountId: 12345678,
- *     policyId: 67890,
+ *     accountId: "12345678",
+ *     policyId: "67890",
  *     type: "static",
  *     name: "Custom burn alert",
  *     enabled: true,
@@ -200,7 +200,7 @@ export interface GetServiceLevelAlertHelperResult {
  *     name: "Latency",
  *     description: "Proportion of requests that are served faster than a threshold.",
  *     events: {
- *         accountId: 12345678,
+ *         accountId: "12345678",
  *         validEvents: {
  *             from: "Transaction",
  *             where: "appName = 'Example application' AND (transactionType='Web')",
@@ -239,8 +239,8 @@ export interface GetServiceLevelAlertHelperResult {
  *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("your_condition", {
- *     accountId: 12345678,
- *     policyId: 67890,
+ *     accountId: "12345678",
+ *     policyId: "67890",
  *     type: "static",
  *     name: "Slow burn alert",
  *     enabled: true,
@@ -278,8 +278,8 @@ export interface GetServiceLevelAlertHelperResult {
  *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("your_condition", {
- *     accountId: 12345678,
- *     policyId: 67890,
+ *     accountId: "12345678",
+ *     policyId: "67890",
  *     type: "static",
  *     name: "Custom burn alert",
  *     enabled: true,

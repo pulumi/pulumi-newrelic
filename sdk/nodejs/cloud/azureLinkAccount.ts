@@ -74,7 +74,7 @@ export class AzureLinkAccount extends pulumi.CustomResource {
     /**
      * Account ID of the New Relic.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Application ID of the App.
      */
@@ -150,7 +150,7 @@ export interface AzureLinkAccountState {
     /**
      * Account ID of the New Relic.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Application ID of the App.
      */
@@ -180,7 +180,7 @@ export interface AzureLinkAccountArgs {
     /**
      * Account ID of the New Relic.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Application ID of the App.
      */

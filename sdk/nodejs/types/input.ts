@@ -601,7 +601,7 @@ export interface OneDashboardPageWidgetAreaNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -746,7 +746,7 @@ export interface OneDashboardPageWidgetBarNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -891,7 +891,7 @@ export interface OneDashboardPageWidgetBillboardNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1032,7 +1032,7 @@ export interface OneDashboardPageWidgetBulletNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1169,7 +1169,7 @@ export interface OneDashboardPageWidgetFunnelNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1314,7 +1314,7 @@ export interface OneDashboardPageWidgetHeatmapNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1451,7 +1451,7 @@ export interface OneDashboardPageWidgetHistogramNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1588,7 +1588,7 @@ export interface OneDashboardPageWidgetJsonNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1729,7 +1729,7 @@ export interface OneDashboardPageWidgetLineNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1866,7 +1866,7 @@ export interface OneDashboardPageWidgetLogTableNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2137,7 +2137,7 @@ export interface OneDashboardPageWidgetPyNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2274,7 +2274,7 @@ export interface OneDashboardPageWidgetStackedBarNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2419,7 +2419,7 @@ export interface OneDashboardPageWidgetTableNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2582,7 +2582,7 @@ export interface OneDashboardVariableNrqlQuery {
     /**
      * New Relic account ID(s) to issue the query against.
      */
-    accountIds?: pulumi.Input<pulumi.Input<number>[]>;
+    accountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2597,7 +2597,7 @@ export interface OneDashboardVariableOption {
 }
 
 export interface ServiceLevelEvents {
-    accountId: pulumi.Input<number>;
+    accountId: pulumi.Input<string>;
     badEvents?: pulumi.Input<inputs.ServiceLevelEventsBadEvents>;
     goodEvents?: pulumi.Input<inputs.ServiceLevelEventsGoodEvents>;
     validEvents: pulumi.Input<inputs.ServiceLevelEventsValidEvents>;
@@ -2694,7 +2694,7 @@ export interface WorkflowEnrichmentsNrql {
     /**
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * A set of key-value pairs to represent a enrichment configuration.
      */
@@ -4723,6 +4723,39 @@ export namespace synthetics {
          * Header Value.
          */
         value?: pulumi.Input<string>;
+    }
+
+    export interface MonitorDowntimeEndRepeat {
+        /**
+         * A date, on which the Monitor Downtime's repeat cycle is expected to end.
+         */
+        onDate?: pulumi.Input<string>;
+        /**
+         * Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
+         */
+        onRepeat?: pulumi.Input<number>;
+    }
+
+    export interface MonitorDowntimeFrequency {
+        /**
+         * A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
+         */
+        daysOfMonths?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * A list of days of the week on which the Monitor Downtime is scheduled to run.
+         */
+        daysOfWeek?: pulumi.Input<inputs.synthetics.MonitorDowntimeFrequencyDaysOfWeek>;
+    }
+
+    export interface MonitorDowntimeFrequencyDaysOfWeek {
+        /**
+         * An occurrence of the day selected within the month.
+         */
+        ordinalDayOfMonth: pulumi.Input<string>;
+        /**
+         * The day of the week on which the Monitor Downtime would run.
+         */
+        weekDay: pulumi.Input<string>;
     }
 
     export interface MonitorTag {

@@ -32,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				Name:          pulumi.String("webhook-example"),
 //				Type:          pulumi.String("WEBHOOK"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
@@ -75,7 +75,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				Name:          pulumi.String("servicenow-incident-example"),
 //				Type:          pulumi.String("SERVICENOW_INCIDENTS"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
@@ -114,7 +114,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				Name:          pulumi.String("email-example"),
 //				Type:          pulumi.String("EMAIL"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
@@ -153,7 +153,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				Name:          pulumi.String("jira-example"),
 //				Type:          pulumi.String("JIRA_CLASSIC"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
@@ -200,7 +200,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				Name:          pulumi.String("pagerduty-account-example"),
 //				Type:          pulumi.String("PAGERDUTY_ACCOUNT_INTEGRATION"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
@@ -263,7 +263,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				Name:          pulumi.String("pagerduty-account-example"),
 //				Type:          pulumi.String("PAGERDUTY_SERVICE_INTEGRATION"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
@@ -317,7 +317,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				Name:          pulumi.String("mobile-push-example"),
 //				Type:          pulumi.String("MOBILE_PUSH"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
@@ -346,7 +346,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				Name:          pulumi.String("event-bridge-example"),
 //				Type:          pulumi.String("EVENT_BRIDGE"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
@@ -385,7 +385,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				Name:          pulumi.String("slack-example"),
 //				Type:          pulumi.String("SLACK"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
@@ -430,7 +430,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationDestination(ctx, "webhook-destination", &newrelic.NotificationDestinationArgs{
-//				AccountId: pulumi.Int(12345678),
+//				AccountId: pulumi.String("12345678"),
 //				Name:      pulumi.String("destination-webhook"),
 //				Type:      pulumi.String("WEBHOOK"),
 //				Properties: newrelic.NotificationDestinationPropertyArray{
@@ -467,7 +467,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "webhook-channel", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				Name:          pulumi.String("channel-webhook"),
 //				Type:          pulumi.String("WEBHOOK"),
 //				DestinationId: pulumi.Any(webhook_destination.Id),
@@ -510,7 +510,7 @@ type NotificationChannel struct {
 	pulumi.CustomResourceState
 
 	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Indicates whether the channel is active.
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
 	// The id of the destination.
@@ -570,7 +570,7 @@ func GetNotificationChannel(ctx *pulumi.Context,
 // Input properties used for looking up and filtering NotificationChannel resources.
 type notificationChannelState struct {
 	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Indicates whether the channel is active.
 	Active *bool `pulumi:"active"`
 	// The id of the destination.
@@ -589,7 +589,7 @@ type notificationChannelState struct {
 
 type NotificationChannelState struct {
 	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Indicates whether the channel is active.
 	Active pulumi.BoolPtrInput
 	// The id of the destination.
@@ -612,7 +612,7 @@ func (NotificationChannelState) ElementType() reflect.Type {
 
 type notificationChannelArgs struct {
 	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Indicates whether the channel is active.
 	Active *bool `pulumi:"active"`
 	// The id of the destination.
@@ -630,7 +630,7 @@ type notificationChannelArgs struct {
 // The set of arguments for constructing a NotificationChannel resource.
 type NotificationChannelArgs struct {
 	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Indicates whether the channel is active.
 	Active pulumi.BoolPtrInput
 	// The id of the destination.
@@ -733,8 +733,8 @@ func (o NotificationChannelOutput) ToNotificationChannelOutputWithContext(ctx co
 }
 
 // Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
-func (o NotificationChannelOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *NotificationChannel) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o NotificationChannelOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Indicates whether the channel is active.

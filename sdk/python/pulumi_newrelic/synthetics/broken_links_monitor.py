@@ -19,7 +19,7 @@ class BrokenLinksMonitorArgs:
                  period: pulumi.Input[str],
                  status: pulumi.Input[str],
                  uri: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class BrokenLinksMonitorArgs:
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[str] uri: The URI the monitor runs against.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
@@ -97,14 +97,14 @@ class BrokenLinksMonitorArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account in which the Synthetics monitor will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -185,7 +185,7 @@ class BrokenLinksMonitorArgs:
 @pulumi.input_type
 class _BrokenLinksMonitorState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  guid: Optional[pulumi.Input[str]] = None,
                  locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -199,7 +199,7 @@ class _BrokenLinksMonitorState:
                  uri: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BrokenLinksMonitor resources.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[str] guid: The unique entity identifier of the monitor in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
@@ -241,14 +241,14 @@ class _BrokenLinksMonitorState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account in which the Synthetics monitor will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -391,7 +391,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -466,7 +466,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
@@ -562,7 +562,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -609,7 +609,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             guid: Optional[pulumi.Input[str]] = None,
             locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -628,7 +628,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[str] guid: The unique entity identifier of the monitor in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
@@ -663,7 +663,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The account in which the Synthetics monitor will be created.
         """

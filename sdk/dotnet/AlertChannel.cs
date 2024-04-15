@@ -216,7 +216,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID where you want to create alert channels.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The configuration block for the alert channel.
@@ -286,7 +286,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID where you want to create alert channels.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The configuration block for the alert channel.
@@ -318,7 +318,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID where you want to create alert channels.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The configuration block for the alert channel.

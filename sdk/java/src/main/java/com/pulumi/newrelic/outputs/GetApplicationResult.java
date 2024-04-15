@@ -5,7 +5,6 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -16,7 +15,7 @@ public final class GetApplicationResult {
      * @return A list of host IDs associated with the application.
      * 
      */
-    private List<Integer> hostIds;
+    private List<String> hostIds;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -26,7 +25,7 @@ public final class GetApplicationResult {
      * @return A list of instance IDs associated with the application.
      * 
      */
-    private List<Integer> instanceIds;
+    private List<String> instanceIds;
     private String name;
 
     private GetApplicationResult() {}
@@ -34,7 +33,7 @@ public final class GetApplicationResult {
      * @return A list of host IDs associated with the application.
      * 
      */
-    public List<Integer> hostIds() {
+    public List<String> hostIds() {
         return this.hostIds;
     }
     /**
@@ -48,7 +47,7 @@ public final class GetApplicationResult {
      * @return A list of instance IDs associated with the application.
      * 
      */
-    public List<Integer> instanceIds() {
+    public List<String> instanceIds() {
         return this.instanceIds;
     }
     public String name() {
@@ -64,9 +63,9 @@ public final class GetApplicationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<Integer> hostIds;
+        private List<String> hostIds;
         private String id;
-        private List<Integer> instanceIds;
+        private List<String> instanceIds;
         private String name;
         public Builder() {}
         public Builder(GetApplicationResult defaults) {
@@ -78,14 +77,14 @@ public final class GetApplicationResult {
         }
 
         @CustomType.Setter
-        public Builder hostIds(List<Integer> hostIds) {
+        public Builder hostIds(List<String> hostIds) {
             if (hostIds == null) {
               throw new MissingRequiredPropertyException("GetApplicationResult", "hostIds");
             }
             this.hostIds = hostIds;
             return this;
         }
-        public Builder hostIds(Integer... hostIds) {
+        public Builder hostIds(String... hostIds) {
             return hostIds(List.of(hostIds));
         }
         @CustomType.Setter
@@ -97,14 +96,14 @@ public final class GetApplicationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder instanceIds(List<Integer> instanceIds) {
+        public Builder instanceIds(List<String> instanceIds) {
             if (instanceIds == null) {
               throw new MissingRequiredPropertyException("GetApplicationResult", "instanceIds");
             }
             this.instanceIds = instanceIds;
             return this;
         }
-        public Builder instanceIds(Integer... instanceIds) {
+        public Builder instanceIds(String... instanceIds) {
             return instanceIds(List.of(instanceIds));
         }
         @CustomType.Setter

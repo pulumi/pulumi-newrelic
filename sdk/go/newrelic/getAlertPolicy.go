@@ -25,7 +25,7 @@ func LookupAlertPolicy(ctx *pulumi.Context, args *LookupAlertPolicyArgs, opts ..
 // A collection of arguments for invoking getAlertPolicy.
 type LookupAlertPolicyArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The rollup strategy for the policy, which can have one of the following values:
 	IncidentPreference *string `pulumi:"incidentPreference"`
 	// The name of the alert policy in New Relic.
@@ -34,7 +34,7 @@ type LookupAlertPolicyArgs struct {
 
 // A collection of values returned by getAlertPolicy.
 type LookupAlertPolicyResult struct {
-	AccountId int `pulumi:"accountId"`
+	AccountId string `pulumi:"accountId"`
 	// The time the policy was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// The provider-assigned unique ID for this managed resource.
@@ -62,7 +62,7 @@ func LookupAlertPolicyOutput(ctx *pulumi.Context, args LookupAlertPolicyOutputAr
 // A collection of arguments for invoking getAlertPolicy.
 type LookupAlertPolicyOutputArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The rollup strategy for the policy, which can have one of the following values:
 	IncidentPreference pulumi.StringPtrInput `pulumi:"incidentPreference"`
 	// The name of the alert policy in New Relic.
@@ -88,8 +88,8 @@ func (o LookupAlertPolicyResultOutput) ToLookupAlertPolicyResultOutputWithContex
 	return o
 }
 
-func (o LookupAlertPolicyResultOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupAlertPolicyResult) int { return v.AccountId }).(pulumi.IntOutput)
+func (o LookupAlertPolicyResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAlertPolicyResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The time the policy was created.

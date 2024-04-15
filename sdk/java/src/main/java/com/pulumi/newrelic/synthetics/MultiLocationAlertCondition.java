@@ -276,14 +276,14 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      * The ID of the policy where this condition will be used.
      * 
      */
-    @Export(name="policyId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> policyId;
+    @Export(name="policyId", refs={String.class}, tree="[0]")
+    private Output<String> policyId;
 
     /**
      * @return The ID of the policy where this condition will be used.
      * 
      */
-    public Output<Integer> policyId() {
+    public Output<String> policyId() {
         return this.policyId;
     }
     /**

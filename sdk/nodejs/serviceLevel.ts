@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  *     name: "Latency",
  *     description: "Proportion of requests that are served faster than a threshold.",
  *     events: {
- *         accountId: 12345678,
+ *         accountId: "12345678",
  *         validEvents: {
  *             from: "Transaction",
  *             where: "appName = 'Example application' AND (transactionType='Web')",
@@ -63,7 +63,7 @@ import * as utilities from "./utilities";
  *     name: "My synthethic monitor - Success",
  *     description: "Proportion of successful synthetic checks.",
  *     events: {
- *         accountId: 12345678,
+ *         accountId: "12345678",
  *         validEvents: {
  *             from: "SyntheticCheck",
  *             where: "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
@@ -112,7 +112,7 @@ import * as utilities from "./utilities";
  *     name: "Duration distribution is under 7",
  *     description: "Monitor created to test concurrent request from terraform",
  *     events: {
- *         accountId: 313870,
+ *         accountId: "313870",
  *         validEvents: {
  *             from: "Metric",
  *             select: {

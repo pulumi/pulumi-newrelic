@@ -61,7 +61,7 @@ export interface GetApplicationResult {
     /**
      * A list of host IDs associated with the application.
      */
-    readonly hostIds: number[];
+    readonly hostIds: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -69,7 +69,7 @@ export interface GetApplicationResult {
     /**
      * A list of instance IDs associated with the application.
      */
-    readonly instanceIds: number[];
+    readonly instanceIds: string[];
     readonly name: string;
 }
 /**

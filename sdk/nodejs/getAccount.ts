@@ -38,7 +38,7 @@ export interface GetAccountArgs {
     /**
      * The account ID in New Relic.
      */
-    accountId?: number;
+    accountId?: string;
     /**
      * The account name in New Relic.
      */
@@ -53,7 +53,7 @@ export interface GetAccountArgs {
  * A collection of values returned by getAccount.
  */
 export interface GetAccountResult {
-    readonly accountId?: number;
+    readonly accountId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -88,7 +88,7 @@ export interface GetAccountOutputArgs {
     /**
      * The account ID in New Relic.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The account name in New Relic.
      */

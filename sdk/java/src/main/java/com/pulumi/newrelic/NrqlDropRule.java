@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.NrqlDropRuleArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.NrqlDropRuleState;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -98,14 +97,14 @@ public class NrqlDropRule extends com.pulumi.resources.CustomResource {
      * Account with the NRQL drop rule will be put.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return Account with the NRQL drop rule will be put.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

@@ -21,14 +21,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "foo", &newrelic.MonitorDowntimeArgs{
+//			_, err := synthetics.NewMonitorDowntime(ctx, "foo", &synthetics.MonitorDowntimeArgs{
 //				Name: pulumi.String("Sample Monitor Downtime"),
 //				MonitorGuids: pulumi.StringArray{
 //					pulumi.String("<GUID-1>"),
@@ -38,7 +38,7 @@ import (
 //				StartTime: pulumi.String("2023-11-30T10:30:00"),
 //				EndTime:   pulumi.String("2023-12-10T02:45:30"),
 //				TimeZone:  pulumi.String("Asia/Kolkata"),
-//				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
+//				EndRepeat: &synthetics.MonitorDowntimeEndRepeatArgs{
 //					OnDate: pulumi.String("2023-12-20"),
 //				},
 //				MaintenanceDays: pulumi.StringArray{
@@ -67,14 +67,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "sample_one_time_newrelic_monitor_downtime", &newrelic.MonitorDowntimeArgs{
+//			_, err := synthetics.NewMonitorDowntime(ctx, "sample_one_time_newrelic_monitor_downtime", &synthetics.MonitorDowntimeArgs{
 //				Name: pulumi.String("Sample One Time Monitor Downtime"),
 //				MonitorGuids: pulumi.StringArray{
 //					pulumi.String("<GUID-1>"),
@@ -105,14 +105,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "sample_daily_newrelic_monitor_downtime", &newrelic.MonitorDowntimeArgs{
+//			_, err := synthetics.NewMonitorDowntime(ctx, "sample_daily_newrelic_monitor_downtime", &synthetics.MonitorDowntimeArgs{
 //				Name: pulumi.String("Sample Daily Monitor Downtime"),
 //				MonitorGuids: pulumi.StringArray{
 //					pulumi.String("<GUID-1>"),
@@ -121,7 +121,7 @@ import (
 //				Mode:      pulumi.String("DAILY"),
 //				StartTime: pulumi.String("2023-12-04T18:15:00"),
 //				EndTime:   pulumi.String("2024-01-04T07:15:00"),
-//				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
+//				EndRepeat: &synthetics.MonitorDowntimeEndRepeatArgs{
 //					OnDate: pulumi.String("2023-12-25"),
 //				},
 //				TimeZone: pulumi.String("Asia/Kolkata"),
@@ -146,14 +146,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "sample_weekly_newrelic_monitor_downtime", &newrelic.MonitorDowntimeArgs{
+//			_, err := synthetics.NewMonitorDowntime(ctx, "sample_weekly_newrelic_monitor_downtime", &synthetics.MonitorDowntimeArgs{
 //				Name: pulumi.String("Sample Weekly Monitor Downtime"),
 //				MonitorGuids: pulumi.StringArray{
 //					pulumi.String("<GUID-1>"),
@@ -188,14 +188,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "sample_monthly_newrelic_monitor_downtime", &newrelic.MonitorDowntimeArgs{
+//			_, err := synthetics.NewMonitorDowntime(ctx, "sample_monthly_newrelic_monitor_downtime", &synthetics.MonitorDowntimeArgs{
 //				Name: pulumi.String("Sample Monthly Monitor Downtime"),
 //				MonitorGuids: pulumi.StringArray{
 //					pulumi.String("<GUID-1>"),
@@ -204,12 +204,12 @@ import (
 //				Mode:      pulumi.String("MONTHLY"),
 //				StartTime: pulumi.String("2023-12-04T07:15:00"),
 //				EndTime:   pulumi.String("2024-01-04T19:15:00"),
-//				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
+//				EndRepeat: &synthetics.MonitorDowntimeEndRepeatArgs{
 //					OnRepeat: pulumi.Int(6),
 //				},
 //				TimeZone: pulumi.String("Europe/Dublin"),
-//				Frequency: &newrelic.MonitorDowntimeFrequencyArgs{
-//					DaysOfWeek: &newrelic.MonitorDowntimeFrequencyDaysOfWeekArgs{
+//				Frequency: &synthetics.MonitorDowntimeFrequencyArgs{
+//					DaysOfWeek: &synthetics.MonitorDowntimeFrequencyDaysOfWeekArgs{
 //						OrdinalDayOfMonth: pulumi.String("SECOND"),
 //						WeekDay:           pulumi.String("SATURDAY"),
 //					},
@@ -229,14 +229,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "sample_monthly_newrelic_monitor_downtime", &newrelic.MonitorDowntimeArgs{
+//			_, err := synthetics.NewMonitorDowntime(ctx, "sample_monthly_newrelic_monitor_downtime", &synthetics.MonitorDowntimeArgs{
 //				Name: pulumi.String("Sample Monthly Monitor Downtime"),
 //				MonitorGuids: pulumi.StringArray{
 //					pulumi.String("<GUID-1>"),
@@ -245,11 +245,11 @@ import (
 //				Mode:      pulumi.String("MONTHLY"),
 //				StartTime: pulumi.String("2023-12-04T07:15:00"),
 //				EndTime:   pulumi.String("2024-01-04T19:15:00"),
-//				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
+//				EndRepeat: &synthetics.MonitorDowntimeEndRepeatArgs{
 //					OnRepeat: pulumi.Int(6),
 //				},
 //				TimeZone: pulumi.String("Europe/Dublin"),
-//				Frequency: &newrelic.MonitorDowntimeFrequencyArgs{
+//				Frequency: &synthetics.MonitorDowntimeFrequencyArgs{
 //					DaysOfMonths: pulumi.IntArray{
 //						pulumi.Int(3),
 //						pulumi.Int(6),
@@ -276,12 +276,14 @@ import (
 // ```sh
 // $ pulumi import newrelic:index/monitorDowntime:MonitorDowntime monitor <guid>
 // ```
+//
+// Deprecated: newrelic.index/monitordowntime.MonitorDowntime has been deprecated in favor of newrelic.synthetics/monitordowntime.MonitorDowntime
 type MonitorDowntime struct {
 	pulumi.CustomResourceState
 
 	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
 	// provider{} configuration if not specified.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
 	EndRepeat MonitorDowntimeEndRepeatPtrOutput `pulumi:"endRepeat"`
 	// A datetime stamp signifying the end of the Monitor Downtime.
@@ -346,7 +348,7 @@ func GetMonitorDowntime(ctx *pulumi.Context,
 type monitorDowntimeState struct {
 	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
 	// provider{} configuration if not specified.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
 	EndRepeat *MonitorDowntimeEndRepeat `pulumi:"endRepeat"`
 	// A datetime stamp signifying the end of the Monitor Downtime.
@@ -370,7 +372,7 @@ type monitorDowntimeState struct {
 type MonitorDowntimeState struct {
 	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
 	// provider{} configuration if not specified.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
 	EndRepeat MonitorDowntimeEndRepeatPtrInput
 	// A datetime stamp signifying the end of the Monitor Downtime.
@@ -398,7 +400,7 @@ func (MonitorDowntimeState) ElementType() reflect.Type {
 type monitorDowntimeArgs struct {
 	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
 	// provider{} configuration if not specified.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
 	EndRepeat *MonitorDowntimeEndRepeat `pulumi:"endRepeat"`
 	// A datetime stamp signifying the end of the Monitor Downtime.
@@ -423,7 +425,7 @@ type monitorDowntimeArgs struct {
 type MonitorDowntimeArgs struct {
 	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
 	// provider{} configuration if not specified.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
 	EndRepeat MonitorDowntimeEndRepeatPtrInput
 	// A datetime stamp signifying the end of the Monitor Downtime.
@@ -533,8 +535,8 @@ func (o MonitorDowntimeOutput) ToMonitorDowntimeOutputWithContext(ctx context.Co
 
 // The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
 // provider{} configuration if not specified.
-func (o MonitorDowntimeOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *MonitorDowntime) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o MonitorDowntimeOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MonitorDowntime) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.

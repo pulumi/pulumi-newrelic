@@ -27,21 +27,21 @@ func LookupAlertChannel(ctx *pulumi.Context, args *LookupAlertChannelArgs, opts 
 // A collection of arguments for invoking getAlertChannel.
 type LookupAlertChannelArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The name of the alert channel in New Relic.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getAlertChannel.
 type LookupAlertChannelResult struct {
-	AccountId int `pulumi:"accountId"`
+	AccountId string `pulumi:"accountId"`
 	// Alert channel configuration.
 	Config GetAlertChannelConfig `pulumi:"config"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// A list of policy IDs associated with the alert channel.
-	PolicyIds []int `pulumi:"policyIds"`
+	PolicyIds []string `pulumi:"policyIds"`
 	// Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
 	Type string `pulumi:"type"`
 }
@@ -62,7 +62,7 @@ func LookupAlertChannelOutput(ctx *pulumi.Context, args LookupAlertChannelOutput
 // A collection of arguments for invoking getAlertChannel.
 type LookupAlertChannelOutputArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The name of the alert channel in New Relic.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -86,8 +86,8 @@ func (o LookupAlertChannelResultOutput) ToLookupAlertChannelResultOutputWithCont
 	return o
 }
 
-func (o LookupAlertChannelResultOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupAlertChannelResult) int { return v.AccountId }).(pulumi.IntOutput)
+func (o LookupAlertChannelResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAlertChannelResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Alert channel configuration.
@@ -105,8 +105,8 @@ func (o LookupAlertChannelResultOutput) Name() pulumi.StringOutput {
 }
 
 // A list of policy IDs associated with the alert channel.
-func (o LookupAlertChannelResultOutput) PolicyIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v LookupAlertChannelResult) []int { return v.PolicyIds }).(pulumi.IntArrayOutput)
+func (o LookupAlertChannelResultOutput) PolicyIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAlertChannelResult) []string { return v.PolicyIds }).(pulumi.StringArrayOutput)
 }
 
 // Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.

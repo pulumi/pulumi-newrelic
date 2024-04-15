@@ -12,19 +12,19 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NrqlDropRule("foo", {
- *     accountId: 12345,
+ *     accountId: "12345",
  *     description: "Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it.",
  *     action: "drop_data",
  *     nrql: "SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'",
  * });
  * const bar = new newrelic.NrqlDropRule("bar", {
- *     accountId: 12345,
+ *     accountId: "12345",
  *     description: "Removes the user name and email fields from MyCustomEvent",
  *     action: "drop_attributes",
  *     nrql: "SELECT userEmail, userName FROM MyCustomEvent",
  * });
  * const baz = new newrelic.NrqlDropRule("baz", {
- *     accountId: 12345,
+ *     accountId: "12345",
  *     description: "Removes containerId from metric aggregates to reduce metric cardinality.",
  *     action: "drop_attributes_from_metric_aggregates",
  *     nrql: "SELECT containerId FROM Metric",
@@ -85,7 +85,7 @@ export class NrqlDropRule extends pulumi.CustomResource {
     /**
      * Account with the NRQL drop rule will be put.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
      */
@@ -147,7 +147,7 @@ export interface NrqlDropRuleState {
     /**
      * Account with the NRQL drop rule will be put.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
      */
@@ -173,7 +173,7 @@ export interface NrqlDropRuleArgs {
     /**
      * Account with the NRQL drop rule will be put.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
      */

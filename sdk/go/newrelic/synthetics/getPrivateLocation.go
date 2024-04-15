@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := synthetics.LookupPrivateLocation(ctx, &synthetics.LookupPrivateLocationArgs{
-//				AccountId: pulumi.IntRef(123456),
+//				AccountId: pulumi.StringRef("123456"),
 //				Name:      "My private location",
 //			}, nil)
 //			if err != nil {
@@ -61,7 +61,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := synthetics.LookupPrivateLocation(ctx, &synthetics.LookupPrivateLocationArgs{
-//				AccountId: pulumi.IntRef(123456),
+//				AccountId: pulumi.StringRef("123456"),
 //				Name:      "My private location",
 //			}, nil)
 //			if err != nil {
@@ -95,7 +95,7 @@ func LookupPrivateLocation(ctx *pulumi.Context, args *LookupPrivateLocationArgs,
 // A collection of arguments for invoking getPrivateLocation.
 type LookupPrivateLocationArgs struct {
 	// The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The key of the private location.
 	Keys []string `pulumi:"keys"`
 	// The name of the Synthetics monitor private location.
@@ -104,7 +104,7 @@ type LookupPrivateLocationArgs struct {
 
 // A collection of values returned by getPrivateLocation.
 type LookupPrivateLocationResult struct {
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The key of the private location.
@@ -128,7 +128,7 @@ func LookupPrivateLocationOutput(ctx *pulumi.Context, args LookupPrivateLocation
 // A collection of arguments for invoking getPrivateLocation.
 type LookupPrivateLocationOutputArgs struct {
 	// The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The key of the private location.
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
 	// The name of the Synthetics monitor private location.
@@ -154,8 +154,8 @@ func (o LookupPrivateLocationResultOutput) ToLookupPrivateLocationResultOutputWi
 	return o
 }
 
-func (o LookupPrivateLocationResultOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupPrivateLocationResult) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o LookupPrivateLocationResultOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPrivateLocationResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

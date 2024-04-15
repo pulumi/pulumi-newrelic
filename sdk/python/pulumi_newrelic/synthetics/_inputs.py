@@ -13,6 +13,9 @@ __all__ = [
     'BrokenLinksMonitorTagArgs',
     'CertCheckMonitorTagArgs',
     'MonitorCustomHeaderArgs',
+    'MonitorDowntimeEndRepeatArgs',
+    'MonitorDowntimeFrequencyArgs',
+    'MonitorDowntimeFrequencyDaysOfWeekArgs',
     'MonitorTagArgs',
     'MultiLocationAlertConditionCriticalArgs',
     'MultiLocationAlertConditionWarningArgs',
@@ -134,6 +137,121 @@ class MonitorCustomHeaderArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class MonitorDowntimeEndRepeatArgs:
+    def __init__(__self__, *,
+                 on_date: Optional[pulumi.Input[str]] = None,
+                 on_repeat: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] on_date: A date, on which the Monitor Downtime's repeat cycle is expected to end.
+        :param pulumi.Input[int] on_repeat: Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
+        """
+        if on_date is not None:
+            pulumi.set(__self__, "on_date", on_date)
+        if on_repeat is not None:
+            pulumi.set(__self__, "on_repeat", on_repeat)
+
+    @property
+    @pulumi.getter(name="onDate")
+    def on_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        A date, on which the Monitor Downtime's repeat cycle is expected to end.
+        """
+        return pulumi.get(self, "on_date")
+
+    @on_date.setter
+    def on_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_date", value)
+
+    @property
+    @pulumi.getter(name="onRepeat")
+    def on_repeat(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
+        """
+        return pulumi.get(self, "on_repeat")
+
+    @on_repeat.setter
+    def on_repeat(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "on_repeat", value)
+
+
+@pulumi.input_type
+class MonitorDowntimeFrequencyArgs:
+    def __init__(__self__, *,
+                 days_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 days_of_week: Optional[pulumi.Input['MonitorDowntimeFrequencyDaysOfWeekArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] days_of_months: A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
+        :param pulumi.Input['MonitorDowntimeFrequencyDaysOfWeekArgs'] days_of_week: A list of days of the week on which the Monitor Downtime is scheduled to run.
+        """
+        if days_of_months is not None:
+            pulumi.set(__self__, "days_of_months", days_of_months)
+        if days_of_week is not None:
+            pulumi.set(__self__, "days_of_week", days_of_week)
+
+    @property
+    @pulumi.getter(name="daysOfMonths")
+    def days_of_months(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
+        """
+        return pulumi.get(self, "days_of_months")
+
+    @days_of_months.setter
+    def days_of_months(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "days_of_months", value)
+
+    @property
+    @pulumi.getter(name="daysOfWeek")
+    def days_of_week(self) -> Optional[pulumi.Input['MonitorDowntimeFrequencyDaysOfWeekArgs']]:
+        """
+        A list of days of the week on which the Monitor Downtime is scheduled to run.
+        """
+        return pulumi.get(self, "days_of_week")
+
+    @days_of_week.setter
+    def days_of_week(self, value: Optional[pulumi.Input['MonitorDowntimeFrequencyDaysOfWeekArgs']]):
+        pulumi.set(self, "days_of_week", value)
+
+
+@pulumi.input_type
+class MonitorDowntimeFrequencyDaysOfWeekArgs:
+    def __init__(__self__, *,
+                 ordinal_day_of_month: pulumi.Input[str],
+                 week_day: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] ordinal_day_of_month: An occurrence of the day selected within the month.
+        :param pulumi.Input[str] week_day: The day of the week on which the Monitor Downtime would run.
+        """
+        pulumi.set(__self__, "ordinal_day_of_month", ordinal_day_of_month)
+        pulumi.set(__self__, "week_day", week_day)
+
+    @property
+    @pulumi.getter(name="ordinalDayOfMonth")
+    def ordinal_day_of_month(self) -> pulumi.Input[str]:
+        """
+        An occurrence of the day selected within the month.
+        """
+        return pulumi.get(self, "ordinal_day_of_month")
+
+    @ordinal_day_of_month.setter
+    def ordinal_day_of_month(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ordinal_day_of_month", value)
+
+    @property
+    @pulumi.getter(name="weekDay")
+    def week_day(self) -> pulumi.Input[str]:
+        """
+        The day of the week on which the Monitor Downtime would run.
+        """
+        return pulumi.get(self, "week_day")
+
+    @week_day.setter
+    def week_day(self, value: pulumi.Input[str]):
+        pulumi.set(self, "week_day", value)
 
 
 @pulumi.input_type

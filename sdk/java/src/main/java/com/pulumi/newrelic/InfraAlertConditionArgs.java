@@ -132,13 +132,13 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
      * 
      */
     @Import(name="policyId", required=true)
-    private Output<Integer> policyId;
+    private Output<String> policyId;
 
     /**
      * @return The ID of the alert policy where this condition should be used.
      * 
      */
-    public Output<Integer> policyId() {
+    public Output<String> policyId() {
         return this.policyId;
     }
 
@@ -452,7 +452,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder policyId(Output<Integer> policyId) {
+        public Builder policyId(Output<String> policyId) {
             $.policyId = policyId;
             return this;
         }
@@ -463,7 +463,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder policyId(Integer policyId) {
+        public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
         }
 

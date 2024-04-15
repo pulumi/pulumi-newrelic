@@ -416,7 +416,7 @@ export class AwsIntegrations extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * AWS ALB. See Integration blocks below for details.
      */
@@ -593,7 +593,7 @@ export class AwsIntegrations extends pulumi.CustomResource {
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
-    public readonly linkedAccountId!: pulumi.Output<number>;
+    public readonly linkedAccountId!: pulumi.Output<string>;
     /**
      * Amazon RDS. See Integration blocks below for details.
      */
@@ -779,7 +779,7 @@ export interface AwsIntegrationsState {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * AWS ALB. See Integration blocks below for details.
      */
@@ -956,7 +956,7 @@ export interface AwsIntegrationsState {
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
-    linkedAccountId?: pulumi.Input<number>;
+    linkedAccountId?: pulumi.Input<string>;
     /**
      * Amazon RDS. See Integration blocks below for details.
      */
@@ -1011,7 +1011,7 @@ export interface AwsIntegrationsArgs {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * AWS ALB. See Integration blocks below for details.
      */
@@ -1188,7 +1188,7 @@ export interface AwsIntegrationsArgs {
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
-    linkedAccountId: pulumi.Input<number>;
+    linkedAccountId: pulumi.Input<string>;
     /**
      * Amazon RDS. See Integration blocks below for details.
      */

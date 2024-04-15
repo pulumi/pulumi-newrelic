@@ -24,7 +24,7 @@ type BrowserApplication struct {
 	pulumi.CustomResourceState
 
 	// The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The application ID of the browser application (not to be confused with GUID).
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// Configures cookies. Defaults to `true`, if not specified.
@@ -72,7 +72,7 @@ func GetBrowserApplication(ctx *pulumi.Context,
 // Input properties used for looking up and filtering BrowserApplication resources.
 type browserApplicationState struct {
 	// The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The application ID of the browser application (not to be confused with GUID).
 	ApplicationId *string `pulumi:"applicationId"`
 	// Configures cookies. Defaults to `true`, if not specified.
@@ -91,7 +91,7 @@ type browserApplicationState struct {
 
 type BrowserApplicationState struct {
 	// The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The application ID of the browser application (not to be confused with GUID).
 	ApplicationId pulumi.StringPtrInput
 	// Configures cookies. Defaults to `true`, if not specified.
@@ -114,7 +114,7 @@ func (BrowserApplicationState) ElementType() reflect.Type {
 
 type browserApplicationArgs struct {
 	// The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Configures cookies. Defaults to `true`, if not specified.
 	CookiesEnabled *bool `pulumi:"cookiesEnabled"`
 	// Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
@@ -128,7 +128,7 @@ type browserApplicationArgs struct {
 // The set of arguments for constructing a BrowserApplication resource.
 type BrowserApplicationArgs struct {
 	// The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Configures cookies. Defaults to `true`, if not specified.
 	CookiesEnabled pulumi.BoolPtrInput
 	// Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
@@ -227,8 +227,8 @@ func (o BrowserApplicationOutput) ToBrowserApplicationOutputWithContext(ctx cont
 }
 
 // The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
-func (o BrowserApplicationOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *BrowserApplication) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o BrowserApplicationOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BrowserApplication) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The application ID of the browser application (not to be confused with GUID).

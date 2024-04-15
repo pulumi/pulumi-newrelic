@@ -24,7 +24,7 @@ func LookupNotificationDestination(ctx *pulumi.Context, args *LookupNotification
 // A collection of arguments for invoking getNotificationDestination.
 type LookupNotificationDestinationArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The id of the notification destination in New Relic.
 	Id *string `pulumi:"id"`
 	// The name of the notification destination.
@@ -37,7 +37,7 @@ type LookupNotificationDestinationArgs struct {
 
 // A collection of values returned by getNotificationDestination.
 type LookupNotificationDestinationResult struct {
-	AccountId int `pulumi:"accountId"`
+	AccountId string `pulumi:"accountId"`
 	// An indication whether the notification destination is active or not.
 	Active bool `pulumi:"active"`
 	// The unique entity identifier of the destination in New Relic.
@@ -71,7 +71,7 @@ func LookupNotificationDestinationOutput(ctx *pulumi.Context, args LookupNotific
 // A collection of arguments for invoking getNotificationDestination.
 type LookupNotificationDestinationOutputArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The id of the notification destination in New Relic.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the notification destination.
@@ -101,8 +101,8 @@ func (o LookupNotificationDestinationResultOutput) ToLookupNotificationDestinati
 	return o
 }
 
-func (o LookupNotificationDestinationResultOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupNotificationDestinationResult) int { return v.AccountId }).(pulumi.IntOutput)
+func (o LookupNotificationDestinationResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotificationDestinationResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // An indication whether the notification destination is active or not.

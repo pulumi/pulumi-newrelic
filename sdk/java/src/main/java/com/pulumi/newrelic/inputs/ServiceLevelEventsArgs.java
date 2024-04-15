@@ -9,7 +9,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.ServiceLevelEventsBadEventsArgs;
 import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
 import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
-import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,9 +20,9 @@ public final class ServiceLevelEventsArgs extends com.pulumi.resources.ResourceA
     public static final ServiceLevelEventsArgs Empty = new ServiceLevelEventsArgs();
 
     @Import(name="accountId", required=true)
-    private Output<Integer> accountId;
+    private Output<String> accountId;
 
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
 
@@ -74,12 +74,12 @@ public final class ServiceLevelEventsArgs extends com.pulumi.resources.ResourceA
             $ = new ServiceLevelEventsArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder accountId(Output<Integer> accountId) {
+        public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 

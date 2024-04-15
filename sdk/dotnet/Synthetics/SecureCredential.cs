@@ -47,7 +47,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The New Relic account ID where you want to create the secure credential.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The secure credential's description.
@@ -128,7 +128,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The New Relic account ID where you want to create the secure credential.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The secure credential's description.
@@ -177,7 +177,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The New Relic account ID where you want to create the secure credential.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The secure credential's description.

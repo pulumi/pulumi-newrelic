@@ -30,7 +30,7 @@ import com.pulumi.newrelic.cloud.outputs.AwsGovcloudIntegrationsRoute53;
 import com.pulumi.newrelic.cloud.outputs.AwsGovcloudIntegrationsS3;
 import com.pulumi.newrelic.cloud.outputs.AwsGovcloudIntegrationsSns;
 import com.pulumi.newrelic.cloud.outputs.AwsGovcloudIntegrationsSqs;
-import java.lang.Integer;
+import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -254,14 +254,14 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**
@@ -464,14 +464,14 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * The access key of the AwsGovCloud.
      * 
      */
-    @Export(name="linkedAccountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> linkedAccountId;
+    @Export(name="linkedAccountId", refs={String.class}, tree="[0]")
+    private Output<String> linkedAccountId;
 
     /**
      * @return The access key of the AwsGovCloud.
      * 
      */
-    public Output<Integer> linkedAccountId() {
+    public Output<String> linkedAccountId() {
         return this.linkedAccountId;
     }
     /**

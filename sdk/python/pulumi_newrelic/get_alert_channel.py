@@ -23,8 +23,8 @@ class GetAlertChannelResult:
     A collection of values returned by getAlertChannel.
     """
     def __init__(__self__, account_id=None, config=None, id=None, name=None, policy_ids=None, type=None):
-        if account_id and not isinstance(account_id, int):
-            raise TypeError("Expected argument 'account_id' to be a int")
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
         if config and not isinstance(config, dict):
             raise TypeError("Expected argument 'config' to be a dict")
@@ -44,7 +44,7 @@ class GetAlertChannelResult:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> int:
+    def account_id(self) -> str:
         return pulumi.get(self, "account_id")
 
     @property
@@ -70,7 +70,7 @@ class GetAlertChannelResult:
 
     @property
     @pulumi.getter(name="policyIds")
-    def policy_ids(self) -> Sequence[int]:
+    def policy_ids(self) -> Sequence[str]:
         """
         A list of policy IDs associated with the alert channel.
         """
@@ -99,7 +99,7 @@ class AwaitableGetAlertChannelResult(GetAlertChannelResult):
             type=self.type)
 
 
-def get_alert_channel(account_id: Optional[int] = None,
+def get_alert_channel(account_id: Optional[str] = None,
                       name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertChannelResult:
     """
@@ -108,7 +108,7 @@ def get_alert_channel(account_id: Optional[int] = None,
     > **WARNING:** The `AlertChannel` data source is deprecated and will be removed in the next major release.
 
 
-    :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+    :param str account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str name: The name of the alert channel in New Relic.
     """
     __args__ = dict()
@@ -127,7 +127,7 @@ def get_alert_channel(account_id: Optional[int] = None,
 
 
 @_utilities.lift_output_func(get_alert_channel)
-def get_alert_channel_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
+def get_alert_channel_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                              name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertChannelResult]:
     """
@@ -136,7 +136,7 @@ def get_alert_channel_output(account_id: Optional[pulumi.Input[Optional[int]]] =
     > **WARNING:** The `AlertChannel` data source is deprecated and will be removed in the next major release.
 
 
-    :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+    :param str account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str name: The name of the alert channel in New Relic.
     """
     ...

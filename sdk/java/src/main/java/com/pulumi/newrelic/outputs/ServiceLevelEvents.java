@@ -8,20 +8,20 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.ServiceLevelEventsBadEvents;
 import com.pulumi.newrelic.outputs.ServiceLevelEventsGoodEvents;
 import com.pulumi.newrelic.outputs.ServiceLevelEventsValidEvents;
-import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceLevelEvents {
-    private Integer accountId;
+    private String accountId;
     private @Nullable ServiceLevelEventsBadEvents badEvents;
     private @Nullable ServiceLevelEventsGoodEvents goodEvents;
     private ServiceLevelEventsValidEvents validEvents;
 
     private ServiceLevelEvents() {}
-    public Integer accountId() {
+    public String accountId() {
         return this.accountId;
     }
     public Optional<ServiceLevelEventsBadEvents> badEvents() {
@@ -43,7 +43,7 @@ public final class ServiceLevelEvents {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer accountId;
+        private String accountId;
         private @Nullable ServiceLevelEventsBadEvents badEvents;
         private @Nullable ServiceLevelEventsGoodEvents goodEvents;
         private ServiceLevelEventsValidEvents validEvents;
@@ -57,7 +57,7 @@ public final class ServiceLevelEvents {
         }
 
         @CustomType.Setter
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             if (accountId == null) {
               throw new MissingRequiredPropertyException("ServiceLevelEvents", "accountId");
             }

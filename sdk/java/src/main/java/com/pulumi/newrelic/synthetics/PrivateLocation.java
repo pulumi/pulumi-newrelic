@@ -11,7 +11,6 @@ import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.synthetics.PrivateLocationArgs;
 import com.pulumi.newrelic.synthetics.inputs.PrivateLocationState;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -70,14 +69,14 @@ public class PrivateLocation extends com.pulumi.resources.CustomResource {
      * The account in which the private location will be created.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The account in which the private location will be created.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

@@ -4,7 +4,6 @@
 package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.annotations.Import;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,13 +19,13 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
      * 
      */
     @Import(name="accountId")
-    private @Nullable Integer accountId;
+    private @Nullable String accountId;
 
     /**
      * @return The account ID in New Relic.
      * 
      */
-    public Optional<Integer> accountId() {
+    public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -92,7 +91,7 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Integer accountId) {
+        public Builder accountId(@Nullable String accountId) {
             $.accountId = accountId;
             return this;
         }

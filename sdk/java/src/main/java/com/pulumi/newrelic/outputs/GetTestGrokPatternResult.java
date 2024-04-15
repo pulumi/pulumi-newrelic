@@ -6,7 +6,6 @@ package com.pulumi.newrelic.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.GetTestGrokPatternTestGrok;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -15,7 +14,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTestGrokPatternResult {
-    private @Nullable Integer accountId;
+    private @Nullable String accountId;
     private String grok;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -30,7 +29,7 @@ public final class GetTestGrokPatternResult {
     private List<GetTestGrokPatternTestGrok> testGroks;
 
     private GetTestGrokPatternResult() {}
-    public Optional<Integer> accountId() {
+    public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
     public String grok() {
@@ -63,7 +62,7 @@ public final class GetTestGrokPatternResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Integer accountId;
+        private @Nullable String accountId;
         private String grok;
         private String id;
         private List<String> logLines;
@@ -79,7 +78,7 @@ public final class GetTestGrokPatternResult {
         }
 
         @CustomType.Setter
-        public Builder accountId(@Nullable Integer accountId) {
+        public Builder accountId(@Nullable String accountId) {
 
             this.accountId = accountId;
             return this;

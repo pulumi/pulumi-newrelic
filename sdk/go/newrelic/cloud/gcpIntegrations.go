@@ -147,7 +147,7 @@ type GcpIntegrations struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Alloy DB integration. See Integration blocks below for details.
 	AlloyDb GcpIntegrationsAlloyDbPtrOutput `pulumi:"alloyDb"`
 	// App Engine integration. See Integration blocks below for details.
@@ -181,7 +181,7 @@ type GcpIntegrations struct {
 	// The ID of the linked GCP account in New Relic.
 	//
 	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
-	LinkedAccountId pulumi.IntOutput `pulumi:"linkedAccountId"`
+	LinkedAccountId pulumi.StringOutput `pulumi:"linkedAccountId"`
 	// Load Balancing integration. See Integration blocks below for details.
 	LoadBalancing GcpIntegrationsLoadBalancingPtrOutput `pulumi:"loadBalancing"`
 	// Mem cache integration. See Integration blocks below for details.
@@ -240,7 +240,7 @@ func GetGcpIntegrations(ctx *pulumi.Context,
 // Input properties used for looking up and filtering GcpIntegrations resources.
 type gcpIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Alloy DB integration. See Integration blocks below for details.
 	AlloyDb *GcpIntegrationsAlloyDb `pulumi:"alloyDb"`
 	// App Engine integration. See Integration blocks below for details.
@@ -274,7 +274,7 @@ type gcpIntegrationsState struct {
 	// The ID of the linked GCP account in New Relic.
 	//
 	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
-	LinkedAccountId *int `pulumi:"linkedAccountId"`
+	LinkedAccountId *string `pulumi:"linkedAccountId"`
 	// Load Balancing integration. See Integration blocks below for details.
 	LoadBalancing *GcpIntegrationsLoadBalancing `pulumi:"loadBalancing"`
 	// Mem cache integration. See Integration blocks below for details.
@@ -301,7 +301,7 @@ type gcpIntegrationsState struct {
 
 type GcpIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Alloy DB integration. See Integration blocks below for details.
 	AlloyDb GcpIntegrationsAlloyDbPtrInput
 	// App Engine integration. See Integration blocks below for details.
@@ -335,7 +335,7 @@ type GcpIntegrationsState struct {
 	// The ID of the linked GCP account in New Relic.
 	//
 	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
-	LinkedAccountId pulumi.IntPtrInput
+	LinkedAccountId pulumi.StringPtrInput
 	// Load Balancing integration. See Integration blocks below for details.
 	LoadBalancing GcpIntegrationsLoadBalancingPtrInput
 	// Mem cache integration. See Integration blocks below for details.
@@ -366,7 +366,7 @@ func (GcpIntegrationsState) ElementType() reflect.Type {
 
 type gcpIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Alloy DB integration. See Integration blocks below for details.
 	AlloyDb *GcpIntegrationsAlloyDb `pulumi:"alloyDb"`
 	// App Engine integration. See Integration blocks below for details.
@@ -400,7 +400,7 @@ type gcpIntegrationsArgs struct {
 	// The ID of the linked GCP account in New Relic.
 	//
 	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
-	LinkedAccountId int `pulumi:"linkedAccountId"`
+	LinkedAccountId string `pulumi:"linkedAccountId"`
 	// Load Balancing integration. See Integration blocks below for details.
 	LoadBalancing *GcpIntegrationsLoadBalancing `pulumi:"loadBalancing"`
 	// Mem cache integration. See Integration blocks below for details.
@@ -428,7 +428,7 @@ type gcpIntegrationsArgs struct {
 // The set of arguments for constructing a GcpIntegrations resource.
 type GcpIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Alloy DB integration. See Integration blocks below for details.
 	AlloyDb GcpIntegrationsAlloyDbPtrInput
 	// App Engine integration. See Integration blocks below for details.
@@ -462,7 +462,7 @@ type GcpIntegrationsArgs struct {
 	// The ID of the linked GCP account in New Relic.
 	//
 	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
-	LinkedAccountId pulumi.IntInput
+	LinkedAccountId pulumi.StringInput
 	// Load Balancing integration. See Integration blocks below for details.
 	LoadBalancing GcpIntegrationsLoadBalancingPtrInput
 	// Mem cache integration. See Integration blocks below for details.
@@ -575,8 +575,8 @@ func (o GcpIntegrationsOutput) ToGcpIntegrationsOutputWithContext(ctx context.Co
 }
 
 // The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-func (o GcpIntegrationsOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *GcpIntegrations) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o GcpIntegrationsOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GcpIntegrations) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Alloy DB integration. See Integration blocks below for details.
@@ -657,8 +657,8 @@ func (o GcpIntegrationsOutput) Kubernetes() GcpIntegrationsKubernetesPtrOutput {
 // The ID of the linked GCP account in New Relic.
 //
 // The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
-func (o GcpIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *GcpIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
+func (o GcpIntegrationsOutput) LinkedAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GcpIntegrations) pulumi.StringOutput { return v.LinkedAccountId }).(pulumi.StringOutput)
 }
 
 // Load Balancing integration. See Integration blocks below for details.

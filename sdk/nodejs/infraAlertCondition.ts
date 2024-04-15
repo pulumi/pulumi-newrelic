@@ -210,7 +210,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
     /**
      * The ID of the alert policy where this condition should be used.
      */
-    public readonly policyId!: pulumi.Output<number>;
+    public readonly policyId!: pulumi.Output<string>;
     /**
      * Any filters applied to processes; for example: commandName = 'java'. Supported by the infraProcessRunning condition
      * type.
@@ -357,7 +357,7 @@ export interface InfraAlertConditionState {
     /**
      * The ID of the alert policy where this condition should be used.
      */
-    policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<string>;
     /**
      * Any filters applied to processes; for example: commandName = 'java'. Supported by the infraProcessRunning condition
      * type.
@@ -434,7 +434,7 @@ export interface InfraAlertConditionArgs {
     /**
      * The ID of the alert policy where this condition should be used.
      */
-    policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<string>;
     /**
      * Any filters applied to processes; for example: commandName = 'java'. Supported by the infraProcessRunning condition
      * type.

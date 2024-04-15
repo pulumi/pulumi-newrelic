@@ -25,7 +25,7 @@ export interface GetNotificationDestinationArgs {
     /**
      * The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: number;
+    accountId?: string;
     /**
      * The id of the notification destination in New Relic.
      */
@@ -46,7 +46,7 @@ export interface GetNotificationDestinationArgs {
  * A collection of values returned by getNotificationDestination.
  */
 export interface GetNotificationDestinationResult {
-    readonly accountId: number;
+    readonly accountId: string;
     /**
      * An indication whether the notification destination is active or not.
      */
@@ -88,7 +88,7 @@ export interface GetNotificationDestinationOutputArgs {
     /**
      * The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The id of the notification destination in New Relic.
      */

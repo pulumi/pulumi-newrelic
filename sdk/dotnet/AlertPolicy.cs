@@ -149,10 +149,10 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         [Output("channelIds")]
-        public Output<ImmutableArray<int>> ChannelIds { get; private set; } = null!;
+        public Output<ImmutableArray<string>> ChannelIds { get; private set; } = null!;
 
         /// <summary>
         /// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
@@ -217,14 +217,14 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("channelIds")]
-        private InputList<int>? _channelIds;
+        private InputList<string>? _channelIds;
         [Obsolete(@"The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.")]
-        public InputList<int> ChannelIds
+        public InputList<string> ChannelIds
         {
-            get => _channelIds ?? (_channelIds = new InputList<int>());
+            get => _channelIds ?? (_channelIds = new InputList<string>());
             set => _channelIds = value;
         }
 
@@ -253,14 +253,14 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("channelIds")]
-        private InputList<int>? _channelIds;
+        private InputList<string>? _channelIds;
         [Obsolete(@"The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.")]
-        public InputList<int> ChannelIds
+        public InputList<string> ChannelIds
         {
-            get => _channelIds ?? (_channelIds = new InputList<int>());
+            get => _channelIds ?? (_channelIds = new InputList<string>());
             set => _channelIds = value;
         }
 

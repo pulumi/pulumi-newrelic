@@ -180,7 +180,7 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Monitor should skip default HEAD request and instead use GET verb in check.
      *
@@ -342,7 +342,7 @@ export interface MonitorState {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Monitor should skip default HEAD request and instead use GET verb in check.
      *
@@ -436,7 +436,7 @@ export interface MonitorArgs {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Monitor should skip default HEAD request and instead use GET verb in check.
      *

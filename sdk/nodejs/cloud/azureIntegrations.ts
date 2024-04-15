@@ -215,7 +215,7 @@ export class AzureIntegrations extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Azure API Management. See Integration blocks below for details.
      */
@@ -274,7 +274,7 @@ export class AzureIntegrations extends pulumi.CustomResource {
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      */
-    public readonly linkedAccountId!: pulumi.Output<number>;
+    public readonly linkedAccountId!: pulumi.Output<string>;
     /**
      * Azure Load Balancer. See Integration blocks below for details.
      */
@@ -457,7 +457,7 @@ export interface AzureIntegrationsState {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Azure API Management. See Integration blocks below for details.
      */
@@ -516,7 +516,7 @@ export interface AzureIntegrationsState {
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      */
-    linkedAccountId?: pulumi.Input<number>;
+    linkedAccountId?: pulumi.Input<string>;
     /**
      * Azure Load Balancer. See Integration blocks below for details.
      */
@@ -608,7 +608,7 @@ export interface AzureIntegrationsArgs {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Azure API Management. See Integration blocks below for details.
      */
@@ -667,7 +667,7 @@ export interface AzureIntegrationsArgs {
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      */
-    linkedAccountId: pulumi.Input<number>;
+    linkedAccountId: pulumi.Input<string>;
     /**
      * Azure Load Balancer. See Integration blocks below for details.
      */

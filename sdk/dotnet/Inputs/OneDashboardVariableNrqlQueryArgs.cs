@@ -13,14 +13,14 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class OneDashboardVariableNrqlQueryArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountIds")]
-        private InputList<int>? _accountIds;
+        private InputList<string>? _accountIds;
 
         /// <summary>
         /// New Relic account ID(s) to issue the query against.
         /// </summary>
-        public InputList<int> AccountIds
+        public InputList<string> AccountIds
         {
-            get => _accountIds ?? (_accountIds = new InputList<int>());
+            get => _accountIds ?? (_accountIds = new InputList<string>());
             set => _accountIds = value;
         }
 

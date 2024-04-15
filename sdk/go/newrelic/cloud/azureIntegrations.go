@@ -39,7 +39,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			foo, err := cloud.NewAzureLinkAccount(ctx, "foo", &cloud.AzureLinkAccountArgs{
-//				AccountId:      pulumi.Int("The New Relic account ID where you want to link the Azure account"),
+//				AccountId:      pulumi.String("The New Relic account ID where you want to link the Azure account"),
 //				ApplicationId:  pulumi.String("ID of the application"),
 //				ClientSecret:   pulumi.String("Secret value of client's Azure account"),
 //				SubscriptionId: pulumi.String("Subscription ID of Azure"),
@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = cloud.NewAzureIntegrations(ctx, "foo", &cloud.AzureIntegrationsArgs{
 //				LinkedAccountId: foo.ID(),
-//				AccountId:       pulumi.Int("The New Relic account ID"),
+//				AccountId:       pulumi.String("The New Relic account ID"),
 //				ApiManagement: &cloud.AzureIntegrationsApiManagementArgs{
 //					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
@@ -278,7 +278,7 @@ type AzureIntegrations struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Azure API Management. See Integration blocks below for details.
 	ApiManagement AzureIntegrationsApiManagementPtrOutput `pulumi:"apiManagement"`
 	// Azure App Gateway. See Integration blocks below for details.
@@ -308,7 +308,7 @@ type AzureIntegrations struct {
 	// The ID of the linked Azure account in New Relic.
 	//
 	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
-	LinkedAccountId pulumi.IntOutput `pulumi:"linkedAccountId"`
+	LinkedAccountId pulumi.StringOutput `pulumi:"linkedAccountId"`
 	// Azure Load Balancer. See Integration blocks below for details.
 	LoadBalancer AzureIntegrationsLoadBalancerPtrOutput `pulumi:"loadBalancer"`
 	// Azure Logic Apps. See Integration blocks below for details.
@@ -389,7 +389,7 @@ func GetAzureIntegrations(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AzureIntegrations resources.
 type azureIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Azure API Management. See Integration blocks below for details.
 	ApiManagement *AzureIntegrationsApiManagement `pulumi:"apiManagement"`
 	// Azure App Gateway. See Integration blocks below for details.
@@ -419,7 +419,7 @@ type azureIntegrationsState struct {
 	// The ID of the linked Azure account in New Relic.
 	//
 	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
-	LinkedAccountId *int `pulumi:"linkedAccountId"`
+	LinkedAccountId *string `pulumi:"linkedAccountId"`
 	// Azure Load Balancer. See Integration blocks below for details.
 	LoadBalancer *AzureIntegrationsLoadBalancer `pulumi:"loadBalancer"`
 	// Azure Logic Apps. See Integration blocks below for details.
@@ -468,7 +468,7 @@ type azureIntegrationsState struct {
 
 type AzureIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Azure API Management. See Integration blocks below for details.
 	ApiManagement AzureIntegrationsApiManagementPtrInput
 	// Azure App Gateway. See Integration blocks below for details.
@@ -498,7 +498,7 @@ type AzureIntegrationsState struct {
 	// The ID of the linked Azure account in New Relic.
 	//
 	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
-	LinkedAccountId pulumi.IntPtrInput
+	LinkedAccountId pulumi.StringPtrInput
 	// Azure Load Balancer. See Integration blocks below for details.
 	LoadBalancer AzureIntegrationsLoadBalancerPtrInput
 	// Azure Logic Apps. See Integration blocks below for details.
@@ -551,7 +551,7 @@ func (AzureIntegrationsState) ElementType() reflect.Type {
 
 type azureIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Azure API Management. See Integration blocks below for details.
 	ApiManagement *AzureIntegrationsApiManagement `pulumi:"apiManagement"`
 	// Azure App Gateway. See Integration blocks below for details.
@@ -581,7 +581,7 @@ type azureIntegrationsArgs struct {
 	// The ID of the linked Azure account in New Relic.
 	//
 	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
-	LinkedAccountId int `pulumi:"linkedAccountId"`
+	LinkedAccountId string `pulumi:"linkedAccountId"`
 	// Azure Load Balancer. See Integration blocks below for details.
 	LoadBalancer *AzureIntegrationsLoadBalancer `pulumi:"loadBalancer"`
 	// Azure Logic Apps. See Integration blocks below for details.
@@ -631,7 +631,7 @@ type azureIntegrationsArgs struct {
 // The set of arguments for constructing a AzureIntegrations resource.
 type AzureIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Azure API Management. See Integration blocks below for details.
 	ApiManagement AzureIntegrationsApiManagementPtrInput
 	// Azure App Gateway. See Integration blocks below for details.
@@ -661,7 +661,7 @@ type AzureIntegrationsArgs struct {
 	// The ID of the linked Azure account in New Relic.
 	//
 	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
-	LinkedAccountId pulumi.IntInput
+	LinkedAccountId pulumi.StringInput
 	// Azure Load Balancer. See Integration blocks below for details.
 	LoadBalancer AzureIntegrationsLoadBalancerPtrInput
 	// Azure Logic Apps. See Integration blocks below for details.
@@ -796,8 +796,8 @@ func (o AzureIntegrationsOutput) ToAzureIntegrationsOutputWithContext(ctx contex
 }
 
 // The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-func (o AzureIntegrationsOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AzureIntegrations) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o AzureIntegrationsOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureIntegrations) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Azure API Management. See Integration blocks below for details.
@@ -868,8 +868,8 @@ func (o AzureIntegrationsOutput) KeyVault() AzureIntegrationsKeyVaultPtrOutput {
 // The ID of the linked Azure account in New Relic.
 //
 // The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
-func (o AzureIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AzureIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
+func (o AzureIntegrationsOutput) LinkedAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureIntegrations) pulumi.StringOutput { return v.LinkedAccountId }).(pulumi.StringOutput)
 }
 
 // Azure Load Balancer. See Integration blocks below for details.

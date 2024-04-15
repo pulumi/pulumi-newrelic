@@ -61,7 +61,7 @@ type DataPartitionRule struct {
 	pulumi.CustomResourceState
 
 	// The account id associated with the data partition rule.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Whether or not this data partition rule is deleted. Deleting a data partition rule does not delete the already persisted data. This data will be retained for a given period of time specified in the retention policy field.
 	Deleted pulumi.BoolOutput `pulumi:"deleted"`
 	// The description of the data partition rule.
@@ -119,7 +119,7 @@ func GetDataPartitionRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DataPartitionRule resources.
 type dataPartitionRuleState struct {
 	// The account id associated with the data partition rule.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Whether or not this data partition rule is deleted. Deleting a data partition rule does not delete the already persisted data. This data will be retained for a given period of time specified in the retention policy field.
 	Deleted *bool `pulumi:"deleted"`
 	// The description of the data partition rule.
@@ -136,7 +136,7 @@ type dataPartitionRuleState struct {
 
 type DataPartitionRuleState struct {
 	// The account id associated with the data partition rule.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Whether or not this data partition rule is deleted. Deleting a data partition rule does not delete the already persisted data. This data will be retained for a given period of time specified in the retention policy field.
 	Deleted pulumi.BoolPtrInput
 	// The description of the data partition rule.
@@ -157,7 +157,7 @@ func (DataPartitionRuleState) ElementType() reflect.Type {
 
 type dataPartitionRuleArgs struct {
 	// The account id associated with the data partition rule.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The description of the data partition rule.
 	Description *string `pulumi:"description"`
 	// Whether or not this data partition rule is enabled.
@@ -173,7 +173,7 @@ type dataPartitionRuleArgs struct {
 // The set of arguments for constructing a DataPartitionRule resource.
 type DataPartitionRuleArgs struct {
 	// The account id associated with the data partition rule.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The description of the data partition rule.
 	Description pulumi.StringPtrInput
 	// Whether or not this data partition rule is enabled.
@@ -274,8 +274,8 @@ func (o DataPartitionRuleOutput) ToDataPartitionRuleOutputWithContext(ctx contex
 }
 
 // The account id associated with the data partition rule.
-func (o DataPartitionRuleOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *DataPartitionRule) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o DataPartitionRuleOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataPartitionRule) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Whether or not this data partition rule is deleted. Deleting a data partition rule does not delete the already persisted data. This data will be retained for a given period of time specified in the retention policy field.

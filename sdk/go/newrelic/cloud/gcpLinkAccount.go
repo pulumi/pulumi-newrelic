@@ -43,7 +43,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloud.NewGcpLinkAccount(ctx, "foo", &cloud.GcpLinkAccountArgs{
-//				AccountId: pulumi.Int("account id of newrelic account"),
+//				AccountId: pulumi.String("account id of newrelic account"),
 //				ProjectId: pulumi.String("id of the Project"),
 //				Name:      pulumi.String("account name"),
 //			})
@@ -69,7 +69,7 @@ type GcpLinkAccount struct {
 	pulumi.CustomResourceState
 
 	// Account ID of the New Relic account.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// name of the linked account
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Project ID of the GCP account.
@@ -110,7 +110,7 @@ func GetGcpLinkAccount(ctx *pulumi.Context,
 // Input properties used for looking up and filtering GcpLinkAccount resources.
 type gcpLinkAccountState struct {
 	// Account ID of the New Relic account.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// name of the linked account
 	Name *string `pulumi:"name"`
 	// Project ID of the GCP account.
@@ -119,7 +119,7 @@ type gcpLinkAccountState struct {
 
 type GcpLinkAccountState struct {
 	// Account ID of the New Relic account.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// name of the linked account
 	Name pulumi.StringPtrInput
 	// Project ID of the GCP account.
@@ -132,7 +132,7 @@ func (GcpLinkAccountState) ElementType() reflect.Type {
 
 type gcpLinkAccountArgs struct {
 	// Account ID of the New Relic account.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// name of the linked account
 	Name *string `pulumi:"name"`
 	// Project ID of the GCP account.
@@ -142,7 +142,7 @@ type gcpLinkAccountArgs struct {
 // The set of arguments for constructing a GcpLinkAccount resource.
 type GcpLinkAccountArgs struct {
 	// Account ID of the New Relic account.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// name of the linked account
 	Name pulumi.StringPtrInput
 	// Project ID of the GCP account.
@@ -237,8 +237,8 @@ func (o GcpLinkAccountOutput) ToGcpLinkAccountOutputWithContext(ctx context.Cont
 }
 
 // Account ID of the New Relic account.
-func (o GcpLinkAccountOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *GcpLinkAccount) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o GcpLinkAccountOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GcpLinkAccount) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // name of the linked account

@@ -117,7 +117,7 @@ export class StepMonitor extends pulumi.CustomResource {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Capture a screenshot during job execution.
      */
@@ -232,7 +232,7 @@ export interface StepMonitorState {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Capture a screenshot during job execution.
      */
@@ -292,7 +292,7 @@ export interface StepMonitorArgs {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Capture a screenshot during job execution.
      */

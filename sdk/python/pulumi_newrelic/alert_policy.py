@@ -14,13 +14,13 @@ __all__ = ['AlertPolicyArgs', 'AlertPolicy']
 @pulumi.input_type
 class AlertPolicyArgs:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
-                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  incident_preference: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AlertPolicy resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
                is PER_POLICY.
         :param pulumi.Input[str] name: The name of the policy.
@@ -39,26 +39,26 @@ class AlertPolicyArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter(name="channelIds")
-    def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+    def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         warnings.warn("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""", DeprecationWarning)
         pulumi.log.warn("""channel_ids is deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
 
         return pulumi.get(self, "channel_ids")
 
     @channel_ids.setter
-    def channel_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+    def channel_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "channel_ids", value)
 
     @property
@@ -90,13 +90,13 @@ class AlertPolicyArgs:
 @pulumi.input_type
 class _AlertPolicyState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
-                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  incident_preference: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AlertPolicy resources.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
                is PER_POLICY.
         :param pulumi.Input[str] name: The name of the policy.
@@ -115,26 +115,26 @@ class _AlertPolicyState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter(name="channelIds")
-    def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+    def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         warnings.warn("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""", DeprecationWarning)
         pulumi.log.warn("""channel_ids is deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
 
         return pulumi.get(self, "channel_ids")
 
     @channel_ids.setter
-    def channel_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+    def channel_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "channel_ids", value)
 
     @property
@@ -168,8 +168,8 @@ class AlertPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
-                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  incident_preference: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -266,7 +266,7 @@ class AlertPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
                is PER_POLICY.
         :param pulumi.Input[str] name: The name of the policy.
@@ -383,8 +383,8 @@ class AlertPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
-                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  incident_preference: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -410,8 +410,8 @@ class AlertPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
-            channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
+            channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             incident_preference: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'AlertPolicy':
         """
@@ -421,7 +421,7 @@ class AlertPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
                is PER_POLICY.
         :param pulumi.Input[str] name: The name of the policy.
@@ -438,7 +438,7 @@ class AlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The New Relic account ID to operate on.
         """
@@ -446,7 +446,7 @@ class AlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="channelIds")
-    def channel_ids(self) -> pulumi.Output[Optional[Sequence[int]]]:
+    def channel_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         warnings.warn("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""", DeprecationWarning)
         pulumi.log.warn("""channel_ids is deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
 

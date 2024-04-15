@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.synthetics.SecureCredentialArgs;
 import com.pulumi.newrelic.synthetics.inputs.SecureCredentialState;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -71,14 +70,14 @@ public class SecureCredential extends com.pulumi.resources.CustomResource {
      * The New Relic account ID where you want to create the secure credential.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The New Relic account ID where you want to create the secure credential.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

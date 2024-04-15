@@ -331,6 +331,474 @@ func (o MonitorCustomHeaderArrayOutput) Index(i pulumi.IntInput) MonitorCustomHe
 	}).(MonitorCustomHeaderOutput)
 }
 
+type MonitorDowntimeEndRepeat struct {
+	// A date, on which the Monitor Downtime's repeat cycle is expected to end.
+	OnDate *string `pulumi:"onDate"`
+	// Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
+	OnRepeat *int `pulumi:"onRepeat"`
+}
+
+// MonitorDowntimeEndRepeatInput is an input type that accepts MonitorDowntimeEndRepeatArgs and MonitorDowntimeEndRepeatOutput values.
+// You can construct a concrete instance of `MonitorDowntimeEndRepeatInput` via:
+//
+//	MonitorDowntimeEndRepeatArgs{...}
+type MonitorDowntimeEndRepeatInput interface {
+	pulumi.Input
+
+	ToMonitorDowntimeEndRepeatOutput() MonitorDowntimeEndRepeatOutput
+	ToMonitorDowntimeEndRepeatOutputWithContext(context.Context) MonitorDowntimeEndRepeatOutput
+}
+
+type MonitorDowntimeEndRepeatArgs struct {
+	// A date, on which the Monitor Downtime's repeat cycle is expected to end.
+	OnDate pulumi.StringPtrInput `pulumi:"onDate"`
+	// Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
+	OnRepeat pulumi.IntPtrInput `pulumi:"onRepeat"`
+}
+
+func (MonitorDowntimeEndRepeatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorDowntimeEndRepeat)(nil)).Elem()
+}
+
+func (i MonitorDowntimeEndRepeatArgs) ToMonitorDowntimeEndRepeatOutput() MonitorDowntimeEndRepeatOutput {
+	return i.ToMonitorDowntimeEndRepeatOutputWithContext(context.Background())
+}
+
+func (i MonitorDowntimeEndRepeatArgs) ToMonitorDowntimeEndRepeatOutputWithContext(ctx context.Context) MonitorDowntimeEndRepeatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorDowntimeEndRepeatOutput)
+}
+
+func (i MonitorDowntimeEndRepeatArgs) ToMonitorDowntimeEndRepeatPtrOutput() MonitorDowntimeEndRepeatPtrOutput {
+	return i.ToMonitorDowntimeEndRepeatPtrOutputWithContext(context.Background())
+}
+
+func (i MonitorDowntimeEndRepeatArgs) ToMonitorDowntimeEndRepeatPtrOutputWithContext(ctx context.Context) MonitorDowntimeEndRepeatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorDowntimeEndRepeatOutput).ToMonitorDowntimeEndRepeatPtrOutputWithContext(ctx)
+}
+
+// MonitorDowntimeEndRepeatPtrInput is an input type that accepts MonitorDowntimeEndRepeatArgs, MonitorDowntimeEndRepeatPtr and MonitorDowntimeEndRepeatPtrOutput values.
+// You can construct a concrete instance of `MonitorDowntimeEndRepeatPtrInput` via:
+//
+//	        MonitorDowntimeEndRepeatArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitorDowntimeEndRepeatPtrInput interface {
+	pulumi.Input
+
+	ToMonitorDowntimeEndRepeatPtrOutput() MonitorDowntimeEndRepeatPtrOutput
+	ToMonitorDowntimeEndRepeatPtrOutputWithContext(context.Context) MonitorDowntimeEndRepeatPtrOutput
+}
+
+type monitorDowntimeEndRepeatPtrType MonitorDowntimeEndRepeatArgs
+
+func MonitorDowntimeEndRepeatPtr(v *MonitorDowntimeEndRepeatArgs) MonitorDowntimeEndRepeatPtrInput {
+	return (*monitorDowntimeEndRepeatPtrType)(v)
+}
+
+func (*monitorDowntimeEndRepeatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorDowntimeEndRepeat)(nil)).Elem()
+}
+
+func (i *monitorDowntimeEndRepeatPtrType) ToMonitorDowntimeEndRepeatPtrOutput() MonitorDowntimeEndRepeatPtrOutput {
+	return i.ToMonitorDowntimeEndRepeatPtrOutputWithContext(context.Background())
+}
+
+func (i *monitorDowntimeEndRepeatPtrType) ToMonitorDowntimeEndRepeatPtrOutputWithContext(ctx context.Context) MonitorDowntimeEndRepeatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorDowntimeEndRepeatPtrOutput)
+}
+
+type MonitorDowntimeEndRepeatOutput struct{ *pulumi.OutputState }
+
+func (MonitorDowntimeEndRepeatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorDowntimeEndRepeat)(nil)).Elem()
+}
+
+func (o MonitorDowntimeEndRepeatOutput) ToMonitorDowntimeEndRepeatOutput() MonitorDowntimeEndRepeatOutput {
+	return o
+}
+
+func (o MonitorDowntimeEndRepeatOutput) ToMonitorDowntimeEndRepeatOutputWithContext(ctx context.Context) MonitorDowntimeEndRepeatOutput {
+	return o
+}
+
+func (o MonitorDowntimeEndRepeatOutput) ToMonitorDowntimeEndRepeatPtrOutput() MonitorDowntimeEndRepeatPtrOutput {
+	return o.ToMonitorDowntimeEndRepeatPtrOutputWithContext(context.Background())
+}
+
+func (o MonitorDowntimeEndRepeatOutput) ToMonitorDowntimeEndRepeatPtrOutputWithContext(ctx context.Context) MonitorDowntimeEndRepeatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorDowntimeEndRepeat) *MonitorDowntimeEndRepeat {
+		return &v
+	}).(MonitorDowntimeEndRepeatPtrOutput)
+}
+
+// A date, on which the Monitor Downtime's repeat cycle is expected to end.
+func (o MonitorDowntimeEndRepeatOutput) OnDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorDowntimeEndRepeat) *string { return v.OnDate }).(pulumi.StringPtrOutput)
+}
+
+// Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
+func (o MonitorDowntimeEndRepeatOutput) OnRepeat() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MonitorDowntimeEndRepeat) *int { return v.OnRepeat }).(pulumi.IntPtrOutput)
+}
+
+type MonitorDowntimeEndRepeatPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitorDowntimeEndRepeatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorDowntimeEndRepeat)(nil)).Elem()
+}
+
+func (o MonitorDowntimeEndRepeatPtrOutput) ToMonitorDowntimeEndRepeatPtrOutput() MonitorDowntimeEndRepeatPtrOutput {
+	return o
+}
+
+func (o MonitorDowntimeEndRepeatPtrOutput) ToMonitorDowntimeEndRepeatPtrOutputWithContext(ctx context.Context) MonitorDowntimeEndRepeatPtrOutput {
+	return o
+}
+
+func (o MonitorDowntimeEndRepeatPtrOutput) Elem() MonitorDowntimeEndRepeatOutput {
+	return o.ApplyT(func(v *MonitorDowntimeEndRepeat) MonitorDowntimeEndRepeat {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorDowntimeEndRepeat
+		return ret
+	}).(MonitorDowntimeEndRepeatOutput)
+}
+
+// A date, on which the Monitor Downtime's repeat cycle is expected to end.
+func (o MonitorDowntimeEndRepeatPtrOutput) OnDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitorDowntimeEndRepeat) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OnDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
+func (o MonitorDowntimeEndRepeatPtrOutput) OnRepeat() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MonitorDowntimeEndRepeat) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OnRepeat
+	}).(pulumi.IntPtrOutput)
+}
+
+type MonitorDowntimeFrequency struct {
+	// A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
+	DaysOfMonths []int `pulumi:"daysOfMonths"`
+	// A list of days of the week on which the Monitor Downtime is scheduled to run.
+	DaysOfWeek *MonitorDowntimeFrequencyDaysOfWeek `pulumi:"daysOfWeek"`
+}
+
+// MonitorDowntimeFrequencyInput is an input type that accepts MonitorDowntimeFrequencyArgs and MonitorDowntimeFrequencyOutput values.
+// You can construct a concrete instance of `MonitorDowntimeFrequencyInput` via:
+//
+//	MonitorDowntimeFrequencyArgs{...}
+type MonitorDowntimeFrequencyInput interface {
+	pulumi.Input
+
+	ToMonitorDowntimeFrequencyOutput() MonitorDowntimeFrequencyOutput
+	ToMonitorDowntimeFrequencyOutputWithContext(context.Context) MonitorDowntimeFrequencyOutput
+}
+
+type MonitorDowntimeFrequencyArgs struct {
+	// A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
+	DaysOfMonths pulumi.IntArrayInput `pulumi:"daysOfMonths"`
+	// A list of days of the week on which the Monitor Downtime is scheduled to run.
+	DaysOfWeek MonitorDowntimeFrequencyDaysOfWeekPtrInput `pulumi:"daysOfWeek"`
+}
+
+func (MonitorDowntimeFrequencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorDowntimeFrequency)(nil)).Elem()
+}
+
+func (i MonitorDowntimeFrequencyArgs) ToMonitorDowntimeFrequencyOutput() MonitorDowntimeFrequencyOutput {
+	return i.ToMonitorDowntimeFrequencyOutputWithContext(context.Background())
+}
+
+func (i MonitorDowntimeFrequencyArgs) ToMonitorDowntimeFrequencyOutputWithContext(ctx context.Context) MonitorDowntimeFrequencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorDowntimeFrequencyOutput)
+}
+
+func (i MonitorDowntimeFrequencyArgs) ToMonitorDowntimeFrequencyPtrOutput() MonitorDowntimeFrequencyPtrOutput {
+	return i.ToMonitorDowntimeFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (i MonitorDowntimeFrequencyArgs) ToMonitorDowntimeFrequencyPtrOutputWithContext(ctx context.Context) MonitorDowntimeFrequencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorDowntimeFrequencyOutput).ToMonitorDowntimeFrequencyPtrOutputWithContext(ctx)
+}
+
+// MonitorDowntimeFrequencyPtrInput is an input type that accepts MonitorDowntimeFrequencyArgs, MonitorDowntimeFrequencyPtr and MonitorDowntimeFrequencyPtrOutput values.
+// You can construct a concrete instance of `MonitorDowntimeFrequencyPtrInput` via:
+//
+//	        MonitorDowntimeFrequencyArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitorDowntimeFrequencyPtrInput interface {
+	pulumi.Input
+
+	ToMonitorDowntimeFrequencyPtrOutput() MonitorDowntimeFrequencyPtrOutput
+	ToMonitorDowntimeFrequencyPtrOutputWithContext(context.Context) MonitorDowntimeFrequencyPtrOutput
+}
+
+type monitorDowntimeFrequencyPtrType MonitorDowntimeFrequencyArgs
+
+func MonitorDowntimeFrequencyPtr(v *MonitorDowntimeFrequencyArgs) MonitorDowntimeFrequencyPtrInput {
+	return (*monitorDowntimeFrequencyPtrType)(v)
+}
+
+func (*monitorDowntimeFrequencyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorDowntimeFrequency)(nil)).Elem()
+}
+
+func (i *monitorDowntimeFrequencyPtrType) ToMonitorDowntimeFrequencyPtrOutput() MonitorDowntimeFrequencyPtrOutput {
+	return i.ToMonitorDowntimeFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (i *monitorDowntimeFrequencyPtrType) ToMonitorDowntimeFrequencyPtrOutputWithContext(ctx context.Context) MonitorDowntimeFrequencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorDowntimeFrequencyPtrOutput)
+}
+
+type MonitorDowntimeFrequencyOutput struct{ *pulumi.OutputState }
+
+func (MonitorDowntimeFrequencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorDowntimeFrequency)(nil)).Elem()
+}
+
+func (o MonitorDowntimeFrequencyOutput) ToMonitorDowntimeFrequencyOutput() MonitorDowntimeFrequencyOutput {
+	return o
+}
+
+func (o MonitorDowntimeFrequencyOutput) ToMonitorDowntimeFrequencyOutputWithContext(ctx context.Context) MonitorDowntimeFrequencyOutput {
+	return o
+}
+
+func (o MonitorDowntimeFrequencyOutput) ToMonitorDowntimeFrequencyPtrOutput() MonitorDowntimeFrequencyPtrOutput {
+	return o.ToMonitorDowntimeFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (o MonitorDowntimeFrequencyOutput) ToMonitorDowntimeFrequencyPtrOutputWithContext(ctx context.Context) MonitorDowntimeFrequencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorDowntimeFrequency) *MonitorDowntimeFrequency {
+		return &v
+	}).(MonitorDowntimeFrequencyPtrOutput)
+}
+
+// A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
+func (o MonitorDowntimeFrequencyOutput) DaysOfMonths() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v MonitorDowntimeFrequency) []int { return v.DaysOfMonths }).(pulumi.IntArrayOutput)
+}
+
+// A list of days of the week on which the Monitor Downtime is scheduled to run.
+func (o MonitorDowntimeFrequencyOutput) DaysOfWeek() MonitorDowntimeFrequencyDaysOfWeekPtrOutput {
+	return o.ApplyT(func(v MonitorDowntimeFrequency) *MonitorDowntimeFrequencyDaysOfWeek { return v.DaysOfWeek }).(MonitorDowntimeFrequencyDaysOfWeekPtrOutput)
+}
+
+type MonitorDowntimeFrequencyPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitorDowntimeFrequencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorDowntimeFrequency)(nil)).Elem()
+}
+
+func (o MonitorDowntimeFrequencyPtrOutput) ToMonitorDowntimeFrequencyPtrOutput() MonitorDowntimeFrequencyPtrOutput {
+	return o
+}
+
+func (o MonitorDowntimeFrequencyPtrOutput) ToMonitorDowntimeFrequencyPtrOutputWithContext(ctx context.Context) MonitorDowntimeFrequencyPtrOutput {
+	return o
+}
+
+func (o MonitorDowntimeFrequencyPtrOutput) Elem() MonitorDowntimeFrequencyOutput {
+	return o.ApplyT(func(v *MonitorDowntimeFrequency) MonitorDowntimeFrequency {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorDowntimeFrequency
+		return ret
+	}).(MonitorDowntimeFrequencyOutput)
+}
+
+// A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
+func (o MonitorDowntimeFrequencyPtrOutput) DaysOfMonths() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *MonitorDowntimeFrequency) []int {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfMonths
+	}).(pulumi.IntArrayOutput)
+}
+
+// A list of days of the week on which the Monitor Downtime is scheduled to run.
+func (o MonitorDowntimeFrequencyPtrOutput) DaysOfWeek() MonitorDowntimeFrequencyDaysOfWeekPtrOutput {
+	return o.ApplyT(func(v *MonitorDowntimeFrequency) *MonitorDowntimeFrequencyDaysOfWeek {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfWeek
+	}).(MonitorDowntimeFrequencyDaysOfWeekPtrOutput)
+}
+
+type MonitorDowntimeFrequencyDaysOfWeek struct {
+	// An occurrence of the day selected within the month.
+	OrdinalDayOfMonth string `pulumi:"ordinalDayOfMonth"`
+	// The day of the week on which the Monitor Downtime would run.
+	WeekDay string `pulumi:"weekDay"`
+}
+
+// MonitorDowntimeFrequencyDaysOfWeekInput is an input type that accepts MonitorDowntimeFrequencyDaysOfWeekArgs and MonitorDowntimeFrequencyDaysOfWeekOutput values.
+// You can construct a concrete instance of `MonitorDowntimeFrequencyDaysOfWeekInput` via:
+//
+//	MonitorDowntimeFrequencyDaysOfWeekArgs{...}
+type MonitorDowntimeFrequencyDaysOfWeekInput interface {
+	pulumi.Input
+
+	ToMonitorDowntimeFrequencyDaysOfWeekOutput() MonitorDowntimeFrequencyDaysOfWeekOutput
+	ToMonitorDowntimeFrequencyDaysOfWeekOutputWithContext(context.Context) MonitorDowntimeFrequencyDaysOfWeekOutput
+}
+
+type MonitorDowntimeFrequencyDaysOfWeekArgs struct {
+	// An occurrence of the day selected within the month.
+	OrdinalDayOfMonth pulumi.StringInput `pulumi:"ordinalDayOfMonth"`
+	// The day of the week on which the Monitor Downtime would run.
+	WeekDay pulumi.StringInput `pulumi:"weekDay"`
+}
+
+func (MonitorDowntimeFrequencyDaysOfWeekArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorDowntimeFrequencyDaysOfWeek)(nil)).Elem()
+}
+
+func (i MonitorDowntimeFrequencyDaysOfWeekArgs) ToMonitorDowntimeFrequencyDaysOfWeekOutput() MonitorDowntimeFrequencyDaysOfWeekOutput {
+	return i.ToMonitorDowntimeFrequencyDaysOfWeekOutputWithContext(context.Background())
+}
+
+func (i MonitorDowntimeFrequencyDaysOfWeekArgs) ToMonitorDowntimeFrequencyDaysOfWeekOutputWithContext(ctx context.Context) MonitorDowntimeFrequencyDaysOfWeekOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorDowntimeFrequencyDaysOfWeekOutput)
+}
+
+func (i MonitorDowntimeFrequencyDaysOfWeekArgs) ToMonitorDowntimeFrequencyDaysOfWeekPtrOutput() MonitorDowntimeFrequencyDaysOfWeekPtrOutput {
+	return i.ToMonitorDowntimeFrequencyDaysOfWeekPtrOutputWithContext(context.Background())
+}
+
+func (i MonitorDowntimeFrequencyDaysOfWeekArgs) ToMonitorDowntimeFrequencyDaysOfWeekPtrOutputWithContext(ctx context.Context) MonitorDowntimeFrequencyDaysOfWeekPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorDowntimeFrequencyDaysOfWeekOutput).ToMonitorDowntimeFrequencyDaysOfWeekPtrOutputWithContext(ctx)
+}
+
+// MonitorDowntimeFrequencyDaysOfWeekPtrInput is an input type that accepts MonitorDowntimeFrequencyDaysOfWeekArgs, MonitorDowntimeFrequencyDaysOfWeekPtr and MonitorDowntimeFrequencyDaysOfWeekPtrOutput values.
+// You can construct a concrete instance of `MonitorDowntimeFrequencyDaysOfWeekPtrInput` via:
+//
+//	        MonitorDowntimeFrequencyDaysOfWeekArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitorDowntimeFrequencyDaysOfWeekPtrInput interface {
+	pulumi.Input
+
+	ToMonitorDowntimeFrequencyDaysOfWeekPtrOutput() MonitorDowntimeFrequencyDaysOfWeekPtrOutput
+	ToMonitorDowntimeFrequencyDaysOfWeekPtrOutputWithContext(context.Context) MonitorDowntimeFrequencyDaysOfWeekPtrOutput
+}
+
+type monitorDowntimeFrequencyDaysOfWeekPtrType MonitorDowntimeFrequencyDaysOfWeekArgs
+
+func MonitorDowntimeFrequencyDaysOfWeekPtr(v *MonitorDowntimeFrequencyDaysOfWeekArgs) MonitorDowntimeFrequencyDaysOfWeekPtrInput {
+	return (*monitorDowntimeFrequencyDaysOfWeekPtrType)(v)
+}
+
+func (*monitorDowntimeFrequencyDaysOfWeekPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorDowntimeFrequencyDaysOfWeek)(nil)).Elem()
+}
+
+func (i *monitorDowntimeFrequencyDaysOfWeekPtrType) ToMonitorDowntimeFrequencyDaysOfWeekPtrOutput() MonitorDowntimeFrequencyDaysOfWeekPtrOutput {
+	return i.ToMonitorDowntimeFrequencyDaysOfWeekPtrOutputWithContext(context.Background())
+}
+
+func (i *monitorDowntimeFrequencyDaysOfWeekPtrType) ToMonitorDowntimeFrequencyDaysOfWeekPtrOutputWithContext(ctx context.Context) MonitorDowntimeFrequencyDaysOfWeekPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorDowntimeFrequencyDaysOfWeekPtrOutput)
+}
+
+type MonitorDowntimeFrequencyDaysOfWeekOutput struct{ *pulumi.OutputState }
+
+func (MonitorDowntimeFrequencyDaysOfWeekOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorDowntimeFrequencyDaysOfWeek)(nil)).Elem()
+}
+
+func (o MonitorDowntimeFrequencyDaysOfWeekOutput) ToMonitorDowntimeFrequencyDaysOfWeekOutput() MonitorDowntimeFrequencyDaysOfWeekOutput {
+	return o
+}
+
+func (o MonitorDowntimeFrequencyDaysOfWeekOutput) ToMonitorDowntimeFrequencyDaysOfWeekOutputWithContext(ctx context.Context) MonitorDowntimeFrequencyDaysOfWeekOutput {
+	return o
+}
+
+func (o MonitorDowntimeFrequencyDaysOfWeekOutput) ToMonitorDowntimeFrequencyDaysOfWeekPtrOutput() MonitorDowntimeFrequencyDaysOfWeekPtrOutput {
+	return o.ToMonitorDowntimeFrequencyDaysOfWeekPtrOutputWithContext(context.Background())
+}
+
+func (o MonitorDowntimeFrequencyDaysOfWeekOutput) ToMonitorDowntimeFrequencyDaysOfWeekPtrOutputWithContext(ctx context.Context) MonitorDowntimeFrequencyDaysOfWeekPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorDowntimeFrequencyDaysOfWeek) *MonitorDowntimeFrequencyDaysOfWeek {
+		return &v
+	}).(MonitorDowntimeFrequencyDaysOfWeekPtrOutput)
+}
+
+// An occurrence of the day selected within the month.
+func (o MonitorDowntimeFrequencyDaysOfWeekOutput) OrdinalDayOfMonth() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorDowntimeFrequencyDaysOfWeek) string { return v.OrdinalDayOfMonth }).(pulumi.StringOutput)
+}
+
+// The day of the week on which the Monitor Downtime would run.
+func (o MonitorDowntimeFrequencyDaysOfWeekOutput) WeekDay() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorDowntimeFrequencyDaysOfWeek) string { return v.WeekDay }).(pulumi.StringOutput)
+}
+
+type MonitorDowntimeFrequencyDaysOfWeekPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitorDowntimeFrequencyDaysOfWeekPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorDowntimeFrequencyDaysOfWeek)(nil)).Elem()
+}
+
+func (o MonitorDowntimeFrequencyDaysOfWeekPtrOutput) ToMonitorDowntimeFrequencyDaysOfWeekPtrOutput() MonitorDowntimeFrequencyDaysOfWeekPtrOutput {
+	return o
+}
+
+func (o MonitorDowntimeFrequencyDaysOfWeekPtrOutput) ToMonitorDowntimeFrequencyDaysOfWeekPtrOutputWithContext(ctx context.Context) MonitorDowntimeFrequencyDaysOfWeekPtrOutput {
+	return o
+}
+
+func (o MonitorDowntimeFrequencyDaysOfWeekPtrOutput) Elem() MonitorDowntimeFrequencyDaysOfWeekOutput {
+	return o.ApplyT(func(v *MonitorDowntimeFrequencyDaysOfWeek) MonitorDowntimeFrequencyDaysOfWeek {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorDowntimeFrequencyDaysOfWeek
+		return ret
+	}).(MonitorDowntimeFrequencyDaysOfWeekOutput)
+}
+
+// An occurrence of the day selected within the month.
+func (o MonitorDowntimeFrequencyDaysOfWeekPtrOutput) OrdinalDayOfMonth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitorDowntimeFrequencyDaysOfWeek) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OrdinalDayOfMonth
+	}).(pulumi.StringPtrOutput)
+}
+
+// The day of the week on which the Monitor Downtime would run.
+func (o MonitorDowntimeFrequencyDaysOfWeekPtrOutput) WeekDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitorDowntimeFrequencyDaysOfWeek) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WeekDay
+	}).(pulumi.StringPtrOutput)
+}
+
 type MonitorTag struct {
 	// Name of the tag key.
 	Key string `pulumi:"key"`
@@ -1257,6 +1725,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertCheckMonitorTagArrayInput)(nil)).Elem(), CertCheckMonitorTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorCustomHeaderInput)(nil)).Elem(), MonitorCustomHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorCustomHeaderArrayInput)(nil)).Elem(), MonitorCustomHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorDowntimeEndRepeatInput)(nil)).Elem(), MonitorDowntimeEndRepeatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorDowntimeEndRepeatPtrInput)(nil)).Elem(), MonitorDowntimeEndRepeatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorDowntimeFrequencyInput)(nil)).Elem(), MonitorDowntimeFrequencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorDowntimeFrequencyPtrInput)(nil)).Elem(), MonitorDowntimeFrequencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorDowntimeFrequencyDaysOfWeekInput)(nil)).Elem(), MonitorDowntimeFrequencyDaysOfWeekArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorDowntimeFrequencyDaysOfWeekPtrInput)(nil)).Elem(), MonitorDowntimeFrequencyDaysOfWeekArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagInput)(nil)).Elem(), MonitorTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagArrayInput)(nil)).Elem(), MonitorTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiLocationAlertConditionCriticalInput)(nil)).Elem(), MultiLocationAlertConditionCriticalArgs{})
@@ -1279,6 +1753,12 @@ func init() {
 	pulumi.RegisterOutputType(CertCheckMonitorTagArrayOutput{})
 	pulumi.RegisterOutputType(MonitorCustomHeaderOutput{})
 	pulumi.RegisterOutputType(MonitorCustomHeaderArrayOutput{})
+	pulumi.RegisterOutputType(MonitorDowntimeEndRepeatOutput{})
+	pulumi.RegisterOutputType(MonitorDowntimeEndRepeatPtrOutput{})
+	pulumi.RegisterOutputType(MonitorDowntimeFrequencyOutput{})
+	pulumi.RegisterOutputType(MonitorDowntimeFrequencyPtrOutput{})
+	pulumi.RegisterOutputType(MonitorDowntimeFrequencyDaysOfWeekOutput{})
+	pulumi.RegisterOutputType(MonitorDowntimeFrequencyDaysOfWeekPtrOutput{})
 	pulumi.RegisterOutputType(MonitorTagOutput{})
 	pulumi.RegisterOutputType(MonitorTagArrayOutput{})
 	pulumi.RegisterOutputType(MultiLocationAlertConditionCriticalOutput{})

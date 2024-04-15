@@ -57,13 +57,13 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
      * 
      */
     @Import(name="entities", required=true)
-    private Output<List<Integer>> entities;
+    private Output<List<String>> entities;
 
     /**
      * @return The instance IDs associated with this condition.
      * 
      */
-    public Output<List<Integer>> entities() {
+    public Output<List<String>> entities() {
         return this.entities;
     }
 
@@ -119,13 +119,13 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
      * 
      */
     @Import(name="policyId", required=true)
-    private Output<Integer> policyId;
+    private Output<String> policyId;
 
     /**
      * @return The ID of the policy where this condition should be used.
      * 
      */
-    public Output<Integer> policyId() {
+    public Output<String> policyId() {
         return this.policyId;
     }
 
@@ -301,7 +301,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder entities(Output<List<Integer>> entities) {
+        public Builder entities(Output<List<String>> entities) {
             $.entities = entities;
             return this;
         }
@@ -312,7 +312,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder entities(List<Integer> entities) {
+        public Builder entities(List<String> entities) {
             return entities(Output.of(entities));
         }
 
@@ -322,7 +322,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder entities(Integer... entities) {
+        public Builder entities(String... entities) {
             return entities(List.of(entities));
         }
 
@@ -397,7 +397,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder policyId(Output<Integer> policyId) {
+        public Builder policyId(Output<String> policyId) {
             $.policyId = policyId;
             return this;
         }
@@ -408,7 +408,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder policyId(Integer policyId) {
+        public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
         }
 

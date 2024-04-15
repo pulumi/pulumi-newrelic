@@ -65,7 +65,7 @@ import (
 //			// specified in the configuration below, i.e. 654321.
 //			_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
 //				Name:      "my-app",
-//				AccountId: pulumi.IntRef(654321),
+//				AccountId: pulumi.StringRef("654321"),
 //				Domain:    pulumi.StringRef("APM"),
 //				Type:      pulumi.StringRef("APPLICATION"),
 //			}, nil)
@@ -153,7 +153,7 @@ func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOp
 // A collection of arguments for invoking getEntity.
 type GetEntityArgs struct {
 	// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `accountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
 	Domain *string `pulumi:"domain"`
 	// Ignore case of the `name` when searching for the entity. Defaults to false.
@@ -172,9 +172,9 @@ type GetEntityArgs struct {
 
 // A collection of values returned by getEntity.
 type GetEntityResult struct {
-	AccountId int `pulumi:"accountId"`
+	AccountId string `pulumi:"accountId"`
 	// The domain-specific application ID of the entity. Only returned for APM and Browser applications.
-	ApplicationId int    `pulumi:"applicationId"`
+	ApplicationId string `pulumi:"applicationId"`
 	Domain        string `pulumi:"domain"`
 	// The unique GUID of the entity.
 	Guid string `pulumi:"guid"`
@@ -184,7 +184,7 @@ type GetEntityResult struct {
 	IgnoreNotFound *bool  `pulumi:"ignoreNotFound"`
 	Name           string `pulumi:"name"`
 	// The browser-specific ID of the backing APM entity. Only returned for Browser applications.
-	ServingApmApplicationId int            `pulumi:"servingApmApplicationId"`
+	ServingApmApplicationId string         `pulumi:"servingApmApplicationId"`
 	Tags                    []GetEntityTag `pulumi:"tags"`
 	Type                    string         `pulumi:"type"`
 }
@@ -205,7 +205,7 @@ func GetEntityOutput(ctx *pulumi.Context, args GetEntityOutputArgs, opts ...pulu
 // A collection of arguments for invoking getEntity.
 type GetEntityOutputArgs struct {
 	// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `accountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
 	// Ignore case of the `name` when searching for the entity. Defaults to false.
@@ -241,13 +241,13 @@ func (o GetEntityResultOutput) ToGetEntityResultOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o GetEntityResultOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEntityResult) int { return v.AccountId }).(pulumi.IntOutput)
+func (o GetEntityResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntityResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The domain-specific application ID of the entity. Only returned for APM and Browser applications.
-func (o GetEntityResultOutput) ApplicationId() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEntityResult) int { return v.ApplicationId }).(pulumi.IntOutput)
+func (o GetEntityResultOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntityResult) string { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
 func (o GetEntityResultOutput) Domain() pulumi.StringOutput {
@@ -277,8 +277,8 @@ func (o GetEntityResultOutput) Name() pulumi.StringOutput {
 }
 
 // The browser-specific ID of the backing APM entity. Only returned for Browser applications.
-func (o GetEntityResultOutput) ServingApmApplicationId() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEntityResult) int { return v.ServingApmApplicationId }).(pulumi.IntOutput)
+func (o GetEntityResultOutput) ServingApmApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntityResult) string { return v.ServingApmApplicationId }).(pulumi.StringOutput)
 }
 
 func (o GetEntityResultOutput) Tags() GetEntityTagArrayOutput {

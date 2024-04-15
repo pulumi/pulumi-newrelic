@@ -5,13 +5,12 @@ package com.pulumi.newrelic.synthetics.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetSecureCredentialResult {
-    private Integer accountId;
+    private String accountId;
     /**
      * @return The secure credential&#39;s description.
      * 
@@ -30,7 +29,7 @@ public final class GetSecureCredentialResult {
     private String lastUpdated;
 
     private GetSecureCredentialResult() {}
-    public Integer accountId() {
+    public String accountId() {
         return this.accountId;
     }
     /**
@@ -67,7 +66,7 @@ public final class GetSecureCredentialResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer accountId;
+        private String accountId;
         private String description;
         private String id;
         private String key;
@@ -83,7 +82,7 @@ public final class GetSecureCredentialResult {
         }
 
         @CustomType.Setter
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             if (accountId == null) {
               throw new MissingRequiredPropertyException("GetSecureCredentialResult", "accountId");
             }

@@ -16,8 +16,8 @@ __config__ = pulumi.Config('newrelic')
 
 class _ExportableConfig(types.ModuleType):
     @property
-    def account_id(self) -> Optional[int]:
-        return __config__.get_int('accountId') or _utilities.get_env_int('NEW_RELIC_ACCOUNT_ID')
+    def account_id(self) -> Optional[str]:
+        return __config__.get('accountId') or _utilities.get_env('NEW_RELIC_ACCOUNT_ID')
 
     @property
     def admin_api_key(self) -> Optional[str]:

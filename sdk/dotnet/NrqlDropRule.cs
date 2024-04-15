@@ -22,7 +22,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NrqlDropRule("foo", new()
     ///     {
-    ///         AccountId = 12345,
+    ///         AccountId = "12345",
     ///         Description = "Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it.",
     ///         Action = "drop_data",
     ///         Nrql = "SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'",
@@ -30,7 +30,7 @@ namespace Pulumi.NewRelic
     /// 
     ///     var bar = new NewRelic.NrqlDropRule("bar", new()
     ///     {
-    ///         AccountId = 12345,
+    ///         AccountId = "12345",
     ///         Description = "Removes the user name and email fields from MyCustomEvent",
     ///         Action = "drop_attributes",
     ///         Nrql = "SELECT userEmail, userName FROM MyCustomEvent",
@@ -38,7 +38,7 @@ namespace Pulumi.NewRelic
     /// 
     ///     var baz = new NewRelic.NrqlDropRule("baz", new()
     ///     {
-    ///         AccountId = 12345,
+    ///         AccountId = "12345",
     ///         Description = "Removes containerId from metric aggregates to reduce metric cardinality.",
     ///         Action = "drop_attributes_from_metric_aggregates",
     ///         Nrql = "SELECT containerId FROM Metric",
@@ -77,7 +77,7 @@ namespace Pulumi.NewRelic
         /// Account with the NRQL drop rule will be put.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
@@ -153,7 +153,7 @@ namespace Pulumi.NewRelic
         /// Account with the NRQL drop rule will be put.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
@@ -185,7 +185,7 @@ namespace Pulumi.NewRelic
         /// Account with the NRQL drop rule will be put.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).

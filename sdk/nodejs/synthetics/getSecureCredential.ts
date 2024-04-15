@@ -33,7 +33,7 @@ export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi
  * A collection of arguments for invoking getSecureCredential.
  */
 export interface GetSecureCredentialArgs {
-    accountId?: number;
+    accountId?: string;
     key: string;
 }
 
@@ -41,7 +41,7 @@ export interface GetSecureCredentialArgs {
  * A collection of values returned by getSecureCredential.
  */
 export interface GetSecureCredentialResult {
-    readonly accountId: number;
+    readonly accountId: string;
     /**
      * The secure credential's description.
      */
@@ -80,6 +80,6 @@ export function getSecureCredentialOutput(args: GetSecureCredentialOutputArgs, o
  * A collection of arguments for invoking getSecureCredential.
  */
 export interface GetSecureCredentialOutputArgs {
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     key: pulumi.Input<string>;
 }

@@ -6,7 +6,6 @@ package com.pulumi.newrelic.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -23,13 +22,13 @@ public final class OneDashboardVariableNrqlQueryArgs extends com.pulumi.resource
      * 
      */
     @Import(name="accountIds")
-    private @Nullable Output<List<Integer>> accountIds;
+    private @Nullable Output<List<String>> accountIds;
 
     /**
      * @return New Relic account ID(s) to issue the query against.
      * 
      */
-    public Optional<Output<List<Integer>>> accountIds() {
+    public Optional<Output<List<String>>> accountIds() {
         return Optional.ofNullable(this.accountIds);
     }
 
@@ -79,7 +78,7 @@ public final class OneDashboardVariableNrqlQueryArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder accountIds(@Nullable Output<List<Integer>> accountIds) {
+        public Builder accountIds(@Nullable Output<List<String>> accountIds) {
             $.accountIds = accountIds;
             return this;
         }
@@ -90,7 +89,7 @@ public final class OneDashboardVariableNrqlQueryArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder accountIds(List<Integer> accountIds) {
+        public Builder accountIds(List<String> accountIds) {
             return accountIds(Output.of(accountIds));
         }
 
@@ -100,7 +99,7 @@ public final class OneDashboardVariableNrqlQueryArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder accountIds(Integer... accountIds) {
+        public Builder accountIds(String... accountIds) {
             return accountIds(List.of(accountIds));
         }
 

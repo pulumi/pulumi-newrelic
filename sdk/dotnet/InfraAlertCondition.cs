@@ -251,7 +251,7 @@ namespace Pulumi.NewRelic
         /// The ID of the alert policy where this condition should be used.
         /// </summary>
         [Output("policyId")]
-        public Output<int> PolicyId { get; private set; } = null!;
+        public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
         /// Any filters applied to processes; for example: commandName = 'java'. Supported by the infra_process_running condition
@@ -400,7 +400,7 @@ namespace Pulumi.NewRelic
         /// The ID of the alert policy where this condition should be used.
         /// </summary>
         [Input("policyId", required: true)]
-        public Input<int> PolicyId { get; set; } = null!;
+        public Input<string> PolicyId { get; set; } = null!;
 
         /// <summary>
         /// Any filters applied to processes; for example: commandName = 'java'. Supported by the infra_process_running condition
@@ -517,7 +517,7 @@ namespace Pulumi.NewRelic
         /// The ID of the alert policy where this condition should be used.
         /// </summary>
         [Input("policyId")]
-        public Input<int>? PolicyId { get; set; }
+        public Input<string>? PolicyId { get; set; }
 
         /// <summary>
         /// Any filters applied to processes; for example: commandName = 'java'. Supported by the infra_process_running condition

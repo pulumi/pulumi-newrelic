@@ -177,7 +177,7 @@ namespace Pulumi.NewRelic
         /// The instance IDs associated with this condition.
         /// </summary>
         [Output("entities")]
-        public Output<ImmutableArray<int>> Entities { get; private set; } = null!;
+        public Output<ImmutableArray<string>> Entities { get; private set; } = null!;
 
         /// <summary>
         /// The unique entity identifier of the condition in New Relic.
@@ -208,7 +208,7 @@ namespace Pulumi.NewRelic
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Output("policyId")]
-        public Output<int> PolicyId { get; private set; } = null!;
+        public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
         /// Runbook URL to display in notifications.
@@ -305,14 +305,14 @@ namespace Pulumi.NewRelic
         public Input<bool>? Enabled { get; set; }
 
         [Input("entities", required: true)]
-        private InputList<int>? _entities;
+        private InputList<string>? _entities;
 
         /// <summary>
         /// The instance IDs associated with this condition.
         /// </summary>
-        public InputList<int> Entities
+        public InputList<string> Entities
         {
-            get => _entities ?? (_entities = new InputList<int>());
+            get => _entities ?? (_entities = new InputList<string>());
             set => _entities = value;
         }
 
@@ -339,7 +339,7 @@ namespace Pulumi.NewRelic
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Input("policyId", required: true)]
-        public Input<int> PolicyId { get; set; } = null!;
+        public Input<string> PolicyId { get; set; } = null!;
 
         /// <summary>
         /// Runbook URL to display in notifications.
@@ -403,14 +403,14 @@ namespace Pulumi.NewRelic
         public Input<bool>? Enabled { get; set; }
 
         [Input("entities")]
-        private InputList<int>? _entities;
+        private InputList<string>? _entities;
 
         /// <summary>
         /// The instance IDs associated with this condition.
         /// </summary>
-        public InputList<int> Entities
+        public InputList<string> Entities
         {
-            get => _entities ?? (_entities = new InputList<int>());
+            get => _entities ?? (_entities = new InputList<string>());
             set => _entities = value;
         }
 
@@ -443,7 +443,7 @@ namespace Pulumi.NewRelic
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Input("policyId")]
-        public Input<int>? PolicyId { get; set; }
+        public Input<string>? PolicyId { get; set; }
 
         /// <summary>
         /// Runbook URL to display in notifications.

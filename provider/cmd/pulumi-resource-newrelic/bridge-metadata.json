@@ -1263,7 +1263,14 @@
                 "majorVersion": 5
             },
             "newrelic_monitor_downtime": {
-                "current": "newrelic:index/monitorDowntime:MonitorDowntime",
+                "current": "newrelic:synthetics/monitorDowntime:MonitorDowntime",
+                "past": [
+                    {
+                        "name": "newrelic:index/monitorDowntime:MonitorDowntime",
+                        "inCodegen": true,
+                        "majorVersion": 5
+                    }
+                ],
                 "majorVersion": 5,
                 "fields": {
                     "end_repeat": {
@@ -2434,7 +2441,15 @@
             }
         }
     },
-    "auto-settings": {},
+    "auto-settings": {
+        "resources": {
+            "newrelic_monitor_downtime": {
+                "aliases": [
+                    "newrelic:index/monitorDowntime:MonitorDowntime"
+                ]
+            }
+        }
+    },
     "renames": {
         "resources": {
             "newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations": "newrelic_cloud_aws_govcloud_integrations",

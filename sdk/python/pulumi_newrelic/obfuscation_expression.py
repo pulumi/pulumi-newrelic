@@ -15,13 +15,13 @@ __all__ = ['ObfuscationExpressionArgs', 'ObfuscationExpression']
 class ObfuscationExpressionArgs:
     def __init__(__self__, *,
                  regex: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ObfuscationExpression resource.
         :param pulumi.Input[str] regex: Regex of expression. Must be wrapped in parentheses, e.g. (regex.*).
-        :param pulumi.Input[int] account_id: The account id associated with the obfuscation expression.
+        :param pulumi.Input[str] account_id: The account id associated with the obfuscation expression.
         :param pulumi.Input[str] description: Description of expression.
         :param pulumi.Input[str] name: Name of expression.
         """
@@ -47,14 +47,14 @@ class ObfuscationExpressionArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account id associated with the obfuscation expression.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -85,13 +85,13 @@ class ObfuscationExpressionArgs:
 @pulumi.input_type
 class _ObfuscationExpressionState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  regex: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ObfuscationExpression resources.
-        :param pulumi.Input[int] account_id: The account id associated with the obfuscation expression.
+        :param pulumi.Input[str] account_id: The account id associated with the obfuscation expression.
         :param pulumi.Input[str] description: Description of expression.
         :param pulumi.Input[str] name: Name of expression.
         :param pulumi.Input[str] regex: Regex of expression. Must be wrapped in parentheses, e.g. (regex.*).
@@ -107,14 +107,14 @@ class _ObfuscationExpressionState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account id associated with the obfuscation expression.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -159,7 +159,7 @@ class ObfuscationExpression(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  regex: Optional[pulumi.Input[str]] = None,
@@ -174,7 +174,7 @@ class ObfuscationExpression(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.ObfuscationExpression("foo",
-            account_id=12345,
+            account_id="12345",
             name="OExp",
             description="The description",
             regex="(regex.*)")
@@ -192,7 +192,7 @@ class ObfuscationExpression(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account id associated with the obfuscation expression.
+        :param pulumi.Input[str] account_id: The account id associated with the obfuscation expression.
         :param pulumi.Input[str] description: Description of expression.
         :param pulumi.Input[str] name: Name of expression.
         :param pulumi.Input[str] regex: Regex of expression. Must be wrapped in parentheses, e.g. (regex.*).
@@ -213,7 +213,7 @@ class ObfuscationExpression(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.ObfuscationExpression("foo",
-            account_id=12345,
+            account_id="12345",
             name="OExp",
             description="The description",
             regex="(regex.*)")
@@ -244,7 +244,7 @@ class ObfuscationExpression(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  regex: Optional[pulumi.Input[str]] = None,
@@ -273,7 +273,7 @@ class ObfuscationExpression(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             regex: Optional[pulumi.Input[str]] = None) -> 'ObfuscationExpression':
@@ -284,7 +284,7 @@ class ObfuscationExpression(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account id associated with the obfuscation expression.
+        :param pulumi.Input[str] account_id: The account id associated with the obfuscation expression.
         :param pulumi.Input[str] description: Description of expression.
         :param pulumi.Input[str] name: Name of expression.
         :param pulumi.Input[str] regex: Regex of expression. Must be wrapped in parentheses, e.g. (regex.*).
@@ -301,7 +301,7 @@ class ObfuscationExpression(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The account id associated with the obfuscation expression.
         """

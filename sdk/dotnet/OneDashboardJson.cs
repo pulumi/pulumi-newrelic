@@ -27,7 +27,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The unique entity identifier of the dashboard in New Relic.
@@ -103,7 +103,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
@@ -123,7 +123,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The unique entity identifier of the dashboard in New Relic.

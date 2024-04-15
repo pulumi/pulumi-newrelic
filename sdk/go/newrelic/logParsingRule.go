@@ -102,7 +102,7 @@ type LogParsingRule struct {
 	pulumi.CustomResourceState
 
 	// The account id associated with the obfuscation rule.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
 	Attribute pulumi.StringPtrOutput `pulumi:"attribute"`
 	// Whether or not this rule is deleted.
@@ -164,7 +164,7 @@ func GetLogParsingRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering LogParsingRule resources.
 type logParsingRuleState struct {
 	// The account id associated with the obfuscation rule.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
 	Attribute *string `pulumi:"attribute"`
 	// Whether or not this rule is deleted.
@@ -185,7 +185,7 @@ type logParsingRuleState struct {
 
 type LogParsingRuleState struct {
 	// The account id associated with the obfuscation rule.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
 	Attribute pulumi.StringPtrInput
 	// Whether or not this rule is deleted.
@@ -210,7 +210,7 @@ func (LogParsingRuleState) ElementType() reflect.Type {
 
 type logParsingRuleArgs struct {
 	// The account id associated with the obfuscation rule.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
 	Attribute *string `pulumi:"attribute"`
 	// Whether the rule should be applied or not to incoming data.
@@ -230,7 +230,7 @@ type logParsingRuleArgs struct {
 // The set of arguments for constructing a LogParsingRule resource.
 type LogParsingRuleArgs struct {
 	// The account id associated with the obfuscation rule.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
 	Attribute pulumi.StringPtrInput
 	// Whether the rule should be applied or not to incoming data.
@@ -335,8 +335,8 @@ func (o LogParsingRuleOutput) ToLogParsingRuleOutputWithContext(ctx context.Cont
 }
 
 // The account id associated with the obfuscation rule.
-func (o LogParsingRuleOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *LogParsingRule) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o LogParsingRuleOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogParsingRule) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.

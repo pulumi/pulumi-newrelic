@@ -29,13 +29,13 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -284,13 +284,13 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
      * 
      */
     @Import(name="policyId", required=true)
-    private Output<Integer> policyId;
+    private Output<String> policyId;
 
     /**
      * @return The ID of the policy where this condition should be used.
      * 
      */
-    public Output<Integer> policyId() {
+    public Output<String> policyId() {
         return this.policyId;
     }
 
@@ -473,7 +473,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -484,7 +484,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
@@ -830,7 +830,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder policyId(Output<Integer> policyId) {
+        public Builder policyId(Output<String> policyId) {
             $.policyId = policyId;
             return this;
         }
@@ -841,7 +841,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder policyId(Integer policyId) {
+        public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
         }
 
