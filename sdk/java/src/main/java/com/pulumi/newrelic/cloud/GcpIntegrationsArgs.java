@@ -32,7 +32,7 @@ import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsSqlArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsStorageArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsVirtualMachinesArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsVpcAccessArgs;
-import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -47,13 +47,13 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -287,13 +287,13 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
      * 
      */
     @Import(name="linkedAccountId", required=true)
-    private Output<Integer> linkedAccountId;
+    private Output<String> linkedAccountId;
 
     /**
      * @return The ID of the linked GCP account in New Relic.
      * 
      */
-    public Output<Integer> linkedAccountId() {
+    public Output<String> linkedAccountId() {
         return this.linkedAccountId;
     }
 
@@ -519,7 +519,7 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -530,7 +530,7 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
@@ -855,7 +855,7 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder linkedAccountId(Output<Integer> linkedAccountId) {
+        public Builder linkedAccountId(Output<String> linkedAccountId) {
             $.linkedAccountId = linkedAccountId;
             return this;
         }
@@ -866,7 +866,7 @@ public final class GcpIntegrationsArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder linkedAccountId(Integer linkedAccountId) {
+        public Builder linkedAccountId(String linkedAccountId) {
             return linkedAccountId(Output.of(linkedAccountId));
         }
 

@@ -5,7 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Integer;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,13 +21,13 @@ public final class AlertPolicyChannelState extends com.pulumi.resources.Resource
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -36,13 +36,13 @@ public final class AlertPolicyChannelState extends com.pulumi.resources.Resource
      * 
      */
     @Import(name="channelIds")
-    private @Nullable Output<List<Integer>> channelIds;
+    private @Nullable Output<List<String>> channelIds;
 
     /**
      * @return Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      * 
      */
-    public Optional<Output<List<Integer>>> channelIds() {
+    public Optional<Output<List<String>>> channelIds() {
         return Optional.ofNullable(this.channelIds);
     }
 
@@ -51,13 +51,13 @@ public final class AlertPolicyChannelState extends com.pulumi.resources.Resource
      * 
      */
     @Import(name="policyId")
-    private @Nullable Output<Integer> policyId;
+    private @Nullable Output<String> policyId;
 
     /**
      * @return The ID of the policy.
      * 
      */
-    public Optional<Output<Integer>> policyId() {
+    public Optional<Output<String>> policyId() {
         return Optional.ofNullable(this.policyId);
     }
 
@@ -93,7 +93,7 @@ public final class AlertPolicyChannelState extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -104,7 +104,7 @@ public final class AlertPolicyChannelState extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
@@ -114,7 +114,7 @@ public final class AlertPolicyChannelState extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder channelIds(@Nullable Output<List<Integer>> channelIds) {
+        public Builder channelIds(@Nullable Output<List<String>> channelIds) {
             $.channelIds = channelIds;
             return this;
         }
@@ -125,7 +125,7 @@ public final class AlertPolicyChannelState extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder channelIds(List<Integer> channelIds) {
+        public Builder channelIds(List<String> channelIds) {
             return channelIds(Output.of(channelIds));
         }
 
@@ -135,7 +135,7 @@ public final class AlertPolicyChannelState extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder channelIds(Integer... channelIds) {
+        public Builder channelIds(String... channelIds) {
             return channelIds(List.of(channelIds));
         }
 
@@ -145,7 +145,7 @@ public final class AlertPolicyChannelState extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder policyId(@Nullable Output<Integer> policyId) {
+        public Builder policyId(@Nullable Output<String> policyId) {
             $.policyId = policyId;
             return this;
         }
@@ -156,7 +156,7 @@ public final class AlertPolicyChannelState extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder policyId(Integer policyId) {
+        public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
         }
 

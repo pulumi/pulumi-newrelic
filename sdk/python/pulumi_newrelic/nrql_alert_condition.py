@@ -17,8 +17,8 @@ __all__ = ['NrqlAlertConditionArgs', 'NrqlAlertCondition']
 class NrqlAlertConditionArgs:
     def __init__(__self__, *,
                  nrql: pulumi.Input['NrqlAlertConditionNrqlArgs'],
-                 policy_id: pulumi.Input[int],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 policy_id: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None,
                  aggregation_delay: Optional[pulumi.Input[str]] = None,
                  aggregation_method: Optional[pulumi.Input[str]] = None,
                  aggregation_timer: Optional[pulumi.Input[str]] = None,
@@ -44,8 +44,8 @@ class NrqlAlertConditionArgs:
         """
         The set of arguments for constructing a NrqlAlertCondition resource.
         :param pulumi.Input['NrqlAlertConditionNrqlArgs'] nrql: A NRQL query. See NRQL below for details.
-        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
-        :param pulumi.Input[int] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[str] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[str] aggregation_delay: How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_method: Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_timer: How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
@@ -140,26 +140,26 @@ class NrqlAlertConditionArgs:
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> pulumi.Input[int]:
+    def policy_id(self) -> pulumi.Input[str]:
         """
         The ID of the policy where this condition should be used.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: pulumi.Input[int]):
+    def policy_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "policy_id", value)
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -438,7 +438,7 @@ class NrqlAlertConditionArgs:
 @pulumi.input_type
 class _NrqlAlertConditionState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  aggregation_delay: Optional[pulumi.Input[str]] = None,
                  aggregation_method: Optional[pulumi.Input[str]] = None,
                  aggregation_timer: Optional[pulumi.Input[str]] = None,
@@ -456,7 +456,7 @@ class _NrqlAlertConditionState:
                  name: Optional[pulumi.Input[str]] = None,
                  nrql: Optional[pulumi.Input['NrqlAlertConditionNrqlArgs']] = None,
                  open_violation_on_expiration: Optional[pulumi.Input[bool]] = None,
-                 policy_id: Optional[pulumi.Input[int]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  slide_by: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]] = None,
@@ -466,7 +466,7 @@ class _NrqlAlertConditionState:
                  warning: Optional[pulumi.Input['NrqlAlertConditionWarningArgs']] = None):
         """
         Input properties used for looking up and filtering NrqlAlertCondition resources.
-        :param pulumi.Input[int] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[str] aggregation_delay: How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_method: Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_timer: How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
@@ -484,7 +484,7 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input['NrqlAlertConditionNrqlArgs'] nrql: A NRQL query. See NRQL below for details.
         :param pulumi.Input[bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
-        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
@@ -556,14 +556,14 @@ class _NrqlAlertConditionState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -772,14 +772,14 @@ class _NrqlAlertConditionState:
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[int]]:
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the policy where this condition should be used.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[int]]):
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_id", value)
 
     @property
@@ -880,7 +880,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  aggregation_delay: Optional[pulumi.Input[str]] = None,
                  aggregation_method: Optional[pulumi.Input[str]] = None,
                  aggregation_timer: Optional[pulumi.Input[str]] = None,
@@ -897,7 +897,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  nrql: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionNrqlArgs']]] = None,
                  open_violation_on_expiration: Optional[pulumi.Input[bool]] = None,
-                 policy_id: Optional[pulumi.Input[int]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  slide_by: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]]] = None,
@@ -920,7 +920,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
         foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
-            account_id=12345678,
+            account_id="12345678",
             policy_id=foo_alert_policy.id,
             type="static",
             description="Alert when transactions are taking too long",
@@ -1044,7 +1044,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
         foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
-            account_id=12345678,
+            account_id="12345678",
             policy_id=foo_alert_policy.id,
             type="static",
             description="Alert when transactions are taking too long",
@@ -1171,7 +1171,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[str] aggregation_delay: How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_method: Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_timer: How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
@@ -1188,7 +1188,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[pulumi.InputType['NrqlAlertConditionNrqlArgs']] nrql: A NRQL query. See NRQL below for details.
         :param pulumi.Input[bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
-        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
@@ -1219,7 +1219,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
         foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
-            account_id=12345678,
+            account_id="12345678",
             policy_id=foo_alert_policy.id,
             type="static",
             description="Alert when transactions are taking too long",
@@ -1343,7 +1343,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
         foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
-            account_id=12345678,
+            account_id="12345678",
             policy_id=foo_alert_policy.id,
             type="static",
             description="Alert when transactions are taking too long",
@@ -1483,7 +1483,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  aggregation_delay: Optional[pulumi.Input[str]] = None,
                  aggregation_method: Optional[pulumi.Input[str]] = None,
                  aggregation_timer: Optional[pulumi.Input[str]] = None,
@@ -1500,7 +1500,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  nrql: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionNrqlArgs']]] = None,
                  open_violation_on_expiration: Optional[pulumi.Input[bool]] = None,
-                 policy_id: Optional[pulumi.Input[int]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  slide_by: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]]] = None,
@@ -1557,7 +1557,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             aggregation_delay: Optional[pulumi.Input[str]] = None,
             aggregation_method: Optional[pulumi.Input[str]] = None,
             aggregation_timer: Optional[pulumi.Input[str]] = None,
@@ -1575,7 +1575,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             nrql: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionNrqlArgs']]] = None,
             open_violation_on_expiration: Optional[pulumi.Input[bool]] = None,
-            policy_id: Optional[pulumi.Input[int]] = None,
+            policy_id: Optional[pulumi.Input[str]] = None,
             runbook_url: Optional[pulumi.Input[str]] = None,
             slide_by: Optional[pulumi.Input[int]] = None,
             terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]]] = None,
@@ -1590,7 +1590,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[str] aggregation_delay: How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_method: Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_timer: How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
@@ -1608,7 +1608,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[pulumi.InputType['NrqlAlertConditionNrqlArgs']] nrql: A NRQL query. See NRQL below for details.
         :param pulumi.Input[bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
-        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
@@ -1653,7 +1653,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
@@ -1797,7 +1797,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> pulumi.Output[int]:
+    def policy_id(self) -> pulumi.Output[str]:
         """
         The ID of the policy where this condition should be used.
         """

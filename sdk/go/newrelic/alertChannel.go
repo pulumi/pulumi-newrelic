@@ -270,7 +270,7 @@ type AlertChannel struct {
 	pulumi.CustomResourceState
 
 	// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config AlertChannelConfigPtrOutput `pulumi:"config"`
 	// The name of the channel.
@@ -313,7 +313,7 @@ func GetAlertChannel(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AlertChannel resources.
 type alertChannelState struct {
 	// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config *AlertChannelConfig `pulumi:"config"`
 	// The name of the channel.
@@ -324,7 +324,7 @@ type alertChannelState struct {
 
 type AlertChannelState struct {
 	// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config AlertChannelConfigPtrInput
 	// The name of the channel.
@@ -339,7 +339,7 @@ func (AlertChannelState) ElementType() reflect.Type {
 
 type alertChannelArgs struct {
 	// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config *AlertChannelConfig `pulumi:"config"`
 	// The name of the channel.
@@ -351,7 +351,7 @@ type alertChannelArgs struct {
 // The set of arguments for constructing a AlertChannel resource.
 type AlertChannelArgs struct {
 	// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config AlertChannelConfigPtrInput
 	// The name of the channel.
@@ -448,8 +448,8 @@ func (o AlertChannelOutput) ToAlertChannelOutputWithContext(ctx context.Context)
 }
 
 // Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-func (o AlertChannelOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AlertChannel) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o AlertChannelOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertChannel) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.

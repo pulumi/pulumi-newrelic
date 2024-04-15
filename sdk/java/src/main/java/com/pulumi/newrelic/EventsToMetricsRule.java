@@ -11,7 +11,6 @@ import com.pulumi.newrelic.EventsToMetricsRuleArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.EventsToMetricsRuleState;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -73,14 +72,14 @@ public class EventsToMetricsRule extends com.pulumi.resources.CustomResource {
      * Account with the event and where the metrics will be put.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return Account with the event and where the metrics will be put.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

@@ -18,7 +18,7 @@ class LogParsingRuleArgs:
                  grok: pulumi.Input[str],
                  lucene: pulumi.Input[str],
                  nrql: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  attribute: Optional[pulumi.Input[str]] = None,
                  matched: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -28,7 +28,7 @@ class LogParsingRuleArgs:
         :param pulumi.Input[str] grok: The Grok of what to parse.
         :param pulumi.Input[str] lucene: The Lucene to match events to the parsing rule.
         :param pulumi.Input[str] nrql: The NRQL to match events to the parsing rule.
-        :param pulumi.Input[int] account_id: The account id associated with the obfuscation rule.
+        :param pulumi.Input[str] account_id: The account id associated with the obfuscation rule.
         :param pulumi.Input[str] attribute: The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
         :param pulumi.Input[bool] matched: Whether the Grok pattern matched.
         :param pulumi.Input[str] name: Name of rule.
@@ -96,14 +96,14 @@ class LogParsingRuleArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account id associated with the obfuscation rule.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -146,7 +146,7 @@ class LogParsingRuleArgs:
 @pulumi.input_type
 class _LogParsingRuleState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  attribute: Optional[pulumi.Input[str]] = None,
                  deleted: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -157,7 +157,7 @@ class _LogParsingRuleState:
                  nrql: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LogParsingRule resources.
-        :param pulumi.Input[int] account_id: The account id associated with the obfuscation rule.
+        :param pulumi.Input[str] account_id: The account id associated with the obfuscation rule.
         :param pulumi.Input[str] attribute: The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
         :param pulumi.Input[bool] deleted: Whether or not this rule is deleted.
         :param pulumi.Input[bool] enabled: Whether the rule should be applied or not to incoming data.
@@ -188,14 +188,14 @@ class _LogParsingRuleState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account id associated with the obfuscation rule.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -300,7 +300,7 @@ class LogParsingRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  attribute: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  grok: Optional[pulumi.Input[str]] = None,
@@ -362,7 +362,7 @@ class LogParsingRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account id associated with the obfuscation rule.
+        :param pulumi.Input[str] account_id: The account id associated with the obfuscation rule.
         :param pulumi.Input[str] attribute: The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
         :param pulumi.Input[bool] enabled: Whether the rule should be applied or not to incoming data.
         :param pulumi.Input[str] grok: The Grok of what to parse.
@@ -443,7 +443,7 @@ class LogParsingRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  attribute: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  grok: Optional[pulumi.Input[str]] = None,
@@ -487,7 +487,7 @@ class LogParsingRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             attribute: Optional[pulumi.Input[str]] = None,
             deleted: Optional[pulumi.Input[bool]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -503,7 +503,7 @@ class LogParsingRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account id associated with the obfuscation rule.
+        :param pulumi.Input[str] account_id: The account id associated with the obfuscation rule.
         :param pulumi.Input[str] attribute: The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
         :param pulumi.Input[bool] deleted: Whether or not this rule is deleted.
         :param pulumi.Input[bool] enabled: Whether the rule should be applied or not to incoming data.
@@ -530,7 +530,7 @@ class LogParsingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The account id associated with the obfuscation rule.
         """

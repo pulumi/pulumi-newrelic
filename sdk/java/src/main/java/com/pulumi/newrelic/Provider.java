@@ -23,6 +23,12 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pulumi:providers:newrelic")
 public class Provider extends com.pulumi.resources.ProviderResource {
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> accountId;
+
+    public Output<Optional<String>> accountId() {
+        return Codegen.optional(this.accountId);
+    }
     @Export(name="adminApiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminApiKey;
 
@@ -151,6 +157,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
+                "accountId",
                 "adminApiKey",
                 "apiKey",
                 "insightsInsertKey"

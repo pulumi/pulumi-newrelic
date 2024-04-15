@@ -9,7 +9,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.ServiceLevelEventsBadEventsArgs;
 import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
 import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
-import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -25,14 +25,14 @@ public final class ServiceLevelEventsArgs extends com.pulumi.resources.ResourceA
      * 
      */
     @Import(name="accountId", required=true)
-    private Output<Integer> accountId;
+    private Output<String> accountId;
 
     /**
      * @return The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
      * and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
 
@@ -115,7 +115,7 @@ public final class ServiceLevelEventsArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder accountId(Output<Integer> accountId) {
+        public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -127,7 +127,7 @@ public final class ServiceLevelEventsArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 

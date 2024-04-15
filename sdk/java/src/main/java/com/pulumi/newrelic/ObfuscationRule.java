@@ -12,7 +12,6 @@ import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.ObfuscationRuleState;
 import com.pulumi.newrelic.outputs.ObfuscationRuleAction;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -86,14 +85,14 @@ public class ObfuscationRule extends com.pulumi.resources.CustomResource {
      * The account id associated with the obfuscation rule.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The account id associated with the obfuscation rule.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

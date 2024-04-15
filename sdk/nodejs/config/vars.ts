@@ -7,10 +7,10 @@ import * as utilities from "../utilities";
 declare var exports: any;
 const __config = new pulumi.Config("newrelic");
 
-export declare const accountId: number | undefined;
+export declare const accountId: string | undefined;
 Object.defineProperty(exports, "accountId", {
     get() {
-        return __config.getObject<number>("accountId") ?? utilities.getEnvNumber("NEW_RELIC_ACCOUNT_ID");
+        return __config.get("accountId") ?? utilities.getEnv("NEW_RELIC_ACCOUNT_ID");
     },
     enumerable: true,
 });

@@ -165,7 +165,7 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
     /**
      * The ID of the policy where this condition will be used.
      */
-    public readonly policyId!: pulumi.Output<number>;
+    public readonly policyId!: pulumi.Output<string>;
     /**
      * Runbook URL to display in notifications.
      */
@@ -257,7 +257,7 @@ export interface MultiLocationAlertConditionState {
     /**
      * The ID of the policy where this condition will be used.
      */
-    policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<string>;
     /**
      * Runbook URL to display in notifications.
      */
@@ -298,7 +298,7 @@ export interface MultiLocationAlertConditionArgs {
     /**
      * The ID of the policy where this condition will be used.
      */
-    policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<string>;
     /**
      * Runbook URL to display in notifications.
      */

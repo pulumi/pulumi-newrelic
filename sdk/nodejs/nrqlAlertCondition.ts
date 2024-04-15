@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *
  * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
  * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     policyId: fooAlertPolicy.id,
  *     type: "static",
  *     description: "Alert when transactions are taking too long",
@@ -146,7 +146,7 @@ import * as utilities from "./utilities";
  *
  * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
  * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     policyId: fooAlertPolicy.id,
  *     type: "static",
  *     description: "Alert when transactions are taking too long",
@@ -306,7 +306,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     /**
      * The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
      */
@@ -378,7 +378,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     /**
      * The ID of the policy where this condition should be used.
      */
-    public readonly policyId!: pulumi.Output<number>;
+    public readonly policyId!: pulumi.Output<string>;
     /**
      * Runbook URL to display in notifications.
      */
@@ -500,7 +500,7 @@ export interface NrqlAlertConditionState {
     /**
      * The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
      */
@@ -572,7 +572,7 @@ export interface NrqlAlertConditionState {
     /**
      * The ID of the policy where this condition should be used.
      */
-    policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<string>;
     /**
      * Runbook URL to display in notifications.
      */
@@ -616,7 +616,7 @@ export interface NrqlAlertConditionArgs {
     /**
      * The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
      */
@@ -684,7 +684,7 @@ export interface NrqlAlertConditionArgs {
     /**
      * The ID of the policy where this condition should be used.
      */
-    policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<string>;
     /**
      * Runbook URL to display in notifications.
      */

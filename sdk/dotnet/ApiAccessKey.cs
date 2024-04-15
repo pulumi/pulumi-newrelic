@@ -46,7 +46,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID of the account you wish to create the API access key.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
@@ -82,7 +82,7 @@ namespace Pulumi.NewRelic
         /// Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
         /// </summary>
         [Output("userId")]
-        public Output<int> UserId { get; private set; } = null!;
+        public Output<string> UserId { get; private set; } = null!;
 
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID of the account you wish to create the API access key.
         /// </summary>
         [Input("accountId", required: true)]
-        public Input<int> AccountId { get; set; } = null!;
+        public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
         /// Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
@@ -168,7 +168,7 @@ namespace Pulumi.NewRelic
         /// Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
         /// </summary>
         [Input("userId")]
-        public Input<int>? UserId { get; set; }
+        public Input<string>? UserId { get; set; }
 
         public ApiAccessKeyArgs()
         {
@@ -182,7 +182,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID of the account you wish to create the API access key.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
@@ -228,7 +228,7 @@ namespace Pulumi.NewRelic
         /// Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
         /// </summary>
         [Input("userId")]
-        public Input<int>? UserId { get; set; }
+        public Input<string>? UserId { get; set; }
 
         public ApiAccessKeyState()
         {

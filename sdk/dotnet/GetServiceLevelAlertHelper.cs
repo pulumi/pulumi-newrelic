@@ -37,7 +37,7 @@ namespace Pulumi.NewRelic
         ///         Description = "Proportion of requests that are served faster than a threshold.",
         ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
         ///         {
-        ///             AccountId = 12345678,
+        ///             AccountId = "12345678",
         ///             ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
         ///             {
         ///                 From = "Transaction",
@@ -92,8 +92,8 @@ namespace Pulumi.NewRelic
         /// 
         ///     var yourCondition = new NewRelic.NrqlAlertCondition("yourCondition", new()
         ///     {
-        ///         AccountId = 12345678,
-        ///         PolicyId = 67890,
+        ///         AccountId = "12345678",
+        ///         PolicyId = "67890",
         ///         Type = "static",
         ///         Enabled = true,
         ///         ViolationTimeLimitSeconds = 259200,
@@ -144,8 +144,8 @@ namespace Pulumi.NewRelic
         /// 
         ///     var yourCondition = new NewRelic.NrqlAlertCondition("yourCondition", new()
         ///     {
-        ///         AccountId = 12345678,
-        ///         PolicyId = 67890,
+        ///         AccountId = "12345678",
+        ///         PolicyId = "67890",
         ///         Type = "static",
         ///         Enabled = true,
         ///         ViolationTimeLimitSeconds = 259200,
@@ -200,7 +200,7 @@ namespace Pulumi.NewRelic
         ///         Description = "Proportion of requests that are served faster than a threshold.",
         ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
         ///         {
-        ///             AccountId = 12345678,
+        ///             AccountId = "12345678",
         ///             ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
         ///             {
         ///                 From = "Transaction",
@@ -255,8 +255,8 @@ namespace Pulumi.NewRelic
         /// 
         ///     var yourCondition = new NewRelic.NrqlAlertCondition("yourCondition", new()
         ///     {
-        ///         AccountId = 12345678,
-        ///         PolicyId = 67890,
+        ///         AccountId = "12345678",
+        ///         PolicyId = "67890",
         ///         Type = "static",
         ///         Enabled = true,
         ///         ViolationTimeLimitSeconds = 259200,
@@ -307,8 +307,8 @@ namespace Pulumi.NewRelic
         /// 
         ///     var yourCondition = new NewRelic.NrqlAlertCondition("yourCondition", new()
         ///     {
-        ///         AccountId = 12345678,
-        ///         PolicyId = 67890,
+        ///         AccountId = "12345678",
+        ///         PolicyId = "67890",
         ///         Type = "static",
         ///         Enabled = true,
         ///         ViolationTimeLimitSeconds = 259200,

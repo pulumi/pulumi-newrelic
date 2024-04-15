@@ -63,7 +63,7 @@ namespace Pulumi.NewRelic.Cloud
         /// Account ID of the New Relic.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Application ID of the App.
@@ -149,7 +149,7 @@ namespace Pulumi.NewRelic.Cloud
         /// Account ID of the New Relic.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Application ID of the App.
@@ -203,7 +203,7 @@ namespace Pulumi.NewRelic.Cloud
         /// Account ID of the New Relic.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Application ID of the App.

@@ -127,7 +127,7 @@ type CertCheckMonitor struct {
 	pulumi.CustomResourceState
 
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The desired number of remaining days until the certificate expires to trigger a monitor failure.
 	CertificateExpiration pulumi.IntOutput `pulumi:"certificateExpiration"`
 	// The domain of the host that will have its certificate checked.
@@ -197,7 +197,7 @@ func GetCertCheckMonitor(ctx *pulumi.Context,
 // Input properties used for looking up and filtering CertCheckMonitor resources.
 type certCheckMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The desired number of remaining days until the certificate expires to trigger a monitor failure.
 	CertificateExpiration *int `pulumi:"certificateExpiration"`
 	// The domain of the host that will have its certificate checked.
@@ -226,7 +226,7 @@ type certCheckMonitorState struct {
 
 type CertCheckMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The desired number of remaining days until the certificate expires to trigger a monitor failure.
 	CertificateExpiration pulumi.IntPtrInput
 	// The domain of the host that will have its certificate checked.
@@ -259,7 +259,7 @@ func (CertCheckMonitorState) ElementType() reflect.Type {
 
 type certCheckMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The desired number of remaining days until the certificate expires to trigger a monitor failure.
 	CertificateExpiration int `pulumi:"certificateExpiration"`
 	// The domain of the host that will have its certificate checked.
@@ -287,7 +287,7 @@ type certCheckMonitorArgs struct {
 // The set of arguments for constructing a CertCheckMonitor resource.
 type CertCheckMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The desired number of remaining days until the certificate expires to trigger a monitor failure.
 	CertificateExpiration pulumi.IntInput
 	// The domain of the host that will have its certificate checked.
@@ -400,8 +400,8 @@ func (o CertCheckMonitorOutput) ToCertCheckMonitorOutputWithContext(ctx context.
 }
 
 // The account in which the Synthetics monitor will be created.
-func (o CertCheckMonitorOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *CertCheckMonitor) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o CertCheckMonitorOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CertCheckMonitor) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The desired number of remaining days until the certificate expires to trigger a monitor failure.

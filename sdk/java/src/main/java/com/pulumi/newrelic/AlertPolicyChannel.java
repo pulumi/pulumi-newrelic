@@ -10,7 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.AlertPolicyChannelArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.AlertPolicyChannelState;
-import java.lang.Integer;
+import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
@@ -102,42 +102,42 @@ public class AlertPolicyChannel extends com.pulumi.resources.CustomResource {
      * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      * 
      */
-    @Export(name="channelIds", refs={List.class,Integer.class}, tree="[0,1]")
-    private Output<List<Integer>> channelIds;
+    @Export(name="channelIds", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> channelIds;
 
     /**
      * @return Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      * 
      */
-    public Output<List<Integer>> channelIds() {
+    public Output<List<String>> channelIds() {
         return this.channelIds;
     }
     /**
      * The ID of the policy.
      * 
      */
-    @Export(name="policyId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> policyId;
+    @Export(name="policyId", refs={String.class}, tree="[0]")
+    private Output<String> policyId;
 
     /**
      * @return The ID of the policy.
      * 
      */
-    public Output<Integer> policyId() {
+    public Output<String> policyId() {
         return this.policyId;
     }
 

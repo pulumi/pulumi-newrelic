@@ -15,14 +15,14 @@ __all__ = ['EventsToMetricsRuleArgs', 'EventsToMetricsRule']
 class EventsToMetricsRuleArgs:
     def __init__(__self__, *,
                  nrql: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EventsToMetricsRule resource.
         :param pulumi.Input[str] nrql: Explains how to create metrics from events.
-        :param pulumi.Input[int] account_id: Account with the event and where the metrics will be put.
+        :param pulumi.Input[str] account_id: Account with the event and where the metrics will be put.
         :param pulumi.Input[str] description: Provides additional information about the rule.
         :param pulumi.Input[bool] enabled: True means this rule is enabled. False means the rule is currently not creating metrics.
         :param pulumi.Input[str] name: The name of the rule. This must be unique within an account.
@@ -51,14 +51,14 @@ class EventsToMetricsRuleArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Account with the event and where the metrics will be put.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -101,7 +101,7 @@ class EventsToMetricsRuleArgs:
 @pulumi.input_type
 class _EventsToMetricsRuleState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class _EventsToMetricsRuleState:
                  rule_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EventsToMetricsRule resources.
-        :param pulumi.Input[int] account_id: Account with the event and where the metrics will be put.
+        :param pulumi.Input[str] account_id: Account with the event and where the metrics will be put.
         :param pulumi.Input[str] description: Provides additional information about the rule.
         :param pulumi.Input[bool] enabled: True means this rule is enabled. False means the rule is currently not creating metrics.
         :param pulumi.Input[str] name: The name of the rule. This must be unique within an account.
@@ -131,14 +131,14 @@ class _EventsToMetricsRuleState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Account with the event and where the metrics will be put.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -207,7 +207,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -224,7 +224,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.EventsToMetricsRule("foo",
-            account_id=12345,
+            account_id="12345",
             description="Example description",
             nrql="SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
         ```
@@ -244,7 +244,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Account with the event and where the metrics will be put.
+        :param pulumi.Input[str] account_id: Account with the event and where the metrics will be put.
         :param pulumi.Input[str] description: Provides additional information about the rule.
         :param pulumi.Input[bool] enabled: True means this rule is enabled. False means the rule is currently not creating metrics.
         :param pulumi.Input[str] name: The name of the rule. This must be unique within an account.
@@ -267,7 +267,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.EventsToMetricsRule("foo",
-            account_id=12345,
+            account_id="12345",
             description="Example description",
             nrql="SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
         ```
@@ -300,7 +300,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -332,7 +332,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -345,7 +345,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Account with the event and where the metrics will be put.
+        :param pulumi.Input[str] account_id: Account with the event and where the metrics will be put.
         :param pulumi.Input[str] description: Provides additional information about the rule.
         :param pulumi.Input[bool] enabled: True means this rule is enabled. False means the rule is currently not creating metrics.
         :param pulumi.Input[str] name: The name of the rule. This must be unique within an account.
@@ -366,7 +366,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         Account with the event and where the metrics will be put.
         """

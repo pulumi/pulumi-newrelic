@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewObfuscationExpression(ctx, "foo", &newrelic.ObfuscationExpressionArgs{
-//				AccountId:   pulumi.Int(12345),
+//				AccountId:   pulumi.String("12345"),
 //				Description: pulumi.String("The description"),
 //				Regex:       pulumi.String("(regex.*)"),
 //			})
@@ -57,7 +57,7 @@ type ObfuscationExpression struct {
 	pulumi.CustomResourceState
 
 	// The account id associated with the obfuscation expression.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Description of expression.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of expression.
@@ -100,7 +100,7 @@ func GetObfuscationExpression(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ObfuscationExpression resources.
 type obfuscationExpressionState struct {
 	// The account id associated with the obfuscation expression.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Description of expression.
 	Description *string `pulumi:"description"`
 	// Name of expression.
@@ -111,7 +111,7 @@ type obfuscationExpressionState struct {
 
 type ObfuscationExpressionState struct {
 	// The account id associated with the obfuscation expression.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Description of expression.
 	Description pulumi.StringPtrInput
 	// Name of expression.
@@ -126,7 +126,7 @@ func (ObfuscationExpressionState) ElementType() reflect.Type {
 
 type obfuscationExpressionArgs struct {
 	// The account id associated with the obfuscation expression.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Description of expression.
 	Description *string `pulumi:"description"`
 	// Name of expression.
@@ -138,7 +138,7 @@ type obfuscationExpressionArgs struct {
 // The set of arguments for constructing a ObfuscationExpression resource.
 type ObfuscationExpressionArgs struct {
 	// The account id associated with the obfuscation expression.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Description of expression.
 	Description pulumi.StringPtrInput
 	// Name of expression.
@@ -235,8 +235,8 @@ func (o ObfuscationExpressionOutput) ToObfuscationExpressionOutputWithContext(ct
 }
 
 // The account id associated with the obfuscation expression.
-func (o ObfuscationExpressionOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *ObfuscationExpression) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o ObfuscationExpressionOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObfuscationExpression) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Description of expression.

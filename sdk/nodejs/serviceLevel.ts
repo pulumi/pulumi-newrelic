@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  * const foo = new newrelic.ServiceLevel("foo", {
  *     description: "Proportion of requests that are served faster than a threshold.",
  *     events: {
- *         accountId: 12345678,
+ *         accountId: "12345678",
  *         goodEvents: {
  *             from: "Transaction",
  *             where: "appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
@@ -64,7 +64,7 @@ import * as utilities from "./utilities";
  *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
  *     description: "Proportion of successful synthetic checks.",
  *     events: {
- *         accountId: 12345678,
+ *         accountId: "12345678",
  *         validEvents: {
  *             from: "SyntheticCheck",
  *             where: "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
@@ -113,7 +113,7 @@ import * as utilities from "./utilities";
  * const mySyntheticMonitorDurationServiceLevel = new newrelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel", {
  *     description: "Monitor created to test concurrent request from terraform",
  *     events: {
- *         accountId: 313870,
+ *         accountId: "313870",
  *         goodEvents: {
  *             from: "Metric",
  *             select: {

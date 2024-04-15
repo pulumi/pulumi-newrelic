@@ -146,7 +146,7 @@ export class AlertCondition extends pulumi.CustomResource {
     /**
      * The instance IDs associated with this condition.
      */
-    public readonly entities!: pulumi.Output<number[]>;
+    public readonly entities!: pulumi.Output<string[]>;
     /**
      * The unique entity identifier of the condition in New Relic.
      */
@@ -166,7 +166,7 @@ export class AlertCondition extends pulumi.CustomResource {
     /**
      * The ID of the policy where this condition should be used.
      */
-    public readonly policyId!: pulumi.Output<number>;
+    public readonly policyId!: pulumi.Output<string>;
     /**
      * Runbook URL to display in notifications.
      */
@@ -279,7 +279,7 @@ export interface AlertConditionState {
     /**
      * The instance IDs associated with this condition.
      */
-    entities?: pulumi.Input<pulumi.Input<number>[]>;
+    entities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The unique entity identifier of the condition in New Relic.
      */
@@ -299,7 +299,7 @@ export interface AlertConditionState {
     /**
      * The ID of the policy where this condition should be used.
      */
-    policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<string>;
     /**
      * Runbook URL to display in notifications.
      */
@@ -349,7 +349,7 @@ export interface AlertConditionArgs {
     /**
      * The instance IDs associated with this condition.
      */
-    entities: pulumi.Input<pulumi.Input<number>[]>;
+    entities: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      */
@@ -365,7 +365,7 @@ export interface AlertConditionArgs {
     /**
      * The ID of the policy where this condition should be used.
      */
-    policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<string>;
     /**
      * Runbook URL to display in notifications.
      */

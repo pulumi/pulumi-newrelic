@@ -37,7 +37,7 @@ type AwsGovcloudIntegrations struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Application load balancer AwsGovCloud integration.See Integration blocks below for details.
 	Alb AwsGovcloudIntegrationsAlbPtrOutput `pulumi:"alb"`
 	// Api Gateway AwsGovCloud integration.See Integration blocks below for details.
@@ -67,7 +67,7 @@ type AwsGovcloudIntegrations struct {
 	// Lambda AwsGovCloud integration.See Integration blocks below for details.
 	Lambda AwsGovcloudIntegrationsLambdaPtrOutput `pulumi:"lambda"`
 	// The access key of the AwsGovCloud.
-	LinkedAccountId pulumi.IntOutput `pulumi:"linkedAccountId"`
+	LinkedAccountId pulumi.StringOutput `pulumi:"linkedAccountId"`
 	// RDS AwsGovCloud integration.See Integration blocks below for details.
 	Rds AwsGovcloudIntegrationsRdsPtrOutput `pulumi:"rds"`
 	// Redshift AwsGovCloud integration.See Integration blocks below for details.
@@ -116,7 +116,7 @@ func GetAwsGovcloudIntegrations(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AwsGovcloudIntegrations resources.
 type awsGovcloudIntegrationsState struct {
 	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Application load balancer AwsGovCloud integration.See Integration blocks below for details.
 	Alb *AwsGovcloudIntegrationsAlb `pulumi:"alb"`
 	// Api Gateway AwsGovCloud integration.See Integration blocks below for details.
@@ -146,7 +146,7 @@ type awsGovcloudIntegrationsState struct {
 	// Lambda AwsGovCloud integration.See Integration blocks below for details.
 	Lambda *AwsGovcloudIntegrationsLambda `pulumi:"lambda"`
 	// The access key of the AwsGovCloud.
-	LinkedAccountId *int `pulumi:"linkedAccountId"`
+	LinkedAccountId *string `pulumi:"linkedAccountId"`
 	// RDS AwsGovCloud integration.See Integration blocks below for details.
 	Rds *AwsGovcloudIntegrationsRds `pulumi:"rds"`
 	// Redshift AwsGovCloud integration.See Integration blocks below for details.
@@ -163,7 +163,7 @@ type awsGovcloudIntegrationsState struct {
 
 type AwsGovcloudIntegrationsState struct {
 	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Application load balancer AwsGovCloud integration.See Integration blocks below for details.
 	Alb AwsGovcloudIntegrationsAlbPtrInput
 	// Api Gateway AwsGovCloud integration.See Integration blocks below for details.
@@ -193,7 +193,7 @@ type AwsGovcloudIntegrationsState struct {
 	// Lambda AwsGovCloud integration.See Integration blocks below for details.
 	Lambda AwsGovcloudIntegrationsLambdaPtrInput
 	// The access key of the AwsGovCloud.
-	LinkedAccountId pulumi.IntPtrInput
+	LinkedAccountId pulumi.StringPtrInput
 	// RDS AwsGovCloud integration.See Integration blocks below for details.
 	Rds AwsGovcloudIntegrationsRdsPtrInput
 	// Redshift AwsGovCloud integration.See Integration blocks below for details.
@@ -214,7 +214,7 @@ func (AwsGovcloudIntegrationsState) ElementType() reflect.Type {
 
 type awsGovcloudIntegrationsArgs struct {
 	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Application load balancer AwsGovCloud integration.See Integration blocks below for details.
 	Alb *AwsGovcloudIntegrationsAlb `pulumi:"alb"`
 	// Api Gateway AwsGovCloud integration.See Integration blocks below for details.
@@ -244,7 +244,7 @@ type awsGovcloudIntegrationsArgs struct {
 	// Lambda AwsGovCloud integration.See Integration blocks below for details.
 	Lambda *AwsGovcloudIntegrationsLambda `pulumi:"lambda"`
 	// The access key of the AwsGovCloud.
-	LinkedAccountId int `pulumi:"linkedAccountId"`
+	LinkedAccountId string `pulumi:"linkedAccountId"`
 	// RDS AwsGovCloud integration.See Integration blocks below for details.
 	Rds *AwsGovcloudIntegrationsRds `pulumi:"rds"`
 	// Redshift AwsGovCloud integration.See Integration blocks below for details.
@@ -262,7 +262,7 @@ type awsGovcloudIntegrationsArgs struct {
 // The set of arguments for constructing a AwsGovcloudIntegrations resource.
 type AwsGovcloudIntegrationsArgs struct {
 	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Application load balancer AwsGovCloud integration.See Integration blocks below for details.
 	Alb AwsGovcloudIntegrationsAlbPtrInput
 	// Api Gateway AwsGovCloud integration.See Integration blocks below for details.
@@ -292,7 +292,7 @@ type AwsGovcloudIntegrationsArgs struct {
 	// Lambda AwsGovCloud integration.See Integration blocks below for details.
 	Lambda AwsGovcloudIntegrationsLambdaPtrInput
 	// The access key of the AwsGovCloud.
-	LinkedAccountId pulumi.IntInput
+	LinkedAccountId pulumi.StringInput
 	// RDS AwsGovCloud integration.See Integration blocks below for details.
 	Rds AwsGovcloudIntegrationsRdsPtrInput
 	// Redshift AwsGovCloud integration.See Integration blocks below for details.
@@ -395,8 +395,8 @@ func (o AwsGovcloudIntegrationsOutput) ToAwsGovcloudIntegrationsOutputWithContex
 }
 
 // The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-func (o AwsGovcloudIntegrationsOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AwsGovcloudIntegrations) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o AwsGovcloudIntegrationsOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Application load balancer AwsGovCloud integration.See Integration blocks below for details.
@@ -472,8 +472,8 @@ func (o AwsGovcloudIntegrationsOutput) Lambda() AwsGovcloudIntegrationsLambdaPtr
 }
 
 // The access key of the AwsGovCloud.
-func (o AwsGovcloudIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AwsGovcloudIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
+func (o AwsGovcloudIntegrationsOutput) LinkedAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) pulumi.StringOutput { return v.LinkedAccountId }).(pulumi.StringOutput)
 }
 
 // RDS AwsGovCloud integration.See Integration blocks below for details.

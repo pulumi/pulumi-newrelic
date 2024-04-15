@@ -216,7 +216,7 @@ export class AzureIntegrations extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Azure API Management. See Integration blocks below for details.
      */
@@ -272,7 +272,7 @@ export class AzureIntegrations extends pulumi.CustomResource {
     /**
      * The ID of the linked Azure account in New Relic.
      */
-    public readonly linkedAccountId!: pulumi.Output<number>;
+    public readonly linkedAccountId!: pulumi.Output<string>;
     /**
      * Azure Load Balancer. See Integration blocks below for details.
      */
@@ -453,7 +453,7 @@ export interface AzureIntegrationsState {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Azure API Management. See Integration blocks below for details.
      */
@@ -509,7 +509,7 @@ export interface AzureIntegrationsState {
     /**
      * The ID of the linked Azure account in New Relic.
      */
-    linkedAccountId?: pulumi.Input<number>;
+    linkedAccountId?: pulumi.Input<string>;
     /**
      * Azure Load Balancer. See Integration blocks below for details.
      */
@@ -599,7 +599,7 @@ export interface AzureIntegrationsArgs {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Azure API Management. See Integration blocks below for details.
      */
@@ -655,7 +655,7 @@ export interface AzureIntegrationsArgs {
     /**
      * The ID of the linked Azure account in New Relic.
      */
-    linkedAccountId: pulumi.Input<number>;
+    linkedAccountId: pulumi.Input<string>;
     /**
      * Azure Load Balancer. See Integration blocks below for details.
      */

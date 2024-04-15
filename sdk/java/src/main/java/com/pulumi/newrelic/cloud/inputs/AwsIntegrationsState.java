@@ -57,7 +57,7 @@ import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsSqsArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsTrustedAdvisorArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsVpcArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsXRayArgs;
-import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -72,13 +72,13 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -778,7 +778,7 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="linkedAccountId")
-    private @Nullable Output<Integer> linkedAccountId;
+    private @Nullable Output<String> linkedAccountId;
 
     /**
      * @return The ID of the linked AWS account in New Relic.
@@ -845,7 +845,7 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
      * &lt;/details&gt;
      * 
      */
-    public Optional<Output<Integer>> linkedAccountId() {
+    public Optional<Output<String>> linkedAccountId() {
         return Optional.ofNullable(this.linkedAccountId);
     }
 
@@ -1082,7 +1082,7 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -1093,7 +1093,7 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
@@ -2046,7 +2046,7 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder linkedAccountId(@Nullable Output<Integer> linkedAccountId) {
+        public Builder linkedAccountId(@Nullable Output<String> linkedAccountId) {
             $.linkedAccountId = linkedAccountId;
             return this;
         }
@@ -2118,7 +2118,7 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder linkedAccountId(Integer linkedAccountId) {
+        public Builder linkedAccountId(String linkedAccountId) {
             return linkedAccountId(Output.of(linkedAccountId));
         }
 

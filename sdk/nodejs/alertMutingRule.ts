@@ -87,7 +87,7 @@ export class AlertMutingRule extends pulumi.CustomResource {
     /**
      * The account id of the MutingRule.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */
@@ -155,7 +155,7 @@ export interface AlertMutingRuleState {
     /**
      * The account id of the MutingRule.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */
@@ -185,7 +185,7 @@ export interface AlertMutingRuleArgs {
     /**
      * The account id of the MutingRule.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */

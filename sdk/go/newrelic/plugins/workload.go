@@ -34,7 +34,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
-//				AccountId: pulumi.Int(12345678),
+//				AccountId: pulumi.String("12345678"),
 //				EntityGuids: pulumi.StringArray{
 //					pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
 //				},
@@ -43,8 +43,8 @@ import (
 //						Query: pulumi.String("name like '%Example application%'"),
 //					},
 //				},
-//				ScopeAccountIds: pulumi.IntArray{
-//					pulumi.Int(12345678),
+//				ScopeAccountIds: pulumi.StringArray{
+//					pulumi.String("12345678"),
 //				},
 //			})
 //			if err != nil {
@@ -72,7 +72,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
-//				AccountId: pulumi.Int(12345678),
+//				AccountId: pulumi.String("12345678"),
 //				EntityGuids: pulumi.StringArray{
 //					pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
 //				},
@@ -81,8 +81,8 @@ import (
 //						Query: pulumi.String("tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'"),
 //					},
 //				},
-//				ScopeAccountIds: pulumi.IntArray{
-//					pulumi.Int(12345678),
+//				ScopeAccountIds: pulumi.StringArray{
+//					pulumi.String("12345678"),
 //				},
 //			})
 //			if err != nil {
@@ -110,7 +110,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
-//				AccountId: pulumi.Int(12345678),
+//				AccountId: pulumi.String("12345678"),
 //				EntityGuids: pulumi.StringArray{
 //					pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
 //				},
@@ -119,8 +119,8 @@ import (
 //						Query: pulumi.String("tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'"),
 //					},
 //				},
-//				ScopeAccountIds: pulumi.IntArray{
-//					pulumi.Int(12345678),
+//				ScopeAccountIds: pulumi.StringArray{
+//					pulumi.String("12345678"),
 //				},
 //			})
 //			if err != nil {
@@ -152,7 +152,7 @@ type Workload struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID where you want to create the workload.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The composite query used to compose a dynamic workload.
 	CompositeEntitySearchQuery pulumi.StringOutput `pulumi:"compositeEntitySearchQuery"`
 	// Relevant information about the workload.
@@ -168,13 +168,13 @@ type Workload struct {
 	// The URL of the workload.
 	Permalink pulumi.StringOutput `pulumi:"permalink"`
 	// A list of account IDs that will be used to get entities from.
-	ScopeAccountIds pulumi.IntArrayOutput `pulumi:"scopeAccountIds"`
+	ScopeAccountIds pulumi.StringArrayOutput `pulumi:"scopeAccountIds"`
 	// An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
 	StatusConfigAutomatic WorkloadStatusConfigAutomaticPtrOutput `pulumi:"statusConfigAutomatic"`
 	// A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
 	StatusConfigStatic WorkloadStatusConfigStaticPtrOutput `pulumi:"statusConfigStatic"`
 	// The unique entity identifier of the workload.
-	WorkloadId pulumi.IntOutput `pulumi:"workloadId"`
+	WorkloadId pulumi.StringOutput `pulumi:"workloadId"`
 }
 
 // NewWorkload registers a new resource with the given unique name, arguments, and options.
@@ -208,7 +208,7 @@ func GetWorkload(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Workload resources.
 type workloadState struct {
 	// The New Relic account ID where you want to create the workload.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The composite query used to compose a dynamic workload.
 	CompositeEntitySearchQuery *string `pulumi:"compositeEntitySearchQuery"`
 	// Relevant information about the workload.
@@ -224,18 +224,18 @@ type workloadState struct {
 	// The URL of the workload.
 	Permalink *string `pulumi:"permalink"`
 	// A list of account IDs that will be used to get entities from.
-	ScopeAccountIds []int `pulumi:"scopeAccountIds"`
+	ScopeAccountIds []string `pulumi:"scopeAccountIds"`
 	// An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
 	StatusConfigAutomatic *WorkloadStatusConfigAutomatic `pulumi:"statusConfigAutomatic"`
 	// A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
 	StatusConfigStatic *WorkloadStatusConfigStatic `pulumi:"statusConfigStatic"`
 	// The unique entity identifier of the workload.
-	WorkloadId *int `pulumi:"workloadId"`
+	WorkloadId *string `pulumi:"workloadId"`
 }
 
 type WorkloadState struct {
 	// The New Relic account ID where you want to create the workload.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The composite query used to compose a dynamic workload.
 	CompositeEntitySearchQuery pulumi.StringPtrInput
 	// Relevant information about the workload.
@@ -251,13 +251,13 @@ type WorkloadState struct {
 	// The URL of the workload.
 	Permalink pulumi.StringPtrInput
 	// A list of account IDs that will be used to get entities from.
-	ScopeAccountIds pulumi.IntArrayInput
+	ScopeAccountIds pulumi.StringArrayInput
 	// An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
 	StatusConfigAutomatic WorkloadStatusConfigAutomaticPtrInput
 	// A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
 	StatusConfigStatic WorkloadStatusConfigStaticPtrInput
 	// The unique entity identifier of the workload.
-	WorkloadId pulumi.IntPtrInput
+	WorkloadId pulumi.StringPtrInput
 }
 
 func (WorkloadState) ElementType() reflect.Type {
@@ -266,7 +266,7 @@ func (WorkloadState) ElementType() reflect.Type {
 
 type workloadArgs struct {
 	// The New Relic account ID where you want to create the workload.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Relevant information about the workload.
 	Description *string `pulumi:"description"`
 	// A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
@@ -276,7 +276,7 @@ type workloadArgs struct {
 	// The workload's name.
 	Name *string `pulumi:"name"`
 	// A list of account IDs that will be used to get entities from.
-	ScopeAccountIds []int `pulumi:"scopeAccountIds"`
+	ScopeAccountIds []string `pulumi:"scopeAccountIds"`
 	// An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
 	StatusConfigAutomatic *WorkloadStatusConfigAutomatic `pulumi:"statusConfigAutomatic"`
 	// A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
@@ -286,7 +286,7 @@ type workloadArgs struct {
 // The set of arguments for constructing a Workload resource.
 type WorkloadArgs struct {
 	// The New Relic account ID where you want to create the workload.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Relevant information about the workload.
 	Description pulumi.StringPtrInput
 	// A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
@@ -296,7 +296,7 @@ type WorkloadArgs struct {
 	// The workload's name.
 	Name pulumi.StringPtrInput
 	// A list of account IDs that will be used to get entities from.
-	ScopeAccountIds pulumi.IntArrayInput
+	ScopeAccountIds pulumi.StringArrayInput
 	// An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
 	StatusConfigAutomatic WorkloadStatusConfigAutomaticPtrInput
 	// A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
@@ -391,8 +391,8 @@ func (o WorkloadOutput) ToWorkloadOutputWithContext(ctx context.Context) Workloa
 }
 
 // The New Relic account ID where you want to create the workload.
-func (o WorkloadOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *Workload) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o WorkloadOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workload) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The composite query used to compose a dynamic workload.
@@ -431,8 +431,8 @@ func (o WorkloadOutput) Permalink() pulumi.StringOutput {
 }
 
 // A list of account IDs that will be used to get entities from.
-func (o WorkloadOutput) ScopeAccountIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *Workload) pulumi.IntArrayOutput { return v.ScopeAccountIds }).(pulumi.IntArrayOutput)
+func (o WorkloadOutput) ScopeAccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Workload) pulumi.StringArrayOutput { return v.ScopeAccountIds }).(pulumi.StringArrayOutput)
 }
 
 // An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
@@ -446,8 +446,8 @@ func (o WorkloadOutput) StatusConfigStatic() WorkloadStatusConfigStaticPtrOutput
 }
 
 // The unique entity identifier of the workload.
-func (o WorkloadOutput) WorkloadId() pulumi.IntOutput {
-	return o.ApplyT(func(v *Workload) pulumi.IntOutput { return v.WorkloadId }).(pulumi.IntOutput)
+func (o WorkloadOutput) WorkloadId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workload) pulumi.StringOutput { return v.WorkloadId }).(pulumi.StringOutput)
 }
 
 type WorkloadArrayOutput struct{ *pulumi.OutputState }

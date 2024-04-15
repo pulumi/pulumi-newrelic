@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.ObfuscationExpression("foo", new()
     ///     {
-    ///         AccountId = 12345,
+    ///         AccountId = "12345",
     ///         Description = "The description",
     ///         Regex = "(regex.*)",
     ///     });
@@ -51,7 +51,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation expression.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Description of expression.
@@ -121,7 +121,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation expression.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Description of expression.
@@ -153,7 +153,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation expression.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Description of expression.

@@ -90,7 +90,7 @@ export class LogParsingRule extends pulumi.CustomResource {
     /**
      * The account id associated with the obfuscation rule.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
      */
@@ -182,7 +182,7 @@ export interface LogParsingRuleState {
     /**
      * The account id associated with the obfuscation rule.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
      */
@@ -224,7 +224,7 @@ export interface LogParsingRuleArgs {
     /**
      * The account id associated with the obfuscation rule.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
      */

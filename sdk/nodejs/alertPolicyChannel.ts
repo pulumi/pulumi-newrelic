@@ -89,15 +89,15 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
     /**
      * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      */
-    public readonly channelIds!: pulumi.Output<number[]>;
+    public readonly channelIds!: pulumi.Output<string[]>;
     /**
      * The ID of the policy.
      */
-    public readonly policyId!: pulumi.Output<number>;
+    public readonly policyId!: pulumi.Output<string>;
 
     /**
      * Create a AlertPolicyChannel resource with the given unique name, arguments, and options.
@@ -139,15 +139,15 @@ export interface AlertPolicyChannelState {
     /**
      * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      */
-    channelIds?: pulumi.Input<pulumi.Input<number>[]>;
+    channelIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the policy.
      */
-    policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<string>;
 }
 
 /**
@@ -157,13 +157,13 @@ export interface AlertPolicyChannelArgs {
     /**
      * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      */
-    channelIds: pulumi.Input<pulumi.Input<number>[]>;
+    channelIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the policy.
      */
-    policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<string>;
 }

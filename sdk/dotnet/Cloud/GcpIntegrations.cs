@@ -166,7 +166,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Alloy DB integration. See Integration blocks below for details.
@@ -262,7 +262,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The ID of the linked GCP account in New Relic.
         /// </summary>
         [Output("linkedAccountId")]
-        public Output<int> LinkedAccountId { get; private set; } = null!;
+        public Output<string> LinkedAccountId { get; private set; } = null!;
 
         /// <summary>
         /// Load Balancing integration. See Integration blocks below for details.
@@ -380,7 +380,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Alloy DB integration. See Integration blocks below for details.
@@ -476,7 +476,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The ID of the linked GCP account in New Relic.
         /// </summary>
         [Input("linkedAccountId", required: true)]
-        public Input<int> LinkedAccountId { get; set; } = null!;
+        public Input<string> LinkedAccountId { get; set; } = null!;
 
         /// <summary>
         /// Load Balancing integration. See Integration blocks below for details.
@@ -556,7 +556,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Alloy DB integration. See Integration blocks below for details.
@@ -652,7 +652,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The ID of the linked GCP account in New Relic.
         /// </summary>
         [Input("linkedAccountId")]
-        public Input<int>? LinkedAccountId { get; set; }
+        public Input<string>? LinkedAccountId { get; set; }
 
         /// <summary>
         /// Load Balancing integration. See Integration blocks below for details.

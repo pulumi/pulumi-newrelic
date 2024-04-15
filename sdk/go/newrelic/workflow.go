@@ -283,7 +283,7 @@ type Workflow struct {
 	pulumi.CustomResourceState
 
 	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Notification configuration. See Nested destination blocks below for details.
 	Destinations WorkflowDestinationArrayOutput `pulumi:"destinations"`
 	// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
@@ -351,7 +351,7 @@ func GetWorkflow(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Workflow resources.
 type workflowState struct {
 	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Notification configuration. See Nested destination blocks below for details.
 	Destinations []WorkflowDestination `pulumi:"destinations"`
 	// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
@@ -381,7 +381,7 @@ type workflowState struct {
 
 type WorkflowState struct {
 	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Notification configuration. See Nested destination blocks below for details.
 	Destinations WorkflowDestinationArrayInput
 	// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
@@ -415,7 +415,7 @@ func (WorkflowState) ElementType() reflect.Type {
 
 type workflowArgs struct {
 	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Notification configuration. See Nested destination blocks below for details.
 	Destinations []WorkflowDestination `pulumi:"destinations"`
 	// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
@@ -440,7 +440,7 @@ type workflowArgs struct {
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
 	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Notification configuration. See Nested destination blocks below for details.
 	Destinations WorkflowDestinationArrayInput
 	// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
@@ -550,8 +550,8 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 }
 
 // Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-func (o WorkflowOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *Workflow) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o WorkflowOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Notification configuration. See Nested destination blocks below for details.

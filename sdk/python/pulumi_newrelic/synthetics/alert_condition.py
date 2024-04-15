@@ -15,14 +15,14 @@ __all__ = ['AlertConditionArgs', 'AlertCondition']
 class AlertConditionArgs:
     def __init__(__self__, *,
                  monitor_id: pulumi.Input[str],
-                 policy_id: pulumi.Input[int],
+                 policy_id: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AlertCondition resource.
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
-        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
                
                ```
@@ -54,14 +54,14 @@ class AlertConditionArgs:
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> pulumi.Input[int]:
+    def policy_id(self) -> pulumi.Input[str]:
         """
         The ID of the policy where this condition should be used.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: pulumi.Input[int]):
+    def policy_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "policy_id", value)
 
     @property
@@ -112,7 +112,7 @@ class _AlertConditionState:
                  entity_guid: Optional[pulumi.Input[str]] = None,
                  monitor_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_id: Optional[pulumi.Input[int]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AlertCondition resources.
@@ -124,7 +124,7 @@ class _AlertConditionState:
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
-        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         """
         if enabled is not None:
@@ -194,14 +194,14 @@ class _AlertConditionState:
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[int]]:
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the policy where this condition should be used.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[int]]):
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_id", value)
 
     @property
@@ -225,7 +225,7 @@ class AlertCondition(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  monitor_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_id: Optional[pulumi.Input[int]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -314,7 +314,7 @@ class AlertCondition(pulumi.CustomResource):
                ```
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
-        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         """
         ...
@@ -418,7 +418,7 @@ class AlertCondition(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  monitor_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_id: Optional[pulumi.Input[int]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -453,7 +453,7 @@ class AlertCondition(pulumi.CustomResource):
             entity_guid: Optional[pulumi.Input[str]] = None,
             monitor_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            policy_id: Optional[pulumi.Input[int]] = None,
+            policy_id: Optional[pulumi.Input[str]] = None,
             runbook_url: Optional[pulumi.Input[str]] = None) -> 'AlertCondition':
         """
         Get an existing AlertCondition resource's state with the given name, id, and optional extra
@@ -470,7 +470,7 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
         :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
-        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -523,7 +523,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> pulumi.Output[int]:
+    def policy_id(self) -> pulumi.Output[str]:
         """
         The ID of the policy where this condition should be used.
         """

@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
  *     description: "Proportion of requests that are served faster than a threshold.",
  *     events: {
- *         accountId: 12345678,
+ *         accountId: "12345678",
  *         validEvents: {
  *             from: "Transaction",
  *             where: "appName = 'Example application' AND (transactionType='Web')",
@@ -63,8 +63,8 @@ import * as utilities from "./utilities";
  *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
- *     accountId: 12345678,
- *     policyId: 67890,
+ *     accountId: "12345678",
+ *     policyId: "67890",
  *     type: "static",
  *     enabled: true,
  *     violationTimeLimitSeconds: 259200,
@@ -103,8 +103,8 @@ import * as utilities from "./utilities";
  *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
- *     accountId: 12345678,
- *     policyId: 67890,
+ *     accountId: "12345678",
+ *     policyId: "67890",
  *     type: "static",
  *     enabled: true,
  *     violationTimeLimitSeconds: 259200,
@@ -224,7 +224,7 @@ export interface GetServiceLevelAlertHelperResult {
  *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
  *     description: "Proportion of requests that are served faster than a threshold.",
  *     events: {
- *         accountId: 12345678,
+ *         accountId: "12345678",
  *         validEvents: {
  *             from: "Transaction",
  *             where: "appName = 'Example application' AND (transactionType='Web')",
@@ -265,8 +265,8 @@ export interface GetServiceLevelAlertHelperResult {
  *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
- *     accountId: 12345678,
- *     policyId: 67890,
+ *     accountId: "12345678",
+ *     policyId: "67890",
  *     type: "static",
  *     enabled: true,
  *     violationTimeLimitSeconds: 259200,
@@ -305,8 +305,8 @@ export interface GetServiceLevelAlertHelperResult {
  *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
- *     accountId: 12345678,
- *     policyId: 67890,
+ *     accountId: "12345678",
+ *     policyId: "67890",
  *     type: "static",
  *     enabled: true,
  *     violationTimeLimitSeconds: 259200,

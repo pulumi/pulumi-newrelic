@@ -16,8 +16,8 @@ __all__ = ['AwsGovcloudIntegrationsArgs', 'AwsGovcloudIntegrations']
 @pulumi.input_type
 class AwsGovcloudIntegrationsArgs:
     def __init__(__self__, *,
-                 linked_account_id: pulumi.Input[int],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alb: Optional[pulumi.Input['AwsGovcloudIntegrationsAlbArgs']] = None,
                  api_gateway: Optional[pulumi.Input['AwsGovcloudIntegrationsApiGatewayArgs']] = None,
                  auto_scaling: Optional[pulumi.Input['AwsGovcloudIntegrationsAutoScalingArgs']] = None,
@@ -40,8 +40,8 @@ class AwsGovcloudIntegrationsArgs:
                  sqs: Optional[pulumi.Input['AwsGovcloudIntegrationsSqsArgs']] = None):
         """
         The set of arguments for constructing a AwsGovcloudIntegrations resource.
-        :param pulumi.Input[int] linked_account_id: The access key of the AwsGovCloud.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] linked_account_id: The access key of the AwsGovCloud.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsGovcloudIntegrationsAlbArgs'] alb: Application load balancer AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsApiGatewayArgs'] api_gateway: Api Gateway AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsAutoScalingArgs'] auto_scaling: Autoscaling AwsGovCloud integration.See Integration blocks below for details.
@@ -109,26 +109,26 @@ class AwsGovcloudIntegrationsArgs:
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> pulumi.Input[int]:
+    def linked_account_id(self) -> pulumi.Input[str]:
         """
         The access key of the AwsGovCloud.
         """
         return pulumi.get(self, "linked_account_id")
 
     @linked_account_id.setter
-    def linked_account_id(self, value: pulumi.Input[int]):
+    def linked_account_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "linked_account_id", value)
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -375,7 +375,7 @@ class AwsGovcloudIntegrationsArgs:
 @pulumi.input_type
 class _AwsGovcloudIntegrationsState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alb: Optional[pulumi.Input['AwsGovcloudIntegrationsAlbArgs']] = None,
                  api_gateway: Optional[pulumi.Input['AwsGovcloudIntegrationsApiGatewayArgs']] = None,
                  auto_scaling: Optional[pulumi.Input['AwsGovcloudIntegrationsAutoScalingArgs']] = None,
@@ -390,7 +390,7 @@ class _AwsGovcloudIntegrationsState:
                  emr: Optional[pulumi.Input['AwsGovcloudIntegrationsEmrArgs']] = None,
                  iam: Optional[pulumi.Input['AwsGovcloudIntegrationsIamArgs']] = None,
                  lambda_: Optional[pulumi.Input['AwsGovcloudIntegrationsLambdaArgs']] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  rds: Optional[pulumi.Input['AwsGovcloudIntegrationsRdsArgs']] = None,
                  red_shift: Optional[pulumi.Input['AwsGovcloudIntegrationsRedShiftArgs']] = None,
                  route53: Optional[pulumi.Input['AwsGovcloudIntegrationsRoute53Args']] = None,
@@ -399,7 +399,7 @@ class _AwsGovcloudIntegrationsState:
                  sqs: Optional[pulumi.Input['AwsGovcloudIntegrationsSqsArgs']] = None):
         """
         Input properties used for looking up and filtering AwsGovcloudIntegrations resources.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsGovcloudIntegrationsAlbArgs'] alb: Application load balancer AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsApiGatewayArgs'] api_gateway: Api Gateway AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsAutoScalingArgs'] auto_scaling: Autoscaling AwsGovCloud integration.See Integration blocks below for details.
@@ -414,7 +414,7 @@ class _AwsGovcloudIntegrationsState:
         :param pulumi.Input['AwsGovcloudIntegrationsEmrArgs'] emr: Emr AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsIamArgs'] iam: IAM AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsLambdaArgs'] lambda_: Lambda AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[int] linked_account_id: The access key of the AwsGovCloud.
+        :param pulumi.Input[str] linked_account_id: The access key of the AwsGovCloud.
         :param pulumi.Input['AwsGovcloudIntegrationsRdsArgs'] rds: RDS AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsRedShiftArgs'] red_shift: Redshift AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsRoute53Args'] route53: Route53 AwsGovCloud integration.See Integration blocks below for details.
@@ -469,14 +469,14 @@ class _AwsGovcloudIntegrationsState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -649,14 +649,14 @@ class _AwsGovcloudIntegrationsState:
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> Optional[pulumi.Input[int]]:
+    def linked_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The access key of the AwsGovCloud.
         """
         return pulumi.get(self, "linked_account_id")
 
     @linked_account_id.setter
-    def linked_account_id(self, value: Optional[pulumi.Input[int]]):
+    def linked_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "linked_account_id", value)
 
     @property
@@ -737,7 +737,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alb: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAlbArgs']]] = None,
                  api_gateway: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsApiGatewayArgs']]] = None,
                  auto_scaling: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAutoScalingArgs']]] = None,
@@ -752,7 +752,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
                  emr: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEmrArgs']]] = None,
                  iam: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsIamArgs']]] = None,
                  lambda_: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsLambdaArgs']]] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  rds: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRdsArgs']]] = None,
                  red_shift: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRedShiftArgs']]] = None,
                  route53: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRoute53Args']]] = None,
@@ -785,7 +785,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAlbArgs']] alb: Application load balancer AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsApiGatewayArgs']] api_gateway: Api Gateway AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAutoScalingArgs']] auto_scaling: Autoscaling AwsGovCloud integration.See Integration blocks below for details.
@@ -800,7 +800,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEmrArgs']] emr: Emr AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsIamArgs']] iam: IAM AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsLambdaArgs']] lambda_: Lambda AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[int] linked_account_id: The access key of the AwsGovCloud.
+        :param pulumi.Input[str] linked_account_id: The access key of the AwsGovCloud.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRdsArgs']] rds: RDS AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRedShiftArgs']] red_shift: Redshift AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRoute53Args']] route53: Route53 AwsGovCloud integration.See Integration blocks below for details.
@@ -852,7 +852,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alb: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAlbArgs']]] = None,
                  api_gateway: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsApiGatewayArgs']]] = None,
                  auto_scaling: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAutoScalingArgs']]] = None,
@@ -867,7 +867,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
                  emr: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEmrArgs']]] = None,
                  iam: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsIamArgs']]] = None,
                  lambda_: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsLambdaArgs']]] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  rds: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRdsArgs']]] = None,
                  red_shift: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRedShiftArgs']]] = None,
                  route53: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRoute53Args']]] = None,
@@ -917,7 +917,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             alb: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAlbArgs']]] = None,
             api_gateway: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsApiGatewayArgs']]] = None,
             auto_scaling: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAutoScalingArgs']]] = None,
@@ -932,7 +932,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
             emr: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEmrArgs']]] = None,
             iam: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsIamArgs']]] = None,
             lambda_: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsLambdaArgs']]] = None,
-            linked_account_id: Optional[pulumi.Input[int]] = None,
+            linked_account_id: Optional[pulumi.Input[str]] = None,
             rds: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRdsArgs']]] = None,
             red_shift: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRedShiftArgs']]] = None,
             route53: Optional[pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRoute53Args']]] = None,
@@ -946,7 +946,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAlbArgs']] alb: Application load balancer AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsApiGatewayArgs']] api_gateway: Api Gateway AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsAutoScalingArgs']] auto_scaling: Autoscaling AwsGovCloud integration.See Integration blocks below for details.
@@ -961,7 +961,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsEmrArgs']] emr: Emr AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsIamArgs']] iam: IAM AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsLambdaArgs']] lambda_: Lambda AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[int] linked_account_id: The access key of the AwsGovCloud.
+        :param pulumi.Input[str] linked_account_id: The access key of the AwsGovCloud.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRdsArgs']] rds: RDS AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRedShiftArgs']] red_shift: Redshift AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsGovcloudIntegrationsRoute53Args']] route53: Route53 AwsGovCloud integration.See Integration blocks below for details.
@@ -999,7 +999,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
@@ -1119,7 +1119,7 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> pulumi.Output[int]:
+    def linked_account_id(self) -> pulumi.Output[str]:
         """
         The access key of the AwsGovCloud.
         """

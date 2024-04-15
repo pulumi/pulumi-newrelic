@@ -69,7 +69,7 @@ export class DataPartitionRule extends pulumi.CustomResource {
     /**
      * The account id associated with the data partition rule.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Whether or not this data partition rule is deleted. Deleting a data partition rule does not delete the already persisted data. This data will be retained for a given period of time specified in the retention policy field.
      */
@@ -149,7 +149,7 @@ export interface DataPartitionRuleState {
     /**
      * The account id associated with the data partition rule.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Whether or not this data partition rule is deleted. Deleting a data partition rule does not delete the already persisted data. This data will be retained for a given period of time specified in the retention policy field.
      */
@@ -183,7 +183,7 @@ export interface DataPartitionRuleArgs {
     /**
      * The account id associated with the data partition rule.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The description of the data partition rule.
      */

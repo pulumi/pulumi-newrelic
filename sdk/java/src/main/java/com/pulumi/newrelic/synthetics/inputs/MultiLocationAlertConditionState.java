@@ -100,13 +100,13 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
      * 
      */
     @Import(name="policyId")
-    private @Nullable Output<Integer> policyId;
+    private @Nullable Output<String> policyId;
 
     /**
      * @return The ID of the policy where this condition will be used.
      * 
      */
-    public Optional<Output<Integer>> policyId() {
+    public Optional<Output<String>> policyId() {
         return Optional.ofNullable(this.policyId);
     }
 
@@ -312,7 +312,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder policyId(@Nullable Output<Integer> policyId) {
+        public Builder policyId(@Nullable Output<String> policyId) {
             $.policyId = policyId;
             return this;
         }
@@ -323,7 +323,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder policyId(Integer policyId) {
+        public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
         }
 

@@ -258,7 +258,7 @@ class ServiceLevel(pulumi.CustomResource):
         foo = newrelic.ServiceLevel("foo",
             description="Proportion of requests that are served faster than a threshold.",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
+                account_id="12345678",
                 good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
                     from_="Transaction",
                     where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
@@ -294,7 +294,7 @@ class ServiceLevel(pulumi.CustomResource):
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
             description="Proportion of successful synthetic checks.",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
+                account_id="12345678",
                 valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                     from_="SyntheticCheck",
                     where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
@@ -341,7 +341,7 @@ class ServiceLevel(pulumi.CustomResource):
         my_synthetic_monitor_duration_service_level = newrelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel",
             description="Monitor created to test concurrent request from terraform",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=313870,
+                account_id="313870",
                 good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
                     from_="Metric",
                     select=newrelic.ServiceLevelEventsGoodEventsSelectArgs(
@@ -426,7 +426,7 @@ class ServiceLevel(pulumi.CustomResource):
         foo = newrelic.ServiceLevel("foo",
             description="Proportion of requests that are served faster than a threshold.",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
+                account_id="12345678",
                 good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
                     from_="Transaction",
                     where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
@@ -462,7 +462,7 @@ class ServiceLevel(pulumi.CustomResource):
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
             description="Proportion of successful synthetic checks.",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
+                account_id="12345678",
                 valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                     from_="SyntheticCheck",
                     where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
@@ -509,7 +509,7 @@ class ServiceLevel(pulumi.CustomResource):
         my_synthetic_monitor_duration_service_level = newrelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel",
             description="Monitor created to test concurrent request from terraform",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=313870,
+                account_id="313870",
                 good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
                     from_="Metric",
                     select=newrelic.ServiceLevelEventsGoodEventsSelectArgs(

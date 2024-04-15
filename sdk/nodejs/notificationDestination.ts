@@ -104,7 +104,7 @@ export class NotificationDestination extends pulumi.CustomResource {
     /**
      * Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Indicates whether the destination is active.
      */
@@ -197,7 +197,7 @@ export interface NotificationDestinationState {
     /**
      * Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Indicates whether the destination is active.
      */
@@ -244,7 +244,7 @@ export interface NotificationDestinationArgs {
     /**
      * Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Indicates whether the destination is active.
      */

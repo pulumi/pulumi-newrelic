@@ -43,7 +43,7 @@ import (
 //			_, err = newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
 //				PolicyId: fooAlertPolicy.ID(),
 //				Type:     pulumi.String("apm_app_metric"),
-//				Entities: pulumi.IntArray{
+//				Entities: pulumi.StringArray{
 //					pulumi.String(app.Id),
 //				},
 //				Metric:     pulumi.String("apdex"),
@@ -86,12 +86,12 @@ type GetApplicationArgs struct {
 // A collection of values returned by getApplication.
 type GetApplicationResult struct {
 	// A list of host IDs associated with the application.
-	HostIds []int `pulumi:"hostIds"`
+	HostIds []string `pulumi:"hostIds"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of instance IDs associated with the application.
-	InstanceIds []int  `pulumi:"instanceIds"`
-	Name        string `pulumi:"name"`
+	InstanceIds []string `pulumi:"instanceIds"`
+	Name        string   `pulumi:"name"`
 }
 
 func GetApplicationOutput(ctx *pulumi.Context, args GetApplicationOutputArgs, opts ...pulumi.InvokeOption) GetApplicationResultOutput {
@@ -133,8 +133,8 @@ func (o GetApplicationResultOutput) ToGetApplicationResultOutputWithContext(ctx 
 }
 
 // A list of host IDs associated with the application.
-func (o GetApplicationResultOutput) HostIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v GetApplicationResult) []int { return v.HostIds }).(pulumi.IntArrayOutput)
+func (o GetApplicationResultOutput) HostIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationResult) []string { return v.HostIds }).(pulumi.StringArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -143,8 +143,8 @@ func (o GetApplicationResultOutput) Id() pulumi.StringOutput {
 }
 
 // A list of instance IDs associated with the application.
-func (o GetApplicationResultOutput) InstanceIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v GetApplicationResult) []int { return v.InstanceIds }).(pulumi.IntArrayOutput)
+func (o GetApplicationResultOutput) InstanceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationResult) []string { return v.InstanceIds }).(pulumi.StringArrayOutput)
 }
 
 func (o GetApplicationResultOutput) Name() pulumi.StringOutput {

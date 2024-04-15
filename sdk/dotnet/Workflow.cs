@@ -284,7 +284,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Notification configuration. See Nested destination blocks below for details.
@@ -403,7 +403,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("destinations", required: true)]
         private InputList<Inputs.WorkflowDestinationArgs>? _destinations;
@@ -472,7 +472,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("destinations")]
         private InputList<Inputs.WorkflowDestinationGetArgs>? _destinations;

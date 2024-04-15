@@ -240,7 +240,7 @@ type ScriptMonitor struct {
 	pulumi.CustomResourceState
 
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 	DeviceOrientation pulumi.StringPtrOutput `pulumi:"deviceOrientation"`
 	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
@@ -317,7 +317,7 @@ func GetScriptMonitor(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ScriptMonitor resources.
 type scriptMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 	DeviceOrientation *string `pulumi:"deviceOrientation"`
 	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
@@ -356,7 +356,7 @@ type scriptMonitorState struct {
 
 type ScriptMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 	DeviceOrientation pulumi.StringPtrInput
 	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
@@ -399,7 +399,7 @@ func (ScriptMonitorState) ElementType() reflect.Type {
 
 type scriptMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 	DeviceOrientation *string `pulumi:"deviceOrientation"`
 	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
@@ -435,7 +435,7 @@ type scriptMonitorArgs struct {
 // The set of arguments for constructing a ScriptMonitor resource.
 type ScriptMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 	DeviceOrientation pulumi.StringPtrInput
 	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
@@ -556,8 +556,8 @@ func (o ScriptMonitorOutput) ToScriptMonitorOutputWithContext(ctx context.Contex
 }
 
 // The account in which the Synthetics monitor will be created.
-func (o ScriptMonitorOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *ScriptMonitor) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o ScriptMonitorOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.

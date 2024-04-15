@@ -22,8 +22,8 @@ class GetPrivateLocationResult:
     A collection of values returned by getPrivateLocation.
     """
     def __init__(__self__, account_id=None, id=None, keys=None, name=None):
-        if account_id and not isinstance(account_id, int):
-            raise TypeError("Expected argument 'account_id' to be a int")
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -37,7 +37,7 @@ class GetPrivateLocationResult:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         return pulumi.get(self, "account_id")
 
     @property
@@ -74,7 +74,7 @@ class AwaitableGetPrivateLocationResult(GetPrivateLocationResult):
             name=self.name)
 
 
-def get_private_location(account_id: Optional[int] = None,
+def get_private_location(account_id: Optional[str] = None,
                          keys: Optional[Sequence[str]] = None,
                          name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLocationResult:
@@ -88,7 +88,7 @@ def get_private_location(account_id: Optional[int] = None,
     import pulumi
     import pulumi_newrelic as newrelic
 
-    example = newrelic.synthetics.get_private_location(account_id=123456,
+    example = newrelic.synthetics.get_private_location(account_id="123456",
         name="My private location")
     foo = newrelic.synthetics.Monitor("foo", locations_privates=[example.id])
     ```
@@ -99,7 +99,7 @@ def get_private_location(account_id: Optional[int] = None,
     import pulumi
     import pulumi_newrelic as newrelic
 
-    example = newrelic.synthetics.get_private_location(account_id=123456,
+    example = newrelic.synthetics.get_private_location(account_id="123456",
         name="My private location")
     foo = newrelic.synthetics.StepMonitor("foo", location_privates=[newrelic.synthetics.StepMonitorLocationPrivateArgs(
         guid=example.id,
@@ -108,7 +108,7 @@ def get_private_location(account_id: Optional[int] = None,
     <!--End PulumiCodeChooser -->
 
 
-    :param int account_id: The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
+    :param str account_id: The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
     :param Sequence[str] keys: The key of the private location.
     :param str name: The name of the Synthetics monitor private location.
     """
@@ -127,7 +127,7 @@ def get_private_location(account_id: Optional[int] = None,
 
 
 @_utilities.lift_output_func(get_private_location)
-def get_private_location_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
+def get_private_location_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 keys: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                 name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLocationResult]:
@@ -141,7 +141,7 @@ def get_private_location_output(account_id: Optional[pulumi.Input[Optional[int]]
     import pulumi
     import pulumi_newrelic as newrelic
 
-    example = newrelic.synthetics.get_private_location(account_id=123456,
+    example = newrelic.synthetics.get_private_location(account_id="123456",
         name="My private location")
     foo = newrelic.synthetics.Monitor("foo", locations_privates=[example.id])
     ```
@@ -152,7 +152,7 @@ def get_private_location_output(account_id: Optional[pulumi.Input[Optional[int]]
     import pulumi
     import pulumi_newrelic as newrelic
 
-    example = newrelic.synthetics.get_private_location(account_id=123456,
+    example = newrelic.synthetics.get_private_location(account_id="123456",
         name="My private location")
     foo = newrelic.synthetics.StepMonitor("foo", location_privates=[newrelic.synthetics.StepMonitorLocationPrivateArgs(
         guid=example.id,
@@ -161,7 +161,7 @@ def get_private_location_output(account_id: Optional[pulumi.Input[Optional[int]]
     <!--End PulumiCodeChooser -->
 
 
-    :param int account_id: The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
+    :param str account_id: The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
     :param Sequence[str] keys: The key of the private location.
     :param str name: The name of the Synthetics monitor private location.
     """

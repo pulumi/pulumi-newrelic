@@ -16,14 +16,14 @@ class SecureCredentialArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  last_updated: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecureCredential resource.
         :param pulumi.Input[str] key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
         :param pulumi.Input[str] value: The secure credential's value.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[str] description: The secure credential's description.
         :param pulumi.Input[str] last_updated: The time the secure credential was last updated.
         """
@@ -62,14 +62,14 @@ class SecureCredentialArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -100,14 +100,14 @@ class SecureCredentialArgs:
 @pulumi.input_type
 class _SecureCredentialState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  last_updated: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SecureCredential resources.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[str] description: The secure credential's description.
         :param pulumi.Input[str] key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
         :param pulumi.Input[str] last_updated: The time the secure credential was last updated.
@@ -126,14 +126,14 @@ class _SecureCredentialState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -190,7 +190,7 @@ class SecureCredential(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  last_updated: Optional[pulumi.Input[str]] = None,
@@ -223,7 +223,7 @@ class SecureCredential(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[str] description: The secure credential's description.
         :param pulumi.Input[str] key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
         :param pulumi.Input[str] last_updated: The time the secure credential was last updated.
@@ -275,7 +275,7 @@ class SecureCredential(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  last_updated: Optional[pulumi.Input[str]] = None,
@@ -310,7 +310,7 @@ class SecureCredential(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             key: Optional[pulumi.Input[str]] = None,
             last_updated: Optional[pulumi.Input[str]] = None,
@@ -322,7 +322,7 @@ class SecureCredential(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[str] description: The secure credential's description.
         :param pulumi.Input[str] key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
         :param pulumi.Input[str] last_updated: The time the secure credential was last updated.
@@ -341,7 +341,7 @@ class SecureCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         """

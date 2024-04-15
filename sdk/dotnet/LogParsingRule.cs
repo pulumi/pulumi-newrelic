@@ -90,7 +90,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation rule.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
@@ -190,7 +190,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation rule.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
@@ -246,7 +246,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation rule.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.

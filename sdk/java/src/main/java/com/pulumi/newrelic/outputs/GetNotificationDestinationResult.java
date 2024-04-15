@@ -7,7 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.GetNotificationDestinationProperty;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -16,7 +15,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNotificationDestinationResult {
-    private Integer accountId;
+    private String accountId;
     /**
      * @return An indication whether the notification destination is active or not.
      * 
@@ -50,7 +49,7 @@ public final class GetNotificationDestinationResult {
     private String type;
 
     private GetNotificationDestinationResult() {}
-    public Integer accountId() {
+    public String accountId() {
         return this.accountId;
     }
     /**
@@ -108,7 +107,7 @@ public final class GetNotificationDestinationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer accountId;
+        private String accountId;
         private Boolean active;
         private String guid;
         private @Nullable String id;
@@ -130,7 +129,7 @@ public final class GetNotificationDestinationResult {
         }
 
         @CustomType.Setter
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             if (accountId == null) {
               throw new MissingRequiredPropertyException("GetNotificationDestinationResult", "accountId");
             }

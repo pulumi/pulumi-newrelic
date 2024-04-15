@@ -18,6 +18,9 @@ namespace Pulumi.NewRelic
     [NewRelicResourceType("pulumi:providers:newrelic")]
     public partial class Provider : global::Pulumi.ProviderResource
     {
+        [Output("accountId")]
+        public Output<string?> AccountId { get; private set; } = null!;
+
         [Output("adminApiKey")]
         public Output<string?> AdminApiKey { get; private set; } = null!;
 
@@ -74,6 +77,7 @@ namespace Pulumi.NewRelic
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "accountId",
                     "adminApiKey",
                     "apiKey",
                     "insightsInsertKey",
@@ -88,15 +92,15 @@ namespace Pulumi.NewRelic
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
-        [Input("accountId", json: true)]
-        private Input<int>? _accountId;
-        public Input<int>? AccountId
+        [Input("accountId")]
+        private Input<string>? _accountId;
+        public Input<string>? AccountId
         {
             get => _accountId;
             set
             {
                 var emptySecret = Output.CreateSecret(0);
-                _accountId = Output.Tuple<Input<int>?, int>(value, emptySecret).Apply(t => t.Item1);
+                _accountId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 
@@ -168,7 +172,7 @@ namespace Pulumi.NewRelic
 
         public ProviderArgs()
         {
-            AccountId = Utilities.GetEnvInt32("NEW_RELIC_ACCOUNT_ID");
+            AccountId = Utilities.GetEnv("NEW_RELIC_ACCOUNT_ID");
             Region = Utilities.GetEnv("NEW_RELIC_REGION") ?? "US";
         }
         public static new ProviderArgs Empty => new ProviderArgs();

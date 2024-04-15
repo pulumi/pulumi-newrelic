@@ -14,7 +14,6 @@ import com.pulumi.newrelic.outputs.WorkflowDestination;
 import com.pulumi.newrelic.outputs.WorkflowEnrichments;
 import com.pulumi.newrelic.outputs.WorkflowIssuesFilter;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -293,14 +292,14 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

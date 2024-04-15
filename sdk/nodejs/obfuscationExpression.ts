@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.ObfuscationExpression("foo", {
- *     accountId: 12345,
+ *     accountId: "12345",
  *     description: "The description",
  *     regex: "(regex.*)",
  * });
@@ -63,7 +63,7 @@ export class ObfuscationExpression extends pulumi.CustomResource {
     /**
      * The account id associated with the obfuscation expression.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Description of expression.
      */
@@ -116,7 +116,7 @@ export interface ObfuscationExpressionState {
     /**
      * The account id associated with the obfuscation expression.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Description of expression.
      */
@@ -138,7 +138,7 @@ export interface ObfuscationExpressionArgs {
     /**
      * The account id associated with the obfuscation expression.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Description of expression.
      */

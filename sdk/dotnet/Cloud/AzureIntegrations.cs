@@ -339,7 +339,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Azure API Management. See Integration blocks below for details.
@@ -423,7 +423,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The ID of the linked Azure account in New Relic.
         /// </summary>
         [Output("linkedAccountId")]
-        public Output<int> LinkedAccountId { get; private set; } = null!;
+        public Output<string> LinkedAccountId { get; private set; } = null!;
 
         /// <summary>
         /// Azure Load Balancer. See Integration blocks below for details.
@@ -593,7 +593,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Azure API Management. See Integration blocks below for details.
@@ -677,7 +677,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The ID of the linked Azure account in New Relic.
         /// </summary>
         [Input("linkedAccountId", required: true)]
-        public Input<int> LinkedAccountId { get; set; } = null!;
+        public Input<string> LinkedAccountId { get; set; } = null!;
 
         /// <summary>
         /// Azure Load Balancer. See Integration blocks below for details.
@@ -809,7 +809,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Azure API Management. See Integration blocks below for details.
@@ -893,7 +893,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The ID of the linked Azure account in New Relic.
         /// </summary>
         [Input("linkedAccountId")]
-        public Input<int>? LinkedAccountId { get; set; }
+        public Input<string>? LinkedAccountId { get; set; }
 
         /// <summary>
         /// Azure Load Balancer. See Integration blocks below for details.

@@ -69,7 +69,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation rule.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Actions for the rule. The actions will be applied in the order specified by this list.
@@ -151,7 +151,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation rule.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("actions", required: true)]
         private InputList<Inputs.ObfuscationRuleActionArgs>? _actions;
@@ -201,7 +201,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation rule.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("actions")]
         private InputList<Inputs.ObfuscationRuleActionGetArgs>? _actions;

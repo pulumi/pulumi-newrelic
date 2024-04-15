@@ -75,6 +75,44 @@ func makeResource(mod string, res string) tokens.Type {
 	return makeType(mod, res)
 }
 
+// makeStringID manufactures a schema for a string ID. This is used to override
+// a number of NewRelic *_id fields which use integers for inputs, which are
+// incompatible with a number of string outputs (including Pulumi's built-in
+// IDs, which are always strings).
+func makeStringID() *tfbridge.SchemaInfo {
+	return &tfbridge.SchemaInfo{
+		Type: "string",
+	}
+}
+
+// makeStringIDs manufactures a schema for a list of string IDs. This is used to
+// override a number of NewRelic *_ids fields which use integers for inputs, which
+// are incompatible with a number of string outputs (including Pulumi's built-in
+// IDs, which are always strings).
+func makeStringIDs() *tfbridge.SchemaInfo {
+	return &tfbridge.SchemaInfo{
+		Elem: makeStringID(),
+	}
+}
+
+// makeWidget manufactures a widget schema that accepts string account IDs in
+// its nested NRQL queries.
+func makeWidget() *tfbridge.SchemaInfo {
+	return &tfbridge.SchemaInfo{
+		Elem: &tfbridge.SchemaInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				"nrql_query": {
+					Elem: &tfbridge.SchemaInfo{
+						Fields: map[string]*tfbridge.SchemaInfo{
+							"account_id": makeStringID(),
+						},
+					},
+				},
+			},
+		},
+	}
+}
+
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
@@ -96,6 +134,7 @@ func Provider() tfbridge.ProviderInfo {
 		Version:                 version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
 			"account_id": {
+				Type: "string",
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"NEW_RELIC_ACCOUNT_ID"},
 				},
@@ -108,99 +147,411 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"newrelic_alert_channel":            {Tok: makeResource(mainMod, "AlertChannel")},
-			"newrelic_alert_condition":          {Tok: makeResource(mainMod, "AlertCondition")},
-			"newrelic_alert_policy":             {Tok: makeResource(mainMod, "AlertPolicy")},
-			"newrelic_alert_policy_channel":     {Tok: makeResource(mainMod, "AlertPolicyChannel")},
-			"newrelic_obfuscation_expression":   {Tok: makeResource(mainMod, "ObfuscationExpression")},
-			"newrelic_obfuscation_rule":         {Tok: makeResource(mainMod, "ObfuscationRule")},
-			"newrelic_one_dashboard":            {Tok: makeResource(mainMod, "OneDashboard")},
-			"newrelic_one_dashboard_json":       {Tok: makeResource(mainMod, "OneDashboardJson")},
-			"newrelic_one_dashboard_raw":        {Tok: makeResource(mainMod, "OneDashboardRaw")},
-			"newrelic_infra_alert_condition":    {Tok: makeResource(mainMod, "InfraAlertCondition")},
-			"newrelic_nrql_alert_condition":     {Tok: makeResource(mainMod, "NrqlAlertCondition")},
-			"newrelic_nrql_drop_rule":           {Tok: makeResource(mainMod, "NrqlDropRule")},
-			"newrelic_entity_tags":              {Tok: makeResource(mainMod, "EntityTags")},
-			"newrelic_events_to_metrics_rule":   {Tok: makeResource(mainMod, "EventsToMetricsRule")},
-			"newrelic_alert_muting_rule":        {Tok: makeResource(mainMod, "AlertMutingRule")},
-			"newrelic_log_parsing_rule":         {Tok: makeResource(mainMod, "LogParsingRule")},
-			"newrelic_api_access_key":           {Tok: makeResource(mainMod, "ApiAccessKey")},
-			"newrelic_service_level":            {Tok: makeResource(mainMod, "ServiceLevel")},
-			"newrelic_notification_channel":     {Tok: makeResource(mainMod, "NotificationChannel")},
-			"newrelic_notification_destination": {Tok: makeResource(mainMod, "NotificationDestination")},
-			"newrelic_workflow":                 {Tok: makeResource(mainMod, "Workflow")},
+			"newrelic_alert_channel": {
+				Tok: makeResource(mainMod, "AlertChannel"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_alert_condition": {
+				Tok: makeResource(mainMod, "AlertCondition"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"entities":  makeStringIDs(),
+					"policy_id": makeStringID(),
+				},
+			},
+			"newrelic_alert_policy": {
+				Tok: makeResource(mainMod, "AlertPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id":  makeStringID(),
+					"channel_ids": makeStringIDs(),
+				},
+			},
+			"newrelic_alert_policy_channel": {
+				Tok: makeResource(mainMod, "AlertPolicyChannel"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id":  makeStringID(),
+					"channel_ids": makeStringIDs(),
+					"policy_id":   makeStringID(),
+				},
+			},
+			"newrelic_browser_application": {
+				Tok: makeResource(mainMod, "BrowserApplication"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_data_partition_rule": {
+				Tok: makeResource(mainMod, "DataPartitionRule"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_obfuscation_expression": {
+				Tok: makeResource(mainMod, "ObfuscationExpression"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_obfuscation_rule": {
+				Tok: makeResource(mainMod, "ObfuscationRule"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_one_dashboard": {
+				Tok: makeResource(mainMod, "OneDashboard"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+					"page": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"widget_area":        makeWidget(),
+								"widget_bar":         makeWidget(),
+								"widget_billboard":   makeWidget(),
+								"widget_bullet":      makeWidget(),
+								"widget_funnel":      makeWidget(),
+								"widget_json":        makeWidget(),
+								"widget_heatmap":     makeWidget(),
+								"widget_histogram":   makeWidget(),
+								"widget_line":        makeWidget(),
+								"widget_pie":         makeWidget(),
+								"widget_stacked_bar": makeWidget(),
+								"widget_log_table":   makeWidget(),
+								"widget_table":       makeWidget(),
+							},
+						},
+					},
+					"variable": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"nrql_query": {
+									Elem: &tfbridge.SchemaInfo{
+										Fields: map[string]*tfbridge.SchemaInfo{
+											"account_ids": makeStringIDs(),
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			"newrelic_one_dashboard_json": {
+				Tok: makeResource(mainMod, "OneDashboardJson"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_one_dashboard_raw": {
+				Tok: makeResource(mainMod, "OneDashboardRaw"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_infra_alert_condition": {
+				Tok: makeResource(mainMod, "InfraAlertCondition"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy_id": makeStringID(),
+				},
+			},
+			"newrelic_nrql_alert_condition": {
+				Tok: makeResource(mainMod, "NrqlAlertCondition"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+					"policy_id":  makeStringID(),
+				},
+			},
+			"newrelic_nrql_drop_rule": {
+				Tok: makeResource(mainMod, "NrqlDropRule"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_entity_tags": {Tok: makeResource(mainMod, "EntityTags")},
+			"newrelic_events_to_metrics_rule": {
+				Tok: makeResource(mainMod, "EventsToMetricsRule"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_alert_muting_rule": {
+				Tok: makeResource(mainMod, "AlertMutingRule"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_log_parsing_rule": {
+				Tok: makeResource(mainMod, "LogParsingRule"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_api_access_key": {
+				Tok: makeResource(mainMod, "ApiAccessKey"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+					"user_id":    makeStringID(),
+				},
+			},
+			"newrelic_service_level": {
+				Tok: makeResource(mainMod, "ServiceLevel"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"events": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"account_id": makeStringID(),
+							},
+						},
+					},
+				},
+			},
+			"newrelic_notification_channel": {
+				Tok: makeResource(mainMod, "NotificationChannel"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_notification_destination": {
+				Tok: makeResource(mainMod, "NotificationDestination"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_workflow": {
+				Tok: makeResource(mainMod, "Workflow"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+					"enrichments": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"nrql": {
+									Elem: &tfbridge.SchemaInfo{
+										Fields: map[string]*tfbridge.SchemaInfo{
+											"account_id": makeStringID(),
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
 
-			"newrelic_cloud_aws_govcloud_link_account": {Tok: makeResource(cloudMod, "AwsGovcloudLinkAccount")},
-			"newrelic_cloud_aws_link_account":          {Tok: makeResource(cloudMod, "AwsLinkAccount")},
-			"newrelic_cloud_azure_link_account":        {Tok: makeResource(cloudMod, "AzureLinkAccount")},
-			"newrelic_cloud_gcp_link_account":          {Tok: makeResource(cloudMod, "GcpLinkAccount")},
-			"newrelic_cloud_aws_govcloud_integrations": {Tok: makeResource(cloudMod, "AwsGovcloudIntegrations")},
-			"newrelic_cloud_aws_integrations":          {Tok: makeResource(cloudMod, "AwsIntegrations")},
-			"newrelic_cloud_azure_integrations":        {Tok: makeResource(cloudMod, "AzureIntegrations")},
-			"newrelic_cloud_gcp_integrations":          {Tok: makeResource(cloudMod, "GcpIntegrations")},
+			"newrelic_cloud_aws_govcloud_link_account": {
+				Tok: makeResource(cloudMod, "AwsGovcloudLinkAccount"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_cloud_aws_link_account": {
+				Tok: makeResource(cloudMod, "AwsLinkAccount"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_cloud_azure_link_account": {
+				Tok: makeResource(cloudMod, "AzureLinkAccount"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_cloud_gcp_link_account": {
+				Tok: makeResource(cloudMod, "GcpLinkAccount"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_cloud_aws_govcloud_integrations": {
+				Tok: makeResource(cloudMod, "AwsGovcloudIntegrations"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id":        makeStringID(),
+					"linked_account_id": makeStringID(),
+				},
+			},
+			"newrelic_cloud_aws_integrations": {
+				Tok: makeResource(cloudMod, "AwsIntegrations"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id":        makeStringID(),
+					"linked_account_id": makeStringID(),
+				},
+			},
+			"newrelic_cloud_azure_integrations": {
+				Tok: makeResource(cloudMod, "AzureIntegrations"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id":        makeStringID(),
+					"linked_account_id": makeStringID(),
+				},
+			},
+			"newrelic_cloud_gcp_integrations": {
+				Tok: makeResource(cloudMod, "GcpIntegrations"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id":        makeStringID(),
+					"linked_account_id": makeStringID(),
+				},
+			},
 
-			"newrelic_synthetics_alert_condition":   {Tok: makeResource(syntheticsMod, "AlertCondition")},
-			"newrelic_synthetics_monitor":           {Tok: makeResource(syntheticsMod, "Monitor")},
-			"newrelic_synthetics_secure_credential": {Tok: makeResource(syntheticsMod, "SecureCredential")},
+			"newrelic_synthetics_alert_condition": {
+				Tok: makeResource(syntheticsMod, "AlertCondition"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy_id": makeStringID(),
+				},
+			},
+			"newrelic_synthetics_monitor": {
+				Tok: makeResource(syntheticsMod, "Monitor"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_monitor_downtime": {
+				Tok: makeResource(syntheticsMod, "MonitorDowntime"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_synthetics_secure_credential": {
+				Tok: makeResource(syntheticsMod, "SecureCredential"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
 			"newrelic_synthetics_multilocation_alert_condition": {
 				Tok: makeResource(syntheticsMod, "MultiLocationAlertCondition"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy_id": makeStringID(),
+				},
 			},
 			"newrelic_synthetics_broken_links_monitor": {
 				Tok: makeResource(syntheticsMod, "BrokenLinksMonitor"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
 				Docs: &tfbridge.DocInfo{
 					Source: "synthetics_monitor_broken_links.html.markdown",
 				}},
 			"newrelic_synthetics_cert_check_monitor": {
 				Tok: makeResource(syntheticsMod, "CertCheckMonitor"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
 				Docs: &tfbridge.DocInfo{
 					Source: "synthetics_monitor_cert_check.html.markdown",
 				}},
 			"newrelic_synthetics_private_location": {
 				Tok: makeResource(syntheticsMod, "PrivateLocation"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
 			},
 			"newrelic_synthetics_script_monitor": {
 				Tok: makeResource(syntheticsMod, "ScriptMonitor"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
 			},
 			"newrelic_synthetics_step_monitor": {
 				Tok: makeResource(syntheticsMod, "StepMonitor"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
 				Docs: &tfbridge.DocInfo{
 					Source: "synthetics_monitor_step.html.markdown",
 				},
 			},
 
-			"newrelic_insights_event": {Tok: makeResource(insightsMod, "Event")},
+			"newrelic_insights_event": {
+				Tok: makeResource(insightsMod, "Event"),
+			},
 
-			"newrelic_workload":             {Tok: makeResource(pluginsMod, "Workload")},
+			"newrelic_workload": {
+				Tok: makeResource(pluginsMod, "Workload"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id":        makeStringID(),
+					"scope_account_ids": makeStringIDs(),
+					"workload_id":       makeStringID(),
+				},
+			},
 			"newrelic_application_settings": {Tok: makeResource(pluginsMod, "ApplicationSettings")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"newrelic_alert_channel": {
 				Tok: makeDataSource(mainMod, "getAlertChannel"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
 					"config": {
 						MaxItemsOne: tfbridge.True(),
 					},
+					"policy_ids": makeStringIDs(),
 				},
 			},
-			"newrelic_alert_policy":    {Tok: makeDataSource(mainMod, "getAlertPolicy")},
-			"newrelic_application":     {Tok: makeDataSource(mainMod, "getApplication")},
+			"newrelic_alert_policy": {
+				Tok: makeDataSource(mainMod, "getAlertPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_application": {
+				Tok: makeDataSource(mainMod, "getApplication"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"host_ids":     makeStringIDs(),
+					"instance_ids": makeStringIDs(),
+				},
+			},
 			"newrelic_key_transaction": {Tok: makeDataSource(mainMod, "getKeyTransaction")},
-			"newrelic_entity":          {Tok: makeDataSource(mainMod, "getEntity")},
-			"newrelic_account":         {Tok: makeDataSource(mainMod, "getAccount")},
-			"newrelic_cloud_account":   {Tok: makeDataSource(mainMod, "getCloudAccount")},
+			"newrelic_entity": {
+				Tok: makeDataSource(mainMod, "getEntity"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id":                 makeStringID(),
+					"application_id":             makeStringID(),
+					"serving_apm_application_id": makeStringID(),
+				},
+			},
+			"newrelic_account": {
+				Tok: makeDataSource(mainMod, "getAccount"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_cloud_account": {
+				Tok: makeDataSource(mainMod, "getCloudAccount"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
 
-			"newrelic_obfuscation_expression":       {Tok: makeDataSource(mainMod, "getObfuscationExpression")},
-			"newrelic_synthetics_secure_credential": {Tok: makeDataSource(syntheticsMod, "getSecureCredential")},
-			"newrelic_synthetics_private_location":  {Tok: makeDataSource(syntheticsMod, "getPrivateLocation")},
+			"newrelic_obfuscation_expression": {
+				Tok: makeDataSource(mainMod, "getObfuscationExpression"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_synthetics_secure_credential": {
+				Tok: makeDataSource(syntheticsMod, "getSecureCredential"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
+			"newrelic_synthetics_private_location": {
+				Tok: makeDataSource(syntheticsMod, "getPrivateLocation"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
+			},
 
 			"newrelic_test_grok_pattern": {
 				Tok: makeDataSource(mainMod, "getTestGrokPattern"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
 				Docs: &tfbridge.DocInfo{
 					Source: "log_test_grok.html.markdown",
 				}},
 
 			"newrelic_notification_destination": {
-				Tok:  makeDataSource(mainMod, "getNotificationDestination"),
+				Tok: makeDataSource(mainMod, "getNotificationDestination"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_id": makeStringID(),
+				},
 				Docs: &tfbridge.DocInfo{Source: "notifications_destination.html.markdown"},
 			},
 		},

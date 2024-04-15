@@ -410,6 +410,14 @@ _utilities.register(
  },
  {
   "pkg": "newrelic",
+  "mod": "synthetics/monitorDowntime",
+  "fqn": "pulumi_newrelic.synthetics",
+  "classes": {
+   "newrelic:synthetics/monitorDowntime:MonitorDowntime": "MonitorDowntime"
+  }
+ },
+ {
+  "pkg": "newrelic",
   "mod": "synthetics/multiLocationAlertCondition",
   "fqn": "pulumi_newrelic.synthetics",
   "classes": {

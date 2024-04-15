@@ -64,7 +64,7 @@ namespace Pulumi.NewRelic.Cloud
         /// Account ID of the New Relic account.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// name of the linked account
@@ -128,7 +128,7 @@ namespace Pulumi.NewRelic.Cloud
         /// Account ID of the New Relic account.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// name of the linked account
@@ -154,7 +154,7 @@ namespace Pulumi.NewRelic.Cloud
         /// Account ID of the New Relic account.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// name of the linked account

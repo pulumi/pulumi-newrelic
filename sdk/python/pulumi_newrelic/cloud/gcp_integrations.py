@@ -16,8 +16,8 @@ __all__ = ['GcpIntegrationsArgs', 'GcpIntegrations']
 @pulumi.input_type
 class GcpIntegrationsArgs:
     def __init__(__self__, *,
-                 linked_account_id: pulumi.Input[int],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alloy_db: Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']] = None,
                  app_engine: Optional[pulumi.Input['GcpIntegrationsAppEngineArgs']] = None,
                  big_query: Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']] = None,
@@ -46,8 +46,8 @@ class GcpIntegrationsArgs:
                  vpc_access: Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']] = None):
         """
         The set of arguments for constructing a GcpIntegrations resource.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked GCP account in New Relic.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked GCP account in New Relic.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['GcpIntegrationsAlloyDbArgs'] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsAppEngineArgs'] app_engine: App Engine integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsBigQueryArgs'] big_query: Biq Query integration. See Integration blocks below for details.
@@ -133,26 +133,26 @@ class GcpIntegrationsArgs:
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> pulumi.Input[int]:
+    def linked_account_id(self) -> pulumi.Input[str]:
         """
         The ID of the linked GCP account in New Relic.
         """
         return pulumi.get(self, "linked_account_id")
 
     @linked_account_id.setter
-    def linked_account_id(self, value: pulumi.Input[int]):
+    def linked_account_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "linked_account_id", value)
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -471,7 +471,7 @@ class GcpIntegrationsArgs:
 @pulumi.input_type
 class _GcpIntegrationsState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alloy_db: Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']] = None,
                  app_engine: Optional[pulumi.Input['GcpIntegrationsAppEngineArgs']] = None,
                  big_query: Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']] = None,
@@ -487,7 +487,7 @@ class _GcpIntegrationsState:
                  functions: Optional[pulumi.Input['GcpIntegrationsFunctionsArgs']] = None,
                  interconnect: Optional[pulumi.Input['GcpIntegrationsInterconnectArgs']] = None,
                  kubernetes: Optional[pulumi.Input['GcpIntegrationsKubernetesArgs']] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  load_balancing: Optional[pulumi.Input['GcpIntegrationsLoadBalancingArgs']] = None,
                  mem_cache: Optional[pulumi.Input['GcpIntegrationsMemCacheArgs']] = None,
                  pub_sub: Optional[pulumi.Input['GcpIntegrationsPubSubArgs']] = None,
@@ -501,7 +501,7 @@ class _GcpIntegrationsState:
                  vpc_access: Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']] = None):
         """
         Input properties used for looking up and filtering GcpIntegrations resources.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['GcpIntegrationsAlloyDbArgs'] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsAppEngineArgs'] app_engine: App Engine integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsBigQueryArgs'] big_query: Biq Query integration. See Integration blocks below for details.
@@ -517,7 +517,7 @@ class _GcpIntegrationsState:
         :param pulumi.Input['GcpIntegrationsFunctionsArgs'] functions: Functions integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsInterconnectArgs'] interconnect: Interconnect integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsKubernetesArgs'] kubernetes: Kubernetes integration. See Integration blocks below for details.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked GCP account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked GCP account in New Relic.
         :param pulumi.Input['GcpIntegrationsLoadBalancingArgs'] load_balancing: Load Balancing integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsMemCacheArgs'] mem_cache: Mem cache integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsPubSubArgs'] pub_sub: Pub/Sub integration. See Integration blocks below for details.
@@ -589,14 +589,14 @@ class _GcpIntegrationsState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -781,14 +781,14 @@ class _GcpIntegrationsState:
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> Optional[pulumi.Input[int]]:
+    def linked_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the linked GCP account in New Relic.
         """
         return pulumi.get(self, "linked_account_id")
 
     @linked_account_id.setter
-    def linked_account_id(self, value: Optional[pulumi.Input[int]]):
+    def linked_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "linked_account_id", value)
 
     @property
@@ -929,7 +929,7 @@ class GcpIntegrations(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alloy_db: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']]] = None,
                  app_engine: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']]] = None,
                  big_query: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']]] = None,
@@ -945,7 +945,7 @@ class GcpIntegrations(pulumi.CustomResource):
                  functions: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFunctionsArgs']]] = None,
                  interconnect: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']]] = None,
                  kubernetes: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']]] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  load_balancing: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']]] = None,
                  mem_cache: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']]] = None,
                  pub_sub: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']]] = None,
@@ -1073,7 +1073,7 @@ class GcpIntegrations(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']] app_engine: App Engine integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']] big_query: Biq Query integration. See Integration blocks below for details.
@@ -1089,7 +1089,7 @@ class GcpIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsFunctionsArgs']] functions: Functions integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']] interconnect: Interconnect integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']] kubernetes: Kubernetes integration. See Integration blocks below for details.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked GCP account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked GCP account in New Relic.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']] load_balancing: Load Balancing integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']] mem_cache: Mem cache integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
@@ -1236,7 +1236,7 @@ class GcpIntegrations(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alloy_db: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']]] = None,
                  app_engine: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']]] = None,
                  big_query: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']]] = None,
@@ -1252,7 +1252,7 @@ class GcpIntegrations(pulumi.CustomResource):
                  functions: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFunctionsArgs']]] = None,
                  interconnect: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']]] = None,
                  kubernetes: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']]] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  load_balancing: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']]] = None,
                  mem_cache: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']]] = None,
                  pub_sub: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']]] = None,
@@ -1313,7 +1313,7 @@ class GcpIntegrations(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             alloy_db: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']]] = None,
             app_engine: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']]] = None,
             big_query: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']]] = None,
@@ -1329,7 +1329,7 @@ class GcpIntegrations(pulumi.CustomResource):
             functions: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFunctionsArgs']]] = None,
             interconnect: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']]] = None,
             kubernetes: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']]] = None,
-            linked_account_id: Optional[pulumi.Input[int]] = None,
+            linked_account_id: Optional[pulumi.Input[str]] = None,
             load_balancing: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']]] = None,
             mem_cache: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']]] = None,
             pub_sub: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']]] = None,
@@ -1348,7 +1348,7 @@ class GcpIntegrations(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']] app_engine: App Engine integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']] big_query: Biq Query integration. See Integration blocks below for details.
@@ -1364,7 +1364,7 @@ class GcpIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsFunctionsArgs']] functions: Functions integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']] interconnect: Interconnect integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']] kubernetes: Kubernetes integration. See Integration blocks below for details.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked GCP account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked GCP account in New Relic.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']] load_balancing: Load Balancing integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']] mem_cache: Mem cache integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
@@ -1413,7 +1413,7 @@ class GcpIntegrations(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
@@ -1541,7 +1541,7 @@ class GcpIntegrations(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> pulumi.Output[int]:
+    def linked_account_id(self) -> pulumi.Output[str]:
         """
         The ID of the linked GCP account in New Relic.
         """

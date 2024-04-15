@@ -8,7 +8,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.inputs.AlertMutingRuleConditionArgs;
 import com.pulumi.newrelic.inputs.AlertMutingRuleScheduleArgs;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -24,13 +23,13 @@ public final class AlertMutingRuleState extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return The account id of the MutingRule.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -144,7 +143,7 @@ public final class AlertMutingRuleState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -155,7 +154,7 @@ public final class AlertMutingRuleState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 

@@ -8,7 +8,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.ServiceLevelEventsBadEvents;
 import com.pulumi.newrelic.outputs.ServiceLevelEventsGoodEvents;
 import com.pulumi.newrelic.outputs.ServiceLevelEventsValidEvents;
-import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,7 +20,7 @@ public final class ServiceLevelEvents {
      * and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
      * 
      */
-    private Integer accountId;
+    private String accountId;
     /**
      * @return The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
      * 
@@ -43,7 +43,7 @@ public final class ServiceLevelEvents {
      * and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
      * 
      */
-    public Integer accountId() {
+    public String accountId() {
         return this.accountId;
     }
     /**
@@ -77,7 +77,7 @@ public final class ServiceLevelEvents {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer accountId;
+        private String accountId;
         private @Nullable ServiceLevelEventsBadEvents badEvents;
         private @Nullable ServiceLevelEventsGoodEvents goodEvents;
         private ServiceLevelEventsValidEvents validEvents;
@@ -91,7 +91,7 @@ public final class ServiceLevelEvents {
         }
 
         @CustomType.Setter
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             if (accountId == null) {
               throw new MissingRequiredPropertyException("ServiceLevelEvents", "accountId");
             }

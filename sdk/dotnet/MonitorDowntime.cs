@@ -23,9 +23,9 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.MonitorDowntime("foo", new()
+    ///     var foo = new NewRelic.Synthetics.MonitorDowntime("foo", new()
     ///     {
-    ///         EndRepeat = new NewRelic.Inputs.MonitorDowntimeEndRepeatArgs
+    ///         EndRepeat = new NewRelic.Synthetics.Inputs.MonitorDowntimeEndRepeatArgs
     ///         {
     ///             OnDate = "2023-12-20",
     ///         },
@@ -65,7 +65,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleOneTimeNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sampleOneTimeNewrelicMonitorDowntime", new()
+    ///     var sampleOneTimeNewrelicMonitorDowntime = new NewRelic.Synthetics.MonitorDowntime("sampleOneTimeNewrelicMonitorDowntime", new()
     ///     {
     ///         EndTime = "2024-01-04T16:24:30",
     ///         Mode = "ONE_TIME",
@@ -97,9 +97,9 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleDailyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sampleDailyNewrelicMonitorDowntime", new()
+    ///     var sampleDailyNewrelicMonitorDowntime = new NewRelic.Synthetics.MonitorDowntime("sampleDailyNewrelicMonitorDowntime", new()
     ///     {
-    ///         EndRepeat = new NewRelic.Inputs.MonitorDowntimeEndRepeatArgs
+    ///         EndRepeat = new NewRelic.Synthetics.Inputs.MonitorDowntimeEndRepeatArgs
     ///         {
     ///             OnDate = "2023-12-25",
     ///         },
@@ -133,7 +133,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleWeeklyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sampleWeeklyNewrelicMonitorDowntime", new()
+    ///     var sampleWeeklyNewrelicMonitorDowntime = new NewRelic.Synthetics.MonitorDowntime("sampleWeeklyNewrelicMonitorDowntime", new()
     ///     {
     ///         EndTime = "2024-01-04T23:55:00",
     ///         MaintenanceDays = new[]
@@ -170,16 +170,16 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleMonthlyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime", new()
+    ///     var sampleMonthlyNewrelicMonitorDowntime = new NewRelic.Synthetics.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime", new()
     ///     {
-    ///         EndRepeat = new NewRelic.Inputs.MonitorDowntimeEndRepeatArgs
+    ///         EndRepeat = new NewRelic.Synthetics.Inputs.MonitorDowntimeEndRepeatArgs
     ///         {
     ///             OnRepeat = 6,
     ///         },
     ///         EndTime = "2024-01-04T19:15:00",
-    ///         Frequency = new NewRelic.Inputs.MonitorDowntimeFrequencyArgs
+    ///         Frequency = new NewRelic.Synthetics.Inputs.MonitorDowntimeFrequencyArgs
     ///         {
-    ///             DaysOfWeek = new NewRelic.Inputs.MonitorDowntimeFrequencyDaysOfWeekArgs
+    ///             DaysOfWeek = new NewRelic.Synthetics.Inputs.MonitorDowntimeFrequencyDaysOfWeekArgs
     ///             {
     ///                 OrdinalDayOfMonth = "SECOND",
     ///                 WeekDay = "SATURDAY",
@@ -208,14 +208,14 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleMonthlyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime", new()
+    ///     var sampleMonthlyNewrelicMonitorDowntime = new NewRelic.Synthetics.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime", new()
     ///     {
-    ///         EndRepeat = new NewRelic.Inputs.MonitorDowntimeEndRepeatArgs
+    ///         EndRepeat = new NewRelic.Synthetics.Inputs.MonitorDowntimeEndRepeatArgs
     ///         {
     ///             OnRepeat = 6,
     ///         },
     ///         EndTime = "2024-01-04T19:15:00",
-    ///         Frequency = new NewRelic.Inputs.MonitorDowntimeFrequencyArgs
+    ///         Frequency = new NewRelic.Synthetics.Inputs.MonitorDowntimeFrequencyArgs
     ///         {
     ///             DaysOfMonths = new[]
     ///             {
@@ -249,6 +249,7 @@ namespace Pulumi.NewRelic
     /// $ pulumi import newrelic:index/monitorDowntime:MonitorDowntime monitor &lt;guid&gt;
     /// ```
     /// </summary>
+    [Obsolete(@"newrelic.index/monitordowntime.MonitorDowntime has been deprecated in favor of newrelic.synthetics/monitordowntime.MonitorDowntime")]
     [NewRelicResourceType("newrelic:index/monitorDowntime:MonitorDowntime")]
     public partial class MonitorDowntime : global::Pulumi.CustomResource
     {
@@ -256,7 +257,7 @@ namespace Pulumi.NewRelic
         /// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
@@ -364,7 +365,7 @@ namespace Pulumi.NewRelic
         /// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
@@ -446,7 +447,7 @@ namespace Pulumi.NewRelic
         /// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -

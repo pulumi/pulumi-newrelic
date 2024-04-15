@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const expression = newrelic.getObfuscationExpression({
- *     accountId: 123456,
+ *     accountId: "123456",
  *     name: "The expression",
  * });
  * const rule = new newrelic.ObfuscationRule("rule", {
@@ -47,7 +47,7 @@ export interface GetObfuscationExpressionArgs {
     /**
      * The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
      */
-    accountId?: number;
+    accountId?: string;
     /**
      * Name of expression.
      */
@@ -58,7 +58,7 @@ export interface GetObfuscationExpressionArgs {
  * A collection of values returned by getObfuscationExpression.
  */
 export interface GetObfuscationExpressionResult {
-    readonly accountId?: number;
+    readonly accountId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -76,7 +76,7 @@ export interface GetObfuscationExpressionResult {
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const expression = newrelic.getObfuscationExpression({
- *     accountId: 123456,
+ *     accountId: "123456",
  *     name: "The expression",
  * });
  * const rule = new newrelic.ObfuscationRule("rule", {
@@ -103,7 +103,7 @@ export interface GetObfuscationExpressionOutputArgs {
     /**
      * The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Name of expression.
      */

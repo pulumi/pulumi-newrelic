@@ -217,7 +217,7 @@ type InfraAlertCondition struct {
 	// The Infrastructure alert condition's name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the alert policy where this condition should be used.
-	PolicyId pulumi.IntOutput `pulumi:"policyId"`
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
 	ProcessWhere pulumi.StringPtrOutput `pulumi:"processWhere"`
 	// Runbook URL to display in notifications.
@@ -291,7 +291,7 @@ type infraAlertConditionState struct {
 	// The Infrastructure alert condition's name.
 	Name *string `pulumi:"name"`
 	// The ID of the alert policy where this condition should be used.
-	PolicyId *int `pulumi:"policyId"`
+	PolicyId *string `pulumi:"policyId"`
 	// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
 	ProcessWhere *string `pulumi:"processWhere"`
 	// Runbook URL to display in notifications.
@@ -330,7 +330,7 @@ type InfraAlertConditionState struct {
 	// The Infrastructure alert condition's name.
 	Name pulumi.StringPtrInput
 	// The ID of the alert policy where this condition should be used.
-	PolicyId pulumi.IntPtrInput
+	PolicyId pulumi.StringPtrInput
 	// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
 	ProcessWhere pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
@@ -369,7 +369,7 @@ type infraAlertConditionArgs struct {
 	// The Infrastructure alert condition's name.
 	Name *string `pulumi:"name"`
 	// The ID of the alert policy where this condition should be used.
-	PolicyId int `pulumi:"policyId"`
+	PolicyId string `pulumi:"policyId"`
 	// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
 	ProcessWhere *string `pulumi:"processWhere"`
 	// Runbook URL to display in notifications.
@@ -403,7 +403,7 @@ type InfraAlertConditionArgs struct {
 	// The Infrastructure alert condition's name.
 	Name pulumi.StringPtrInput
 	// The ID of the alert policy where this condition should be used.
-	PolicyId pulumi.IntInput
+	PolicyId pulumi.StringInput
 	// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
 	ProcessWhere pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
@@ -553,8 +553,8 @@ func (o InfraAlertConditionOutput) Name() pulumi.StringOutput {
 }
 
 // The ID of the alert policy where this condition should be used.
-func (o InfraAlertConditionOutput) PolicyId() pulumi.IntOutput {
-	return o.ApplyT(func(v *InfraAlertCondition) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+func (o InfraAlertConditionOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
 // Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.

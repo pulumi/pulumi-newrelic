@@ -257,7 +257,7 @@ type Monitor struct {
 	pulumi.CustomResourceState
 
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	//
 	// The `BROWSER` monitor type supports the following additional arguments:
@@ -341,7 +341,7 @@ func GetMonitor(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Monitor resources.
 type monitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	//
 	// The `BROWSER` monitor type supports the following additional arguments:
@@ -390,7 +390,7 @@ type monitorState struct {
 
 type MonitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	//
 	// The `BROWSER` monitor type supports the following additional arguments:
@@ -443,7 +443,7 @@ func (MonitorState) ElementType() reflect.Type {
 
 type monitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	//
 	// The `BROWSER` monitor type supports the following additional arguments:
@@ -491,7 +491,7 @@ type monitorArgs struct {
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	//
 	// The `BROWSER` monitor type supports the following additional arguments:
@@ -624,8 +624,8 @@ func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOu
 }
 
 // The account in which the Synthetics monitor will be created.
-func (o MonitorOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o MonitorOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Monitor should skip default HEAD request and instead use GET verb in check.

@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Outputs
         /// <summary>
         /// New Relic account ID(s) to issue the query against.
         /// </summary>
-        public readonly ImmutableArray<int> AccountIds;
+        public readonly ImmutableArray<string> AccountIds;
         /// <summary>
         /// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.NewRelic.Outputs
 
         [OutputConstructor]
         private OneDashboardVariableNrqlQuery(
-            ImmutableArray<int> accountIds,
+            ImmutableArray<string> accountIds,
 
             string query)
         {

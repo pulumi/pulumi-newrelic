@@ -11,6 +11,7 @@ from .cert_check_monitor import *
 from .get_private_location import *
 from .get_secure_credential import *
 from .monitor import *
+from .monitor_downtime import *
 from .multi_location_alert_condition import *
 from .private_location import *
 from .script_monitor import *

@@ -85,7 +85,7 @@ namespace Pulumi.NewRelic
         /// The account id of the MutingRule.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The condition that defines which incidents to target. See Nested condition blocks below for details.
@@ -167,7 +167,7 @@ namespace Pulumi.NewRelic
         /// The account id of the MutingRule.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The condition that defines which incidents to target. See Nested condition blocks below for details.
@@ -211,7 +211,7 @@ namespace Pulumi.NewRelic
         /// The account id of the MutingRule.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The condition that defines which incidents to target. See Nested condition blocks below for details.

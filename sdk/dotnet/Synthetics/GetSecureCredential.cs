@@ -75,7 +75,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public int? AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         /// <summary>
         /// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -95,7 +95,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -113,7 +113,7 @@ namespace Pulumi.NewRelic.Synthetics
     [OutputType]
     public sealed class GetSecureCredentialResult
     {
-        public readonly int AccountId;
+        public readonly string AccountId;
         /// <summary>
         /// The secure credential's description.
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.NewRelic.Synthetics
 
         [OutputConstructor]
         private GetSecureCredentialResult(
-            int accountId,
+            string accountId,
 
             string description,
 

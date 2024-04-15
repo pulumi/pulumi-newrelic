@@ -25,7 +25,7 @@ type OneDashboardJson struct {
 	pulumi.CustomResourceState
 
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The unique entity identifier of the dashboard in New Relic.
 	Guid pulumi.StringOutput `pulumi:"guid"`
 	// The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
@@ -70,7 +70,7 @@ func GetOneDashboardJson(ctx *pulumi.Context,
 // Input properties used for looking up and filtering OneDashboardJson resources.
 type oneDashboardJsonState struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The unique entity identifier of the dashboard in New Relic.
 	Guid *string `pulumi:"guid"`
 	// The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
@@ -83,7 +83,7 @@ type oneDashboardJsonState struct {
 
 type OneDashboardJsonState struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The unique entity identifier of the dashboard in New Relic.
 	Guid pulumi.StringPtrInput
 	// The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
@@ -100,7 +100,7 @@ func (OneDashboardJsonState) ElementType() reflect.Type {
 
 type oneDashboardJsonArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
 	Json string `pulumi:"json"`
 }
@@ -108,7 +108,7 @@ type oneDashboardJsonArgs struct {
 // The set of arguments for constructing a OneDashboardJson resource.
 type OneDashboardJsonArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
 	Json pulumi.StringInput
 }
@@ -201,8 +201,8 @@ func (o OneDashboardJsonOutput) ToOneDashboardJsonOutputWithContext(ctx context.
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardJsonOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *OneDashboardJson) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o OneDashboardJsonOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OneDashboardJson) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The unique entity identifier of the dashboard in New Relic.

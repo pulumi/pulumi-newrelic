@@ -16,8 +16,8 @@ __all__ = ['AwsIntegrationsArgs', 'AwsIntegrations']
 @pulumi.input_type
 class AwsIntegrationsArgs:
     def __init__(__self__, *,
-                 linked_account_id: pulumi.Input[int],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alb: Optional[pulumi.Input['AwsIntegrationsAlbArgs']] = None,
                  api_gateway: Optional[pulumi.Input['AwsIntegrationsApiGatewayArgs']] = None,
                  auto_scaling: Optional[pulumi.Input['AwsIntegrationsAutoScalingArgs']] = None,
@@ -72,7 +72,7 @@ class AwsIntegrationsArgs:
                  x_ray: Optional[pulumi.Input['AwsIntegrationsXRayArgs']] = None):
         """
         The set of arguments for constructing a AwsIntegrations resource.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked AWS account in New Relic.
                
                All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
                <details>
@@ -134,7 +134,7 @@ class AwsIntegrationsArgs:
                | `x_ray`                 | X-Ray Integration             |
                
                </details>
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsIntegrationsAlbArgs'] alb: ALB integration
         :param pulumi.Input['AwsIntegrationsApiGatewayArgs'] api_gateway: API Gateway integration
         :param pulumi.Input['AwsIntegrationsAutoScalingArgs'] auto_scaling: ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
@@ -298,7 +298,7 @@ class AwsIntegrationsArgs:
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> pulumi.Input[int]:
+    def linked_account_id(self) -> pulumi.Input[str]:
         """
         The ID of the linked AWS account in New Relic.
 
@@ -366,19 +366,19 @@ class AwsIntegrationsArgs:
         return pulumi.get(self, "linked_account_id")
 
     @linked_account_id.setter
-    def linked_account_id(self, value: pulumi.Input[int]):
+    def linked_account_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "linked_account_id", value)
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -1009,7 +1009,7 @@ class AwsIntegrationsArgs:
 @pulumi.input_type
 class _AwsIntegrationsState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alb: Optional[pulumi.Input['AwsIntegrationsAlbArgs']] = None,
                  api_gateway: Optional[pulumi.Input['AwsIntegrationsApiGatewayArgs']] = None,
                  auto_scaling: Optional[pulumi.Input['AwsIntegrationsAutoScalingArgs']] = None,
@@ -1052,7 +1052,7 @@ class _AwsIntegrationsState:
                  kinesis: Optional[pulumi.Input['AwsIntegrationsKinesisArgs']] = None,
                  kinesis_firehose: Optional[pulumi.Input['AwsIntegrationsKinesisFirehoseArgs']] = None,
                  lambda_: Optional[pulumi.Input['AwsIntegrationsLambdaArgs']] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  rds: Optional[pulumi.Input['AwsIntegrationsRdsArgs']] = None,
                  redshift: Optional[pulumi.Input['AwsIntegrationsRedshiftArgs']] = None,
                  route53: Optional[pulumi.Input['AwsIntegrationsRoute53Args']] = None,
@@ -1065,7 +1065,7 @@ class _AwsIntegrationsState:
                  x_ray: Optional[pulumi.Input['AwsIntegrationsXRayArgs']] = None):
         """
         Input properties used for looking up and filtering AwsIntegrations resources.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsIntegrationsAlbArgs'] alb: ALB integration
         :param pulumi.Input['AwsIntegrationsApiGatewayArgs'] api_gateway: API Gateway integration
         :param pulumi.Input['AwsIntegrationsAutoScalingArgs'] auto_scaling: ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
@@ -1108,7 +1108,7 @@ class _AwsIntegrationsState:
         :param pulumi.Input['AwsIntegrationsKinesisArgs'] kinesis: Kinesis integration
         :param pulumi.Input['AwsIntegrationsKinesisFirehoseArgs'] kinesis_firehose: Kinesis Firehose integration
         :param pulumi.Input['AwsIntegrationsLambdaArgs'] lambda_: Lambda integration
-        :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked AWS account in New Relic.
                
                All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
                <details>
@@ -1292,14 +1292,14 @@ class _AwsIntegrationsState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -1808,7 +1808,7 @@ class _AwsIntegrationsState:
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> Optional[pulumi.Input[int]]:
+    def linked_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the linked AWS account in New Relic.
 
@@ -1876,7 +1876,7 @@ class _AwsIntegrationsState:
         return pulumi.get(self, "linked_account_id")
 
     @linked_account_id.setter
-    def linked_account_id(self, value: Optional[pulumi.Input[int]]):
+    def linked_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "linked_account_id", value)
 
     @property
@@ -2005,7 +2005,7 @@ class AwsIntegrations(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']]] = None,
                  api_gateway: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']]] = None,
                  auto_scaling: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']]] = None,
@@ -2048,7 +2048,7 @@ class AwsIntegrations(pulumi.CustomResource):
                  kinesis: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisArgs']]] = None,
                  kinesis_firehose: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisFirehoseArgs']]] = None,
                  lambda_: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsLambdaArgs']]] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  rds: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRdsArgs']]] = None,
                  redshift: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRedshiftArgs']]] = None,
                  route53: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRoute53Args']]] = None,
@@ -2376,7 +2376,7 @@ class AwsIntegrations(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']] alb: ALB integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']] api_gateway: API Gateway integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']] auto_scaling: ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
@@ -2419,7 +2419,7 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisArgs']] kinesis: Kinesis integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisFirehoseArgs']] kinesis_firehose: Kinesis Firehose integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsLambdaArgs']] lambda_: Lambda integration
-        :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked AWS account in New Relic.
                
                All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
                <details>
@@ -2827,7 +2827,7 @@ class AwsIntegrations(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']]] = None,
                  api_gateway: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']]] = None,
                  auto_scaling: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']]] = None,
@@ -2870,7 +2870,7 @@ class AwsIntegrations(pulumi.CustomResource):
                  kinesis: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisArgs']]] = None,
                  kinesis_firehose: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisFirehoseArgs']]] = None,
                  lambda_: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsLambdaArgs']]] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  rds: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRdsArgs']]] = None,
                  redshift: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRedshiftArgs']]] = None,
                  route53: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRoute53Args']]] = None,
@@ -2956,7 +2956,7 @@ class AwsIntegrations(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             alb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']]] = None,
             api_gateway: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']]] = None,
             auto_scaling: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']]] = None,
@@ -2999,7 +2999,7 @@ class AwsIntegrations(pulumi.CustomResource):
             kinesis: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisArgs']]] = None,
             kinesis_firehose: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisFirehoseArgs']]] = None,
             lambda_: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsLambdaArgs']]] = None,
-            linked_account_id: Optional[pulumi.Input[int]] = None,
+            linked_account_id: Optional[pulumi.Input[str]] = None,
             rds: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRdsArgs']]] = None,
             redshift: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRedshiftArgs']]] = None,
             route53: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRoute53Args']]] = None,
@@ -3017,7 +3017,7 @@ class AwsIntegrations(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']] alb: ALB integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']] api_gateway: API Gateway integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']] auto_scaling: ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
@@ -3060,7 +3060,7 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisArgs']] kinesis: Kinesis integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisFirehoseArgs']] kinesis_firehose: Kinesis Firehose integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsLambdaArgs']] lambda_: Lambda integration
-        :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked AWS account in New Relic.
                
                All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
                <details>
@@ -3195,7 +3195,7 @@ class AwsIntegrations(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
@@ -3539,7 +3539,7 @@ class AwsIntegrations(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> pulumi.Output[int]:
+    def linked_account_id(self) -> pulumi.Output[str]:
         """
         The ID of the linked AWS account in New Relic.
 

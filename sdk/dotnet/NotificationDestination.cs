@@ -83,7 +83,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the destination is active.
@@ -190,7 +190,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Indicates whether the destination is active.
@@ -247,7 +247,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Indicates whether the destination is active.

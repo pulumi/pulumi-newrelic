@@ -41,7 +41,7 @@ import (
 //			_, err = newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
 //				PolicyId: fooAlertPolicy.ID(),
 //				Type:     pulumi.String("apm_kt_metric"),
-//				Entities: pulumi.IntArray{
+//				Entities: pulumi.StringArray{
 //					pulumi.String(txn.Id),
 //				},
 //				Metric:     pulumi.String("error_percentage"),

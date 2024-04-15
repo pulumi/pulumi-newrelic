@@ -33,7 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
@@ -77,7 +77,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
@@ -117,7 +117,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
@@ -157,7 +157,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("ERROR_TRACKING"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
@@ -205,7 +205,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
@@ -269,7 +269,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
@@ -324,7 +324,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Type:          pulumi.String("MOBILE_PUSH"),
@@ -354,7 +354,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
@@ -394,7 +394,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
@@ -440,7 +440,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationDestination(ctx, "webhook-destination", &newrelic.NotificationDestinationArgs{
-//				AccountId: pulumi.Int(12345678),
+//				AccountId: pulumi.String("12345678"),
 //				AuthBasic: &newrelic.NotificationDestinationAuthBasicArgs{
 //					Password: pulumi.String("password"),
 //					User:     pulumi.String("username"),
@@ -478,7 +478,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "webhook-channel", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//				AccountId:     pulumi.String("12345678"),
 //				Type:          pulumi.String("WEBHOOK"),
 //				DestinationId: pulumi.Any(newrelic_notification_destination.WebhookDestination.Id),
 //				Product:       pulumi.String("IINT"),
@@ -521,7 +521,7 @@ type NotificationChannel struct {
 	pulumi.CustomResourceState
 
 	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Indicates whether the channel is active.
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
 	// The id of the destination.
@@ -581,7 +581,7 @@ func GetNotificationChannel(ctx *pulumi.Context,
 // Input properties used for looking up and filtering NotificationChannel resources.
 type notificationChannelState struct {
 	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Indicates whether the channel is active.
 	Active *bool `pulumi:"active"`
 	// The id of the destination.
@@ -600,7 +600,7 @@ type notificationChannelState struct {
 
 type NotificationChannelState struct {
 	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Indicates whether the channel is active.
 	Active pulumi.BoolPtrInput
 	// The id of the destination.
@@ -623,7 +623,7 @@ func (NotificationChannelState) ElementType() reflect.Type {
 
 type notificationChannelArgs struct {
 	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Indicates whether the channel is active.
 	Active *bool `pulumi:"active"`
 	// The id of the destination.
@@ -641,7 +641,7 @@ type notificationChannelArgs struct {
 // The set of arguments for constructing a NotificationChannel resource.
 type NotificationChannelArgs struct {
 	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Indicates whether the channel is active.
 	Active pulumi.BoolPtrInput
 	// The id of the destination.
@@ -744,8 +744,8 @@ func (o NotificationChannelOutput) ToNotificationChannelOutputWithContext(ctx co
 }
 
 // Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
-func (o NotificationChannelOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *NotificationChannel) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o NotificationChannelOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Indicates whether the channel is active.

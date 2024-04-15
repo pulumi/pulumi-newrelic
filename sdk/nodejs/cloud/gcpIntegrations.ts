@@ -151,7 +151,7 @@ export class GcpIntegrations extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Alloy DB integration. See Integration blocks below for details.
      */
@@ -215,7 +215,7 @@ export class GcpIntegrations extends pulumi.CustomResource {
     /**
      * The ID of the linked GCP account in New Relic.
      */
-    public readonly linkedAccountId!: pulumi.Output<number>;
+    public readonly linkedAccountId!: pulumi.Output<string>;
     /**
      * Load Balancing integration. See Integration blocks below for details.
      */
@@ -348,7 +348,7 @@ export interface GcpIntegrationsState {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Alloy DB integration. See Integration blocks below for details.
      */
@@ -412,7 +412,7 @@ export interface GcpIntegrationsState {
     /**
      * The ID of the linked GCP account in New Relic.
      */
-    linkedAccountId?: pulumi.Input<number>;
+    linkedAccountId?: pulumi.Input<string>;
     /**
      * Load Balancing integration. See Integration blocks below for details.
      */
@@ -466,7 +466,7 @@ export interface GcpIntegrationsArgs {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Alloy DB integration. See Integration blocks below for details.
      */
@@ -530,7 +530,7 @@ export interface GcpIntegrationsArgs {
     /**
      * The ID of the linked GCP account in New Relic.
      */
-    linkedAccountId: pulumi.Input<number>;
+    linkedAccountId: pulumi.Input<string>;
     /**
      * Load Balancing integration. See Integration blocks below for details.
      */

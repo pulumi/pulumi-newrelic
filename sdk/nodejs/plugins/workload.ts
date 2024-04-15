@@ -22,12 +22,12 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.plugins.Workload("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
  *     entitySearchQueries: [{
  *         query: "name like '%Example application%'",
  *     }],
- *     scopeAccountIds: [12345678],
+ *     scopeAccountIds: ["12345678"],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -39,12 +39,12 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.plugins.Workload("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
  *     entitySearchQueries: [{
  *         query: "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
  *     }],
- *     scopeAccountIds: [12345678],
+ *     scopeAccountIds: ["12345678"],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -56,12 +56,12 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.plugins.Workload("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
  *     entitySearchQueries: [{
  *         query: "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
  *     }],
- *     scopeAccountIds: [12345678],
+ *     scopeAccountIds: ["12345678"],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -113,7 +113,7 @@ export class Workload extends pulumi.CustomResource {
     /**
      * The New Relic account ID where you want to create the workload.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The composite query used to compose a dynamic workload.
      */
@@ -145,7 +145,7 @@ export class Workload extends pulumi.CustomResource {
     /**
      * A list of account IDs that will be used to get entities from.
      */
-    public readonly scopeAccountIds!: pulumi.Output<number[]>;
+    public readonly scopeAccountIds!: pulumi.Output<string[]>;
     /**
      * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
      */
@@ -157,7 +157,7 @@ export class Workload extends pulumi.CustomResource {
     /**
      * The unique entity identifier of the workload.
      */
-    public /*out*/ readonly workloadId!: pulumi.Output<number>;
+    public /*out*/ readonly workloadId!: pulumi.Output<string>;
 
     /**
      * Create a Workload resource with the given unique name, arguments, and options.
@@ -211,7 +211,7 @@ export interface WorkloadState {
     /**
      * The New Relic account ID where you want to create the workload.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The composite query used to compose a dynamic workload.
      */
@@ -243,7 +243,7 @@ export interface WorkloadState {
     /**
      * A list of account IDs that will be used to get entities from.
      */
-    scopeAccountIds?: pulumi.Input<pulumi.Input<number>[]>;
+    scopeAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
      */
@@ -255,7 +255,7 @@ export interface WorkloadState {
     /**
      * The unique entity identifier of the workload.
      */
-    workloadId?: pulumi.Input<number>;
+    workloadId?: pulumi.Input<string>;
 }
 
 /**
@@ -265,7 +265,7 @@ export interface WorkloadArgs {
     /**
      * The New Relic account ID where you want to create the workload.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Relevant information about the workload.
      */
@@ -285,7 +285,7 @@ export interface WorkloadArgs {
     /**
      * A list of account IDs that will be used to get entities from.
      */
-    scopeAccountIds?: pulumi.Input<pulumi.Input<number>[]>;
+    scopeAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
      */

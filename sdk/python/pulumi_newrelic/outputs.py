@@ -2240,10 +2240,10 @@ class OneDashboardPageWidgetAreaNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -2259,7 +2259,7 @@ class OneDashboardPageWidgetAreaNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -2815,10 +2815,10 @@ class OneDashboardPageWidgetBarNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -2834,7 +2834,7 @@ class OneDashboardPageWidgetBarNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -3386,10 +3386,10 @@ class OneDashboardPageWidgetBillboardNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -3405,7 +3405,7 @@ class OneDashboardPageWidgetBillboardNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -3944,10 +3944,10 @@ class OneDashboardPageWidgetBulletNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -3963,7 +3963,7 @@ class OneDashboardPageWidgetBulletNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -4491,10 +4491,10 @@ class OneDashboardPageWidgetFunnelNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -4510,7 +4510,7 @@ class OneDashboardPageWidgetFunnelNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -5066,10 +5066,10 @@ class OneDashboardPageWidgetHeatmapNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -5085,7 +5085,7 @@ class OneDashboardPageWidgetHeatmapNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -5613,10 +5613,10 @@ class OneDashboardPageWidgetHistogramNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -5632,7 +5632,7 @@ class OneDashboardPageWidgetHistogramNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -6160,10 +6160,10 @@ class OneDashboardPageWidgetJsonNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -6179,7 +6179,7 @@ class OneDashboardPageWidgetJsonNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -6721,10 +6721,10 @@ class OneDashboardPageWidgetLineNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -6740,7 +6740,7 @@ class OneDashboardPageWidgetLineNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -7268,10 +7268,10 @@ class OneDashboardPageWidgetLogTableNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -7287,7 +7287,7 @@ class OneDashboardPageWidgetLogTableNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -8341,10 +8341,10 @@ class OneDashboardPageWidgetPyNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -8360,7 +8360,7 @@ class OneDashboardPageWidgetPyNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -8888,10 +8888,10 @@ class OneDashboardPageWidgetStackedBarNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -8907,7 +8907,7 @@ class OneDashboardPageWidgetStackedBarNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -9463,10 +9463,10 @@ class OneDashboardPageWidgetTableNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -9482,7 +9482,7 @@ class OneDashboardPageWidgetTableNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -10053,10 +10053,10 @@ class OneDashboardVariableNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_ids: Optional[Sequence[int]] = None):
+                 account_ids: Optional[Sequence[str]] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param Sequence[int] account_ids: New Relic account ID(s) to issue the query against.
+        :param Sequence[str] account_ids: New Relic account ID(s) to issue the query against.
         """
         pulumi.set(__self__, "query", query)
         if account_ids is not None:
@@ -10072,7 +10072,7 @@ class OneDashboardVariableNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountIds")
-    def account_ids(self) -> Optional[Sequence[int]]:
+    def account_ids(self) -> Optional[Sequence[str]]:
         """
         New Relic account ID(s) to issue the query against.
         """
@@ -10141,12 +10141,12 @@ class ServiceLevelEvents(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 account_id: int,
+                 account_id: str,
                  valid_events: 'outputs.ServiceLevelEventsValidEvents',
                  bad_events: Optional['outputs.ServiceLevelEventsBadEvents'] = None,
                  good_events: Optional['outputs.ServiceLevelEventsGoodEvents'] = None):
         """
-        :param int account_id: The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+        :param str account_id: The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
                and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
         :param 'ServiceLevelEventsValidEventsArgs' valid_events: The definition of valid requests.
         :param 'ServiceLevelEventsBadEventsArgs' bad_events: The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
@@ -10161,7 +10161,7 @@ class ServiceLevelEvents(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> int:
+    def account_id(self) -> str:
         """
         The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
         and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
@@ -10736,13 +10736,13 @@ class WorkflowEnrichmentsNrql(dict):
     def __init__(__self__, *,
                  configurations: Sequence['outputs.WorkflowEnrichmentsNrqlConfiguration'],
                  name: str,
-                 account_id: Optional[int] = None,
+                 account_id: Optional[str] = None,
                  enrichment_id: Optional[str] = None,
                  type: Optional[str] = None):
         """
         :param Sequence['WorkflowEnrichmentsNrqlConfigurationArgs'] configurations: Another wrapper block
         :param str name: The name of the workflow.
-        :param int account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
+        :param str account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         :param str enrichment_id: Enrichment's id.
         :param str type: Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         """
@@ -10773,7 +10773,7 @@ class WorkflowEnrichmentsNrql(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         """

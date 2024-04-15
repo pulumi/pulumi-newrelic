@@ -86,13 +86,13 @@ public final class MultiLocationAlertConditionArgs extends com.pulumi.resources.
      * 
      */
     @Import(name="policyId", required=true)
-    private Output<Integer> policyId;
+    private Output<String> policyId;
 
     /**
      * @return The ID of the policy where this condition will be used.
      * 
      */
-    public Output<Integer> policyId() {
+    public Output<String> policyId() {
         return this.policyId;
     }
 
@@ -276,7 +276,7 @@ public final class MultiLocationAlertConditionArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder policyId(Output<Integer> policyId) {
+        public Builder policyId(Output<String> policyId) {
             $.policyId = policyId;
             return this;
         }
@@ -287,7 +287,7 @@ public final class MultiLocationAlertConditionArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder policyId(Integer policyId) {
+        public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
         }
 

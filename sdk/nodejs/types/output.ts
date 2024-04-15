@@ -657,7 +657,7 @@ export interface OneDashboardPageWidgetAreaNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -802,7 +802,7 @@ export interface OneDashboardPageWidgetBarNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -947,7 +947,7 @@ export interface OneDashboardPageWidgetBillboardNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1088,7 +1088,7 @@ export interface OneDashboardPageWidgetBulletNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1225,7 +1225,7 @@ export interface OneDashboardPageWidgetFunnelNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1370,7 +1370,7 @@ export interface OneDashboardPageWidgetHeatmapNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1507,7 +1507,7 @@ export interface OneDashboardPageWidgetHistogramNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1644,7 +1644,7 @@ export interface OneDashboardPageWidgetJsonNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1785,7 +1785,7 @@ export interface OneDashboardPageWidgetLineNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1922,7 +1922,7 @@ export interface OneDashboardPageWidgetLogTableNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2193,7 +2193,7 @@ export interface OneDashboardPageWidgetPyNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2330,7 +2330,7 @@ export interface OneDashboardPageWidgetStackedBarNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2475,7 +2475,7 @@ export interface OneDashboardPageWidgetTableNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2638,7 +2638,7 @@ export interface OneDashboardVariableNrqlQuery {
     /**
      * New Relic account ID(s) to issue the query against.
      */
-    accountIds?: number[];
+    accountIds?: string[];
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2657,7 +2657,7 @@ export interface ServiceLevelEvents {
      * The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
      * and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
      */
-    accountId: number;
+    accountId: string;
     /**
      * The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
      */
@@ -2833,7 +2833,7 @@ export interface WorkflowEnrichmentsNrql {
     /**
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
-    accountId: number;
+    accountId: string;
     /**
      * Another wrapper block
      */
@@ -5241,6 +5241,43 @@ export namespace synthetics {
          * Header Value.
          */
         value?: string;
+    }
+
+    export interface MonitorDowntimeEndRepeat {
+        /**
+         * The date on which the monitor downtime's repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
+         */
+        onDate?: string;
+        /**
+         * An integer that specifies the number of occurrences, after which the monitor downtime's repeat cycle would need to come to an end.
+         *
+         * > **NOTE:** `endRepeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `onDate` or `onRepeat` **are required to be specified with** `endRepeat`, but not both, as `onDate` and `onRepeat` are mutually exclusive.
+         */
+        onRepeat?: number;
+    }
+
+    export interface MonitorDowntimeFrequency {
+        /**
+         * A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
+         */
+        daysOfMonths?: number[];
+        /**
+         * An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
+         */
+        daysOfWeek?: outputs.synthetics.MonitorDowntimeFrequencyDaysOfWeek;
+    }
+
+    export interface MonitorDowntimeFrequencyDaysOfWeek {
+        /**
+         * The occurrence of `weekDay` in a month (one of `"FIRST"`, `"SECOND"`, `"THIRD"`, `"FOURTH"`, `"LAST"`).
+         *
+         * > **NOTE:** `frequency` **can only be used with the mode** `MONTHLY`, and **is a required argument** with monthly monitor downtimes (if the `mode` is `MONTHLY`). Additionally, **either** `daysOfMonth` or `daysOfWeek` **are required to be specified with** `frequency`, but not both, as `daysOfMonth` and `daysOfWeek` are mutually exclusive. If `daysOfWeek` is specified, values of **both** of its nested arguments, `weekDay` and `ordinalDayOfMonth` **would need to be specified** too.
+         */
+        ordinalDayOfMonth: string;
+        /**
+         * A day of the week (one of `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` or `"SATURDAY"`).
+         */
+        weekDay: string;
     }
 
     export interface MonitorTag {

@@ -5,7 +5,6 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -17,7 +16,7 @@ public final class OneDashboardVariableNrqlQuery {
      * @return New Relic account ID(s) to issue the query against.
      * 
      */
-    private @Nullable List<Integer> accountIds;
+    private @Nullable List<String> accountIds;
     /**
      * @return (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      * 
@@ -29,7 +28,7 @@ public final class OneDashboardVariableNrqlQuery {
      * @return New Relic account ID(s) to issue the query against.
      * 
      */
-    public List<Integer> accountIds() {
+    public List<String> accountIds() {
         return this.accountIds == null ? List.of() : this.accountIds;
     }
     /**
@@ -49,7 +48,7 @@ public final class OneDashboardVariableNrqlQuery {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<Integer> accountIds;
+        private @Nullable List<String> accountIds;
         private String query;
         public Builder() {}
         public Builder(OneDashboardVariableNrqlQuery defaults) {
@@ -59,12 +58,12 @@ public final class OneDashboardVariableNrqlQuery {
         }
 
         @CustomType.Setter
-        public Builder accountIds(@Nullable List<Integer> accountIds) {
+        public Builder accountIds(@Nullable List<String> accountIds) {
 
             this.accountIds = accountIds;
             return this;
         }
-        public Builder accountIds(Integer... accountIds) {
+        public Builder accountIds(String... accountIds) {
             return accountIds(List.of(accountIds));
         }
         @CustomType.Setter

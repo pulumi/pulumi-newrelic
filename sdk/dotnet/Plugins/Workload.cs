@@ -30,7 +30,7 @@ namespace Pulumi.NewRelic.Plugins
     /// {
     ///     var foo = new NewRelic.Plugins.Workload("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         EntityGuids = new[]
     ///         {
     ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
@@ -44,7 +44,7 @@ namespace Pulumi.NewRelic.Plugins
     ///         },
     ///         ScopeAccountIds = new[]
     ///         {
-    ///             12345678,
+    ///             "12345678",
     ///         },
     ///     });
     /// 
@@ -64,7 +64,7 @@ namespace Pulumi.NewRelic.Plugins
     /// {
     ///     var foo = new NewRelic.Plugins.Workload("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         EntityGuids = new[]
     ///         {
     ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
@@ -78,7 +78,7 @@ namespace Pulumi.NewRelic.Plugins
     ///         },
     ///         ScopeAccountIds = new[]
     ///         {
-    ///             12345678,
+    ///             "12345678",
     ///         },
     ///     });
     /// 
@@ -98,7 +98,7 @@ namespace Pulumi.NewRelic.Plugins
     /// {
     ///     var foo = new NewRelic.Plugins.Workload("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         EntityGuids = new[]
     ///         {
     ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
@@ -112,7 +112,7 @@ namespace Pulumi.NewRelic.Plugins
     ///         },
     ///         ScopeAccountIds = new[]
     ///         {
-    ///             12345678,
+    ///             "12345678",
     ///         },
     ///     });
     /// 
@@ -143,7 +143,7 @@ namespace Pulumi.NewRelic.Plugins
         /// The New Relic account ID where you want to create the workload.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The composite query used to compose a dynamic workload.
@@ -191,7 +191,7 @@ namespace Pulumi.NewRelic.Plugins
         /// A list of account IDs that will be used to get entities from.
         /// </summary>
         [Output("scopeAccountIds")]
-        public Output<ImmutableArray<int>> ScopeAccountIds { get; private set; } = null!;
+        public Output<ImmutableArray<string>> ScopeAccountIds { get; private set; } = null!;
 
         /// <summary>
         /// An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
@@ -209,7 +209,7 @@ namespace Pulumi.NewRelic.Plugins
         /// The unique entity identifier of the workload.
         /// </summary>
         [Output("workloadId")]
-        public Output<int> WorkloadId { get; private set; } = null!;
+        public Output<string> WorkloadId { get; private set; } = null!;
 
 
         /// <summary>
@@ -261,7 +261,7 @@ namespace Pulumi.NewRelic.Plugins
         /// The New Relic account ID where you want to create the workload.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Relevant information about the workload.
@@ -300,14 +300,14 @@ namespace Pulumi.NewRelic.Plugins
         public Input<string>? Name { get; set; }
 
         [Input("scopeAccountIds")]
-        private InputList<int>? _scopeAccountIds;
+        private InputList<string>? _scopeAccountIds;
 
         /// <summary>
         /// A list of account IDs that will be used to get entities from.
         /// </summary>
-        public InputList<int> ScopeAccountIds
+        public InputList<string> ScopeAccountIds
         {
-            get => _scopeAccountIds ?? (_scopeAccountIds = new InputList<int>());
+            get => _scopeAccountIds ?? (_scopeAccountIds = new InputList<string>());
             set => _scopeAccountIds = value;
         }
 
@@ -335,7 +335,7 @@ namespace Pulumi.NewRelic.Plugins
         /// The New Relic account ID where you want to create the workload.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The composite query used to compose a dynamic workload.
@@ -392,14 +392,14 @@ namespace Pulumi.NewRelic.Plugins
         public Input<string>? Permalink { get; set; }
 
         [Input("scopeAccountIds")]
-        private InputList<int>? _scopeAccountIds;
+        private InputList<string>? _scopeAccountIds;
 
         /// <summary>
         /// A list of account IDs that will be used to get entities from.
         /// </summary>
-        public InputList<int> ScopeAccountIds
+        public InputList<string> ScopeAccountIds
         {
-            get => _scopeAccountIds ?? (_scopeAccountIds = new InputList<int>());
+            get => _scopeAccountIds ?? (_scopeAccountIds = new InputList<string>());
             set => _scopeAccountIds = value;
         }
 
@@ -419,7 +419,7 @@ namespace Pulumi.NewRelic.Plugins
         /// The unique entity identifier of the workload.
         /// </summary>
         [Input("workloadId")]
-        public Input<int>? WorkloadId { get; set; }
+        public Input<string>? WorkloadId { get; set; }
 
         public WorkloadState()
         {

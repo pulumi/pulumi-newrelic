@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Outputs
         /// <summary>
         /// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         /// </summary>
-        public readonly int? AccountId;
+        public readonly string? AccountId;
         /// <summary>
         /// Another wrapper block
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.NewRelic.Outputs
 
         [OutputConstructor]
         private WorkflowEnrichmentsNrql(
-            int? accountId,
+            string? accountId,
 
             ImmutableArray<Outputs.WorkflowEnrichmentsNrqlConfiguration> configurations,
 

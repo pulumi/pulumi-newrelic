@@ -5,7 +5,6 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -22,13 +21,13 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -41,7 +40,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
      */
     @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
     @Import(name="channelIds")
-    private @Nullable Output<List<Integer>> channelIds;
+    private @Nullable Output<List<String>> channelIds;
 
     /**
      * @return An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
@@ -51,7 +50,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
-    public Optional<Output<List<Integer>>> channelIds() {
+    public Optional<Output<List<String>>> channelIds() {
         return Optional.ofNullable(this.channelIds);
     }
 
@@ -118,7 +117,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -129,7 +128,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
@@ -143,7 +142,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
-        public Builder channelIds(@Nullable Output<List<Integer>> channelIds) {
+        public Builder channelIds(@Nullable Output<List<String>> channelIds) {
             $.channelIds = channelIds;
             return this;
         }
@@ -158,7 +157,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
-        public Builder channelIds(List<Integer> channelIds) {
+        public Builder channelIds(List<String> channelIds) {
             return channelIds(Output.of(channelIds));
         }
 
@@ -172,7 +171,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
-        public Builder channelIds(Integer... channelIds) {
+        public Builder channelIds(String... channelIds) {
             return channelIds(List.of(channelIds));
         }
 

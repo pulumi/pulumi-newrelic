@@ -46,7 +46,7 @@ export class BrowserApplication extends pulumi.CustomResource {
     /**
      * The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The application ID of the browser application (not to be confused with GUID).
      */
@@ -120,7 +120,7 @@ export interface BrowserApplicationState {
     /**
      * The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The application ID of the browser application (not to be confused with GUID).
      */
@@ -158,7 +158,7 @@ export interface BrowserApplicationArgs {
     /**
      * The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Configures cookies. Defaults to `true`, if not specified.
      */

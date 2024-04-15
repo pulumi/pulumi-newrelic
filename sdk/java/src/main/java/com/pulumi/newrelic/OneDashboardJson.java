@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.OneDashboardJsonArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.OneDashboardJsonState;
-import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -32,14 +31,14 @@ public class OneDashboardJson extends com.pulumi.resources.CustomResource {
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-accountId: Optional[int]
+accountId: Optional[str]
 
 adminApiKey: Optional[str]
 

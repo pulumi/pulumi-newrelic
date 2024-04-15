@@ -27,7 +27,7 @@ namespace Pulumi.NewRelic
         /// {
         ///     var expression = NewRelic.GetObfuscationExpression.Invoke(new()
         ///     {
-        ///         AccountId = 123456,
+        ///         AccountId = "123456",
         ///         Name = "The expression",
         ///     });
         /// 
@@ -73,7 +73,7 @@ namespace Pulumi.NewRelic
         /// {
         ///     var expression = NewRelic.GetObfuscationExpression.Invoke(new()
         ///     {
-        ///         AccountId = 123456,
+        ///         AccountId = "123456",
         ///         Name = "The expression",
         ///     });
         /// 
@@ -111,7 +111,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
         /// </summary>
         [Input("accountId")]
-        public int? AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         /// <summary>
         /// Name of expression.
@@ -131,7 +131,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Name of expression.
@@ -149,7 +149,7 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetObfuscationExpressionResult
     {
-        public readonly int? AccountId;
+        public readonly string? AccountId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetObfuscationExpressionResult(
-            int? accountId,
+            string? accountId,
 
             string id,
 

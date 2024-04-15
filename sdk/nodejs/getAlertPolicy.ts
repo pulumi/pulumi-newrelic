@@ -24,7 +24,7 @@ export interface GetAlertPolicyArgs {
     /**
      * The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: number;
+    accountId?: string;
     /**
      * The rollup strategy for the policy, which can have one of the following values:
      */
@@ -39,7 +39,7 @@ export interface GetAlertPolicyArgs {
  * A collection of values returned by getAlertPolicy.
  */
 export interface GetAlertPolicyResult {
-    readonly accountId: number;
+    readonly accountId: string;
     /**
      * The time the policy was created.
      */
@@ -72,7 +72,7 @@ export interface GetAlertPolicyOutputArgs {
     /**
      * The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The rollup strategy for the policy, which can have one of the following values:
      */

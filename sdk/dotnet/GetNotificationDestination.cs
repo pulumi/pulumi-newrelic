@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public int? AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         /// <summary>
         /// The id of the notification destination in New Relic.
@@ -53,7 +53,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The id of the notification destination in New Relic.
@@ -79,7 +79,7 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetNotificationDestinationResult
     {
-        public readonly int AccountId;
+        public readonly string AccountId;
         /// <summary>
         /// An indication whether the notification destination is active or not.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetNotificationDestinationResult(
-            int accountId,
+            string accountId,
 
             bool active,
 

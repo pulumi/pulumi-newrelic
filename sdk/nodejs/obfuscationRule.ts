@@ -74,7 +74,7 @@ export class ObfuscationRule extends pulumi.CustomResource {
     /**
      * The account id associated with the obfuscation rule.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Actions for the rule. The actions will be applied in the order specified by this list.
      */
@@ -145,7 +145,7 @@ export interface ObfuscationRuleState {
     /**
      * The account id associated with the obfuscation rule.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Actions for the rule. The actions will be applied in the order specified by this list.
      */
@@ -175,7 +175,7 @@ export interface ObfuscationRuleArgs {
     /**
      * The account id associated with the obfuscation rule.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Actions for the rule. The actions will be applied in the order specified by this list.
      */

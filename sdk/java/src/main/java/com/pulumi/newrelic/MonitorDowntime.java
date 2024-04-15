@@ -12,7 +12,6 @@ import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.MonitorDowntimeState;
 import com.pulumi.newrelic.outputs.MonitorDowntimeEndRepeat;
 import com.pulumi.newrelic.outputs.MonitorDowntimeFrequency;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -30,9 +29,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.MonitorDowntime;
- * import com.pulumi.newrelic.MonitorDowntimeArgs;
- * import com.pulumi.newrelic.inputs.MonitorDowntimeEndRepeatArgs;
+ * import com.pulumi.newrelic.synthetics.MonitorDowntime;
+ * import com.pulumi.newrelic.synthetics.MonitorDowntimeArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorDowntimeEndRepeatArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -81,8 +80,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.MonitorDowntime;
- * import com.pulumi.newrelic.MonitorDowntimeArgs;
+ * import com.pulumi.newrelic.synthetics.MonitorDowntime;
+ * import com.pulumi.newrelic.synthetics.MonitorDowntimeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -124,9 +123,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.MonitorDowntime;
- * import com.pulumi.newrelic.MonitorDowntimeArgs;
- * import com.pulumi.newrelic.inputs.MonitorDowntimeEndRepeatArgs;
+ * import com.pulumi.newrelic.synthetics.MonitorDowntime;
+ * import com.pulumi.newrelic.synthetics.MonitorDowntimeArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorDowntimeEndRepeatArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -171,8 +170,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.MonitorDowntime;
- * import com.pulumi.newrelic.MonitorDowntimeArgs;
+ * import com.pulumi.newrelic.synthetics.MonitorDowntime;
+ * import com.pulumi.newrelic.synthetics.MonitorDowntimeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -217,11 +216,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.MonitorDowntime;
- * import com.pulumi.newrelic.MonitorDowntimeArgs;
- * import com.pulumi.newrelic.inputs.MonitorDowntimeEndRepeatArgs;
- * import com.pulumi.newrelic.inputs.MonitorDowntimeFrequencyArgs;
- * import com.pulumi.newrelic.inputs.MonitorDowntimeFrequencyDaysOfWeekArgs;
+ * import com.pulumi.newrelic.synthetics.MonitorDowntime;
+ * import com.pulumi.newrelic.synthetics.MonitorDowntimeArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorDowntimeEndRepeatArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorDowntimeFrequencyArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorDowntimeFrequencyDaysOfWeekArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -266,10 +265,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.MonitorDowntime;
- * import com.pulumi.newrelic.MonitorDowntimeArgs;
- * import com.pulumi.newrelic.inputs.MonitorDowntimeEndRepeatArgs;
- * import com.pulumi.newrelic.inputs.MonitorDowntimeFrequencyArgs;
+ * import com.pulumi.newrelic.synthetics.MonitorDowntime;
+ * import com.pulumi.newrelic.synthetics.MonitorDowntimeArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorDowntimeEndRepeatArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorDowntimeFrequencyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -318,21 +317,25 @@ import javax.annotation.Nullable;
  * $ pulumi import newrelic:index/monitorDowntime:MonitorDowntime monitor &lt;guid&gt;
  * ```
  * 
+ * @deprecated
+ * newrelic.index/monitordowntime.MonitorDowntime has been deprecated in favor of newrelic.synthetics/monitordowntime.MonitorDowntime
+ * 
  */
+@Deprecated /* newrelic.index/monitordowntime.MonitorDowntime has been deprecated in favor of newrelic.synthetics/monitordowntime.MonitorDowntime */
 @ResourceType(type="newrelic:index/monitorDowntime:MonitorDowntime")
 public class MonitorDowntime extends com.pulumi.resources.CustomResource {
     /**
      * The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewEventsToMetricsRule(ctx, "foo", &newrelic.EventsToMetricsRuleArgs{
-//				AccountId:   pulumi.Int(12345),
+//				AccountId:   pulumi.String("12345"),
 //				Description: pulumi.String("Example description"),
 //				Nrql:        pulumi.String("SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name"),
 //			})
@@ -59,7 +59,7 @@ type EventsToMetricsRule struct {
 	pulumi.CustomResourceState
 
 	// Account with the event and where the metrics will be put.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Provides additional information about the rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// True means this rule is enabled. False means the rule is currently not creating metrics.
@@ -106,7 +106,7 @@ func GetEventsToMetricsRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering EventsToMetricsRule resources.
 type eventsToMetricsRuleState struct {
 	// Account with the event and where the metrics will be put.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Provides additional information about the rule.
 	Description *string `pulumi:"description"`
 	// True means this rule is enabled. False means the rule is currently not creating metrics.
@@ -121,7 +121,7 @@ type eventsToMetricsRuleState struct {
 
 type EventsToMetricsRuleState struct {
 	// Account with the event and where the metrics will be put.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Provides additional information about the rule.
 	Description pulumi.StringPtrInput
 	// True means this rule is enabled. False means the rule is currently not creating metrics.
@@ -140,7 +140,7 @@ func (EventsToMetricsRuleState) ElementType() reflect.Type {
 
 type eventsToMetricsRuleArgs struct {
 	// Account with the event and where the metrics will be put.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Provides additional information about the rule.
 	Description *string `pulumi:"description"`
 	// True means this rule is enabled. False means the rule is currently not creating metrics.
@@ -154,7 +154,7 @@ type eventsToMetricsRuleArgs struct {
 // The set of arguments for constructing a EventsToMetricsRule resource.
 type EventsToMetricsRuleArgs struct {
 	// Account with the event and where the metrics will be put.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Provides additional information about the rule.
 	Description pulumi.StringPtrInput
 	// True means this rule is enabled. False means the rule is currently not creating metrics.
@@ -253,8 +253,8 @@ func (o EventsToMetricsRuleOutput) ToEventsToMetricsRuleOutputWithContext(ctx co
 }
 
 // Account with the event and where the metrics will be put.
-func (o EventsToMetricsRuleOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *EventsToMetricsRule) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o EventsToMetricsRuleOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventsToMetricsRule) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Provides additional information about the rule.

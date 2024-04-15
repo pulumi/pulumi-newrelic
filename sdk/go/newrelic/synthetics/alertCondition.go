@@ -153,7 +153,7 @@ type AlertCondition struct {
 	// The title of this condition.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the policy where this condition should be used.
-	PolicyId pulumi.IntOutput `pulumi:"policyId"`
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
 }
@@ -203,7 +203,7 @@ type alertConditionState struct {
 	// The title of this condition.
 	Name *string `pulumi:"name"`
 	// The ID of the policy where this condition should be used.
-	PolicyId *int `pulumi:"policyId"`
+	PolicyId *string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
 }
@@ -218,7 +218,7 @@ type AlertConditionState struct {
 	// The title of this condition.
 	Name pulumi.StringPtrInput
 	// The ID of the policy where this condition should be used.
-	PolicyId pulumi.IntPtrInput
+	PolicyId pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
 }
@@ -235,7 +235,7 @@ type alertConditionArgs struct {
 	// The title of this condition.
 	Name *string `pulumi:"name"`
 	// The ID of the policy where this condition should be used.
-	PolicyId int `pulumi:"policyId"`
+	PolicyId string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
 }
@@ -249,7 +249,7 @@ type AlertConditionArgs struct {
 	// The title of this condition.
 	Name pulumi.StringPtrInput
 	// The ID of the policy where this condition should be used.
-	PolicyId pulumi.IntInput
+	PolicyId pulumi.StringInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
 }
@@ -362,8 +362,8 @@ func (o AlertConditionOutput) Name() pulumi.StringOutput {
 }
 
 // The ID of the policy where this condition should be used.
-func (o AlertConditionOutput) PolicyId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AlertCondition) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+func (o AlertConditionOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
 // Runbook URL to display in notifications.

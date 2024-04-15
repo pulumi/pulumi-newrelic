@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.ApiAccessKeyArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.ApiAccessKeyState;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -52,14 +51,14 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
      * The New Relic account ID of the account you wish to create the API access key.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The New Relic account ID of the account you wish to create the API access key.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**
@@ -136,14 +135,14 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
      * Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
      * 
      */
-    @Export(name="userId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> userId;
+    @Export(name="userId", refs={String.class}, tree="[0]")
+    private Output<String> userId;
 
     /**
      * @return Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
      * 
      */
-    public Output<Integer> userId() {
+    public Output<String> userId() {
         return this.userId;
     }
 

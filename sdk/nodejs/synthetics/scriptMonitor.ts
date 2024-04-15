@@ -177,7 +177,7 @@ export class ScriptMonitor extends pulumi.CustomResource {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
      */
@@ -316,7 +316,7 @@ export interface ScriptMonitorState {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
      */
@@ -392,7 +392,7 @@ export interface ScriptMonitorArgs {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
      */

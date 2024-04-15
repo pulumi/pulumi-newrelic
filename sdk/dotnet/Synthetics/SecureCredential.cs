@@ -49,7 +49,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The secure credential's description.
@@ -129,7 +129,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The secure credential's description.
@@ -177,7 +177,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The secure credential's description.

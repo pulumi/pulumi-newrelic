@@ -13,7 +13,6 @@ import com.pulumi.newrelic.inputs.AlertMutingRuleState;
 import com.pulumi.newrelic.outputs.AlertMutingRuleCondition;
 import com.pulumi.newrelic.outputs.AlertMutingRuleSchedule;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -95,14 +94,14 @@ public class AlertMutingRule extends com.pulumi.resources.CustomResource {
      * The account id of the MutingRule.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The account id of the MutingRule.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

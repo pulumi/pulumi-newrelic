@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [{
@@ -47,7 +47,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -72,7 +72,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -97,7 +97,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "ERROR_TRACKING",
  *     properties: [
@@ -130,7 +130,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -178,7 +178,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -217,7 +217,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     type: "MOBILE_PUSH",
@@ -232,7 +232,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -257,7 +257,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -288,7 +288,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const webhook_destination = new newrelic.NotificationDestination("webhook-destination", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     authBasic: {
  *         password: "password",
  *         user: "username",
@@ -309,7 +309,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const webhook_channel = new newrelic.NotificationChannel("webhook-channel", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
  *     type: "WEBHOOK",
  *     destinationId: newrelic_notification_destination["webhook-destination"].id,
  *     product: "IINT",
@@ -371,7 +371,7 @@ export class NotificationChannel extends pulumi.CustomResource {
     /**
      * Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Indicates whether the channel is active.
      */
@@ -457,7 +457,7 @@ export interface NotificationChannelState {
     /**
      * Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Indicates whether the channel is active.
      */
@@ -495,7 +495,7 @@ export interface NotificationChannelArgs {
     /**
      * Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Indicates whether the channel is active.
      */

@@ -36,7 +36,7 @@ namespace Pulumi.NewRelic
     ///         Description = "Proportion of requests that are served faster than a threshold.",
     ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
     ///         {
-    ///             AccountId = 12345678,
+    ///             AccountId = "12345678",
     ///             GoodEvents = new NewRelic.Inputs.ServiceLevelEventsGoodEventsArgs
     ///             {
     ///                 From = "Transaction",
@@ -86,7 +86,7 @@ namespace Pulumi.NewRelic
     ///         Description = "Proportion of successful synthetic checks.",
     ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
     ///         {
-    ///             AccountId = 12345678,
+    ///             AccountId = "12345678",
     ///             ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
     ///             {
     ///                 From = "SyntheticCheck",
@@ -157,7 +157,7 @@ namespace Pulumi.NewRelic
     ///         Description = "Monitor created to test concurrent request from terraform",
     ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
     ///         {
-    ///             AccountId = 313870,
+    ///             AccountId = "313870",
     ///             GoodEvents = new NewRelic.Inputs.ServiceLevelEventsGoodEventsArgs
     ///             {
     ///                 From = "Metric",

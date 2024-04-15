@@ -436,7 +436,7 @@ type AwsIntegrations struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// ALB integration
 	Alb AwsIntegrationsAlbPtrOutput `pulumi:"alb"`
 	// API Gateway integration
@@ -583,7 +583,7 @@ type AwsIntegrations struct {
 	// | `xRay`                 | X-Ray Integration             |
 	//
 	// </details>
-	LinkedAccountId pulumi.IntOutput `pulumi:"linkedAccountId"`
+	LinkedAccountId pulumi.StringOutput `pulumi:"linkedAccountId"`
 	// Rds integration
 	Rds AwsIntegrationsRdsPtrOutput `pulumi:"rds"`
 	// Redshift integration
@@ -640,7 +640,7 @@ func GetAwsIntegrations(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AwsIntegrations resources.
 type awsIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// ALB integration
 	Alb *AwsIntegrationsAlb `pulumi:"alb"`
 	// API Gateway integration
@@ -787,7 +787,7 @@ type awsIntegrationsState struct {
 	// | `xRay`                 | X-Ray Integration             |
 	//
 	// </details>
-	LinkedAccountId *int `pulumi:"linkedAccountId"`
+	LinkedAccountId *string `pulumi:"linkedAccountId"`
 	// Rds integration
 	Rds *AwsIntegrationsRds `pulumi:"rds"`
 	// Redshift integration
@@ -812,7 +812,7 @@ type awsIntegrationsState struct {
 
 type AwsIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// ALB integration
 	Alb AwsIntegrationsAlbPtrInput
 	// API Gateway integration
@@ -959,7 +959,7 @@ type AwsIntegrationsState struct {
 	// | `xRay`                 | X-Ray Integration             |
 	//
 	// </details>
-	LinkedAccountId pulumi.IntPtrInput
+	LinkedAccountId pulumi.StringPtrInput
 	// Rds integration
 	Rds AwsIntegrationsRdsPtrInput
 	// Redshift integration
@@ -988,7 +988,7 @@ func (AwsIntegrationsState) ElementType() reflect.Type {
 
 type awsIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// ALB integration
 	Alb *AwsIntegrationsAlb `pulumi:"alb"`
 	// API Gateway integration
@@ -1135,7 +1135,7 @@ type awsIntegrationsArgs struct {
 	// | `xRay`                 | X-Ray Integration             |
 	//
 	// </details>
-	LinkedAccountId int `pulumi:"linkedAccountId"`
+	LinkedAccountId string `pulumi:"linkedAccountId"`
 	// Rds integration
 	Rds *AwsIntegrationsRds `pulumi:"rds"`
 	// Redshift integration
@@ -1161,7 +1161,7 @@ type awsIntegrationsArgs struct {
 // The set of arguments for constructing a AwsIntegrations resource.
 type AwsIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// ALB integration
 	Alb AwsIntegrationsAlbPtrInput
 	// API Gateway integration
@@ -1308,7 +1308,7 @@ type AwsIntegrationsArgs struct {
 	// | `xRay`                 | X-Ray Integration             |
 	//
 	// </details>
-	LinkedAccountId pulumi.IntInput
+	LinkedAccountId pulumi.StringInput
 	// Rds integration
 	Rds AwsIntegrationsRdsPtrInput
 	// Redshift integration
@@ -1419,8 +1419,8 @@ func (o AwsIntegrationsOutput) ToAwsIntegrationsOutputWithContext(ctx context.Co
 }
 
 // The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-func (o AwsIntegrationsOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AwsIntegrations) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o AwsIntegrationsOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsIntegrations) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // ALB integration
@@ -1695,8 +1695,8 @@ func (o AwsIntegrationsOutput) Lambda() AwsIntegrationsLambdaPtrOutput {
 // | `xRay`                 | X-Ray Integration             |
 //
 // </details>
-func (o AwsIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AwsIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
+func (o AwsIntegrationsOutput) LinkedAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsIntegrations) pulumi.StringOutput { return v.LinkedAccountId }).(pulumi.StringOutput)
 }
 
 // Rds integration

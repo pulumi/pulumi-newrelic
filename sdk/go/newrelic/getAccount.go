@@ -55,7 +55,7 @@ func GetAccount(ctx *pulumi.Context, args *GetAccountArgs, opts ...pulumi.Invoke
 // A collection of arguments for invoking getAccount.
 type GetAccountArgs struct {
 	// The account ID in New Relic.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The account name in New Relic.
 	Name *string `pulumi:"name"`
 	// The scope of the account in New Relic.  Valid values are "global" and "inRegion".  Defaults to "inRegion".
@@ -64,7 +64,7 @@ type GetAccountArgs struct {
 
 // A collection of values returned by getAccount.
 type GetAccountResult struct {
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id    string  `pulumi:"id"`
 	Name  *string `pulumi:"name"`
@@ -87,7 +87,7 @@ func GetAccountOutput(ctx *pulumi.Context, args GetAccountOutputArgs, opts ...pu
 // A collection of arguments for invoking getAccount.
 type GetAccountOutputArgs struct {
 	// The account ID in New Relic.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The account name in New Relic.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The scope of the account in New Relic.  Valid values are "global" and "inRegion".  Defaults to "inRegion".
@@ -113,8 +113,8 @@ func (o GetAccountResultOutput) ToGetAccountResultOutputWithContext(ctx context.
 	return o
 }
 
-func (o GetAccountResultOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetAccountResult) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o GetAccountResultOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAccountResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

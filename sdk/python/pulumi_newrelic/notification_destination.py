@@ -18,7 +18,7 @@ class NotificationDestinationArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]],
                  type: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  auth_basic: Optional[pulumi.Input['NotificationDestinationAuthBasicArgs']] = None,
                  auth_token: Optional[pulumi.Input['NotificationDestinationAuthTokenArgs']] = None,
@@ -28,7 +28,7 @@ class NotificationDestinationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
         :param pulumi.Input[str] type: (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
                PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[bool] active: Indicates whether the destination is active.
         :param pulumi.Input['NotificationDestinationAuthBasicArgs'] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
         :param pulumi.Input['NotificationDestinationAuthTokenArgs'] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
@@ -74,14 +74,14 @@ class NotificationDestinationArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -136,7 +136,7 @@ class NotificationDestinationArgs:
 @pulumi.input_type
 class _NotificationDestinationState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  auth_basic: Optional[pulumi.Input['NotificationDestinationAuthBasicArgs']] = None,
                  auth_token: Optional[pulumi.Input['NotificationDestinationAuthTokenArgs']] = None,
@@ -148,7 +148,7 @@ class _NotificationDestinationState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NotificationDestination resources.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[bool] active: Indicates whether the destination is active.
         :param pulumi.Input['NotificationDestinationAuthBasicArgs'] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
         :param pulumi.Input['NotificationDestinationAuthTokenArgs'] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
@@ -183,14 +183,14 @@ class _NotificationDestinationState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -308,7 +308,7 @@ class NotificationDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  auth_basic: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationAuthBasicArgs']]] = None,
                  auth_token: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationAuthTokenArgs']]] = None,
@@ -385,7 +385,7 @@ class NotificationDestination(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[bool] active: Indicates whether the destination is active.
         :param pulumi.Input[pulumi.InputType['NotificationDestinationAuthBasicArgs']] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
         :param pulumi.Input[pulumi.InputType['NotificationDestinationAuthTokenArgs']] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
@@ -482,7 +482,7 @@ class NotificationDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  auth_basic: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationAuthBasicArgs']]] = None,
                  auth_token: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationAuthTokenArgs']]] = None,
@@ -522,7 +522,7 @@ class NotificationDestination(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             active: Optional[pulumi.Input[bool]] = None,
             auth_basic: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationAuthBasicArgs']]] = None,
             auth_token: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationAuthTokenArgs']]] = None,
@@ -539,7 +539,7 @@ class NotificationDestination(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[bool] active: Indicates whether the destination is active.
         :param pulumi.Input[pulumi.InputType['NotificationDestinationAuthBasicArgs']] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
         :param pulumi.Input[pulumi.InputType['NotificationDestinationAuthTokenArgs']] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
@@ -569,7 +569,7 @@ class NotificationDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         """

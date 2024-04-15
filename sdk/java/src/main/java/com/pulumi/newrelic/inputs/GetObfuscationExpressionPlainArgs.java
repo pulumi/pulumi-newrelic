@@ -5,7 +5,6 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,13 +20,13 @@ public final class GetObfuscationExpressionPlainArgs extends com.pulumi.resource
      * 
      */
     @Import(name="accountId")
-    private @Nullable Integer accountId;
+    private @Nullable String accountId;
 
     /**
      * @return The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
      * 
      */
-    public Optional<Integer> accountId() {
+    public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -77,7 +76,7 @@ public final class GetObfuscationExpressionPlainArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Integer accountId) {
+        public Builder accountId(@Nullable String accountId) {
             $.accountId = accountId;
             return this;
         }
