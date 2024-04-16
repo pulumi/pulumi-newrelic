@@ -4782,39 +4782,6 @@ export namespace synthetics {
         value?: string;
     }
 
-    export interface MonitorDowntimeEndRepeat {
-        /**
-         * A date, on which the Monitor Downtime's repeat cycle is expected to end.
-         */
-        onDate?: string;
-        /**
-         * Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
-         */
-        onRepeat?: number;
-    }
-
-    export interface MonitorDowntimeFrequency {
-        /**
-         * A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
-         */
-        daysOfMonths?: number[];
-        /**
-         * A list of days of the week on which the Monitor Downtime is scheduled to run.
-         */
-        daysOfWeek?: outputs.synthetics.MonitorDowntimeFrequencyDaysOfWeek;
-    }
-
-    export interface MonitorDowntimeFrequencyDaysOfWeek {
-        /**
-         * An occurrence of the day selected within the month.
-         */
-        ordinalDayOfMonth: string;
-        /**
-         * The day of the week on which the Monitor Downtime would run.
-         */
-        weekDay: string;
-    }
-
     export interface MonitorTag {
         /**
          * Name of the tag key.

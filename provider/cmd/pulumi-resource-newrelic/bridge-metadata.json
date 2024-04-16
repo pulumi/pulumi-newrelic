@@ -1263,14 +1263,7 @@
                 "majorVersion": 5
             },
             "newrelic_monitor_downtime": {
-                "current": "newrelic:synthetics/monitorDowntime:MonitorDowntime",
-                "past": [
-                    {
-                        "name": "newrelic:index/monitorDowntime:MonitorDowntime",
-                        "inCodegen": true,
-                        "majorVersion": 5
-                    }
-                ],
+                "current": "newrelic:index/monitorDowntime:MonitorDowntime",
                 "majorVersion": 5,
                 "fields": {
                     "end_repeat": {
@@ -2441,15 +2434,7 @@
             }
         }
     },
-    "auto-settings": {
-        "resources": {
-            "newrelic_monitor_downtime": {
-                "aliases": [
-                    "newrelic:index/monitorDowntime:MonitorDowntime"
-                ]
-            }
-        }
-    },
+    "auto-settings": {},
     "renames": {
         "resources": {
             "newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations": "newrelic_cloud_aws_govcloud_integrations",
@@ -4204,5 +4189,240 @@
             "nerdgraphApiUrl": "nerdgraph_api_url",
             "syntheticsApiUrl": "synthetics_api_url"
         }
+    },
+    "set-id-type": {
+        "resources": {
+            "newrelic_alert_channel": [
+                "account_id",
+                "config.$.user_id"
+            ],
+            "newrelic_alert_condition": [
+                "entities",
+                "policy_id"
+            ],
+            "newrelic_alert_muting_rule": [
+                "account_id"
+            ],
+            "newrelic_alert_policy": [
+                "account_id",
+                "channel_ids"
+            ],
+            "newrelic_alert_policy_channel": [
+                "account_id",
+                "channel_ids",
+                "policy_id"
+            ],
+            "newrelic_api_access_key": [
+                "account_id",
+                "user_id"
+            ],
+            "newrelic_browser_application": [
+                "account_id",
+                "application_id"
+            ],
+            "newrelic_cloud_aws_govcloud_integrations": [
+                "account_id",
+                "linked_account_id"
+            ],
+            "newrelic_cloud_aws_govcloud_link_account": [
+                "access_key_id",
+                "account_id",
+                "aws_account_id"
+            ],
+            "newrelic_cloud_aws_integrations": [
+                "account_id",
+                "linked_account_id"
+            ],
+            "newrelic_cloud_aws_link_account": [
+                "account_id"
+            ],
+            "newrelic_cloud_azure_integrations": [
+                "account_id",
+                "linked_account_id"
+            ],
+            "newrelic_cloud_azure_link_account": [
+                "account_id",
+                "application_id",
+                "subscription_id",
+                "tenant_id"
+            ],
+            "newrelic_cloud_gcp_integrations": [
+                "account_id",
+                "linked_account_id"
+            ],
+            "newrelic_cloud_gcp_link_account": [
+                "account_id",
+                "project_id"
+            ],
+            "newrelic_data_partition_rule": [
+                "account_id"
+            ],
+            "newrelic_events_to_metrics_rule": [
+                "account_id",
+                "rule_id"
+            ],
+            "newrelic_group": [
+                "authentication_domain_id",
+                "user_ids"
+            ],
+            "newrelic_infra_alert_condition": [
+                "policy_id"
+            ],
+            "newrelic_log_parsing_rule": [
+                "account_id"
+            ],
+            "newrelic_monitor_downtime": [
+                "account_id"
+            ],
+            "newrelic_notification_channel": [
+                "account_id",
+                "destination_id"
+            ],
+            "newrelic_notification_destination": [
+                "account_id"
+            ],
+            "newrelic_nrql_alert_condition": [
+                "account_id",
+                "policy_id"
+            ],
+            "newrelic_nrql_drop_rule": [
+                "account_id",
+                "rule_id"
+            ],
+            "newrelic_obfuscation_expression": [
+                "account_id"
+            ],
+            "newrelic_obfuscation_rule": [
+                "account_id",
+                "action.$.expression_id"
+            ],
+            "newrelic_one_dashboard": [
+                "account_id",
+                "page.$.widget_area.$.nrql_query.$.account_id",
+                "page.$.widget_bar.$.nrql_query.$.account_id",
+                "page.$.widget_billboard.$.nrql_query.$.account_id",
+                "page.$.widget_bullet.$.nrql_query.$.account_id",
+                "page.$.widget_funnel.$.nrql_query.$.account_id",
+                "page.$.widget_heatmap.$.nrql_query.$.account_id",
+                "page.$.widget_histogram.$.nrql_query.$.account_id",
+                "page.$.widget_json.$.nrql_query.$.account_id",
+                "page.$.widget_line.$.nrql_query.$.account_id",
+                "page.$.widget_log_table.$.nrql_query.$.account_id",
+                "page.$.widget_pie.$.nrql_query.$.account_id",
+                "page.$.widget_stacked_bar.$.nrql_query.$.account_id",
+                "page.$.widget_table.$.nrql_query.$.account_id",
+                "variable.$.nrql_query.$.account_ids"
+            ],
+            "newrelic_one_dashboard_json": [
+                "account_id"
+            ],
+            "newrelic_one_dashboard_raw": [
+                "account_id",
+                "page.$.widget.$.visualization_id"
+            ],
+            "newrelic_service_level": [
+                "events.$.account_id",
+                "sli_id"
+            ],
+            "newrelic_synthetics_alert_condition": [
+                "monitor_id",
+                "policy_id"
+            ],
+            "newrelic_synthetics_broken_links_monitor": [
+                "account_id"
+            ],
+            "newrelic_synthetics_cert_check_monitor": [
+                "account_id"
+            ],
+            "newrelic_synthetics_monitor": [
+                "account_id"
+            ],
+            "newrelic_synthetics_multilocation_alert_condition": [
+                "entities",
+                "policy_id"
+            ],
+            "newrelic_synthetics_private_location": [
+                "account_id",
+                "domain_id",
+                "location_id"
+            ],
+            "newrelic_synthetics_script_monitor": [
+                "account_id"
+            ],
+            "newrelic_synthetics_secure_credential": [
+                "account_id"
+            ],
+            "newrelic_synthetics_step_monitor": [
+                "account_id"
+            ],
+            "newrelic_user": [
+                "authentication_domain_id",
+                "email_id"
+            ],
+            "newrelic_workflow": [
+                "account_id",
+                "destination.$.channel_id",
+                "enrichments.$.nrql.$.account_id",
+                "enrichments.$.nrql.$.enrichment_id",
+                "issues_filter.$.filter_id",
+                "workflow_id"
+            ],
+            "newrelic_workload": [
+                "account_id",
+                "scope_account_ids",
+                "workload_id"
+            ]
+        },
+        "dataSources": {
+            "newrelic_account": [
+                "account_id"
+            ],
+            "newrelic_alert_channel": [
+                "account_id",
+                "config.$.user_id",
+                "policy_ids"
+            ],
+            "newrelic_alert_policy": [
+                "account_id"
+            ],
+            "newrelic_application": [
+                "host_ids",
+                "instance_ids"
+            ],
+            "newrelic_cloud_account": [
+                "account_id"
+            ],
+            "newrelic_entity": [
+                "account_id",
+                "application_id",
+                "serving_apm_application_id"
+            ],
+            "newrelic_group": [
+                "authentication_domain_id",
+                "user_ids"
+            ],
+            "newrelic_notification_destination": [
+                "account_id"
+            ],
+            "newrelic_obfuscation_expression": [
+                "account_id"
+            ],
+            "newrelic_synthetics_private_location": [
+                "account_id"
+            ],
+            "newrelic_synthetics_secure_credential": [
+                "account_id"
+            ],
+            "newrelic_test_grok_pattern": [
+                "account_id"
+            ],
+            "newrelic_user": [
+                "authentication_domain_id",
+                "email_id"
+            ]
+        },
+        "config": [
+            "account_id"
+        ]
     }
 }

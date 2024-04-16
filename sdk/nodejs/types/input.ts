@@ -4725,39 +4725,6 @@ export namespace synthetics {
         value?: pulumi.Input<string>;
     }
 
-    export interface MonitorDowntimeEndRepeat {
-        /**
-         * A date, on which the Monitor Downtime's repeat cycle is expected to end.
-         */
-        onDate?: pulumi.Input<string>;
-        /**
-         * Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
-         */
-        onRepeat?: pulumi.Input<number>;
-    }
-
-    export interface MonitorDowntimeFrequency {
-        /**
-         * A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
-         */
-        daysOfMonths?: pulumi.Input<pulumi.Input<number>[]>;
-        /**
-         * A list of days of the week on which the Monitor Downtime is scheduled to run.
-         */
-        daysOfWeek?: pulumi.Input<inputs.synthetics.MonitorDowntimeFrequencyDaysOfWeek>;
-    }
-
-    export interface MonitorDowntimeFrequencyDaysOfWeek {
-        /**
-         * An occurrence of the day selected within the month.
-         */
-        ordinalDayOfMonth: pulumi.Input<string>;
-        /**
-         * The day of the week on which the Monitor Downtime would run.
-         */
-        weekDay: pulumi.Input<string>;
-    }
-
     export interface MonitorTag {
         /**
          * Name of the tag key.
