@@ -17,8 +17,9 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.synthetics.AlertCondition("foo", {
- *     policyId: newrelic_alert_policy.foo.id,
- *     monitorId: newrelic_synthetics_monitor.foo.id,
+ *     policyId: fooNewrelicAlertPolicy.id,
+ *     name: "foo",
+ *     monitorId: fooNewrelicSyntheticsMonitor.id,
  *     runbookUrl: "https://www.example.com",
  * });
  * ```
@@ -33,9 +34,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooMonitor = new newrelic.synthetics.Monitor("fooMonitor", {
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo policy"});
+ * const fooMonitor = new newrelic.synthetics.Monitor("foo", {
  *     status: "ENABLED",
+ *     name: "foo monitor",
  *     period: "EVERY_MINUTE",
  *     uri: "https://www.one.newrelic.com",
  *     type: "SIMPLE",
@@ -53,12 +55,13 @@ import * as utilities from "../utilities";
  *         values: ["some_value"],
  *     }],
  * });
- * const fooAlertCondition = new newrelic.synthetics.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
+ * const fooAlertCondition = new newrelic.synthetics.AlertCondition("foo", {
+ *     policyId: foo.id,
+ *     name: "foo synthetics condition",
  *     monitorId: fooMonitor.id,
  *     runbookUrl: "https://www.example.com",
  * });
- * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
+ * const myConditionEntityTags = new newrelic.EntityTags("my_condition_entity_tags", {
  *     guid: fooAlertCondition.entityGuid,
  *     tags: [
  *         {

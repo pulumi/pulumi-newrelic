@@ -18,11 +18,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("foo", {
  *     accountId: 12345678,
- *     policyId: fooAlertPolicy.id,
+ *     policyId: foo.id,
  *     type: "static",
+ *     name: "foo",
  *     description: "Alert when transactions are taking too long",
  *     runbookUrl: "https://www.example.com",
  *     enabled: true,
@@ -98,11 +99,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("foo", {
  *     accountId: "your_account_id",
- *     policyId: fooAlertPolicy.id,
+ *     policyId: foo.id,
  *     type: "static",
+ *     name: "foo",
  *     description: "Alert when transactions are taking too long",
  *     runbookUrl: "https://www.example.com",
  *     enabled: true,
@@ -144,11 +146,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("foo", {
  *     accountId: 12345678,
- *     policyId: fooAlertPolicy.id,
+ *     policyId: foo.id,
  *     type: "static",
+ *     name: "foo",
  *     description: "Alert when transactions are taking too long",
  *     runbookUrl: "https://www.example.com",
  *     enabled: true,
@@ -178,7 +181,7 @@ import * as utilities from "./utilities";
  *         thresholdOccurrences: "ALL",
  *     },
  * });
- * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
+ * const myConditionEntityTags = new newrelic.EntityTags("my_condition_entity_tags", {
  *     guid: fooNrqlAlertCondition.entityGuid,
  *     tags: [
  *         {
@@ -212,8 +215,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const nrqlAlertCondition = new newrelic.NrqlAlertCondition("nrqlAlertCondition", {
- *     policyId: newrelic_alert_policy.z.id,
+ * const z = new newrelic.NrqlAlertCondition("z", {
+ *     policyId: zNewrelicAlertPolicy.id,
+ *     name: "zleslie-test",
  *     type: "static",
  *     runbookUrl: "https://localhost",
  *     enabled: true,
@@ -239,8 +243,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const nrqlAlertCondition = new newrelic.NrqlAlertCondition("nrqlAlertCondition", {
- *     policyId: newrelic_alert_policy.z.id,
+ * const z = new newrelic.NrqlAlertCondition("z", {
+ *     policyId: zNewrelicAlertPolicy.id,
+ *     name: "zleslie-test",
  *     type: "static",
  *     runbookUrl: "https://localhost",
  *     enabled: true,

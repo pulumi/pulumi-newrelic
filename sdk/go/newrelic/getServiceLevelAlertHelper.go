@@ -34,6 +34,7 @@ import (
 //			fooPeriod := 28
 //			_, err := newrelic.NewServiceLevel(ctx, "foo", &newrelic.ServiceLevelArgs{
 //				Guid:        pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
+//				Name:        pulumi.String("Latency"),
 //				Description: pulumi.String("Proportion of requests that are served faster than a threshold."),
 //				Events: &newrelic.ServiceLevelEventsArgs{
 //					AccountId: pulumi.Int(12345678),
@@ -86,18 +87,19 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			fooSlowBurn, err := newrelic.GetServiceLevelAlertHelper(ctx, &newrelic.GetServiceLevelAlertHelperArgs{
 //				AlertType:   "slow_burn",
-//				SliGuid:     newrelic_service_level.Foo.Sli_guid,
-//				SloTarget:   local.Foo_target,
-//				SloPeriod:   local.Foo_period,
+//				SliGuid:     foo.SliGuid,
+//				SloTarget:   fooTarget,
+//				SloPeriod:   fooPeriod,
 //				IsBadEvents: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewNrqlAlertCondition(ctx, "yourCondition", &newrelic.NrqlAlertConditionArgs{
+//			_, err = newrelic.NewNrqlAlertCondition(ctx, "your_condition", &newrelic.NrqlAlertConditionArgs{
 //				AccountId:                 pulumi.Int(12345678),
 //				PolicyId:                  pulumi.Int(67890),
 //				Type:                      pulumi.String("static"),
+//				Name:                      pulumi.String("Slow burn alert"),
 //				Enabled:                   pulumi.Bool(true),
 //				ViolationTimeLimitSeconds: pulumi.Int(259200),
 //				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
@@ -142,9 +144,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			fooCustom, err := newrelic.GetServiceLevelAlertHelper(ctx, &newrelic.GetServiceLevelAlertHelperArgs{
 //				AlertType:                        "custom",
-//				SliGuid:                          newrelic_service_level.Foo.Sli_guid,
-//				SloTarget:                        local.Foo_target,
-//				SloPeriod:                        local.Foo_period,
+//				SliGuid:                          foo.SliGuid,
+//				SloTarget:                        fooTarget,
+//				SloPeriod:                        fooPeriod,
 //				CustomToleratedBudgetConsumption: pulumi.Float64Ref(4),
 //				CustomEvaluationPeriod:           pulumi.IntRef(5400),
 //				IsBadEvents:                      pulumi.BoolRef(true),
@@ -152,10 +154,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewNrqlAlertCondition(ctx, "yourCondition", &newrelic.NrqlAlertConditionArgs{
+//			_, err = newrelic.NewNrqlAlertCondition(ctx, "your_condition", &newrelic.NrqlAlertConditionArgs{
 //				AccountId:                 pulumi.Int(12345678),
 //				PolicyId:                  pulumi.Int(67890),
 //				Type:                      pulumi.String("static"),
+//				Name:                      pulumi.String("Custom burn alert"),
 //				Enabled:                   pulumi.Bool(true),
 //				ViolationTimeLimitSeconds: pulumi.Int(259200),
 //				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{

@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new EventsToMetricsRule(&#34;foo&#34;, EventsToMetricsRuleArgs.builder()        
  *             .accountId(12345)
+ *             .name(&#34;Example events to metrics rule&#34;)
  *             .description(&#34;Example description&#34;)
  *             .nrql(&#34;SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name&#34;)
  *             .build());

@@ -32,7 +32,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			policy, err := newrelic.NewAlertPolicy(ctx, "policy", nil)
+//			policy, err := newrelic.NewAlertPolicy(ctx, "policy", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("my-policy"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -40,6 +42,7 @@ import (
 //				LocationsPublics: pulumi.StringArray{
 //					pulumi.String("US_WEST_1"),
 //				},
+//				Name:   pulumi.String("my-monitor"),
 //				Period: pulumi.String("EVERY_10_MINUTES"),
 //				Status: pulumi.String("DISABLED"),
 //				Type:   pulumi.String("SIMPLE"),
@@ -50,6 +53,7 @@ import (
 //			}
 //			_, err = synthetics.NewMultiLocationAlertCondition(ctx, "example", &synthetics.MultiLocationAlertConditionArgs{
 //				PolicyId:                  policy.ID(),
+//				Name:                      pulumi.String("Example condition"),
 //				RunbookUrl:                pulumi.String("https://example.com"),
 //				Enabled:                   pulumi.Bool(true),
 //				ViolationTimeLimitSeconds: pulumi.Int(3600),
@@ -90,12 +94,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo policy"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			fooMonitor, err := synthetics.NewMonitor(ctx, "fooMonitor", &synthetics.MonitorArgs{
+//			fooMonitor, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
 //				Status: pulumi.String("ENABLED"),
+//				Name:   pulumi.String("foo monitor"),
 //				Period: pulumi.String("EVERY_MINUTE"),
 //				Uri:    pulumi.String("https://www.one.newrelic.com"),
 //				Type:   pulumi.String("SIMPLE"),
@@ -124,8 +131,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooMultiLocationAlertCondition, err := synthetics.NewMultiLocationAlertCondition(ctx, "fooMultiLocationAlertCondition", &synthetics.MultiLocationAlertConditionArgs{
-//				PolicyId:                  fooAlertPolicy.ID(),
+//			fooMultiLocationAlertCondition, err := synthetics.NewMultiLocationAlertCondition(ctx, "foo", &synthetics.MultiLocationAlertConditionArgs{
+//				PolicyId:                  foo.ID(),
+//				Name:                      pulumi.String("foo condition"),
 //				RunbookUrl:                pulumi.String("https://example.com"),
 //				Enabled:                   pulumi.Bool(true),
 //				ViolationTimeLimitSeconds: pulumi.Int(3600),
@@ -142,7 +150,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
+//			_, err = newrelic.NewEntityTags(ctx, "my_condition_entity_tags", &newrelic.EntityTagsArgs{
 //				Guid: fooMultiLocationAlertCondition.EntityGuid,
 //				Tags: newrelic.EntityTagsTagArray{
 //					&newrelic.EntityTagsTagArgs{

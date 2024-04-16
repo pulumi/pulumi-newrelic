@@ -18,9 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const policy = new newrelic.AlertPolicy("policy", {});
+ * const policy = new newrelic.AlertPolicy("policy", {name: "my-policy"});
  * const monitor = new newrelic.synthetics.Monitor("monitor", {
  *     locationsPublics: ["US_WEST_1"],
+ *     name: "my-monitor",
  *     period: "EVERY_10_MINUTES",
  *     status: "DISABLED",
  *     type: "SIMPLE",
@@ -28,6 +29,7 @@ import * as utilities from "../utilities";
  * });
  * const example = new newrelic.synthetics.MultiLocationAlertCondition("example", {
  *     policyId: policy.id,
+ *     name: "Example condition",
  *     runbookUrl: "https://example.com",
  *     enabled: true,
  *     violationTimeLimitSeconds: 3600,
@@ -50,9 +52,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooMonitor = new newrelic.synthetics.Monitor("fooMonitor", {
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo policy"});
+ * const fooMonitor = new newrelic.synthetics.Monitor("foo", {
  *     status: "ENABLED",
+ *     name: "foo monitor",
  *     period: "EVERY_MINUTE",
  *     uri: "https://www.one.newrelic.com",
  *     type: "SIMPLE",
@@ -70,8 +73,9 @@ import * as utilities from "../utilities";
  *         values: ["some_value"],
  *     }],
  * });
- * const fooMultiLocationAlertCondition = new newrelic.synthetics.MultiLocationAlertCondition("fooMultiLocationAlertCondition", {
- *     policyId: fooAlertPolicy.id,
+ * const fooMultiLocationAlertCondition = new newrelic.synthetics.MultiLocationAlertCondition("foo", {
+ *     policyId: foo.id,
+ *     name: "foo condition",
  *     runbookUrl: "https://example.com",
  *     enabled: true,
  *     violationTimeLimitSeconds: 3600,
@@ -83,7 +87,7 @@ import * as utilities from "../utilities";
  *         threshold: 1,
  *     },
  * });
- * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
+ * const myConditionEntityTags = new newrelic.EntityTags("my_condition_entity_tags", {
  *     guid: fooMultiLocationAlertCondition.entityGuid,
  *     tags: [
  *         {

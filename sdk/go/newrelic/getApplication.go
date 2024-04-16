@@ -36,12 +36,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
-//				PolicyId: fooAlertPolicy.ID(),
+//			_, err = newrelic.NewAlertCondition(ctx, "foo", &newrelic.AlertConditionArgs{
+//				PolicyId: foo.ID(),
+//				Name:     pulumi.String("foo"),
 //				Type:     pulumi.String("apm_app_metric"),
 //				Entities: pulumi.IntArray{
 //					pulumi.String(app.Id),

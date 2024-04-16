@@ -30,9 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewSecureCredential(ctx, "foo", &synthetics.SecureCredentialArgs{
-//				Description: pulumi.String("My description"),
 //				Key:         pulumi.String("MY_KEY"),
 //				Value:       pulumi.String("My value"),
+//				Description: pulumi.String("My description"),
 //			})
 //			if err != nil {
 //				return err

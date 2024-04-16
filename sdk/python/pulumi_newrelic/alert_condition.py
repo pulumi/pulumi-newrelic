@@ -522,9 +522,10 @@ class AlertCondition(pulumi.CustomResource):
         app = newrelic.get_entity(name="my-app",
             type="APPLICATION",
             domain="APM")
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
-            policy_id=foo_alert_policy.id,
+        foo = newrelic.AlertPolicy("foo", name="foo")
+        foo_alert_condition = newrelic.AlertCondition("foo",
+            policy_id=foo.id,
+            name="foo",
             type="apm_app_metric",
             entities=[app.application_id],
             metric="apdex",
@@ -559,12 +560,13 @@ class AlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_entity = newrelic.get_entity(name="foo entitiy")
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
+        foo = newrelic.get_entity(name="foo entitiy")
+        foo_alert_policy = newrelic.AlertPolicy("foo", name="foo policy")
+        foo_alert_condition = newrelic.AlertCondition("foo",
             policy_id=foo_alert_policy.id,
+            name="foo condition",
             type="apm_app_metric",
-            entities=[foo_entity.application_id],
+            entities=[foo.application_id],
             metric="apdex",
             runbook_url="https://www.example.com",
             condition_scope="application",
@@ -575,7 +577,7 @@ class AlertCondition(pulumi.CustomResource):
                 threshold=0.75,
                 time_function="all",
             )])
-        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
+        my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_alert_condition.entity_guid,
             tags=[
                 newrelic.EntityTagsTagArgs(
@@ -646,9 +648,10 @@ class AlertCondition(pulumi.CustomResource):
         app = newrelic.get_entity(name="my-app",
             type="APPLICATION",
             domain="APM")
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
-            policy_id=foo_alert_policy.id,
+        foo = newrelic.AlertPolicy("foo", name="foo")
+        foo_alert_condition = newrelic.AlertCondition("foo",
+            policy_id=foo.id,
+            name="foo",
             type="apm_app_metric",
             entities=[app.application_id],
             metric="apdex",
@@ -683,12 +686,13 @@ class AlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_entity = newrelic.get_entity(name="foo entitiy")
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
+        foo = newrelic.get_entity(name="foo entitiy")
+        foo_alert_policy = newrelic.AlertPolicy("foo", name="foo policy")
+        foo_alert_condition = newrelic.AlertCondition("foo",
             policy_id=foo_alert_policy.id,
+            name="foo condition",
             type="apm_app_metric",
-            entities=[foo_entity.application_id],
+            entities=[foo.application_id],
             metric="apdex",
             runbook_url="https://www.example.com",
             condition_scope="application",
@@ -699,7 +703,7 @@ class AlertCondition(pulumi.CustomResource):
                 threshold=0.75,
                 time_function="all",
             )])
-        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
+        my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_alert_condition.entity_guid,
             tags=[
                 newrelic.EntityTagsTagArgs(

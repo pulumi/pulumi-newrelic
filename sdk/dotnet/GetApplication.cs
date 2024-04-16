@@ -32,11 +32,15 @@ namespace Pulumi.NewRelic
         ///         Name = "my-app",
         ///     });
         /// 
-        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-        /// 
-        ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+        ///     var foo = new NewRelic.AlertPolicy("foo", new()
         ///     {
-        ///         PolicyId = fooAlertPolicy.Id,
+        ///         Name = "foo",
+        ///     });
+        /// 
+        ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
+        ///     {
+        ///         PolicyId = foo.Id,
+        ///         Name = "foo",
         ///         Type = "apm_app_metric",
         ///         Entities = new[]
         ///         {
@@ -85,11 +89,15 @@ namespace Pulumi.NewRelic
         ///         Name = "my-app",
         ///     });
         /// 
-        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-        /// 
-        ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+        ///     var foo = new NewRelic.AlertPolicy("foo", new()
         ///     {
-        ///         PolicyId = fooAlertPolicy.Id,
+        ///         Name = "foo",
+        ///     });
+        /// 
+        ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
+        ///     {
+        ///         PolicyId = foo.Id,
+        ///         Name = "foo",
         ///         Type = "apm_app_metric",
         ///         Entities = new[]
         ///         {

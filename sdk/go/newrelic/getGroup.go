@@ -30,14 +30,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAuthenticationDomain, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
+//			foo, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
 //				Name: "Test Authentication Domain",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = newrelic.LookupGroup(ctx, &newrelic.LookupGroupArgs{
-//				AuthenticationDomainId: fooAuthenticationDomain.Id,
+//				AuthenticationDomainId: foo.Id,
 //				Name:                   "Test Group",
 //			}, nil)
 //			if err != nil {

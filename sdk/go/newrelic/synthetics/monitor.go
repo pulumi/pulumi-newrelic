@@ -30,18 +30,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
-//				BypassHeadRequest: pulumi.Bool(true),
+//				Status: pulumi.String("ENABLED"),
+//				Name:   pulumi.String("monitor"),
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				Uri:    pulumi.String("https://www.one.newrelic.com"),
+//				Type:   pulumi.String("SIMPLE"),
+//				LocationsPublics: pulumi.StringArray{
+//					pulumi.String("AP_SOUTH_1"),
+//				},
 //				CustomHeaders: synthetics.MonitorCustomHeaderArray{
 //					&synthetics.MonitorCustomHeaderArgs{
 //						Name:  pulumi.String("some_name"),
 //						Value: pulumi.String("some_value"),
 //					},
 //				},
-//				LocationsPublics: pulumi.StringArray{
-//					pulumi.String("AP_SOUTH_1"),
-//				},
-//				Period: pulumi.String("EVERY_MINUTE"),
-//				Status: pulumi.String("ENABLED"),
+//				TreatRedirectAsFailure: pulumi.Bool(true),
+//				ValidationString:       pulumi.String("success"),
+//				BypassHeadRequest:      pulumi.Bool(true),
+//				VerifySsl:              pulumi.Bool(true),
 //				Tags: synthetics.MonitorTagArray{
 //					&synthetics.MonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -50,11 +56,6 @@ import (
 //						},
 //					},
 //				},
-//				TreatRedirectAsFailure: pulumi.Bool(true),
-//				Type:                   pulumi.String("SIMPLE"),
-//				Uri:                    pulumi.String("https://www.one.newrelic.com"),
-//				ValidationString:       pulumi.String("success"),
-//				VerifySsl:              pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -81,6 +82,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
+//				Status: pulumi.String("ENABLED"),
+//				Name:   pulumi.String("monitor"),
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				Uri:    pulumi.String("https://www.one.newrelic.com"),
+//				Type:   pulumi.String("BROWSER"),
+//				LocationsPublics: pulumi.StringArray{
+//					pulumi.String("AP_SOUTH_1"),
+//				},
 //				CustomHeaders: synthetics.MonitorCustomHeaderArray{
 //					&synthetics.MonitorCustomHeaderArgs{
 //						Name:  pulumi.String("some_name"),
@@ -88,11 +97,8 @@ import (
 //					},
 //				},
 //				EnableScreenshotOnFailureAndScript: pulumi.Bool(true),
-//				LocationsPublics: pulumi.StringArray{
-//					pulumi.String("AP_SOUTH_1"),
-//				},
-//				Period: pulumi.String("EVERY_MINUTE"),
-//				Status: pulumi.String("ENABLED"),
+//				ValidationString:                   pulumi.String("success"),
+//				VerifySsl:                          pulumi.Bool(true),
 //				Tags: synthetics.MonitorTagArray{
 //					&synthetics.MonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -101,10 +107,6 @@ import (
 //						},
 //					},
 //				},
-//				Type:             pulumi.String("BROWSER"),
-//				Uri:              pulumi.String("https://www.one.newrelic.com"),
-//				ValidationString: pulumi.String("success"),
-//				VerifySsl:        pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -142,6 +144,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Example private location"),
+//				Name:                    pulumi.String("private_location"),
 //				VerifiedScriptExecution: pulumi.Bool(false),
 //			})
 //			if err != nil {
@@ -149,6 +152,7 @@ import (
 //			}
 //			_, err = synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
 //				Status: pulumi.String("ENABLED"),
+//				Name:   pulumi.String("monitor"),
 //				Period: pulumi.String("EVERY_MINUTE"),
 //				Uri:    pulumi.String("https://www.one.newrelic.com"),
 //				Type:   pulumi.String("SIMPLE"),
@@ -200,6 +204,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Example private location"),
+//				Name:                    pulumi.String("private-location"),
 //				VerifiedScriptExecution: pulumi.Bool(false),
 //			})
 //			if err != nil {
@@ -209,6 +214,7 @@ import (
 //				Status: pulumi.String("ENABLED"),
 //				Type:   pulumi.String("BROWSER"),
 //				Uri:    pulumi.String("https://www.one.newrelic.com"),
+//				Name:   pulumi.String("monitor"),
 //				Period: pulumi.String("EVERY_MINUTE"),
 //				LocationsPrivates: pulumi.StringArray{
 //					location.ID(),

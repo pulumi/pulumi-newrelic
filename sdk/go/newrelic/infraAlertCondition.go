@@ -31,12 +31,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewInfraAlertCondition(ctx, "highDiskUsage", &newrelic.InfraAlertConditionArgs{
+//			_, err = newrelic.NewInfraAlertCondition(ctx, "high_disk_usage", &newrelic.InfraAlertConditionArgs{
 //				PolicyId:    foo.ID(),
+//				Name:        pulumi.String("High disk usage"),
 //				Description: pulumi.String("Warning if disk usage goes above 80% and critical alert if goes above 90%"),
 //				Type:        pulumi.String("infra_metric"),
 //				Event:       pulumi.String("StorageSample"),
@@ -57,8 +60,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewInfraAlertCondition(ctx, "highDbConnCount", &newrelic.InfraAlertConditionArgs{
+//			_, err = newrelic.NewInfraAlertCondition(ctx, "high_db_conn_count", &newrelic.InfraAlertConditionArgs{
 //				PolicyId:            foo.ID(),
+//				Name:                pulumi.String("High database connection count"),
 //				Description:         pulumi.String("Critical alert when the number of database connections goes above 90"),
 //				Type:                pulumi.String("infra_metric"),
 //				Event:               pulumi.String("DatastoreSample"),
@@ -75,8 +79,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewInfraAlertCondition(ctx, "processNotRunning", &newrelic.InfraAlertConditionArgs{
+//			_, err = newrelic.NewInfraAlertCondition(ctx, "process_not_running", &newrelic.InfraAlertConditionArgs{
 //				PolicyId:     foo.ID(),
+//				Name:         pulumi.String("Process not running (/usr/bin/ruby)"),
 //				Description:  pulumi.String("Critical alert when ruby isn't running"),
 //				Type:         pulumi.String("infra_process_running"),
 //				Comparison:   pulumi.String("equal"),
@@ -90,8 +95,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewInfraAlertCondition(ctx, "hostNotReporting", &newrelic.InfraAlertConditionArgs{
+//			_, err = newrelic.NewInfraAlertCondition(ctx, "host_not_reporting", &newrelic.InfraAlertConditionArgs{
 //				PolicyId:    foo.ID(),
+//				Name:        pulumi.String("Host not reporting"),
 //				Description: pulumi.String("Critical alert when the host is not reporting"),
 //				Type:        pulumi.String("infra_host_not_reporting"),
 //				Where:       pulumi.String("(hostname LIKE '%frontend%')"),
@@ -134,12 +140,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo policy"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			fooInfraAlertCondition, err := newrelic.NewInfraAlertCondition(ctx, "fooInfraAlertCondition", &newrelic.InfraAlertConditionArgs{
-//				PolicyId:    fooAlertPolicy.ID(),
+//			fooInfraAlertCondition, err := newrelic.NewInfraAlertCondition(ctx, "foo", &newrelic.InfraAlertConditionArgs{
+//				PolicyId:    foo.ID(),
+//				Name:        pulumi.String("foo infra condition"),
 //				Description: pulumi.String("Warning if disk usage goes above 80% and critical alert if goes above 90%"),
 //				Type:        pulumi.String("infra_metric"),
 //				Event:       pulumi.String("StorageSample"),
@@ -160,7 +169,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
+//			_, err = newrelic.NewEntityTags(ctx, "my_condition_entity_tags", &newrelic.EntityTagsArgs{
 //				Guid: fooInfraAlertCondition.EntityGuid,
 //				Tags: newrelic.EntityTagsTagArray{
 //					&newrelic.EntityTagsTagArgs{

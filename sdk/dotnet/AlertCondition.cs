@@ -32,11 +32,15 @@ namespace Pulumi.NewRelic
     ///         Domain = "APM",
     ///     });
     /// 
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-    /// 
-    ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
     ///     {
-    ///         PolicyId = fooAlertPolicy.Id,
+    ///         Name = "foo",
+    ///     });
+    /// 
+    ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
+    ///     {
+    ///         PolicyId = foo.Id,
+    ///         Name = "foo",
     ///         Type = "apm_app_metric",
     ///         Entities = new[]
     ///         {
@@ -85,20 +89,24 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooEntity = NewRelic.GetEntity.Invoke(new()
+    ///     var foo = NewRelic.GetEntity.Invoke(new()
     ///     {
     ///         Name = "foo entitiy",
     ///     });
     /// 
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("foo", new()
+    ///     {
+    ///         Name = "foo policy",
+    ///     });
     /// 
-    ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+    ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
     ///     {
     ///         PolicyId = fooAlertPolicy.Id,
+    ///         Name = "foo condition",
     ///         Type = "apm_app_metric",
     ///         Entities = new[]
     ///         {
-    ///             fooEntity.Apply(getEntityResult =&gt; getEntityResult.ApplicationId),
+    ///             foo.Apply(getEntityResult =&gt; getEntityResult.ApplicationId),
     ///         },
     ///         Metric = "apdex",
     ///         RunbookUrl = "https://www.example.com",
@@ -116,7 +124,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
+    ///     var myConditionEntityTags = new NewRelic.EntityTags("my_condition_entity_tags", new()
     ///     {
     ///         Guid = fooAlertCondition.EntityGuid,
     ///         Tags = new[]

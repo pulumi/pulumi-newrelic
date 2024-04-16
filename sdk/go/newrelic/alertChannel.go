@@ -33,11 +33,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-//				Config: &newrelic.AlertChannelConfigArgs{
-//					IncludeJsonAttachment: pulumi.String("true"),
-//					Recipients:            pulumi.String("foo@example.com"),
-//				},
+//				Name: pulumi.String("foo"),
 //				Type: pulumi.String("email"),
+//				Config: &newrelic.AlertChannelConfigArgs{
+//					Recipients:            pulumi.String("foo@example.com"),
+//					IncludeJsonAttachment: pulumi.String("true"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -66,11 +67,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-//				Config: &newrelic.AlertChannelConfigArgs{
-//					Channel: pulumi.String("example-alerts-channel"),
-//					Url:     pulumi.String("https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX"),
-//				},
+//				Name: pulumi.String("slack-example"),
 //				Type: pulumi.String("slack"),
+//				Config: &newrelic.AlertChannelConfigArgs{
+//					Url:     pulumi.String("https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX"),
+//					Channel: pulumi.String("example-alerts-channel"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -99,13 +101,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Name: pulumi.String("opsgenie-example"),
+//				Type: pulumi.String("opsgenie"),
 //				Config: &newrelic.AlertChannelConfigArgs{
 //					ApiKey:     pulumi.String("abc123"),
-//					Recipients: pulumi.String("user1@domain.com, user2@domain.com"),
-//					Tags:       pulumi.String("tag1, tag2"),
 //					Teams:      pulumi.String("team1, team2"),
+//					Tags:       pulumi.String("tag1, tag2"),
+//					Recipients: pulumi.String("user1@domain.com, user2@domain.com"),
 //				},
-//				Type: pulumi.String("opsgenie"),
 //			})
 //			if err != nil {
 //				return err
@@ -132,10 +135,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Name: pulumi.String("pagerduty-example"),
+//				Type: pulumi.String("pagerduty"),
 //				Config: &newrelic.AlertChannelConfigArgs{
 //					ServiceKey: pulumi.String("abc123"),
 //				},
-//				Type: pulumi.String("pagerduty"),
 //			})
 //			if err != nil {
 //				return err
@@ -162,11 +166,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Name: pulumi.String("victorops-example"),
+//				Type: pulumi.String("victorops"),
 //				Config: &newrelic.AlertChannelConfigArgs{
 //					Key:      pulumi.String("abc123"),
 //					RouteKey: pulumi.String("/example"),
 //				},
-//				Type: pulumi.String("victorops"),
 //			})
 //			if err != nil {
 //				return err
@@ -193,6 +198,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Name: pulumi.String("webhook-example"),
 //				Type: pulumi.String("webhook"),
 //				Config: &newrelic.AlertChannelConfigArgs{
 //					BaseUrl:     pulumi.String("http://www.test.com"),
@@ -232,8 +238,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Name: pulumi.String("webhook-example"),
+//				Type: pulumi.String("webhook"),
 //				Config: &newrelic.AlertChannelConfigArgs{
-//					BaseUrl: pulumi.String("http://www.test.com"),
+//					BaseUrl:     pulumi.String("http://www.test.com"),
+//					PayloadType: pulumi.String("application/json"),
 //					PayloadString: pulumi.String(`{
 //	  "my_custom_values": {
 //	    "condition_name": "$CONDITION_NAME",
@@ -243,9 +252,7 @@ import (
 //
 // `),
 //
-//					PayloadType: pulumi.String("application/json"),
 //				},
-//				Type: pulumi.String("webhook"),
 //			})
 //			if err != nil {
 //				return err

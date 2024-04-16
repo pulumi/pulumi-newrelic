@@ -89,8 +89,8 @@ def get_group(authentication_domain_id: Optional[str] = None,
     import pulumi
     import pulumi_newrelic as newrelic
 
-    foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
-    foo_group = newrelic.get_group(authentication_domain_id=foo_authentication_domain.id,
+    foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+    foo_get_group = newrelic.get_group(authentication_domain_id=foo.id,
         name="Test Group")
     ```
     <!--End PulumiCodeChooser -->
@@ -130,8 +130,8 @@ def get_group_output(authentication_domain_id: Optional[pulumi.Input[str]] = Non
     import pulumi
     import pulumi_newrelic as newrelic
 
-    foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
-    foo_group = newrelic.get_group(authentication_domain_id=foo_authentication_domain.id,
+    foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+    foo_get_group = newrelic.get_group(authentication_domain_id=foo.id,
         name="Test Group")
     ```
     <!--End PulumiCodeChooser -->

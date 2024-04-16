@@ -25,6 +25,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var foo = new NewRelic.Synthetics.StepMonitor("foo", new()
     ///     {
+    ///         Name = "Sample Step Monitor",
     ///         EnableScreenshotOnFailureAndScript = true,
     ///         LocationsPublics = new[]
     ///         {
@@ -32,9 +33,9 @@ namespace Pulumi.NewRelic.Synthetics
     ///             "US_EAST_2",
     ///         },
     ///         Period = "EVERY_6_HOURS",
+    ///         Status = "ENABLED",
     ///         RuntimeType = "CHROME_BROWSER",
     ///         RuntimeTypeVersion = "100",
-    ///         Status = "ENABLED",
     ///         Steps = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.StepMonitorStepArgs
@@ -82,21 +83,23 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooPrivateLocation = new NewRelic.Synthetics.PrivateLocation("fooPrivateLocation", new()
+    ///     var foo = new NewRelic.Synthetics.PrivateLocation("foo", new()
     ///     {
+    ///         Name = "Sample Private Location",
     ///         Description = "Sample Private Location Description",
     ///         VerifiedScriptExecution = true,
     ///     });
     /// 
-    ///     var fooStepMonitor = new NewRelic.Synthetics.StepMonitor("fooStepMonitor", new()
+    ///     var fooStepMonitor = new NewRelic.Synthetics.StepMonitor("foo", new()
     ///     {
+    ///         Name = "Sample Step Monitor",
     ///         Period = "EVERY_6_HOURS",
     ///         Status = "ENABLED",
     ///         LocationPrivates = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.StepMonitorLocationPrivateArgs
     ///             {
-    ///                 Guid = fooPrivateLocation.Id,
+    ///                 Guid = foo.Id,
     ///                 VsePassword = "secret",
     ///             },
     ///         },

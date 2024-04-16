@@ -45,9 +45,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new LogParsingRule(&#34;foo&#34;, LogParsingRuleArgs.builder()        
+ *             .name(&#34;log_parse_rule&#34;)
  *             .attribute(&#34;message&#34;)
  *             .enabled(true)
- *             .grok(&#34;sampleattribute=&#39;%%{NUMBER:test:int}&#39;&#34;)
+ *             .grok(&#34;sampleattribute=&#39;%{NUMBER:test:int}&#39;&#34;)
  *             .lucene(&#34;logtype:linux_messages&#34;)
  *             .nrql(&#34;SELECT * FROM Log WHERE logtype = &#39;linux_messages&#39;&#34;)
  *             .build());
@@ -91,6 +92,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var foo = new LogParsingRule(&#34;foo&#34;, LogParsingRuleArgs.builder()        
+ *             .name(&#34;log_parse_rule&#34;)
  *             .attribute(&#34;message&#34;)
  *             .enabled(true)
  *             .grok(grok.applyValue(getTestGrokPatternResult -&gt; getTestGrokPatternResult.grok()))

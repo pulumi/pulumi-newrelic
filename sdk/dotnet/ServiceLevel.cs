@@ -33,22 +33,23 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.ServiceLevel("foo", new()
     ///     {
+    ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
+    ///         Name = "Latency",
     ///         Description = "Proportion of requests that are served faster than a threshold.",
     ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
     ///         {
     ///             AccountId = 12345678,
-    ///             GoodEvents = new NewRelic.Inputs.ServiceLevelEventsGoodEventsArgs
-    ///             {
-    ///                 From = "Transaction",
-    ///                 Where = "appName = 'Example application' AND (transactionType= 'Web') AND duration &lt; 0.1",
-    ///             },
     ///             ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
     ///             {
     ///                 From = "Transaction",
     ///                 Where = "appName = 'Example application' AND (transactionType='Web')",
     ///             },
+    ///             GoodEvents = new NewRelic.Inputs.ServiceLevelEventsGoodEventsArgs
+    ///             {
+    ///                 From = "Transaction",
+    ///                 Where = "appName = 'Example application' AND (transactionType= 'Web') AND duration &lt; 0.1",
+    ///             },
     ///         },
-    ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
     ///         Objective = new NewRelic.Inputs.ServiceLevelObjectiveArgs
     ///         {
     ///             Target = 99,
@@ -80,9 +81,10 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mySyntheticMonitorServiceLevel = new NewRelic.ServiceLevel("mySyntheticMonitorServiceLevel", new()
+    ///     var mySyntheticMonitorServiceLevel = new NewRelic.ServiceLevel("my_synthetic_monitor_service_level", new()
     ///     {
     ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
+    ///         Name = "My synthethic monitor - Success",
     ///         Description = "Proportion of successful synthetic checks.",
     ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
     ///         {
@@ -112,7 +114,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var mySyntheticMonitorServiceLevelTags = new NewRelic.EntityTags("mySyntheticMonitorServiceLevelTags", new()
+    ///     var mySyntheticMonitorServiceLevelTags = new NewRelic.EntityTags("my_synthetic_monitor_service_level_tags", new()
     ///     {
     ///         Guid = mySyntheticMonitorServiceLevel.SliGuid,
     ///         Tags = new[]
@@ -152,12 +154,24 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mySyntheticMonitorDurationServiceLevel = new NewRelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel", new()
+    ///     var mySyntheticMonitorDurationServiceLevel = new NewRelic.ServiceLevel("my_synthetic_monitor_duration_service_level", new()
     ///     {
+    ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
+    ///         Name = "Duration distribution is under 7",
     ///         Description = "Monitor created to test concurrent request from terraform",
     ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
     ///         {
     ///             AccountId = 313870,
+    ///             ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
+    ///             {
+    ///                 From = "Metric",
+    ///                 Select = new NewRelic.Inputs.ServiceLevelEventsValidEventsSelectArgs
+    ///                 {
+    ///                     Attribute = "`query.wallClockTime.negative.distribution`",
+    ///                     Function = "GET_FIELD",
+    ///                 },
+    ///                 Where = "metricName = 'query.wallClockTime.negative.distribution'",
+    ///             },
     ///             GoodEvents = new NewRelic.Inputs.ServiceLevelEventsGoodEventsArgs
     ///             {
     ///                 From = "Metric",
@@ -169,18 +183,7 @@ namespace Pulumi.NewRelic
     ///                 },
     ///                 Where = "metricName = 'query.wallClockTime.negative.distribution'",
     ///             },
-    ///             ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
-    ///             {
-    ///                 From = "Metric",
-    ///                 Select = new NewRelic.Inputs.ServiceLevelEventsValidEventsSelectArgs
-    ///                 {
-    ///                     Attribute = "`query.wallClockTime.negative.distribution`",
-    ///                     Function = "GET_FIELD",
-    ///                 },
-    ///                 Where = "metricName = 'query.wallClockTime.negative.distribution'",
-    ///             },
     ///         },
-    ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
     ///         Objective = new NewRelic.Inputs.ServiceLevelObjectiveArgs
     ///         {
     ///             Target = 49,

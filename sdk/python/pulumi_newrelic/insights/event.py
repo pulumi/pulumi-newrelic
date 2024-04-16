@@ -78,6 +78,8 @@ class Event(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.insights.Event("foo", events=[newrelic.insights.EventEventArgs(
+            type="MyEvent",
+            timestamp=1232471100,
             attributes=[
                 newrelic.insights.EventEventAttributeArgs(
                     key="a_string_attribute",
@@ -85,17 +87,15 @@ class Event(pulumi.CustomResource):
                 ),
                 newrelic.insights.EventEventAttributeArgs(
                     key="an_integer_attribute",
-                    type="int",
                     value="42",
+                    type="int",
                 ),
                 newrelic.insights.EventEventAttributeArgs(
                     key="a_float_attribute",
-                    type="float",
                     value="101.1",
+                    type="float",
                 ),
             ],
-            timestamp=1232471100,
-            type="MyEvent",
         )])
         ```
         <!--End PulumiCodeChooser -->
@@ -137,6 +137,8 @@ class Event(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.insights.Event("foo", events=[newrelic.insights.EventEventArgs(
+            type="MyEvent",
+            timestamp=1232471100,
             attributes=[
                 newrelic.insights.EventEventAttributeArgs(
                     key="a_string_attribute",
@@ -144,17 +146,15 @@ class Event(pulumi.CustomResource):
                 ),
                 newrelic.insights.EventEventAttributeArgs(
                     key="an_integer_attribute",
-                    type="int",
                     value="42",
+                    type="int",
                 ),
                 newrelic.insights.EventEventAttributeArgs(
                     key="a_float_attribute",
-                    type="float",
                     value="101.1",
+                    type="float",
                 ),
             ],
-            timestamp=1232471100,
-            type="MyEvent",
         )])
         ```
         <!--End PulumiCodeChooser -->

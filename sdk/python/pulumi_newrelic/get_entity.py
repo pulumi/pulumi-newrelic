@@ -167,8 +167,11 @@ def get_entity(account_id: Optional[int] = None,
     import pulumi
     import pulumi_newrelic as newrelic
 
-    app = newrelic.get_entity(domain="APM",
-        name="my-app",
+    # The entity returned by this configuration would have to 
+    # belong to the account_id specified in the provider 
+    # configuration, i.e. NEW_RELIC_ACCOUNT_ID.
+    app = newrelic.get_entity(name="my-app",
+        domain="APM",
         type="APPLICATION")
     ```
     <!--End PulumiCodeChooser -->
@@ -178,9 +181,12 @@ def get_entity(account_id: Optional[int] = None,
     import pulumi
     import pulumi_newrelic as newrelic
 
-    app = newrelic.get_entity(account_id=654321,
+    # The entity returned by this configuration, unlike in 
+    # the above example, would have to belong to the account_id 
+    # specified in the configuration below, i.e. 654321.
+    app = newrelic.get_entity(name="my-app",
+        account_id=654321,
         domain="APM",
-        name="my-app",
         type="APPLICATION")
     ```
     <!--End PulumiCodeChooser -->
@@ -194,13 +200,13 @@ def get_entity(account_id: Optional[int] = None,
     import pulumi
     import pulumi_newrelic as newrelic
 
-    app = newrelic.get_entity(domain="EXT",
-        name="my-otel-app",
+    app = newrelic.get_entity(name="my-otel-app",
+        domain="EXT",
+        type="SERVICE",
         tags=[newrelic.GetEntityTagArgs(
             key="accountID",
             value="12345",
-        )],
-        type="SERVICE")
+        )])
     ```
     <!--End PulumiCodeChooser -->
 
@@ -275,8 +281,11 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
     import pulumi
     import pulumi_newrelic as newrelic
 
-    app = newrelic.get_entity(domain="APM",
-        name="my-app",
+    # The entity returned by this configuration would have to 
+    # belong to the account_id specified in the provider 
+    # configuration, i.e. NEW_RELIC_ACCOUNT_ID.
+    app = newrelic.get_entity(name="my-app",
+        domain="APM",
         type="APPLICATION")
     ```
     <!--End PulumiCodeChooser -->
@@ -286,9 +295,12 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
     import pulumi
     import pulumi_newrelic as newrelic
 
-    app = newrelic.get_entity(account_id=654321,
+    # The entity returned by this configuration, unlike in 
+    # the above example, would have to belong to the account_id 
+    # specified in the configuration below, i.e. 654321.
+    app = newrelic.get_entity(name="my-app",
+        account_id=654321,
         domain="APM",
-        name="my-app",
         type="APPLICATION")
     ```
     <!--End PulumiCodeChooser -->
@@ -302,13 +314,13 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
     import pulumi
     import pulumi_newrelic as newrelic
 
-    app = newrelic.get_entity(domain="EXT",
-        name="my-otel-app",
+    app = newrelic.get_entity(name="my-otel-app",
+        domain="EXT",
+        type="SERVICE",
         tags=[newrelic.GetEntityTagArgs(
             key="accountID",
             value="12345",
-        )],
-        type="SERVICE")
+        )])
     ```
     <!--End PulumiCodeChooser -->
 

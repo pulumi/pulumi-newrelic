@@ -25,14 +25,14 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooAuthenticationDomain = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["foo"] = fooAuthenticationDomain.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
+        ///         ["foo"] = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///     };
         /// });
         /// ```
@@ -55,14 +55,14 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooAuthenticationDomain = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["foo"] = fooAuthenticationDomain.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
+        ///         ["foo"] = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///     };
         /// });
         /// ```

@@ -16,11 +16,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAuthenticationDomain = newrelic.getAuthenticationDomain({
+ * const foo = newrelic.getAuthenticationDomain({
  *     name: "Test Authentication Domain",
  * });
- * const fooGroup = fooAuthenticationDomain.then(fooAuthenticationDomain => newrelic.getGroup({
- *     authenticationDomainId: fooAuthenticationDomain.id,
+ * const fooGetGroup = foo.then(foo => newrelic.getGroup({
+ *     authenticationDomainId: foo.id,
  *     name: "Test Group",
  * }));
  * ```
@@ -78,11 +78,11 @@ export interface GetGroupResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAuthenticationDomain = newrelic.getAuthenticationDomain({
+ * const foo = newrelic.getAuthenticationDomain({
  *     name: "Test Authentication Domain",
  * });
- * const fooGroup = fooAuthenticationDomain.then(fooAuthenticationDomain => newrelic.getGroup({
- *     authenticationDomainId: fooAuthenticationDomain.id,
+ * const fooGetGroup = foo.then(foo => newrelic.getGroup({
+ *     authenticationDomainId: foo.id,
  *     name: "Test Group",
  * }));
  * ```

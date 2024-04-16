@@ -44,9 +44,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new SecureCredential(&#34;foo&#34;, SecureCredentialArgs.builder()        
- *             .description(&#34;My description&#34;)
  *             .key(&#34;MY_KEY&#34;)
  *             .value(&#34;My value&#34;)
+ *             .description(&#34;My description&#34;)
  *             .build());
  * 
  *     }

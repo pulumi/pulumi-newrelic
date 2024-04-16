@@ -25,7 +25,10 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var policy = new NewRelic.AlertPolicy("policy");
+    ///     var policy = new NewRelic.AlertPolicy("policy", new()
+    ///     {
+    ///         Name = "my-policy",
+    ///     });
     /// 
     ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
     ///     {
@@ -33,6 +36,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///         {
     ///             "US_WEST_1",
     ///         },
+    ///         Name = "my-monitor",
     ///         Period = "EVERY_10_MINUTES",
     ///         Status = "DISABLED",
     ///         Type = "SIMPLE",
@@ -42,6 +46,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///     var example = new NewRelic.Synthetics.MultiLocationAlertCondition("example", new()
     ///     {
     ///         PolicyId = policy.Id,
+    ///         Name = "Example condition",
     ///         RunbookUrl = "https://example.com",
     ///         Enabled = true,
     ///         ViolationTimeLimitSeconds = 3600,
@@ -75,11 +80,15 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     {
+    ///         Name = "foo policy",
+    ///     });
     /// 
-    ///     var fooMonitor = new NewRelic.Synthetics.Monitor("fooMonitor", new()
+    ///     var fooMonitor = new NewRelic.Synthetics.Monitor("foo", new()
     ///     {
     ///         Status = "ENABLED",
+    ///         Name = "foo monitor",
     ///         Period = "EVERY_MINUTE",
     ///         Uri = "https://www.one.newrelic.com",
     ///         Type = "SIMPLE",
@@ -112,9 +121,10 @@ namespace Pulumi.NewRelic.Synthetics
     ///         },
     ///     });
     /// 
-    ///     var fooMultiLocationAlertCondition = new NewRelic.Synthetics.MultiLocationAlertCondition("fooMultiLocationAlertCondition", new()
+    ///     var fooMultiLocationAlertCondition = new NewRelic.Synthetics.MultiLocationAlertCondition("foo", new()
     ///     {
-    ///         PolicyId = fooAlertPolicy.Id,
+    ///         PolicyId = foo.Id,
+    ///         Name = "foo condition",
     ///         RunbookUrl = "https://example.com",
     ///         Enabled = true,
     ///         ViolationTimeLimitSeconds = 3600,
@@ -132,7 +142,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///         },
     ///     });
     /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
+    ///     var myConditionEntityTags = new NewRelic.EntityTags("my_condition_entity_tags", new()
     ///     {
     ///         Guid = fooMultiLocationAlertCondition.EntityGuid,
     ///         Tags = new[]

@@ -26,6 +26,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.Workflow("foo", new()
     ///     {
+    ///         Name = "workflow-example",
     ///         MutingRulesHandling = "NOTIFY_ALL_ISSUES",
     ///         IssuesFilter = new NewRelic.Inputs.WorkflowIssuesFilterArgs
     ///         {
@@ -48,7 +49,7 @@ namespace Pulumi.NewRelic
     ///         {
     ///             new NewRelic.Inputs.WorkflowDestinationArgs
     ///             {
-    ///                 ChannelId = newrelic_notification_channel.Some_channel.Id,
+    ///                 ChannelId = someChannel.Id,
     ///             },
     ///         },
     ///     });
@@ -71,11 +72,15 @@ namespace Pulumi.NewRelic
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a policy to track
-    ///     var my_policy = new NewRelic.AlertPolicy("my-policy");
+    ///     var my_policy = new NewRelic.AlertPolicy("my-policy", new()
+    ///     {
+    ///         Name = "my_policy",
+    ///     });
     /// 
     ///     // Create a reusable notification destination
     ///     var webhook_destination = new NewRelic.NotificationDestination("webhook-destination", new()
     ///     {
+    ///         Name = "destination-webhook",
     ///         Type = "WEBHOOK",
     ///         Properties = new[]
     ///         {
@@ -95,6 +100,7 @@ namespace Pulumi.NewRelic
     ///     // Create a notification channel to use in the workflow
     ///     var webhook_channel = new NewRelic.NotificationChannel("webhook-channel", new()
     ///     {
+    ///         Name = "channel-webhook",
     ///         Type = "WEBHOOK",
     ///         DestinationId = webhook_destination.Id,
     ///         Product = "IINT",
@@ -112,6 +118,7 @@ namespace Pulumi.NewRelic
     ///     // A workflow that matches issues that include incidents triggered by the policy
     ///     var workflow_example = new NewRelic.Workflow("workflow-example", new()
     ///     {
+    ///         Name = "workflow-example",
     ///         MutingRulesHandling = "NOTIFY_ALL_ISSUES",
     ///         IssuesFilter = new NewRelic.Inputs.WorkflowIssuesFilterArgs
     ///         {
@@ -156,6 +163,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var workflow_example = new NewRelic.Workflow("workflow-example", new()
     ///     {
+    ///         Name = "workflow-enrichment-example",
     ///         MutingRulesHandling = "NOTIFY_ALL_ISSUES",
     ///         IssuesFilter = new NewRelic.Inputs.WorkflowIssuesFilterArgs
     ///         {
@@ -195,7 +203,7 @@ namespace Pulumi.NewRelic
     ///         {
     ///             new NewRelic.Inputs.WorkflowDestinationArgs
     ///             {
-    ///                 ChannelId = newrelic_notification_channel.Webhook_channel.Id,
+    ///                 ChannelId = webhook_channel.Id,
     ///             },
     ///         },
     ///     });
@@ -217,6 +225,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var workflow_example = new NewRelic.Workflow("workflow-example", new()
     ///     {
+    ///         Name = "workflow-enrichment-example",
     ///         MutingRulesHandling = "NOTIFY_ALL_ISSUES",
     ///         IssuesFilter = new NewRelic.Inputs.WorkflowIssuesFilterArgs
     ///         {
@@ -239,7 +248,7 @@ namespace Pulumi.NewRelic
     ///         {
     ///             new NewRelic.Inputs.WorkflowDestinationArgs
     ///             {
-    ///                 ChannelId = newrelic_notification_channel.Webhook_channel.Id,
+    ///                 ChannelId = webhook_channel.Id,
     ///                 NotificationTriggers = new[]
     ///                 {
     ///                     "ACTIVATED",

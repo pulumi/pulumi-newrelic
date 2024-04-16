@@ -249,10 +249,11 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.cloud.AwsGovcloudLinkAccount("foo",
-            access_key_id="access-key-id of aws govcloud account",
             account_id="The New Relic account ID where you want to link the AWS GovCloud account",
+            access_key_id="access-key-id of aws govcloud account",
             aws_account_id="aws govcloud account id",
             metric_collection_mode="PULL",
+            name="account name",
             secret_access_key="secret access key of the aws govcloud account")
         ```
         <!--End PulumiCodeChooser -->
@@ -303,10 +304,11 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.cloud.AwsGovcloudLinkAccount("foo",
-            access_key_id="access-key-id of aws govcloud account",
             account_id="The New Relic account ID where you want to link the AWS GovCloud account",
+            access_key_id="access-key-id of aws govcloud account",
             aws_account_id="aws govcloud account id",
             metric_collection_mode="PULL",
+            name="account name",
             secret_access_key="secret access key of the aws govcloud account")
         ```
         <!--End PulumiCodeChooser -->

@@ -34,6 +34,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
+//				Name:      pulumi.String("Example workload"),
 //				AccountId: pulumi.Int(12345678),
 //				EntityGuids: pulumi.StringArray{
 //					pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
@@ -72,6 +73,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
+//				Name:      pulumi.String("Example workload with tags"),
 //				AccountId: pulumi.Int(12345678),
 //				EntityGuids: pulumi.StringArray{
 //					pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
@@ -110,6 +112,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
+//				Name:      pulumi.String("Example workload with tags"),
 //				AccountId: pulumi.Int(12345678),
 //				EntityGuids: pulumi.StringArray{
 //					pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
@@ -136,6 +139,122 @@ import (
 // # Include automatic status
 //
 // > The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/plugins"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
+//				Name:      pulumi.String("Example workload"),
+//				AccountId: pulumi.Int(12345678),
+//				EntityGuids: pulumi.StringArray{
+//					pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
+//				},
+//				EntitySearchQueries: plugins.WorkloadEntitySearchQueryArray{
+//					&plugins.WorkloadEntitySearchQueryArgs{
+//						Query: pulumi.String("name like '%Example application%'"),
+//					},
+//				},
+//				ScopeAccountIds: pulumi.IntArray{
+//					pulumi.Int(12345678),
+//				},
+//				Description: pulumi.String("Description"),
+//				StatusConfigAutomatic: &plugins.WorkloadStatusConfigAutomaticArgs{
+//					Enabled: pulumi.Bool(true),
+//					RemainingEntitiesRule: &plugins.WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs{
+//						RemainingEntitiesRuleRollup: &plugins.WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs{
+//							Strategy:       pulumi.String("BEST_STATUS_WINS"),
+//							ThresholdType:  pulumi.String("FIXED"),
+//							ThresholdValue: pulumi.Int(100),
+//							GroupBy:        pulumi.String("ENTITY_TYPE"),
+//						},
+//					},
+//					Rules: plugins.WorkloadStatusConfigAutomaticRuleArray{
+//						&plugins.WorkloadStatusConfigAutomaticRuleArgs{
+//							EntityGuids: pulumi.StringArray{
+//								pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
+//							},
+//							NrqlQueries: plugins.WorkloadStatusConfigAutomaticRuleNrqlQueryArray{
+//								&plugins.WorkloadStatusConfigAutomaticRuleNrqlQueryArgs{
+//									Query: pulumi.String("name like '%Example application2%'"),
+//								},
+//							},
+//							Rollup: &plugins.WorkloadStatusConfigAutomaticRuleRollupArgs{
+//								Strategy:       pulumi.String("BEST_STATUS_WINS"),
+//								ThresholdType:  pulumi.String("FIXED"),
+//								ThresholdValue: pulumi.Int(100),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// # Include static status
+//
+// > You can use this during maintenance tasks or any other time you want to provide a fixed status for your workload. This overrides all automatic rules. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status#configure-static)
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/plugins"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
+//				Name:      pulumi.String("Example workload"),
+//				AccountId: pulumi.Int(12345678),
+//				EntityGuids: pulumi.StringArray{
+//					pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
+//				},
+//				EntitySearchQueries: plugins.WorkloadEntitySearchQueryArray{
+//					&plugins.WorkloadEntitySearchQueryArgs{
+//						Query: pulumi.String("name like '%Example application%'"),
+//					},
+//				},
+//				ScopeAccountIds: pulumi.IntArray{
+//					pulumi.Int(12345678),
+//				},
+//				Description: pulumi.String("Description"),
+//				StatusConfigStatic: &plugins.WorkloadStatusConfigStaticArgs{
+//					Description: pulumi.String("test"),
+//					Enabled:     pulumi.Bool(true),
+//					Status:      pulumi.String("OPERATIONAL"),
+//					Summary:     pulumi.String("summary of the status"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

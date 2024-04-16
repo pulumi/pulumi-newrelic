@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampledash = new OneDashboardRaw(&#34;exampledash&#34;, OneDashboardRawArgs.builder()        
+ *             .name(&#34;New Relic Terraform Example&#34;)
  *             .pages(OneDashboardRawPageArgs.builder()
  *                 .name(&#34;Page Name&#34;)
  *                 .widgets(                
@@ -109,7 +110,7 @@ import javax.annotation.Nullable;
  *                                     jsonProperty(&#34;showOtherSeries&#34;, false)
  *                                 )),
  *                                 jsonProperty(&#34;nrqlQueries&#34;, jsonArray(jsonObject(
- *                                     jsonProperty(&#34;accountId&#34;, local.accountID()),
+ *                                     jsonProperty(&#34;accountId&#34;, accountID),
  *                                     jsonProperty(&#34;query&#34;, &#34;SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400&#34;)
  *                                 )))
  *                             )))

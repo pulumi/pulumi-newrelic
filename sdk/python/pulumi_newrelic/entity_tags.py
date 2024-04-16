@@ -109,11 +109,11 @@ class EntityTags(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_entity = newrelic.get_entity(name="Example application",
+        foo = newrelic.get_entity(name="Example application",
             type="APPLICATION",
             domain="APM")
-        foo_entity_tags = newrelic.EntityTags("fooEntityTags",
-            guid=foo_entity.guid,
+        foo_entity_tags = newrelic.EntityTags("foo",
+            guid=foo.guid,
             tags=[
                 newrelic.EntityTagsTagArgs(
                     key="my-key",
@@ -163,11 +163,11 @@ class EntityTags(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_entity = newrelic.get_entity(name="Example application",
+        foo = newrelic.get_entity(name="Example application",
             type="APPLICATION",
             domain="APM")
-        foo_entity_tags = newrelic.EntityTags("fooEntityTags",
-            guid=foo_entity.guid,
+        foo_entity_tags = newrelic.EntityTags("foo",
+            guid=foo.guid,
             tags=[
                 newrelic.EntityTagsTagArgs(
                     key="my-key",

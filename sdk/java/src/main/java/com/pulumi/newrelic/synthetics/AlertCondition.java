@@ -46,8 +46,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new AlertCondition(&#34;foo&#34;, AlertConditionArgs.builder()        
- *             .policyId(newrelic_alert_policy.foo().id())
- *             .monitorId(newrelic_synthetics_monitor.foo().id())
+ *             .policyId(fooNewrelicAlertPolicy.id())
+ *             .name(&#34;foo&#34;)
+ *             .monitorId(fooNewrelicSyntheticsMonitor.id())
  *             .runbookUrl(&#34;https://www.example.com&#34;)
  *             .build());
  * 
@@ -68,6 +69,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.synthetics.Monitor;
  * import com.pulumi.newrelic.synthetics.MonitorArgs;
  * import com.pulumi.newrelic.synthetics.inputs.MonitorCustomHeaderArgs;
@@ -90,10 +92,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+ *             .name(&#34;foo policy&#34;)
+ *             .build());
  * 
  *         var fooMonitor = new Monitor(&#34;fooMonitor&#34;, MonitorArgs.builder()        
  *             .status(&#34;ENABLED&#34;)
+ *             .name(&#34;foo monitor&#34;)
  *             .period(&#34;EVERY_MINUTE&#34;)
  *             .uri(&#34;https://www.one.newrelic.com&#34;)
  *             .type(&#34;SIMPLE&#34;)
@@ -113,7 +118,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
- *             .policyId(fooAlertPolicy.id())
+ *             .policyId(foo.id())
+ *             .name(&#34;foo synthetics condition&#34;)
  *             .monitorId(fooMonitor.id())
  *             .runbookUrl(&#34;https://www.example.com&#34;)
  *             .build());

@@ -65,8 +65,8 @@ def get_authentication_domain(name: Optional[str] = None,
     import pulumi
     import pulumi_newrelic as newrelic
 
-    foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
-    pulumi.export("foo", foo_authentication_domain.id)
+    foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+    pulumi.export("foo", foo.id)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -96,8 +96,8 @@ def get_authentication_domain_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_newrelic as newrelic
 
-    foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
-    pulumi.export("foo", foo_authentication_domain.id)
+    foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+    pulumi.export("foo", foo.id)
     ```
     <!--End PulumiCodeChooser -->
 

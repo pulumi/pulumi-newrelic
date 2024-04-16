@@ -28,12 +28,13 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertChannel("foo", new()
     ///     {
+    ///         Name = "foo",
+    ///         Type = "email",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
-    ///             IncludeJsonAttachment = "true",
     ///             Recipients = "foo@example.com",
+    ///             IncludeJsonAttachment = "true",
     ///         },
-    ///         Type = "email",
     ///     });
     /// 
     /// });
@@ -54,12 +55,13 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertChannel("foo", new()
     ///     {
+    ///         Name = "slack-example",
+    ///         Type = "slack",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
-    ///             Channel = "example-alerts-channel",
     ///             Url = "https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
+    ///             Channel = "example-alerts-channel",
     ///         },
-    ///         Type = "slack",
     ///     });
     /// 
     /// });
@@ -80,14 +82,15 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertChannel("foo", new()
     ///     {
+    ///         Name = "opsgenie-example",
+    ///         Type = "opsgenie",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
     ///             ApiKey = "abc123",
-    ///             Recipients = "user1@domain.com, user2@domain.com",
-    ///             Tags = "tag1, tag2",
     ///             Teams = "team1, team2",
+    ///             Tags = "tag1, tag2",
+    ///             Recipients = "user1@domain.com, user2@domain.com",
     ///         },
-    ///         Type = "opsgenie",
     ///     });
     /// 
     /// });
@@ -106,11 +109,12 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertChannel("foo", new()
     ///     {
+    ///         Name = "pagerduty-example",
+    ///         Type = "pagerduty",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
     ///             ServiceKey = "abc123",
     ///         },
-    ///         Type = "pagerduty",
     ///     });
     /// 
     /// });
@@ -129,12 +133,13 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertChannel("foo", new()
     ///     {
+    ///         Name = "victorops-example",
+    ///         Type = "victorops",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
     ///             Key = "abc123",
     ///             RouteKey = "/example",
     ///         },
-    ///         Type = "victorops",
     ///     });
     /// 
     /// });
@@ -153,6 +158,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertChannel("foo", new()
     ///     {
+    ///         Name = "webhook-example",
     ///         Type = "webhook",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
@@ -187,20 +193,20 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertChannel("foo", new()
     ///     {
+    ///         Name = "webhook-example",
+    ///         Type = "webhook",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
     ///             BaseUrl = "http://www.test.com",
+    ///             PayloadType = "application/json",
     ///             PayloadString = @"{
     ///   ""my_custom_values"": {
     ///     ""condition_name"": ""$CONDITION_NAME"",
     ///     ""policy_name"": ""$POLICY_NAME""
     ///   }
     /// }
-    /// 
     /// ",
-    ///             PayloadType = "application/json",
     ///         },
-    ///         Type = "webhook",
     ///     });
     /// 
     /// });

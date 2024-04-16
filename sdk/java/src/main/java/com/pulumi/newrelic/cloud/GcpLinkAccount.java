@@ -58,6 +58,7 @@ import javax.annotation.Nullable;
  *         var foo = new GcpLinkAccount(&#34;foo&#34;, GcpLinkAccountArgs.builder()        
  *             .accountId(&#34;account id of newrelic account&#34;)
  *             .projectId(&#34;id of the Project&#34;)
+ *             .name(&#34;account name&#34;)
  *             .build());
  * 
  *     }

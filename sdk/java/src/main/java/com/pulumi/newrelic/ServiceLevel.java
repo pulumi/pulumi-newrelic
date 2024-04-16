@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.ServiceLevel;
  * import com.pulumi.newrelic.ServiceLevelArgs;
  * import com.pulumi.newrelic.inputs.ServiceLevelEventsArgs;
- * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
  * import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
+ * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
  * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
  * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
  * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
@@ -58,19 +58,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new ServiceLevel(&#34;foo&#34;, ServiceLevelArgs.builder()        
+ *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
+ *             .name(&#34;Latency&#34;)
  *             .description(&#34;Proportion of requests that are served faster than a threshold.&#34;)
  *             .events(ServiceLevelEventsArgs.builder()
  *                 .accountId(12345678)
- *                 .goodEvents(ServiceLevelEventsGoodEventsArgs.builder()
- *                     .from(&#34;Transaction&#34;)
- *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType= &#39;Web&#39;) AND duration &lt; 0.1&#34;)
- *                     .build())
  *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
  *                     .from(&#34;Transaction&#34;)
  *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType=&#39;Web&#39;)&#34;)
  *                     .build())
+ *                 .goodEvents(ServiceLevelEventsGoodEventsArgs.builder()
+ *                     .from(&#34;Transaction&#34;)
+ *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType= &#39;Web&#39;) AND duration &lt; 0.1&#34;)
+ *                     .build())
  *                 .build())
- *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
  *             .objective(ServiceLevelObjectiveArgs.builder()
  *                 .target(99)
  *                 .timeWindow(ServiceLevelObjectiveTimeWindowArgs.builder()
@@ -124,6 +125,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var mySyntheticMonitorServiceLevel = new ServiceLevel(&#34;mySyntheticMonitorServiceLevel&#34;, ServiceLevelArgs.builder()        
  *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
+ *             .name(&#34;My synthethic monitor - Success&#34;)
  *             .description(&#34;Proportion of successful synthetic checks.&#34;)
  *             .events(ServiceLevelEventsArgs.builder()
  *                 .accountId(12345678)
@@ -179,10 +181,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.ServiceLevel;
  * import com.pulumi.newrelic.ServiceLevelArgs;
  * import com.pulumi.newrelic.inputs.ServiceLevelEventsArgs;
- * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
- * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsSelectArgs;
  * import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
  * import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsSelectArgs;
+ * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
+ * import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsSelectArgs;
  * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
  * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
  * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
@@ -200,9 +202,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var mySyntheticMonitorDurationServiceLevel = new ServiceLevel(&#34;mySyntheticMonitorDurationServiceLevel&#34;, ServiceLevelArgs.builder()        
+ *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
+ *             .name(&#34;Duration distribution is under 7&#34;)
  *             .description(&#34;Monitor created to test concurrent request from terraform&#34;)
  *             .events(ServiceLevelEventsArgs.builder()
  *                 .accountId(313870)
+ *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
+ *                     .from(&#34;Metric&#34;)
+ *                     .select(ServiceLevelEventsValidEventsSelectArgs.builder()
+ *                         .attribute(&#34;`query.wallClockTime.negative.distribution`&#34;)
+ *                         .function(&#34;GET_FIELD&#34;)
+ *                         .build())
+ *                     .where(&#34;metricName = &#39;query.wallClockTime.negative.distribution&#39;&#34;)
+ *                     .build())
  *                 .goodEvents(ServiceLevelEventsGoodEventsArgs.builder()
  *                     .from(&#34;Metric&#34;)
  *                     .select(ServiceLevelEventsGoodEventsSelectArgs.builder()
@@ -212,16 +224,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .where(&#34;metricName = &#39;query.wallClockTime.negative.distribution&#39;&#34;)
  *                     .build())
- *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
- *                     .from(&#34;Metric&#34;)
- *                     .select(ServiceLevelEventsValidEventsSelectArgs.builder()
- *                         .attribute(&#34;`query.wallClockTime.negative.distribution`&#34;)
- *                         .function(&#34;GET_FIELD&#34;)
- *                         .build())
- *                     .where(&#34;metricName = &#39;query.wallClockTime.negative.distribution&#39;&#34;)
- *                     .build())
  *                 .build())
- *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
  *             .objective(ServiceLevelObjectiveArgs.builder()
  *                 .target(49)
  *                 .timeWindow(ServiceLevelObjectiveTimeWindowArgs.builder()

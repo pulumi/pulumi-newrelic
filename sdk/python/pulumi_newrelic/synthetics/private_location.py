@@ -238,7 +238,9 @@ class PrivateLocation(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        location = newrelic.synthetics.PrivateLocation("location", description="The private location description")
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="The private location description",
+            name="The name of the private location")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -273,7 +275,9 @@ class PrivateLocation(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        location = newrelic.synthetics.PrivateLocation("location", description="The private location description")
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="The private location description",
+            name="The name of the private location")
         ```
         <!--End PulumiCodeChooser -->
 

@@ -34,9 +34,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := plugins.NewApplicationSettings(ctx, "app", &plugins.ApplicationSettingsArgs{
+//				Name:                     pulumi.String("my-app"),
 //				AppApdexThreshold:        pulumi.Float64(0.7),
-//				EnableRealUserMonitoring: pulumi.Bool(false),
 //				EndUserApdexThreshold:    pulumi.Float64(0.8),
+//				EnableRealUserMonitoring: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err

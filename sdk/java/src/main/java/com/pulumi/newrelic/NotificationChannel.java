@@ -51,14 +51,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
  *             .accountId(12345678)
+ *             .name(&#34;webhook-example&#34;)
+ *             .type(&#34;WEBHOOK&#34;)
  *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
  *             .product(&#34;IINT&#34;)
  *             .properties(NotificationChannelPropertyArgs.builder()
  *                 .key(&#34;payload&#34;)
- *                 .label(&#34;Payload Template&#34;)
  *                 .value(&#34;name: {{ foo }}&#34;)
+ *                 .label(&#34;Payload Template&#34;)
  *                 .build())
- *             .type(&#34;WEBHOOK&#34;)
  *             .build());
  * 
  *     }
@@ -99,6 +100,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
  *             .accountId(12345678)
+ *             .name(&#34;servicenow-incident-example&#34;)
+ *             .type(&#34;SERVICENOW_INCIDENTS&#34;)
  *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
  *             .product(&#34;IINT&#34;)
  *             .properties(            
@@ -110,7 +113,6 @@ import javax.annotation.Nullable;
  *                     .key(&#34;short_description&#34;)
  *                     .value(&#34;Short description&#34;)
  *                     .build())
- *             .type(&#34;SERVICENOW_INCIDENTS&#34;)
  *             .build());
  * 
  *     }
@@ -144,6 +146,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
  *             .accountId(12345678)
+ *             .name(&#34;email-example&#34;)
+ *             .type(&#34;EMAIL&#34;)
  *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
  *             .product(&#34;IINT&#34;)
  *             .properties(            
@@ -155,7 +159,6 @@ import javax.annotation.Nullable;
  *                     .key(&#34;customDetailsEmail&#34;)
  *                     .value(&#34;issue id - {{issueId}}&#34;)
  *                     .build())
- *             .type(&#34;EMAIL&#34;)
  *             .build());
  * 
  *     }
@@ -189,6 +192,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
  *             .accountId(12345678)
+ *             .name(&#34;jira-example&#34;)
+ *             .type(&#34;JIRA_CLASSIC&#34;)
  *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
  *             .product(&#34;ERROR_TRACKING&#34;)
  *             .properties(            
@@ -208,7 +213,6 @@ import javax.annotation.Nullable;
  *                     .key(&#34;summary&#34;)
  *                     .value(&#34;{{ annotations.title.[0] }}&#34;)
  *                     .build())
- *             .type(&#34;JIRA_CLASSIC&#34;)
  *             .build());
  * 
  *     }
@@ -242,6 +246,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
  *             .accountId(12345678)
+ *             .name(&#34;pagerduty-account-example&#34;)
+ *             .type(&#34;PAGERDUTY_ACCOUNT_INTEGRATION&#34;)
  *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
  *             .product(&#34;IINT&#34;)
  *             .properties(            
@@ -261,23 +267,21 @@ import javax.annotation.Nullable;
  *                 NotificationChannelPropertyArgs.builder()
  *                     .key(&#34;customDetails&#34;)
  *                     .value(&#34;&#34;&#34;
- *     {
- *     &#34;id&#34;:{{json issueId}},
- *     &#34;IssueURL&#34;:{{json issuePageUrl}},
- *     &#34;NewRelic priority&#34;:{{json priority}},
- *     &#34;Total Incidents&#34;:{{json totalIncidents}},
- *     &#34;Impacted Entities&#34;:&#34;{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- *     &#34;Runbook&#34;:&#34;{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- *     &#34;Description&#34;:&#34;{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- *     &#34;isCorrelated&#34;:{{json isCorrelated}},
- *     &#34;Alert Policy Names&#34;:&#34;{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- *     &#34;Alert Condition Names&#34;:&#34;{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- *     &#34;Workflow Name&#34;:{{json workflowName}}
- *     }
- * 
+ * {
+ * &#34;id&#34;:{{json issueId}},
+ * &#34;IssueURL&#34;:{{json issuePageUrl}},
+ * &#34;NewRelic priority&#34;:{{json priority}},
+ * &#34;Total Incidents&#34;:{{json totalIncidents}},
+ * &#34;Impacted Entities&#34;:&#34;{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ * &#34;Runbook&#34;:&#34;{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ * &#34;Description&#34;:&#34;{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ * &#34;isCorrelated&#34;:{{json isCorrelated}},
+ * &#34;Alert Policy Names&#34;:&#34;{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ * &#34;Alert Condition Names&#34;:&#34;{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ * &#34;Workflow Name&#34;:{{json workflowName}}
+ * }
  *                     &#34;&#34;&#34;)
  *                     .build())
- *             .type(&#34;PAGERDUTY_ACCOUNT_INTEGRATION&#34;)
  *             .build());
  * 
  *     }
@@ -311,6 +315,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
  *             .accountId(12345678)
+ *             .name(&#34;pagerduty-account-example&#34;)
+ *             .type(&#34;PAGERDUTY_SERVICE_INTEGRATION&#34;)
  *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
  *             .product(&#34;IINT&#34;)
  *             .properties(            
@@ -321,23 +327,21 @@ import javax.annotation.Nullable;
  *                 NotificationChannelPropertyArgs.builder()
  *                     .key(&#34;customDetails&#34;)
  *                     .value(&#34;&#34;&#34;
- *     {
- *     &#34;id&#34;:{{json issueId}},
- *     &#34;IssueURL&#34;:{{json issuePageUrl}},
- *     &#34;NewRelic priority&#34;:{{json priority}},
- *     &#34;Total Incidents&#34;:{{json totalIncidents}},
- *     &#34;Impacted Entities&#34;:&#34;{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- *     &#34;Runbook&#34;:&#34;{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- *     &#34;Description&#34;:&#34;{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- *     &#34;isCorrelated&#34;:{{json isCorrelated}},
- *     &#34;Alert Policy Names&#34;:&#34;{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- *     &#34;Alert Condition Names&#34;:&#34;{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- *     &#34;Workflow Name&#34;:{{json workflowName}}
- *     }
- * 
+ * {
+ * &#34;id&#34;:{{json issueId}},
+ * &#34;IssueURL&#34;:{{json issuePageUrl}},
+ * &#34;NewRelic priority&#34;:{{json priority}},
+ * &#34;Total Incidents&#34;:{{json totalIncidents}},
+ * &#34;Impacted Entities&#34;:&#34;{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ * &#34;Runbook&#34;:&#34;{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ * &#34;Description&#34;:&#34;{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ * &#34;isCorrelated&#34;:{{json isCorrelated}},
+ * &#34;Alert Policy Names&#34;:&#34;{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ * &#34;Alert Condition Names&#34;:&#34;{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ * &#34;Workflow Name&#34;:{{json workflowName}}
+ * }
  *                     &#34;&#34;&#34;)
  *                     .build())
- *             .type(&#34;PAGERDUTY_SERVICE_INTEGRATION&#34;)
  *             .build());
  * 
  *     }
@@ -370,9 +374,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
  *             .accountId(12345678)
+ *             .name(&#34;mobile-push-example&#34;)
+ *             .type(&#34;MOBILE_PUSH&#34;)
  *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
  *             .product(&#34;IINT&#34;)
- *             .type(&#34;MOBILE_PUSH&#34;)
  *             .build());
  * 
  *     }
@@ -406,6 +411,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
  *             .accountId(12345678)
+ *             .name(&#34;event-bridge-example&#34;)
+ *             .type(&#34;EVENT_BRIDGE&#34;)
  *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
  *             .product(&#34;IINT&#34;)
  *             .properties(            
@@ -417,7 +424,6 @@ import javax.annotation.Nullable;
  *                     .key(&#34;eventContent&#34;)
  *                     .value(&#34;{ id: {{ json issueId }} }&#34;)
  *                     .build())
- *             .type(&#34;EVENT_BRIDGE&#34;)
  *             .build());
  * 
  *     }
@@ -451,6 +457,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
  *             .accountId(12345678)
+ *             .name(&#34;slack-example&#34;)
+ *             .type(&#34;SLACK&#34;)
  *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
  *             .product(&#34;IINT&#34;)
  *             .properties(            
@@ -462,7 +470,6 @@ import javax.annotation.Nullable;
  *                     .key(&#34;customDetailsSlack&#34;)
  *                     .value(&#34;issue id - {{issueId}}&#34;)
  *                     .build())
- *             .type(&#34;SLACK&#34;)
  *             .build());
  * 
  *     }
@@ -486,8 +493,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.NotificationDestination;
  * import com.pulumi.newrelic.NotificationDestinationArgs;
- * import com.pulumi.newrelic.inputs.NotificationDestinationAuthBasicArgs;
  * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationAuthBasicArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -503,15 +510,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var webhook_destination = new NotificationDestination(&#34;webhook-destination&#34;, NotificationDestinationArgs.builder()        
  *             .accountId(12345678)
- *             .authBasic(NotificationDestinationAuthBasicArgs.builder()
- *                 .password(&#34;password&#34;)
- *                 .user(&#34;username&#34;)
- *                 .build())
+ *             .name(&#34;destination-webhook&#34;)
+ *             .type(&#34;WEBHOOK&#34;)
  *             .properties(NotificationDestinationPropertyArgs.builder()
  *                 .key(&#34;url&#34;)
  *                 .value(&#34;https://webhook.mywebhook.com&#34;)
  *                 .build())
- *             .type(&#34;WEBHOOK&#34;)
+ *             .authBasic(NotificationDestinationAuthBasicArgs.builder()
+ *                 .user(&#34;username&#34;)
+ *                 .password(&#34;password&#34;)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -545,8 +553,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var webhook_channel = new NotificationChannel(&#34;webhook-channel&#34;, NotificationChannelArgs.builder()        
  *             .accountId(12345678)
+ *             .name(&#34;channel-webhook&#34;)
  *             .type(&#34;WEBHOOK&#34;)
- *             .destinationId(newrelic_notification_destination.webhook-destination().id())
+ *             .destinationId(webhook_destination.id())
  *             .product(&#34;IINT&#34;)
  *             .properties(NotificationChannelPropertyArgs.builder()
  *                 .key(&#34;payload&#34;)

@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.plugins.Workload("foo", {
+ *     name: "Example workload",
  *     accountId: 12345678,
  *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
  *     entitySearchQueries: [{
@@ -39,6 +40,7 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.plugins.Workload("foo", {
+ *     name: "Example workload with tags",
  *     accountId: 12345678,
  *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
  *     entitySearchQueries: [{
@@ -56,6 +58,7 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.plugins.Workload("foo", {
+ *     name: "Example workload with tags",
  *     accountId: 12345678,
  *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
  *     entitySearchQueries: [{
@@ -69,6 +72,74 @@ import * as utilities from "../utilities";
  * Include automatic status
  *
  * > The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.plugins.Workload("foo", {
+ *     name: "Example workload",
+ *     accountId: 12345678,
+ *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+ *     entitySearchQueries: [{
+ *         query: "name like '%Example application%'",
+ *     }],
+ *     scopeAccountIds: [12345678],
+ *     description: "Description",
+ *     statusConfigAutomatic: {
+ *         enabled: true,
+ *         remainingEntitiesRule: {
+ *             remainingEntitiesRuleRollup: {
+ *                 strategy: "BEST_STATUS_WINS",
+ *                 thresholdType: "FIXED",
+ *                 thresholdValue: 100,
+ *                 groupBy: "ENTITY_TYPE",
+ *             },
+ *         },
+ *         rules: [{
+ *             entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+ *             nrqlQueries: [{
+ *                 query: "name like '%Example application2%'",
+ *             }],
+ *             rollup: {
+ *                 strategy: "BEST_STATUS_WINS",
+ *                 thresholdType: "FIXED",
+ *                 thresholdValue: 100,
+ *             },
+ *         }],
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * Include static status
+ *
+ * > You can use this during maintenance tasks or any other time you want to provide a fixed status for your workload. This overrides all automatic rules. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status#configure-static)
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.plugins.Workload("foo", {
+ *     name: "Example workload",
+ *     accountId: 12345678,
+ *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+ *     entitySearchQueries: [{
+ *         query: "name like '%Example application%'",
+ *     }],
+ *     scopeAccountIds: [12345678],
+ *     description: "Description",
+ *     statusConfigStatic: {
+ *         description: "test",
+ *         enabled: true,
+ *         status: "OPERATIONAL",
+ *         summary: "summary of the status",
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

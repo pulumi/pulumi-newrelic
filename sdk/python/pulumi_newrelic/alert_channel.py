@@ -180,11 +180,12 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
+            name="foo",
+            type="email",
             config=newrelic.AlertChannelConfigArgs(
-                include_json_attachment="true",
                 recipients="foo@example.com",
-            ),
-            type="email")
+                include_json_attachment="true",
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -197,11 +198,12 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
+            name="slack-example",
+            type="slack",
             config=newrelic.AlertChannelConfigArgs(
-                channel="example-alerts-channel",
                 url="https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
-            ),
-            type="slack")
+                channel="example-alerts-channel",
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -214,13 +216,14 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
+            name="opsgenie-example",
+            type="opsgenie",
             config=newrelic.AlertChannelConfigArgs(
                 api_key="abc123",
-                recipients="user1@domain.com, user2@domain.com",
-                tags="tag1, tag2",
                 teams="team1, team2",
-            ),
-            type="opsgenie")
+                tags="tag1, tag2",
+                recipients="user1@domain.com, user2@domain.com",
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -231,10 +234,11 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
+            name="pagerduty-example",
+            type="pagerduty",
             config=newrelic.AlertChannelConfigArgs(
                 service_key="abc123",
-            ),
-            type="pagerduty")
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -245,11 +249,12 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
+            name="victorops-example",
+            type="victorops",
             config=newrelic.AlertChannelConfigArgs(
                 key="abc123",
                 route_key="/example",
-            ),
-            type="victorops")
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -260,6 +265,7 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
+            name="webhook-example",
             type="webhook",
             config=newrelic.AlertChannelConfigArgs(
                 base_url="http://www.test.com",
@@ -283,19 +289,19 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
+            name="webhook-example",
+            type="webhook",
             config=newrelic.AlertChannelConfigArgs(
                 base_url="http://www.test.com",
+                payload_type="application/json",
                 payload_string=\"\"\"{
           "my_custom_values": {
             "condition_name": "$CONDITION_NAME",
             "policy_name": "$POLICY_NAME"
           }
         }
-
         \"\"\",
-                payload_type="application/json",
-            ),
-            type="webhook")
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -336,11 +342,12 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
+            name="foo",
+            type="email",
             config=newrelic.AlertChannelConfigArgs(
-                include_json_attachment="true",
                 recipients="foo@example.com",
-            ),
-            type="email")
+                include_json_attachment="true",
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -353,11 +360,12 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
+            name="slack-example",
+            type="slack",
             config=newrelic.AlertChannelConfigArgs(
-                channel="example-alerts-channel",
                 url="https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
-            ),
-            type="slack")
+                channel="example-alerts-channel",
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -370,13 +378,14 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
+            name="opsgenie-example",
+            type="opsgenie",
             config=newrelic.AlertChannelConfigArgs(
                 api_key="abc123",
-                recipients="user1@domain.com, user2@domain.com",
-                tags="tag1, tag2",
                 teams="team1, team2",
-            ),
-            type="opsgenie")
+                tags="tag1, tag2",
+                recipients="user1@domain.com, user2@domain.com",
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -387,10 +396,11 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
+            name="pagerduty-example",
+            type="pagerduty",
             config=newrelic.AlertChannelConfigArgs(
                 service_key="abc123",
-            ),
-            type="pagerduty")
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -401,11 +411,12 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
+            name="victorops-example",
+            type="victorops",
             config=newrelic.AlertChannelConfigArgs(
                 key="abc123",
                 route_key="/example",
-            ),
-            type="victorops")
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -416,6 +427,7 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
+            name="webhook-example",
             type="webhook",
             config=newrelic.AlertChannelConfigArgs(
                 base_url="http://www.test.com",
@@ -439,19 +451,19 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
+            name="webhook-example",
+            type="webhook",
             config=newrelic.AlertChannelConfigArgs(
                 base_url="http://www.test.com",
+                payload_type="application/json",
                 payload_string=\"\"\"{
           "my_custom_values": {
             "condition_name": "$CONDITION_NAME",
             "policy_name": "$POLICY_NAME"
           }
         }
-
         \"\"\",
-                payload_type="application/json",
-            ),
-            type="webhook")
+            ))
         ```
         <!--End PulumiCodeChooser -->
 

@@ -31,6 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewEventsToMetricsRule(ctx, "foo", &newrelic.EventsToMetricsRuleArgs{
 //				AccountId:   pulumi.Int(12345),
+//				Name:        pulumi.String("Example events to metrics rule"),
 //				Description: pulumi.String("Example description"),
 //				Nrql:        pulumi.String("SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name"),
 //			})

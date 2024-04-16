@@ -336,15 +336,17 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        policy = newrelic.AlertPolicy("policy")
+        policy = newrelic.AlertPolicy("policy", name="my-policy")
         monitor = newrelic.synthetics.Monitor("monitor",
             locations_publics=["US_WEST_1"],
+            name="my-monitor",
             period="EVERY_10_MINUTES",
             status="DISABLED",
             type="SIMPLE",
             uri="https://www.one.newrelic.com")
         example = newrelic.synthetics.MultiLocationAlertCondition("example",
             policy_id=policy.id,
+            name="Example condition",
             runbook_url="https://example.com",
             enabled=True,
             violation_time_limit_seconds=3600,
@@ -366,9 +368,10 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_monitor = newrelic.synthetics.Monitor("fooMonitor",
+        foo = newrelic.AlertPolicy("foo", name="foo policy")
+        foo_monitor = newrelic.synthetics.Monitor("foo",
             status="ENABLED",
+            name="foo monitor",
             period="EVERY_MINUTE",
             uri="https://www.one.newrelic.com",
             type="SIMPLE",
@@ -385,8 +388,9 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
                 key="some_key",
                 values=["some_value"],
             )])
-        foo_multi_location_alert_condition = newrelic.synthetics.MultiLocationAlertCondition("fooMultiLocationAlertCondition",
-            policy_id=foo_alert_policy.id,
+        foo_multi_location_alert_condition = newrelic.synthetics.MultiLocationAlertCondition("foo",
+            policy_id=foo.id,
+            name="foo condition",
             runbook_url="https://example.com",
             enabled=True,
             violation_time_limit_seconds=3600,
@@ -397,7 +401,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
             warning=newrelic.synthetics.MultiLocationAlertConditionWarningArgs(
                 threshold=1,
             ))
-        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
+        my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_multi_location_alert_condition.entity_guid,
             tags=[
                 newrelic.EntityTagsTagArgs(
@@ -459,15 +463,17 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        policy = newrelic.AlertPolicy("policy")
+        policy = newrelic.AlertPolicy("policy", name="my-policy")
         monitor = newrelic.synthetics.Monitor("monitor",
             locations_publics=["US_WEST_1"],
+            name="my-monitor",
             period="EVERY_10_MINUTES",
             status="DISABLED",
             type="SIMPLE",
             uri="https://www.one.newrelic.com")
         example = newrelic.synthetics.MultiLocationAlertCondition("example",
             policy_id=policy.id,
+            name="Example condition",
             runbook_url="https://example.com",
             enabled=True,
             violation_time_limit_seconds=3600,
@@ -489,9 +495,10 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_monitor = newrelic.synthetics.Monitor("fooMonitor",
+        foo = newrelic.AlertPolicy("foo", name="foo policy")
+        foo_monitor = newrelic.synthetics.Monitor("foo",
             status="ENABLED",
+            name="foo monitor",
             period="EVERY_MINUTE",
             uri="https://www.one.newrelic.com",
             type="SIMPLE",
@@ -508,8 +515,9 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
                 key="some_key",
                 values=["some_value"],
             )])
-        foo_multi_location_alert_condition = newrelic.synthetics.MultiLocationAlertCondition("fooMultiLocationAlertCondition",
-            policy_id=foo_alert_policy.id,
+        foo_multi_location_alert_condition = newrelic.synthetics.MultiLocationAlertCondition("foo",
+            policy_id=foo.id,
+            name="foo condition",
             runbook_url="https://example.com",
             enabled=True,
             violation_time_limit_seconds=3600,
@@ -520,7 +528,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
             warning=newrelic.synthetics.MultiLocationAlertConditionWarningArgs(
                 threshold=1,
             ))
-        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
+        my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_multi_location_alert_condition.entity_guid,
             tags=[
                 newrelic.EntityTagsTagArgs(

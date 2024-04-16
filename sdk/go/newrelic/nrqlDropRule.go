@@ -29,8 +29,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNrqlDropRule(ctx, "foo", &newrelic.NrqlDropRuleArgs{
 //				AccountId:   pulumi.Int(12345),
-//				Action:      pulumi.String("drop_data"),
 //				Description: pulumi.String("Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it."),
+//				Action:      pulumi.String("drop_data"),
 //				Nrql:        pulumi.String("SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'"),
 //			})
 //			if err != nil {
@@ -38,8 +38,8 @@ import (
 //			}
 //			_, err = newrelic.NewNrqlDropRule(ctx, "bar", &newrelic.NrqlDropRuleArgs{
 //				AccountId:   pulumi.Int(12345),
-//				Action:      pulumi.String("drop_attributes"),
 //				Description: pulumi.String("Removes the user name and email fields from MyCustomEvent"),
+//				Action:      pulumi.String("drop_attributes"),
 //				Nrql:        pulumi.String("SELECT userEmail, userName FROM MyCustomEvent"),
 //			})
 //			if err != nil {
@@ -47,8 +47,8 @@ import (
 //			}
 //			_, err = newrelic.NewNrqlDropRule(ctx, "baz", &newrelic.NrqlDropRuleArgs{
 //				AccountId:   pulumi.Int(12345),
-//				Action:      pulumi.String("drop_attributes_from_metric_aggregates"),
 //				Description: pulumi.String("Removes containerId from metric aggregates to reduce metric cardinality."),
+//				Action:      pulumi.String("drop_attributes_from_metric_aggregates"),
 //				Nrql:        pulumi.String("SELECT containerId FROM Metric"),
 //			})
 //			if err != nil {

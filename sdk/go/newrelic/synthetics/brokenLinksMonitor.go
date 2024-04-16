@@ -30,13 +30,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewBrokenLinksMonitor(ctx, "foo", &synthetics.BrokenLinksMonitorArgs{
+//				Name: pulumi.String("Sample Broken Links Monitor"),
+//				Uri:  pulumi.String("https://www.one.example.com"),
 //				LocationsPublics: pulumi.StringArray{
 //					pulumi.String("AP_SOUTH_1"),
 //				},
 //				Period:             pulumi.String("EVERY_6_HOURS"),
+//				Status:             pulumi.String("ENABLED"),
 //				RuntimeType:        pulumi.String("NODE_API"),
 //				RuntimeTypeVersion: pulumi.String("16.10"),
-//				Status:             pulumi.String("ENABLED"),
 //				Tags: synthetics.BrokenLinksMonitorTagArray{
 //					&synthetics.BrokenLinksMonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -45,7 +47,6 @@ import (
 //						},
 //					},
 //				},
-//				Uri: pulumi.String("https://www.one.example.com"),
 //			})
 //			if err != nil {
 //				return err
@@ -79,17 +80,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooPrivateLocation, err := synthetics.NewPrivateLocation(ctx, "fooPrivateLocation", &synthetics.PrivateLocationArgs{
+//			foo, err := synthetics.NewPrivateLocation(ctx, "foo", &synthetics.PrivateLocationArgs{
+//				Name:                    pulumi.String("Sample Private Location"),
 //				Description:             pulumi.String("Sample Private Location Description"),
 //				VerifiedScriptExecution: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = synthetics.NewBrokenLinksMonitor(ctx, "fooBrokenLinksMonitor", &synthetics.BrokenLinksMonitorArgs{
-//				Uri: pulumi.String("https://www.one.example.com"),
+//			_, err = synthetics.NewBrokenLinksMonitor(ctx, "foo", &synthetics.BrokenLinksMonitorArgs{
+//				Name: pulumi.String("Sample Broken Links Monitor"),
+//				Uri:  pulumi.String("https://www.one.example.com"),
 //				LocationsPrivates: pulumi.StringArray{
-//					fooPrivateLocation.ID(),
+//					foo.ID(),
 //				},
 //				Period: pulumi.String("EVERY_6_HOURS"),
 //				Status: pulumi.String("ENABLED"),

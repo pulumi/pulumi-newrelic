@@ -157,9 +157,10 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
-        foo_group = newrelic.Group("fooGroup",
-            authentication_domain_id=foo_authentication_domain.id,
+        foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+        foo_group = newrelic.Group("foo",
+            name="Test Group",
+            authentication_domain_id=foo.id,
             user_ids=[
                 "0001112222",
                 "2221110000",
@@ -178,17 +179,20 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
-        foo_user = newrelic.User("fooUser",
+        foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+        foo_user = newrelic.User("foo",
+            name="Test User One",
             email_id="test_user_one@test.com",
-            authentication_domain_id=foo_authentication_domain.id,
+            authentication_domain_id=foo.id,
             user_type="CORE_USER_TIER")
         bar = newrelic.User("bar",
+            name="Test User Two",
             email_id="test_user_two@test.com",
-            authentication_domain_id=foo_authentication_domain.id,
+            authentication_domain_id=foo.id,
             user_type="BASIC_USER_TIER")
-        foo_group = newrelic.Group("fooGroup",
-            authentication_domain_id=foo_authentication_domain.id,
+        foo_group = newrelic.Group("foo",
+            name="Test Group",
+            authentication_domain_id=foo.id,
             user_ids=[
                 foo_user.id,
                 bar.id,
@@ -205,15 +209,16 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
-        foo_user = newrelic.get_user(authentication_domain_id=foo_authentication_domain.id,
+        foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+        foo_get_user = newrelic.get_user(authentication_domain_id=foo.id,
             email_id="test_user_one@test.com")
-        bar = newrelic.get_user(authentication_domain_id=foo_authentication_domain.id,
+        bar = newrelic.get_user(authentication_domain_id=foo.id,
             name="Test User Two")
-        foo_group = newrelic.Group("fooGroup",
-            authentication_domain_id=foo_authentication_domain.id,
+        foo_group = newrelic.Group("foo",
+            name="Test Group",
+            authentication_domain_id=foo.id,
             user_ids=[
-                foo_user.id,
+                foo_get_user.id,
                 bar.id,
             ])
         ```
@@ -255,9 +260,10 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
-        foo_group = newrelic.Group("fooGroup",
-            authentication_domain_id=foo_authentication_domain.id,
+        foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+        foo_group = newrelic.Group("foo",
+            name="Test Group",
+            authentication_domain_id=foo.id,
             user_ids=[
                 "0001112222",
                 "2221110000",
@@ -276,17 +282,20 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
-        foo_user = newrelic.User("fooUser",
+        foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+        foo_user = newrelic.User("foo",
+            name="Test User One",
             email_id="test_user_one@test.com",
-            authentication_domain_id=foo_authentication_domain.id,
+            authentication_domain_id=foo.id,
             user_type="CORE_USER_TIER")
         bar = newrelic.User("bar",
+            name="Test User Two",
             email_id="test_user_two@test.com",
-            authentication_domain_id=foo_authentication_domain.id,
+            authentication_domain_id=foo.id,
             user_type="BASIC_USER_TIER")
-        foo_group = newrelic.Group("fooGroup",
-            authentication_domain_id=foo_authentication_domain.id,
+        foo_group = newrelic.Group("foo",
+            name="Test Group",
+            authentication_domain_id=foo.id,
             user_ids=[
                 foo_user.id,
                 bar.id,
@@ -303,15 +312,16 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
-        foo_user = newrelic.get_user(authentication_domain_id=foo_authentication_domain.id,
+        foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+        foo_get_user = newrelic.get_user(authentication_domain_id=foo.id,
             email_id="test_user_one@test.com")
-        bar = newrelic.get_user(authentication_domain_id=foo_authentication_domain.id,
+        bar = newrelic.get_user(authentication_domain_id=foo.id,
             name="Test User Two")
-        foo_group = newrelic.Group("fooGroup",
-            authentication_domain_id=foo_authentication_domain.id,
+        foo_group = newrelic.Group("foo",
+            name="Test Group",
+            authentication_domain_id=foo.id,
             user_ids=[
-                foo_user.id,
+                foo_get_user.id,
                 bar.id,
             ])
         ```

@@ -17,21 +17,22 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.MonitorDowntime("foo", {
- *     endRepeat: {
- *         onDate: "2023-12-20",
- *     },
- *     endTime: "2023-12-10T02:45:30",
- *     maintenanceDays: [
- *         "FRIDAY",
- *         "SATURDAY",
- *     ],
- *     mode: "WEEKLY",
+ *     name: "Sample Monitor Downtime",
  *     monitorGuids: [
  *         "<GUID-1>",
  *         "<GUID-2>",
  *     ],
+ *     mode: "WEEKLY",
  *     startTime: "2023-11-30T10:30:00",
+ *     endTime: "2023-12-10T02:45:30",
  *     timeZone: "Asia/Kolkata",
+ *     endRepeat: {
+ *         onDate: "2023-12-20",
+ *     },
+ *     maintenanceDays: [
+ *         "FRIDAY",
+ *         "SATURDAY",
+ *     ],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -48,14 +49,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const sampleOneTimeNewrelicMonitorDowntime = new newrelic.MonitorDowntime("sampleOneTimeNewrelicMonitorDowntime", {
- *     endTime: "2024-01-04T16:24:30",
- *     mode: "ONE_TIME",
+ * const sampleOneTimeNewrelicMonitorDowntime = new newrelic.MonitorDowntime("sample_one_time_newrelic_monitor_downtime", {
+ *     name: "Sample One Time Monitor Downtime",
  *     monitorGuids: [
  *         "<GUID-1>",
  *         "<GUID-2>",
  *     ],
+ *     mode: "ONE_TIME",
  *     startTime: "2023-12-04T10:15:00",
+ *     endTime: "2024-01-04T16:24:30",
  *     timeZone: "America/Los_Angeles",
  * });
  * ```
@@ -72,17 +74,18 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const sampleDailyNewrelicMonitorDowntime = new newrelic.MonitorDowntime("sampleDailyNewrelicMonitorDowntime", {
- *     endRepeat: {
- *         onDate: "2023-12-25",
- *     },
- *     endTime: "2024-01-04T07:15:00",
- *     mode: "DAILY",
+ * const sampleDailyNewrelicMonitorDowntime = new newrelic.MonitorDowntime("sample_daily_newrelic_monitor_downtime", {
+ *     name: "Sample Daily Monitor Downtime",
  *     monitorGuids: [
  *         "<GUID-1>",
  *         "<GUID-2>",
  *     ],
+ *     mode: "DAILY",
  *     startTime: "2023-12-04T18:15:00",
+ *     endTime: "2024-01-04T07:15:00",
+ *     endRepeat: {
+ *         onDate: "2023-12-25",
+ *     },
  *     timeZone: "Asia/Kolkata",
  * });
  * ```
@@ -99,19 +102,20 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const sampleWeeklyNewrelicMonitorDowntime = new newrelic.MonitorDowntime("sampleWeeklyNewrelicMonitorDowntime", {
- *     endTime: "2024-01-04T23:55:00",
- *     maintenanceDays: [
- *         "SATURDAY",
- *         "SUNDAY",
- *     ],
- *     mode: "WEEKLY",
+ * const sampleWeeklyNewrelicMonitorDowntime = new newrelic.MonitorDowntime("sample_weekly_newrelic_monitor_downtime", {
+ *     name: "Sample Weekly Monitor Downtime",
  *     monitorGuids: [
  *         "<GUID-1>",
  *         "<GUID-2>",
  *     ],
+ *     mode: "WEEKLY",
  *     startTime: "2023-12-04T14:15:00",
+ *     endTime: "2024-01-04T23:55:00",
  *     timeZone: "US/Hawaii",
+ *     maintenanceDays: [
+ *         "SATURDAY",
+ *         "SUNDAY",
+ *     ],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -127,24 +131,25 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const sampleMonthlyNewrelicMonitorDowntime = new newrelic.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime", {
+ * const sampleMonthlyNewrelicMonitorDowntime = new newrelic.MonitorDowntime("sample_monthly_newrelic_monitor_downtime", {
+ *     name: "Sample Monthly Monitor Downtime",
+ *     monitorGuids: [
+ *         "<GUID-1>",
+ *         "<GUID-2>",
+ *     ],
+ *     mode: "MONTHLY",
+ *     startTime: "2023-12-04T07:15:00",
+ *     endTime: "2024-01-04T19:15:00",
  *     endRepeat: {
  *         onRepeat: 6,
  *     },
- *     endTime: "2024-01-04T19:15:00",
+ *     timeZone: "Europe/Dublin",
  *     frequency: {
  *         daysOfWeek: {
  *             ordinalDayOfMonth: "SECOND",
  *             weekDay: "SATURDAY",
  *         },
  *     },
- *     mode: "MONTHLY",
- *     monitorGuids: [
- *         "<GUID-1>",
- *         "<GUID-2>",
- *     ],
- *     startTime: "2023-12-04T07:15:00",
- *     timeZone: "Europe/Dublin",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -154,11 +159,19 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const sampleMonthlyNewrelicMonitorDowntime = new newrelic.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime", {
+ * const sampleMonthlyNewrelicMonitorDowntime = new newrelic.MonitorDowntime("sample_monthly_newrelic_monitor_downtime", {
+ *     name: "Sample Monthly Monitor Downtime",
+ *     monitorGuids: [
+ *         "<GUID-1>",
+ *         "<GUID-2>",
+ *     ],
+ *     mode: "MONTHLY",
+ *     startTime: "2023-12-04T07:15:00",
+ *     endTime: "2024-01-04T19:15:00",
  *     endRepeat: {
  *         onRepeat: 6,
  *     },
- *     endTime: "2024-01-04T19:15:00",
+ *     timeZone: "Europe/Dublin",
  *     frequency: {
  *         daysOfMonths: [
  *             3,
@@ -167,13 +180,6 @@ import * as utilities from "./utilities";
  *             23,
  *         ],
  *     },
- *     mode: "MONTHLY",
- *     monitorGuids: [
- *         "<GUID-1>",
- *         "<GUID-2>",
- *     ],
- *     startTime: "2023-12-04T07:15:00",
- *     timeZone: "Europe/Dublin",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

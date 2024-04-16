@@ -17,10 +17,12 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const bar = new newrelic.ObfuscationExpression("bar", {
+ *     name: "expressionName",
  *     description: "description of the expression",
  *     regex: "(^http)",
  * });
  * const foo = new newrelic.ObfuscationRule("foo", {
+ *     name: "ruleName",
  *     description: "description of the rule",
  *     filter: "hostStatus=running",
  *     enabled: true,

@@ -176,6 +176,7 @@ class ObfuscationExpression(pulumi.CustomResource):
 
         foo = newrelic.ObfuscationExpression("foo",
             account_id=12345,
+            name="OExp",
             description="The description",
             regex="(regex.*)")
         ```
@@ -216,6 +217,7 @@ class ObfuscationExpression(pulumi.CustomResource):
 
         foo = newrelic.ObfuscationExpression("foo",
             account_id=12345,
+            name="OExp",
             description="The description",
             regex="(regex.*)")
         ```

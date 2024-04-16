@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.synthetics.SecureCredential("foo", {
- *     description: "My description",
  *     key: "MY_KEY",
  *     value: "My value",
+ *     description: "My description",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

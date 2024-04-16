@@ -16,7 +16,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const foo = new newrelic.AlertPolicy("foo", {incidentPreference: "PER_POLICY"});
+ * const foo = new newrelic.AlertPolicy("foo", {
+ *     name: "example",
+ *     incidentPreference: "PER_POLICY",
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *
@@ -41,7 +44,8 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * // Provision a Slack notification channel.
- * const slackChannel = new newrelic.AlertChannel("slackChannel", {
+ * const slackChannel = new newrelic.AlertChannel("slack_channel", {
+ *     name: "slack-example",
  *     type: "slack",
  *     config: {
  *         url: "https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
@@ -49,7 +53,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * // Provision an email notification channel.
- * const emailChannel = new newrelic.AlertChannel("emailChannel", {
+ * const emailChannel = new newrelic.AlertChannel("email_channel", {
+ *     name: "email-example",
  *     type: "email",
  *     config: {
  *         recipients: "example@testing.com",
@@ -57,7 +62,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * // Provision the alert policy.
- * const policyWithChannels = new newrelic.AlertPolicy("policyWithChannels", {
+ * const policyWithChannels = new newrelic.AlertPolicy("policy_with_channels", {
+ *     name: "example-with-channels",
  *     incidentPreference: "PER_CONDITION",
  *     channelIds: [
  *         slackChannel.id,
@@ -73,14 +79,17 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
+ * // Reference an existing Slack notification channel.
  * const slackChannel = newrelic.getAlertChannel({
  *     name: "slack-channel-notification",
  * });
+ * // Reference an existing email notification channel.
  * const emailChannel = newrelic.getAlertChannel({
  *     name: "test@example.com",
  * });
  * // Provision the alert policy.
- * const policyWithChannels = new newrelic.AlertPolicy("policyWithChannels", {
+ * const policyWithChannels = new newrelic.AlertPolicy("policy_with_channels", {
+ *     name: "example-with-channels",
  *     incidentPreference: "PER_CONDITION",
  *     channelIds: [
  *         slackChannel.then(slackChannel => slackChannel.id),

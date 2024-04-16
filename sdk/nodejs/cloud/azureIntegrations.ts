@@ -26,15 +26,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAzureLinkAccount = new newrelic.cloud.AzureLinkAccount("fooAzureLinkAccount", {
+ * const foo = new newrelic.cloud.AzureLinkAccount("foo", {
  *     accountId: "The New Relic account ID where you want to link the Azure account",
  *     applicationId: "ID of the application",
  *     clientSecret: "Secret value of client's Azure account",
  *     subscriptionId: "Subscription ID of Azure",
  *     tenantId: "Tenant ID of the Azure",
+ *     name: "Name of the linked account",
  * });
- * const fooAzureIntegrations = new newrelic.cloud.AzureIntegrations("fooAzureIntegrations", {
- *     linkedAccountId: fooAzureLinkAccount.id,
+ * const fooAzureIntegrations = new newrelic.cloud.AzureIntegrations("foo", {
+ *     linkedAccountId: foo.id,
  *     accountId: "The New Relic account ID",
  *     apiManagement: {
  *         metricsPollingInterval: 1200,

@@ -23,9 +23,10 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Data source
         ///     var foo = NewRelic.GetTestGrokPattern.Invoke(new()
         ///     {
-        ///         Grok = "%%{IP:host_ip}",
+        ///         Grok = "%{IP:host_ip}",
         ///         LogLines = new[]
         ///         {
         ///             "host_ip: 43.3.120.2",
@@ -52,9 +53,10 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Data source
         ///     var foo = NewRelic.GetTestGrokPattern.Invoke(new()
         ///     {
-        ///         Grok = "%%{IP:host_ip}",
+        ///         Grok = "%{IP:host_ip}",
         ///         LogLines = new[]
         ///         {
         ///             "host_ip: 43.3.120.2",

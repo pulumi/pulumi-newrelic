@@ -580,21 +580,22 @@ class ScriptMonitor(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            status="ENABLED",
+            name="script_monitor",
+            type="SCRIPT_API",
             locations_publics=[
                 "AP_SOUTH_1",
                 "AP_EAST_1",
             ],
             period="EVERY_6_HOURS",
-            runtime_type="NODE_API",
-            runtime_type_version="16.10",
             script="console.log('it works!')",
             script_language="JAVASCRIPT",
-            status="ENABLED",
+            runtime_type="NODE_API",
+            runtime_type_version="16.10",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="SCRIPT_API")
+            )])
         ```
         <!--End PulumiCodeChooser -->
         ##### Type: `SCRIPT_BROWSER`
@@ -605,22 +606,23 @@ class ScriptMonitor(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
-            enable_screenshot_on_failure_and_script=False,
+            status="ENABLED",
+            name="script_monitor",
+            type="SCRIPT_BROWSER",
             locations_publics=[
                 "AP_SOUTH_1",
                 "AP_EAST_1",
             ],
             period="EVERY_HOUR",
-            runtime_type="CHROME_BROWSER",
-            runtime_type_version="100",
+            enable_screenshot_on_failure_and_script=False,
             script="$browser.get('https://one.newrelic.com')",
+            runtime_type_version="100",
+            runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
-            status="ENABLED",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="SCRIPT_BROWSER")
+            )])
         ```
         <!--End PulumiCodeChooser -->
         See additional examples.
@@ -642,9 +644,11 @@ class ScriptMonitor(pulumi.CustomResource):
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Example private location",
+            name="private_location",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
             status="ENABLED",
+            name="script_monitor",
             type="SCRIPT_API",
             location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
                 guid=location.id,
@@ -670,9 +674,11 @@ class ScriptMonitor(pulumi.CustomResource):
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Test Description",
+            name="private_location",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
             status="ENABLED",
+            name="script_monitor",
             type="SCRIPT_BROWSER",
             period="EVERY_HOUR",
             script="$browser.get('https://one.newrelic.com')",
@@ -740,21 +746,22 @@ class ScriptMonitor(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            status="ENABLED",
+            name="script_monitor",
+            type="SCRIPT_API",
             locations_publics=[
                 "AP_SOUTH_1",
                 "AP_EAST_1",
             ],
             period="EVERY_6_HOURS",
-            runtime_type="NODE_API",
-            runtime_type_version="16.10",
             script="console.log('it works!')",
             script_language="JAVASCRIPT",
-            status="ENABLED",
+            runtime_type="NODE_API",
+            runtime_type_version="16.10",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="SCRIPT_API")
+            )])
         ```
         <!--End PulumiCodeChooser -->
         ##### Type: `SCRIPT_BROWSER`
@@ -765,22 +772,23 @@ class ScriptMonitor(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
-            enable_screenshot_on_failure_and_script=False,
+            status="ENABLED",
+            name="script_monitor",
+            type="SCRIPT_BROWSER",
             locations_publics=[
                 "AP_SOUTH_1",
                 "AP_EAST_1",
             ],
             period="EVERY_HOUR",
-            runtime_type="CHROME_BROWSER",
-            runtime_type_version="100",
+            enable_screenshot_on_failure_and_script=False,
             script="$browser.get('https://one.newrelic.com')",
+            runtime_type_version="100",
+            runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
-            status="ENABLED",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="SCRIPT_BROWSER")
+            )])
         ```
         <!--End PulumiCodeChooser -->
         See additional examples.
@@ -802,9 +810,11 @@ class ScriptMonitor(pulumi.CustomResource):
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Example private location",
+            name="private_location",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
             status="ENABLED",
+            name="script_monitor",
             type="SCRIPT_API",
             location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
                 guid=location.id,
@@ -830,9 +840,11 @@ class ScriptMonitor(pulumi.CustomResource):
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Test Description",
+            name="private_location",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
             status="ENABLED",
+            name="script_monitor",
             type="SCRIPT_BROWSER",
             period="EVERY_HOUR",
             script="$browser.get('https://one.newrelic.com')",

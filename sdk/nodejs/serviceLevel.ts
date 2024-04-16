@@ -25,19 +25,20 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.ServiceLevel("foo", {
+ *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
+ *     name: "Latency",
  *     description: "Proportion of requests that are served faster than a threshold.",
  *     events: {
  *         accountId: 12345678,
- *         goodEvents: {
- *             from: "Transaction",
- *             where: "appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
- *         },
  *         validEvents: {
  *             from: "Transaction",
  *             where: "appName = 'Example application' AND (transactionType='Web')",
  *         },
+ *         goodEvents: {
+ *             from: "Transaction",
+ *             where: "appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
+ *         },
  *     },
- *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
  *     objective: {
  *         target: 99,
  *         timeWindow: {
@@ -60,8 +61,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const mySyntheticMonitorServiceLevel = new newrelic.ServiceLevel("mySyntheticMonitorServiceLevel", {
+ * const mySyntheticMonitorServiceLevel = new newrelic.ServiceLevel("my_synthetic_monitor_service_level", {
  *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
+ *     name: "My synthethic monitor - Success",
  *     description: "Proportion of successful synthetic checks.",
  *     events: {
  *         accountId: 12345678,
@@ -84,7 +86,7 @@ import * as utilities from "./utilities";
  *         },
  *     },
  * });
- * const mySyntheticMonitorServiceLevelTags = new newrelic.EntityTags("mySyntheticMonitorServiceLevelTags", {
+ * const mySyntheticMonitorServiceLevelTags = new newrelic.EntityTags("my_synthetic_monitor_service_level_tags", {
  *     guid: mySyntheticMonitorServiceLevel.sliGuid,
  *     tags: [
  *         {
@@ -110,10 +112,20 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const mySyntheticMonitorDurationServiceLevel = new newrelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel", {
+ * const mySyntheticMonitorDurationServiceLevel = new newrelic.ServiceLevel("my_synthetic_monitor_duration_service_level", {
+ *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
+ *     name: "Duration distribution is under 7",
  *     description: "Monitor created to test concurrent request from terraform",
  *     events: {
  *         accountId: 313870,
+ *         validEvents: {
+ *             from: "Metric",
+ *             select: {
+ *                 attribute: "`query.wallClockTime.negative.distribution`",
+ *                 "function": "GET_FIELD",
+ *             },
+ *             where: "metricName = 'query.wallClockTime.negative.distribution'",
+ *         },
  *         goodEvents: {
  *             from: "Metric",
  *             select: {
@@ -123,16 +135,7 @@ import * as utilities from "./utilities";
  *             },
  *             where: "metricName = 'query.wallClockTime.negative.distribution'",
  *         },
- *         validEvents: {
- *             from: "Metric",
- *             select: {
- *                 attribute: "`query.wallClockTime.negative.distribution`",
- *                 "function": "GET_FIELD",
- *             },
- *             where: "metricName = 'query.wallClockTime.negative.distribution'",
- *         },
  *     },
- *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
  *     objective: {
  *         target: 49,
  *         timeWindow: {

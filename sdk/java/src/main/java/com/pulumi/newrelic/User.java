@@ -43,13 +43,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+ *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
  *             .name(&#34;Test Authentication Domain&#34;)
  *             .build());
  * 
  *         var fooUser = new User(&#34;fooUser&#34;, UserArgs.builder()        
+ *             .name(&#34;Test New User&#34;)
  *             .emailId(&#34;test_user@test.com&#34;)
- *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
  *             .userType(&#34;CORE_USER_TIER&#34;)
  *             .build());
  * 

@@ -27,8 +27,9 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.cloud.AwsLinkAccount("foo", {
- *     arn: aws_iam_role.newrelic_aws_role.arn,
+ *     arn: newrelicAwsRole.arn,
  *     metricCollectionMode: "PULL",
+ *     name: "foo",
  * });
  * const bar = new newrelic.cloud.AwsIntegrations("bar", {
  *     linkedAccountId: foo.id,

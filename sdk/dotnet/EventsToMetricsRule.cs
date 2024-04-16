@@ -26,6 +26,7 @@ namespace Pulumi.NewRelic
     ///     var foo = new NewRelic.EventsToMetricsRule("foo", new()
     ///     {
     ///         AccountId = 12345,
+    ///         Name = "Example events to metrics rule",
     ///         Description = "Example description",
     ///         Nrql = "SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name",
     ///     });

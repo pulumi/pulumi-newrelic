@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new ObfuscationExpression(&#34;foo&#34;, ObfuscationExpressionArgs.builder()        
  *             .accountId(12345)
+ *             .name(&#34;OExp&#34;)
  *             .description(&#34;The description&#34;)
  *             .regex(&#34;(regex.*)&#34;)
  *             .build());

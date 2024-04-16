@@ -45,6 +45,7 @@ import (
 //				ClientSecret:   pulumi.String("Secret value of client's Azure account"),
 //				SubscriptionId: pulumi.String("Subscription ID of Azure"),
 //				TenantId:       pulumi.String("Tenant ID of the Azure"),
+//				Name:           pulumi.String("Name of the linked account"),
 //			})
 //			if err != nil {
 //				return err

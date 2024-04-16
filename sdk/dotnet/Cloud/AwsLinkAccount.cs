@@ -37,6 +37,7 @@ namespace Pulumi.NewRelic.Cloud
     ///     {
     ///         Arn = "arn:aws:service:region:account-id:resource-id",
     ///         MetricCollectionMode = "PUSH",
+    ///         Name = "account name",
     ///     });
     /// 
     /// });

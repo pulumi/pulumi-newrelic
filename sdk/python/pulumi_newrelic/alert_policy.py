@@ -189,7 +189,9 @@ class AlertPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.AlertPolicy("foo", incident_preference="PER_POLICY")
+        foo = newrelic.AlertPolicy("foo",
+            name="example",
+            incident_preference="PER_POLICY")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -214,21 +216,24 @@ class AlertPolicy(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         # Provision a Slack notification channel.
-        slack_channel = newrelic.AlertChannel("slackChannel",
+        slack_channel = newrelic.AlertChannel("slack_channel",
+            name="slack-example",
             type="slack",
             config=newrelic.AlertChannelConfigArgs(
                 url="https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
                 channel="example-alerts-channel",
             ))
         # Provision an email notification channel.
-        email_channel = newrelic.AlertChannel("emailChannel",
+        email_channel = newrelic.AlertChannel("email_channel",
+            name="email-example",
             type="email",
             config=newrelic.AlertChannelConfigArgs(
                 recipients="example@testing.com",
                 include_json_attachment="1",
             ))
         # Provision the alert policy.
-        policy_with_channels = newrelic.AlertPolicy("policyWithChannels",
+        policy_with_channels = newrelic.AlertPolicy("policy_with_channels",
+            name="example-with-channels",
             incident_preference="PER_CONDITION",
             channel_ids=[
                 slack_channel.id,
@@ -243,10 +248,13 @@ class AlertPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
+        # Reference an existing Slack notification channel.
         slack_channel = newrelic.get_alert_channel(name="slack-channel-notification")
+        # Reference an existing email notification channel.
         email_channel = newrelic.get_alert_channel(name="test@example.com")
         # Provision the alert policy.
-        policy_with_channels = newrelic.AlertPolicy("policyWithChannels",
+        policy_with_channels = newrelic.AlertPolicy("policy_with_channels",
+            name="example-with-channels",
             incident_preference="PER_CONDITION",
             channel_ids=[
                 slack_channel.id,
@@ -291,7 +299,9 @@ class AlertPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.AlertPolicy("foo", incident_preference="PER_POLICY")
+        foo = newrelic.AlertPolicy("foo",
+            name="example",
+            incident_preference="PER_POLICY")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -316,21 +326,24 @@ class AlertPolicy(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         # Provision a Slack notification channel.
-        slack_channel = newrelic.AlertChannel("slackChannel",
+        slack_channel = newrelic.AlertChannel("slack_channel",
+            name="slack-example",
             type="slack",
             config=newrelic.AlertChannelConfigArgs(
                 url="https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
                 channel="example-alerts-channel",
             ))
         # Provision an email notification channel.
-        email_channel = newrelic.AlertChannel("emailChannel",
+        email_channel = newrelic.AlertChannel("email_channel",
+            name="email-example",
             type="email",
             config=newrelic.AlertChannelConfigArgs(
                 recipients="example@testing.com",
                 include_json_attachment="1",
             ))
         # Provision the alert policy.
-        policy_with_channels = newrelic.AlertPolicy("policyWithChannels",
+        policy_with_channels = newrelic.AlertPolicy("policy_with_channels",
+            name="example-with-channels",
             incident_preference="PER_CONDITION",
             channel_ids=[
                 slack_channel.id,
@@ -345,10 +358,13 @@ class AlertPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
+        # Reference an existing Slack notification channel.
         slack_channel = newrelic.get_alert_channel(name="slack-channel-notification")
+        # Reference an existing email notification channel.
         email_channel = newrelic.get_alert_channel(name="test@example.com")
         # Provision the alert policy.
-        policy_with_channels = newrelic.AlertPolicy("policyWithChannels",
+        policy_with_channels = newrelic.AlertPolicy("policy_with_channels",
+            name="example-with-channels",
             incident_preference="PER_CONDITION",
             channel_ids=[
                 slack_channel.id,

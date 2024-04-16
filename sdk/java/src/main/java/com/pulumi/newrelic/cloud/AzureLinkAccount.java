@@ -58,6 +58,7 @@ import javax.annotation.Nullable;
  *             .clientSecret(&#34;Secret value of client&#39;s Azure account&#34;)
  *             .subscriptionId(&#34;Subscription ID of Azure&#34;)
  *             .tenantId(&#34;Tenant ID of the Azure&#34;)
+ *             .name(&#34;Name of the linked account&#34;)
  *             .build());
  * 
  *     }

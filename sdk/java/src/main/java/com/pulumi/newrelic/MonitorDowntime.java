@@ -47,19 +47,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new MonitorDowntime(&#34;foo&#34;, MonitorDowntimeArgs.builder()        
- *             .endRepeat(MonitorDowntimeEndRepeatArgs.builder()
- *                 .onDate(&#34;2023-12-20&#34;)
- *                 .build())
- *             .endTime(&#34;2023-12-10T02:45:30&#34;)
- *             .maintenanceDays(            
- *                 &#34;FRIDAY&#34;,
- *                 &#34;SATURDAY&#34;)
- *             .mode(&#34;WEEKLY&#34;)
+ *             .name(&#34;Sample Monitor Downtime&#34;)
  *             .monitorGuids(            
  *                 &#34;&lt;GUID-1&gt;&#34;,
  *                 &#34;&lt;GUID-2&gt;&#34;)
+ *             .mode(&#34;WEEKLY&#34;)
  *             .startTime(&#34;2023-11-30T10:30:00&#34;)
+ *             .endTime(&#34;2023-12-10T02:45:30&#34;)
  *             .timeZone(&#34;Asia/Kolkata&#34;)
+ *             .endRepeat(MonitorDowntimeEndRepeatArgs.builder()
+ *                 .onDate(&#34;2023-12-20&#34;)
+ *                 .build())
+ *             .maintenanceDays(            
+ *                 &#34;FRIDAY&#34;,
+ *                 &#34;SATURDAY&#34;)
  *             .build());
  * 
  *     }
@@ -97,12 +98,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sampleOneTimeNewrelicMonitorDowntime = new MonitorDowntime(&#34;sampleOneTimeNewrelicMonitorDowntime&#34;, MonitorDowntimeArgs.builder()        
- *             .endTime(&#34;2024-01-04T16:24:30&#34;)
- *             .mode(&#34;ONE_TIME&#34;)
+ *             .name(&#34;Sample One Time Monitor Downtime&#34;)
  *             .monitorGuids(            
  *                 &#34;&lt;GUID-1&gt;&#34;,
  *                 &#34;&lt;GUID-2&gt;&#34;)
+ *             .mode(&#34;ONE_TIME&#34;)
  *             .startTime(&#34;2023-12-04T10:15:00&#34;)
+ *             .endTime(&#34;2024-01-04T16:24:30&#34;)
  *             .timeZone(&#34;America/Los_Angeles&#34;)
  *             .build());
  * 
@@ -141,15 +143,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sampleDailyNewrelicMonitorDowntime = new MonitorDowntime(&#34;sampleDailyNewrelicMonitorDowntime&#34;, MonitorDowntimeArgs.builder()        
- *             .endRepeat(MonitorDowntimeEndRepeatArgs.builder()
- *                 .onDate(&#34;2023-12-25&#34;)
- *                 .build())
- *             .endTime(&#34;2024-01-04T07:15:00&#34;)
- *             .mode(&#34;DAILY&#34;)
+ *             .name(&#34;Sample Daily Monitor Downtime&#34;)
  *             .monitorGuids(            
  *                 &#34;&lt;GUID-1&gt;&#34;,
  *                 &#34;&lt;GUID-2&gt;&#34;)
+ *             .mode(&#34;DAILY&#34;)
  *             .startTime(&#34;2023-12-04T18:15:00&#34;)
+ *             .endTime(&#34;2024-01-04T07:15:00&#34;)
+ *             .endRepeat(MonitorDowntimeEndRepeatArgs.builder()
+ *                 .onDate(&#34;2023-12-25&#34;)
+ *                 .build())
  *             .timeZone(&#34;Asia/Kolkata&#34;)
  *             .build());
  * 
@@ -187,16 +190,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sampleWeeklyNewrelicMonitorDowntime = new MonitorDowntime(&#34;sampleWeeklyNewrelicMonitorDowntime&#34;, MonitorDowntimeArgs.builder()        
- *             .endTime(&#34;2024-01-04T23:55:00&#34;)
- *             .maintenanceDays(            
- *                 &#34;SATURDAY&#34;,
- *                 &#34;SUNDAY&#34;)
- *             .mode(&#34;WEEKLY&#34;)
+ *             .name(&#34;Sample Weekly Monitor Downtime&#34;)
  *             .monitorGuids(            
  *                 &#34;&lt;GUID-1&gt;&#34;,
  *                 &#34;&lt;GUID-2&gt;&#34;)
+ *             .mode(&#34;WEEKLY&#34;)
  *             .startTime(&#34;2023-12-04T14:15:00&#34;)
+ *             .endTime(&#34;2024-01-04T23:55:00&#34;)
  *             .timeZone(&#34;US/Hawaii&#34;)
+ *             .maintenanceDays(            
+ *                 &#34;SATURDAY&#34;,
+ *                 &#34;SUNDAY&#34;)
  *             .build());
  * 
  *     }
@@ -236,22 +240,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sampleMonthlyNewrelicMonitorDowntime = new MonitorDowntime(&#34;sampleMonthlyNewrelicMonitorDowntime&#34;, MonitorDowntimeArgs.builder()        
+ *             .name(&#34;Sample Monthly Monitor Downtime&#34;)
+ *             .monitorGuids(            
+ *                 &#34;&lt;GUID-1&gt;&#34;,
+ *                 &#34;&lt;GUID-2&gt;&#34;)
+ *             .mode(&#34;MONTHLY&#34;)
+ *             .startTime(&#34;2023-12-04T07:15:00&#34;)
+ *             .endTime(&#34;2024-01-04T19:15:00&#34;)
  *             .endRepeat(MonitorDowntimeEndRepeatArgs.builder()
  *                 .onRepeat(6)
  *                 .build())
- *             .endTime(&#34;2024-01-04T19:15:00&#34;)
+ *             .timeZone(&#34;Europe/Dublin&#34;)
  *             .frequency(MonitorDowntimeFrequencyArgs.builder()
  *                 .daysOfWeek(MonitorDowntimeFrequencyDaysOfWeekArgs.builder()
  *                     .ordinalDayOfMonth(&#34;SECOND&#34;)
  *                     .weekDay(&#34;SATURDAY&#34;)
  *                     .build())
  *                 .build())
- *             .mode(&#34;MONTHLY&#34;)
- *             .monitorGuids(            
- *                 &#34;&lt;GUID-1&gt;&#34;,
- *                 &#34;&lt;GUID-2&gt;&#34;)
- *             .startTime(&#34;2023-12-04T07:15:00&#34;)
- *             .timeZone(&#34;Europe/Dublin&#34;)
  *             .build());
  * 
  *     }
@@ -284,10 +289,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sampleMonthlyNewrelicMonitorDowntime = new MonitorDowntime(&#34;sampleMonthlyNewrelicMonitorDowntime&#34;, MonitorDowntimeArgs.builder()        
+ *             .name(&#34;Sample Monthly Monitor Downtime&#34;)
+ *             .monitorGuids(            
+ *                 &#34;&lt;GUID-1&gt;&#34;,
+ *                 &#34;&lt;GUID-2&gt;&#34;)
+ *             .mode(&#34;MONTHLY&#34;)
+ *             .startTime(&#34;2023-12-04T07:15:00&#34;)
+ *             .endTime(&#34;2024-01-04T19:15:00&#34;)
  *             .endRepeat(MonitorDowntimeEndRepeatArgs.builder()
  *                 .onRepeat(6)
  *                 .build())
- *             .endTime(&#34;2024-01-04T19:15:00&#34;)
+ *             .timeZone(&#34;Europe/Dublin&#34;)
  *             .frequency(MonitorDowntimeFrequencyArgs.builder()
  *                 .daysOfMonths(                
  *                     3,
@@ -295,12 +307,6 @@ import javax.annotation.Nullable;
  *                     14,
  *                     23)
  *                 .build())
- *             .mode(&#34;MONTHLY&#34;)
- *             .monitorGuids(            
- *                 &#34;&lt;GUID-1&gt;&#34;,
- *                 &#34;&lt;GUID-2&gt;&#34;)
- *             .startTime(&#34;2023-12-04T07:15:00&#34;)
- *             .timeZone(&#34;Europe/Dublin&#34;)
  *             .build());
  * 
  *     }

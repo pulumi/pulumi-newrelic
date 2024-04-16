@@ -23,6 +23,9 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertMutingRule("foo", new()
     ///     {
+    ///         Name = "Example Muting Rule",
+    ///         Enabled = true,
+    ///         Description = "muting rule test.",
     ///         Condition = new NewRelic.Inputs.AlertMutingRuleConditionArgs
     ///         {
     ///             Conditions = new[]
@@ -48,21 +51,19 @@ namespace Pulumi.NewRelic
     ///             },
     ///             Operator = "AND",
     ///         },
-    ///         Description = "muting rule test.",
-    ///         Enabled = true,
     ///         Schedule = new NewRelic.Inputs.AlertMutingRuleScheduleArgs
     ///         {
-    ///             EndTime = "2021-01-28T16:30:00",
-    ///             Repeat = "WEEKLY",
-    ///             RepeatCount = 42,
     ///             StartTime = "2021-01-28T15:30:00",
+    ///             EndTime = "2021-01-28T16:30:00",
     ///             TimeZone = "America/Los_Angeles",
+    ///             Repeat = "WEEKLY",
     ///             WeeklyRepeatDays = new[]
     ///             {
     ///                 "MONDAY",
     ///                 "WEDNESDAY",
     ///                 "FRIDAY",
     ///             },
+    ///             RepeatCount = 42,
     ///         },
     ///     });
     /// 

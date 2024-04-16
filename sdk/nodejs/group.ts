@@ -14,11 +14,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAuthenticationDomain = newrelic.getAuthenticationDomain({
+ * const foo = newrelic.getAuthenticationDomain({
  *     name: "Test Authentication Domain",
  * });
- * const fooGroup = new newrelic.Group("fooGroup", {
- *     authenticationDomainId: fooAuthenticationDomain.then(fooAuthenticationDomain => fooAuthenticationDomain.id),
+ * const fooGroup = new newrelic.Group("foo", {
+ *     name: "Test Group",
+ *     authenticationDomainId: foo.then(foo => foo.id),
  *     userIds: [
  *         "0001112222",
  *         "2221110000",
@@ -38,21 +39,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAuthenticationDomain = newrelic.getAuthenticationDomain({
+ * const foo = newrelic.getAuthenticationDomain({
  *     name: "Test Authentication Domain",
  * });
- * const fooUser = new newrelic.User("fooUser", {
+ * const fooUser = new newrelic.User("foo", {
+ *     name: "Test User One",
  *     emailId: "test_user_one@test.com",
- *     authenticationDomainId: fooAuthenticationDomain.then(fooAuthenticationDomain => fooAuthenticationDomain.id),
+ *     authenticationDomainId: foo.then(foo => foo.id),
  *     userType: "CORE_USER_TIER",
  * });
  * const bar = new newrelic.User("bar", {
+ *     name: "Test User Two",
  *     emailId: "test_user_two@test.com",
- *     authenticationDomainId: fooAuthenticationDomain.then(fooAuthenticationDomain => fooAuthenticationDomain.id),
+ *     authenticationDomainId: foo.then(foo => foo.id),
  *     userType: "BASIC_USER_TIER",
  * });
- * const fooGroup = new newrelic.Group("fooGroup", {
- *     authenticationDomainId: fooAuthenticationDomain.then(fooAuthenticationDomain => fooAuthenticationDomain.id),
+ * const fooGroup = new newrelic.Group("foo", {
+ *     name: "Test Group",
+ *     authenticationDomainId: foo.then(foo => foo.id),
  *     userIds: [
  *         fooUser.id,
  *         bar.id,
@@ -70,21 +74,22 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAuthenticationDomain = newrelic.getAuthenticationDomain({
+ * const foo = newrelic.getAuthenticationDomain({
  *     name: "Test Authentication Domain",
  * });
- * const fooUser = fooAuthenticationDomain.then(fooAuthenticationDomain => newrelic.getUser({
- *     authenticationDomainId: fooAuthenticationDomain.id,
+ * const fooGetUser = foo.then(foo => newrelic.getUser({
+ *     authenticationDomainId: foo.id,
  *     emailId: "test_user_one@test.com",
  * }));
- * const bar = fooAuthenticationDomain.then(fooAuthenticationDomain => newrelic.getUser({
- *     authenticationDomainId: fooAuthenticationDomain.id,
+ * const bar = foo.then(foo => newrelic.getUser({
+ *     authenticationDomainId: foo.id,
  *     name: "Test User Two",
  * }));
- * const fooGroup = new newrelic.Group("fooGroup", {
- *     authenticationDomainId: fooAuthenticationDomain.then(fooAuthenticationDomain => fooAuthenticationDomain.id),
+ * const fooGroup = new newrelic.Group("foo", {
+ *     name: "Test Group",
+ *     authenticationDomainId: foo.then(foo => foo.id),
  *     userIds: [
- *         fooUser.then(fooUser => fooUser.id),
+ *         fooGetUser.then(fooGetUser => fooGetUser.id),
  *         bar.then(bar => bar.id),
  *     ],
  * });

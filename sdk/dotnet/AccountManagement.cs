@@ -28,6 +28,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AccountManagement("foo", new()
     ///     {
+    ///         Name = "Test Account Name",
     ///         Region = "us01",
     ///     });
     /// 

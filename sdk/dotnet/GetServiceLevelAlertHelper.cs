@@ -34,6 +34,7 @@ namespace Pulumi.NewRelic
         ///     var foo = new NewRelic.ServiceLevel("foo", new()
         ///     {
         ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
+        ///         Name = "Latency",
         ///         Description = "Proportion of requests that are served faster than a threshold.",
         ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
         ///         {
@@ -84,17 +85,18 @@ namespace Pulumi.NewRelic
         ///     var fooSlowBurn = NewRelic.GetServiceLevelAlertHelper.Invoke(new()
         ///     {
         ///         AlertType = "slow_burn",
-        ///         SliGuid = newrelic_service_level.Foo.Sli_guid,
-        ///         SloTarget = local.Foo_target,
-        ///         SloPeriod = local.Foo_period,
+        ///         SliGuid = foo.SliGuid,
+        ///         SloTarget = fooTarget,
+        ///         SloPeriod = fooPeriod,
         ///         IsBadEvents = true,
         ///     });
         /// 
-        ///     var yourCondition = new NewRelic.NrqlAlertCondition("yourCondition", new()
+        ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
         ///     {
         ///         AccountId = 12345678,
         ///         PolicyId = 67890,
         ///         Type = "static",
+        ///         Name = "Slow burn alert",
         ///         Enabled = true,
         ///         ViolationTimeLimitSeconds = 259200,
         ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
@@ -134,19 +136,20 @@ namespace Pulumi.NewRelic
         ///     var fooCustom = NewRelic.GetServiceLevelAlertHelper.Invoke(new()
         ///     {
         ///         AlertType = "custom",
-        ///         SliGuid = newrelic_service_level.Foo.Sli_guid,
-        ///         SloTarget = local.Foo_target,
-        ///         SloPeriod = local.Foo_period,
+        ///         SliGuid = foo.SliGuid,
+        ///         SloTarget = fooTarget,
+        ///         SloPeriod = fooPeriod,
         ///         CustomToleratedBudgetConsumption = 4,
         ///         CustomEvaluationPeriod = 5400,
         ///         IsBadEvents = true,
         ///     });
         /// 
-        ///     var yourCondition = new NewRelic.NrqlAlertCondition("yourCondition", new()
+        ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
         ///     {
         ///         AccountId = 12345678,
         ///         PolicyId = 67890,
         ///         Type = "static",
+        ///         Name = "Custom burn alert",
         ///         Enabled = true,
         ///         ViolationTimeLimitSeconds = 259200,
         ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
@@ -197,6 +200,7 @@ namespace Pulumi.NewRelic
         ///     var foo = new NewRelic.ServiceLevel("foo", new()
         ///     {
         ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
+        ///         Name = "Latency",
         ///         Description = "Proportion of requests that are served faster than a threshold.",
         ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
         ///         {
@@ -247,17 +251,18 @@ namespace Pulumi.NewRelic
         ///     var fooSlowBurn = NewRelic.GetServiceLevelAlertHelper.Invoke(new()
         ///     {
         ///         AlertType = "slow_burn",
-        ///         SliGuid = newrelic_service_level.Foo.Sli_guid,
-        ///         SloTarget = local.Foo_target,
-        ///         SloPeriod = local.Foo_period,
+        ///         SliGuid = foo.SliGuid,
+        ///         SloTarget = fooTarget,
+        ///         SloPeriod = fooPeriod,
         ///         IsBadEvents = true,
         ///     });
         /// 
-        ///     var yourCondition = new NewRelic.NrqlAlertCondition("yourCondition", new()
+        ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
         ///     {
         ///         AccountId = 12345678,
         ///         PolicyId = 67890,
         ///         Type = "static",
+        ///         Name = "Slow burn alert",
         ///         Enabled = true,
         ///         ViolationTimeLimitSeconds = 259200,
         ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
@@ -297,19 +302,20 @@ namespace Pulumi.NewRelic
         ///     var fooCustom = NewRelic.GetServiceLevelAlertHelper.Invoke(new()
         ///     {
         ///         AlertType = "custom",
-        ///         SliGuid = newrelic_service_level.Foo.Sli_guid,
-        ///         SloTarget = local.Foo_target,
-        ///         SloPeriod = local.Foo_period,
+        ///         SliGuid = foo.SliGuid,
+        ///         SloTarget = fooTarget,
+        ///         SloPeriod = fooPeriod,
         ///         CustomToleratedBudgetConsumption = 4,
         ///         CustomEvaluationPeriod = 5400,
         ///         IsBadEvents = true,
         ///     });
         /// 
-        ///     var yourCondition = new NewRelic.NrqlAlertCondition("yourCondition", new()
+        ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
         ///     {
         ///         AccountId = 12345678,
         ///         PolicyId = 67890,
         ///         Type = "static",
+        ///         Name = "Custom burn alert",
         ///         Enabled = true,
         ///         ViolationTimeLimitSeconds = 259200,
         ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs

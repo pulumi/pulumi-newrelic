@@ -32,8 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewAlertCondition(ctx, "foo", &synthetics.AlertConditionArgs{
-//				PolicyId:   pulumi.Any(newrelic_alert_policy.Foo.Id),
-//				MonitorId:  pulumi.Any(newrelic_synthetics_monitor.Foo.Id),
+//				PolicyId:   pulumi.Any(fooNewrelicAlertPolicy.Id),
+//				Name:       pulumi.String("foo"),
+//				MonitorId:  pulumi.Any(fooNewrelicSyntheticsMonitor.Id),
 //				RunbookUrl: pulumi.String("https://www.example.com"),
 //			})
 //			if err != nil {
@@ -64,12 +65,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo policy"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			fooMonitor, err := synthetics.NewMonitor(ctx, "fooMonitor", &synthetics.MonitorArgs{
+//			fooMonitor, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
 //				Status: pulumi.String("ENABLED"),
+//				Name:   pulumi.String("foo monitor"),
 //				Period: pulumi.String("EVERY_MINUTE"),
 //				Uri:    pulumi.String("https://www.one.newrelic.com"),
 //				Type:   pulumi.String("SIMPLE"),
@@ -98,15 +102,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooAlertCondition, err := synthetics.NewAlertCondition(ctx, "fooAlertCondition", &synthetics.AlertConditionArgs{
-//				PolicyId:   fooAlertPolicy.ID(),
+//			fooAlertCondition, err := synthetics.NewAlertCondition(ctx, "foo", &synthetics.AlertConditionArgs{
+//				PolicyId:   foo.ID(),
+//				Name:       pulumi.String("foo synthetics condition"),
 //				MonitorId:  fooMonitor.ID(),
 //				RunbookUrl: pulumi.String("https://www.example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
+//			_, err = newrelic.NewEntityTags(ctx, "my_condition_entity_tags", &newrelic.EntityTagsArgs{
 //				Guid: fooAlertCondition.EntityGuid,
 //				Tags: newrelic.EntityTagsTagArray{
 //					&newrelic.EntityTagsTagArgs{

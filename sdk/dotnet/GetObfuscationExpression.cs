@@ -33,6 +33,7 @@ namespace Pulumi.NewRelic
         /// 
         ///     var rule = new NewRelic.ObfuscationRule("rule", new()
         ///     {
+        ///         Name = "ruleName",
         ///         Description = "description of the rule",
         ///         Filter = "hostStatus=running",
         ///         Enabled = true,
@@ -79,6 +80,7 @@ namespace Pulumi.NewRelic
         /// 
         ///     var rule = new NewRelic.ObfuscationRule("rule", new()
         ///     {
+        ///         Name = "ruleName",
         ///         Description = "description of the rule",
         ///         Filter = "hostStatus=running",
         ///         Enabled = true,

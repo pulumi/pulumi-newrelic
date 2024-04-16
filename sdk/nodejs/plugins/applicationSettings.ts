@@ -19,9 +19,10 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const app = new newrelic.plugins.ApplicationSettings("app", {
+ *     name: "my-app",
  *     appApdexThreshold: 0.7,
- *     enableRealUserMonitoring: false,
  *     endUserApdexThreshold: 0.8,
+ *     enableRealUserMonitoring: false,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

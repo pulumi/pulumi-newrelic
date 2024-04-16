@@ -14,8 +14,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
+ * // Data source
  * const foo = newrelic.getTestGrokPattern({
- *     grok: "%%{IP:host_ip}",
+ *     grok: "%{IP:host_ip}",
  *     logLines: [
  *         "host_ip: 43.3.120.2",
  *         "bytes_received: 2048",
@@ -76,8 +77,9 @@ export interface GetTestGrokPatternResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
+ * // Data source
  * const foo = newrelic.getTestGrokPattern({
- *     grok: "%%{IP:host_ip}",
+ *     grok: "%{IP:host_ip}",
  *     logLines: [
  *         "host_ip: 43.3.120.2",
  *         "bytes_received: 2048",

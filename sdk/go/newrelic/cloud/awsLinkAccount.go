@@ -42,6 +42,7 @@ import (
 //			_, err := cloud.NewAwsLinkAccount(ctx, "foo", &cloud.AwsLinkAccountArgs{
 //				Arn:                  pulumi.String("arn:aws:service:region:account-id:resource-id"),
 //				MetricCollectionMode: pulumi.String("PUSH"),
+//				Name:                 pulumi.String("account name"),
 //			})
 //			if err != nil {
 //				return err

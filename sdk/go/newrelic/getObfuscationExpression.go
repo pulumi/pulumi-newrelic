@@ -36,6 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewObfuscationRule(ctx, "rule", &newrelic.ObfuscationRuleArgs{
+//				Name:        pulumi.String("ruleName"),
 //				Description: pulumi.String("description of the rule"),
 //				Filter:      pulumi.String("hostStatus=running"),
 //				Enabled:     pulumi.Bool(true),

@@ -158,8 +158,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new AwsLinkAccount(&#34;foo&#34;, AwsLinkAccountArgs.builder()        
- *             .arn(aws_iam_role.newrelic_aws_role().arn())
+ *             .arn(newrelicAwsRole.arn())
  *             .metricCollectionMode(&#34;PULL&#34;)
+ *             .name(&#34;foo&#34;)
  *             .build());
  * 
  *         var bar = new AwsIntegrations(&#34;bar&#34;, AwsIntegrationsArgs.builder()        

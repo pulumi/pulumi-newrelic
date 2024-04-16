@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.synthetics.Monitor;
  * import com.pulumi.newrelic.synthetics.MonitorArgs;
  * import com.pulumi.newrelic.synthetics.MultiLocationAlertCondition;
@@ -53,10 +54,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var policy = new AlertPolicy(&#34;policy&#34;);
+ *         var policy = new AlertPolicy(&#34;policy&#34;, AlertPolicyArgs.builder()        
+ *             .name(&#34;my-policy&#34;)
+ *             .build());
  * 
  *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
  *             .locationsPublics(&#34;US_WEST_1&#34;)
+ *             .name(&#34;my-monitor&#34;)
  *             .period(&#34;EVERY_10_MINUTES&#34;)
  *             .status(&#34;DISABLED&#34;)
  *             .type(&#34;SIMPLE&#34;)
@@ -65,6 +69,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new MultiLocationAlertCondition(&#34;example&#34;, MultiLocationAlertConditionArgs.builder()        
  *             .policyId(policy.id())
+ *             .name(&#34;Example condition&#34;)
  *             .runbookUrl(&#34;https://example.com&#34;)
  *             .enabled(true)
  *             .violationTimeLimitSeconds(3600)
@@ -93,6 +98,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.synthetics.Monitor;
  * import com.pulumi.newrelic.synthetics.MonitorArgs;
  * import com.pulumi.newrelic.synthetics.inputs.MonitorCustomHeaderArgs;
@@ -117,10 +123,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+ *             .name(&#34;foo policy&#34;)
+ *             .build());
  * 
  *         var fooMonitor = new Monitor(&#34;fooMonitor&#34;, MonitorArgs.builder()        
  *             .status(&#34;ENABLED&#34;)
+ *             .name(&#34;foo monitor&#34;)
  *             .period(&#34;EVERY_MINUTE&#34;)
  *             .uri(&#34;https://www.one.newrelic.com&#34;)
  *             .type(&#34;SIMPLE&#34;)
@@ -140,7 +149,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooMultiLocationAlertCondition = new MultiLocationAlertCondition(&#34;fooMultiLocationAlertCondition&#34;, MultiLocationAlertConditionArgs.builder()        
- *             .policyId(fooAlertPolicy.id())
+ *             .policyId(foo.id())
+ *             .name(&#34;foo condition&#34;)
  *             .runbookUrl(&#34;https://example.com&#34;)
  *             .enabled(true)
  *             .violationTimeLimitSeconds(3600)

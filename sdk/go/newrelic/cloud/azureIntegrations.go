@@ -39,18 +39,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAzureLinkAccount, err := cloud.NewAzureLinkAccount(ctx, "fooAzureLinkAccount", &cloud.AzureLinkAccountArgs{
+//			foo, err := cloud.NewAzureLinkAccount(ctx, "foo", &cloud.AzureLinkAccountArgs{
 //				AccountId:      pulumi.Int("The New Relic account ID where you want to link the Azure account"),
 //				ApplicationId:  pulumi.String("ID of the application"),
 //				ClientSecret:   pulumi.String("Secret value of client's Azure account"),
 //				SubscriptionId: pulumi.String("Subscription ID of Azure"),
 //				TenantId:       pulumi.String("Tenant ID of the Azure"),
+//				Name:           pulumi.String("Name of the linked account"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloud.NewAzureIntegrations(ctx, "fooAzureIntegrations", &cloud.AzureIntegrationsArgs{
-//				LinkedAccountId: fooAzureLinkAccount.ID(),
+//			_, err = cloud.NewAzureIntegrations(ctx, "foo", &cloud.AzureIntegrationsArgs{
+//				LinkedAccountId: foo.ID(),
 //				AccountId:       pulumi.Int("The New Relic account ID"),
 //				ApiManagement: &cloud.AzureIntegrationsApiManagementArgs{
 //					MetricsPollingInterval: pulumi.Int(1200),

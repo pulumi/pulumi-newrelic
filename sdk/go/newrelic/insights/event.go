@@ -32,6 +32,8 @@ import (
 //			_, err := insights.NewEvent(ctx, "foo", &insights.EventArgs{
 //				Events: insights.EventEventArray{
 //					&insights.EventEventArgs{
+//						Type:      pulumi.String("MyEvent"),
+//						Timestamp: pulumi.Int(1232471100),
 //						Attributes: insights.EventEventAttributeArray{
 //							&insights.EventEventAttributeArgs{
 //								Key:   pulumi.String("a_string_attribute"),
@@ -39,17 +41,15 @@ import (
 //							},
 //							&insights.EventEventAttributeArgs{
 //								Key:   pulumi.String("an_integer_attribute"),
-//								Type:  pulumi.String("int"),
 //								Value: pulumi.String("42"),
+//								Type:  pulumi.String("int"),
 //							},
 //							&insights.EventEventAttributeArgs{
 //								Key:   pulumi.String("a_float_attribute"),
-//								Type:  pulumi.String("float"),
 //								Value: pulumi.String("101.1"),
+//								Type:  pulumi.String("float"),
 //							},
 //						},
-//						Timestamp: pulumi.Int(1232471100),
-//						Type:      pulumi.String("MyEvent"),
 //					},
 //				},
 //			})

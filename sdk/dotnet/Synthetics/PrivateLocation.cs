@@ -26,6 +26,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
     ///     {
     ///         Description = "The private location description",
+    ///         Name = "The name of the private location",
     ///     });
     /// 
     /// });

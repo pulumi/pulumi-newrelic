@@ -27,8 +27,9 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var foo = new NewRelic.Synthetics.AlertCondition("foo", new()
     ///     {
-    ///         PolicyId = newrelic_alert_policy.Foo.Id,
-    ///         MonitorId = newrelic_synthetics_monitor.Foo.Id,
+    ///         PolicyId = fooNewrelicAlertPolicy.Id,
+    ///         Name = "foo",
+    ///         MonitorId = fooNewrelicSyntheticsMonitor.Id,
     ///         RunbookUrl = "https://www.example.com",
     ///     });
     /// 
@@ -49,11 +50,15 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     {
+    ///         Name = "foo policy",
+    ///     });
     /// 
-    ///     var fooMonitor = new NewRelic.Synthetics.Monitor("fooMonitor", new()
+    ///     var fooMonitor = new NewRelic.Synthetics.Monitor("foo", new()
     ///     {
     ///         Status = "ENABLED",
+    ///         Name = "foo monitor",
     ///         Period = "EVERY_MINUTE",
     ///         Uri = "https://www.one.newrelic.com",
     ///         Type = "SIMPLE",
@@ -86,14 +91,15 @@ namespace Pulumi.NewRelic.Synthetics
     ///         },
     ///     });
     /// 
-    ///     var fooAlertCondition = new NewRelic.Synthetics.AlertCondition("fooAlertCondition", new()
+    ///     var fooAlertCondition = new NewRelic.Synthetics.AlertCondition("foo", new()
     ///     {
-    ///         PolicyId = fooAlertPolicy.Id,
+    ///         PolicyId = foo.Id,
+    ///         Name = "foo synthetics condition",
     ///         MonitorId = fooMonitor.Id,
     ///         RunbookUrl = "https://www.example.com",
     ///     });
     /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
+    ///     var myConditionEntityTags = new NewRelic.EntityTags("my_condition_entity_tags", new()
     ///     {
     ///         Guid = fooAlertCondition.EntityGuid,
     ///         Tags = new[]

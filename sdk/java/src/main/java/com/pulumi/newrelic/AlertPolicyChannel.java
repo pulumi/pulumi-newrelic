@@ -50,12 +50,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Fetches the data for this policy from your New Relic account
+ *         // and is referenced in the newrelic_alert_policy_channel block below.
  *         final var examplePolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
  *             .name(&#34;my-alert-policy&#34;)
  *             .build());
  * 
  *         // Creates an email alert channel.
  *         var emailChannel = new AlertChannel(&#34;emailChannel&#34;, AlertChannelArgs.builder()        
+ *             .name(&#34;bar&#34;)
  *             .type(&#34;email&#34;)
  *             .config(AlertChannelConfigArgs.builder()
  *                 .recipients(&#34;foo@example.com&#34;)
@@ -65,6 +68,7 @@ import javax.annotation.Nullable;
  * 
  *         // Creates a Slack alert channel.
  *         var slackChannel = new AlertChannel(&#34;slackChannel&#34;, AlertChannelArgs.builder()        
+ *             .name(&#34;slack-channel-example&#34;)
  *             .type(&#34;slack&#34;)
  *             .config(AlertChannelConfigArgs.builder()
  *                 .channel(&#34;#example-channel&#34;)

@@ -40,10 +40,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloud.NewAwsGovcloudLinkAccount(ctx, "foo", &cloud.AwsGovcloudLinkAccountArgs{
-//				AccessKeyId:          pulumi.String("access-key-id of aws govcloud account"),
 //				AccountId:            pulumi.Int("The New Relic account ID where you want to link the AWS GovCloud account"),
+//				AccessKeyId:          pulumi.String("access-key-id of aws govcloud account"),
 //				AwsAccountId:         pulumi.String("aws govcloud account id"),
 //				MetricCollectionMode: pulumi.String("PULL"),
+//				Name:                 pulumi.String("account name"),
 //				SecretAccessKey:      pulumi.String("secret access key of the aws govcloud account"),
 //			})
 //			if err != nil {

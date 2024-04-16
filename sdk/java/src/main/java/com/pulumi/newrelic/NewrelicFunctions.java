@@ -322,6 +322,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
      * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertPolicyChannel;
      * import com.pulumi.newrelic.AlertPolicyChannelArgs;
      * import java.util.List;
@@ -337,17 +338,20 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAlertChannel = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *         // Data source
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
      *             .name(&#34;foo@example.com&#34;)
      *             .build());
      * 
      *         // Resource
-     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;, AlertPolicyArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
      * 
      *         // Using the data source and resource together
      *         var fooAlertPolicyChannel = new AlertPolicyChannel(&#34;fooAlertPolicyChannel&#34;, AlertPolicyChannelArgs.builder()        
      *             .policyId(fooAlertPolicy.id())
-     *             .channelId(fooAlertChannel.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
+     *             .channelId(foo.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
      *             .build());
      * 
      *     }
@@ -376,6 +380,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
      * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertPolicyChannel;
      * import com.pulumi.newrelic.AlertPolicyChannelArgs;
      * import java.util.List;
@@ -391,17 +396,20 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAlertChannel = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *         // Data source
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
      *             .name(&#34;foo@example.com&#34;)
      *             .build());
      * 
      *         // Resource
-     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;, AlertPolicyArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
      * 
      *         // Using the data source and resource together
      *         var fooAlertPolicyChannel = new AlertPolicyChannel(&#34;fooAlertPolicyChannel&#34;, AlertPolicyChannelArgs.builder()        
      *             .policyId(fooAlertPolicy.id())
-     *             .channelId(fooAlertChannel.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
+     *             .channelId(foo.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
      *             .build());
      * 
      *     }
@@ -430,6 +438,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
      * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertPolicyChannel;
      * import com.pulumi.newrelic.AlertPolicyChannelArgs;
      * import java.util.List;
@@ -445,17 +454,20 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAlertChannel = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *         // Data source
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
      *             .name(&#34;foo@example.com&#34;)
      *             .build());
      * 
      *         // Resource
-     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;, AlertPolicyArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
      * 
      *         // Using the data source and resource together
      *         var fooAlertPolicyChannel = new AlertPolicyChannel(&#34;fooAlertPolicyChannel&#34;, AlertPolicyChannelArgs.builder()        
      *             .policyId(fooAlertPolicy.id())
-     *             .channelId(fooAlertChannel.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
+     *             .channelId(foo.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
      *             .build());
      * 
      *     }
@@ -484,6 +496,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
      * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertPolicyChannel;
      * import com.pulumi.newrelic.AlertPolicyChannelArgs;
      * import java.util.List;
@@ -499,17 +512,20 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAlertChannel = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *         // Data source
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
      *             .name(&#34;foo@example.com&#34;)
      *             .build());
      * 
      *         // Resource
-     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;, AlertPolicyArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
      * 
      *         // Using the data source and resource together
      *         var fooAlertPolicyChannel = new AlertPolicyChannel(&#34;fooAlertPolicyChannel&#34;, AlertPolicyChannelArgs.builder()        
      *             .policyId(fooAlertPolicy.id())
-     *             .channelId(fooAlertChannel.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
+     *             .channelId(foo.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
      *             .build());
      * 
      *     }
@@ -551,17 +567,17 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAlertChannel = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
      *             .name(&#34;foo@example.com&#34;)
      *             .build());
      * 
-     *         final var fooAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
+     *         final var fooGetAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
      *             .name(&#34;foo policy&#34;)
      *             .build());
      * 
      *         var fooAlertPolicyChannel = new AlertPolicyChannel(&#34;fooAlertPolicyChannel&#34;, AlertPolicyChannelArgs.builder()        
-     *             .policyId(fooAlertPolicy.applyValue(getAlertPolicyResult -&gt; getAlertPolicyResult.id()))
-     *             .channelId(fooAlertChannel.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
+     *             .policyId(fooGetAlertPolicy.applyValue(getAlertPolicyResult -&gt; getAlertPolicyResult.id()))
+     *             .channelId(foo.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
      *             .build());
      * 
      *     }
@@ -603,17 +619,17 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAlertChannel = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
      *             .name(&#34;foo@example.com&#34;)
      *             .build());
      * 
-     *         final var fooAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
+     *         final var fooGetAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
      *             .name(&#34;foo policy&#34;)
      *             .build());
      * 
      *         var fooAlertPolicyChannel = new AlertPolicyChannel(&#34;fooAlertPolicyChannel&#34;, AlertPolicyChannelArgs.builder()        
-     *             .policyId(fooAlertPolicy.applyValue(getAlertPolicyResult -&gt; getAlertPolicyResult.id()))
-     *             .channelId(fooAlertChannel.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
+     *             .policyId(fooGetAlertPolicy.applyValue(getAlertPolicyResult -&gt; getAlertPolicyResult.id()))
+     *             .channelId(foo.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
      *             .build());
      * 
      *     }
@@ -655,17 +671,17 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAlertChannel = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
      *             .name(&#34;foo@example.com&#34;)
      *             .build());
      * 
-     *         final var fooAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
+     *         final var fooGetAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
      *             .name(&#34;foo policy&#34;)
      *             .build());
      * 
      *         var fooAlertPolicyChannel = new AlertPolicyChannel(&#34;fooAlertPolicyChannel&#34;, AlertPolicyChannelArgs.builder()        
-     *             .policyId(fooAlertPolicy.applyValue(getAlertPolicyResult -&gt; getAlertPolicyResult.id()))
-     *             .channelId(fooAlertChannel.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
+     *             .policyId(fooGetAlertPolicy.applyValue(getAlertPolicyResult -&gt; getAlertPolicyResult.id()))
+     *             .channelId(foo.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
      *             .build());
      * 
      *     }
@@ -707,17 +723,17 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAlertChannel = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
      *             .name(&#34;foo@example.com&#34;)
      *             .build());
      * 
-     *         final var fooAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
+     *         final var fooGetAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
      *             .name(&#34;foo policy&#34;)
      *             .build());
      * 
      *         var fooAlertPolicyChannel = new AlertPolicyChannel(&#34;fooAlertPolicyChannel&#34;, AlertPolicyChannelArgs.builder()        
-     *             .policyId(fooAlertPolicy.applyValue(getAlertPolicyResult -&gt; getAlertPolicyResult.id()))
-     *             .channelId(fooAlertChannel.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
+     *             .policyId(fooGetAlertPolicy.applyValue(getAlertPolicyResult -&gt; getAlertPolicyResult.id()))
+     *             .channelId(foo.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
      *             .build());
      * 
      *     }
@@ -746,6 +762,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetApplicationArgs;
      * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
@@ -766,10 +783,13 @@ public final class NewrelicFunctions {
      *             .name(&#34;my-app&#34;)
      *             .build());
      * 
-     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+     *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
      * 
      *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
-     *             .policyId(fooAlertPolicy.id())
+     *             .policyId(foo.id())
+     *             .name(&#34;foo&#34;)
      *             .type(&#34;apm_app_metric&#34;)
      *             .entities(app.applyValue(getApplicationResult -&gt; getApplicationResult.id()))
      *             .metric(&#34;apdex&#34;)
@@ -809,6 +829,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetApplicationArgs;
      * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
@@ -829,10 +850,13 @@ public final class NewrelicFunctions {
      *             .name(&#34;my-app&#34;)
      *             .build());
      * 
-     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+     *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
      * 
      *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
-     *             .policyId(fooAlertPolicy.id())
+     *             .policyId(foo.id())
+     *             .name(&#34;foo&#34;)
      *             .type(&#34;apm_app_metric&#34;)
      *             .entities(app.applyValue(getApplicationResult -&gt; getApplicationResult.id()))
      *             .metric(&#34;apdex&#34;)
@@ -872,6 +896,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetApplicationArgs;
      * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
@@ -892,10 +917,13 @@ public final class NewrelicFunctions {
      *             .name(&#34;my-app&#34;)
      *             .build());
      * 
-     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+     *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
      * 
      *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
-     *             .policyId(fooAlertPolicy.id())
+     *             .policyId(foo.id())
+     *             .name(&#34;foo&#34;)
      *             .type(&#34;apm_app_metric&#34;)
      *             .entities(app.applyValue(getApplicationResult -&gt; getApplicationResult.id()))
      *             .metric(&#34;apdex&#34;)
@@ -935,6 +963,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetApplicationArgs;
      * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
@@ -955,10 +984,13 @@ public final class NewrelicFunctions {
      *             .name(&#34;my-app&#34;)
      *             .build());
      * 
-     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+     *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
      * 
      *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
-     *             .policyId(fooAlertPolicy.id())
+     *             .policyId(foo.id())
+     *             .name(&#34;foo&#34;)
      *             .type(&#34;apm_app_metric&#34;)
      *             .entities(app.applyValue(getApplicationResult -&gt; getApplicationResult.id()))
      *             .metric(&#34;apdex&#34;)
@@ -1008,11 +1040,11 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
      *             .name(&#34;Test Authentication Domain&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()));
+     *         ctx.export(&#34;foo&#34;, foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()));
      *     }
      * }
      * ```
@@ -1049,11 +1081,11 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
      *             .name(&#34;Test Authentication Domain&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()));
+     *         ctx.export(&#34;foo&#34;, foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()));
      *     }
      * }
      * ```
@@ -1090,11 +1122,11 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
      *             .name(&#34;Test Authentication Domain&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()));
+     *         ctx.export(&#34;foo&#34;, foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()));
      *     }
      * }
      * ```
@@ -1131,11 +1163,11 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
      *             .name(&#34;Test Authentication Domain&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()));
+     *         ctx.export(&#34;foo&#34;, foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()));
      *     }
      * }
      * ```
@@ -1348,9 +1380,12 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // The entity returned by this configuration would have to 
+     *         // belong to the account_id specified in the provider 
+     *         // configuration, i.e. NEW_RELIC_ACCOUNT_ID.
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
-     *             .domain(&#34;APM&#34;)
      *             .name(&#34;my-app&#34;)
+     *             .domain(&#34;APM&#34;)
      *             .type(&#34;APPLICATION&#34;)
      *             .build());
      * 
@@ -1381,10 +1416,13 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // The entity returned by this configuration, unlike in 
+     *         // the above example, would have to belong to the account_id 
+     *         // specified in the configuration below, i.e. 654321.
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .name(&#34;my-app&#34;)
      *             .accountId(654321)
      *             .domain(&#34;APM&#34;)
-     *             .name(&#34;my-app&#34;)
      *             .type(&#34;APPLICATION&#34;)
      *             .build());
      * 
@@ -1420,13 +1458,13 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
-     *             .domain(&#34;EXT&#34;)
      *             .name(&#34;my-otel-app&#34;)
+     *             .domain(&#34;EXT&#34;)
+     *             .type(&#34;SERVICE&#34;)
      *             .tags(GetEntityTagArgs.builder()
      *                 .key(&#34;accountID&#34;)
      *                 .value(&#34;12345&#34;)
      *                 .build())
-     *             .type(&#34;SERVICE&#34;)
      *             .build());
      * 
      *     }
@@ -1503,9 +1541,12 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // The entity returned by this configuration would have to 
+     *         // belong to the account_id specified in the provider 
+     *         // configuration, i.e. NEW_RELIC_ACCOUNT_ID.
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
-     *             .domain(&#34;APM&#34;)
      *             .name(&#34;my-app&#34;)
+     *             .domain(&#34;APM&#34;)
      *             .type(&#34;APPLICATION&#34;)
      *             .build());
      * 
@@ -1536,10 +1577,13 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // The entity returned by this configuration, unlike in 
+     *         // the above example, would have to belong to the account_id 
+     *         // specified in the configuration below, i.e. 654321.
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .name(&#34;my-app&#34;)
      *             .accountId(654321)
      *             .domain(&#34;APM&#34;)
-     *             .name(&#34;my-app&#34;)
      *             .type(&#34;APPLICATION&#34;)
      *             .build());
      * 
@@ -1575,13 +1619,13 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
-     *             .domain(&#34;EXT&#34;)
      *             .name(&#34;my-otel-app&#34;)
+     *             .domain(&#34;EXT&#34;)
+     *             .type(&#34;SERVICE&#34;)
      *             .tags(GetEntityTagArgs.builder()
      *                 .key(&#34;accountID&#34;)
      *                 .value(&#34;12345&#34;)
      *                 .build())
-     *             .type(&#34;SERVICE&#34;)
      *             .build());
      * 
      *     }
@@ -1658,9 +1702,12 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // The entity returned by this configuration would have to 
+     *         // belong to the account_id specified in the provider 
+     *         // configuration, i.e. NEW_RELIC_ACCOUNT_ID.
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
-     *             .domain(&#34;APM&#34;)
      *             .name(&#34;my-app&#34;)
+     *             .domain(&#34;APM&#34;)
      *             .type(&#34;APPLICATION&#34;)
      *             .build());
      * 
@@ -1691,10 +1738,13 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // The entity returned by this configuration, unlike in 
+     *         // the above example, would have to belong to the account_id 
+     *         // specified in the configuration below, i.e. 654321.
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .name(&#34;my-app&#34;)
      *             .accountId(654321)
      *             .domain(&#34;APM&#34;)
-     *             .name(&#34;my-app&#34;)
      *             .type(&#34;APPLICATION&#34;)
      *             .build());
      * 
@@ -1730,13 +1780,13 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
-     *             .domain(&#34;EXT&#34;)
      *             .name(&#34;my-otel-app&#34;)
+     *             .domain(&#34;EXT&#34;)
+     *             .type(&#34;SERVICE&#34;)
      *             .tags(GetEntityTagArgs.builder()
      *                 .key(&#34;accountID&#34;)
      *                 .value(&#34;12345&#34;)
      *                 .build())
-     *             .type(&#34;SERVICE&#34;)
      *             .build());
      * 
      *     }
@@ -1813,9 +1863,12 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // The entity returned by this configuration would have to 
+     *         // belong to the account_id specified in the provider 
+     *         // configuration, i.e. NEW_RELIC_ACCOUNT_ID.
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
-     *             .domain(&#34;APM&#34;)
      *             .name(&#34;my-app&#34;)
+     *             .domain(&#34;APM&#34;)
      *             .type(&#34;APPLICATION&#34;)
      *             .build());
      * 
@@ -1846,10 +1899,13 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // The entity returned by this configuration, unlike in 
+     *         // the above example, would have to belong to the account_id 
+     *         // specified in the configuration below, i.e. 654321.
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .name(&#34;my-app&#34;)
      *             .accountId(654321)
      *             .domain(&#34;APM&#34;)
-     *             .name(&#34;my-app&#34;)
      *             .type(&#34;APPLICATION&#34;)
      *             .build());
      * 
@@ -1885,13 +1941,13 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
-     *             .domain(&#34;EXT&#34;)
      *             .name(&#34;my-otel-app&#34;)
+     *             .domain(&#34;EXT&#34;)
+     *             .type(&#34;SERVICE&#34;)
      *             .tags(GetEntityTagArgs.builder()
      *                 .key(&#34;accountID&#34;)
      *                 .value(&#34;12345&#34;)
      *                 .build())
-     *             .type(&#34;SERVICE&#34;)
      *             .build());
      * 
      *     }
@@ -1967,12 +2023,12 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
      *             .name(&#34;Test Authentication Domain&#34;)
      *             .build());
      * 
-     *         final var fooGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
-     *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
      *             .name(&#34;Test Group&#34;)
      *             .build());
      * 
@@ -2015,12 +2071,12 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
      *             .name(&#34;Test Authentication Domain&#34;)
      *             .build());
      * 
-     *         final var fooGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
-     *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
      *             .name(&#34;Test Group&#34;)
      *             .build());
      * 
@@ -2063,12 +2119,12 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
      *             .name(&#34;Test Authentication Domain&#34;)
      *             .build());
      * 
-     *         final var fooGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
-     *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
      *             .name(&#34;Test Group&#34;)
      *             .build());
      * 
@@ -2111,12 +2167,12 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
      *             .name(&#34;Test Authentication Domain&#34;)
      *             .build());
      * 
-     *         final var fooGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
-     *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
      *             .name(&#34;Test Group&#34;)
      *             .build());
      * 
@@ -2144,6 +2200,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetKeyTransactionArgs;
      * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
@@ -2164,10 +2221,13 @@ public final class NewrelicFunctions {
      *             .name(&#34;txn&#34;)
      *             .build());
      * 
-     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+     *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
      * 
      *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
-     *             .policyId(fooAlertPolicy.id())
+     *             .policyId(foo.id())
+     *             .name(&#34;foo&#34;)
      *             .type(&#34;apm_kt_metric&#34;)
      *             .entities(txn.applyValue(getKeyTransactionResult -&gt; getKeyTransactionResult.id()))
      *             .metric(&#34;error_percentage&#34;)
@@ -2205,6 +2265,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetKeyTransactionArgs;
      * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
@@ -2225,10 +2286,13 @@ public final class NewrelicFunctions {
      *             .name(&#34;txn&#34;)
      *             .build());
      * 
-     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+     *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
      * 
      *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
-     *             .policyId(fooAlertPolicy.id())
+     *             .policyId(foo.id())
+     *             .name(&#34;foo&#34;)
      *             .type(&#34;apm_kt_metric&#34;)
      *             .entities(txn.applyValue(getKeyTransactionResult -&gt; getKeyTransactionResult.id()))
      *             .metric(&#34;error_percentage&#34;)
@@ -2266,6 +2330,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetKeyTransactionArgs;
      * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
@@ -2286,10 +2351,13 @@ public final class NewrelicFunctions {
      *             .name(&#34;txn&#34;)
      *             .build());
      * 
-     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+     *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
      * 
      *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
-     *             .policyId(fooAlertPolicy.id())
+     *             .policyId(foo.id())
+     *             .name(&#34;foo&#34;)
      *             .type(&#34;apm_kt_metric&#34;)
      *             .entities(txn.applyValue(getKeyTransactionResult -&gt; getKeyTransactionResult.id()))
      *             .metric(&#34;error_percentage&#34;)
@@ -2327,6 +2395,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetKeyTransactionArgs;
      * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
@@ -2347,10 +2416,13 @@ public final class NewrelicFunctions {
      *             .name(&#34;txn&#34;)
      *             .build());
      * 
-     *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+     *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
      * 
      *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
-     *             .policyId(fooAlertPolicy.id())
+     *             .policyId(foo.id())
+     *             .name(&#34;foo&#34;)
      *             .type(&#34;apm_kt_metric&#34;)
      *             .entities(txn.applyValue(getKeyTransactionResult -&gt; getKeyTransactionResult.id()))
      *             .metric(&#34;error_percentage&#34;)
@@ -2427,6 +2499,7 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         var rule = new ObfuscationRule(&#34;rule&#34;, ObfuscationRuleArgs.builder()        
+     *             .name(&#34;ruleName&#34;)
      *             .description(&#34;description of the rule&#34;)
      *             .filter(&#34;hostStatus=running&#34;)
      *             .enabled(true)
@@ -2482,6 +2555,7 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         var rule = new ObfuscationRule(&#34;rule&#34;, ObfuscationRuleArgs.builder()        
+     *             .name(&#34;ruleName&#34;)
      *             .description(&#34;description of the rule&#34;)
      *             .filter(&#34;hostStatus=running&#34;)
      *             .enabled(true)
@@ -2537,6 +2611,7 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         var rule = new ObfuscationRule(&#34;rule&#34;, ObfuscationRuleArgs.builder()        
+     *             .name(&#34;ruleName&#34;)
      *             .description(&#34;description of the rule&#34;)
      *             .filter(&#34;hostStatus=running&#34;)
      *             .enabled(true)
@@ -2592,6 +2667,7 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         var rule = new ObfuscationRule(&#34;rule&#34;, ObfuscationRuleArgs.builder()        
+     *             .name(&#34;ruleName&#34;)
      *             .description(&#34;description of the rule&#34;)
      *             .filter(&#34;hostStatus=running&#34;)
      *             .enabled(true)
@@ -2652,6 +2728,7 @@ public final class NewrelicFunctions {
      * 
      *         var foo = new ServiceLevel(&#34;foo&#34;, ServiceLevelArgs.builder()        
      *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
+     *             .name(&#34;Latency&#34;)
      *             .description(&#34;Proportion of requests that are served faster than a threshold.&#34;)
      *             .events(ServiceLevelEventsArgs.builder()
      *                 .accountId(12345678)
@@ -2713,9 +2790,9 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooSlowBurn = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType(&#34;slow_burn&#34;)
-     *             .sliGuid(newrelic_service_level.foo().sli_guid())
-     *             .sloTarget(local.foo_target())
-     *             .sloPeriod(local.foo_period())
+     *             .sliGuid(foo.sliGuid())
+     *             .sloTarget(fooTarget)
+     *             .sloPeriod(fooPeriod)
      *             .isBadEvents(true)
      *             .build());
      * 
@@ -2723,6 +2800,7 @@ public final class NewrelicFunctions {
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type(&#34;static&#34;)
+     *             .name(&#34;Slow burn alert&#34;)
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
@@ -2776,9 +2854,9 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooCustom = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType(&#34;custom&#34;)
-     *             .sliGuid(newrelic_service_level.foo().sli_guid())
-     *             .sloTarget(local.foo_target())
-     *             .sloPeriod(local.foo_period())
+     *             .sliGuid(foo.sliGuid())
+     *             .sloTarget(fooTarget)
+     *             .sloPeriod(fooPeriod)
      *             .customToleratedBudgetConsumption(4)
      *             .customEvaluationPeriod(5400)
      *             .isBadEvents(true)
@@ -2788,6 +2866,7 @@ public final class NewrelicFunctions {
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type(&#34;static&#34;)
+     *             .name(&#34;Custom burn alert&#34;)
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
@@ -2856,6 +2935,7 @@ public final class NewrelicFunctions {
      * 
      *         var foo = new ServiceLevel(&#34;foo&#34;, ServiceLevelArgs.builder()        
      *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
+     *             .name(&#34;Latency&#34;)
      *             .description(&#34;Proportion of requests that are served faster than a threshold.&#34;)
      *             .events(ServiceLevelEventsArgs.builder()
      *                 .accountId(12345678)
@@ -2917,9 +2997,9 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooSlowBurn = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType(&#34;slow_burn&#34;)
-     *             .sliGuid(newrelic_service_level.foo().sli_guid())
-     *             .sloTarget(local.foo_target())
-     *             .sloPeriod(local.foo_period())
+     *             .sliGuid(foo.sliGuid())
+     *             .sloTarget(fooTarget)
+     *             .sloPeriod(fooPeriod)
      *             .isBadEvents(true)
      *             .build());
      * 
@@ -2927,6 +3007,7 @@ public final class NewrelicFunctions {
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type(&#34;static&#34;)
+     *             .name(&#34;Slow burn alert&#34;)
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
@@ -2980,9 +3061,9 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooCustom = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType(&#34;custom&#34;)
-     *             .sliGuid(newrelic_service_level.foo().sli_guid())
-     *             .sloTarget(local.foo_target())
-     *             .sloPeriod(local.foo_period())
+     *             .sliGuid(foo.sliGuid())
+     *             .sloTarget(fooTarget)
+     *             .sloPeriod(fooPeriod)
      *             .customToleratedBudgetConsumption(4)
      *             .customEvaluationPeriod(5400)
      *             .isBadEvents(true)
@@ -2992,6 +3073,7 @@ public final class NewrelicFunctions {
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type(&#34;static&#34;)
+     *             .name(&#34;Custom burn alert&#34;)
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
@@ -3060,6 +3142,7 @@ public final class NewrelicFunctions {
      * 
      *         var foo = new ServiceLevel(&#34;foo&#34;, ServiceLevelArgs.builder()        
      *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
+     *             .name(&#34;Latency&#34;)
      *             .description(&#34;Proportion of requests that are served faster than a threshold.&#34;)
      *             .events(ServiceLevelEventsArgs.builder()
      *                 .accountId(12345678)
@@ -3121,9 +3204,9 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooSlowBurn = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType(&#34;slow_burn&#34;)
-     *             .sliGuid(newrelic_service_level.foo().sli_guid())
-     *             .sloTarget(local.foo_target())
-     *             .sloPeriod(local.foo_period())
+     *             .sliGuid(foo.sliGuid())
+     *             .sloTarget(fooTarget)
+     *             .sloPeriod(fooPeriod)
      *             .isBadEvents(true)
      *             .build());
      * 
@@ -3131,6 +3214,7 @@ public final class NewrelicFunctions {
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type(&#34;static&#34;)
+     *             .name(&#34;Slow burn alert&#34;)
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
@@ -3184,9 +3268,9 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooCustom = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType(&#34;custom&#34;)
-     *             .sliGuid(newrelic_service_level.foo().sli_guid())
-     *             .sloTarget(local.foo_target())
-     *             .sloPeriod(local.foo_period())
+     *             .sliGuid(foo.sliGuid())
+     *             .sloTarget(fooTarget)
+     *             .sloPeriod(fooPeriod)
      *             .customToleratedBudgetConsumption(4)
      *             .customEvaluationPeriod(5400)
      *             .isBadEvents(true)
@@ -3196,6 +3280,7 @@ public final class NewrelicFunctions {
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type(&#34;static&#34;)
+     *             .name(&#34;Custom burn alert&#34;)
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
@@ -3264,6 +3349,7 @@ public final class NewrelicFunctions {
      * 
      *         var foo = new ServiceLevel(&#34;foo&#34;, ServiceLevelArgs.builder()        
      *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
+     *             .name(&#34;Latency&#34;)
      *             .description(&#34;Proportion of requests that are served faster than a threshold.&#34;)
      *             .events(ServiceLevelEventsArgs.builder()
      *                 .accountId(12345678)
@@ -3325,9 +3411,9 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooSlowBurn = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType(&#34;slow_burn&#34;)
-     *             .sliGuid(newrelic_service_level.foo().sli_guid())
-     *             .sloTarget(local.foo_target())
-     *             .sloPeriod(local.foo_period())
+     *             .sliGuid(foo.sliGuid())
+     *             .sloTarget(fooTarget)
+     *             .sloPeriod(fooPeriod)
      *             .isBadEvents(true)
      *             .build());
      * 
@@ -3335,6 +3421,7 @@ public final class NewrelicFunctions {
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type(&#34;static&#34;)
+     *             .name(&#34;Slow burn alert&#34;)
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
@@ -3388,9 +3475,9 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooCustom = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType(&#34;custom&#34;)
-     *             .sliGuid(newrelic_service_level.foo().sli_guid())
-     *             .sloTarget(local.foo_target())
-     *             .sloPeriod(local.foo_period())
+     *             .sliGuid(foo.sliGuid())
+     *             .sloTarget(fooTarget)
+     *             .sloPeriod(fooPeriod)
      *             .customToleratedBudgetConsumption(4)
      *             .customEvaluationPeriod(5400)
      *             .isBadEvents(true)
@@ -3400,6 +3487,7 @@ public final class NewrelicFunctions {
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type(&#34;static&#34;)
+     *             .name(&#34;Custom burn alert&#34;)
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
@@ -3452,8 +3540,9 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Data source
      *         final var foo = NewrelicFunctions.getTestGrokPattern(GetTestGrokPatternArgs.builder()
-     *             .grok(&#34;%%{IP:host_ip}&#34;)
+     *             .grok(&#34;%{IP:host_ip}&#34;)
      *             .logLines(            
      *                 &#34;host_ip: 43.3.120.2&#34;,
      *                 &#34;bytes_received: 2048&#34;)
@@ -3493,8 +3582,9 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Data source
      *         final var foo = NewrelicFunctions.getTestGrokPattern(GetTestGrokPatternArgs.builder()
-     *             .grok(&#34;%%{IP:host_ip}&#34;)
+     *             .grok(&#34;%{IP:host_ip}&#34;)
      *             .logLines(            
      *                 &#34;host_ip: 43.3.120.2&#34;,
      *                 &#34;bytes_received: 2048&#34;)
@@ -3534,8 +3624,9 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Data source
      *         final var foo = NewrelicFunctions.getTestGrokPattern(GetTestGrokPatternArgs.builder()
-     *             .grok(&#34;%%{IP:host_ip}&#34;)
+     *             .grok(&#34;%{IP:host_ip}&#34;)
      *             .logLines(            
      *                 &#34;host_ip: 43.3.120.2&#34;,
      *                 &#34;bytes_received: 2048&#34;)
@@ -3575,8 +3666,9 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Data source
      *         final var foo = NewrelicFunctions.getTestGrokPattern(GetTestGrokPatternArgs.builder()
-     *             .grok(&#34;%%{IP:host_ip}&#34;)
+     *             .grok(&#34;%{IP:host_ip}&#34;)
      *             .logLines(            
      *                 &#34;host_ip: 43.3.120.2&#34;,
      *                 &#34;bytes_received: 2048&#34;)

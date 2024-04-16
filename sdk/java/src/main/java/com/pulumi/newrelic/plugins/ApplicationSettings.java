@@ -47,9 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var app = new ApplicationSettings(&#34;app&#34;, ApplicationSettingsArgs.builder()        
+ *             .name(&#34;my-app&#34;)
  *             .appApdexThreshold(&#34;0.7&#34;)
- *             .enableRealUserMonitoring(false)
  *             .endUserApdexThreshold(&#34;0.8&#34;)
+ *             .enableRealUserMonitoring(false)
  *             .build());
  * 
  *     }

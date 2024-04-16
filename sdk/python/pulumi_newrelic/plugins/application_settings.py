@@ -193,9 +193,10 @@ class ApplicationSettings(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         app = newrelic.plugins.ApplicationSettings("app",
+            name="my-app",
             app_apdex_threshold=0.7,
-            enable_real_user_monitoring=False,
-            end_user_apdex_threshold=0.8)
+            end_user_apdex_threshold=0.8,
+            enable_real_user_monitoring=False)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -244,9 +245,10 @@ class ApplicationSettings(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         app = newrelic.plugins.ApplicationSettings("app",
+            name="my-app",
             app_apdex_threshold=0.7,
-            enable_real_user_monitoring=False,
-            end_user_apdex_threshold=0.8)
+            end_user_apdex_threshold=0.8,
+            enable_real_user_monitoring=False)
         ```
         <!--End PulumiCodeChooser -->
 

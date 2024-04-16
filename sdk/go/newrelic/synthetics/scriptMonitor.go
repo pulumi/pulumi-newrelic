@@ -32,16 +32,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewScriptMonitor(ctx, "monitor", &synthetics.ScriptMonitorArgs{
+//				Status: pulumi.String("ENABLED"),
+//				Name:   pulumi.String("script_monitor"),
+//				Type:   pulumi.String("SCRIPT_API"),
 //				LocationsPublics: pulumi.StringArray{
 //					pulumi.String("AP_SOUTH_1"),
 //					pulumi.String("AP_EAST_1"),
 //				},
 //				Period:             pulumi.String("EVERY_6_HOURS"),
-//				RuntimeType:        pulumi.String("NODE_API"),
-//				RuntimeTypeVersion: pulumi.String("16.10"),
 //				Script:             pulumi.String("console.log('it works!')"),
 //				ScriptLanguage:     pulumi.String("JAVASCRIPT"),
-//				Status:             pulumi.String("ENABLED"),
+//				RuntimeType:        pulumi.String("NODE_API"),
+//				RuntimeTypeVersion: pulumi.String("16.10"),
 //				Tags: synthetics.ScriptMonitorTagArray{
 //					&synthetics.ScriptMonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -50,7 +52,6 @@ import (
 //						},
 //					},
 //				},
-//				Type: pulumi.String("SCRIPT_API"),
 //			})
 //			if err != nil {
 //				return err
@@ -77,17 +78,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewScriptMonitor(ctx, "monitor", &synthetics.ScriptMonitorArgs{
-//				EnableScreenshotOnFailureAndScript: pulumi.Bool(false),
+//				Status: pulumi.String("ENABLED"),
+//				Name:   pulumi.String("script_monitor"),
+//				Type:   pulumi.String("SCRIPT_BROWSER"),
 //				LocationsPublics: pulumi.StringArray{
 //					pulumi.String("AP_SOUTH_1"),
 //					pulumi.String("AP_EAST_1"),
 //				},
-//				Period:             pulumi.String("EVERY_HOUR"),
-//				RuntimeType:        pulumi.String("CHROME_BROWSER"),
-//				RuntimeTypeVersion: pulumi.String("100"),
-//				Script:             pulumi.String("$browser.get('https://one.newrelic.com')"),
-//				ScriptLanguage:     pulumi.String("JAVASCRIPT"),
-//				Status:             pulumi.String("ENABLED"),
+//				Period:                             pulumi.String("EVERY_HOUR"),
+//				EnableScreenshotOnFailureAndScript: pulumi.Bool(false),
+//				Script:                             pulumi.String("$browser.get('https://one.newrelic.com')"),
+//				RuntimeTypeVersion:                 pulumi.String("100"),
+//				RuntimeType:                        pulumi.String("CHROME_BROWSER"),
+//				ScriptLanguage:                     pulumi.String("JAVASCRIPT"),
 //				Tags: synthetics.ScriptMonitorTagArray{
 //					&synthetics.ScriptMonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -96,7 +99,6 @@ import (
 //						},
 //					},
 //				},
-//				Type: pulumi.String("SCRIPT_BROWSER"),
 //			})
 //			if err != nil {
 //				return err
@@ -134,6 +136,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Example private location"),
+//				Name:                    pulumi.String("private_location"),
 //				VerifiedScriptExecution: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -141,6 +144,7 @@ import (
 //			}
 //			_, err = synthetics.NewScriptMonitor(ctx, "monitor", &synthetics.ScriptMonitorArgs{
 //				Status: pulumi.String("ENABLED"),
+//				Name:   pulumi.String("script_monitor"),
 //				Type:   pulumi.String("SCRIPT_API"),
 //				LocationPrivates: synthetics.ScriptMonitorLocationPrivateArray{
 //					&synthetics.ScriptMonitorLocationPrivateArgs{
@@ -188,6 +192,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Test Description"),
+//				Name:                    pulumi.String("private_location"),
 //				VerifiedScriptExecution: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -195,6 +200,7 @@ import (
 //			}
 //			_, err = synthetics.NewScriptMonitor(ctx, "monitor", &synthetics.ScriptMonitorArgs{
 //				Status:                             pulumi.String("ENABLED"),
+//				Name:                               pulumi.String("script_monitor"),
 //				Type:                               pulumi.String("SCRIPT_BROWSER"),
 //				Period:                             pulumi.String("EVERY_HOUR"),
 //				Script:                             pulumi.String("$browser.get('https://one.newrelic.com')"),

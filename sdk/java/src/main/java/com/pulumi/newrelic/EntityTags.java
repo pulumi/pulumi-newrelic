@@ -45,14 +45,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var fooEntity = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+ *         final var foo = NewrelicFunctions.getEntity(GetEntityArgs.builder()
  *             .name(&#34;Example application&#34;)
  *             .type(&#34;APPLICATION&#34;)
  *             .domain(&#34;APM&#34;)
  *             .build());
  * 
  *         var fooEntityTags = new EntityTags(&#34;fooEntityTags&#34;, EntityTagsArgs.builder()        
- *             .guid(fooEntity.applyValue(getEntityResult -&gt; getEntityResult.guid()))
+ *             .guid(foo.applyValue(getEntityResult -&gt; getEntityResult.guid()))
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
  *                     .key(&#34;my-key&#34;)

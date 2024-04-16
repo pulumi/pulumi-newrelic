@@ -293,14 +293,15 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="webhook-example",
+            type="WEBHOOK",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[newrelic.NotificationChannelPropertyArgs(
                 key="payload",
-                label="Payload Template",
                 value="name: {{ foo }}",
-            )],
-            type="WEBHOOK")
+                label="Payload Template",
+            )])
         ```
         <!--End PulumiCodeChooser -->
         See additional examples.
@@ -319,6 +320,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="servicenow-incident-example",
+            type="SERVICENOW_INCIDENTS",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[
@@ -330,8 +333,7 @@ class NotificationChannel(pulumi.CustomResource):
                     key="short_description",
                     value="Short description",
                 ),
-            ],
-            type="SERVICENOW_INCIDENTS")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -343,6 +345,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="email-example",
+            type="EMAIL",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[
@@ -354,8 +358,7 @@ class NotificationChannel(pulumi.CustomResource):
                     key="customDetailsEmail",
                     value="issue id - {{issueId}}",
                 ),
-            ],
-            type="EMAIL")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -367,6 +370,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="jira-example",
+            type="JIRA_CLASSIC",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="ERROR_TRACKING",
             properties=[
@@ -386,8 +391,7 @@ class NotificationChannel(pulumi.CustomResource):
                     key="summary",
                     value="{{ annotations.title.[0] }}",
                 ),
-            ],
-            type="JIRA_CLASSIC")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -399,6 +403,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="pagerduty-account-example",
+            type="PAGERDUTY_ACCOUNT_INTEGRATION",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[
@@ -417,24 +423,22 @@ class NotificationChannel(pulumi.CustomResource):
                 ),
                 newrelic.NotificationChannelPropertyArgs(
                     key="customDetails",
-                    value=\"\"\"    {
-            "id":{{json issueId}},
-            "IssueURL":{{json issuePageUrl}},
-            "NewRelic priority":{{json priority}},
-            "Total Incidents":{{json totalIncidents}},
-            "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "isCorrelated":{{json isCorrelated}},
-            "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Workflow Name":{{json workflowName}}
-            }
-
+                    value=\"\"\"{
+        "id":{{json issueId}},
+        "IssueURL":{{json issuePageUrl}},
+        "NewRelic priority":{{json priority}},
+        "Total Incidents":{{json totalIncidents}},
+        "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "isCorrelated":{{json isCorrelated}},
+        "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Workflow Name":{{json workflowName}}
+        }
         \"\"\",
                 ),
-            ],
-            type="PAGERDUTY_ACCOUNT_INTEGRATION")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -446,6 +450,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="pagerduty-account-example",
+            type="PAGERDUTY_SERVICE_INTEGRATION",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[
@@ -455,24 +461,22 @@ class NotificationChannel(pulumi.CustomResource):
                 ),
                 newrelic.NotificationChannelPropertyArgs(
                     key="customDetails",
-                    value=\"\"\"    {
-            "id":{{json issueId}},
-            "IssueURL":{{json issuePageUrl}},
-            "NewRelic priority":{{json priority}},
-            "Total Incidents":{{json totalIncidents}},
-            "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "isCorrelated":{{json isCorrelated}},
-            "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Workflow Name":{{json workflowName}}
-            }
-
+                    value=\"\"\"{
+        "id":{{json issueId}},
+        "IssueURL":{{json issuePageUrl}},
+        "NewRelic priority":{{json priority}},
+        "Total Incidents":{{json totalIncidents}},
+        "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "isCorrelated":{{json isCorrelated}},
+        "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Workflow Name":{{json workflowName}}
+        }
         \"\"\",
                 ),
-            ],
-            type="PAGERDUTY_SERVICE_INTEGRATION")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -484,9 +488,10 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="mobile-push-example",
+            type="MOBILE_PUSH",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            type="MOBILE_PUSH")
+            product="IINT")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -498,6 +503,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="event-bridge-example",
+            type="EVENT_BRIDGE",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[
@@ -509,8 +516,7 @@ class NotificationChannel(pulumi.CustomResource):
                     key="eventContent",
                     value="{ id: {{ json issueId }} }",
                 ),
-            ],
-            type="EVENT_BRIDGE")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -522,6 +528,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="slack-example",
+            type="SLACK",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[
@@ -533,8 +541,7 @@ class NotificationChannel(pulumi.CustomResource):
                     key="customDetailsSlack",
                     value="issue id - {{issueId}}",
                 ),
-            ],
-            type="SLACK")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -552,15 +559,16 @@ class NotificationChannel(pulumi.CustomResource):
 
         webhook_destination = newrelic.NotificationDestination("webhook-destination",
             account_id=12345678,
-            auth_basic=newrelic.NotificationDestinationAuthBasicArgs(
-                password="password",
-                user="username",
-            ),
+            name="destination-webhook",
+            type="WEBHOOK",
             properties=[newrelic.NotificationDestinationPropertyArgs(
                 key="url",
                 value="https://webhook.mywebhook.com",
             )],
-            type="WEBHOOK")
+            auth_basic=newrelic.NotificationDestinationAuthBasicArgs(
+                user="username",
+                password="password",
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -572,8 +580,9 @@ class NotificationChannel(pulumi.CustomResource):
 
         webhook_channel = newrelic.NotificationChannel("webhook-channel",
             account_id=12345678,
+            name="channel-webhook",
             type="WEBHOOK",
-            destination_id=newrelic_notification_destination["webhook-destination"]["id"],
+            destination_id=webhook_destination["id"],
             product="IINT",
             properties=[newrelic.NotificationChannelPropertyArgs(
                 key="payload",
@@ -632,14 +641,15 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="webhook-example",
+            type="WEBHOOK",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[newrelic.NotificationChannelPropertyArgs(
                 key="payload",
-                label="Payload Template",
                 value="name: {{ foo }}",
-            )],
-            type="WEBHOOK")
+                label="Payload Template",
+            )])
         ```
         <!--End PulumiCodeChooser -->
         See additional examples.
@@ -658,6 +668,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="servicenow-incident-example",
+            type="SERVICENOW_INCIDENTS",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[
@@ -669,8 +681,7 @@ class NotificationChannel(pulumi.CustomResource):
                     key="short_description",
                     value="Short description",
                 ),
-            ],
-            type="SERVICENOW_INCIDENTS")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -682,6 +693,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="email-example",
+            type="EMAIL",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[
@@ -693,8 +706,7 @@ class NotificationChannel(pulumi.CustomResource):
                     key="customDetailsEmail",
                     value="issue id - {{issueId}}",
                 ),
-            ],
-            type="EMAIL")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -706,6 +718,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="jira-example",
+            type="JIRA_CLASSIC",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="ERROR_TRACKING",
             properties=[
@@ -725,8 +739,7 @@ class NotificationChannel(pulumi.CustomResource):
                     key="summary",
                     value="{{ annotations.title.[0] }}",
                 ),
-            ],
-            type="JIRA_CLASSIC")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -738,6 +751,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="pagerduty-account-example",
+            type="PAGERDUTY_ACCOUNT_INTEGRATION",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[
@@ -756,24 +771,22 @@ class NotificationChannel(pulumi.CustomResource):
                 ),
                 newrelic.NotificationChannelPropertyArgs(
                     key="customDetails",
-                    value=\"\"\"    {
-            "id":{{json issueId}},
-            "IssueURL":{{json issuePageUrl}},
-            "NewRelic priority":{{json priority}},
-            "Total Incidents":{{json totalIncidents}},
-            "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "isCorrelated":{{json isCorrelated}},
-            "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Workflow Name":{{json workflowName}}
-            }
-
+                    value=\"\"\"{
+        "id":{{json issueId}},
+        "IssueURL":{{json issuePageUrl}},
+        "NewRelic priority":{{json priority}},
+        "Total Incidents":{{json totalIncidents}},
+        "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "isCorrelated":{{json isCorrelated}},
+        "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Workflow Name":{{json workflowName}}
+        }
         \"\"\",
                 ),
-            ],
-            type="PAGERDUTY_ACCOUNT_INTEGRATION")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -785,6 +798,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="pagerduty-account-example",
+            type="PAGERDUTY_SERVICE_INTEGRATION",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[
@@ -794,24 +809,22 @@ class NotificationChannel(pulumi.CustomResource):
                 ),
                 newrelic.NotificationChannelPropertyArgs(
                     key="customDetails",
-                    value=\"\"\"    {
-            "id":{{json issueId}},
-            "IssueURL":{{json issuePageUrl}},
-            "NewRelic priority":{{json priority}},
-            "Total Incidents":{{json totalIncidents}},
-            "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "isCorrelated":{{json isCorrelated}},
-            "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-            "Workflow Name":{{json workflowName}}
-            }
-
+                    value=\"\"\"{
+        "id":{{json issueId}},
+        "IssueURL":{{json issuePageUrl}},
+        "NewRelic priority":{{json priority}},
+        "Total Incidents":{{json totalIncidents}},
+        "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "isCorrelated":{{json isCorrelated}},
+        "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+        "Workflow Name":{{json workflowName}}
+        }
         \"\"\",
                 ),
-            ],
-            type="PAGERDUTY_SERVICE_INTEGRATION")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -823,9 +836,10 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="mobile-push-example",
+            type="MOBILE_PUSH",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
-            product="IINT",
-            type="MOBILE_PUSH")
+            product="IINT")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -837,6 +851,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="event-bridge-example",
+            type="EVENT_BRIDGE",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[
@@ -848,8 +864,7 @@ class NotificationChannel(pulumi.CustomResource):
                     key="eventContent",
                     value="{ id: {{ json issueId }} }",
                 ),
-            ],
-            type="EVENT_BRIDGE")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -861,6 +876,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         foo = newrelic.NotificationChannel("foo",
             account_id=12345678,
+            name="slack-example",
+            type="SLACK",
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[
@@ -872,8 +889,7 @@ class NotificationChannel(pulumi.CustomResource):
                     key="customDetailsSlack",
                     value="issue id - {{issueId}}",
                 ),
-            ],
-            type="SLACK")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -891,15 +907,16 @@ class NotificationChannel(pulumi.CustomResource):
 
         webhook_destination = newrelic.NotificationDestination("webhook-destination",
             account_id=12345678,
-            auth_basic=newrelic.NotificationDestinationAuthBasicArgs(
-                password="password",
-                user="username",
-            ),
+            name="destination-webhook",
+            type="WEBHOOK",
             properties=[newrelic.NotificationDestinationPropertyArgs(
                 key="url",
                 value="https://webhook.mywebhook.com",
             )],
-            type="WEBHOOK")
+            auth_basic=newrelic.NotificationDestinationAuthBasicArgs(
+                user="username",
+                password="password",
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -911,8 +928,9 @@ class NotificationChannel(pulumi.CustomResource):
 
         webhook_channel = newrelic.NotificationChannel("webhook-channel",
             account_id=12345678,
+            name="channel-webhook",
             type="WEBHOOK",
-            destination_id=newrelic_notification_destination["webhook-destination"]["id"],
+            destination_id=webhook_destination["id"],
             product="IINT",
             properties=[newrelic.NotificationChannelPropertyArgs(
                 key="payload",

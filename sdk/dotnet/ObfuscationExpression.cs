@@ -26,6 +26,7 @@ namespace Pulumi.NewRelic
     ///     var foo = new NewRelic.ObfuscationExpression("foo", new()
     ///     {
     ///         AccountId = 12345,
+    ///         Name = "OExp",
     ///         Description = "The description",
     ///         Regex = "(regex.*)",
     ///     });

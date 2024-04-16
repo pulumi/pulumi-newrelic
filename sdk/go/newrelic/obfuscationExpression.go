@@ -31,6 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewObfuscationExpression(ctx, "foo", &newrelic.ObfuscationExpressionArgs{
 //				AccountId:   pulumi.Int(12345),
+//				Name:        pulumi.String("OExp"),
 //				Description: pulumi.String("The description"),
 //				Regex:       pulumi.String("(regex.*)"),
 //			})

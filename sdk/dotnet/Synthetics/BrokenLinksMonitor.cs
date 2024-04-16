@@ -25,14 +25,16 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var foo = new NewRelic.Synthetics.BrokenLinksMonitor("foo", new()
     ///     {
+    ///         Name = "Sample Broken Links Monitor",
+    ///         Uri = "https://www.one.example.com",
     ///         LocationsPublics = new[]
     ///         {
     ///             "AP_SOUTH_1",
     ///         },
     ///         Period = "EVERY_6_HOURS",
+    ///         Status = "ENABLED",
     ///         RuntimeType = "NODE_API",
     ///         RuntimeTypeVersion = "16.10",
-    ///         Status = "ENABLED",
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.BrokenLinksMonitorTagArgs
@@ -44,7 +46,6 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 },
     ///             },
     ///         },
-    ///         Uri = "https://www.one.example.com",
     ///     });
     /// 
     /// });
@@ -69,18 +70,20 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooPrivateLocation = new NewRelic.Synthetics.PrivateLocation("fooPrivateLocation", new()
+    ///     var foo = new NewRelic.Synthetics.PrivateLocation("foo", new()
     ///     {
+    ///         Name = "Sample Private Location",
     ///         Description = "Sample Private Location Description",
     ///         VerifiedScriptExecution = false,
     ///     });
     /// 
-    ///     var fooBrokenLinksMonitor = new NewRelic.Synthetics.BrokenLinksMonitor("fooBrokenLinksMonitor", new()
+    ///     var fooBrokenLinksMonitor = new NewRelic.Synthetics.BrokenLinksMonitor("foo", new()
     ///     {
+    ///         Name = "Sample Broken Links Monitor",
     ///         Uri = "https://www.one.example.com",
     ///         LocationsPrivates = new[]
     ///         {
-    ///             fooPrivateLocation.Id,
+    ///             foo.Id,
     ///         },
     ///         Period = "EVERY_6_HOURS",
     ///         Status = "ENABLED",

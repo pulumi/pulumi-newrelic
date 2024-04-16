@@ -157,7 +157,8 @@ class GcpLinkAccount(pulumi.CustomResource):
 
         foo = newrelic.cloud.GcpLinkAccount("foo",
             account_id="account id of newrelic account",
-            project_id="id of the Project")
+            project_id="id of the Project",
+            name="account name")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -209,7 +210,8 @@ class GcpLinkAccount(pulumi.CustomResource):
 
         foo = newrelic.cloud.GcpLinkAccount("foo",
             account_id="account id of newrelic account",
-            project_id="id of the Project")
+            project_id="id of the Project",
+            name="account name")
         ```
         <!--End PulumiCodeChooser -->
 

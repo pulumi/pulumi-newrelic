@@ -34,16 +34,17 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
 //				AccountId:     pulumi.Int(12345678),
+//				Name:          pulumi.String("webhook-example"),
+//				Type:          pulumi.String("WEBHOOK"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
 //					&newrelic.NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("payload"),
-//						Label: pulumi.String("Payload Template"),
 //						Value: pulumi.String("name: {{ foo }}"),
+//						Label: pulumi.String("Payload Template"),
 //					},
 //				},
-//				Type: pulumi.String("WEBHOOK"),
 //			})
 //			if err != nil {
 //				return err
@@ -78,6 +79,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
 //				AccountId:     pulumi.Int(12345678),
+//				Name:          pulumi.String("servicenow-incident-example"),
+//				Type:          pulumi.String("SERVICENOW_INCIDENTS"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
@@ -90,7 +93,6 @@ import (
 //						Value: pulumi.String("Short description"),
 //					},
 //				},
-//				Type: pulumi.String("SERVICENOW_INCIDENTS"),
 //			})
 //			if err != nil {
 //				return err
@@ -118,6 +120,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
 //				AccountId:     pulumi.Int(12345678),
+//				Name:          pulumi.String("email-example"),
+//				Type:          pulumi.String("EMAIL"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
@@ -130,7 +134,6 @@ import (
 //						Value: pulumi.String("issue id - {{issueId}}"),
 //					},
 //				},
-//				Type: pulumi.String("EMAIL"),
 //			})
 //			if err != nil {
 //				return err
@@ -158,6 +161,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
 //				AccountId:     pulumi.Int(12345678),
+//				Name:          pulumi.String("jira-example"),
+//				Type:          pulumi.String("JIRA_CLASSIC"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("ERROR_TRACKING"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
@@ -178,7 +183,6 @@ import (
 //						Value: pulumi.String("{{ annotations.title.[0] }}"),
 //					},
 //				},
-//				Type: pulumi.String("JIRA_CLASSIC"),
 //			})
 //			if err != nil {
 //				return err
@@ -206,6 +210,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
 //				AccountId:     pulumi.Int(12345678),
+//				Name:          pulumi.String("pagerduty-account-example"),
+//				Type:          pulumi.String("PAGERDUTY_ACCOUNT_INTEGRATION"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
@@ -224,25 +230,24 @@ import (
 //					},
 //					&newrelic.NotificationChannelPropertyArgs{
 //						Key: pulumi.String("customDetails"),
-//						Value: pulumi.String(`    {
-//	    "id":{{json issueId}},
-//	    "IssueURL":{{json issuePageUrl}},
-//	    "NewRelic priority":{{json priority}},
-//	    "Total Incidents":{{json totalIncidents}},
-//	    "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-//	    "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-//	    "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-//	    "isCorrelated":{{json isCorrelated}},
-//	    "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-//	    "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-//	    "Workflow Name":{{json workflowName}}
-//	    }
+//						Value: pulumi.String(`{
 //
+// "id":{{json issueId}},
+// "IssueURL":{{json issuePageUrl}},
+// "NewRelic priority":{{json priority}},
+// "Total Incidents":{{json totalIncidents}},
+// "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+// "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+// "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+// "isCorrelated":{{json isCorrelated}},
+// "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+// "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+// "Workflow Name":{{json workflowName}}
+// }
 // `),
 //
 //					},
 //				},
-//				Type: pulumi.String("PAGERDUTY_ACCOUNT_INTEGRATION"),
 //			})
 //			if err != nil {
 //				return err
@@ -270,6 +275,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
 //				AccountId:     pulumi.Int(12345678),
+//				Name:          pulumi.String("pagerduty-account-example"),
+//				Type:          pulumi.String("PAGERDUTY_SERVICE_INTEGRATION"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
@@ -279,25 +286,24 @@ import (
 //					},
 //					&newrelic.NotificationChannelPropertyArgs{
 //						Key: pulumi.String("customDetails"),
-//						Value: pulumi.String(`    {
-//	    "id":{{json issueId}},
-//	    "IssueURL":{{json issuePageUrl}},
-//	    "NewRelic priority":{{json priority}},
-//	    "Total Incidents":{{json totalIncidents}},
-//	    "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-//	    "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-//	    "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-//	    "isCorrelated":{{json isCorrelated}},
-//	    "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-//	    "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-//	    "Workflow Name":{{json workflowName}}
-//	    }
+//						Value: pulumi.String(`{
 //
+// "id":{{json issueId}},
+// "IssueURL":{{json issuePageUrl}},
+// "NewRelic priority":{{json priority}},
+// "Total Incidents":{{json totalIncidents}},
+// "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+// "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+// "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+// "isCorrelated":{{json isCorrelated}},
+// "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+// "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+// "Workflow Name":{{json workflowName}}
+// }
 // `),
 //
 //					},
 //				},
-//				Type: pulumi.String("PAGERDUTY_SERVICE_INTEGRATION"),
 //			})
 //			if err != nil {
 //				return err
@@ -325,9 +331,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
 //				AccountId:     pulumi.Int(12345678),
+//				Name:          pulumi.String("mobile-push-example"),
+//				Type:          pulumi.String("MOBILE_PUSH"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
-//				Type:          pulumi.String("MOBILE_PUSH"),
 //			})
 //			if err != nil {
 //				return err
@@ -355,6 +362,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
 //				AccountId:     pulumi.Int(12345678),
+//				Name:          pulumi.String("event-bridge-example"),
+//				Type:          pulumi.String("EVENT_BRIDGE"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
@@ -367,7 +376,6 @@ import (
 //						Value: pulumi.String("{ id: {{ json issueId }} }"),
 //					},
 //				},
-//				Type: pulumi.String("EVENT_BRIDGE"),
 //			})
 //			if err != nil {
 //				return err
@@ -395,6 +403,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
 //				AccountId:     pulumi.Int(12345678),
+//				Name:          pulumi.String("slack-example"),
+//				Type:          pulumi.String("SLACK"),
 //				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
@@ -407,7 +417,6 @@ import (
 //						Value: pulumi.String("issue id - {{issueId}}"),
 //					},
 //				},
-//				Type: pulumi.String("SLACK"),
 //			})
 //			if err != nil {
 //				return err
@@ -441,17 +450,18 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationDestination(ctx, "webhook-destination", &newrelic.NotificationDestinationArgs{
 //				AccountId: pulumi.Int(12345678),
-//				AuthBasic: &newrelic.NotificationDestinationAuthBasicArgs{
-//					Password: pulumi.String("password"),
-//					User:     pulumi.String("username"),
-//				},
+//				Name:      pulumi.String("destination-webhook"),
+//				Type:      pulumi.String("WEBHOOK"),
 //				Properties: newrelic.NotificationDestinationPropertyArray{
 //					&newrelic.NotificationDestinationPropertyArgs{
 //						Key:   pulumi.String("url"),
 //						Value: pulumi.String("https://webhook.mywebhook.com"),
 //					},
 //				},
-//				Type: pulumi.String("WEBHOOK"),
+//				AuthBasic: &newrelic.NotificationDestinationAuthBasicArgs{
+//					User:     pulumi.String("username"),
+//					Password: pulumi.String("password"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -479,8 +489,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "webhook-channel", &newrelic.NotificationChannelArgs{
 //				AccountId:     pulumi.Int(12345678),
+//				Name:          pulumi.String("channel-webhook"),
 //				Type:          pulumi.String("WEBHOOK"),
-//				DestinationId: pulumi.Any(newrelic_notification_destination.WebhookDestination.Id),
+//				DestinationId: pulumi.Any(webhook_destination.Id),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
 //					&newrelic.NotificationChannelPropertyArgs{

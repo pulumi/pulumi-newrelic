@@ -225,6 +225,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
         foo = newrelic.EventsToMetricsRule("foo",
             account_id=12345,
+            name="Example events to metrics rule",
             description="Example description",
             nrql="SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
         ```
@@ -268,6 +269,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
         foo = newrelic.EventsToMetricsRule("foo",
             account_id=12345,
+            name="Example events to metrics rule",
             description="Example description",
             nrql="SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
         ```

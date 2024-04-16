@@ -30,15 +30,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewCertCheckMonitor(ctx, "foo", &synthetics.CertCheckMonitorArgs{
-//				CertificateExpiration: pulumi.Int(10),
-//				Domain:                pulumi.String("www.example.com"),
+//				Name:   pulumi.String("Sample Cert Check Monitor"),
+//				Domain: pulumi.String("www.example.com"),
 //				LocationsPublics: pulumi.StringArray{
 //					pulumi.String("AP_SOUTH_1"),
 //				},
-//				Period:             pulumi.String("EVERY_6_HOURS"),
-//				RuntimeType:        pulumi.String("NODE_API"),
-//				RuntimeTypeVersion: pulumi.String("16.10"),
-//				Status:             pulumi.String("ENABLED"),
+//				CertificateExpiration: pulumi.Int(10),
+//				Period:                pulumi.String("EVERY_6_HOURS"),
+//				Status:                pulumi.String("ENABLED"),
+//				RuntimeType:           pulumi.String("NODE_API"),
+//				RuntimeTypeVersion:    pulumi.String("16.10"),
 //				Tags: synthetics.CertCheckMonitorTagArray{
 //					&synthetics.CertCheckMonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -80,17 +81,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooPrivateLocation, err := synthetics.NewPrivateLocation(ctx, "fooPrivateLocation", &synthetics.PrivateLocationArgs{
+//			foo, err := synthetics.NewPrivateLocation(ctx, "foo", &synthetics.PrivateLocationArgs{
+//				Name:                    pulumi.String("Sample Private Location"),
 //				Description:             pulumi.String("Sample Private Location Description"),
 //				VerifiedScriptExecution: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = synthetics.NewCertCheckMonitor(ctx, "fooCertCheckMonitor", &synthetics.CertCheckMonitorArgs{
+//			_, err = synthetics.NewCertCheckMonitor(ctx, "foo", &synthetics.CertCheckMonitorArgs{
+//				Name:   pulumi.String("Sample Cert Check Monitor"),
 //				Domain: pulumi.String("www.one.example.com"),
 //				LocationsPrivates: pulumi.StringArray{
-//					fooPrivateLocation.ID(),
+//					foo.ID(),
 //				},
 //				CertificateExpiration: pulumi.Int(10),
 //				Period:                pulumi.String("EVERY_6_HOURS"),

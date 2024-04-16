@@ -39,12 +39,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
-//				PolicyId: fooAlertPolicy.ID(),
+//			_, err = newrelic.NewAlertCondition(ctx, "foo", &newrelic.AlertConditionArgs{
+//				PolicyId: foo.ID(),
+//				Name:     pulumi.String("foo"),
 //				Type:     pulumi.String("apm_app_metric"),
 //				Entities: pulumi.IntArray{
 //					pulumi.Int(app.ApplicationId),
@@ -99,21 +102,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooEntity, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+//			foo, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
 //				Name: "foo entitiy",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo policy"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			fooAlertCondition, err := newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
+//			fooAlertCondition, err := newrelic.NewAlertCondition(ctx, "foo", &newrelic.AlertConditionArgs{
 //				PolicyId: fooAlertPolicy.ID(),
+//				Name:     pulumi.String("foo condition"),
 //				Type:     pulumi.String("apm_app_metric"),
 //				Entities: pulumi.IntArray{
-//					pulumi.Int(fooEntity.ApplicationId),
+//					pulumi.Int(foo.ApplicationId),
 //				},
 //				Metric:         pulumi.String("apdex"),
 //				RunbookUrl:     pulumi.String("https://www.example.com"),
@@ -131,7 +137,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
+//			_, err = newrelic.NewEntityTags(ctx, "my_condition_entity_tags", &newrelic.EntityTagsArgs{
 //				Guid: fooAlertCondition.EntityGuid,
 //				Tags: newrelic.EntityTagsTagArray{
 //					&newrelic.EntityTagsTagArgs{

@@ -42,22 +42,22 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new NrqlDropRule(&#34;foo&#34;, NrqlDropRuleArgs.builder()        
  *             .accountId(12345)
- *             .action(&#34;drop_data&#34;)
  *             .description(&#34;Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it.&#34;)
+ *             .action(&#34;drop_data&#34;)
  *             .nrql(&#34;SELECT * FROM MyCustomEvent WHERE appName=&#39;LoadGeneratingApp&#39; AND environment=&#39;development&#39;&#34;)
  *             .build());
  * 
  *         var bar = new NrqlDropRule(&#34;bar&#34;, NrqlDropRuleArgs.builder()        
  *             .accountId(12345)
- *             .action(&#34;drop_attributes&#34;)
  *             .description(&#34;Removes the user name and email fields from MyCustomEvent&#34;)
+ *             .action(&#34;drop_attributes&#34;)
  *             .nrql(&#34;SELECT userEmail, userName FROM MyCustomEvent&#34;)
  *             .build());
  * 
  *         var baz = new NrqlDropRule(&#34;baz&#34;, NrqlDropRuleArgs.builder()        
  *             .accountId(12345)
- *             .action(&#34;drop_attributes_from_metric_aggregates&#34;)
  *             .description(&#34;Removes containerId from metric aggregates to reduce metric cardinality.&#34;)
+ *             .action(&#34;drop_attributes_from_metric_aggregates&#34;)
  *             .nrql(&#34;SELECT containerId FROM Metric&#34;)
  *             .build());
  * 

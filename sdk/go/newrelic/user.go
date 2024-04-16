@@ -29,15 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAuthenticationDomain, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
+//			foo, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
 //				Name: "Test Authentication Domain",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewUser(ctx, "fooUser", &newrelic.UserArgs{
+//			_, err = newrelic.NewUser(ctx, "foo", &newrelic.UserArgs{
+//				Name:                   pulumi.String("Test New User"),
 //				EmailId:                pulumi.String("test_user@test.com"),
-//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
+//				AuthenticationDomainId: pulumi.String(foo.Id),
 //				UserType:               pulumi.String("CORE_USER_TIER"),
 //			})
 //			if err != nil {

@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Workflow(&#34;foo&#34;, WorkflowArgs.builder()        
+ *             .name(&#34;workflow-example&#34;)
  *             .mutingRulesHandling(&#34;NOTIFY_ALL_ISSUES&#34;)
  *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
  *                 .name(&#34;filter-name&#34;)
@@ -62,7 +63,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .destinations(WorkflowDestinationArgs.builder()
- *                 .channelId(newrelic_notification_channel.some_channel().id())
+ *                 .channelId(someChannel.id())
  *                 .build())
  *             .build());
  * 
@@ -83,6 +84,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.NotificationDestination;
  * import com.pulumi.newrelic.NotificationDestinationArgs;
  * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
@@ -108,10 +110,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a policy to track
- *         var my_policy = new AlertPolicy(&#34;my-policy&#34;);
+ *         var my_policy = new AlertPolicy(&#34;my-policy&#34;, AlertPolicyArgs.builder()        
+ *             .name(&#34;my_policy&#34;)
+ *             .build());
  * 
  *         // Create a reusable notification destination
  *         var webhook_destination = new NotificationDestination(&#34;webhook-destination&#34;, NotificationDestinationArgs.builder()        
+ *             .name(&#34;destination-webhook&#34;)
  *             .type(&#34;WEBHOOK&#34;)
  *             .properties(NotificationDestinationPropertyArgs.builder()
  *                 .key(&#34;url&#34;)
@@ -125,6 +130,7 @@ import javax.annotation.Nullable;
  * 
  *         // Create a notification channel to use in the workflow
  *         var webhook_channel = new NotificationChannel(&#34;webhook-channel&#34;, NotificationChannelArgs.builder()        
+ *             .name(&#34;channel-webhook&#34;)
  *             .type(&#34;WEBHOOK&#34;)
  *             .destinationId(webhook_destination.id())
  *             .product(&#34;IINT&#34;)
@@ -137,6 +143,7 @@ import javax.annotation.Nullable;
  * 
  *         // A workflow that matches issues that include incidents triggered by the policy
  *         var workflow_example = new Workflow(&#34;workflow-example&#34;, WorkflowArgs.builder()        
+ *             .name(&#34;workflow-example&#34;)
  *             .mutingRulesHandling(&#34;NOTIFY_ALL_ISSUES&#34;)
  *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
  *                 .name(&#34;Filter-name&#34;)
@@ -185,6 +192,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var workflow_example = new Workflow(&#34;workflow-example&#34;, WorkflowArgs.builder()        
+ *             .name(&#34;workflow-enrichment-example&#34;)
  *             .mutingRulesHandling(&#34;NOTIFY_ALL_ISSUES&#34;)
  *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
  *                 .name(&#34;Filter-name&#34;)
@@ -204,7 +212,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .destinations(WorkflowDestinationArgs.builder()
- *                 .channelId(newrelic_notification_channel.webhook-channel().id())
+ *                 .channelId(webhook_channel.id())
  *                 .build())
  *             .build());
  * 
@@ -240,6 +248,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var workflow_example = new Workflow(&#34;workflow-example&#34;, WorkflowArgs.builder()        
+ *             .name(&#34;workflow-enrichment-example&#34;)
  *             .mutingRulesHandling(&#34;NOTIFY_ALL_ISSUES&#34;)
  *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
  *                 .name(&#34;Filter-name&#34;)
@@ -251,7 +260,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .destinations(WorkflowDestinationArgs.builder()
- *                 .channelId(newrelic_notification_channel.webhook-channel().id())
+ *                 .channelId(webhook_channel.id())
  *                 .notificationTriggers(&#34;ACTIVATED&#34;)
  *                 .build())
  *             .build());
