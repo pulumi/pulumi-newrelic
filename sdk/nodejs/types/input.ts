@@ -5182,43 +5182,6 @@ export namespace synthetics {
         value?: pulumi.Input<string>;
     }
 
-    export interface MonitorDowntimeEndRepeat {
-        /**
-         * The date on which the monitor downtime's repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
-         */
-        onDate?: pulumi.Input<string>;
-        /**
-         * An integer that specifies the number of occurrences, after which the monitor downtime's repeat cycle would need to come to an end.
-         *
-         * > **NOTE:** `endRepeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `onDate` or `onRepeat` **are required to be specified with** `endRepeat`, but not both, as `onDate` and `onRepeat` are mutually exclusive.
-         */
-        onRepeat?: pulumi.Input<number>;
-    }
-
-    export interface MonitorDowntimeFrequency {
-        /**
-         * A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
-         */
-        daysOfMonths?: pulumi.Input<pulumi.Input<number>[]>;
-        /**
-         * An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
-         */
-        daysOfWeek?: pulumi.Input<inputs.synthetics.MonitorDowntimeFrequencyDaysOfWeek>;
-    }
-
-    export interface MonitorDowntimeFrequencyDaysOfWeek {
-        /**
-         * The occurrence of `weekDay` in a month (one of `"FIRST"`, `"SECOND"`, `"THIRD"`, `"FOURTH"`, `"LAST"`).
-         *
-         * > **NOTE:** `frequency` **can only be used with the mode** `MONTHLY`, and **is a required argument** with monthly monitor downtimes (if the `mode` is `MONTHLY`). Additionally, **either** `daysOfMonth` or `daysOfWeek` **are required to be specified with** `frequency`, but not both, as `daysOfMonth` and `daysOfWeek` are mutually exclusive. If `daysOfWeek` is specified, values of **both** of its nested arguments, `weekDay` and `ordinalDayOfMonth` **would need to be specified** too.
-         */
-        ordinalDayOfMonth: pulumi.Input<string>;
-        /**
-         * A day of the week (one of `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` or `"SATURDAY"`).
-         */
-        weekDay: pulumi.Input<string>;
-    }
-
     export interface MonitorTag {
         /**
          * Name of the tag key.

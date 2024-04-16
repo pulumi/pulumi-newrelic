@@ -8,15 +8,11 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'BrokenLinksMonitorTag',
     'CertCheckMonitorTag',
     'MonitorCustomHeader',
-    'MonitorDowntimeEndRepeat',
-    'MonitorDowntimeFrequency',
-    'MonitorDowntimeFrequencyDaysOfWeek',
     'MonitorTag',
     'MultiLocationAlertConditionCritical',
     'MultiLocationAlertConditionWarning',
@@ -114,162 +110,6 @@ class MonitorCustomHeader(dict):
         Header Value.
         """
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class MonitorDowntimeEndRepeat(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "onDate":
-            suggest = "on_date"
-        elif key == "onRepeat":
-            suggest = "on_repeat"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MonitorDowntimeEndRepeat. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MonitorDowntimeEndRepeat.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MonitorDowntimeEndRepeat.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 on_date: Optional[str] = None,
-                 on_repeat: Optional[int] = None):
-        """
-        :param str on_date: The date on which the monitor downtime's repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
-        :param int on_repeat: An integer that specifies the number of occurrences, after which the monitor downtime's repeat cycle would need to come to an end.
-               
-               > **NOTE:** `end_repeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `on_date` or `on_repeat` **are required to be specified with** `end_repeat`, but not both, as `on_date` and `on_repeat` are mutually exclusive.
-        """
-        if on_date is not None:
-            pulumi.set(__self__, "on_date", on_date)
-        if on_repeat is not None:
-            pulumi.set(__self__, "on_repeat", on_repeat)
-
-    @property
-    @pulumi.getter(name="onDate")
-    def on_date(self) -> Optional[str]:
-        """
-        The date on which the monitor downtime's repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
-        """
-        return pulumi.get(self, "on_date")
-
-    @property
-    @pulumi.getter(name="onRepeat")
-    def on_repeat(self) -> Optional[int]:
-        """
-        An integer that specifies the number of occurrences, after which the monitor downtime's repeat cycle would need to come to an end.
-
-        > **NOTE:** `end_repeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `on_date` or `on_repeat` **are required to be specified with** `end_repeat`, but not both, as `on_date` and `on_repeat` are mutually exclusive.
-        """
-        return pulumi.get(self, "on_repeat")
-
-
-@pulumi.output_type
-class MonitorDowntimeFrequency(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "daysOfMonths":
-            suggest = "days_of_months"
-        elif key == "daysOfWeek":
-            suggest = "days_of_week"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MonitorDowntimeFrequency. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MonitorDowntimeFrequency.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MonitorDowntimeFrequency.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 days_of_months: Optional[Sequence[int]] = None,
-                 days_of_week: Optional['outputs.MonitorDowntimeFrequencyDaysOfWeek'] = None):
-        """
-        :param Sequence[int] days_of_months: A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
-        :param 'MonitorDowntimeFrequencyDaysOfWeekArgs' days_of_week: An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
-        """
-        if days_of_months is not None:
-            pulumi.set(__self__, "days_of_months", days_of_months)
-        if days_of_week is not None:
-            pulumi.set(__self__, "days_of_week", days_of_week)
-
-    @property
-    @pulumi.getter(name="daysOfMonths")
-    def days_of_months(self) -> Optional[Sequence[int]]:
-        """
-        A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
-        """
-        return pulumi.get(self, "days_of_months")
-
-    @property
-    @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> Optional['outputs.MonitorDowntimeFrequencyDaysOfWeek']:
-        """
-        An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
-        """
-        return pulumi.get(self, "days_of_week")
-
-
-@pulumi.output_type
-class MonitorDowntimeFrequencyDaysOfWeek(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ordinalDayOfMonth":
-            suggest = "ordinal_day_of_month"
-        elif key == "weekDay":
-            suggest = "week_day"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MonitorDowntimeFrequencyDaysOfWeek. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MonitorDowntimeFrequencyDaysOfWeek.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MonitorDowntimeFrequencyDaysOfWeek.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 ordinal_day_of_month: str,
-                 week_day: str):
-        """
-        :param str ordinal_day_of_month: The occurrence of `week_day` in a month (one of `"FIRST"`, `"SECOND"`, `"THIRD"`, `"FOURTH"`, `"LAST"`).
-               
-               > **NOTE:** `frequency` **can only be used with the mode** `MONTHLY`, and **is a required argument** with monthly monitor downtimes (if the `mode` is `MONTHLY`). Additionally, **either** `days_of_month` or `days_of_week` **are required to be specified with** `frequency`, but not both, as `days_of_month` and `days_of_week` are mutually exclusive. If `days_of_week` is specified, values of **both** of its nested arguments, `week_day` and `ordinal_day_of_month` **would need to be specified** too.
-        :param str week_day: A day of the week (one of `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` or `"SATURDAY"`).
-        """
-        pulumi.set(__self__, "ordinal_day_of_month", ordinal_day_of_month)
-        pulumi.set(__self__, "week_day", week_day)
-
-    @property
-    @pulumi.getter(name="ordinalDayOfMonth")
-    def ordinal_day_of_month(self) -> str:
-        """
-        The occurrence of `week_day` in a month (one of `"FIRST"`, `"SECOND"`, `"THIRD"`, `"FOURTH"`, `"LAST"`).
-
-        > **NOTE:** `frequency` **can only be used with the mode** `MONTHLY`, and **is a required argument** with monthly monitor downtimes (if the `mode` is `MONTHLY`). Additionally, **either** `days_of_month` or `days_of_week` **are required to be specified with** `frequency`, but not both, as `days_of_month` and `days_of_week` are mutually exclusive. If `days_of_week` is specified, values of **both** of its nested arguments, `week_day` and `ordinal_day_of_month` **would need to be specified** too.
-        """
-        return pulumi.get(self, "ordinal_day_of_month")
-
-    @property
-    @pulumi.getter(name="weekDay")
-    def week_day(self) -> str:
-        """
-        A day of the week (one of `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` or `"SATURDAY"`).
-        """
-        return pulumi.get(self, "week_day")
 
 
 @pulumi.output_type

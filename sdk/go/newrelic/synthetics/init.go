@@ -29,8 +29,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CertCheckMonitor{}
 	case "newrelic:synthetics/monitor:Monitor":
 		r = &Monitor{}
-	case "newrelic:synthetics/monitorDowntime:MonitorDowntime":
-		r = &MonitorDowntime{}
 	case "newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition":
 		r = &MultiLocationAlertCondition{}
 	case "newrelic:synthetics/privateLocation:PrivateLocation":
@@ -72,11 +70,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"synthetics/monitor",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"newrelic",
-		"synthetics/monitorDowntime",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -35,11 +35,6 @@ export type Monitor = import("./monitor").Monitor;
 export const Monitor: typeof import("./monitor").Monitor = null as any;
 utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
 
-export { MonitorDowntimeArgs, MonitorDowntimeState } from "./monitorDowntime";
-export type MonitorDowntime = import("./monitorDowntime").MonitorDowntime;
-export const MonitorDowntime: typeof import("./monitorDowntime").MonitorDowntime = null as any;
-utilities.lazyLoad(exports, ["MonitorDowntime"], () => require("./monitorDowntime"));
-
 export { MultiLocationAlertConditionArgs, MultiLocationAlertConditionState } from "./multiLocationAlertCondition";
 export type MultiLocationAlertCondition = import("./multiLocationAlertCondition").MultiLocationAlertCondition;
 export const MultiLocationAlertCondition: typeof import("./multiLocationAlertCondition").MultiLocationAlertCondition = null as any;
@@ -78,8 +73,6 @@ const _module = {
                 return new CertCheckMonitor(name, <any>undefined, { urn })
             case "newrelic:synthetics/monitor:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
-            case "newrelic:synthetics/monitorDowntime:MonitorDowntime":
-                return new MonitorDowntime(name, <any>undefined, { urn })
             case "newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition":
                 return new MultiLocationAlertCondition(name, <any>undefined, { urn })
             case "newrelic:synthetics/privateLocation:PrivateLocation":
@@ -99,7 +92,6 @@ pulumi.runtime.registerResourceModule("newrelic", "synthetics/alertCondition", _
 pulumi.runtime.registerResourceModule("newrelic", "synthetics/brokenLinksMonitor", _module)
 pulumi.runtime.registerResourceModule("newrelic", "synthetics/certCheckMonitor", _module)
 pulumi.runtime.registerResourceModule("newrelic", "synthetics/monitor", _module)
-pulumi.runtime.registerResourceModule("newrelic", "synthetics/monitorDowntime", _module)
 pulumi.runtime.registerResourceModule("newrelic", "synthetics/multiLocationAlertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "synthetics/privateLocation", _module)
 pulumi.runtime.registerResourceModule("newrelic", "synthetics/scriptMonitor", _module)

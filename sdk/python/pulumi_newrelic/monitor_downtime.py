@@ -353,12 +353,7 @@ class _MonitorDowntimeState:
         pulumi.set(self, "time_zone", value)
 
 
-warnings.warn("""newrelic.index/monitordowntime.MonitorDowntime has been deprecated in favor of newrelic.synthetics/monitordowntime.MonitorDowntime""", DeprecationWarning)
-
-
 class MonitorDowntime(pulumi.CustomResource):
-    warnings.warn("""newrelic.index/monitordowntime.MonitorDowntime has been deprecated in favor of newrelic.synthetics/monitordowntime.MonitorDowntime""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -384,8 +379,8 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.synthetics.MonitorDowntime("foo",
-            end_repeat=newrelic.synthetics.MonitorDowntimeEndRepeatArgs(
+        foo = newrelic.MonitorDowntime("foo",
+            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
                 on_date="2023-12-20",
             ),
             end_time="2023-12-10T02:45:30",
@@ -415,7 +410,7 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_one_time_newrelic_monitor_downtime = newrelic.synthetics.MonitorDowntime("sampleOneTimeNewrelicMonitorDowntime",
+        sample_one_time_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleOneTimeNewrelicMonitorDowntime",
             end_time="2024-01-04T16:24:30",
             mode="ONE_TIME",
             monitor_guids=[
@@ -438,8 +433,8 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_daily_newrelic_monitor_downtime = newrelic.synthetics.MonitorDowntime("sampleDailyNewrelicMonitorDowntime",
-            end_repeat=newrelic.synthetics.MonitorDowntimeEndRepeatArgs(
+        sample_daily_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleDailyNewrelicMonitorDowntime",
+            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
                 on_date="2023-12-25",
             ),
             end_time="2024-01-04T07:15:00",
@@ -464,7 +459,7 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_weekly_newrelic_monitor_downtime = newrelic.synthetics.MonitorDowntime("sampleWeeklyNewrelicMonitorDowntime",
+        sample_weekly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleWeeklyNewrelicMonitorDowntime",
             end_time="2024-01-04T23:55:00",
             maintenance_days=[
                 "SATURDAY",
@@ -491,13 +486,13 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_monthly_newrelic_monitor_downtime = newrelic.synthetics.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime",
-            end_repeat=newrelic.synthetics.MonitorDowntimeEndRepeatArgs(
+        sample_monthly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime",
+            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
                 on_repeat=6,
             ),
             end_time="2024-01-04T19:15:00",
-            frequency=newrelic.synthetics.MonitorDowntimeFrequencyArgs(
-                days_of_week=newrelic.synthetics.MonitorDowntimeFrequencyDaysOfWeekArgs(
+            frequency=newrelic.MonitorDowntimeFrequencyArgs(
+                days_of_week=newrelic.MonitorDowntimeFrequencyDaysOfWeekArgs(
                     ordinal_day_of_month="SECOND",
                     week_day="SATURDAY",
                 ),
@@ -517,12 +512,12 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_monthly_newrelic_monitor_downtime = newrelic.synthetics.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime",
-            end_repeat=newrelic.synthetics.MonitorDowntimeEndRepeatArgs(
+        sample_monthly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime",
+            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
                 on_repeat=6,
             ),
             end_time="2024-01-04T19:15:00",
-            frequency=newrelic.synthetics.MonitorDowntimeFrequencyArgs(
+            frequency=newrelic.MonitorDowntimeFrequencyArgs(
                 days_of_months=[
                     3,
                     6,
@@ -581,8 +576,8 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.synthetics.MonitorDowntime("foo",
-            end_repeat=newrelic.synthetics.MonitorDowntimeEndRepeatArgs(
+        foo = newrelic.MonitorDowntime("foo",
+            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
                 on_date="2023-12-20",
             ),
             end_time="2023-12-10T02:45:30",
@@ -612,7 +607,7 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_one_time_newrelic_monitor_downtime = newrelic.synthetics.MonitorDowntime("sampleOneTimeNewrelicMonitorDowntime",
+        sample_one_time_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleOneTimeNewrelicMonitorDowntime",
             end_time="2024-01-04T16:24:30",
             mode="ONE_TIME",
             monitor_guids=[
@@ -635,8 +630,8 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_daily_newrelic_monitor_downtime = newrelic.synthetics.MonitorDowntime("sampleDailyNewrelicMonitorDowntime",
-            end_repeat=newrelic.synthetics.MonitorDowntimeEndRepeatArgs(
+        sample_daily_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleDailyNewrelicMonitorDowntime",
+            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
                 on_date="2023-12-25",
             ),
             end_time="2024-01-04T07:15:00",
@@ -661,7 +656,7 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_weekly_newrelic_monitor_downtime = newrelic.synthetics.MonitorDowntime("sampleWeeklyNewrelicMonitorDowntime",
+        sample_weekly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleWeeklyNewrelicMonitorDowntime",
             end_time="2024-01-04T23:55:00",
             maintenance_days=[
                 "SATURDAY",
@@ -688,13 +683,13 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_monthly_newrelic_monitor_downtime = newrelic.synthetics.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime",
-            end_repeat=newrelic.synthetics.MonitorDowntimeEndRepeatArgs(
+        sample_monthly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime",
+            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
                 on_repeat=6,
             ),
             end_time="2024-01-04T19:15:00",
-            frequency=newrelic.synthetics.MonitorDowntimeFrequencyArgs(
-                days_of_week=newrelic.synthetics.MonitorDowntimeFrequencyDaysOfWeekArgs(
+            frequency=newrelic.MonitorDowntimeFrequencyArgs(
+                days_of_week=newrelic.MonitorDowntimeFrequencyDaysOfWeekArgs(
                     ordinal_day_of_month="SECOND",
                     week_day="SATURDAY",
                 ),
@@ -714,12 +709,12 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_monthly_newrelic_monitor_downtime = newrelic.synthetics.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime",
-            end_repeat=newrelic.synthetics.MonitorDowntimeEndRepeatArgs(
+        sample_monthly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime",
+            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
                 on_repeat=6,
             ),
             end_time="2024-01-04T19:15:00",
-            frequency=newrelic.synthetics.MonitorDowntimeFrequencyArgs(
+            frequency=newrelic.MonitorDowntimeFrequencyArgs(
                 days_of_months=[
                     3,
                     6,
@@ -773,7 +768,6 @@ class MonitorDowntime(pulumi.CustomResource):
                  start_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""MonitorDowntime is deprecated: newrelic.index/monitordowntime.MonitorDowntime has been deprecated in favor of newrelic.synthetics/monitordowntime.MonitorDowntime""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

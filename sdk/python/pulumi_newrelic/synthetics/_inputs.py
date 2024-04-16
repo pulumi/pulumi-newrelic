@@ -13,9 +13,6 @@ __all__ = [
     'BrokenLinksMonitorTagArgs',
     'CertCheckMonitorTagArgs',
     'MonitorCustomHeaderArgs',
-    'MonitorDowntimeEndRepeatArgs',
-    'MonitorDowntimeFrequencyArgs',
-    'MonitorDowntimeFrequencyDaysOfWeekArgs',
     'MonitorTagArgs',
     'MultiLocationAlertConditionCriticalArgs',
     'MultiLocationAlertConditionWarningArgs',
@@ -137,129 +134,6 @@ class MonitorCustomHeaderArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class MonitorDowntimeEndRepeatArgs:
-    def __init__(__self__, *,
-                 on_date: Optional[pulumi.Input[str]] = None,
-                 on_repeat: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] on_date: The date on which the monitor downtime's repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
-        :param pulumi.Input[int] on_repeat: An integer that specifies the number of occurrences, after which the monitor downtime's repeat cycle would need to come to an end.
-               
-               > **NOTE:** `end_repeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `on_date` or `on_repeat` **are required to be specified with** `end_repeat`, but not both, as `on_date` and `on_repeat` are mutually exclusive.
-        """
-        if on_date is not None:
-            pulumi.set(__self__, "on_date", on_date)
-        if on_repeat is not None:
-            pulumi.set(__self__, "on_repeat", on_repeat)
-
-    @property
-    @pulumi.getter(name="onDate")
-    def on_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        The date on which the monitor downtime's repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
-        """
-        return pulumi.get(self, "on_date")
-
-    @on_date.setter
-    def on_date(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "on_date", value)
-
-    @property
-    @pulumi.getter(name="onRepeat")
-    def on_repeat(self) -> Optional[pulumi.Input[int]]:
-        """
-        An integer that specifies the number of occurrences, after which the monitor downtime's repeat cycle would need to come to an end.
-
-        > **NOTE:** `end_repeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `on_date` or `on_repeat` **are required to be specified with** `end_repeat`, but not both, as `on_date` and `on_repeat` are mutually exclusive.
-        """
-        return pulumi.get(self, "on_repeat")
-
-    @on_repeat.setter
-    def on_repeat(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "on_repeat", value)
-
-
-@pulumi.input_type
-class MonitorDowntimeFrequencyArgs:
-    def __init__(__self__, *,
-                 days_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 days_of_week: Optional[pulumi.Input['MonitorDowntimeFrequencyDaysOfWeekArgs']] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] days_of_months: A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
-        :param pulumi.Input['MonitorDowntimeFrequencyDaysOfWeekArgs'] days_of_week: An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
-        """
-        if days_of_months is not None:
-            pulumi.set(__self__, "days_of_months", days_of_months)
-        if days_of_week is not None:
-            pulumi.set(__self__, "days_of_week", days_of_week)
-
-    @property
-    @pulumi.getter(name="daysOfMonths")
-    def days_of_months(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
-        """
-        A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
-        """
-        return pulumi.get(self, "days_of_months")
-
-    @days_of_months.setter
-    def days_of_months(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
-        pulumi.set(self, "days_of_months", value)
-
-    @property
-    @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> Optional[pulumi.Input['MonitorDowntimeFrequencyDaysOfWeekArgs']]:
-        """
-        An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
-        """
-        return pulumi.get(self, "days_of_week")
-
-    @days_of_week.setter
-    def days_of_week(self, value: Optional[pulumi.Input['MonitorDowntimeFrequencyDaysOfWeekArgs']]):
-        pulumi.set(self, "days_of_week", value)
-
-
-@pulumi.input_type
-class MonitorDowntimeFrequencyDaysOfWeekArgs:
-    def __init__(__self__, *,
-                 ordinal_day_of_month: pulumi.Input[str],
-                 week_day: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] ordinal_day_of_month: The occurrence of `week_day` in a month (one of `"FIRST"`, `"SECOND"`, `"THIRD"`, `"FOURTH"`, `"LAST"`).
-               
-               > **NOTE:** `frequency` **can only be used with the mode** `MONTHLY`, and **is a required argument** with monthly monitor downtimes (if the `mode` is `MONTHLY`). Additionally, **either** `days_of_month` or `days_of_week` **are required to be specified with** `frequency`, but not both, as `days_of_month` and `days_of_week` are mutually exclusive. If `days_of_week` is specified, values of **both** of its nested arguments, `week_day` and `ordinal_day_of_month` **would need to be specified** too.
-        :param pulumi.Input[str] week_day: A day of the week (one of `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` or `"SATURDAY"`).
-        """
-        pulumi.set(__self__, "ordinal_day_of_month", ordinal_day_of_month)
-        pulumi.set(__self__, "week_day", week_day)
-
-    @property
-    @pulumi.getter(name="ordinalDayOfMonth")
-    def ordinal_day_of_month(self) -> pulumi.Input[str]:
-        """
-        The occurrence of `week_day` in a month (one of `"FIRST"`, `"SECOND"`, `"THIRD"`, `"FOURTH"`, `"LAST"`).
-
-        > **NOTE:** `frequency` **can only be used with the mode** `MONTHLY`, and **is a required argument** with monthly monitor downtimes (if the `mode` is `MONTHLY`). Additionally, **either** `days_of_month` or `days_of_week` **are required to be specified with** `frequency`, but not both, as `days_of_month` and `days_of_week` are mutually exclusive. If `days_of_week` is specified, values of **both** of its nested arguments, `week_day` and `ordinal_day_of_month` **would need to be specified** too.
-        """
-        return pulumi.get(self, "ordinal_day_of_month")
-
-    @ordinal_day_of_month.setter
-    def ordinal_day_of_month(self, value: pulumi.Input[str]):
-        pulumi.set(self, "ordinal_day_of_month", value)
-
-    @property
-    @pulumi.getter(name="weekDay")
-    def week_day(self) -> pulumi.Input[str]:
-        """
-        A day of the week (one of `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` or `"SATURDAY"`).
-        """
-        return pulumi.get(self, "week_day")
-
-    @week_day.setter
-    def week_day(self, value: pulumi.Input[str]):
-        pulumi.set(self, "week_day", value)
 
 
 @pulumi.input_type
