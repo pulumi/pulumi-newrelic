@@ -7,3 +7,8 @@ makeTemplate: bridged
 team: ecosystem
 extra-ld-flags:
 - -X github.com/newrelic/terraform-provider-newrelic/v2/main.UserAgentServiceName=pulumi
+pulumiConvert: 1
+plugins:
+  - name: terraform
+    version: "1.0.16"
+    kind: converter
