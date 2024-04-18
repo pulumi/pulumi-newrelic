@@ -2037,6 +2037,56 @@ public final class NewrelicFunctions {
      * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## Additional Examples
+     * 
+     * The following example demonstrates utilizing attributes exported by this data source.
+     * 
+     * In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import com.pulumi.newrelic.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .name(&#34;Test Group&#34;)
+     *             .build());
+     * 
+     *         final var id = fooGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id());
+     * 
+     *         final var userIds = fooGetGroup.applyValue(getGroupResult -&gt; getGroupResult.userIds()).length() &gt; 0 ? StdFunctions.join(JoinArgs.builder()
+     *             .separator(&#34;, &#34;)
+     *             .input(fooGetGroup.applyValue(getGroupResult -&gt; getGroupResult.userIds()))
+     *             .build()).result() : &#34;&#34;;
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
         return getGroup(args, InvokeOptions.Empty);
@@ -2079,6 +2129,56 @@ public final class NewrelicFunctions {
      *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
      *             .name(&#34;Test Group&#34;)
      *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Additional Examples
+     * 
+     * The following example demonstrates utilizing attributes exported by this data source.
+     * 
+     * In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import com.pulumi.newrelic.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .name(&#34;Test Group&#34;)
+     *             .build());
+     * 
+     *         final var id = fooGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id());
+     * 
+     *         final var userIds = fooGetGroup.applyValue(getGroupResult -&gt; getGroupResult.userIds()).length() &gt; 0 ? StdFunctions.join(JoinArgs.builder()
+     *             .separator(&#34;, &#34;)
+     *             .input(fooGetGroup.applyValue(getGroupResult -&gt; getGroupResult.userIds()))
+     *             .build()).result() : &#34;&#34;;
      * 
      *     }
      * }
@@ -2133,6 +2233,56 @@ public final class NewrelicFunctions {
      * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## Additional Examples
+     * 
+     * The following example demonstrates utilizing attributes exported by this data source.
+     * 
+     * In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import com.pulumi.newrelic.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .name(&#34;Test Group&#34;)
+     *             .build());
+     * 
+     *         final var id = fooGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id());
+     * 
+     *         final var userIds = fooGetGroup.applyValue(getGroupResult -&gt; getGroupResult.userIds()).length() &gt; 0 ? StdFunctions.join(JoinArgs.builder()
+     *             .separator(&#34;, &#34;)
+     *             .input(fooGetGroup.applyValue(getGroupResult -&gt; getGroupResult.userIds()))
+     *             .build()).result() : &#34;&#34;;
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
@@ -2175,6 +2325,56 @@ public final class NewrelicFunctions {
      *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
      *             .name(&#34;Test Group&#34;)
      *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Additional Examples
+     * 
+     * The following example demonstrates utilizing attributes exported by this data source.
+     * 
+     * In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import com.pulumi.newrelic.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name(&#34;Test Authentication Domain&#34;)
+     *             .build());
+     * 
+     *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+     *             .name(&#34;Test Group&#34;)
+     *             .build());
+     * 
+     *         final var id = fooGetGroup.applyValue(getGroupResult -&gt; getGroupResult.id());
+     * 
+     *         final var userIds = fooGetGroup.applyValue(getGroupResult -&gt; getGroupResult.userIds()).length() &gt; 0 ? StdFunctions.join(JoinArgs.builder()
+     *             .separator(&#34;, &#34;)
+     *             .input(fooGetGroup.applyValue(getGroupResult -&gt; getGroupResult.userIds()))
+     *             .build()).result() : &#34;&#34;;
      * 
      *     }
      * }

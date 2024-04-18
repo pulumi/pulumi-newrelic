@@ -49,6 +49,57 @@ import (
 //
 // ```
 // <!--End PulumiCodeChooser -->
+//
+// ## Additional Examples
+//
+// The following example demonstrates utilizing attributes exported by this data source.
+//
+// In order to directly reference the attributes `id` and `userIds` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `userIds` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
+//				Name: "Test Authentication Domain",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooGetGroup, err := newrelic.LookupGroup(ctx, &newrelic.LookupGroupArgs{
+//				AuthenticationDomainId: foo.Id,
+//				Name:                   "Test Group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_ := fooGetGroup.Id
+//			var tmp0 *string
+//			if len(fooGetGroup.UserIds) > 0 {
+//				tmp0 = std.Join(ctx, &std.JoinArgs{
+//					Separator: ", ",
+//					Input:     fooGetGroup.UserIds,
+//				}, nil).Result
+//			} else {
+//				tmp0 = ""
+//			}
+//			_ := tmp0
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGroupResult

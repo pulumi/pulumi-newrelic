@@ -25,6 +25,33 @@ import * as utilities from "./utilities";
  * }));
  * ```
  * <!--End PulumiCodeChooser -->
+ *
+ * ## Additional Examples
+ *
+ * The following example demonstrates utilizing attributes exported by this data source.
+ *
+ * In order to directly reference the attributes `id` and `userIds` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `userIds` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * import * as std from "@pulumi/std";
+ *
+ * const foo = newrelic.getAuthenticationDomain({
+ *     name: "Test Authentication Domain",
+ * });
+ * const fooGetGroup = foo.then(foo => newrelic.getGroup({
+ *     authenticationDomainId: foo.id,
+ *     name: "Test Group",
+ * }));
+ * const id = fooGetGroup.then(fooGetGroup => fooGetGroup.id);
+ * const userIds = Promise.all([fooGetGroup.then(fooGetGroup => fooGetGroup.userIds).length, fooGetGroup.then(fooGetGroup => std.join({
+ *     separator: ", ",
+ *     input: fooGetGroup.userIds,
+ * }))]).then(([length, invoke]) => length > 0 ? invoke.result : "");
+ * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
 
@@ -85,6 +112,33 @@ export interface GetGroupResult {
  *     authenticationDomainId: foo.id,
  *     name: "Test Group",
  * }));
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## Additional Examples
+ *
+ * The following example demonstrates utilizing attributes exported by this data source.
+ *
+ * In order to directly reference the attributes `id` and `userIds` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `userIds` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * import * as std from "@pulumi/std";
+ *
+ * const foo = newrelic.getAuthenticationDomain({
+ *     name: "Test Authentication Domain",
+ * });
+ * const fooGetGroup = foo.then(foo => newrelic.getGroup({
+ *     authenticationDomainId: foo.id,
+ *     name: "Test Group",
+ * }));
+ * const id = fooGetGroup.then(fooGetGroup => fooGetGroup.id);
+ * const userIds = Promise.all([fooGetGroup.then(fooGetGroup => fooGetGroup.userIds).length, fooGetGroup.then(fooGetGroup => std.join({
+ *     separator: ", ",
+ *     input: fooGetGroup.userIds,
+ * }))]).then(([length, invoke]) => length > 0 ? invoke.result : "");
  * ```
  * <!--End PulumiCodeChooser -->
  */
