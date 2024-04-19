@@ -133,8 +133,8 @@ import * as utilities from "./utilities";
  *         baseUrl: "http://www.test.com",
  *         payloadString: `{
  *   "my_custom_values": {
- *     "condition_name": "$CONDITION_NAME",
- *     "policy_name": "$POLICY_NAME"
+ *     "condition_name": "CONDITION_NAME",
+ *     "policy_name": "POLICY_NAME"
  *   }
  * }
  *
