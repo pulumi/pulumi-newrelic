@@ -182,7 +182,6 @@ class NrqlDropRule(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -203,7 +202,6 @@ class NrqlDropRule(pulumi.CustomResource):
             description="Removes containerId from metric aggregates to reduce metric cardinality.",
             nrql="SELECT containerId FROM Metric")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Using `newrelic-cli` to List Out Drop Rules
 
@@ -244,7 +242,6 @@ class NrqlDropRule(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -265,7 +262,6 @@ class NrqlDropRule(pulumi.CustomResource):
             description="Removes containerId from metric aggregates to reduce metric cardinality.",
             nrql="SELECT containerId FROM Metric")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Using `newrelic-cli` to List Out Drop Rules
 

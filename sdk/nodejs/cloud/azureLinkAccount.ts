@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  *
  * You can also use the full example, including the Azure set up, found in our guides.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -32,7 +31,6 @@ import * as utilities from "../utilities";
  *     tenantId: "Tenant ID of the Azure",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

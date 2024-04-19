@@ -374,7 +374,6 @@ class MonitorDowntime(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -396,7 +395,6 @@ class MonitorDowntime(pulumi.CustomResource):
             start_time="2023-11-30T10:30:00",
             time_zone="Asia/Kolkata")
         ```
-        <!--End PulumiCodeChooser -->
         Monitor Downtimes are of four types; **one-time**, **daily**, **weekly** and **monthly**. For more details on each type and the right arguments that go with them, check out the argument reference and examples sections below.
 
         ## Examples
@@ -405,7 +403,6 @@ class MonitorDowntime(pulumi.CustomResource):
 
         The below example illustrates creating a **one-time** monitor downtime.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -420,7 +417,6 @@ class MonitorDowntime(pulumi.CustomResource):
             start_time="2023-12-04T10:15:00",
             time_zone="America/Los_Angeles")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Daily Monitor Downtime
 
@@ -428,7 +424,6 @@ class MonitorDowntime(pulumi.CustomResource):
 
         Note that `end_repeat` has been specified in the configuration; however, this is optional, in accordance with the rules of `end_repeat` specified in the argument reference section above. This example uses the `on_date` nested argument of `end_repeat`, however, the other nested argument, `on_repeat` may also be used _instead_, as you may see in some of the other examples below; though both `on_date` and `on_repeat` cannot be specified together, as they are mutually exclusive.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -446,7 +441,6 @@ class MonitorDowntime(pulumi.CustomResource):
             start_time="2023-12-04T18:15:00",
             time_zone="Asia/Kolkata")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Weekly Monitor Downtime
 
@@ -454,7 +448,6 @@ class MonitorDowntime(pulumi.CustomResource):
 
         Note that `maintenance_days` has been specified in the configuration as it is required with weekly monitor downtimes; and `end_repeat` has not been specified as it is optional, all in accordance with the rules of these arguments specified in the argument reference section above.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -473,7 +466,6 @@ class MonitorDowntime(pulumi.CustomResource):
             start_time="2023-12-04T14:15:00",
             time_zone="US/Hawaii")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Monthly Monitor Downtime
 
@@ -481,7 +473,6 @@ class MonitorDowntime(pulumi.CustomResource):
 
         Note that `frequency` has been specified in the configuration as it is required with monthly monitor downtimes, and `end_repeat` has been specified too, though it is optional. `frequency` has been specified with `days_of_week` comprising both of its nested arguments, `ordinal_day_of_month` and `week_day`; all in accordance with the rules of these arguments specified in the argument reference section above.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -505,9 +496,7 @@ class MonitorDowntime(pulumi.CustomResource):
             start_time="2023-12-04T07:15:00",
             time_zone="Europe/Dublin")
         ```
-        <!--End PulumiCodeChooser -->
         However, the `frequency` block in monthly monitor downtimes may also be specified with its other nested argument, `days_of_month`, as shown in the example below - though both `days_of_month` and `days_of_week` cannot be specified together, as they are mutually exclusive.
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -533,7 +522,6 @@ class MonitorDowntime(pulumi.CustomResource):
             start_time="2023-12-04T07:15:00",
             time_zone="Europe/Dublin")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -571,7 +559,6 @@ class MonitorDowntime(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -593,7 +580,6 @@ class MonitorDowntime(pulumi.CustomResource):
             start_time="2023-11-30T10:30:00",
             time_zone="Asia/Kolkata")
         ```
-        <!--End PulumiCodeChooser -->
         Monitor Downtimes are of four types; **one-time**, **daily**, **weekly** and **monthly**. For more details on each type and the right arguments that go with them, check out the argument reference and examples sections below.
 
         ## Examples
@@ -602,7 +588,6 @@ class MonitorDowntime(pulumi.CustomResource):
 
         The below example illustrates creating a **one-time** monitor downtime.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -617,7 +602,6 @@ class MonitorDowntime(pulumi.CustomResource):
             start_time="2023-12-04T10:15:00",
             time_zone="America/Los_Angeles")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Daily Monitor Downtime
 
@@ -625,7 +609,6 @@ class MonitorDowntime(pulumi.CustomResource):
 
         Note that `end_repeat` has been specified in the configuration; however, this is optional, in accordance with the rules of `end_repeat` specified in the argument reference section above. This example uses the `on_date` nested argument of `end_repeat`, however, the other nested argument, `on_repeat` may also be used _instead_, as you may see in some of the other examples below; though both `on_date` and `on_repeat` cannot be specified together, as they are mutually exclusive.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -643,7 +626,6 @@ class MonitorDowntime(pulumi.CustomResource):
             start_time="2023-12-04T18:15:00",
             time_zone="Asia/Kolkata")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Weekly Monitor Downtime
 
@@ -651,7 +633,6 @@ class MonitorDowntime(pulumi.CustomResource):
 
         Note that `maintenance_days` has been specified in the configuration as it is required with weekly monitor downtimes; and `end_repeat` has not been specified as it is optional, all in accordance with the rules of these arguments specified in the argument reference section above.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -670,7 +651,6 @@ class MonitorDowntime(pulumi.CustomResource):
             start_time="2023-12-04T14:15:00",
             time_zone="US/Hawaii")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Monthly Monitor Downtime
 
@@ -678,7 +658,6 @@ class MonitorDowntime(pulumi.CustomResource):
 
         Note that `frequency` has been specified in the configuration as it is required with monthly monitor downtimes, and `end_repeat` has been specified too, though it is optional. `frequency` has been specified with `days_of_week` comprising both of its nested arguments, `ordinal_day_of_month` and `week_day`; all in accordance with the rules of these arguments specified in the argument reference section above.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -702,9 +681,7 @@ class MonitorDowntime(pulumi.CustomResource):
             start_time="2023-12-04T07:15:00",
             time_zone="Europe/Dublin")
         ```
-        <!--End PulumiCodeChooser -->
         However, the `frequency` block in monthly monitor downtimes may also be specified with its other nested argument, `days_of_month`, as shown in the example below - though both `days_of_month` and `days_of_week` cannot be specified together, as they are mutually exclusive.
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -730,7 +707,6 @@ class MonitorDowntime(pulumi.CustomResource):
             start_time="2023-12-04T07:15:00",
             time_zone="Europe/Dublin")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

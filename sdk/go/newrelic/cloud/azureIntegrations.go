@@ -26,7 +26,6 @@ import (
 //
 // Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -264,7 +263,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

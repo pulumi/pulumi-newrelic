@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  * });
  * export const foo = fooAuthenticationDomain.then(fooAuthenticationDomain => fooAuthenticationDomain.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAuthenticationDomain(args: GetAuthenticationDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthenticationDomainResult> {
 
@@ -54,7 +52,6 @@ export interface GetAuthenticationDomainResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -64,7 +61,6 @@ export interface GetAuthenticationDomainResult {
  * });
  * export const foo = fooAuthenticationDomain.then(fooAuthenticationDomain => fooAuthenticationDomain.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAuthenticationDomainOutput(args: GetAuthenticationDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthenticationDomainResult> {
     return pulumi.output(args).apply((a: any) => getAuthenticationDomain(a, opts))

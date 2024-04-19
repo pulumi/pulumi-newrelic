@@ -179,7 +179,6 @@ class AwsLinkAccount(pulumi.CustomResource):
 
         You can also use the full example, including the AWS set up, found in our guides.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -188,7 +187,6 @@ class AwsLinkAccount(pulumi.CustomResource):
             arn="arn:aws:service:region:account-id:resource-id",
             metric_collection_mode="PUSH")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -228,7 +226,6 @@ class AwsLinkAccount(pulumi.CustomResource):
 
         You can also use the full example, including the AWS set up, found in our guides.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -237,7 +234,6 @@ class AwsLinkAccount(pulumi.CustomResource):
             arn="arn:aws:service:region:account-id:resource-id",
             metric_collection_mode="PUSH")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

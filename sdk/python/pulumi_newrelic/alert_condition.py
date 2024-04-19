@@ -514,7 +514,6 @@ class AlertCondition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -538,7 +537,6 @@ class AlertCondition(pulumi.CustomResource):
                 time_function="all",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Terms
 
@@ -554,7 +552,6 @@ class AlertCondition(pulumi.CustomResource):
 
         Manage alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -591,7 +588,6 @@ class AlertCondition(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -638,7 +634,6 @@ class AlertCondition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -662,7 +657,6 @@ class AlertCondition(pulumi.CustomResource):
                 time_function="all",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Terms
 
@@ -678,7 +672,6 @@ class AlertCondition(pulumi.CustomResource):
 
         Manage alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -715,7 +708,6 @@ class AlertCondition(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

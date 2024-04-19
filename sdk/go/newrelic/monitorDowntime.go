@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,7 +53,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // Monitor Downtimes are of four types; **one-time**, **daily**, **weekly** and **monthly**. For more details on each type and the right arguments that go with them, check out the argument reference and examples sections below.
 //
 // ## Examples
@@ -63,7 +61,6 @@ import (
 //
 // The below example illustrates creating a **one-time** monitor downtime.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,7 +91,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Daily Monitor Downtime
 //
@@ -102,7 +98,6 @@ import (
 //
 // Note that `endRepeat` has been specified in the configuration; however, this is optional, in accordance with the rules of `endRepeat` specified in the argument reference section above. This example uses the `onDate` nested argument of `endRepeat`, however, the other nested argument, `onRepeat` may also be used _instead_, as you may see in some of the other examples below; though both `onDate` and `onRepeat` cannot be specified together, as they are mutually exclusive.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -136,7 +131,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Weekly Monitor Downtime
 //
@@ -144,7 +138,6 @@ import (
 //
 // Note that `maintenanceDays` has been specified in the configuration as it is required with weekly monitor downtimes; and `endRepeat` has not been specified as it is optional, all in accordance with the rules of these arguments specified in the argument reference section above.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -179,7 +172,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Monthly Monitor Downtime
 //
@@ -187,7 +179,6 @@ import (
 //
 // Note that `frequency` has been specified in the configuration as it is required with monthly monitor downtimes, and `endRepeat` has been specified too, though it is optional. `frequency` has been specified with `daysOfWeek` comprising both of its nested arguments, `ordinalDayOfMonth` and `weekDay`; all in accordance with the rules of these arguments specified in the argument reference section above.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -227,9 +218,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // However, the `frequency` block in monthly monitor downtimes may also be specified with its other nested argument, `daysOfMonth`, as shown in the example below - though both `daysOfMonth` and `daysOfWeek` cannot be specified together, as they are mutually exclusive.
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -271,7 +260,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

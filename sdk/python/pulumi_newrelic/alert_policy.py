@@ -184,14 +184,12 @@ class AlertPolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertPolicy("foo", incident_preference="PER_POLICY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Provision multiple notification channels and add those channels to a policy
 
@@ -208,7 +206,6 @@ class AlertPolicy(pulumi.CustomResource):
         ## Additional Examples
 
         ##### Provision multiple notification channels and add those channels to a policy
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -235,10 +232,8 @@ class AlertPolicy(pulumi.CustomResource):
                 email_channel.id,
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Reference existing notification channels and add those channel to a policy
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -253,7 +248,6 @@ class AlertPolicy(pulumi.CustomResource):
                 email_channel.id,
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -286,14 +280,12 @@ class AlertPolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertPolicy("foo", incident_preference="PER_POLICY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Provision multiple notification channels and add those channels to a policy
 
@@ -310,7 +302,6 @@ class AlertPolicy(pulumi.CustomResource):
         ## Additional Examples
 
         ##### Provision multiple notification channels and add those channels to a policy
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -337,10 +328,8 @@ class AlertPolicy(pulumi.CustomResource):
                 email_channel.id,
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Reference existing notification channels and add those channel to a policy
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -355,7 +344,6 @@ class AlertPolicy(pulumi.CustomResource):
                 email_channel.id,
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

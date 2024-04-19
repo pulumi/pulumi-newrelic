@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Provision multiple notification channels and add those channels to a policy
 //
@@ -58,7 +56,6 @@ import (
 // ## Additional Examples
 //
 // ##### Provision multiple notification channels and add those channels to a policy
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -109,10 +106,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Reference existing notification channels and add those channel to a policy
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -153,7 +148,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

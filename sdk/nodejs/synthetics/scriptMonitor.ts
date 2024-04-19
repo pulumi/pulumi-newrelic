@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ##### Type: `SCRIPT_API`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -36,10 +35,8 @@ import * as utilities from "../utilities";
  *     type: "SCRIPT_API",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * ##### Type: `SCRIPT_BROWSER`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -63,7 +60,6 @@ import * as utilities from "../utilities";
  *     type: "SCRIPT_BROWSER",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * See additional examples.
  *
  * ## Additional Examples
@@ -76,7 +72,6 @@ import * as utilities from "../utilities";
  *
  * ##### Type: `SCRIPT_API`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -103,10 +98,8 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * ##### Type: `SCRIPT_BROWSER`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -134,7 +127,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

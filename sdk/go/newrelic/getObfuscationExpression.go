@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,7 +56,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupObfuscationExpression(ctx *pulumi.Context, args *LookupObfuscationExpressionArgs, opts ...pulumi.InvokeOption) (*LookupObfuscationExpressionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupObfuscationExpressionResult

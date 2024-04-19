@@ -84,7 +84,6 @@ def get_group(authentication_domain_id: Optional[str] = None,
 
     The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -93,7 +92,6 @@ def get_group(authentication_domain_id: Optional[str] = None,
     foo_group = newrelic.get_group(authentication_domain_id=foo_authentication_domain.id,
         name="Test Group")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str authentication_domain_id: The ID of the authentication domain the group to be searched for belongs to.
@@ -125,7 +123,6 @@ def get_group_output(authentication_domain_id: Optional[pulumi.Input[str]] = Non
 
     The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -134,7 +131,6 @@ def get_group_output(authentication_domain_id: Optional[pulumi.Input[str]] = Non
     foo_group = newrelic.get_group(authentication_domain_id=foo_authentication_domain.id,
         name="Test Group")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str authentication_domain_id: The ID of the authentication domain the group to be searched for belongs to.

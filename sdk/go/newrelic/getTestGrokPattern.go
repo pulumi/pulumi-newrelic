@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetTestGrokPattern(ctx *pulumi.Context, args *GetTestGrokPatternArgs, opts ...pulumi.InvokeOption) (*GetTestGrokPatternResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTestGrokPatternResult

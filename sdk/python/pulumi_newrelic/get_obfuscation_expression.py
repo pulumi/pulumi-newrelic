@@ -70,7 +70,6 @@ def get_obfuscation_expression(account_id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -87,7 +86,6 @@ def get_obfuscation_expression(account_id: Optional[int] = None,
             method="MASK",
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int account_id: The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
@@ -114,7 +112,6 @@ def get_obfuscation_expression_output(account_id: Optional[pulumi.Input[Optional
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -131,7 +128,6 @@ def get_obfuscation_expression_output(account_id: Optional[pulumi.Input[Optional
             method="MASK",
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int account_id: The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.

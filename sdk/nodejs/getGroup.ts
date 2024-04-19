@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -24,7 +23,6 @@ import * as utilities from "./utilities";
  *     name: "Test Group",
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
 
@@ -73,7 +71,6 @@ export interface GetGroupResult {
  *
  * The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -86,7 +83,6 @@ export interface GetGroupResult {
  *     name: "Test Group",
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
     return pulumi.output(args).apply((a: any) => getGroup(a, opts))

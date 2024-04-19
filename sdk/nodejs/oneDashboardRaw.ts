@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ### Create A New Relic One Dashboard With RawConfiguration
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -84,7 +83,6 @@ import * as utilities from "./utilities";
  *     ],
  * }]});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class OneDashboardRaw extends pulumi.CustomResource {
     /**

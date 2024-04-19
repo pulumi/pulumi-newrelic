@@ -174,7 +174,6 @@ class AlertChannel(pulumi.CustomResource):
         ## Example Usage
 
         ### Email
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -186,12 +185,10 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="email")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Additional Examples
 
         ##### Slack
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -203,12 +200,10 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="slack")
         ```
-        <!--End PulumiCodeChooser -->
 
         > **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
 
         ### OpsGenie
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -222,10 +217,8 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="opsgenie")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### PagerDuty
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -236,10 +229,8 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="pagerduty")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### VictorOps
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -251,10 +242,8 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="victorops")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Webhook
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -274,10 +263,8 @@ class AlertChannel(pulumi.CustomResource):
                 },
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Webhook with complex payload
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -297,7 +284,6 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="webhook")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -330,7 +316,6 @@ class AlertChannel(pulumi.CustomResource):
         ## Example Usage
 
         ### Email
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -342,12 +327,10 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="email")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Additional Examples
 
         ##### Slack
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -359,12 +342,10 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="slack")
         ```
-        <!--End PulumiCodeChooser -->
 
         > **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
 
         ### OpsGenie
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -378,10 +359,8 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="opsgenie")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### PagerDuty
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -392,10 +371,8 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="pagerduty")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### VictorOps
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -407,10 +384,8 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="victorops")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Webhook
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -430,10 +405,8 @@ class AlertChannel(pulumi.CustomResource):
                 },
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Webhook with complex payload
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -453,7 +426,6 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="webhook")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

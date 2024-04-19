@@ -20,7 +20,6 @@ import (
 // ## Example Usage
 //
 // Include entities with a certain string on the name.
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,10 +54,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Include entities with a set of tags.
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,10 +90,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Include entities with a set of tags.
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -131,7 +126,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // # Include automatic status
 //

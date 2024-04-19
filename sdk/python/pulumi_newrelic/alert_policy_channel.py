@@ -139,7 +139,6 @@ class AlertPolicyChannel(pulumi.CustomResource):
 
         The example below will apply multiple alert channels to an existing New Relic alert policy.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -168,7 +167,6 @@ class AlertPolicyChannel(pulumi.CustomResource):
                 slack_channel.id,
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -200,7 +198,6 @@ class AlertPolicyChannel(pulumi.CustomResource):
 
         The example below will apply multiple alert channels to an existing New Relic alert policy.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -229,7 +226,6 @@ class AlertPolicyChannel(pulumi.CustomResource):
                 slack_channel.id,
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

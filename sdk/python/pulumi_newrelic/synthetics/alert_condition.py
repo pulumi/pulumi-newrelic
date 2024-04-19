@@ -235,7 +235,6 @@ class AlertCondition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -245,13 +244,11 @@ class AlertCondition(pulumi.CustomResource):
             monitor_id=newrelic_synthetics_monitor["foo"]["id"],
             runbook_url="https://www.example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Tags
 
         Manage synthetics alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -295,7 +292,6 @@ class AlertCondition(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -330,7 +326,6 @@ class AlertCondition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -340,13 +335,11 @@ class AlertCondition(pulumi.CustomResource):
             monitor_id=newrelic_synthetics_monitor["foo"]["id"],
             runbook_url="https://www.example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Tags
 
         Manage synthetics alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -390,7 +383,6 @@ class AlertCondition(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

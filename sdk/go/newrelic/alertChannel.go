@@ -19,7 +19,6 @@ import (
 // ## Example Usage
 //
 // ### Email
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,12 +46,10 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Additional Examples
 //
 // ##### Slack
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -80,12 +77,10 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // > **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
 //
 // ### OpsGenie
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -115,10 +110,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### PagerDuty
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -145,10 +138,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### VictorOps
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -176,10 +167,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Webhook
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -215,10 +204,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Webhook with complex payload
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -255,7 +242,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

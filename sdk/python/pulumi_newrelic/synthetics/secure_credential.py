@@ -201,7 +201,6 @@ class SecureCredential(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -211,7 +210,6 @@ class SecureCredential(pulumi.CustomResource):
             key="MY_KEY",
             value="My value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -240,7 +238,6 @@ class SecureCredential(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -250,7 +247,6 @@ class SecureCredential(pulumi.CustomResource):
             key="MY_KEY",
             value="My value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

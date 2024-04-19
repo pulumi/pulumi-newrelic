@@ -184,7 +184,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -195,7 +194,6 @@ class User(pulumi.CustomResource):
             authentication_domain_id=foo_authentication_domain.id,
             user_type="CORE_USER_TIER")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -227,7 +225,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -238,7 +235,6 @@ class User(pulumi.CustomResource):
             authentication_domain_id=foo_authentication_domain.id,
             user_type="CORE_USER_TIER")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

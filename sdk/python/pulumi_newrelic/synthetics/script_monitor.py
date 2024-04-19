@@ -574,7 +574,6 @@ class ScriptMonitor(pulumi.CustomResource):
 
         ##### Type: `SCRIPT_API`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -596,10 +595,8 @@ class ScriptMonitor(pulumi.CustomResource):
             )],
             type="SCRIPT_API")
         ```
-        <!--End PulumiCodeChooser -->
         ##### Type: `SCRIPT_BROWSER`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -622,7 +619,6 @@ class ScriptMonitor(pulumi.CustomResource):
             )],
             type="SCRIPT_BROWSER")
         ```
-        <!--End PulumiCodeChooser -->
         See additional examples.
 
         ## Additional Examples
@@ -635,7 +631,6 @@ class ScriptMonitor(pulumi.CustomResource):
 
         ##### Type: `SCRIPT_API`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -660,10 +655,8 @@ class ScriptMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         ##### Type: `SCRIPT_BROWSER`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -689,7 +682,6 @@ class ScriptMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -734,7 +726,6 @@ class ScriptMonitor(pulumi.CustomResource):
 
         ##### Type: `SCRIPT_API`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -756,10 +747,8 @@ class ScriptMonitor(pulumi.CustomResource):
             )],
             type="SCRIPT_API")
         ```
-        <!--End PulumiCodeChooser -->
         ##### Type: `SCRIPT_BROWSER`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -782,7 +771,6 @@ class ScriptMonitor(pulumi.CustomResource):
             )],
             type="SCRIPT_BROWSER")
         ```
-        <!--End PulumiCodeChooser -->
         See additional examples.
 
         ## Additional Examples
@@ -795,7 +783,6 @@ class ScriptMonitor(pulumi.CustomResource):
 
         ##### Type: `SCRIPT_API`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -820,10 +807,8 @@ class ScriptMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         ##### Type: `SCRIPT_BROWSER`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -849,7 +834,6 @@ class ScriptMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

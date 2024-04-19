@@ -18,7 +18,6 @@ import (
 //
 // ##### Type: `SCRIPT_API`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,10 +59,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // ##### Type: `SCRIPT_BROWSER`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,7 +103,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // See additional examples.
 //
 // ## Additional Examples
@@ -119,7 +115,6 @@ import (
 //
 // ##### Type: `SCRIPT_API`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -170,10 +165,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // ##### Type: `SCRIPT_BROWSER`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -225,7 +218,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

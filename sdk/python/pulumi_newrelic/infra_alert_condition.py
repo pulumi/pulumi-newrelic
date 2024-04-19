@@ -599,7 +599,6 @@ class InfraAlertCondition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -657,7 +656,6 @@ class InfraAlertCondition(pulumi.CustomResource):
                 duration=5,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Thresholds
 
@@ -671,7 +669,6 @@ class InfraAlertCondition(pulumi.CustomResource):
 
         Manage infra alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -711,7 +708,6 @@ class InfraAlertCondition(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -756,7 +752,6 @@ class InfraAlertCondition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -814,7 +809,6 @@ class InfraAlertCondition(pulumi.CustomResource):
                 duration=5,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Thresholds
 
@@ -828,7 +822,6 @@ class InfraAlertCondition(pulumi.CustomResource):
 
         Manage infra alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -868,7 +861,6 @@ class InfraAlertCondition(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

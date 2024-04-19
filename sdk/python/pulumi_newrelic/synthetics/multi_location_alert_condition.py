@@ -331,7 +331,6 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -356,12 +355,10 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
                 threshold=1,
             ))
         ```
-        <!--End PulumiCodeChooser -->
         ## Tags
 
         Manage synthetics multilocation alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -413,7 +410,6 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -454,7 +450,6 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -479,12 +474,10 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
                 threshold=1,
             ))
         ```
-        <!--End PulumiCodeChooser -->
         ## Tags
 
         Manage synthetics multilocation alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -536,7 +529,6 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -373,7 +373,6 @@ class Workload(pulumi.CustomResource):
         ## Example Usage
 
         Include entities with a certain string on the name.
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -386,10 +385,8 @@ class Workload(pulumi.CustomResource):
             )],
             scope_account_ids=[12345678])
         ```
-        <!--End PulumiCodeChooser -->
 
         Include entities with a set of tags.
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -402,10 +399,8 @@ class Workload(pulumi.CustomResource):
             )],
             scope_account_ids=[12345678])
         ```
-        <!--End PulumiCodeChooser -->
 
         Include entities with a set of tags.
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -418,7 +413,6 @@ class Workload(pulumi.CustomResource):
             )],
             scope_account_ids=[12345678])
         ```
-        <!--End PulumiCodeChooser -->
 
         Include automatic status
 
@@ -463,7 +457,6 @@ class Workload(pulumi.CustomResource):
         ## Example Usage
 
         Include entities with a certain string on the name.
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -476,10 +469,8 @@ class Workload(pulumi.CustomResource):
             )],
             scope_account_ids=[12345678])
         ```
-        <!--End PulumiCodeChooser -->
 
         Include entities with a set of tags.
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -492,10 +483,8 @@ class Workload(pulumi.CustomResource):
             )],
             scope_account_ids=[12345678])
         ```
-        <!--End PulumiCodeChooser -->
 
         Include entities with a set of tags.
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -508,7 +497,6 @@ class Workload(pulumi.CustomResource):
             )],
             scope_account_ids=[12345678])
         ```
-        <!--End PulumiCodeChooser -->
 
         Include automatic status
 

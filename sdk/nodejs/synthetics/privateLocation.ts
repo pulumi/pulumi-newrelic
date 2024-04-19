@@ -9,14 +9,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const location = new newrelic.synthetics.PrivateLocation("location", {description: "The private location description"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

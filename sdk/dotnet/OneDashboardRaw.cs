@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic
     /// 
     /// ### Create A New Relic One Dashboard With RawConfiguration
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -114,7 +113,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [NewRelicResourceType("newrelic:index/oneDashboardRaw:OneDashboardRaw")]
     public partial class OneDashboardRaw : global::Pulumi.CustomResource

@@ -14,7 +14,6 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -31,7 +30,6 @@ import * as utilities from "./utilities";
  *     type: "WEBHOOK",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * See additional examples.
  *
  * ## Additional Examples
@@ -41,7 +39,6 @@ import * as utilities from "./utilities";
  * ##### [ServiceNow](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenow)
  * To see the properties’ keys for your account, check ServiceNow incidents table.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -63,10 +60,8 @@ import * as utilities from "./utilities";
  *     type: "SERVICENOW_INCIDENTS",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -88,10 +83,8 @@ import * as utilities from "./utilities";
  *     type: "EMAIL",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ##### [Jira Classic](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#jira)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -121,10 +114,8 @@ import * as utilities from "./utilities";
  *     type: "JIRA_CLASSIC",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -169,10 +160,8 @@ import * as utilities from "./utilities";
  *     type: "PAGERDUTY_ACCOUNT_INTEGRATION",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -208,10 +197,8 @@ import * as utilities from "./utilities";
  *     type: "PAGERDUTY_SERVICE_INTEGRATION",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * #### Mobile Push
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -223,10 +210,8 @@ import * as utilities from "./utilities";
  *     type: "MOBILE_PUSH",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * #### [AWS Event Bridge](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#eventBridge)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -248,10 +233,8 @@ import * as utilities from "./utilities";
  *     type: "EVENT_BRIDGE",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * #### [SLACK](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#slack)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -273,7 +256,6 @@ import * as utilities from "./utilities";
  *     type: "SLACK",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
  *
@@ -282,7 +264,6 @@ import * as utilities from "./utilities";
  * Create a destination resource and reference that destination to the channel resource:
  *
  * ### Create a destination
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -300,10 +281,8 @@ import * as utilities from "./utilities";
  *     type: "WEBHOOK",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Create a channel
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -320,7 +299,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Additional Information
  *

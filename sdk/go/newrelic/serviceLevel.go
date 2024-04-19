@@ -24,7 +24,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,13 +68,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Additional Example
 //
 // Service level with tags:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -141,11 +138,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // # Using `select` for events
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -199,7 +194,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // # For up-to-date documentation about the tagging resource, please check EntityTags
 //

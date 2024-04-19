@@ -11,14 +11,12 @@ import * as utilities from "./utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertPolicy("foo", {incidentPreference: "PER_POLICY"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Provision multiple notification channels and add those channels to a policy
  *
@@ -35,7 +33,6 @@ import * as utilities from "./utilities";
  * ## Additional Examples
  *
  * ##### Provision multiple notification channels and add those channels to a policy
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -65,10 +62,8 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Reference existing notification channels and add those channel to a policy
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -88,7 +83,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

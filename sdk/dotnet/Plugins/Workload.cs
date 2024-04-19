@@ -19,7 +19,6 @@ namespace Pulumi.NewRelic.Plugins
     /// ## Example Usage
     /// 
     /// Include entities with a certain string on the name.
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,10 +49,8 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Include entities with a set of tags.
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -84,10 +81,8 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Include entities with a set of tags.
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -118,7 +113,6 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Include automatic status
     /// 

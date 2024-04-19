@@ -423,7 +423,6 @@ class CertCheckMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -441,7 +440,6 @@ class CertCheckMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         See additional examples.
 
         ## Additional Examples
@@ -452,7 +450,6 @@ class CertCheckMonitor(pulumi.CustomResource):
 
         > **NOTE:** It can take up to 10 minutes for a private location to become available.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -471,7 +468,6 @@ class CertCheckMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -510,7 +506,6 @@ class CertCheckMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -528,7 +523,6 @@ class CertCheckMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         See additional examples.
 
         ## Additional Examples
@@ -539,7 +533,6 @@ class CertCheckMonitor(pulumi.CustomResource):
 
         > **NOTE:** It can take up to 10 minutes for a private location to become available.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -558,7 +551,6 @@ class CertCheckMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

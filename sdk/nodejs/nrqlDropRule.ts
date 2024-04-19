@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -31,7 +30,6 @@ import * as utilities from "./utilities";
  *     nrql: "SELECT containerId FROM Metric",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Using `newrelic-cli` to List Out Drop Rules
  *

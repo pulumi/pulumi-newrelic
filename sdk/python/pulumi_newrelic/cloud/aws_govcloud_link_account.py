@@ -243,7 +243,6 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -255,7 +254,6 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
             metric_collection_mode="PULL",
             secret_access_key="secret access key of the aws govcloud account")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -297,7 +295,6 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -309,7 +306,6 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
             metric_collection_mode="PULL",
             secret_access_key="secret access key of the aws govcloud account")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

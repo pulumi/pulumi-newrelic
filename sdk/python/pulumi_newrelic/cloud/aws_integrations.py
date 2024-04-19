@@ -2075,7 +2075,6 @@ class AwsIntegrations(pulumi.CustomResource):
 
         Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -2362,7 +2361,6 @@ class AwsIntegrations(pulumi.CustomResource):
                 metrics_polling_interval=6000,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -2513,7 +2511,6 @@ class AwsIntegrations(pulumi.CustomResource):
 
         Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -2800,7 +2797,6 @@ class AwsIntegrations(pulumi.CustomResource):
                 metrics_polling_interval=6000,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

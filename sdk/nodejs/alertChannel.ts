@@ -14,7 +14,6 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * ### Email
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -27,12 +26,10 @@ import * as utilities from "./utilities";
  *     type: "email",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Additional Examples
  *
  * ##### Slack
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -45,12 +42,10 @@ import * as utilities from "./utilities";
  *     type: "slack",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * > **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
  *
  * ### OpsGenie
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -65,10 +60,8 @@ import * as utilities from "./utilities";
  *     type: "opsgenie",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### PagerDuty
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -80,10 +73,8 @@ import * as utilities from "./utilities";
  *     type: "pagerduty",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### VictorOps
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -96,10 +87,8 @@ import * as utilities from "./utilities";
  *     type: "victorops",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Webhook
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -120,10 +109,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Webhook with complex payload
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -133,8 +120,8 @@ import * as utilities from "./utilities";
  *         baseUrl: "http://www.test.com",
  *         payloadString: `{
  *   "my_custom_values": {
- *     "condition_name": "$CONDITION_NAME",
- *     "policy_name": "$POLICY_NAME"
+ *     "condition_name": "CONDITION_NAME",
+ *     "policy_name": "POLICY_NAME"
  *   }
  * }
  *
@@ -144,7 +131,6 @@ import * as utilities from "./utilities";
  *     type: "webhook",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

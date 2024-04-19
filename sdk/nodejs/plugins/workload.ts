@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * Include entities with a certain string on the name.
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -30,10 +29,8 @@ import * as utilities from "../utilities";
  *     scopeAccountIds: [12345678],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Include entities with a set of tags.
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -47,10 +44,8 @@ import * as utilities from "../utilities";
  *     scopeAccountIds: [12345678],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Include entities with a set of tags.
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -64,7 +59,6 @@ import * as utilities from "../utilities";
  *     scopeAccountIds: [12345678],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Include automatic status
  *

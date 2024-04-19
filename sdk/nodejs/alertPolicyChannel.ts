@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * The example below will apply multiple alert channels to an existing New Relic alert policy.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -47,7 +46,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

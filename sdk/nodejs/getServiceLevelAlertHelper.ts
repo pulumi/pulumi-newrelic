@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -43,14 +42,12 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
  * Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
  * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
  *
  * Here is an example of a `slowBurn` alert.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -84,11 +81,9 @@ import * as utilities from "./utilities";
  *     slideBy: 900,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Here is an example of a custom alert:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -124,7 +119,6 @@ import * as utilities from "./utilities";
  *     slideBy: 60,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServiceLevelAlertHelper(args: GetServiceLevelAlertHelperArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLevelAlertHelperResult> {
 
@@ -213,7 +207,6 @@ export interface GetServiceLevelAlertHelperResult {
  *
  * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -245,14 +238,12 @@ export interface GetServiceLevelAlertHelperResult {
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
  * Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
  * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
  *
  * Here is an example of a `slowBurn` alert.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -286,11 +277,9 @@ export interface GetServiceLevelAlertHelperResult {
  *     slideBy: 900,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Here is an example of a custom alert:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -326,7 +315,6 @@ export interface GetServiceLevelAlertHelperResult {
  *     slideBy: 60,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServiceLevelAlertHelperOutput(args: GetServiceLevelAlertHelperOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLevelAlertHelperResult> {
     return pulumi.output(args).apply((a: any) => getServiceLevelAlertHelper(a, opts))

@@ -169,7 +169,6 @@ class ObfuscationExpression(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -179,7 +178,6 @@ class ObfuscationExpression(pulumi.CustomResource):
             description="The description",
             regex="(regex.*)")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -209,7 +207,6 @@ class ObfuscationExpression(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -219,7 +216,6 @@ class ObfuscationExpression(pulumi.CustomResource):
             description="The description",
             regex="(regex.*)")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

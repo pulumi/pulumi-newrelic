@@ -242,7 +242,6 @@ class AzureLinkAccount(pulumi.CustomResource):
 
         You can also use the full example, including the Azure set up, found in our guides.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -254,7 +253,6 @@ class AzureLinkAccount(pulumi.CustomResource):
             subscription_id="Subscription ID of Azure",
             tenant_id="Tenant ID of the Azure")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -296,7 +294,6 @@ class AzureLinkAccount(pulumi.CustomResource):
 
         You can also use the full example, including the Azure set up, found in our guides.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -308,7 +305,6 @@ class AzureLinkAccount(pulumi.CustomResource):
             subscription_id="Subscription ID of Azure",
             tenant_id="Tenant ID of the Azure")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

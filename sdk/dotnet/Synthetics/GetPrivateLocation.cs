@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -41,9 +40,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,7 +68,6 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPrivateLocationResult> InvokeAsync(GetPrivateLocationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLocationResult>("newrelic:synthetics/getPrivateLocation:getPrivateLocation", args ?? new GetPrivateLocationArgs(), options.WithDefaults());
@@ -81,7 +77,6 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -106,9 +101,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -136,7 +129,6 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPrivateLocationResult> Invoke(GetPrivateLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLocationResult>("newrelic:synthetics/getPrivateLocation:getPrivateLocation", args ?? new GetPrivateLocationInvokeArgs(), options.WithDefaults());

@@ -19,7 +19,6 @@ import (
 //
 // This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,9 +44,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `accountId` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `accountId` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `accountId`.
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,13 +71,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // The following example explains a use case along the lines of the aforementioned; using the `accountId` argument in the data source to allow the filtering criteria to be the `accountId` specified (of the subaccount), and not the account ID in the provider configuration.
 //
 // In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `accountId` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `accountId`.
 // ### Query for an OTEL entity
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -112,11 +107,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Query for an entity by type (AWS Lambda entity in this example)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -141,7 +134,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOption) (*GetEntityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEntityResult
