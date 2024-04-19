@@ -25,13 +25,17 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     {
+    ///         Name = "foo",
+    ///     });
     /// 
-    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("fooNrqlAlertCondition", new()
+    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("foo", new()
     ///     {
     ///         AccountId = 12345678,
-    ///         PolicyId = fooAlertPolicy.Id,
+    ///         PolicyId = foo.Id,
     ///         Type = "static",
+    ///         Name = "foo",
     ///         Description = "Alert when transactions are taking too long",
     ///         RunbookUrl = "https://www.example.com",
     ///         Enabled = true,
@@ -116,13 +120,17 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     {
+    ///         Name = "foo",
+    ///     });
     /// 
-    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("fooNrqlAlertCondition", new()
+    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("foo", new()
     ///     {
     ///         AccountId = "your_account_id",
-    ///         PolicyId = fooAlertPolicy.Id,
+    ///         PolicyId = foo.Id,
     ///         Type = "static",
+    ///         Name = "foo",
     ///         Description = "Alert when transactions are taking too long",
     ///         RunbookUrl = "https://www.example.com",
     ///         Enabled = true,
@@ -173,13 +181,17 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     {
+    ///         Name = "foo",
+    ///     });
     /// 
-    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("fooNrqlAlertCondition", new()
+    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("foo", new()
     ///     {
     ///         AccountId = 12345678,
-    ///         PolicyId = fooAlertPolicy.Id,
+    ///         PolicyId = foo.Id,
     ///         Type = "static",
+    ///         Name = "foo",
     ///         Description = "Alert when transactions are taking too long",
     ///         RunbookUrl = "https://www.example.com",
     ///         Enabled = true,
@@ -213,7 +225,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
+    ///     var myConditionEntityTags = new NewRelic.EntityTags("my_condition_entity_tags", new()
     ///     {
     ///         Guid = fooNrqlAlertCondition.EntityGuid,
     ///         Tags = new[]
@@ -261,9 +273,10 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var nrqlAlertCondition = new NewRelic.NrqlAlertCondition("nrqlAlertCondition", new()
+    ///     var z = new NewRelic.NrqlAlertCondition("z", new()
     ///     {
-    ///         PolicyId = newrelic_alert_policy.Z.Id,
+    ///         PolicyId = zNewrelicAlertPolicy.Id,
+    ///         Name = "zleslie-test",
     ///         Type = "static",
     ///         RunbookUrl = "https://localhost",
     ///         Enabled = true,
@@ -297,9 +310,10 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var nrqlAlertCondition = new NewRelic.NrqlAlertCondition("nrqlAlertCondition", new()
+    ///     var z = new NewRelic.NrqlAlertCondition("z", new()
     ///     {
-    ///         PolicyId = newrelic_alert_policy.Z.Id,
+    ///         PolicyId = zNewrelicAlertPolicy.Id,
+    ///         Name = "zleslie-test",
     ///         Type = "static",
     ///         RunbookUrl = "https://localhost",
     ///         Enabled = true,

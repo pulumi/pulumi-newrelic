@@ -31,9 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewLogParsingRule(ctx, "foo", &newrelic.LogParsingRuleArgs{
+//				Name:      pulumi.String("log_parse_rule"),
 //				Attribute: pulumi.String("message"),
 //				Enabled:   pulumi.Bool(true),
-//				Grok:      pulumi.String("sampleattribute='%%{NUMBER:test:int}'"),
+//				Grok:      pulumi.String("sampleattribute='%{NUMBER:test:int}'"),
 //				Lucene:    pulumi.String("logtype:linux_messages"),
 //				Nrql:      pulumi.String("SELECT * FROM Log WHERE logtype = 'linux_messages'"),
 //			})
@@ -74,6 +75,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewLogParsingRule(ctx, "foo", &newrelic.LogParsingRuleArgs{
+//				Name:      pulumi.String("log_parse_rule"),
 //				Attribute: pulumi.String("message"),
 //				Enabled:   pulumi.Bool(true),
 //				Grok:      pulumi.String(grok.Grok),

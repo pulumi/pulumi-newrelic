@@ -17,9 +17,10 @@ import * as utilities from "./utilities";
  * const txn = newrelic.getKeyTransaction({
  *     name: "txn",
  * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * const fooAlertCondition = new newrelic.AlertCondition("foo", {
+ *     policyId: foo.id,
+ *     name: "foo",
  *     type: "apm_kt_metric",
  *     entities: [txn.then(txn => txn.id)],
  *     metric: "error_percentage",
@@ -76,9 +77,10 @@ export interface GetKeyTransactionResult {
  * const txn = newrelic.getKeyTransaction({
  *     name: "txn",
  * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * const fooAlertCondition = new newrelic.AlertCondition("foo", {
+ *     policyId: foo.id,
+ *     name: "foo",
  *     type: "apm_kt_metric",
  *     entities: [txn.then(txn => txn.id)],
  *     metric: "error_percentage",

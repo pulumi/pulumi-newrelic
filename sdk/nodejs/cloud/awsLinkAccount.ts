@@ -27,6 +27,7 @@ import * as utilities from "../utilities";
  * const foo = new newrelic.cloud.AwsLinkAccount("foo", {
  *     arn: "arn:aws:service:region:account-id:resource-id",
  *     metricCollectionMode: "PUSH",
+ *     name: "account name",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

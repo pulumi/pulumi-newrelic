@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.InfraAlertCondition;
  * import com.pulumi.newrelic.InfraAlertConditionArgs;
  * import com.pulumi.newrelic.inputs.InfraAlertConditionCriticalArgs;
@@ -50,10 +51,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy(&#34;foo&#34;);
+ *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+ *             .name(&#34;foo&#34;)
+ *             .build());
  * 
  *         var highDiskUsage = new InfraAlertCondition(&#34;highDiskUsage&#34;, InfraAlertConditionArgs.builder()        
  *             .policyId(foo.id())
+ *             .name(&#34;High disk usage&#34;)
  *             .description(&#34;Warning if disk usage goes above 80% and critical alert if goes above 90%&#34;)
  *             .type(&#34;infra_metric&#34;)
  *             .event(&#34;StorageSample&#34;)
@@ -74,6 +78,7 @@ import javax.annotation.Nullable;
  * 
  *         var highDbConnCount = new InfraAlertCondition(&#34;highDbConnCount&#34;, InfraAlertConditionArgs.builder()        
  *             .policyId(foo.id())
+ *             .name(&#34;High database connection count&#34;)
  *             .description(&#34;Critical alert when the number of database connections goes above 90&#34;)
  *             .type(&#34;infra_metric&#34;)
  *             .event(&#34;DatastoreSample&#34;)
@@ -90,6 +95,7 @@ import javax.annotation.Nullable;
  * 
  *         var processNotRunning = new InfraAlertCondition(&#34;processNotRunning&#34;, InfraAlertConditionArgs.builder()        
  *             .policyId(foo.id())
+ *             .name(&#34;Process not running (/usr/bin/ruby)&#34;)
  *             .description(&#34;Critical alert when ruby isn&#39;t running&#34;)
  *             .type(&#34;infra_process_running&#34;)
  *             .comparison(&#34;equal&#34;)
@@ -103,6 +109,7 @@ import javax.annotation.Nullable;
  * 
  *         var hostNotReporting = new InfraAlertCondition(&#34;hostNotReporting&#34;, InfraAlertConditionArgs.builder()        
  *             .policyId(foo.id())
+ *             .name(&#34;Host not reporting&#34;)
  *             .description(&#34;Critical alert when the host is not reporting&#34;)
  *             .type(&#34;infra_host_not_reporting&#34;)
  *             .where(&#34;(hostname LIKE &#39;%frontend%&#39;)&#34;)
@@ -136,6 +143,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.InfraAlertCondition;
  * import com.pulumi.newrelic.InfraAlertConditionArgs;
  * import com.pulumi.newrelic.inputs.InfraAlertConditionCriticalArgs;
@@ -156,10 +164,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+ *             .name(&#34;foo policy&#34;)
+ *             .build());
  * 
  *         var fooInfraAlertCondition = new InfraAlertCondition(&#34;fooInfraAlertCondition&#34;, InfraAlertConditionArgs.builder()        
- *             .policyId(fooAlertPolicy.id())
+ *             .policyId(foo.id())
+ *             .name(&#34;foo infra condition&#34;)
  *             .description(&#34;Warning if disk usage goes above 80% and critical alert if goes above 90%&#34;)
  *             .type(&#34;infra_metric&#34;)
  *             .event(&#34;StorageSample&#34;)

@@ -144,16 +144,20 @@ class AlertPolicyChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
+        # Fetches the data for this policy from your New Relic account
+        # and is referenced in the newrelic_alert_policy_channel block below.
         example_policy = newrelic.get_alert_policy(name="my-alert-policy")
         # Creates an email alert channel.
-        email_channel = newrelic.AlertChannel("emailChannel",
+        email_channel = newrelic.AlertChannel("email_channel",
+            name="bar",
             type="email",
             config=newrelic.AlertChannelConfigArgs(
                 recipients="foo@example.com",
                 include_json_attachment="1",
             ))
         # Creates a Slack alert channel.
-        slack_channel = newrelic.AlertChannel("slackChannel",
+        slack_channel = newrelic.AlertChannel("slack_channel",
+            name="slack-channel-example",
             type="slack",
             config=newrelic.AlertChannelConfigArgs(
                 channel="#example-channel",
@@ -205,16 +209,20 @@ class AlertPolicyChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
+        # Fetches the data for this policy from your New Relic account
+        # and is referenced in the newrelic_alert_policy_channel block below.
         example_policy = newrelic.get_alert_policy(name="my-alert-policy")
         # Creates an email alert channel.
-        email_channel = newrelic.AlertChannel("emailChannel",
+        email_channel = newrelic.AlertChannel("email_channel",
+            name="bar",
             type="email",
             config=newrelic.AlertChannelConfigArgs(
                 recipients="foo@example.com",
                 include_json_attachment="1",
             ))
         # Creates a Slack alert channel.
-        slack_channel = newrelic.AlertChannel("slackChannel",
+        slack_channel = newrelic.AlertChannel("slack_channel",
+            name="slack-channel-example",
             type="slack",
             config=newrelic.AlertChannelConfigArgs(
                 channel="#example-channel",

@@ -28,6 +28,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertMutingRule(ctx, "foo", &newrelic.AlertMutingRuleArgs{
+//				Name:        pulumi.String("Example Muting Rule"),
+//				Enabled:     pulumi.Bool(true),
+//				Description: pulumi.String("muting rule test."),
 //				Condition: &newrelic.AlertMutingRuleConditionArgs{
 //					Conditions: newrelic.AlertMutingRuleConditionConditionArray{
 //						&newrelic.AlertMutingRuleConditionConditionArgs{
@@ -47,19 +50,17 @@ import (
 //					},
 //					Operator: pulumi.String("AND"),
 //				},
-//				Description: pulumi.String("muting rule test."),
-//				Enabled:     pulumi.Bool(true),
 //				Schedule: &newrelic.AlertMutingRuleScheduleArgs{
-//					EndTime:     pulumi.String("2021-01-28T16:30:00"),
-//					Repeat:      pulumi.String("WEEKLY"),
-//					RepeatCount: pulumi.Int(42),
-//					StartTime:   pulumi.String("2021-01-28T15:30:00"),
-//					TimeZone:    pulumi.String("America/Los_Angeles"),
+//					StartTime: pulumi.String("2021-01-28T15:30:00"),
+//					EndTime:   pulumi.String("2021-01-28T16:30:00"),
+//					TimeZone:  pulumi.String("America/Los_Angeles"),
+//					Repeat:    pulumi.String("WEEKLY"),
 //					WeeklyRepeatDays: pulumi.StringArray{
 //						pulumi.String("MONDAY"),
 //						pulumi.String("WEDNESDAY"),
 //						pulumi.String("FRIDAY"),
 //					},
+//					RepeatCount: pulumi.Int(42),
 //				},
 //			})
 //			if err != nil {

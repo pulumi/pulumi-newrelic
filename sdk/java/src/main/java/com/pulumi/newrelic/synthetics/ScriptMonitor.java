@@ -50,20 +50,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var monitor = new ScriptMonitor(&#34;monitor&#34;, ScriptMonitorArgs.builder()        
+ *             .status(&#34;ENABLED&#34;)
+ *             .name(&#34;script_monitor&#34;)
+ *             .type(&#34;SCRIPT_API&#34;)
  *             .locationsPublics(            
  *                 &#34;AP_SOUTH_1&#34;,
  *                 &#34;AP_EAST_1&#34;)
  *             .period(&#34;EVERY_6_HOURS&#34;)
- *             .runtimeType(&#34;NODE_API&#34;)
- *             .runtimeTypeVersion(&#34;16.10&#34;)
  *             .script(&#34;console.log(&#39;it works!&#39;)&#34;)
  *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
- *             .status(&#34;ENABLED&#34;)
+ *             .runtimeType(&#34;NODE_API&#34;)
+ *             .runtimeTypeVersion(&#34;16.10&#34;)
  *             .tags(ScriptMonitorTagArgs.builder()
  *                 .key(&#34;some_key&#34;)
  *                 .values(&#34;some_value&#34;)
  *                 .build())
- *             .type(&#34;SCRIPT_API&#34;)
  *             .build());
  * 
  *     }
@@ -96,21 +97,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var monitor = new ScriptMonitor(&#34;monitor&#34;, ScriptMonitorArgs.builder()        
- *             .enableScreenshotOnFailureAndScript(false)
+ *             .status(&#34;ENABLED&#34;)
+ *             .name(&#34;script_monitor&#34;)
+ *             .type(&#34;SCRIPT_BROWSER&#34;)
  *             .locationsPublics(            
  *                 &#34;AP_SOUTH_1&#34;,
  *                 &#34;AP_EAST_1&#34;)
  *             .period(&#34;EVERY_HOUR&#34;)
- *             .runtimeType(&#34;CHROME_BROWSER&#34;)
- *             .runtimeTypeVersion(&#34;100&#34;)
+ *             .enableScreenshotOnFailureAndScript(false)
  *             .script(&#34;$browser.get(&#39;https://one.newrelic.com&#39;)&#34;)
+ *             .runtimeTypeVersion(&#34;100&#34;)
+ *             .runtimeType(&#34;CHROME_BROWSER&#34;)
  *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
- *             .status(&#34;ENABLED&#34;)
  *             .tags(ScriptMonitorTagArgs.builder()
  *                 .key(&#34;some_key&#34;)
  *                 .values(&#34;some_value&#34;)
  *                 .build())
- *             .type(&#34;SCRIPT_BROWSER&#34;)
  *             .build());
  * 
  *     }
@@ -157,11 +159,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
  *             .description(&#34;Example private location&#34;)
+ *             .name(&#34;private_location&#34;)
  *             .verifiedScriptExecution(true)
  *             .build());
  * 
  *         var monitor = new ScriptMonitor(&#34;monitor&#34;, ScriptMonitorArgs.builder()        
  *             .status(&#34;ENABLED&#34;)
+ *             .name(&#34;script_monitor&#34;)
  *             .type(&#34;SCRIPT_API&#34;)
  *             .locationPrivates(ScriptMonitorLocationPrivateArgs.builder()
  *                 .guid(location.id())
@@ -212,11 +216,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
  *             .description(&#34;Test Description&#34;)
+ *             .name(&#34;private_location&#34;)
  *             .verifiedScriptExecution(true)
  *             .build());
  * 
  *         var monitor = new ScriptMonitor(&#34;monitor&#34;, ScriptMonitorArgs.builder()        
  *             .status(&#34;ENABLED&#34;)
+ *             .name(&#34;script_monitor&#34;)
  *             .type(&#34;SCRIPT_BROWSER&#34;)
  *             .period(&#34;EVERY_HOUR&#34;)
  *             .script(&#34;$browser.get(&#39;https://one.newrelic.com&#39;)&#34;)

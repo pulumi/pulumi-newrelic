@@ -241,8 +241,9 @@ class AlertCondition(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.synthetics.AlertCondition("foo",
-            policy_id=newrelic_alert_policy["foo"]["id"],
-            monitor_id=newrelic_synthetics_monitor["foo"]["id"],
+            policy_id=foo_newrelic_alert_policy["id"],
+            name="foo",
+            monitor_id=foo_newrelic_synthetics_monitor["id"],
             runbook_url="https://www.example.com")
         ```
         <!--End PulumiCodeChooser -->
@@ -256,9 +257,10 @@ class AlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_monitor = newrelic.synthetics.Monitor("fooMonitor",
+        foo = newrelic.AlertPolicy("foo", name="foo policy")
+        foo_monitor = newrelic.synthetics.Monitor("foo",
             status="ENABLED",
+            name="foo monitor",
             period="EVERY_MINUTE",
             uri="https://www.one.newrelic.com",
             type="SIMPLE",
@@ -275,11 +277,12 @@ class AlertCondition(pulumi.CustomResource):
                 key="some_key",
                 values=["some_value"],
             )])
-        foo_alert_condition = newrelic.synthetics.AlertCondition("fooAlertCondition",
-            policy_id=foo_alert_policy.id,
+        foo_alert_condition = newrelic.synthetics.AlertCondition("foo",
+            policy_id=foo.id,
+            name="foo synthetics condition",
             monitor_id=foo_monitor.id,
             runbook_url="https://www.example.com")
-        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
+        my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_alert_condition.entity_guid,
             tags=[
                 newrelic.EntityTagsTagArgs(
@@ -336,8 +339,9 @@ class AlertCondition(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.synthetics.AlertCondition("foo",
-            policy_id=newrelic_alert_policy["foo"]["id"],
-            monitor_id=newrelic_synthetics_monitor["foo"]["id"],
+            policy_id=foo_newrelic_alert_policy["id"],
+            name="foo",
+            monitor_id=foo_newrelic_synthetics_monitor["id"],
             runbook_url="https://www.example.com")
         ```
         <!--End PulumiCodeChooser -->
@@ -351,9 +355,10 @@ class AlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_monitor = newrelic.synthetics.Monitor("fooMonitor",
+        foo = newrelic.AlertPolicy("foo", name="foo policy")
+        foo_monitor = newrelic.synthetics.Monitor("foo",
             status="ENABLED",
+            name="foo monitor",
             period="EVERY_MINUTE",
             uri="https://www.one.newrelic.com",
             type="SIMPLE",
@@ -370,11 +375,12 @@ class AlertCondition(pulumi.CustomResource):
                 key="some_key",
                 values=["some_value"],
             )])
-        foo_alert_condition = newrelic.synthetics.AlertCondition("fooAlertCondition",
-            policy_id=foo_alert_policy.id,
+        foo_alert_condition = newrelic.synthetics.AlertCondition("foo",
+            policy_id=foo.id,
+            name="foo synthetics condition",
             monitor_id=foo_monitor.id,
             runbook_url="https://www.example.com")
-        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
+        my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_alert_condition.entity_guid,
             tags=[
                 newrelic.EntityTagsTagArgs(

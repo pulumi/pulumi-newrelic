@@ -446,15 +446,16 @@ class StepMonitor(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.synthetics.StepMonitor("foo",
+            name="Sample Step Monitor",
             enable_screenshot_on_failure_and_script=True,
             locations_publics=[
                 "US_EAST_1",
                 "US_EAST_2",
             ],
             period="EVERY_6_HOURS",
+            status="ENABLED",
             runtime_type="CHROME_BROWSER",
             runtime_type_version="100",
-            status="ENABLED",
             steps=[newrelic.synthetics.StepMonitorStepArgs(
                 ordinal=0,
                 type="NAVIGATE",
@@ -481,14 +482,16 @@ class StepMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_private_location = newrelic.synthetics.PrivateLocation("fooPrivateLocation",
+        foo = newrelic.synthetics.PrivateLocation("foo",
+            name="Sample Private Location",
             description="Sample Private Location Description",
             verified_script_execution=True)
-        foo_step_monitor = newrelic.synthetics.StepMonitor("fooStepMonitor",
+        foo_step_monitor = newrelic.synthetics.StepMonitor("foo",
+            name="Sample Step Monitor",
             period="EVERY_6_HOURS",
             status="ENABLED",
             location_privates=[newrelic.synthetics.StepMonitorLocationPrivateArgs(
-                guid=foo_private_location.id,
+                guid=foo.id,
                 vse_password="secret",
             )],
             steps=[newrelic.synthetics.StepMonitorStepArgs(
@@ -546,15 +549,16 @@ class StepMonitor(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.synthetics.StepMonitor("foo",
+            name="Sample Step Monitor",
             enable_screenshot_on_failure_and_script=True,
             locations_publics=[
                 "US_EAST_1",
                 "US_EAST_2",
             ],
             period="EVERY_6_HOURS",
+            status="ENABLED",
             runtime_type="CHROME_BROWSER",
             runtime_type_version="100",
-            status="ENABLED",
             steps=[newrelic.synthetics.StepMonitorStepArgs(
                 ordinal=0,
                 type="NAVIGATE",
@@ -581,14 +585,16 @@ class StepMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_private_location = newrelic.synthetics.PrivateLocation("fooPrivateLocation",
+        foo = newrelic.synthetics.PrivateLocation("foo",
+            name="Sample Private Location",
             description="Sample Private Location Description",
             verified_script_execution=True)
-        foo_step_monitor = newrelic.synthetics.StepMonitor("fooStepMonitor",
+        foo_step_monitor = newrelic.synthetics.StepMonitor("foo",
+            name="Sample Step Monitor",
             period="EVERY_6_HOURS",
             status="ENABLED",
             location_privates=[newrelic.synthetics.StepMonitorLocationPrivateArgs(
-                guid=foo_private_location.id,
+                guid=foo.id,
                 vse_password="secret",
             )],
             steps=[newrelic.synthetics.StepMonitorStepArgs(

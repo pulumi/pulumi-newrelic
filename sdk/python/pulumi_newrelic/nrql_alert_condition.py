@@ -918,11 +918,12 @@ class NrqlAlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
+        foo = newrelic.AlertPolicy("foo", name="foo")
+        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("foo",
             account_id=12345678,
-            policy_id=foo_alert_policy.id,
+            policy_id=foo.id,
             type="static",
+            name="foo",
             description="Alert when transactions are taking too long",
             runbook_url="https://www.example.com",
             enabled=True,
@@ -997,11 +998,12 @@ class NrqlAlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
+        foo = newrelic.AlertPolicy("foo", name="foo")
+        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("foo",
             account_id="your_account_id",
-            policy_id=foo_alert_policy.id,
+            policy_id=foo.id,
             type="static",
+            name="foo",
             description="Alert when transactions are taking too long",
             runbook_url="https://www.example.com",
             enabled=True,
@@ -1042,11 +1044,12 @@ class NrqlAlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
+        foo = newrelic.AlertPolicy("foo", name="foo")
+        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("foo",
             account_id=12345678,
-            policy_id=foo_alert_policy.id,
+            policy_id=foo.id,
             type="static",
+            name="foo",
             description="Alert when transactions are taking too long",
             runbook_url="https://www.example.com",
             enabled=True,
@@ -1075,7 +1078,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 threshold_duration=600,
                 threshold_occurrences="ALL",
             ))
-        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
+        my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_nrql_alert_condition.entity_guid,
             tags=[
                 newrelic.EntityTagsTagArgs(
@@ -1108,8 +1111,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
-            policy_id=newrelic_alert_policy["z"]["id"],
+        z = newrelic.NrqlAlertCondition("z",
+            policy_id=z_newrelic_alert_policy["id"],
+            name="zleslie-test",
             type="static",
             runbook_url="https://localhost",
             enabled=True,
@@ -1134,8 +1138,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
-            policy_id=newrelic_alert_policy["z"]["id"],
+        z = newrelic.NrqlAlertCondition("z",
+            policy_id=z_newrelic_alert_policy["id"],
+            name="zleslie-test",
             type="static",
             runbook_url="https://localhost",
             enabled=True,
@@ -1217,11 +1222,12 @@ class NrqlAlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
+        foo = newrelic.AlertPolicy("foo", name="foo")
+        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("foo",
             account_id=12345678,
-            policy_id=foo_alert_policy.id,
+            policy_id=foo.id,
             type="static",
+            name="foo",
             description="Alert when transactions are taking too long",
             runbook_url="https://www.example.com",
             enabled=True,
@@ -1296,11 +1302,12 @@ class NrqlAlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
+        foo = newrelic.AlertPolicy("foo", name="foo")
+        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("foo",
             account_id="your_account_id",
-            policy_id=foo_alert_policy.id,
+            policy_id=foo.id,
             type="static",
+            name="foo",
             description="Alert when transactions are taking too long",
             runbook_url="https://www.example.com",
             enabled=True,
@@ -1341,11 +1348,12 @@ class NrqlAlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
+        foo = newrelic.AlertPolicy("foo", name="foo")
+        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("foo",
             account_id=12345678,
-            policy_id=foo_alert_policy.id,
+            policy_id=foo.id,
             type="static",
+            name="foo",
             description="Alert when transactions are taking too long",
             runbook_url="https://www.example.com",
             enabled=True,
@@ -1374,7 +1382,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 threshold_duration=600,
                 threshold_occurrences="ALL",
             ))
-        my_condition_entity_tags = newrelic.EntityTags("myConditionEntityTags",
+        my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_nrql_alert_condition.entity_guid,
             tags=[
                 newrelic.EntityTagsTagArgs(
@@ -1407,8 +1415,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
-            policy_id=newrelic_alert_policy["z"]["id"],
+        z = newrelic.NrqlAlertCondition("z",
+            policy_id=z_newrelic_alert_policy["id"],
+            name="zleslie-test",
             type="static",
             runbook_url="https://localhost",
             enabled=True,
@@ -1433,8 +1442,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
-            policy_id=newrelic_alert_policy["z"]["id"],
+        z = newrelic.NrqlAlertCondition("z",
+            policy_id=z_newrelic_alert_policy["id"],
+            name="zleslie-test",
             type="static",
             runbook_url="https://localhost",
             enabled=True,

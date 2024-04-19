@@ -26,9 +26,10 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.LogParsingRule("foo", new()
     ///     {
+    ///         Name = "log_parse_rule",
     ///         Attribute = "message",
     ///         Enabled = true,
-    ///         Grok = "sampleattribute='%%{NUMBER:test:int}'",
+    ///         Grok = "sampleattribute='%{NUMBER:test:int}'",
     ///         Lucene = "logtype:linux_messages",
     ///         Nrql = "SELECT * FROM Log WHERE logtype = 'linux_messages'",
     ///     });
@@ -61,6 +62,7 @@ namespace Pulumi.NewRelic
     /// 
     ///     var foo = new NewRelic.LogParsingRule("foo", new()
     ///     {
+    ///         Name = "log_parse_rule",
     ///         Attribute = "message",
     ///         Enabled = true,
     ///         Grok = grok.Apply(getTestGrokPatternResult =&gt; getTestGrokPatternResult.Grok),

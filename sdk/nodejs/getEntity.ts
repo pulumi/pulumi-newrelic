@@ -20,9 +20,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
+ * // The entity returned by this configuration would have to 
+ * // belong to the account_id specified in the provider 
+ * // configuration, i.e. NEW_RELIC_ACCOUNT_ID.
  * const app = newrelic.getEntity({
- *     domain: "APM",
  *     name: "my-app",
+ *     domain: "APM",
  *     type: "APPLICATION",
  * });
  * ```
@@ -33,10 +36,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
+ * // The entity returned by this configuration, unlike in 
+ * // the above example, would have to belong to the account_id 
+ * // specified in the configuration below, i.e. 654321.
  * const app = newrelic.getEntity({
+ *     name: "my-app",
  *     accountId: 654321,
  *     domain: "APM",
- *     name: "my-app",
  *     type: "APPLICATION",
  * });
  * ```
@@ -52,13 +58,13 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const app = newrelic.getEntity({
- *     domain: "EXT",
  *     name: "my-otel-app",
+ *     domain: "EXT",
+ *     type: "SERVICE",
  *     tags: [{
  *         key: "accountID",
  *         value: "12345",
  *     }],
- *     type: "SERVICE",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -169,9 +175,12 @@ export interface GetEntityResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
+ * // The entity returned by this configuration would have to 
+ * // belong to the account_id specified in the provider 
+ * // configuration, i.e. NEW_RELIC_ACCOUNT_ID.
  * const app = newrelic.getEntity({
- *     domain: "APM",
  *     name: "my-app",
+ *     domain: "APM",
  *     type: "APPLICATION",
  * });
  * ```
@@ -182,10 +191,13 @@ export interface GetEntityResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
+ * // The entity returned by this configuration, unlike in 
+ * // the above example, would have to belong to the account_id 
+ * // specified in the configuration below, i.e. 654321.
  * const app = newrelic.getEntity({
+ *     name: "my-app",
  *     accountId: 654321,
  *     domain: "APM",
- *     name: "my-app",
  *     type: "APPLICATION",
  * });
  * ```
@@ -201,13 +213,13 @@ export interface GetEntityResult {
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const app = newrelic.getEntity({
- *     domain: "EXT",
  *     name: "my-otel-app",
+ *     domain: "EXT",
+ *     type: "SERVICE",
  *     tags: [{
  *         key: "accountID",
  *         value: "12345",
  *     }],
- *     type: "SERVICE",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

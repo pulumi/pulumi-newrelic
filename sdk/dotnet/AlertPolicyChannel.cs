@@ -27,14 +27,17 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Fetches the data for this policy from your New Relic account
+    ///     // and is referenced in the newrelic_alert_policy_channel block below.
     ///     var examplePolicy = NewRelic.GetAlertPolicy.Invoke(new()
     ///     {
     ///         Name = "my-alert-policy",
     ///     });
     /// 
     ///     // Creates an email alert channel.
-    ///     var emailChannel = new NewRelic.AlertChannel("emailChannel", new()
+    ///     var emailChannel = new NewRelic.AlertChannel("email_channel", new()
     ///     {
+    ///         Name = "bar",
     ///         Type = "email",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
@@ -44,8 +47,9 @@ namespace Pulumi.NewRelic
     ///     });
     /// 
     ///     // Creates a Slack alert channel.
-    ///     var slackChannel = new NewRelic.AlertChannel("slackChannel", new()
+    ///     var slackChannel = new NewRelic.AlertChannel("slack_channel", new()
     ///     {
+    ///         Name = "slack-channel-example",
     ///         Type = "slack",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {

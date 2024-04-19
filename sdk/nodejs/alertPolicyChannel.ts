@@ -18,11 +18,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
+ * // Fetches the data for this policy from your New Relic account
+ * // and is referenced in the newrelic_alert_policy_channel block below.
  * const examplePolicy = newrelic.getAlertPolicy({
  *     name: "my-alert-policy",
  * });
  * // Creates an email alert channel.
- * const emailChannel = new newrelic.AlertChannel("emailChannel", {
+ * const emailChannel = new newrelic.AlertChannel("email_channel", {
+ *     name: "bar",
  *     type: "email",
  *     config: {
  *         recipients: "foo@example.com",
@@ -30,7 +33,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * // Creates a Slack alert channel.
- * const slackChannel = new newrelic.AlertChannel("slackChannel", {
+ * const slackChannel = new newrelic.AlertChannel("slack_channel", {
+ *     name: "slack-channel-example",
  *     type: "slack",
  *     config: {
  *         channel: "#example-channel",

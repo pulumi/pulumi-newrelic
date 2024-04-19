@@ -1192,14 +1192,15 @@ class AzureIntegrations(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_azure_link_account = newrelic.cloud.AzureLinkAccount("fooAzureLinkAccount",
+        foo = newrelic.cloud.AzureLinkAccount("foo",
             account_id="The New Relic account ID where you want to link the Azure account",
             application_id="ID of the application",
             client_secret="Secret value of client's Azure account",
             subscription_id="Subscription ID of Azure",
-            tenant_id="Tenant ID of the Azure")
-        foo_azure_integrations = newrelic.cloud.AzureIntegrations("fooAzureIntegrations",
-            linked_account_id=foo_azure_link_account.id,
+            tenant_id="Tenant ID of the Azure",
+            name="Name of the linked account")
+        foo_azure_integrations = newrelic.cloud.AzureIntegrations("foo",
+            linked_account_id=foo.id,
             account_id="The New Relic account ID",
             api_management=newrelic.cloud.AzureIntegrationsApiManagementArgs(
                 metrics_polling_interval=1200,
@@ -1416,14 +1417,15 @@ class AzureIntegrations(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_azure_link_account = newrelic.cloud.AzureLinkAccount("fooAzureLinkAccount",
+        foo = newrelic.cloud.AzureLinkAccount("foo",
             account_id="The New Relic account ID where you want to link the Azure account",
             application_id="ID of the application",
             client_secret="Secret value of client's Azure account",
             subscription_id="Subscription ID of Azure",
-            tenant_id="Tenant ID of the Azure")
-        foo_azure_integrations = newrelic.cloud.AzureIntegrations("fooAzureIntegrations",
-            linked_account_id=foo_azure_link_account.id,
+            tenant_id="Tenant ID of the Azure",
+            name="Name of the linked account")
+        foo_azure_integrations = newrelic.cloud.AzureIntegrations("foo",
+            linked_account_id=foo.id,
             account_id="The New Relic account ID",
             api_management=newrelic.cloud.AzureIntegrationsApiManagementArgs(
                 metrics_polling_interval=1200,

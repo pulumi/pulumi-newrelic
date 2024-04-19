@@ -31,6 +31,7 @@ import * as utilities from "../utilities";
  * const foo = new newrelic.cloud.GcpLinkAccount("foo", {
  *     accountId: "account id of newrelic account",
  *     projectId: "id of the Project",
+ *     name: "account name",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

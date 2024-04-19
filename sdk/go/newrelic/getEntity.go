@@ -32,9 +32,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// The entity returned by this configuration would have to
+//			// belong to the account_id specified in the provider
+//			// configuration, i.e. NEW_RELIC_ACCOUNT_ID.
 //			_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
-//				Domain: pulumi.StringRef("APM"),
 //				Name:   "my-app",
+//				Domain: pulumi.StringRef("APM"),
 //				Type:   pulumi.StringRef("APPLICATION"),
 //			}, nil)
 //			if err != nil {
@@ -60,10 +63,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// The entity returned by this configuration, unlike in
+//			// the above example, would have to belong to the account_id
+//			// specified in the configuration below, i.e. 654321.
 //			_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+//				Name:      "my-app",
 //				AccountId: pulumi.IntRef(654321),
 //				Domain:    pulumi.StringRef("APM"),
-//				Name:      "my-app",
 //				Type:      pulumi.StringRef("APPLICATION"),
 //			}, nil)
 //			if err != nil {
@@ -94,15 +100,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
-//				Domain: pulumi.StringRef("EXT"),
 //				Name:   "my-otel-app",
+//				Domain: pulumi.StringRef("EXT"),
+//				Type:   pulumi.StringRef("SERVICE"),
 //				Tags: []newrelic.GetEntityTag{
 //					{
 //						Key:   "accountID",
 //						Value: "12345",
 //					},
 //				},
-//				Type: pulumi.StringRef("SERVICE"),
 //			}, nil)
 //			if err != nil {
 //				return err

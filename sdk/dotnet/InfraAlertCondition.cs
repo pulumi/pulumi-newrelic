@@ -25,11 +25,15 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertPolicy("foo");
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     {
+    ///         Name = "foo",
+    ///     });
     /// 
-    ///     var highDiskUsage = new NewRelic.InfraAlertCondition("highDiskUsage", new()
+    ///     var highDiskUsage = new NewRelic.InfraAlertCondition("high_disk_usage", new()
     ///     {
     ///         PolicyId = foo.Id,
+    ///         Name = "High disk usage",
     ///         Description = "Warning if disk usage goes above 80% and critical alert if goes above 90%",
     ///         Type = "infra_metric",
     ///         Event = "StorageSample",
@@ -50,9 +54,10 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var highDbConnCount = new NewRelic.InfraAlertCondition("highDbConnCount", new()
+    ///     var highDbConnCount = new NewRelic.InfraAlertCondition("high_db_conn_count", new()
     ///     {
     ///         PolicyId = foo.Id,
+    ///         Name = "High database connection count",
     ///         Description = "Critical alert when the number of database connections goes above 90",
     ///         Type = "infra_metric",
     ///         Event = "DatastoreSample",
@@ -68,9 +73,10 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var processNotRunning = new NewRelic.InfraAlertCondition("processNotRunning", new()
+    ///     var processNotRunning = new NewRelic.InfraAlertCondition("process_not_running", new()
     ///     {
     ///         PolicyId = foo.Id,
+    ///         Name = "Process not running (/usr/bin/ruby)",
     ///         Description = "Critical alert when ruby isn't running",
     ///         Type = "infra_process_running",
     ///         Comparison = "equal",
@@ -83,9 +89,10 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var hostNotReporting = new NewRelic.InfraAlertCondition("hostNotReporting", new()
+    ///     var hostNotReporting = new NewRelic.InfraAlertCondition("host_not_reporting", new()
     ///     {
     ///         PolicyId = foo.Id,
+    ///         Name = "Host not reporting",
     ///         Description = "Critical alert when the host is not reporting",
     ///         Type = "infra_host_not_reporting",
     ///         Where = "(hostname LIKE '%frontend%')",
@@ -120,11 +127,15 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-    /// 
-    ///     var fooInfraAlertCondition = new NewRelic.InfraAlertCondition("fooInfraAlertCondition", new()
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
     ///     {
-    ///         PolicyId = fooAlertPolicy.Id,
+    ///         Name = "foo policy",
+    ///     });
+    /// 
+    ///     var fooInfraAlertCondition = new NewRelic.InfraAlertCondition("foo", new()
+    ///     {
+    ///         PolicyId = foo.Id,
+    ///         Name = "foo infra condition",
     ///         Description = "Warning if disk usage goes above 80% and critical alert if goes above 90%",
     ///         Type = "infra_metric",
     ///         Event = "StorageSample",
@@ -145,7 +156,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
+    ///     var myConditionEntityTags = new NewRelic.EntityTags("my_condition_entity_tags", new()
     ///     {
     ///         Guid = fooInfraAlertCondition.EntityGuid,
     ///         Tags = new[]

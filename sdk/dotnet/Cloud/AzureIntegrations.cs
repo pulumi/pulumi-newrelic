@@ -33,18 +33,19 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooAzureLinkAccount = new NewRelic.Cloud.AzureLinkAccount("fooAzureLinkAccount", new()
+    ///     var foo = new NewRelic.Cloud.AzureLinkAccount("foo", new()
     ///     {
     ///         AccountId = "The New Relic account ID where you want to link the Azure account",
     ///         ApplicationId = "ID of the application",
     ///         ClientSecret = "Secret value of client's Azure account",
     ///         SubscriptionId = "Subscription ID of Azure",
     ///         TenantId = "Tenant ID of the Azure",
+    ///         Name = "Name of the linked account",
     ///     });
     /// 
-    ///     var fooAzureIntegrations = new NewRelic.Cloud.AzureIntegrations("fooAzureIntegrations", new()
+    ///     var fooAzureIntegrations = new NewRelic.Cloud.AzureIntegrations("foo", new()
     ///     {
-    ///         LinkedAccountId = fooAzureLinkAccount.Id,
+    ///         LinkedAccountId = foo.Id,
     ///         AccountId = "The New Relic account ID",
     ///         ApiManagement = new NewRelic.Cloud.Inputs.AzureIntegrationsApiManagementArgs
     ///         {

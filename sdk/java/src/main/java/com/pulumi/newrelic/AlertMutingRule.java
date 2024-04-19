@@ -46,6 +46,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new AlertMutingRule(&#34;foo&#34;, AlertMutingRuleArgs.builder()        
+ *             .name(&#34;Example Muting Rule&#34;)
+ *             .enabled(true)
+ *             .description(&#34;muting rule test.&#34;)
  *             .condition(AlertMutingRuleConditionArgs.builder()
  *                 .conditions(                
  *                     AlertMutingRuleConditionConditionArgs.builder()
@@ -60,18 +63,16 @@ import javax.annotation.Nullable;
  *                         .build())
  *                 .operator(&#34;AND&#34;)
  *                 .build())
- *             .description(&#34;muting rule test.&#34;)
- *             .enabled(true)
  *             .schedule(AlertMutingRuleScheduleArgs.builder()
- *                 .endTime(&#34;2021-01-28T16:30:00&#34;)
- *                 .repeat(&#34;WEEKLY&#34;)
- *                 .repeatCount(42)
  *                 .startTime(&#34;2021-01-28T15:30:00&#34;)
+ *                 .endTime(&#34;2021-01-28T16:30:00&#34;)
  *                 .timeZone(&#34;America/Los_Angeles&#34;)
+ *                 .repeat(&#34;WEEKLY&#34;)
  *                 .weeklyRepeatDays(                
  *                     &#34;MONDAY&#34;,
  *                     &#34;WEDNESDAY&#34;,
  *                     &#34;FRIDAY&#34;)
+ *                 .repeatCount(42)
  *                 .build())
  *             .build());
  * 

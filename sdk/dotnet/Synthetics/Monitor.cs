@@ -25,7 +25,15 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
     ///     {
-    ///         BypassHeadRequest = true,
+    ///         Status = "ENABLED",
+    ///         Name = "monitor",
+    ///         Period = "EVERY_MINUTE",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         Type = "SIMPLE",
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "AP_SOUTH_1",
+    ///         },
     ///         CustomHeaders = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
@@ -34,12 +42,10 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 Value = "some_value",
     ///             },
     ///         },
-    ///         LocationsPublics = new[]
-    ///         {
-    ///             "AP_SOUTH_1",
-    ///         },
-    ///         Period = "EVERY_MINUTE",
-    ///         Status = "ENABLED",
+    ///         TreatRedirectAsFailure = true,
+    ///         ValidationString = "success",
+    ///         BypassHeadRequest = true,
+    ///         VerifySsl = true,
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
@@ -51,11 +57,6 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 },
     ///             },
     ///         },
-    ///         TreatRedirectAsFailure = true,
-    ///         Type = "SIMPLE",
-    ///         Uri = "https://www.one.newrelic.com",
-    ///         ValidationString = "success",
-    ///         VerifySsl = true,
     ///     });
     /// 
     /// });
@@ -74,6 +75,15 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
     ///     {
+    ///         Status = "ENABLED",
+    ///         Name = "monitor",
+    ///         Period = "EVERY_MINUTE",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         Type = "BROWSER",
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "AP_SOUTH_1",
+    ///         },
     ///         CustomHeaders = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
@@ -83,12 +93,8 @@ namespace Pulumi.NewRelic.Synthetics
     ///             },
     ///         },
     ///         EnableScreenshotOnFailureAndScript = true,
-    ///         LocationsPublics = new[]
-    ///         {
-    ///             "AP_SOUTH_1",
-    ///         },
-    ///         Period = "EVERY_MINUTE",
-    ///         Status = "ENABLED",
+    ///         ValidationString = "success",
+    ///         VerifySsl = true,
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
@@ -100,10 +106,6 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 },
     ///             },
     ///         },
-    ///         Type = "BROWSER",
-    ///         Uri = "https://www.one.newrelic.com",
-    ///         ValidationString = "success",
-    ///         VerifySsl = true,
     ///     });
     /// 
     /// });
@@ -133,12 +135,14 @@ namespace Pulumi.NewRelic.Synthetics
     ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
     ///     {
     ///         Description = "Example private location",
+    ///         Name = "private_location",
     ///         VerifiedScriptExecution = false,
     ///     });
     /// 
     ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
     ///     {
     ///         Status = "ENABLED",
+    ///         Name = "monitor",
     ///         Period = "EVERY_MINUTE",
     ///         Uri = "https://www.one.newrelic.com",
     ///         Type = "SIMPLE",
@@ -188,6 +192,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
     ///     {
     ///         Description = "Example private location",
+    ///         Name = "private-location",
     ///         VerifiedScriptExecution = false,
     ///     });
     /// 
@@ -196,6 +201,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///         Status = "ENABLED",
     ///         Type = "BROWSER",
     ///         Uri = "https://www.one.newrelic.com",
+    ///         Name = "monitor",
     ///         Period = "EVERY_MINUTE",
     ///         LocationsPrivates = new[]
     ///         {

@@ -16,6 +16,7 @@ import * as utilities from "./utilities";
  *
  * const foo = new newrelic.ObfuscationExpression("foo", {
  *     accountId: 12345,
+ *     name: "OExp",
  *     description: "The description",
  *     regex: "(regex.*)",
  * });

@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.Workflow("foo", {
+ *     name: "workflow-example",
  *     mutingRulesHandling: "NOTIFY_ALL_ISSUES",
  *     issuesFilter: {
  *         name: "filter-name",
@@ -29,7 +30,7 @@ import * as utilities from "./utilities";
  *         }],
  *     },
  *     destinations: [{
- *         channelId: newrelic_notification_channel.some_channel.id,
+ *         channelId: someChannel.id,
  *     }],
  * });
  * ```
@@ -45,9 +46,10 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * // Create a policy to track
- * const my_policy = new newrelic.AlertPolicy("my-policy", {});
+ * const my_policy = new newrelic.AlertPolicy("my-policy", {name: "my_policy"});
  * // Create a reusable notification destination
  * const webhook_destination = new newrelic.NotificationDestination("webhook-destination", {
+ *     name: "destination-webhook",
  *     type: "WEBHOOK",
  *     properties: [{
  *         key: "url",
@@ -60,6 +62,7 @@ import * as utilities from "./utilities";
  * });
  * // Create a notification channel to use in the workflow
  * const webhook_channel = new newrelic.NotificationChannel("webhook-channel", {
+ *     name: "channel-webhook",
  *     type: "WEBHOOK",
  *     destinationId: webhook_destination.id,
  *     product: "IINT",
@@ -71,6 +74,7 @@ import * as utilities from "./utilities";
  * });
  * // A workflow that matches issues that include incidents triggered by the policy
  * const workflow_example = new newrelic.Workflow("workflow-example", {
+ *     name: "workflow-example",
  *     mutingRulesHandling: "NOTIFY_ALL_ISSUES",
  *     issuesFilter: {
  *         name: "Filter-name",
@@ -96,6 +100,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const workflow_example = new newrelic.Workflow("workflow-example", {
+ *     name: "workflow-enrichment-example",
  *     mutingRulesHandling: "NOTIFY_ALL_ISSUES",
  *     issuesFilter: {
  *         name: "Filter-name",
@@ -115,7 +120,7 @@ import * as utilities from "./utilities";
  *         }],
  *     },
  *     destinations: [{
- *         channelId: newrelic_notification_channel["webhook-channel"].id,
+ *         channelId: webhook_channel.id,
  *     }],
  * });
  * ```
@@ -129,6 +134,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const workflow_example = new newrelic.Workflow("workflow-example", {
+ *     name: "workflow-enrichment-example",
  *     mutingRulesHandling: "NOTIFY_ALL_ISSUES",
  *     issuesFilter: {
  *         name: "Filter-name",
@@ -140,7 +146,7 @@ import * as utilities from "./utilities";
  *         }],
  *     },
  *     destinations: [{
- *         channelId: newrelic_notification_channel["webhook-channel"].id,
+ *         channelId: webhook_channel.id,
  *         notificationTriggers: ["ACTIVATED"],
  *     }],
  * });

@@ -35,8 +35,9 @@ namespace Pulumi.NewRelic.Cloud
     /// {
     ///     var foo = new NewRelic.Cloud.AwsLinkAccount("foo", new()
     ///     {
-    ///         Arn = aws_iam_role.Newrelic_aws_role.Arn,
+    ///         Arn = newrelicAwsRole.Arn,
     ///         MetricCollectionMode = "PULL",
+    ///         Name = "foo",
     ///     });
     /// 
     ///     var bar = new NewRelic.Cloud.AwsIntegrations("bar", new()

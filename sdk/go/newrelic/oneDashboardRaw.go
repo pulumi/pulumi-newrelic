@@ -39,7 +39,7 @@ import (
 //				},
 //				"nrqlQueries": []map[string]interface{}{
 //					map[string]interface{}{
-//						"accountId": local.AccountID,
+//						"accountId": accountID,
 //						"query":     "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
 //					},
 //				},
@@ -49,6 +49,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = newrelic.NewOneDashboardRaw(ctx, "exampledash", &newrelic.OneDashboardRawArgs{
+//				Name: pulumi.String("New Relic Terraform Example"),
 //				Pages: newrelic.OneDashboardRawPageArray{
 //					&newrelic.OneDashboardRawPageArgs{
 //						Name: pulumi.String("Page Name"),

@@ -30,6 +30,7 @@ namespace Pulumi.NewRelic.Plugins
     /// {
     ///     var foo = new NewRelic.Plugins.Workload("foo", new()
     ///     {
+    ///         Name = "Example workload",
     ///         AccountId = 12345678,
     ///         EntityGuids = new[]
     ///         {
@@ -64,6 +65,7 @@ namespace Pulumi.NewRelic.Plugins
     /// {
     ///     var foo = new NewRelic.Plugins.Workload("foo", new()
     ///     {
+    ///         Name = "Example workload with tags",
     ///         AccountId = 12345678,
     ///         EntityGuids = new[]
     ///         {
@@ -98,6 +100,7 @@ namespace Pulumi.NewRelic.Plugins
     /// {
     ///     var foo = new NewRelic.Plugins.Workload("foo", new()
     ///     {
+    ///         Name = "Example workload with tags",
     ///         AccountId = 12345678,
     ///         EntityGuids = new[]
     ///         {
@@ -123,6 +126,124 @@ namespace Pulumi.NewRelic.Plugins
     /// Include automatic status
     /// 
     /// &gt; The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.Plugins.Workload("foo", new()
+    ///     {
+    ///         Name = "Example workload",
+    ///         AccountId = 12345678,
+    ///         EntityGuids = new[]
+    ///         {
+    ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///         },
+    ///         EntitySearchQueries = new[]
+    ///         {
+    ///             new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
+    ///             {
+    ///                 Query = "name like '%Example application%'",
+    ///             },
+    ///         },
+    ///         ScopeAccountIds = new[]
+    ///         {
+    ///             12345678,
+    ///         },
+    ///         Description = "Description",
+    ///         StatusConfigAutomatic = new NewRelic.Plugins.Inputs.WorkloadStatusConfigAutomaticArgs
+    ///         {
+    ///             Enabled = true,
+    ///             RemainingEntitiesRule = new NewRelic.Plugins.Inputs.WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs
+    ///             {
+    ///                 RemainingEntitiesRuleRollup = new NewRelic.Plugins.Inputs.WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs
+    ///                 {
+    ///                     Strategy = "BEST_STATUS_WINS",
+    ///                     ThresholdType = "FIXED",
+    ///                     ThresholdValue = 100,
+    ///                     GroupBy = "ENTITY_TYPE",
+    ///                 },
+    ///             },
+    ///             Rules = new[]
+    ///             {
+    ///                 new NewRelic.Plugins.Inputs.WorkloadStatusConfigAutomaticRuleArgs
+    ///                 {
+    ///                     EntityGuids = new[]
+    ///                     {
+    ///                         "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///                     },
+    ///                     NrqlQueries = new[]
+    ///                     {
+    ///                         new NewRelic.Plugins.Inputs.WorkloadStatusConfigAutomaticRuleNrqlQueryArgs
+    ///                         {
+    ///                             Query = "name like '%Example application2%'",
+    ///                         },
+    ///                     },
+    ///                     Rollup = new NewRelic.Plugins.Inputs.WorkloadStatusConfigAutomaticRuleRollupArgs
+    ///                     {
+    ///                         Strategy = "BEST_STATUS_WINS",
+    ///                         ThresholdType = "FIXED",
+    ///                         ThresholdValue = 100,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// Include static status
+    /// 
+    /// &gt; You can use this during maintenance tasks or any other time you want to provide a fixed status for your workload. This overrides all automatic rules. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status#configure-static)
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.Plugins.Workload("foo", new()
+    ///     {
+    ///         Name = "Example workload",
+    ///         AccountId = 12345678,
+    ///         EntityGuids = new[]
+    ///         {
+    ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///         },
+    ///         EntitySearchQueries = new[]
+    ///         {
+    ///             new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
+    ///             {
+    ///                 Query = "name like '%Example application%'",
+    ///             },
+    ///         },
+    ///         ScopeAccountIds = new[]
+    ///         {
+    ///             12345678,
+    ///         },
+    ///         Description = "Description",
+    ///         StatusConfigStatic = new NewRelic.Plugins.Inputs.WorkloadStatusConfigStaticArgs
+    ///         {
+    ///             Description = "test",
+    ///             Enabled = true,
+    ///             Status = "OPERATIONAL",
+    ///             Summary = "summary of the status",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

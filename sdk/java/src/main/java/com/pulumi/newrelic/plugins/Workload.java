@@ -53,6 +53,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Workload(&#34;foo&#34;, WorkloadArgs.builder()        
+ *             .name(&#34;Example workload&#34;)
  *             .accountId(12345678)
  *             .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
@@ -91,6 +92,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Workload(&#34;foo&#34;, WorkloadArgs.builder()        
+ *             .name(&#34;Example workload with tags&#34;)
  *             .accountId(12345678)
  *             .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
@@ -129,6 +131,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Workload(&#34;foo&#34;, WorkloadArgs.builder()        
+ *             .name(&#34;Example workload with tags&#34;)
  *             .accountId(12345678)
  *             .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
@@ -173,26 +176,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Workload(&#34;foo&#34;, WorkloadArgs.builder()        
+ *             .name(&#34;Example workload&#34;)
  *             .accountId(12345678)
- *             .description(&#34;Description&#34;)
  *             .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
  *                 .query(&#34;name like &#39;%Example application%&#39;&#34;)
  *                 .build())
  *             .scopeAccountIds(12345678)
+ *             .description(&#34;Description&#34;)
  *             .statusConfigAutomatic(WorkloadStatusConfigAutomaticArgs.builder()
  *                 .enabled(true)
  *                 .remainingEntitiesRule(WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs.builder()
  *                     .remainingEntitiesRuleRollup(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs.builder()
- *                         .groupBy(&#34;ENTITY_TYPE&#34;)
  *                         .strategy(&#34;BEST_STATUS_WINS&#34;)
  *                         .thresholdType(&#34;FIXED&#34;)
  *                         .thresholdValue(100)
+ *                         .groupBy(&#34;ENTITY_TYPE&#34;)
  *                         .build())
  *                     .build())
  *                 .rules(WorkloadStatusConfigAutomaticRuleArgs.builder()
  *                     .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
- *                     .nrqlQuery(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                     .nrqlQueries(WorkloadStatusConfigAutomaticRuleNrqlQueryArgs.builder()
+ *                         .query(&#34;name like &#39;%Example application2%&#39;&#34;)
+ *                         .build())
  *                     .rollup(WorkloadStatusConfigAutomaticRuleRollupArgs.builder()
  *                         .strategy(&#34;BEST_STATUS_WINS&#34;)
  *                         .thresholdType(&#34;FIXED&#34;)
@@ -236,13 +242,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Workload(&#34;foo&#34;, WorkloadArgs.builder()        
+ *             .name(&#34;Example workload&#34;)
  *             .accountId(12345678)
- *             .description(&#34;Description&#34;)
  *             .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
  *                 .query(&#34;name like &#39;%Example application%&#39;&#34;)
  *                 .build())
  *             .scopeAccountIds(12345678)
+ *             .description(&#34;Description&#34;)
  *             .statusConfigStatic(WorkloadStatusConfigStaticArgs.builder()
  *                 .description(&#34;test&#34;)
  *                 .enabled(true)

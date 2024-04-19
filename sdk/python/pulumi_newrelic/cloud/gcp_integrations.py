@@ -976,7 +976,9 @@ class GcpIntegrations(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.cloud.GcpLinkAccount("foo", project_id="<Your GCP project ID>")
+        foo = newrelic.cloud.GcpLinkAccount("foo",
+            name="example",
+            project_id="<Your GCP project ID>")
         foo1 = newrelic.cloud.GcpIntegrations("foo1",
             linked_account_id=foo.id,
             app_engine=newrelic.cloud.GcpIntegrationsAppEngineArgs(
@@ -1126,7 +1128,9 @@ class GcpIntegrations(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.cloud.GcpLinkAccount("foo", project_id="<Your GCP project ID>")
+        foo = newrelic.cloud.GcpLinkAccount("foo",
+            name="example",
+            project_id="<Your GCP project ID>")
         foo1 = newrelic.cloud.GcpIntegrations("foo1",
             linked_account_id=foo.id,
             app_engine=newrelic.cloud.GcpIntegrationsAppEngineArgs(

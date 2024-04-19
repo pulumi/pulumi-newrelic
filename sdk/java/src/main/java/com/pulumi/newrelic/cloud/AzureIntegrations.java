@@ -117,16 +117,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooAzureLinkAccount = new AzureLinkAccount(&#34;fooAzureLinkAccount&#34;, AzureLinkAccountArgs.builder()        
+ *         var foo = new AzureLinkAccount(&#34;foo&#34;, AzureLinkAccountArgs.builder()        
  *             .accountId(&#34;The New Relic account ID where you want to link the Azure account&#34;)
  *             .applicationId(&#34;ID of the application&#34;)
  *             .clientSecret(&#34;Secret value of client&#39;s Azure account&#34;)
  *             .subscriptionId(&#34;Subscription ID of Azure&#34;)
  *             .tenantId(&#34;Tenant ID of the Azure&#34;)
+ *             .name(&#34;Name of the linked account&#34;)
  *             .build());
  * 
  *         var fooAzureIntegrations = new AzureIntegrations(&#34;fooAzureIntegrations&#34;, AzureIntegrationsArgs.builder()        
- *             .linkedAccountId(fooAzureLinkAccount.id())
+ *             .linkedAccountId(foo.id())
  *             .accountId(&#34;The New Relic account ID&#34;)
  *             .apiManagement(AzureIntegrationsApiManagementArgs.builder()
  *                 .metricsPollingInterval(1200)

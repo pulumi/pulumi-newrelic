@@ -41,6 +41,7 @@ namespace Pulumi.NewRelic.Cloud
     ///     {
     ///         AccountId = "account id of newrelic account",
     ///         ProjectId = "id of the Project",
+    ///         Name = "account name",
     ///     });
     /// 
     /// });

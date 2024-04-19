@@ -46,13 +46,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new CertCheckMonitor(&#34;foo&#34;, CertCheckMonitorArgs.builder()        
- *             .certificateExpiration(&#34;10&#34;)
+ *             .name(&#34;Sample Cert Check Monitor&#34;)
  *             .domain(&#34;www.example.com&#34;)
  *             .locationsPublics(&#34;AP_SOUTH_1&#34;)
+ *             .certificateExpiration(&#34;10&#34;)
  *             .period(&#34;EVERY_6_HOURS&#34;)
+ *             .status(&#34;ENABLED&#34;)
  *             .runtimeType(&#34;NODE_API&#34;)
  *             .runtimeTypeVersion(&#34;16.10&#34;)
- *             .status(&#34;ENABLED&#34;)
  *             .tags(CertCheckMonitorTagArgs.builder()
  *                 .key(&#34;some_key&#34;)
  *                 .values(&#34;some_value&#34;)
@@ -98,14 +99,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooPrivateLocation = new PrivateLocation(&#34;fooPrivateLocation&#34;, PrivateLocationArgs.builder()        
+ *         var foo = new PrivateLocation(&#34;foo&#34;, PrivateLocationArgs.builder()        
+ *             .name(&#34;Sample Private Location&#34;)
  *             .description(&#34;Sample Private Location Description&#34;)
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
  *         var fooCertCheckMonitor = new CertCheckMonitor(&#34;fooCertCheckMonitor&#34;, CertCheckMonitorArgs.builder()        
+ *             .name(&#34;Sample Cert Check Monitor&#34;)
  *             .domain(&#34;www.one.example.com&#34;)
- *             .locationsPrivates(fooPrivateLocation.id())
+ *             .locationsPrivates(foo.id())
  *             .certificateExpiration(&#34;10&#34;)
  *             .period(&#34;EVERY_6_HOURS&#34;)
  *             .status(&#34;ENABLED&#34;)

@@ -40,8 +40,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			foo, err := cloud.NewAwsLinkAccount(ctx, "foo", &cloud.AwsLinkAccountArgs{
-//				Arn:                  pulumi.Any(aws_iam_role.Newrelic_aws_role.Arn),
+//				Arn:                  pulumi.Any(newrelicAwsRole.Arn),
 //				MetricCollectionMode: pulumi.String("PULL"),
+//				Name:                 pulumi.String("foo"),
 //			})
 //			if err != nil {
 //				return err

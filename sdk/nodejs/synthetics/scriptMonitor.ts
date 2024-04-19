@@ -19,21 +19,22 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const monitor = new newrelic.synthetics.ScriptMonitor("monitor", {
+ *     status: "ENABLED",
+ *     name: "script_monitor",
+ *     type: "SCRIPT_API",
  *     locationsPublics: [
  *         "AP_SOUTH_1",
  *         "AP_EAST_1",
  *     ],
  *     period: "EVERY_6_HOURS",
- *     runtimeType: "NODE_API",
- *     runtimeTypeVersion: "16.10",
  *     script: "console.log('it works!')",
  *     scriptLanguage: "JAVASCRIPT",
- *     status: "ENABLED",
+ *     runtimeType: "NODE_API",
+ *     runtimeTypeVersion: "16.10",
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
  *     }],
- *     type: "SCRIPT_API",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -45,22 +46,23 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const monitor = new newrelic.synthetics.ScriptMonitor("monitor", {
- *     enableScreenshotOnFailureAndScript: false,
+ *     status: "ENABLED",
+ *     name: "script_monitor",
+ *     type: "SCRIPT_BROWSER",
  *     locationsPublics: [
  *         "AP_SOUTH_1",
  *         "AP_EAST_1",
  *     ],
  *     period: "EVERY_HOUR",
- *     runtimeType: "CHROME_BROWSER",
- *     runtimeTypeVersion: "100",
+ *     enableScreenshotOnFailureAndScript: false,
  *     script: "$browser.get('https://one.newrelic.com')",
+ *     runtimeTypeVersion: "100",
+ *     runtimeType: "CHROME_BROWSER",
  *     scriptLanguage: "JAVASCRIPT",
- *     status: "ENABLED",
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
  *     }],
- *     type: "SCRIPT_BROWSER",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -83,10 +85,12 @@ import * as utilities from "../utilities";
  *
  * const location = new newrelic.synthetics.PrivateLocation("location", {
  *     description: "Example private location",
+ *     name: "private_location",
  *     verifiedScriptExecution: true,
  * });
  * const monitor = new newrelic.synthetics.ScriptMonitor("monitor", {
  *     status: "ENABLED",
+ *     name: "script_monitor",
  *     type: "SCRIPT_API",
  *     locationPrivates: [{
  *         guid: location.id,
@@ -113,10 +117,12 @@ import * as utilities from "../utilities";
  *
  * const location = new newrelic.synthetics.PrivateLocation("location", {
  *     description: "Test Description",
+ *     name: "private_location",
  *     verifiedScriptExecution: true,
  * });
  * const monitor = new newrelic.synthetics.ScriptMonitor("monitor", {
  *     status: "ENABLED",
+ *     name: "script_monitor",
  *     type: "SCRIPT_BROWSER",
  *     period: "EVERY_HOUR",
  *     script: "$browser.get('https://one.newrelic.com')",

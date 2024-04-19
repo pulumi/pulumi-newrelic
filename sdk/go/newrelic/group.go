@@ -29,14 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAuthenticationDomain, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
+//			foo, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
 //				Name: "Test Authentication Domain",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewGroup(ctx, "fooGroup", &newrelic.GroupArgs{
-//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
+//			_, err = newrelic.NewGroup(ctx, "foo", &newrelic.GroupArgs{
+//				Name:                   pulumi.String("Test Group"),
+//				AuthenticationDomainId: pulumi.String(foo.Id),
 //				UserIds: pulumi.StringArray{
 //					pulumi.String("0001112222"),
 //					pulumi.String("2221110000"),
@@ -71,30 +72,33 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAuthenticationDomain, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
+//			foo, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
 //				Name: "Test Authentication Domain",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			fooUser, err := newrelic.NewUser(ctx, "fooUser", &newrelic.UserArgs{
+//			fooUser, err := newrelic.NewUser(ctx, "foo", &newrelic.UserArgs{
+//				Name:                   pulumi.String("Test User One"),
 //				EmailId:                pulumi.String("test_user_one@test.com"),
-//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
+//				AuthenticationDomainId: pulumi.String(foo.Id),
 //				UserType:               pulumi.String("CORE_USER_TIER"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			bar, err := newrelic.NewUser(ctx, "bar", &newrelic.UserArgs{
+//				Name:                   pulumi.String("Test User Two"),
 //				EmailId:                pulumi.String("test_user_two@test.com"),
-//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
+//				AuthenticationDomainId: pulumi.String(foo.Id),
 //				UserType:               pulumi.String("BASIC_USER_TIER"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewGroup(ctx, "fooGroup", &newrelic.GroupArgs{
-//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
+//			_, err = newrelic.NewGroup(ctx, "foo", &newrelic.GroupArgs{
+//				Name:                   pulumi.String("Test Group"),
+//				AuthenticationDomainId: pulumi.String(foo.Id),
 //				UserIds: pulumi.StringArray{
 //					fooUser.ID(),
 //					bar.ID(),
@@ -127,30 +131,31 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAuthenticationDomain, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
+//			foo, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
 //				Name: "Test Authentication Domain",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			fooUser, err := newrelic.LookupUser(ctx, &newrelic.LookupUserArgs{
-//				AuthenticationDomainId: fooAuthenticationDomain.Id,
+//			fooGetUser, err := newrelic.LookupUser(ctx, &newrelic.LookupUserArgs{
+//				AuthenticationDomainId: foo.Id,
 //				EmailId:                pulumi.StringRef("test_user_one@test.com"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			bar, err := newrelic.LookupUser(ctx, &newrelic.LookupUserArgs{
-//				AuthenticationDomainId: fooAuthenticationDomain.Id,
+//				AuthenticationDomainId: foo.Id,
 //				Name:                   pulumi.StringRef("Test User Two"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewGroup(ctx, "fooGroup", &newrelic.GroupArgs{
-//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
+//			_, err = newrelic.NewGroup(ctx, "foo", &newrelic.GroupArgs{
+//				Name:                   pulumi.String("Test Group"),
+//				AuthenticationDomainId: pulumi.String(foo.Id),
 //				UserIds: pulumi.StringArray{
-//					pulumi.String(fooUser.Id),
+//					pulumi.String(fooGetUser.Id),
 //					pulumi.String(bar.Id),
 //				},
 //			})

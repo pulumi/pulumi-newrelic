@@ -405,6 +405,7 @@ class Workflow(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.Workflow("foo",
+            name="workflow-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="filter-name",
@@ -416,7 +417,7 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["some_channel"]["id"],
+                channel_id=some_channel["id"],
             )])
         ```
         <!--End PulumiCodeChooser -->
@@ -431,9 +432,10 @@ class Workflow(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         # Create a policy to track
-        my_policy = newrelic.AlertPolicy("my-policy")
+        my_policy = newrelic.AlertPolicy("my-policy", name="my_policy")
         # Create a reusable notification destination
         webhook_destination = newrelic.NotificationDestination("webhook-destination",
+            name="destination-webhook",
             type="WEBHOOK",
             properties=[newrelic.NotificationDestinationPropertyArgs(
                 key="url",
@@ -445,6 +447,7 @@ class Workflow(pulumi.CustomResource):
             ))
         # Create a notification channel to use in the workflow
         webhook_channel = newrelic.NotificationChannel("webhook-channel",
+            name="channel-webhook",
             type="WEBHOOK",
             destination_id=webhook_destination.id,
             product="IINT",
@@ -455,6 +458,7 @@ class Workflow(pulumi.CustomResource):
             )])
         # A workflow that matches issues that include incidents triggered by the policy
         workflow_example = newrelic.Workflow("workflow-example",
+            name="workflow-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="Filter-name",
@@ -479,6 +483,7 @@ class Workflow(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         workflow_example = newrelic.Workflow("workflow-example",
+            name="workflow-enrichment-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="Filter-name",
@@ -498,7 +503,7 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
+                channel_id=webhook_channel["id"],
             )])
         ```
         <!--End PulumiCodeChooser -->
@@ -511,6 +516,7 @@ class Workflow(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         workflow_example = newrelic.Workflow("workflow-example",
+            name="workflow-enrichment-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="Filter-name",
@@ -522,7 +528,7 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
+                channel_id=webhook_channel["id"],
                 notification_triggers=["ACTIVATED"],
             )])
         ```
@@ -584,6 +590,7 @@ class Workflow(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.Workflow("foo",
+            name="workflow-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="filter-name",
@@ -595,7 +602,7 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["some_channel"]["id"],
+                channel_id=some_channel["id"],
             )])
         ```
         <!--End PulumiCodeChooser -->
@@ -610,9 +617,10 @@ class Workflow(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         # Create a policy to track
-        my_policy = newrelic.AlertPolicy("my-policy")
+        my_policy = newrelic.AlertPolicy("my-policy", name="my_policy")
         # Create a reusable notification destination
         webhook_destination = newrelic.NotificationDestination("webhook-destination",
+            name="destination-webhook",
             type="WEBHOOK",
             properties=[newrelic.NotificationDestinationPropertyArgs(
                 key="url",
@@ -624,6 +632,7 @@ class Workflow(pulumi.CustomResource):
             ))
         # Create a notification channel to use in the workflow
         webhook_channel = newrelic.NotificationChannel("webhook-channel",
+            name="channel-webhook",
             type="WEBHOOK",
             destination_id=webhook_destination.id,
             product="IINT",
@@ -634,6 +643,7 @@ class Workflow(pulumi.CustomResource):
             )])
         # A workflow that matches issues that include incidents triggered by the policy
         workflow_example = newrelic.Workflow("workflow-example",
+            name="workflow-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="Filter-name",
@@ -658,6 +668,7 @@ class Workflow(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         workflow_example = newrelic.Workflow("workflow-example",
+            name="workflow-enrichment-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="Filter-name",
@@ -677,7 +688,7 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
+                channel_id=webhook_channel["id"],
             )])
         ```
         <!--End PulumiCodeChooser -->
@@ -690,6 +701,7 @@ class Workflow(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         workflow_example = newrelic.Workflow("workflow-example",
+            name="workflow-enrichment-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="Filter-name",
@@ -701,7 +713,7 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
+                channel_id=webhook_channel["id"],
                 notification_triggers=["ACTIVATED"],
             )])
         ```

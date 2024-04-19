@@ -240,6 +240,9 @@ class AlertMutingRule(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertMutingRule("foo",
+            name="Example Muting Rule",
+            enabled=True,
+            description="muting rule test.",
             condition=newrelic.AlertMutingRuleConditionArgs(
                 conditions=[
                     newrelic.AlertMutingRuleConditionConditionArgs(
@@ -255,19 +258,17 @@ class AlertMutingRule(pulumi.CustomResource):
                 ],
                 operator="AND",
             ),
-            description="muting rule test.",
-            enabled=True,
             schedule=newrelic.AlertMutingRuleScheduleArgs(
-                end_time="2021-01-28T16:30:00",
-                repeat="WEEKLY",
-                repeat_count=42,
                 start_time="2021-01-28T15:30:00",
+                end_time="2021-01-28T16:30:00",
                 time_zone="America/Los_Angeles",
+                repeat="WEEKLY",
                 weekly_repeat_days=[
                     "MONDAY",
                     "WEDNESDAY",
                     "FRIDAY",
                 ],
+                repeat_count=42,
             ))
         ```
         <!--End PulumiCodeChooser -->
@@ -304,6 +305,9 @@ class AlertMutingRule(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertMutingRule("foo",
+            name="Example Muting Rule",
+            enabled=True,
+            description="muting rule test.",
             condition=newrelic.AlertMutingRuleConditionArgs(
                 conditions=[
                     newrelic.AlertMutingRuleConditionConditionArgs(
@@ -319,19 +323,17 @@ class AlertMutingRule(pulumi.CustomResource):
                 ],
                 operator="AND",
             ),
-            description="muting rule test.",
-            enabled=True,
             schedule=newrelic.AlertMutingRuleScheduleArgs(
-                end_time="2021-01-28T16:30:00",
-                repeat="WEEKLY",
-                repeat_count=42,
                 start_time="2021-01-28T15:30:00",
+                end_time="2021-01-28T16:30:00",
                 time_zone="America/Los_Angeles",
+                repeat="WEEKLY",
                 weekly_repeat_days=[
                     "MONDAY",
                     "WEDNESDAY",
                     "FRIDAY",
                 ],
+                repeat_count=42,
             ))
         ```
         <!--End PulumiCodeChooser -->

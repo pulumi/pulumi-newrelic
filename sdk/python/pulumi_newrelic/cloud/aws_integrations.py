@@ -2081,8 +2081,9 @@ class AwsIntegrations(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.cloud.AwsLinkAccount("foo",
-            arn=aws_iam_role["newrelic_aws_role"]["arn"],
-            metric_collection_mode="PULL")
+            arn=newrelic_aws_role["arn"],
+            metric_collection_mode="PULL",
+            name="foo")
         bar = newrelic.cloud.AwsIntegrations("bar",
             linked_account_id=foo.id,
             billing=newrelic.cloud.AwsIntegrationsBillingArgs(),
@@ -2519,8 +2520,9 @@ class AwsIntegrations(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.cloud.AwsLinkAccount("foo",
-            arn=aws_iam_role["newrelic_aws_role"]["arn"],
-            metric_collection_mode="PULL")
+            arn=newrelic_aws_role["arn"],
+            metric_collection_mode="PULL",
+            name="foo")
         bar = newrelic.cloud.AwsIntegrations("bar",
             linked_account_id=foo.id,
             billing=newrelic.cloud.AwsIntegrationsBillingArgs(),

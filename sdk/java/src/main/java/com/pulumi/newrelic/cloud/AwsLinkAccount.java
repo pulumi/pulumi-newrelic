@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  *         var foo = new AwsLinkAccount(&#34;foo&#34;, AwsLinkAccountArgs.builder()        
  *             .arn(&#34;arn:aws:service:region:account-id:resource-id&#34;)
  *             .metricCollectionMode(&#34;PUSH&#34;)
+ *             .name(&#34;account name&#34;)
  *             .build());
  * 
  *     }

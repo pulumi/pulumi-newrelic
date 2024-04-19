@@ -24,7 +24,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const foo = new newrelic.cloud.GcpLinkAccount("foo", {projectId: "<Your GCP project ID>"});
+ * const foo = new newrelic.cloud.GcpLinkAccount("foo", {
+ *     name: "example",
+ *     projectId: "<Your GCP project ID>",
+ * });
  * const foo1 = new newrelic.cloud.GcpIntegrations("foo1", {
  *     linkedAccountId: foo.id,
  *     appEngine: {

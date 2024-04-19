@@ -25,24 +25,25 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.MonitorDowntime("foo", new()
     ///     {
-    ///         EndRepeat = new NewRelic.Inputs.MonitorDowntimeEndRepeatArgs
-    ///         {
-    ///             OnDate = "2023-12-20",
-    ///         },
-    ///         EndTime = "2023-12-10T02:45:30",
-    ///         MaintenanceDays = new[]
-    ///         {
-    ///             "FRIDAY",
-    ///             "SATURDAY",
-    ///         },
-    ///         Mode = "WEEKLY",
+    ///         Name = "Sample Monitor Downtime",
     ///         MonitorGuids = new[]
     ///         {
     ///             "&lt;GUID-1&gt;",
     ///             "&lt;GUID-2&gt;",
     ///         },
+    ///         Mode = "WEEKLY",
     ///         StartTime = "2023-11-30T10:30:00",
+    ///         EndTime = "2023-12-10T02:45:30",
     ///         TimeZone = "Asia/Kolkata",
+    ///         EndRepeat = new NewRelic.Inputs.MonitorDowntimeEndRepeatArgs
+    ///         {
+    ///             OnDate = "2023-12-20",
+    ///         },
+    ///         MaintenanceDays = new[]
+    ///         {
+    ///             "FRIDAY",
+    ///             "SATURDAY",
+    ///         },
     ///     });
     /// 
     /// });
@@ -65,16 +66,17 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleOneTimeNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sampleOneTimeNewrelicMonitorDowntime", new()
+    ///     var sampleOneTimeNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sample_one_time_newrelic_monitor_downtime", new()
     ///     {
-    ///         EndTime = "2024-01-04T16:24:30",
-    ///         Mode = "ONE_TIME",
+    ///         Name = "Sample One Time Monitor Downtime",
     ///         MonitorGuids = new[]
     ///         {
     ///             "&lt;GUID-1&gt;",
     ///             "&lt;GUID-2&gt;",
     ///         },
+    ///         Mode = "ONE_TIME",
     ///         StartTime = "2023-12-04T10:15:00",
+    ///         EndTime = "2024-01-04T16:24:30",
     ///         TimeZone = "America/Los_Angeles",
     ///     });
     /// 
@@ -97,20 +99,21 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleDailyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sampleDailyNewrelicMonitorDowntime", new()
+    ///     var sampleDailyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sample_daily_newrelic_monitor_downtime", new()
     ///     {
-    ///         EndRepeat = new NewRelic.Inputs.MonitorDowntimeEndRepeatArgs
-    ///         {
-    ///             OnDate = "2023-12-25",
-    ///         },
-    ///         EndTime = "2024-01-04T07:15:00",
-    ///         Mode = "DAILY",
+    ///         Name = "Sample Daily Monitor Downtime",
     ///         MonitorGuids = new[]
     ///         {
     ///             "&lt;GUID-1&gt;",
     ///             "&lt;GUID-2&gt;",
     ///         },
+    ///         Mode = "DAILY",
     ///         StartTime = "2023-12-04T18:15:00",
+    ///         EndTime = "2024-01-04T07:15:00",
+    ///         EndRepeat = new NewRelic.Inputs.MonitorDowntimeEndRepeatArgs
+    ///         {
+    ///             OnDate = "2023-12-25",
+    ///         },
     ///         TimeZone = "Asia/Kolkata",
     ///     });
     /// 
@@ -133,22 +136,23 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleWeeklyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sampleWeeklyNewrelicMonitorDowntime", new()
+    ///     var sampleWeeklyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sample_weekly_newrelic_monitor_downtime", new()
     ///     {
-    ///         EndTime = "2024-01-04T23:55:00",
-    ///         MaintenanceDays = new[]
-    ///         {
-    ///             "SATURDAY",
-    ///             "SUNDAY",
-    ///         },
-    ///         Mode = "WEEKLY",
+    ///         Name = "Sample Weekly Monitor Downtime",
     ///         MonitorGuids = new[]
     ///         {
     ///             "&lt;GUID-1&gt;",
     ///             "&lt;GUID-2&gt;",
     ///         },
+    ///         Mode = "WEEKLY",
     ///         StartTime = "2023-12-04T14:15:00",
+    ///         EndTime = "2024-01-04T23:55:00",
     ///         TimeZone = "US/Hawaii",
+    ///         MaintenanceDays = new[]
+    ///         {
+    ///             "SATURDAY",
+    ///             "SUNDAY",
+    ///         },
     ///     });
     /// 
     /// });
@@ -170,13 +174,22 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleMonthlyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime", new()
+    ///     var sampleMonthlyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sample_monthly_newrelic_monitor_downtime", new()
     ///     {
+    ///         Name = "Sample Monthly Monitor Downtime",
+    ///         MonitorGuids = new[]
+    ///         {
+    ///             "&lt;GUID-1&gt;",
+    ///             "&lt;GUID-2&gt;",
+    ///         },
+    ///         Mode = "MONTHLY",
+    ///         StartTime = "2023-12-04T07:15:00",
+    ///         EndTime = "2024-01-04T19:15:00",
     ///         EndRepeat = new NewRelic.Inputs.MonitorDowntimeEndRepeatArgs
     ///         {
     ///             OnRepeat = 6,
     ///         },
-    ///         EndTime = "2024-01-04T19:15:00",
+    ///         TimeZone = "Europe/Dublin",
     ///         Frequency = new NewRelic.Inputs.MonitorDowntimeFrequencyArgs
     ///         {
     ///             DaysOfWeek = new NewRelic.Inputs.MonitorDowntimeFrequencyDaysOfWeekArgs
@@ -185,14 +198,6 @@ namespace Pulumi.NewRelic
     ///                 WeekDay = "SATURDAY",
     ///             },
     ///         },
-    ///         Mode = "MONTHLY",
-    ///         MonitorGuids = new[]
-    ///         {
-    ///             "&lt;GUID-1&gt;",
-    ///             "&lt;GUID-2&gt;",
-    ///         },
-    ///         StartTime = "2023-12-04T07:15:00",
-    ///         TimeZone = "Europe/Dublin",
     ///     });
     /// 
     /// });
@@ -208,13 +213,22 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleMonthlyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime", new()
+    ///     var sampleMonthlyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sample_monthly_newrelic_monitor_downtime", new()
     ///     {
+    ///         Name = "Sample Monthly Monitor Downtime",
+    ///         MonitorGuids = new[]
+    ///         {
+    ///             "&lt;GUID-1&gt;",
+    ///             "&lt;GUID-2&gt;",
+    ///         },
+    ///         Mode = "MONTHLY",
+    ///         StartTime = "2023-12-04T07:15:00",
+    ///         EndTime = "2024-01-04T19:15:00",
     ///         EndRepeat = new NewRelic.Inputs.MonitorDowntimeEndRepeatArgs
     ///         {
     ///             OnRepeat = 6,
     ///         },
-    ///         EndTime = "2024-01-04T19:15:00",
+    ///         TimeZone = "Europe/Dublin",
     ///         Frequency = new NewRelic.Inputs.MonitorDowntimeFrequencyArgs
     ///         {
     ///             DaysOfMonths = new[]
@@ -225,14 +239,6 @@ namespace Pulumi.NewRelic
     ///                 23,
     ///             },
     ///         },
-    ///         Mode = "MONTHLY",
-    ///         MonitorGuids = new[]
-    ///         {
-    ///             "&lt;GUID-1&gt;",
-    ///             "&lt;GUID-2&gt;",
-    ///         },
-    ///         StartTime = "2023-12-04T07:15:00",
-    ///         TimeZone = "Europe/Dublin",
     ///     });
     /// 
     /// });

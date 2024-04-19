@@ -736,23 +736,24 @@ class Monitor(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.Monitor("monitor",
-            bypass_head_request=True,
+            status="ENABLED",
+            name="monitor",
+            period="EVERY_MINUTE",
+            uri="https://www.one.newrelic.com",
+            type="SIMPLE",
+            locations_publics=["AP_SOUTH_1"],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
                 name="some_name",
                 value="some_value",
             )],
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_MINUTE",
-            status="ENABLED",
+            treat_redirect_as_failure=True,
+            validation_string="success",
+            bypass_head_request=True,
+            verify_ssl=True,
             tags=[newrelic.synthetics.MonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            treat_redirect_as_failure=True,
-            type="SIMPLE",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
+            )])
         ```
         <!--End PulumiCodeChooser -->
         ##### Type: `SIMPLE BROWSER`
@@ -763,22 +764,23 @@ class Monitor(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.Monitor("monitor",
+            status="ENABLED",
+            name="monitor",
+            period="EVERY_MINUTE",
+            uri="https://www.one.newrelic.com",
+            type="BROWSER",
+            locations_publics=["AP_SOUTH_1"],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
                 name="some_name",
                 value="some_value",
             )],
             enable_screenshot_on_failure_and_script=True,
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_MINUTE",
-            status="ENABLED",
+            validation_string="success",
+            verify_ssl=True,
             tags=[newrelic.synthetics.MonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="BROWSER",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
+            )])
         ```
         <!--End PulumiCodeChooser -->
         See additional examples.
@@ -800,9 +802,11 @@ class Monitor(pulumi.CustomResource):
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Example private location",
+            name="private_location",
             verified_script_execution=False)
         monitor = newrelic.synthetics.Monitor("monitor",
             status="ENABLED",
+            name="monitor",
             period="EVERY_MINUTE",
             uri="https://www.one.newrelic.com",
             type="SIMPLE",
@@ -830,11 +834,13 @@ class Monitor(pulumi.CustomResource):
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Example private location",
+            name="private-location",
             verified_script_execution=False)
         monitor = newrelic.synthetics.Monitor("monitor",
             status="ENABLED",
             type="BROWSER",
             uri="https://www.one.newrelic.com",
+            name="monitor",
             period="EVERY_MINUTE",
             locations_privates=[location.id],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
@@ -908,23 +914,24 @@ class Monitor(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.Monitor("monitor",
-            bypass_head_request=True,
+            status="ENABLED",
+            name="monitor",
+            period="EVERY_MINUTE",
+            uri="https://www.one.newrelic.com",
+            type="SIMPLE",
+            locations_publics=["AP_SOUTH_1"],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
                 name="some_name",
                 value="some_value",
             )],
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_MINUTE",
-            status="ENABLED",
+            treat_redirect_as_failure=True,
+            validation_string="success",
+            bypass_head_request=True,
+            verify_ssl=True,
             tags=[newrelic.synthetics.MonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            treat_redirect_as_failure=True,
-            type="SIMPLE",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
+            )])
         ```
         <!--End PulumiCodeChooser -->
         ##### Type: `SIMPLE BROWSER`
@@ -935,22 +942,23 @@ class Monitor(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.Monitor("monitor",
+            status="ENABLED",
+            name="monitor",
+            period="EVERY_MINUTE",
+            uri="https://www.one.newrelic.com",
+            type="BROWSER",
+            locations_publics=["AP_SOUTH_1"],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
                 name="some_name",
                 value="some_value",
             )],
             enable_screenshot_on_failure_and_script=True,
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_MINUTE",
-            status="ENABLED",
+            validation_string="success",
+            verify_ssl=True,
             tags=[newrelic.synthetics.MonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="BROWSER",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
+            )])
         ```
         <!--End PulumiCodeChooser -->
         See additional examples.
@@ -972,9 +980,11 @@ class Monitor(pulumi.CustomResource):
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Example private location",
+            name="private_location",
             verified_script_execution=False)
         monitor = newrelic.synthetics.Monitor("monitor",
             status="ENABLED",
+            name="monitor",
             period="EVERY_MINUTE",
             uri="https://www.one.newrelic.com",
             type="SIMPLE",
@@ -1002,11 +1012,13 @@ class Monitor(pulumi.CustomResource):
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Example private location",
+            name="private-location",
             verified_script_execution=False)
         monitor = newrelic.synthetics.Monitor("monitor",
             status="ENABLED",
             type="BROWSER",
             uri="https://www.one.newrelic.com",
+            name="monitor",
             period="EVERY_MINUTE",
             locations_privates=[location.id],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(

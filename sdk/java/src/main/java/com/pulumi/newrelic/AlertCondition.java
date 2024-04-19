@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.NewrelicFunctions;
  * import com.pulumi.newrelic.inputs.GetEntityArgs;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.AlertCondition;
  * import com.pulumi.newrelic.AlertConditionArgs;
  * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
@@ -57,10 +58,13 @@ import javax.annotation.Nullable;
  *             .domain(&#34;APM&#34;)
  *             .build());
  * 
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+ *             .name(&#34;foo&#34;)
+ *             .build());
  * 
  *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
- *             .policyId(fooAlertPolicy.id())
+ *             .policyId(foo.id())
+ *             .name(&#34;foo&#34;)
  *             .type(&#34;apm_app_metric&#34;)
  *             .entities(app.applyValue(getEntityResult -&gt; getEntityResult.applicationId()))
  *             .metric(&#34;apdex&#34;)
@@ -104,6 +108,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.NewrelicFunctions;
  * import com.pulumi.newrelic.inputs.GetEntityArgs;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.AlertCondition;
  * import com.pulumi.newrelic.AlertConditionArgs;
  * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
@@ -123,16 +128,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var fooEntity = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+ *         final var foo = NewrelicFunctions.getEntity(GetEntityArgs.builder()
  *             .name(&#34;foo entitiy&#34;)
  *             .build());
  * 
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;, AlertPolicyArgs.builder()        
+ *             .name(&#34;foo policy&#34;)
+ *             .build());
  * 
  *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
  *             .policyId(fooAlertPolicy.id())
+ *             .name(&#34;foo condition&#34;)
  *             .type(&#34;apm_app_metric&#34;)
- *             .entities(fooEntity.applyValue(getEntityResult -&gt; getEntityResult.applicationId()))
+ *             .entities(foo.applyValue(getEntityResult -&gt; getEntityResult.applicationId()))
  *             .metric(&#34;apdex&#34;)
  *             .runbookUrl(&#34;https://www.example.com&#34;)
  *             .conditionScope(&#34;application&#34;)

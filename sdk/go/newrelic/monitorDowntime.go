@@ -30,21 +30,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewMonitorDowntime(ctx, "foo", &newrelic.MonitorDowntimeArgs{
-//				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
-//					OnDate: pulumi.String("2023-12-20"),
-//				},
-//				EndTime: pulumi.String("2023-12-10T02:45:30"),
-//				MaintenanceDays: pulumi.StringArray{
-//					pulumi.String("FRIDAY"),
-//					pulumi.String("SATURDAY"),
-//				},
-//				Mode: pulumi.String("WEEKLY"),
+//				Name: pulumi.String("Sample Monitor Downtime"),
 //				MonitorGuids: pulumi.StringArray{
 //					pulumi.String("<GUID-1>"),
 //					pulumi.String("<GUID-2>"),
 //				},
+//				Mode:      pulumi.String("WEEKLY"),
 //				StartTime: pulumi.String("2023-11-30T10:30:00"),
+//				EndTime:   pulumi.String("2023-12-10T02:45:30"),
 //				TimeZone:  pulumi.String("Asia/Kolkata"),
+//				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
+//					OnDate: pulumi.String("2023-12-20"),
+//				},
+//				MaintenanceDays: pulumi.StringArray{
+//					pulumi.String("FRIDAY"),
+//					pulumi.String("SATURDAY"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -76,14 +77,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "sampleOneTimeNewrelicMonitorDowntime", &newrelic.MonitorDowntimeArgs{
-//				EndTime: pulumi.String("2024-01-04T16:24:30"),
-//				Mode:    pulumi.String("ONE_TIME"),
+//			_, err := newrelic.NewMonitorDowntime(ctx, "sample_one_time_newrelic_monitor_downtime", &newrelic.MonitorDowntimeArgs{
+//				Name: pulumi.String("Sample One Time Monitor Downtime"),
 //				MonitorGuids: pulumi.StringArray{
 //					pulumi.String("<GUID-1>"),
 //					pulumi.String("<GUID-2>"),
 //				},
+//				Mode:      pulumi.String("ONE_TIME"),
 //				StartTime: pulumi.String("2023-12-04T10:15:00"),
+//				EndTime:   pulumi.String("2024-01-04T16:24:30"),
 //				TimeZone:  pulumi.String("America/Los_Angeles"),
 //			})
 //			if err != nil {
@@ -115,18 +117,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "sampleDailyNewrelicMonitorDowntime", &newrelic.MonitorDowntimeArgs{
-//				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
-//					OnDate: pulumi.String("2023-12-25"),
-//				},
-//				EndTime: pulumi.String("2024-01-04T07:15:00"),
-//				Mode:    pulumi.String("DAILY"),
+//			_, err := newrelic.NewMonitorDowntime(ctx, "sample_daily_newrelic_monitor_downtime", &newrelic.MonitorDowntimeArgs{
+//				Name: pulumi.String("Sample Daily Monitor Downtime"),
 //				MonitorGuids: pulumi.StringArray{
 //					pulumi.String("<GUID-1>"),
 //					pulumi.String("<GUID-2>"),
 //				},
+//				Mode:      pulumi.String("DAILY"),
 //				StartTime: pulumi.String("2023-12-04T18:15:00"),
-//				TimeZone:  pulumi.String("Asia/Kolkata"),
+//				EndTime:   pulumi.String("2024-01-04T07:15:00"),
+//				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
+//					OnDate: pulumi.String("2023-12-25"),
+//				},
+//				TimeZone: pulumi.String("Asia/Kolkata"),
 //			})
 //			if err != nil {
 //				return err
@@ -157,19 +160,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "sampleWeeklyNewrelicMonitorDowntime", &newrelic.MonitorDowntimeArgs{
-//				EndTime: pulumi.String("2024-01-04T23:55:00"),
-//				MaintenanceDays: pulumi.StringArray{
-//					pulumi.String("SATURDAY"),
-//					pulumi.String("SUNDAY"),
-//				},
-//				Mode: pulumi.String("WEEKLY"),
+//			_, err := newrelic.NewMonitorDowntime(ctx, "sample_weekly_newrelic_monitor_downtime", &newrelic.MonitorDowntimeArgs{
+//				Name: pulumi.String("Sample Weekly Monitor Downtime"),
 //				MonitorGuids: pulumi.StringArray{
 //					pulumi.String("<GUID-1>"),
 //					pulumi.String("<GUID-2>"),
 //				},
+//				Mode:      pulumi.String("WEEKLY"),
 //				StartTime: pulumi.String("2023-12-04T14:15:00"),
+//				EndTime:   pulumi.String("2024-01-04T23:55:00"),
 //				TimeZone:  pulumi.String("US/Hawaii"),
+//				MaintenanceDays: pulumi.StringArray{
+//					pulumi.String("SATURDAY"),
+//					pulumi.String("SUNDAY"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -200,24 +204,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "sampleMonthlyNewrelicMonitorDowntime", &newrelic.MonitorDowntimeArgs{
+//			_, err := newrelic.NewMonitorDowntime(ctx, "sample_monthly_newrelic_monitor_downtime", &newrelic.MonitorDowntimeArgs{
+//				Name: pulumi.String("Sample Monthly Monitor Downtime"),
+//				MonitorGuids: pulumi.StringArray{
+//					pulumi.String("<GUID-1>"),
+//					pulumi.String("<GUID-2>"),
+//				},
+//				Mode:      pulumi.String("MONTHLY"),
+//				StartTime: pulumi.String("2023-12-04T07:15:00"),
+//				EndTime:   pulumi.String("2024-01-04T19:15:00"),
 //				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
 //					OnRepeat: pulumi.Int(6),
 //				},
-//				EndTime: pulumi.String("2024-01-04T19:15:00"),
+//				TimeZone: pulumi.String("Europe/Dublin"),
 //				Frequency: &newrelic.MonitorDowntimeFrequencyArgs{
 //					DaysOfWeek: &newrelic.MonitorDowntimeFrequencyDaysOfWeekArgs{
 //						OrdinalDayOfMonth: pulumi.String("SECOND"),
 //						WeekDay:           pulumi.String("SATURDAY"),
 //					},
 //				},
-//				Mode: pulumi.String("MONTHLY"),
-//				MonitorGuids: pulumi.StringArray{
-//					pulumi.String("<GUID-1>"),
-//					pulumi.String("<GUID-2>"),
-//				},
-//				StartTime: pulumi.String("2023-12-04T07:15:00"),
-//				TimeZone:  pulumi.String("Europe/Dublin"),
 //			})
 //			if err != nil {
 //				return err
@@ -242,11 +247,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "sampleMonthlyNewrelicMonitorDowntime", &newrelic.MonitorDowntimeArgs{
+//			_, err := newrelic.NewMonitorDowntime(ctx, "sample_monthly_newrelic_monitor_downtime", &newrelic.MonitorDowntimeArgs{
+//				Name: pulumi.String("Sample Monthly Monitor Downtime"),
+//				MonitorGuids: pulumi.StringArray{
+//					pulumi.String("<GUID-1>"),
+//					pulumi.String("<GUID-2>"),
+//				},
+//				Mode:      pulumi.String("MONTHLY"),
+//				StartTime: pulumi.String("2023-12-04T07:15:00"),
+//				EndTime:   pulumi.String("2024-01-04T19:15:00"),
 //				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
 //					OnRepeat: pulumi.Int(6),
 //				},
-//				EndTime: pulumi.String("2024-01-04T19:15:00"),
+//				TimeZone: pulumi.String("Europe/Dublin"),
 //				Frequency: &newrelic.MonitorDowntimeFrequencyArgs{
 //					DaysOfMonths: pulumi.IntArray{
 //						pulumi.Int(3),
@@ -255,13 +268,6 @@ import (
 //						pulumi.Int(23),
 //					},
 //				},
-//				Mode: pulumi.String("MONTHLY"),
-//				MonitorGuids: pulumi.StringArray{
-//					pulumi.String("<GUID-1>"),
-//					pulumi.String("<GUID-2>"),
-//				},
-//				StartTime: pulumi.String("2023-12-04T07:15:00"),
-//				TimeZone:  pulumi.String("Europe/Dublin"),
 //			})
 //			if err != nil {
 //				return err

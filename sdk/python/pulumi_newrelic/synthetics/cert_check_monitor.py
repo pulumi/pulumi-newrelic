@@ -429,13 +429,14 @@ class CertCheckMonitor(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.synthetics.CertCheckMonitor("foo",
-            certificate_expiration=10,
+            name="Sample Cert Check Monitor",
             domain="www.example.com",
             locations_publics=["AP_SOUTH_1"],
+            certificate_expiration=10,
             period="EVERY_6_HOURS",
+            status="ENABLED",
             runtime_type="NODE_API",
             runtime_type_version="16.10",
-            status="ENABLED",
             tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
@@ -457,12 +458,14 @@ class CertCheckMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_private_location = newrelic.synthetics.PrivateLocation("fooPrivateLocation",
+        foo = newrelic.synthetics.PrivateLocation("foo",
+            name="Sample Private Location",
             description="Sample Private Location Description",
             verified_script_execution=False)
-        foo_cert_check_monitor = newrelic.synthetics.CertCheckMonitor("fooCertCheckMonitor",
+        foo_cert_check_monitor = newrelic.synthetics.CertCheckMonitor("foo",
+            name="Sample Cert Check Monitor",
             domain="www.one.example.com",
-            locations_privates=[foo_private_location.id],
+            locations_privates=[foo.id],
             certificate_expiration=10,
             period="EVERY_6_HOURS",
             status="ENABLED",
@@ -516,13 +519,14 @@ class CertCheckMonitor(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.synthetics.CertCheckMonitor("foo",
-            certificate_expiration=10,
+            name="Sample Cert Check Monitor",
             domain="www.example.com",
             locations_publics=["AP_SOUTH_1"],
+            certificate_expiration=10,
             period="EVERY_6_HOURS",
+            status="ENABLED",
             runtime_type="NODE_API",
             runtime_type_version="16.10",
-            status="ENABLED",
             tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
@@ -544,12 +548,14 @@ class CertCheckMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_private_location = newrelic.synthetics.PrivateLocation("fooPrivateLocation",
+        foo = newrelic.synthetics.PrivateLocation("foo",
+            name="Sample Private Location",
             description="Sample Private Location Description",
             verified_script_execution=False)
-        foo_cert_check_monitor = newrelic.synthetics.CertCheckMonitor("fooCertCheckMonitor",
+        foo_cert_check_monitor = newrelic.synthetics.CertCheckMonitor("foo",
+            name="Sample Cert Check Monitor",
             domain="www.one.example.com",
-            locations_privates=[foo_private_location.id],
+            locations_privates=[foo.id],
             certificate_expiration=10,
             period="EVERY_6_HOURS",
             status="ENABLED",

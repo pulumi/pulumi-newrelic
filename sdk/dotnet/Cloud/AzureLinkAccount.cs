@@ -40,6 +40,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         ClientSecret = "Secret value of client's Azure account",
     ///         SubscriptionId = "Subscription ID of Azure",
     ///         TenantId = "Tenant ID of the Azure",
+    ///         Name = "Name of the linked account",
     ///     });
     /// 
     /// });

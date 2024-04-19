@@ -20,6 +20,7 @@ import * as utilities from "./utilities";
  * const fooPeriod = 28;
  * const foo = new newrelic.ServiceLevel("foo", {
  *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
+ *     name: "Latency",
  *     description: "Proportion of requests that are served faster than a threshold.",
  *     events: {
  *         accountId: 12345678,
@@ -57,15 +58,16 @@ import * as utilities from "./utilities";
  *
  * const fooSlowBurn = newrelic.getServiceLevelAlertHelper({
  *     alertType: "slow_burn",
- *     sliGuid: newrelic_service_level.foo.sli_guid,
- *     sloTarget: local.foo_target,
- *     sloPeriod: local.foo_period,
+ *     sliGuid: foo.sliGuid,
+ *     sloTarget: fooTarget,
+ *     sloPeriod: fooPeriod,
  *     isBadEvents: true,
  * });
- * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
+ * const yourCondition = new newrelic.NrqlAlertCondition("your_condition", {
  *     accountId: 12345678,
  *     policyId: 67890,
  *     type: "static",
+ *     name: "Slow burn alert",
  *     enabled: true,
  *     violationTimeLimitSeconds: 259200,
  *     nrql: {
@@ -95,17 +97,18 @@ import * as utilities from "./utilities";
  *
  * const fooCustom = newrelic.getServiceLevelAlertHelper({
  *     alertType: "custom",
- *     sliGuid: newrelic_service_level.foo.sli_guid,
- *     sloTarget: local.foo_target,
- *     sloPeriod: local.foo_period,
+ *     sliGuid: foo.sliGuid,
+ *     sloTarget: fooTarget,
+ *     sloPeriod: fooPeriod,
  *     customToleratedBudgetConsumption: 4,
  *     customEvaluationPeriod: 5400,
  *     isBadEvents: true,
  * });
- * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
+ * const yourCondition = new newrelic.NrqlAlertCondition("your_condition", {
  *     accountId: 12345678,
  *     policyId: 67890,
  *     type: "static",
+ *     name: "Custom burn alert",
  *     enabled: true,
  *     violationTimeLimitSeconds: 259200,
  *     nrql: {
@@ -222,6 +225,7 @@ export interface GetServiceLevelAlertHelperResult {
  * const fooPeriod = 28;
  * const foo = new newrelic.ServiceLevel("foo", {
  *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
+ *     name: "Latency",
  *     description: "Proportion of requests that are served faster than a threshold.",
  *     events: {
  *         accountId: 12345678,
@@ -259,15 +263,16 @@ export interface GetServiceLevelAlertHelperResult {
  *
  * const fooSlowBurn = newrelic.getServiceLevelAlertHelper({
  *     alertType: "slow_burn",
- *     sliGuid: newrelic_service_level.foo.sli_guid,
- *     sloTarget: local.foo_target,
- *     sloPeriod: local.foo_period,
+ *     sliGuid: foo.sliGuid,
+ *     sloTarget: fooTarget,
+ *     sloPeriod: fooPeriod,
  *     isBadEvents: true,
  * });
- * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
+ * const yourCondition = new newrelic.NrqlAlertCondition("your_condition", {
  *     accountId: 12345678,
  *     policyId: 67890,
  *     type: "static",
+ *     name: "Slow burn alert",
  *     enabled: true,
  *     violationTimeLimitSeconds: 259200,
  *     nrql: {
@@ -297,17 +302,18 @@ export interface GetServiceLevelAlertHelperResult {
  *
  * const fooCustom = newrelic.getServiceLevelAlertHelper({
  *     alertType: "custom",
- *     sliGuid: newrelic_service_level.foo.sli_guid,
- *     sloTarget: local.foo_target,
- *     sloPeriod: local.foo_period,
+ *     sliGuid: foo.sliGuid,
+ *     sloTarget: fooTarget,
+ *     sloPeriod: fooPeriod,
  *     customToleratedBudgetConsumption: 4,
  *     customEvaluationPeriod: 5400,
  *     isBadEvents: true,
  * });
- * const yourCondition = new newrelic.NrqlAlertCondition("yourCondition", {
+ * const yourCondition = new newrelic.NrqlAlertCondition("your_condition", {
  *     accountId: 12345678,
  *     policyId: 67890,
  *     type: "static",
+ *     name: "Custom burn alert",
  *     enabled: true,
  *     violationTimeLimitSeconds: 259200,
  *     nrql: {

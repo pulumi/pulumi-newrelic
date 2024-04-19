@@ -17,13 +17,14 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.synthetics.CertCheckMonitor("foo", {
- *     certificateExpiration: 10,
+ *     name: "Sample Cert Check Monitor",
  *     domain: "www.example.com",
  *     locationsPublics: ["AP_SOUTH_1"],
+ *     certificateExpiration: 10,
  *     period: "EVERY_6_HOURS",
+ *     status: "ENABLED",
  *     runtimeType: "NODE_API",
  *     runtimeTypeVersion: "16.10",
- *     status: "ENABLED",
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
@@ -46,13 +47,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooPrivateLocation = new newrelic.synthetics.PrivateLocation("fooPrivateLocation", {
+ * const foo = new newrelic.synthetics.PrivateLocation("foo", {
+ *     name: "Sample Private Location",
  *     description: "Sample Private Location Description",
  *     verifiedScriptExecution: false,
  * });
- * const fooCertCheckMonitor = new newrelic.synthetics.CertCheckMonitor("fooCertCheckMonitor", {
+ * const fooCertCheckMonitor = new newrelic.synthetics.CertCheckMonitor("foo", {
+ *     name: "Sample Cert Check Monitor",
  *     domain: "www.one.example.com",
- *     locationsPrivates: [fooPrivateLocation.id],
+ *     locationsPrivates: [foo.id],
  *     certificateExpiration: 10,
  *     period: "EVERY_6_HOURS",
  *     status: "ENABLED",

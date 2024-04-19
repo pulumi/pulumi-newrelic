@@ -252,7 +252,8 @@ class AzureLinkAccount(pulumi.CustomResource):
             application_id="ID of the application",
             client_secret="Secret value of client's Azure account",
             subscription_id="Subscription ID of Azure",
-            tenant_id="Tenant ID of the Azure")
+            tenant_id="Tenant ID of the Azure",
+            name="Name of the linked account")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -306,7 +307,8 @@ class AzureLinkAccount(pulumi.CustomResource):
             application_id="ID of the application",
             client_secret="Secret value of client's Azure account",
             subscription_id="Subscription ID of Azure",
-            tenant_id="Tenant ID of the Azure")
+            tenant_id="Tenant ID of the Azure",
+            name="Name of the linked account")
         ```
         <!--End PulumiCodeChooser -->
 

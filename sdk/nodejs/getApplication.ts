@@ -19,9 +19,10 @@ import * as utilities from "./utilities";
  * const app = newrelic.getApplication({
  *     name: "my-app",
  * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * const fooAlertCondition = new newrelic.AlertCondition("foo", {
+ *     policyId: foo.id,
+ *     name: "foo",
  *     type: "apm_app_metric",
  *     entities: [app.then(app => app.id)],
  *     metric: "apdex",
@@ -88,9 +89,10 @@ export interface GetApplicationResult {
  * const app = newrelic.getApplication({
  *     name: "my-app",
  * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * const fooAlertCondition = new newrelic.AlertCondition("foo", {
+ *     policyId: foo.id,
+ *     name: "foo",
  *     type: "apm_app_metric",
  *     entities: [app.then(app => app.id)],
  *     metric: "apdex",

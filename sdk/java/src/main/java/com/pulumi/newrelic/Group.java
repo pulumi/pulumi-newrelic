@@ -44,12 +44,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+ *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
  *             .name(&#34;Test Authentication Domain&#34;)
  *             .build());
  * 
  *         var fooGroup = new Group(&#34;fooGroup&#34;, GroupArgs.builder()        
- *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+ *             .name(&#34;Test Group&#34;)
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
  *             .userIds(            
  *                 &#34;0001112222&#34;,
  *                 &#34;2221110000&#34;)
@@ -92,24 +93,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+ *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
  *             .name(&#34;Test Authentication Domain&#34;)
  *             .build());
  * 
  *         var fooUser = new User(&#34;fooUser&#34;, UserArgs.builder()        
+ *             .name(&#34;Test User One&#34;)
  *             .emailId(&#34;test_user_one@test.com&#34;)
- *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
  *             .userType(&#34;CORE_USER_TIER&#34;)
  *             .build());
  * 
  *         var bar = new User(&#34;bar&#34;, UserArgs.builder()        
+ *             .name(&#34;Test User Two&#34;)
  *             .emailId(&#34;test_user_two@test.com&#34;)
- *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
  *             .userType(&#34;BASIC_USER_TIER&#34;)
  *             .build());
  * 
  *         var fooGroup = new Group(&#34;fooGroup&#34;, GroupArgs.builder()        
- *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+ *             .name(&#34;Test Group&#34;)
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
  *             .userIds(            
  *                 fooUser.id(),
  *                 bar.id())
@@ -149,24 +153,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var fooAuthenticationDomain = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+ *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
  *             .name(&#34;Test Authentication Domain&#34;)
  *             .build());
  * 
- *         final var fooUser = NewrelicFunctions.getUser(GetUserArgs.builder()
- *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+ *         final var fooGetUser = NewrelicFunctions.getUser(GetUserArgs.builder()
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
  *             .emailId(&#34;test_user_one@test.com&#34;)
  *             .build());
  * 
  *         final var bar = NewrelicFunctions.getUser(GetUserArgs.builder()
- *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
  *             .name(&#34;Test User Two&#34;)
  *             .build());
  * 
  *         var fooGroup = new Group(&#34;fooGroup&#34;, GroupArgs.builder()        
- *             .authenticationDomainId(fooAuthenticationDomain.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+ *             .name(&#34;Test Group&#34;)
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
  *             .userIds(            
- *                 fooUser.applyValue(getUserResult -&gt; getUserResult.id()),
+ *                 fooGetUser.applyValue(getUserResult -&gt; getUserResult.id()),
  *                 bar.applyValue(getUserResult -&gt; getUserResult.id()))
  *             .build());
  * 

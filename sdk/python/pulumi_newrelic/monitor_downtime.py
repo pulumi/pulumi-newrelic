@@ -380,21 +380,22 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.MonitorDowntime("foo",
-            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
-                on_date="2023-12-20",
-            ),
-            end_time="2023-12-10T02:45:30",
-            maintenance_days=[
-                "FRIDAY",
-                "SATURDAY",
-            ],
-            mode="WEEKLY",
+            name="Sample Monitor Downtime",
             monitor_guids=[
                 "<GUID-1>",
                 "<GUID-2>",
             ],
+            mode="WEEKLY",
             start_time="2023-11-30T10:30:00",
-            time_zone="Asia/Kolkata")
+            end_time="2023-12-10T02:45:30",
+            time_zone="Asia/Kolkata",
+            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
+                on_date="2023-12-20",
+            ),
+            maintenance_days=[
+                "FRIDAY",
+                "SATURDAY",
+            ])
         ```
         <!--End PulumiCodeChooser -->
         Monitor Downtimes are of four types; **one-time**, **daily**, **weekly** and **monthly**. For more details on each type and the right arguments that go with them, check out the argument reference and examples sections below.
@@ -410,14 +411,15 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_one_time_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleOneTimeNewrelicMonitorDowntime",
-            end_time="2024-01-04T16:24:30",
-            mode="ONE_TIME",
+        sample_one_time_newrelic_monitor_downtime = newrelic.MonitorDowntime("sample_one_time_newrelic_monitor_downtime",
+            name="Sample One Time Monitor Downtime",
             monitor_guids=[
                 "<GUID-1>",
                 "<GUID-2>",
             ],
+            mode="ONE_TIME",
             start_time="2023-12-04T10:15:00",
+            end_time="2024-01-04T16:24:30",
             time_zone="America/Los_Angeles")
         ```
         <!--End PulumiCodeChooser -->
@@ -433,17 +435,18 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_daily_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleDailyNewrelicMonitorDowntime",
-            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
-                on_date="2023-12-25",
-            ),
-            end_time="2024-01-04T07:15:00",
-            mode="DAILY",
+        sample_daily_newrelic_monitor_downtime = newrelic.MonitorDowntime("sample_daily_newrelic_monitor_downtime",
+            name="Sample Daily Monitor Downtime",
             monitor_guids=[
                 "<GUID-1>",
                 "<GUID-2>",
             ],
+            mode="DAILY",
             start_time="2023-12-04T18:15:00",
+            end_time="2024-01-04T07:15:00",
+            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
+                on_date="2023-12-25",
+            ),
             time_zone="Asia/Kolkata")
         ```
         <!--End PulumiCodeChooser -->
@@ -459,19 +462,20 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_weekly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleWeeklyNewrelicMonitorDowntime",
-            end_time="2024-01-04T23:55:00",
-            maintenance_days=[
-                "SATURDAY",
-                "SUNDAY",
-            ],
-            mode="WEEKLY",
+        sample_weekly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sample_weekly_newrelic_monitor_downtime",
+            name="Sample Weekly Monitor Downtime",
             monitor_guids=[
                 "<GUID-1>",
                 "<GUID-2>",
             ],
+            mode="WEEKLY",
             start_time="2023-12-04T14:15:00",
-            time_zone="US/Hawaii")
+            end_time="2024-01-04T23:55:00",
+            time_zone="US/Hawaii",
+            maintenance_days=[
+                "SATURDAY",
+                "SUNDAY",
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -486,24 +490,25 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_monthly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime",
+        sample_monthly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sample_monthly_newrelic_monitor_downtime",
+            name="Sample Monthly Monitor Downtime",
+            monitor_guids=[
+                "<GUID-1>",
+                "<GUID-2>",
+            ],
+            mode="MONTHLY",
+            start_time="2023-12-04T07:15:00",
+            end_time="2024-01-04T19:15:00",
             end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
                 on_repeat=6,
             ),
-            end_time="2024-01-04T19:15:00",
+            time_zone="Europe/Dublin",
             frequency=newrelic.MonitorDowntimeFrequencyArgs(
                 days_of_week=newrelic.MonitorDowntimeFrequencyDaysOfWeekArgs(
                     ordinal_day_of_month="SECOND",
                     week_day="SATURDAY",
                 ),
-            ),
-            mode="MONTHLY",
-            monitor_guids=[
-                "<GUID-1>",
-                "<GUID-2>",
-            ],
-            start_time="2023-12-04T07:15:00",
-            time_zone="Europe/Dublin")
+            ))
         ```
         <!--End PulumiCodeChooser -->
         However, the `frequency` block in monthly monitor downtimes may also be specified with its other nested argument, `days_of_month`, as shown in the example below - though both `days_of_month` and `days_of_week` cannot be specified together, as they are mutually exclusive.
@@ -512,11 +517,19 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_monthly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime",
+        sample_monthly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sample_monthly_newrelic_monitor_downtime",
+            name="Sample Monthly Monitor Downtime",
+            monitor_guids=[
+                "<GUID-1>",
+                "<GUID-2>",
+            ],
+            mode="MONTHLY",
+            start_time="2023-12-04T07:15:00",
+            end_time="2024-01-04T19:15:00",
             end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
                 on_repeat=6,
             ),
-            end_time="2024-01-04T19:15:00",
+            time_zone="Europe/Dublin",
             frequency=newrelic.MonitorDowntimeFrequencyArgs(
                 days_of_months=[
                     3,
@@ -524,14 +537,7 @@ class MonitorDowntime(pulumi.CustomResource):
                     14,
                     23,
                 ],
-            ),
-            mode="MONTHLY",
-            monitor_guids=[
-                "<GUID-1>",
-                "<GUID-2>",
-            ],
-            start_time="2023-12-04T07:15:00",
-            time_zone="Europe/Dublin")
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -577,21 +583,22 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.MonitorDowntime("foo",
-            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
-                on_date="2023-12-20",
-            ),
-            end_time="2023-12-10T02:45:30",
-            maintenance_days=[
-                "FRIDAY",
-                "SATURDAY",
-            ],
-            mode="WEEKLY",
+            name="Sample Monitor Downtime",
             monitor_guids=[
                 "<GUID-1>",
                 "<GUID-2>",
             ],
+            mode="WEEKLY",
             start_time="2023-11-30T10:30:00",
-            time_zone="Asia/Kolkata")
+            end_time="2023-12-10T02:45:30",
+            time_zone="Asia/Kolkata",
+            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
+                on_date="2023-12-20",
+            ),
+            maintenance_days=[
+                "FRIDAY",
+                "SATURDAY",
+            ])
         ```
         <!--End PulumiCodeChooser -->
         Monitor Downtimes are of four types; **one-time**, **daily**, **weekly** and **monthly**. For more details on each type and the right arguments that go with them, check out the argument reference and examples sections below.
@@ -607,14 +614,15 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_one_time_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleOneTimeNewrelicMonitorDowntime",
-            end_time="2024-01-04T16:24:30",
-            mode="ONE_TIME",
+        sample_one_time_newrelic_monitor_downtime = newrelic.MonitorDowntime("sample_one_time_newrelic_monitor_downtime",
+            name="Sample One Time Monitor Downtime",
             monitor_guids=[
                 "<GUID-1>",
                 "<GUID-2>",
             ],
+            mode="ONE_TIME",
             start_time="2023-12-04T10:15:00",
+            end_time="2024-01-04T16:24:30",
             time_zone="America/Los_Angeles")
         ```
         <!--End PulumiCodeChooser -->
@@ -630,17 +638,18 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_daily_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleDailyNewrelicMonitorDowntime",
-            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
-                on_date="2023-12-25",
-            ),
-            end_time="2024-01-04T07:15:00",
-            mode="DAILY",
+        sample_daily_newrelic_monitor_downtime = newrelic.MonitorDowntime("sample_daily_newrelic_monitor_downtime",
+            name="Sample Daily Monitor Downtime",
             monitor_guids=[
                 "<GUID-1>",
                 "<GUID-2>",
             ],
+            mode="DAILY",
             start_time="2023-12-04T18:15:00",
+            end_time="2024-01-04T07:15:00",
+            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
+                on_date="2023-12-25",
+            ),
             time_zone="Asia/Kolkata")
         ```
         <!--End PulumiCodeChooser -->
@@ -656,19 +665,20 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_weekly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleWeeklyNewrelicMonitorDowntime",
-            end_time="2024-01-04T23:55:00",
-            maintenance_days=[
-                "SATURDAY",
-                "SUNDAY",
-            ],
-            mode="WEEKLY",
+        sample_weekly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sample_weekly_newrelic_monitor_downtime",
+            name="Sample Weekly Monitor Downtime",
             monitor_guids=[
                 "<GUID-1>",
                 "<GUID-2>",
             ],
+            mode="WEEKLY",
             start_time="2023-12-04T14:15:00",
-            time_zone="US/Hawaii")
+            end_time="2024-01-04T23:55:00",
+            time_zone="US/Hawaii",
+            maintenance_days=[
+                "SATURDAY",
+                "SUNDAY",
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -683,24 +693,25 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_monthly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime",
+        sample_monthly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sample_monthly_newrelic_monitor_downtime",
+            name="Sample Monthly Monitor Downtime",
+            monitor_guids=[
+                "<GUID-1>",
+                "<GUID-2>",
+            ],
+            mode="MONTHLY",
+            start_time="2023-12-04T07:15:00",
+            end_time="2024-01-04T19:15:00",
             end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
                 on_repeat=6,
             ),
-            end_time="2024-01-04T19:15:00",
+            time_zone="Europe/Dublin",
             frequency=newrelic.MonitorDowntimeFrequencyArgs(
                 days_of_week=newrelic.MonitorDowntimeFrequencyDaysOfWeekArgs(
                     ordinal_day_of_month="SECOND",
                     week_day="SATURDAY",
                 ),
-            ),
-            mode="MONTHLY",
-            monitor_guids=[
-                "<GUID-1>",
-                "<GUID-2>",
-            ],
-            start_time="2023-12-04T07:15:00",
-            time_zone="Europe/Dublin")
+            ))
         ```
         <!--End PulumiCodeChooser -->
         However, the `frequency` block in monthly monitor downtimes may also be specified with its other nested argument, `days_of_month`, as shown in the example below - though both `days_of_month` and `days_of_week` cannot be specified together, as they are mutually exclusive.
@@ -709,11 +720,19 @@ class MonitorDowntime(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        sample_monthly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime",
+        sample_monthly_newrelic_monitor_downtime = newrelic.MonitorDowntime("sample_monthly_newrelic_monitor_downtime",
+            name="Sample Monthly Monitor Downtime",
+            monitor_guids=[
+                "<GUID-1>",
+                "<GUID-2>",
+            ],
+            mode="MONTHLY",
+            start_time="2023-12-04T07:15:00",
+            end_time="2024-01-04T19:15:00",
             end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
                 on_repeat=6,
             ),
-            end_time="2024-01-04T19:15:00",
+            time_zone="Europe/Dublin",
             frequency=newrelic.MonitorDowntimeFrequencyArgs(
                 days_of_months=[
                     3,
@@ -721,14 +740,7 @@ class MonitorDowntime(pulumi.CustomResource):
                     14,
                     23,
                 ],
-            ),
-            mode="MONTHLY",
-            monitor_guids=[
-                "<GUID-1>",
-                "<GUID-2>",
-            ],
-            start_time="2023-12-04T07:15:00",
-            time_zone="Europe/Dublin")
+            ))
         ```
         <!--End PulumiCodeChooser -->
 

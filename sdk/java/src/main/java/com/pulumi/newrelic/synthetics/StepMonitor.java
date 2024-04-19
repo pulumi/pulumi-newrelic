@@ -50,14 +50,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new StepMonitor(&#34;foo&#34;, StepMonitorArgs.builder()        
+ *             .name(&#34;Sample Step Monitor&#34;)
  *             .enableScreenshotOnFailureAndScript(true)
  *             .locationsPublics(            
  *                 &#34;US_EAST_1&#34;,
  *                 &#34;US_EAST_2&#34;)
  *             .period(&#34;EVERY_6_HOURS&#34;)
+ *             .status(&#34;ENABLED&#34;)
  *             .runtimeType(&#34;CHROME_BROWSER&#34;)
  *             .runtimeTypeVersion(&#34;100&#34;)
- *             .status(&#34;ENABLED&#34;)
  *             .steps(StepMonitorStepArgs.builder()
  *                 .ordinal(0)
  *                 .type(&#34;NAVIGATE&#34;)
@@ -110,16 +111,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooPrivateLocation = new PrivateLocation(&#34;fooPrivateLocation&#34;, PrivateLocationArgs.builder()        
+ *         var foo = new PrivateLocation(&#34;foo&#34;, PrivateLocationArgs.builder()        
+ *             .name(&#34;Sample Private Location&#34;)
  *             .description(&#34;Sample Private Location Description&#34;)
  *             .verifiedScriptExecution(true)
  *             .build());
  * 
  *         var fooStepMonitor = new StepMonitor(&#34;fooStepMonitor&#34;, StepMonitorArgs.builder()        
+ *             .name(&#34;Sample Step Monitor&#34;)
  *             .period(&#34;EVERY_6_HOURS&#34;)
  *             .status(&#34;ENABLED&#34;)
  *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
- *                 .guid(fooPrivateLocation.id())
+ *                 .guid(foo.id())
  *                 .vsePassword(&#34;secret&#34;)
  *                 .build())
  *             .steps(StepMonitorStepArgs.builder()

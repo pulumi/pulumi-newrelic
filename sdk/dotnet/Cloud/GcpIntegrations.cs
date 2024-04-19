@@ -33,6 +33,7 @@ namespace Pulumi.NewRelic.Cloud
     /// {
     ///     var foo = new NewRelic.Cloud.GcpLinkAccount("foo", new()
     ///     {
+    ///         Name = "example",
     ///         ProjectId = "&lt;Your GCP project ID&gt;",
     ///     });
     /// 

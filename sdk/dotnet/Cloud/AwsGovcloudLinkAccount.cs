@@ -35,10 +35,11 @@ namespace Pulumi.NewRelic.Cloud
     /// {
     ///     var foo = new NewRelic.Cloud.AwsGovcloudLinkAccount("foo", new()
     ///     {
-    ///         AccessKeyId = "access-key-id of aws govcloud account",
     ///         AccountId = "The New Relic account ID where you want to link the AWS GovCloud account",
+    ///         AccessKeyId = "access-key-id of aws govcloud account",
     ///         AwsAccountId = "aws govcloud account id",
     ///         MetricCollectionMode = "PULL",
+    ///         Name = "account name",
     ///         SecretAccessKey = "secret access key of the aws govcloud account",
     ///     });
     /// 

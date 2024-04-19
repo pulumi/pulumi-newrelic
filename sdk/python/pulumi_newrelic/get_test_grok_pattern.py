@@ -96,7 +96,8 @@ def get_test_grok_pattern(account_id: Optional[int] = None,
     import pulumi
     import pulumi_newrelic as newrelic
 
-    foo = newrelic.get_test_grok_pattern(grok="%%{IP:host_ip}",
+    # Data source
+    foo = newrelic.get_test_grok_pattern(grok="%{IP:host_ip}",
         log_lines=[
             "host_ip: 43.3.120.2",
             "bytes_received: 2048",
@@ -137,7 +138,8 @@ def get_test_grok_pattern_output(account_id: Optional[pulumi.Input[Optional[int]
     import pulumi
     import pulumi_newrelic as newrelic
 
-    foo = newrelic.get_test_grok_pattern(grok="%%{IP:host_ip}",
+    # Data source
+    foo = newrelic.get_test_grok_pattern(grok="%{IP:host_ip}",
         log_lines=[
             "host_ip: 43.3.120.2",
             "bytes_received: 2048",

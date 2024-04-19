@@ -49,23 +49,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
- *             .bypassHeadRequest(true)
+ *             .status(&#34;ENABLED&#34;)
+ *             .name(&#34;monitor&#34;)
+ *             .period(&#34;EVERY_MINUTE&#34;)
+ *             .uri(&#34;https://www.one.newrelic.com&#34;)
+ *             .type(&#34;SIMPLE&#34;)
+ *             .locationsPublics(&#34;AP_SOUTH_1&#34;)
  *             .customHeaders(MonitorCustomHeaderArgs.builder()
  *                 .name(&#34;some_name&#34;)
  *                 .value(&#34;some_value&#34;)
  *                 .build())
- *             .locationsPublics(&#34;AP_SOUTH_1&#34;)
- *             .period(&#34;EVERY_MINUTE&#34;)
- *             .status(&#34;ENABLED&#34;)
+ *             .treatRedirectAsFailure(true)
+ *             .validationString(&#34;success&#34;)
+ *             .bypassHeadRequest(true)
+ *             .verifySsl(true)
  *             .tags(MonitorTagArgs.builder()
  *                 .key(&#34;some_key&#34;)
  *                 .values(&#34;some_value&#34;)
  *                 .build())
- *             .treatRedirectAsFailure(true)
- *             .type(&#34;SIMPLE&#34;)
- *             .uri(&#34;https://www.one.newrelic.com&#34;)
- *             .validationString(&#34;success&#34;)
- *             .verifySsl(true)
  *             .build());
  * 
  *     }
@@ -99,22 +100,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
+ *             .status(&#34;ENABLED&#34;)
+ *             .name(&#34;monitor&#34;)
+ *             .period(&#34;EVERY_MINUTE&#34;)
+ *             .uri(&#34;https://www.one.newrelic.com&#34;)
+ *             .type(&#34;BROWSER&#34;)
+ *             .locationsPublics(&#34;AP_SOUTH_1&#34;)
  *             .customHeaders(MonitorCustomHeaderArgs.builder()
  *                 .name(&#34;some_name&#34;)
  *                 .value(&#34;some_value&#34;)
  *                 .build())
  *             .enableScreenshotOnFailureAndScript(true)
- *             .locationsPublics(&#34;AP_SOUTH_1&#34;)
- *             .period(&#34;EVERY_MINUTE&#34;)
- *             .status(&#34;ENABLED&#34;)
+ *             .validationString(&#34;success&#34;)
+ *             .verifySsl(true)
  *             .tags(MonitorTagArgs.builder()
  *                 .key(&#34;some_key&#34;)
  *                 .values(&#34;some_value&#34;)
  *                 .build())
- *             .type(&#34;BROWSER&#34;)
- *             .uri(&#34;https://www.one.newrelic.com&#34;)
- *             .validationString(&#34;success&#34;)
- *             .verifySsl(true)
  *             .build());
  * 
  *     }
@@ -161,11 +163,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
  *             .description(&#34;Example private location&#34;)
+ *             .name(&#34;private_location&#34;)
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
  *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
  *             .status(&#34;ENABLED&#34;)
+ *             .name(&#34;monitor&#34;)
  *             .period(&#34;EVERY_MINUTE&#34;)
  *             .uri(&#34;https://www.one.newrelic.com&#34;)
  *             .type(&#34;SIMPLE&#34;)
@@ -218,6 +222,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
  *             .description(&#34;Example private location&#34;)
+ *             .name(&#34;private-location&#34;)
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
@@ -225,6 +230,7 @@ import javax.annotation.Nullable;
  *             .status(&#34;ENABLED&#34;)
  *             .type(&#34;BROWSER&#34;)
  *             .uri(&#34;https://www.one.newrelic.com&#34;)
+ *             .name(&#34;monitor&#34;)
  *             .period(&#34;EVERY_MINUTE&#34;)
  *             .locationsPrivates(location.id())
  *             .customHeaders(MonitorCustomHeaderArgs.builder()

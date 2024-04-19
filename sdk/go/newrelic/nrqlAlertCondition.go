@@ -31,14 +31,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewNrqlAlertCondition(ctx, "fooNrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
+//			_, err = newrelic.NewNrqlAlertCondition(ctx, "foo", &newrelic.NrqlAlertConditionArgs{
 //				AccountId:                   pulumi.Int(12345678),
-//				PolicyId:                    fooAlertPolicy.ID(),
+//				PolicyId:                    foo.ID(),
 //				Type:                        pulumi.String("static"),
+//				Name:                        pulumi.String("foo"),
 //				Description:                 pulumi.String("Alert when transactions are taking too long"),
 //				RunbookUrl:                  pulumi.String("https://www.example.com"),
 //				Enabled:                     pulumi.Bool(true),
@@ -129,14 +132,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewNrqlAlertCondition(ctx, "fooNrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
+//			_, err = newrelic.NewNrqlAlertCondition(ctx, "foo", &newrelic.NrqlAlertConditionArgs{
 //				AccountId:                   pulumi.Int("your_account_id"),
-//				PolicyId:                    fooAlertPolicy.ID(),
+//				PolicyId:                    foo.ID(),
 //				Type:                        pulumi.String("static"),
+//				Name:                        pulumi.String("foo"),
 //				Description:                 pulumi.String("Alert when transactions are taking too long"),
 //				RunbookUrl:                  pulumi.String("https://www.example.com"),
 //				Enabled:                     pulumi.Bool(true),
@@ -193,14 +199,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			fooNrqlAlertCondition, err := newrelic.NewNrqlAlertCondition(ctx, "fooNrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
+//			fooNrqlAlertCondition, err := newrelic.NewNrqlAlertCondition(ctx, "foo", &newrelic.NrqlAlertConditionArgs{
 //				AccountId:                   pulumi.Int(12345678),
-//				PolicyId:                    fooAlertPolicy.ID(),
+//				PolicyId:                    foo.ID(),
 //				Type:                        pulumi.String("static"),
+//				Name:                        pulumi.String("foo"),
 //				Description:                 pulumi.String("Alert when transactions are taking too long"),
 //				RunbookUrl:                  pulumi.String("https://www.example.com"),
 //				Enabled:                     pulumi.Bool(true),
@@ -233,7 +242,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
+//			_, err = newrelic.NewEntityTags(ctx, "my_condition_entity_tags", &newrelic.EntityTagsArgs{
 //				Guid: fooNrqlAlertCondition.EntityGuid,
 //				Tags: newrelic.EntityTagsTagArray{
 //					&newrelic.EntityTagsTagArgs{
@@ -284,8 +293,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewNrqlAlertCondition(ctx, "nrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
-//				PolicyId:           pulumi.Any(newrelic_alert_policy.Z.Id),
+//			_, err := newrelic.NewNrqlAlertCondition(ctx, "z", &newrelic.NrqlAlertConditionArgs{
+//				PolicyId:           pulumi.Any(zNewrelicAlertPolicy.Id),
+//				Name:               pulumi.String("zleslie-test"),
 //				Type:               pulumi.String("static"),
 //				RunbookUrl:         pulumi.String("https://localhost"),
 //				Enabled:            pulumi.Bool(true),
@@ -326,8 +336,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewNrqlAlertCondition(ctx, "nrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
-//				PolicyId:                  pulumi.Any(newrelic_alert_policy.Z.Id),
+//			_, err := newrelic.NewNrqlAlertCondition(ctx, "z", &newrelic.NrqlAlertConditionArgs{
+//				PolicyId:                  pulumi.Any(zNewrelicAlertPolicy.Id),
+//				Name:                      pulumi.String("zleslie-test"),
 //				Type:                      pulumi.String("static"),
 //				RunbookUrl:                pulumi.String("https://localhost"),
 //				Enabled:                   pulumi.Bool(true),

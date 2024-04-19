@@ -186,7 +186,8 @@ class AwsLinkAccount(pulumi.CustomResource):
 
         foo = newrelic.cloud.AwsLinkAccount("foo",
             arn="arn:aws:service:region:account-id:resource-id",
-            metric_collection_mode="PUSH")
+            metric_collection_mode="PUSH",
+            name="account name")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -235,7 +236,8 @@ class AwsLinkAccount(pulumi.CustomResource):
 
         foo = newrelic.cloud.AwsLinkAccount("foo",
             arn="arn:aws:service:region:account-id:resource-id",
-            metric_collection_mode="PUSH")
+            metric_collection_mode="PUSH",
+            name="account name")
         ```
         <!--End PulumiCodeChooser -->
 

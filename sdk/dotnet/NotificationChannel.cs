@@ -29,6 +29,8 @@ namespace Pulumi.NewRelic
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
     ///         AccountId = 12345678,
+    ///         Name = "webhook-example",
+    ///         Type = "WEBHOOK",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
@@ -36,11 +38,10 @@ namespace Pulumi.NewRelic
     ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
     ///             {
     ///                 Key = "payload",
-    ///                 Label = "Payload Template",
     ///                 Value = "name: {{ foo }}",
+    ///                 Label = "Payload Template",
     ///             },
     ///         },
-    ///         Type = "WEBHOOK",
     ///     });
     /// 
     /// });
@@ -67,6 +68,8 @@ namespace Pulumi.NewRelic
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
     ///         AccountId = 12345678,
+    ///         Name = "servicenow-incident-example",
+    ///         Type = "SERVICENOW_INCIDENTS",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
@@ -82,7 +85,6 @@ namespace Pulumi.NewRelic
     ///                 Value = "Short description",
     ///             },
     ///         },
-    ///         Type = "SERVICENOW_INCIDENTS",
     ///     });
     /// 
     /// });
@@ -102,6 +104,8 @@ namespace Pulumi.NewRelic
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
     ///         AccountId = 12345678,
+    ///         Name = "email-example",
+    ///         Type = "EMAIL",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
@@ -117,7 +121,6 @@ namespace Pulumi.NewRelic
     ///                 Value = "issue id - {{issueId}}",
     ///             },
     ///         },
-    ///         Type = "EMAIL",
     ///     });
     /// 
     /// });
@@ -137,6 +140,8 @@ namespace Pulumi.NewRelic
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
     ///         AccountId = 12345678,
+    ///         Name = "jira-example",
+    ///         Type = "JIRA_CLASSIC",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "ERROR_TRACKING",
     ///         Properties = new[]
@@ -162,7 +167,6 @@ namespace Pulumi.NewRelic
     ///                 Value = "{{ annotations.title.[0] }}",
     ///             },
     ///         },
-    ///         Type = "JIRA_CLASSIC",
     ///     });
     /// 
     /// });
@@ -182,6 +186,8 @@ namespace Pulumi.NewRelic
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
     ///         AccountId = 12345678,
+    ///         Name = "pagerduty-account-example",
+    ///         Type = "PAGERDUTY_ACCOUNT_INTEGRATION",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
@@ -205,24 +211,22 @@ namespace Pulumi.NewRelic
     ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
     ///             {
     ///                 Key = "customDetails",
-    ///                 Value = @"    {
-    ///     ""id"":{{json issueId}},
-    ///     ""IssueURL"":{{json issuePageUrl}},
-    ///     ""NewRelic priority"":{{json priority}},
-    ///     ""Total Incidents"":{{json totalIncidents}},
-    ///     ""Impacted Entities"":""{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Runbook"":""{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Description"":""{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""isCorrelated"":{{json isCorrelated}},
-    ///     ""Alert Policy Names"":""{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Alert Condition Names"":""{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Workflow Name"":{{json workflowName}}
-    ///     }
-    /// 
+    ///                 Value = @"{
+    /// ""id"":{{json issueId}},
+    /// ""IssueURL"":{{json issuePageUrl}},
+    /// ""NewRelic priority"":{{json priority}},
+    /// ""Total Incidents"":{{json totalIncidents}},
+    /// ""Impacted Entities"":""{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Runbook"":""{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Description"":""{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""isCorrelated"":{{json isCorrelated}},
+    /// ""Alert Policy Names"":""{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Alert Condition Names"":""{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Workflow Name"":{{json workflowName}}
+    /// }
     /// ",
     ///             },
     ///         },
-    ///         Type = "PAGERDUTY_ACCOUNT_INTEGRATION",
     ///     });
     /// 
     /// });
@@ -242,6 +246,8 @@ namespace Pulumi.NewRelic
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
     ///         AccountId = 12345678,
+    ///         Name = "pagerduty-account-example",
+    ///         Type = "PAGERDUTY_SERVICE_INTEGRATION",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
@@ -254,24 +260,22 @@ namespace Pulumi.NewRelic
     ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
     ///             {
     ///                 Key = "customDetails",
-    ///                 Value = @"    {
-    ///     ""id"":{{json issueId}},
-    ///     ""IssueURL"":{{json issuePageUrl}},
-    ///     ""NewRelic priority"":{{json priority}},
-    ///     ""Total Incidents"":{{json totalIncidents}},
-    ///     ""Impacted Entities"":""{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Runbook"":""{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Description"":""{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""isCorrelated"":{{json isCorrelated}},
-    ///     ""Alert Policy Names"":""{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Alert Condition Names"":""{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Workflow Name"":{{json workflowName}}
-    ///     }
-    /// 
+    ///                 Value = @"{
+    /// ""id"":{{json issueId}},
+    /// ""IssueURL"":{{json issuePageUrl}},
+    /// ""NewRelic priority"":{{json priority}},
+    /// ""Total Incidents"":{{json totalIncidents}},
+    /// ""Impacted Entities"":""{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Runbook"":""{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Description"":""{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""isCorrelated"":{{json isCorrelated}},
+    /// ""Alert Policy Names"":""{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Alert Condition Names"":""{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Workflow Name"":{{json workflowName}}
+    /// }
     /// ",
     ///             },
     ///         },
-    ///         Type = "PAGERDUTY_SERVICE_INTEGRATION",
     ///     });
     /// 
     /// });
@@ -291,9 +295,10 @@ namespace Pulumi.NewRelic
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
     ///         AccountId = 12345678,
+    ///         Name = "mobile-push-example",
+    ///         Type = "MOBILE_PUSH",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
-    ///         Type = "MOBILE_PUSH",
     ///     });
     /// 
     /// });
@@ -313,6 +318,8 @@ namespace Pulumi.NewRelic
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
     ///         AccountId = 12345678,
+    ///         Name = "event-bridge-example",
+    ///         Type = "EVENT_BRIDGE",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
@@ -328,7 +335,6 @@ namespace Pulumi.NewRelic
     ///                 Value = "{ id: {{ json issueId }} }",
     ///             },
     ///         },
-    ///         Type = "EVENT_BRIDGE",
     ///     });
     /// 
     /// });
@@ -348,6 +354,8 @@ namespace Pulumi.NewRelic
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
     ///         AccountId = 12345678,
+    ///         Name = "slack-example",
+    ///         Type = "SLACK",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
@@ -363,7 +371,6 @@ namespace Pulumi.NewRelic
     ///                 Value = "issue id - {{issueId}}",
     ///             },
     ///         },
-    ///         Type = "SLACK",
     ///     });
     /// 
     /// });
@@ -389,11 +396,8 @@ namespace Pulumi.NewRelic
     ///     var webhook_destination = new NewRelic.NotificationDestination("webhook-destination", new()
     ///     {
     ///         AccountId = 12345678,
-    ///         AuthBasic = new NewRelic.Inputs.NotificationDestinationAuthBasicArgs
-    ///         {
-    ///             Password = "password",
-    ///             User = "username",
-    ///         },
+    ///         Name = "destination-webhook",
+    ///         Type = "WEBHOOK",
     ///         Properties = new[]
     ///         {
     ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
@@ -402,7 +406,11 @@ namespace Pulumi.NewRelic
     ///                 Value = "https://webhook.mywebhook.com",
     ///             },
     ///         },
-    ///         Type = "WEBHOOK",
+    ///         AuthBasic = new NewRelic.Inputs.NotificationDestinationAuthBasicArgs
+    ///         {
+    ///             User = "username",
+    ///             Password = "password",
+    ///         },
     ///     });
     /// 
     /// });
@@ -422,8 +430,9 @@ namespace Pulumi.NewRelic
     ///     var webhook_channel = new NewRelic.NotificationChannel("webhook-channel", new()
     ///     {
     ///         AccountId = 12345678,
+    ///         Name = "channel-webhook",
     ///         Type = "WEBHOOK",
-    ///         DestinationId = newrelic_notification_destination.Webhook_destination.Id,
+    ///         DestinationId = webhook_destination.Id,
     ///         Product = "IINT",
     ///         Properties = new[]
     ///         {

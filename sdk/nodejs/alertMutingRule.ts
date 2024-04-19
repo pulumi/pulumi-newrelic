@@ -15,6 +15,9 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertMutingRule("foo", {
+ *     name: "Example Muting Rule",
+ *     enabled: true,
+ *     description: "muting rule test.",
  *     condition: {
  *         conditions: [
  *             {
@@ -30,19 +33,17 @@ import * as utilities from "./utilities";
  *         ],
  *         operator: "AND",
  *     },
- *     description: "muting rule test.",
- *     enabled: true,
  *     schedule: {
- *         endTime: "2021-01-28T16:30:00",
- *         repeat: "WEEKLY",
- *         repeatCount: 42,
  *         startTime: "2021-01-28T15:30:00",
+ *         endTime: "2021-01-28T16:30:00",
  *         timeZone: "America/Los_Angeles",
+ *         repeat: "WEEKLY",
  *         weeklyRepeatDays: [
  *             "MONDAY",
  *             "WEDNESDAY",
  *             "FRIDAY",
  *         ],
+ *         repeatCount: 42,
  *     },
  * });
  * ```

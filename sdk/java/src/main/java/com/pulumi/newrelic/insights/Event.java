@@ -44,6 +44,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new Event(&#34;foo&#34;, EventArgs.builder()        
  *             .events(EventEventArgs.builder()
+ *                 .type(&#34;MyEvent&#34;)
+ *                 .timestamp(1232471100)
  *                 .attributes(                
  *                     EventEventAttributeArgs.builder()
  *                         .key(&#34;a_string_attribute&#34;)
@@ -51,16 +53,14 @@ import javax.annotation.Nullable;
  *                         .build(),
  *                     EventEventAttributeArgs.builder()
  *                         .key(&#34;an_integer_attribute&#34;)
- *                         .type(&#34;int&#34;)
  *                         .value(42)
+ *                         .type(&#34;int&#34;)
  *                         .build(),
  *                     EventEventAttributeArgs.builder()
  *                         .key(&#34;a_float_attribute&#34;)
- *                         .type(&#34;float&#34;)
  *                         .value(101.1)
+ *                         .type(&#34;float&#34;)
  *                         .build())
- *                 .timestamp(1232471100)
- *                 .type(&#34;MyEvent&#34;)
  *                 .build())
  *             .build());
  * 

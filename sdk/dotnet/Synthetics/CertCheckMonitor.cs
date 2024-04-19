@@ -25,16 +25,17 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var foo = new NewRelic.Synthetics.CertCheckMonitor("foo", new()
     ///     {
-    ///         CertificateExpiration = 10,
+    ///         Name = "Sample Cert Check Monitor",
     ///         Domain = "www.example.com",
     ///         LocationsPublics = new[]
     ///         {
     ///             "AP_SOUTH_1",
     ///         },
+    ///         CertificateExpiration = 10,
     ///         Period = "EVERY_6_HOURS",
+    ///         Status = "ENABLED",
     ///         RuntimeType = "NODE_API",
     ///         RuntimeTypeVersion = "16.10",
-    ///         Status = "ENABLED",
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.CertCheckMonitorTagArgs
@@ -70,18 +71,20 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooPrivateLocation = new NewRelic.Synthetics.PrivateLocation("fooPrivateLocation", new()
+    ///     var foo = new NewRelic.Synthetics.PrivateLocation("foo", new()
     ///     {
+    ///         Name = "Sample Private Location",
     ///         Description = "Sample Private Location Description",
     ///         VerifiedScriptExecution = false,
     ///     });
     /// 
-    ///     var fooCertCheckMonitor = new NewRelic.Synthetics.CertCheckMonitor("fooCertCheckMonitor", new()
+    ///     var fooCertCheckMonitor = new NewRelic.Synthetics.CertCheckMonitor("foo", new()
     ///     {
+    ///         Name = "Sample Cert Check Monitor",
     ///         Domain = "www.one.example.com",
     ///         LocationsPrivates = new[]
     ///         {
-    ///             fooPrivateLocation.Id,
+    ///             foo.Id,
     ///         },
     ///         CertificateExpiration = 10,
     ///         Period = "EVERY_6_HOURS",

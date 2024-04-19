@@ -413,16 +413,17 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.synthetics.BrokenLinksMonitor("foo",
+            name="Sample Broken Links Monitor",
+            uri="https://www.one.example.com",
             locations_publics=["AP_SOUTH_1"],
             period="EVERY_6_HOURS",
+            status="ENABLED",
             runtime_type="NODE_API",
             runtime_type_version="16.10",
-            status="ENABLED",
             tags=[newrelic.synthetics.BrokenLinksMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            uri="https://www.one.example.com")
+            )])
         ```
         <!--End PulumiCodeChooser -->
         See additional examples.
@@ -440,12 +441,14 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_private_location = newrelic.synthetics.PrivateLocation("fooPrivateLocation",
+        foo = newrelic.synthetics.PrivateLocation("foo",
+            name="Sample Private Location",
             description="Sample Private Location Description",
             verified_script_execution=False)
-        foo_broken_links_monitor = newrelic.synthetics.BrokenLinksMonitor("fooBrokenLinksMonitor",
+        foo_broken_links_monitor = newrelic.synthetics.BrokenLinksMonitor("foo",
+            name="Sample Broken Links Monitor",
             uri="https://www.one.example.com",
-            locations_privates=[foo_private_location.id],
+            locations_privates=[foo.id],
             period="EVERY_6_HOURS",
             status="ENABLED",
             tags=[newrelic.synthetics.BrokenLinksMonitorTagArgs(
@@ -497,16 +500,17 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.synthetics.BrokenLinksMonitor("foo",
+            name="Sample Broken Links Monitor",
+            uri="https://www.one.example.com",
             locations_publics=["AP_SOUTH_1"],
             period="EVERY_6_HOURS",
+            status="ENABLED",
             runtime_type="NODE_API",
             runtime_type_version="16.10",
-            status="ENABLED",
             tags=[newrelic.synthetics.BrokenLinksMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            uri="https://www.one.example.com")
+            )])
         ```
         <!--End PulumiCodeChooser -->
         See additional examples.
@@ -524,12 +528,14 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_private_location = newrelic.synthetics.PrivateLocation("fooPrivateLocation",
+        foo = newrelic.synthetics.PrivateLocation("foo",
+            name="Sample Private Location",
             description="Sample Private Location Description",
             verified_script_execution=False)
-        foo_broken_links_monitor = newrelic.synthetics.BrokenLinksMonitor("fooBrokenLinksMonitor",
+        foo_broken_links_monitor = newrelic.synthetics.BrokenLinksMonitor("foo",
+            name="Sample Broken Links Monitor",
             uri="https://www.one.example.com",
-            locations_privates=[foo_private_location.id],
+            locations_privates=[foo.id],
             period="EVERY_6_HOURS",
             status="ENABLED",
             tags=[newrelic.synthetics.BrokenLinksMonitorTagArgs(

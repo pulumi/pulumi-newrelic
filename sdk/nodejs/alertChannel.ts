@@ -20,11 +20,12 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertChannel("foo", {
- *     config: {
- *         includeJsonAttachment: "true",
- *         recipients: "foo@example.com",
- *     },
+ *     name: "foo",
  *     type: "email",
+ *     config: {
+ *         recipients: "foo@example.com",
+ *         includeJsonAttachment: "true",
+ *     },
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -38,11 +39,12 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertChannel("foo", {
- *     config: {
- *         channel: "example-alerts-channel",
- *         url: "https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
- *     },
+ *     name: "slack-example",
  *     type: "slack",
+ *     config: {
+ *         url: "https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
+ *         channel: "example-alerts-channel",
+ *     },
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -56,13 +58,14 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertChannel("foo", {
+ *     name: "opsgenie-example",
+ *     type: "opsgenie",
  *     config: {
  *         apiKey: "abc123",
- *         recipients: "user1@domain.com, user2@domain.com",
- *         tags: "tag1, tag2",
  *         teams: "team1, team2",
+ *         tags: "tag1, tag2",
+ *         recipients: "user1@domain.com, user2@domain.com",
  *     },
- *     type: "opsgenie",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -74,10 +77,11 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertChannel("foo", {
+ *     name: "pagerduty-example",
+ *     type: "pagerduty",
  *     config: {
  *         serviceKey: "abc123",
  *     },
- *     type: "pagerduty",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -89,11 +93,12 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertChannel("foo", {
+ *     name: "victorops-example",
+ *     type: "victorops",
  *     config: {
  *         key: "abc123",
  *         routeKey: "/example",
  *     },
- *     type: "victorops",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -105,6 +110,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertChannel("foo", {
+ *     name: "webhook-example",
  *     type: "webhook",
  *     config: {
  *         baseUrl: "http://www.test.com",
@@ -129,19 +135,19 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertChannel("foo", {
+ *     name: "webhook-example",
+ *     type: "webhook",
  *     config: {
  *         baseUrl: "http://www.test.com",
+ *         payloadType: "application/json",
  *         payloadString: `{
  *   "my_custom_values": {
  *     "condition_name": "$CONDITION_NAME",
  *     "policy_name": "$POLICY_NAME"
  *   }
  * }
- *
  * `,
- *         payloadType: "application/json",
  *     },
- *     type: "webhook",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

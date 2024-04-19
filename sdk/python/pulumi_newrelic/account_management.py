@@ -111,7 +111,9 @@ class AccountManagement(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.AccountManagement("foo", region="us01")
+        foo = newrelic.AccountManagement("foo",
+            name="Test Account Name",
+            region="us01")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -149,7 +151,9 @@ class AccountManagement(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.AccountManagement("foo", region="us01")
+        foo = newrelic.AccountManagement("foo",
+            name="Test Account Name",
+            region="us01")
         ```
         <!--End PulumiCodeChooser -->
 

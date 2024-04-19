@@ -38,6 +38,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			foo, err := cloud.NewGcpLinkAccount(ctx, "foo", &cloud.GcpLinkAccountArgs{
+//				Name:      pulumi.String("example"),
 //				ProjectId: pulumi.String("<Your GCP project ID>"),
 //			})
 //			if err != nil {

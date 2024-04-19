@@ -321,9 +321,10 @@ class LogParsingRule(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.LogParsingRule("foo",
+            name="log_parse_rule",
             attribute="message",
             enabled=True,
-            grok="sampleattribute='%%{NUMBER:test:int}'",
+            grok="sampleattribute='%{NUMBER:test:int}'",
             lucene="logtype:linux_messages",
             nrql="SELECT * FROM Log WHERE logtype = 'linux_messages'")
         ```
@@ -341,6 +342,7 @@ class LogParsingRule(pulumi.CustomResource):
         grok = newrelic.get_test_grok_pattern(grok="%{IP:host_ip}",
             log_lines=["host_ip: 43.3.120.2"])
         foo = newrelic.LogParsingRule("foo",
+            name="log_parse_rule",
             attribute="message",
             enabled=True,
             grok=grok.grok,
@@ -389,9 +391,10 @@ class LogParsingRule(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.LogParsingRule("foo",
+            name="log_parse_rule",
             attribute="message",
             enabled=True,
-            grok="sampleattribute='%%{NUMBER:test:int}'",
+            grok="sampleattribute='%{NUMBER:test:int}'",
             lucene="logtype:linux_messages",
             nrql="SELECT * FROM Log WHERE logtype = 'linux_messages'")
         ```
@@ -409,6 +412,7 @@ class LogParsingRule(pulumi.CustomResource):
         grok = newrelic.get_test_grok_pattern(grok="%{IP:host_ip}",
             log_lines=["host_ip: 43.3.120.2"])
         foo = newrelic.LogParsingRule("foo",
+            name="log_parse_rule",
             attribute="message",
             enabled=True,
             grok=grok.grok,

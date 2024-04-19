@@ -30,6 +30,7 @@ import * as utilities from "../utilities";
  *     clientSecret: "Secret value of client's Azure account",
  *     subscriptionId: "Subscription ID of Azure",
  *     tenantId: "Tenant ID of the Azure",
+ *     name: "Name of the linked account",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

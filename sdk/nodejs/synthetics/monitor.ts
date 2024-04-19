@@ -17,23 +17,24 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const monitor = new newrelic.synthetics.Monitor("monitor", {
- *     bypassHeadRequest: true,
+ *     status: "ENABLED",
+ *     name: "monitor",
+ *     period: "EVERY_MINUTE",
+ *     uri: "https://www.one.newrelic.com",
+ *     type: "SIMPLE",
+ *     locationsPublics: ["AP_SOUTH_1"],
  *     customHeaders: [{
  *         name: "some_name",
  *         value: "some_value",
  *     }],
- *     locationsPublics: ["AP_SOUTH_1"],
- *     period: "EVERY_MINUTE",
- *     status: "ENABLED",
+ *     treatRedirectAsFailure: true,
+ *     validationString: "success",
+ *     bypassHeadRequest: true,
+ *     verifySsl: true,
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
  *     }],
- *     treatRedirectAsFailure: true,
- *     type: "SIMPLE",
- *     uri: "https://www.one.newrelic.com",
- *     validationString: "success",
- *     verifySsl: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -45,22 +46,23 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const monitor = new newrelic.synthetics.Monitor("monitor", {
+ *     status: "ENABLED",
+ *     name: "monitor",
+ *     period: "EVERY_MINUTE",
+ *     uri: "https://www.one.newrelic.com",
+ *     type: "BROWSER",
+ *     locationsPublics: ["AP_SOUTH_1"],
  *     customHeaders: [{
  *         name: "some_name",
  *         value: "some_value",
  *     }],
  *     enableScreenshotOnFailureAndScript: true,
- *     locationsPublics: ["AP_SOUTH_1"],
- *     period: "EVERY_MINUTE",
- *     status: "ENABLED",
+ *     validationString: "success",
+ *     verifySsl: true,
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
  *     }],
- *     type: "BROWSER",
- *     uri: "https://www.one.newrelic.com",
- *     validationString: "success",
- *     verifySsl: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -83,10 +85,12 @@ import * as utilities from "../utilities";
  *
  * const location = new newrelic.synthetics.PrivateLocation("location", {
  *     description: "Example private location",
+ *     name: "private_location",
  *     verifiedScriptExecution: false,
  * });
  * const monitor = new newrelic.synthetics.Monitor("monitor", {
  *     status: "ENABLED",
+ *     name: "monitor",
  *     period: "EVERY_MINUTE",
  *     uri: "https://www.one.newrelic.com",
  *     type: "SIMPLE",
@@ -115,12 +119,14 @@ import * as utilities from "../utilities";
  *
  * const location = new newrelic.synthetics.PrivateLocation("location", {
  *     description: "Example private location",
+ *     name: "private-location",
  *     verifiedScriptExecution: false,
  * });
  * const monitor = new newrelic.synthetics.Monitor("monitor", {
  *     status: "ENABLED",
  *     type: "BROWSER",
  *     uri: "https://www.one.newrelic.com",
+ *     name: "monitor",
  *     period: "EVERY_MINUTE",
  *     locationsPrivates: [location.id],
  *     customHeaders: [{

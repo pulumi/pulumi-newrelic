@@ -244,17 +244,19 @@ class OneDashboardRaw(pulumi.CustomResource):
         import json
         import pulumi_newrelic as newrelic
 
-        exampledash = newrelic.OneDashboardRaw("exampledash", pages=[newrelic.OneDashboardRawPageArgs(
-            name="Page Name",
-            widgets=[
-                newrelic.OneDashboardRawPageWidgetArgs(
-                    title="Custom widget",
-                    row=1,
-                    column=1,
-                    width=1,
-                    height=1,
-                    visualization_id="viz.custom",
-                    configuration=\"\"\"      {
+        exampledash = newrelic.OneDashboardRaw("exampledash",
+            name="New Relic Terraform Example",
+            pages=[newrelic.OneDashboardRawPageArgs(
+                name="Page Name",
+                widgets=[
+                    newrelic.OneDashboardRawPageWidgetArgs(
+                        title="Custom widget",
+                        row=1,
+                        column=1,
+                        width=1,
+                        height=1,
+                        visualization_id="viz.custom",
+                        configuration=\"\"\"      {
                 "legend": {
                   "enabled": false
                 },
@@ -271,15 +273,15 @@ class OneDashboardRaw(pulumi.CustomResource):
                 }
               }
         \"\"\",
-                ),
-                newrelic.OneDashboardRawPageWidgetArgs(
-                    title="Server CPU",
-                    row=1,
-                    column=2,
-                    width=1,
-                    height=1,
-                    visualization_id="viz.testing",
-                    configuration=\"\"\"      {
+                    ),
+                    newrelic.OneDashboardRawPageWidgetArgs(
+                        title="Server CPU",
+                        row=1,
+                        column=2,
+                        width=1,
+                        height=1,
+                        visualization_id="viz.testing",
+                        configuration=\"\"\"      {
                 "nrqlQueries": [
                   {
                     "accountId": ` + accountID + `,
@@ -288,27 +290,27 @@ class OneDashboardRaw(pulumi.CustomResource):
                 ]
               }
         \"\"\",
-                ),
-                newrelic.OneDashboardRawPageWidgetArgs(
-                    title="Docker Server CPU",
-                    row=1,
-                    column=3,
-                    height=1,
-                    width=1,
-                    visualization_id="viz.bar",
-                    configuration=json.dumps({
-                        "facet": {
-                            "showOtherSeries": False,
-                        },
-                        "nrqlQueries": [{
-                            "accountId": local["accountID"],
-                            "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
-                        }],
-                    }),
-                    linked_entity_guids=["MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc"],
-                ),
-            ],
-        )])
+                    ),
+                    newrelic.OneDashboardRawPageWidgetArgs(
+                        title="Docker Server CPU",
+                        row=1,
+                        column=3,
+                        height=1,
+                        width=1,
+                        visualization_id="viz.bar",
+                        configuration=json.dumps({
+                            "facet": {
+                                "showOtherSeries": False,
+                            },
+                            "nrqlQueries": [{
+                                "accountId": account_id,
+                                "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
+                            }],
+                        }),
+                        linked_entity_guids=["MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc"],
+                    ),
+                ],
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -339,17 +341,19 @@ class OneDashboardRaw(pulumi.CustomResource):
         import json
         import pulumi_newrelic as newrelic
 
-        exampledash = newrelic.OneDashboardRaw("exampledash", pages=[newrelic.OneDashboardRawPageArgs(
-            name="Page Name",
-            widgets=[
-                newrelic.OneDashboardRawPageWidgetArgs(
-                    title="Custom widget",
-                    row=1,
-                    column=1,
-                    width=1,
-                    height=1,
-                    visualization_id="viz.custom",
-                    configuration=\"\"\"      {
+        exampledash = newrelic.OneDashboardRaw("exampledash",
+            name="New Relic Terraform Example",
+            pages=[newrelic.OneDashboardRawPageArgs(
+                name="Page Name",
+                widgets=[
+                    newrelic.OneDashboardRawPageWidgetArgs(
+                        title="Custom widget",
+                        row=1,
+                        column=1,
+                        width=1,
+                        height=1,
+                        visualization_id="viz.custom",
+                        configuration=\"\"\"      {
                 "legend": {
                   "enabled": false
                 },
@@ -366,15 +370,15 @@ class OneDashboardRaw(pulumi.CustomResource):
                 }
               }
         \"\"\",
-                ),
-                newrelic.OneDashboardRawPageWidgetArgs(
-                    title="Server CPU",
-                    row=1,
-                    column=2,
-                    width=1,
-                    height=1,
-                    visualization_id="viz.testing",
-                    configuration=\"\"\"      {
+                    ),
+                    newrelic.OneDashboardRawPageWidgetArgs(
+                        title="Server CPU",
+                        row=1,
+                        column=2,
+                        width=1,
+                        height=1,
+                        visualization_id="viz.testing",
+                        configuration=\"\"\"      {
                 "nrqlQueries": [
                   {
                     "accountId": ` + accountID + `,
@@ -383,27 +387,27 @@ class OneDashboardRaw(pulumi.CustomResource):
                 ]
               }
         \"\"\",
-                ),
-                newrelic.OneDashboardRawPageWidgetArgs(
-                    title="Docker Server CPU",
-                    row=1,
-                    column=3,
-                    height=1,
-                    width=1,
-                    visualization_id="viz.bar",
-                    configuration=json.dumps({
-                        "facet": {
-                            "showOtherSeries": False,
-                        },
-                        "nrqlQueries": [{
-                            "accountId": local["accountID"],
-                            "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
-                        }],
-                    }),
-                    linked_entity_guids=["MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc"],
-                ),
-            ],
-        )])
+                    ),
+                    newrelic.OneDashboardRawPageWidgetArgs(
+                        title="Docker Server CPU",
+                        row=1,
+                        column=3,
+                        height=1,
+                        width=1,
+                        visualization_id="viz.bar",
+                        configuration=json.dumps({
+                            "facet": {
+                                "showOtherSeries": False,
+                            },
+                            "nrqlQueries": [{
+                                "accountId": account_id,
+                                "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
+                            }],
+                        }),
+                        linked_entity_guids=["MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc"],
+                    ),
+                ],
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

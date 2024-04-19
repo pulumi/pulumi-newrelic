@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.NrqlAlertCondition;
  * import com.pulumi.newrelic.NrqlAlertConditionArgs;
  * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
@@ -55,12 +56,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+ *             .name(&#34;foo&#34;)
+ *             .build());
  * 
  *         var fooNrqlAlertCondition = new NrqlAlertCondition(&#34;fooNrqlAlertCondition&#34;, NrqlAlertConditionArgs.builder()        
  *             .accountId(12345678)
- *             .policyId(fooAlertPolicy.id())
+ *             .policyId(foo.id())
  *             .type(&#34;static&#34;)
+ *             .name(&#34;foo&#34;)
  *             .description(&#34;Alert when transactions are taking too long&#34;)
  *             .runbookUrl(&#34;https://www.example.com&#34;)
  *             .enabled(true)
@@ -142,6 +146,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.NrqlAlertCondition;
  * import com.pulumi.newrelic.NrqlAlertConditionArgs;
  * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
@@ -160,12 +165,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+ *             .name(&#34;foo&#34;)
+ *             .build());
  * 
  *         var fooNrqlAlertCondition = new NrqlAlertCondition(&#34;fooNrqlAlertCondition&#34;, NrqlAlertConditionArgs.builder()        
  *             .accountId(&#34;your_account_id&#34;)
- *             .policyId(fooAlertPolicy.id())
+ *             .policyId(foo.id())
  *             .type(&#34;static&#34;)
+ *             .name(&#34;foo&#34;)
  *             .description(&#34;Alert when transactions are taking too long&#34;)
  *             .runbookUrl(&#34;https://www.example.com&#34;)
  *             .enabled(true)
@@ -213,6 +221,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.NrqlAlertCondition;
  * import com.pulumi.newrelic.NrqlAlertConditionArgs;
  * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
@@ -234,12 +243,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+ *             .name(&#34;foo&#34;)
+ *             .build());
  * 
  *         var fooNrqlAlertCondition = new NrqlAlertCondition(&#34;fooNrqlAlertCondition&#34;, NrqlAlertConditionArgs.builder()        
  *             .accountId(12345678)
- *             .policyId(fooAlertPolicy.id())
+ *             .policyId(foo.id())
  *             .type(&#34;static&#34;)
+ *             .name(&#34;foo&#34;)
  *             .description(&#34;Alert when transactions are taking too long&#34;)
  *             .runbookUrl(&#34;https://www.example.com&#34;)
  *             .enabled(true)
@@ -324,8 +336,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nrqlAlertCondition = new NrqlAlertCondition(&#34;nrqlAlertCondition&#34;, NrqlAlertConditionArgs.builder()        
- *             .policyId(newrelic_alert_policy.z().id())
+ *         var z = new NrqlAlertCondition(&#34;z&#34;, NrqlAlertConditionArgs.builder()        
+ *             .policyId(zNewrelicAlertPolicy.id())
+ *             .name(&#34;zleslie-test&#34;)
  *             .type(&#34;static&#34;)
  *             .runbookUrl(&#34;https://localhost&#34;)
  *             .enabled(true)
@@ -373,8 +386,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nrqlAlertCondition = new NrqlAlertCondition(&#34;nrqlAlertCondition&#34;, NrqlAlertConditionArgs.builder()        
- *             .policyId(newrelic_alert_policy.z().id())
+ *         var z = new NrqlAlertCondition(&#34;z&#34;, NrqlAlertConditionArgs.builder()        
+ *             .policyId(zNewrelicAlertPolicy.id())
+ *             .name(&#34;zleslie-test&#34;)
  *             .type(&#34;static&#34;)
  *             .runbookUrl(&#34;https://localhost&#34;)
  *             .enabled(true)

@@ -47,6 +47,194 @@ import javax.annotation.Nullable;
  * 
  * To pull data from AWSGovCloud, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/connect-aws-govcloud-new-relic).
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.cloudAwsGovcloudLinkAccount;
+ * import com.pulumi.newrelic.CloudAwsGovcloudLinkAccountArgs;
+ * import com.pulumi.newrelic.cloud.AwsGovcloudIntegrations;
+ * import com.pulumi.newrelic.cloud.AwsGovcloudIntegrationsArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsAlbArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsApiGatewayArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsAutoScalingArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsAwsDirectConnectArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsAwsStatesArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsCloudtrailArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsDynamoDbArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsEbsArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsEc2Args;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsElasticSearchArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsElbArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsEmrArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsIamArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsLambdaArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsRdsArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsRedShiftArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsRoute53Args;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsS3Args;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsSnsArgs;
+ * import com.pulumi.newrelic.cloud.inputs.AwsGovcloudIntegrationsSqsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var account = new CloudAwsGovcloudLinkAccount(&#34;account&#34;, CloudAwsGovcloudLinkAccountArgs.builder()        
+ *             .accessKeyId(&#34;%[1]s&#34;)
+ *             .awsAccountId(&#34;%[2]s&#34;)
+ *             .metricCollectionMode(&#34;PULL&#34;)
+ *             .name(&#34;%[4]s&#34;)
+ *             .secretAccessKey(&#34;%[3]s&#34;)
+ *             .build());
+ * 
+ *         var foo = new AwsGovcloudIntegrations(&#34;foo&#34;, AwsGovcloudIntegrationsArgs.builder()        
+ *             .accountId(3806526)
+ *             .linkedAccountId(account.id())
+ *             .alb(AwsGovcloudIntegrationsAlbArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;us-east-1&#34;)
+ *                 .fetchExtendedInventory(true)
+ *                 .fetchTags(true)
+ *                 .loadBalancerPrefixes(&#34;&#34;)
+ *                 .tagKey(&#34;&#34;)
+ *                 .tagValue(&#34;&#34;)
+ *                 .build())
+ *             .apiGateway(AwsGovcloudIntegrationsApiGatewayArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .stagePrefixes(&#34;&#34;)
+ *                 .tagKey(&#34;&#34;)
+ *                 .tagValue(&#34;&#34;)
+ *                 .build())
+ *             .autoScaling(AwsGovcloudIntegrationsAutoScalingArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .build())
+ *             .awsDirectConnect(AwsGovcloudIntegrationsAwsDirectConnectArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .build())
+ *             .awsStates(AwsGovcloudIntegrationsAwsStatesArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .build())
+ *             .cloudtrail(AwsGovcloudIntegrationsCloudtrailArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .build())
+ *             .dynamoDb(AwsGovcloudIntegrationsDynamoDbArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .fetchExtendedInventory(true)
+ *                 .fetchTags(true)
+ *                 .tagKey(&#34;&#34;)
+ *                 .tagValue(&#34;&#34;)
+ *                 .build())
+ *             .ebs(AwsGovcloudIntegrationsEbsArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .fetchExtendedInventory(true)
+ *                 .tagKey(&#34;&#34;)
+ *                 .tagValue(&#34;&#34;)
+ *                 .build())
+ *             .ec2(AwsGovcloudIntegrationsEc2Args.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .fetchIpAddresses(true)
+ *                 .tagKey(&#34;&#34;)
+ *                 .tagValue(&#34;&#34;)
+ *                 .build())
+ *             .elasticSearch(AwsGovcloudIntegrationsElasticSearchArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .fetchNodes(true)
+ *                 .tagKey(&#34;&#34;)
+ *                 .tagValue(&#34;&#34;)
+ *                 .build())
+ *             .elb(AwsGovcloudIntegrationsElbArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .fetchExtendedInventory(true)
+ *                 .fetchTags(true)
+ *                 .build())
+ *             .emr(AwsGovcloudIntegrationsEmrArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .fetchTags(true)
+ *                 .tagKey(&#34;&#34;)
+ *                 .tagValue(&#34;&#34;)
+ *                 .build())
+ *             .iam(AwsGovcloudIntegrationsIamArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .tagKey(&#34;&#34;)
+ *                 .tagValue(&#34;&#34;)
+ *                 .build())
+ *             .lambda(AwsGovcloudIntegrationsLambdaArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .fetchTags(true)
+ *                 .tagKey(&#34;&#34;)
+ *                 .tagValue(&#34;&#34;)
+ *                 .build())
+ *             .rds(AwsGovcloudIntegrationsRdsArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .fetchTags(true)
+ *                 .tagKey(&#34;&#34;)
+ *                 .tagValue(&#34;&#34;)
+ *                 .build())
+ *             .redShift(AwsGovcloudIntegrationsRedShiftArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .tagKey(&#34;&#34;)
+ *                 .tagValue(&#34;&#34;)
+ *                 .build())
+ *             .route53(AwsGovcloudIntegrationsRoute53Args.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .fetchExtendedInventory(true)
+ *                 .build())
+ *             .s3(AwsGovcloudIntegrationsS3Args.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .fetchExtendedInventory(true)
+ *                 .fetchTags(true)
+ *                 .tagKey(&#34;&#34;)
+ *                 .tagValue(&#34;&#34;)
+ *                 .build())
+ *             .sns(AwsGovcloudIntegrationsSnsArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .fetchExtendedInventory(true)
+ *                 .build())
+ *             .sqs(AwsGovcloudIntegrationsSqsArgs.builder()
+ *                 .metricsPollingInterval(1000)
+ *                 .awsRegions(&#34;&#34;)
+ *                 .fetchExtendedInventory(true)
+ *                 .fetchTags(true)
+ *                 .queuePrefixes(&#34;&#34;)
+ *                 .tagKey(&#34;&#34;)
+ *                 .tagValue(&#34;&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Integrate AWSGovCloud accounts can be imported using the `id`, e.g.

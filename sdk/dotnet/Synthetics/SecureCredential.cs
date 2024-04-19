@@ -25,9 +25,9 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var foo = new NewRelic.Synthetics.SecureCredential("foo", new()
     ///     {
-    ///         Description = "My description",
     ///         Key = "MY_KEY",
     ///         Value = "My value",
+    ///         Description = "My description",
     ///     });
     /// 
     /// });

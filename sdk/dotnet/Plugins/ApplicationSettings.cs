@@ -29,9 +29,10 @@ namespace Pulumi.NewRelic.Plugins
     /// {
     ///     var app = new NewRelic.Plugins.ApplicationSettings("app", new()
     ///     {
+    ///         Name = "my-app",
     ///         AppApdexThreshold = 0.7,
-    ///         EnableRealUserMonitoring = false,
     ///         EndUserApdexThreshold = 0.8,
+    ///         EnableRealUserMonitoring = false,
     ///     });
     /// 
     /// });

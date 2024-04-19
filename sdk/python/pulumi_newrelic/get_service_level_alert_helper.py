@@ -179,6 +179,7 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
     foo_period = 28
     foo = newrelic.ServiceLevel("foo",
         guid="MXxBUE18QVBQTElDQVRJT058MQ",
+        name="Latency",
         description="Proportion of requests that are served faster than a threshold.",
         events=newrelic.ServiceLevelEventsArgs(
             account_id=12345678,
@@ -214,14 +215,15 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
     import pulumi_newrelic as newrelic
 
     foo_slow_burn = newrelic.get_service_level_alert_helper(alert_type="slow_burn",
-        sli_guid=newrelic_service_level["foo"]["sli_guid"],
-        slo_target=local["foo_target"],
-        slo_period=local["foo_period"],
+        sli_guid=foo["sliGuid"],
+        slo_target=foo_target,
+        slo_period=foo_period,
         is_bad_events=True)
-    your_condition = newrelic.NrqlAlertCondition("yourCondition",
+    your_condition = newrelic.NrqlAlertCondition("your_condition",
         account_id=12345678,
         policy_id=67890,
         type="static",
+        name="Slow burn alert",
         enabled=True,
         violation_time_limit_seconds=259200,
         nrql=newrelic.NrqlAlertConditionNrqlArgs(
@@ -249,16 +251,17 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
     import pulumi_newrelic as newrelic
 
     foo_custom = newrelic.get_service_level_alert_helper(alert_type="custom",
-        sli_guid=newrelic_service_level["foo"]["sli_guid"],
-        slo_target=local["foo_target"],
-        slo_period=local["foo_period"],
+        sli_guid=foo["sliGuid"],
+        slo_target=foo_target,
+        slo_period=foo_period,
         custom_tolerated_budget_consumption=4,
         custom_evaluation_period=5400,
         is_bad_events=True)
-    your_condition = newrelic.NrqlAlertCondition("yourCondition",
+    your_condition = newrelic.NrqlAlertCondition("your_condition",
         account_id=12345678,
         policy_id=67890,
         type="static",
+        name="Custom burn alert",
         enabled=True,
         violation_time_limit_seconds=259200,
         nrql=newrelic.NrqlAlertConditionNrqlArgs(
@@ -338,6 +341,7 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
     foo_period = 28
     foo = newrelic.ServiceLevel("foo",
         guid="MXxBUE18QVBQTElDQVRJT058MQ",
+        name="Latency",
         description="Proportion of requests that are served faster than a threshold.",
         events=newrelic.ServiceLevelEventsArgs(
             account_id=12345678,
@@ -373,14 +377,15 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
     import pulumi_newrelic as newrelic
 
     foo_slow_burn = newrelic.get_service_level_alert_helper(alert_type="slow_burn",
-        sli_guid=newrelic_service_level["foo"]["sli_guid"],
-        slo_target=local["foo_target"],
-        slo_period=local["foo_period"],
+        sli_guid=foo["sliGuid"],
+        slo_target=foo_target,
+        slo_period=foo_period,
         is_bad_events=True)
-    your_condition = newrelic.NrqlAlertCondition("yourCondition",
+    your_condition = newrelic.NrqlAlertCondition("your_condition",
         account_id=12345678,
         policy_id=67890,
         type="static",
+        name="Slow burn alert",
         enabled=True,
         violation_time_limit_seconds=259200,
         nrql=newrelic.NrqlAlertConditionNrqlArgs(
@@ -408,16 +413,17 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
     import pulumi_newrelic as newrelic
 
     foo_custom = newrelic.get_service_level_alert_helper(alert_type="custom",
-        sli_guid=newrelic_service_level["foo"]["sli_guid"],
-        slo_target=local["foo_target"],
-        slo_period=local["foo_period"],
+        sli_guid=foo["sliGuid"],
+        slo_target=foo_target,
+        slo_period=foo_period,
         custom_tolerated_budget_consumption=4,
         custom_evaluation_period=5400,
         is_bad_events=True)
-    your_condition = newrelic.NrqlAlertCondition("yourCondition",
+    your_condition = newrelic.NrqlAlertCondition("your_condition",
         account_id=12345678,
         policy_id=67890,
         type="static",
+        name="Custom burn alert",
         enabled=True,
         violation_time_limit_seconds=259200,
         nrql=newrelic.NrqlAlertConditionNrqlArgs(

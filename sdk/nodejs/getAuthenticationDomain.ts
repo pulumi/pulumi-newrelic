@@ -14,10 +14,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAuthenticationDomain = newrelic.getAuthenticationDomain({
- *     name: "Test Authentication Domain",
- * });
- * export const foo = fooAuthenticationDomain.then(fooAuthenticationDomain => fooAuthenticationDomain.id);
+ * export = async () => {
+ *     const foo = await newrelic.getAuthenticationDomain({
+ *         name: "Test Authentication Domain",
+ *     });
+ *     return {
+ *         foo: foo.id,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -59,10 +63,14 @@ export interface GetAuthenticationDomainResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAuthenticationDomain = newrelic.getAuthenticationDomain({
- *     name: "Test Authentication Domain",
- * });
- * export const foo = fooAuthenticationDomain.then(fooAuthenticationDomain => fooAuthenticationDomain.id);
+ * export = async () => {
+ *     const foo = await newrelic.getAuthenticationDomain({
+ *         name: "Test Authentication Domain",
+ *     });
+ *     return {
+ *         foo: foo.id,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

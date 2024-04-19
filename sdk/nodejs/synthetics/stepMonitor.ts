@@ -17,15 +17,16 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.synthetics.StepMonitor("foo", {
+ *     name: "Sample Step Monitor",
  *     enableScreenshotOnFailureAndScript: true,
  *     locationsPublics: [
  *         "US_EAST_1",
  *         "US_EAST_2",
  *     ],
  *     period: "EVERY_6_HOURS",
+ *     status: "ENABLED",
  *     runtimeType: "CHROME_BROWSER",
  *     runtimeTypeVersion: "100",
- *     status: "ENABLED",
  *     steps: [{
  *         ordinal: 0,
  *         type: "NAVIGATE",
@@ -53,15 +54,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooPrivateLocation = new newrelic.synthetics.PrivateLocation("fooPrivateLocation", {
+ * const foo = new newrelic.synthetics.PrivateLocation("foo", {
+ *     name: "Sample Private Location",
  *     description: "Sample Private Location Description",
  *     verifiedScriptExecution: true,
  * });
- * const fooStepMonitor = new newrelic.synthetics.StepMonitor("fooStepMonitor", {
+ * const fooStepMonitor = new newrelic.synthetics.StepMonitor("foo", {
+ *     name: "Sample Step Monitor",
  *     period: "EVERY_6_HOURS",
  *     status: "ENABLED",
  *     locationPrivates: [{
- *         guid: fooPrivateLocation.id,
+ *         guid: foo.id,
  *         vsePassword: "secret",
  *     }],
  *     steps: [{

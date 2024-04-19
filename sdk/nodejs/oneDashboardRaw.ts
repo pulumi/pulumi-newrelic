@@ -18,17 +18,19 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const exampledash = new newrelic.OneDashboardRaw("exampledash", {pages: [{
- *     name: "Page Name",
- *     widgets: [
- *         {
- *             title: "Custom widget",
- *             row: 1,
- *             column: 1,
- *             width: 1,
- *             height: 1,
- *             visualizationId: "viz.custom",
- *             configuration: `      {
+ * const exampledash = new newrelic.OneDashboardRaw("exampledash", {
+ *     name: "New Relic Terraform Example",
+ *     pages: [{
+ *         name: "Page Name",
+ *         widgets: [
+ *             {
+ *                 title: "Custom widget",
+ *                 row: 1,
+ *                 column: 1,
+ *                 width: 1,
+ *                 height: 1,
+ *                 visualizationId: "viz.custom",
+ *                 configuration: `      {
  *         "legend": {
  *           "enabled": false
  *         },
@@ -45,15 +47,15 @@ import * as utilities from "./utilities";
  *         }
  *       }
  * `,
- *         },
- *         {
- *             title: "Server CPU",
- *             row: 1,
- *             column: 2,
- *             width: 1,
- *             height: 1,
- *             visualizationId: "viz.testing",
- *             configuration: `      {
+ *             },
+ *             {
+ *                 title: "Server CPU",
+ *                 row: 1,
+ *                 column: 2,
+ *                 width: 1,
+ *                 height: 1,
+ *                 visualizationId: "viz.testing",
+ *                 configuration: `      {
  *         "nrqlQueries": [
  *           {
  *             "accountId": \` + accountID + \`,
@@ -62,27 +64,28 @@ import * as utilities from "./utilities";
  *         ]
  *       }
  * `,
- *         },
- *         {
- *             title: "Docker Server CPU",
- *             row: 1,
- *             column: 3,
- *             height: 1,
- *             width: 1,
- *             visualizationId: "viz.bar",
- *             configuration: JSON.stringify({
- *                 facet: {
- *                     showOtherSeries: false,
- *                 },
- *                 nrqlQueries: [{
- *                     accountId: local.accountID,
- *                     query: "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
- *                 }],
- *             }),
- *             linkedEntityGuids: ["MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc"],
- *         },
- *     ],
- * }]});
+ *             },
+ *             {
+ *                 title: "Docker Server CPU",
+ *                 row: 1,
+ *                 column: 3,
+ *                 height: 1,
+ *                 width: 1,
+ *                 visualizationId: "viz.bar",
+ *                 configuration: JSON.stringify({
+ *                     facet: {
+ *                         showOtherSeries: false,
+ *                     },
+ *                     nrqlQueries: [{
+ *                         accountId: accountID,
+ *                         query: "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
+ *                     }],
+ *                 }),
+ *                 linkedEntityGuids: ["MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc"],
+ *             },
+ *         ],
+ *     }],
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  */

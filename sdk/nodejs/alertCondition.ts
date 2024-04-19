@@ -23,9 +23,10 @@ import * as utilities from "./utilities";
  *     type: "APPLICATION",
  *     domain: "APM",
  * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * const fooAlertCondition = new newrelic.AlertCondition("foo", {
+ *     policyId: foo.id,
+ *     name: "foo",
  *     type: "apm_app_metric",
  *     entities: [app.then(app => app.applicationId)],
  *     metric: "apdex",
@@ -61,14 +62,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooEntity = newrelic.getEntity({
+ * const foo = newrelic.getEntity({
  *     name: "foo entitiy",
  * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
+ * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {name: "foo policy"});
+ * const fooAlertCondition = new newrelic.AlertCondition("foo", {
  *     policyId: fooAlertPolicy.id,
+ *     name: "foo condition",
  *     type: "apm_app_metric",
- *     entities: [fooEntity.then(fooEntity => fooEntity.applicationId)],
+ *     entities: [foo.then(foo => foo.applicationId)],
  *     metric: "apdex",
  *     runbookUrl: "https://www.example.com",
  *     conditionScope: "application",
@@ -80,7 +82,7 @@ import * as utilities from "./utilities";
  *         timeFunction: "all",
  *     }],
  * });
- * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
+ * const myConditionEntityTags = new newrelic.EntityTags("my_condition_entity_tags", {
  *     guid: fooAlertCondition.entityGuid,
  *     tags: [
  *         {

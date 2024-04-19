@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			bar, err := newrelic.NewObfuscationExpression(ctx, "bar", &newrelic.ObfuscationExpressionArgs{
+//				Name:        pulumi.String("expressionName"),
 //				Description: pulumi.String("description of the expression"),
 //				Regex:       pulumi.String("(^http)"),
 //			})
@@ -37,6 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewObfuscationRule(ctx, "foo", &newrelic.ObfuscationRuleArgs{
+//				Name:        pulumi.String("ruleName"),
 //				Description: pulumi.String("description of the rule"),
 //				Filter:      pulumi.String("hostStatus=running"),
 //				Enabled:     pulumi.Bool(true),

@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .incidentPreference(&#34;PER_POLICY&#34;)
  *             .build());
  * 
@@ -96,6 +97,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Provision a Slack notification channel.
  *         var slackChannel = new AlertChannel(&#34;slackChannel&#34;, AlertChannelArgs.builder()        
+ *             .name(&#34;slack-example&#34;)
  *             .type(&#34;slack&#34;)
  *             .config(AlertChannelConfigArgs.builder()
  *                 .url(&#34;https://hooks.slack.com/services/xxxxxxx/yyyyyyyy&#34;)
@@ -105,6 +107,7 @@ import javax.annotation.Nullable;
  * 
  *         // Provision an email notification channel.
  *         var emailChannel = new AlertChannel(&#34;emailChannel&#34;, AlertChannelArgs.builder()        
+ *             .name(&#34;email-example&#34;)
  *             .type(&#34;email&#34;)
  *             .config(AlertChannelConfigArgs.builder()
  *                 .recipients(&#34;example@testing.com&#34;)
@@ -114,6 +117,7 @@ import javax.annotation.Nullable;
  * 
  *         // Provision the alert policy.
  *         var policyWithChannels = new AlertPolicy(&#34;policyWithChannels&#34;, AlertPolicyArgs.builder()        
+ *             .name(&#34;example-with-channels&#34;)
  *             .incidentPreference(&#34;PER_CONDITION&#34;)
  *             .channelIds(            
  *                 slackChannel.id(),
@@ -150,16 +154,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Reference an existing Slack notification channel.
  *         final var slackChannel = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
  *             .name(&#34;slack-channel-notification&#34;)
  *             .build());
  * 
+ *         // Reference an existing email notification channel.
  *         final var emailChannel = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
  *             .name(&#34;test@example.com&#34;)
  *             .build());
  * 
  *         // Provision the alert policy.
  *         var policyWithChannels = new AlertPolicy(&#34;policyWithChannels&#34;, AlertPolicyArgs.builder()        
+ *             .name(&#34;example-with-channels&#34;)
  *             .incidentPreference(&#34;PER_CONDITION&#34;)
  *             .channelIds(            
  *                 slackChannel.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()),

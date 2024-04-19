@@ -78,6 +78,7 @@ def get_obfuscation_expression(account_id: Optional[int] = None,
     expression = newrelic.get_obfuscation_expression(account_id=123456,
         name="The expression")
     rule = newrelic.ObfuscationRule("rule",
+        name="ruleName",
         description="description of the rule",
         filter="hostStatus=running",
         enabled=True,
@@ -122,6 +123,7 @@ def get_obfuscation_expression_output(account_id: Optional[pulumi.Input[Optional
     expression = newrelic.get_obfuscation_expression(account_id=123456,
         name="The expression")
     rule = newrelic.ObfuscationRule("rule",
+        name="ruleName",
         description="description of the rule",
         filter="hostStatus=running",
         enabled=True,

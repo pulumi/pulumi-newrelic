@@ -28,6 +28,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var exampledash = new NewRelic.OneDashboardRaw("exampledash", new()
     ///     {
+    ///         Name = "New Relic Terraform Example",
     ///         Pages = new[]
     ///         {
     ///             new NewRelic.Inputs.OneDashboardRawPageArgs
@@ -97,7 +98,7 @@ namespace Pulumi.NewRelic
     ///                             {
     ///                                 new Dictionary&lt;string, object?&gt;
     ///                                 {
-    ///                                     ["accountId"] = local.AccountID,
+    ///                                     ["accountId"] = accountID,
     ///                                     ["query"] = "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
     ///                                 },
     ///                             },

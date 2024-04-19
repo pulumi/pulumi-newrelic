@@ -46,6 +46,7 @@ import (
 //			_, err := cloud.NewGcpLinkAccount(ctx, "foo", &cloud.GcpLinkAccountArgs{
 //				AccountId: pulumi.Int("account id of newrelic account"),
 //				ProjectId: pulumi.String("id of the Project"),
+//				Name:      pulumi.String("account name"),
 //			})
 //			if err != nil {
 //				return err

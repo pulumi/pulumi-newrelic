@@ -26,8 +26,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Data source
 //			_, err := newrelic.GetTestGrokPattern(ctx, &newrelic.GetTestGrokPatternArgs{
-//				Grok: "%%{IP:host_ip}",
+//				Grok: "%{IP:host_ip}",
 //				LogLines: []string{
 //					"host_ip: 43.3.120.2",
 //					"bytes_received: 2048",

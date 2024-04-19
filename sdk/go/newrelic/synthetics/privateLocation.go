@@ -31,6 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description: pulumi.String("The private location description"),
+//				Name:        pulumi.String("The name of the private location"),
 //			})
 //			if err != nil {
 //				return err

@@ -241,9 +241,11 @@ class ObfuscationRule(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         bar = newrelic.ObfuscationExpression("bar",
+            name="expressionName",
             description="description of the expression",
             regex="(^http)")
         foo = newrelic.ObfuscationRule("foo",
+            name="ruleName",
             description="description of the rule",
             filter="hostStatus=running",
             enabled=True,
@@ -291,9 +293,11 @@ class ObfuscationRule(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         bar = newrelic.ObfuscationExpression("bar",
+            name="expressionName",
             description="description of the expression",
             regex="(^http)")
         foo = newrelic.ObfuscationRule("foo",
+            name="ruleName",
             description="description of the rule",
             filter="hostStatus=running",
             enabled=True,

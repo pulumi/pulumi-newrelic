@@ -49,11 +49,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new ObfuscationExpression(&#34;bar&#34;, ObfuscationExpressionArgs.builder()        
+ *             .name(&#34;expressionName&#34;)
  *             .description(&#34;description of the expression&#34;)
  *             .regex(&#34;(^http)&#34;)
  *             .build());
  * 
  *         var foo = new ObfuscationRule(&#34;foo&#34;, ObfuscationRuleArgs.builder()        
+ *             .name(&#34;ruleName&#34;)
  *             .description(&#34;description of the rule&#34;)
  *             .filter(&#34;hostStatus=running&#34;)
  *             .enabled(true)

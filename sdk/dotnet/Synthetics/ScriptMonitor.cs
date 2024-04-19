@@ -27,17 +27,19 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var monitor = new NewRelic.Synthetics.ScriptMonitor("monitor", new()
     ///     {
+    ///         Status = "ENABLED",
+    ///         Name = "script_monitor",
+    ///         Type = "SCRIPT_API",
     ///         LocationsPublics = new[]
     ///         {
     ///             "AP_SOUTH_1",
     ///             "AP_EAST_1",
     ///         },
     ///         Period = "EVERY_6_HOURS",
-    ///         RuntimeType = "NODE_API",
-    ///         RuntimeTypeVersion = "16.10",
     ///         Script = "console.log('it works!')",
     ///         ScriptLanguage = "JAVASCRIPT",
-    ///         Status = "ENABLED",
+    ///         RuntimeType = "NODE_API",
+    ///         RuntimeTypeVersion = "16.10",
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.ScriptMonitorTagArgs
@@ -49,7 +51,6 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 },
     ///             },
     ///         },
-    ///         Type = "SCRIPT_API",
     ///     });
     /// 
     /// });
@@ -68,18 +69,20 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var monitor = new NewRelic.Synthetics.ScriptMonitor("monitor", new()
     ///     {
-    ///         EnableScreenshotOnFailureAndScript = false,
+    ///         Status = "ENABLED",
+    ///         Name = "script_monitor",
+    ///         Type = "SCRIPT_BROWSER",
     ///         LocationsPublics = new[]
     ///         {
     ///             "AP_SOUTH_1",
     ///             "AP_EAST_1",
     ///         },
     ///         Period = "EVERY_HOUR",
-    ///         RuntimeType = "CHROME_BROWSER",
-    ///         RuntimeTypeVersion = "100",
+    ///         EnableScreenshotOnFailureAndScript = false,
     ///         Script = "$browser.get('https://one.newrelic.com')",
+    ///         RuntimeTypeVersion = "100",
+    ///         RuntimeType = "CHROME_BROWSER",
     ///         ScriptLanguage = "JAVASCRIPT",
-    ///         Status = "ENABLED",
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.ScriptMonitorTagArgs
@@ -91,7 +94,6 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 },
     ///             },
     ///         },
-    ///         Type = "SCRIPT_BROWSER",
     ///     });
     /// 
     /// });
@@ -121,12 +123,14 @@ namespace Pulumi.NewRelic.Synthetics
     ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
     ///     {
     ///         Description = "Example private location",
+    ///         Name = "private_location",
     ///         VerifiedScriptExecution = true,
     ///     });
     /// 
     ///     var monitor = new NewRelic.Synthetics.ScriptMonitor("monitor", new()
     ///     {
     ///         Status = "ENABLED",
+    ///         Name = "script_monitor",
     ///         Type = "SCRIPT_API",
     ///         LocationPrivates = new[]
     ///         {
@@ -171,12 +175,14 @@ namespace Pulumi.NewRelic.Synthetics
     ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
     ///     {
     ///         Description = "Test Description",
+    ///         Name = "private_location",
     ///         VerifiedScriptExecution = true,
     ///     });
     /// 
     ///     var monitor = new NewRelic.Synthetics.ScriptMonitor("monitor", new()
     ///     {
     ///         Status = "ENABLED",
+    ///         Name = "script_monitor",
     ///         Type = "SCRIPT_BROWSER",
     ///         Period = "EVERY_HOUR",
     ///         Script = "$browser.get('https://one.newrelic.com')",

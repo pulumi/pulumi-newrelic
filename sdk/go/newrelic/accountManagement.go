@@ -33,6 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAccountManagement(ctx, "foo", &newrelic.AccountManagementArgs{
+//				Name:   pulumi.String("Test Account Name"),
 //				Region: pulumi.String("us01"),
 //			})
 //			if err != nil {

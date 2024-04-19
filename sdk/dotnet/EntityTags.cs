@@ -23,16 +23,16 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooEntity = NewRelic.GetEntity.Invoke(new()
+    ///     var foo = NewRelic.GetEntity.Invoke(new()
     ///     {
     ///         Name = "Example application",
     ///         Type = "APPLICATION",
     ///         Domain = "APM",
     ///     });
     /// 
-    ///     var fooEntityTags = new NewRelic.EntityTags("fooEntityTags", new()
+    ///     var fooEntityTags = new NewRelic.EntityTags("foo", new()
     ///     {
-    ///         Guid = fooEntity.Apply(getEntityResult =&gt; getEntityResult.Guid),
+    ///         Guid = foo.Apply(getEntityResult =&gt; getEntityResult.Guid),
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Inputs.EntityTagsTagArgs

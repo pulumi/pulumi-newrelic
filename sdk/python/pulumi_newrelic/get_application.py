@@ -92,9 +92,10 @@ def get_application(name: Optional[str] = None,
     import pulumi_newrelic as newrelic
 
     app = newrelic.get_application(name="my-app")
-    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-    foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
-        policy_id=foo_alert_policy.id,
+    foo = newrelic.AlertPolicy("foo", name="foo")
+    foo_alert_condition = newrelic.AlertCondition("foo",
+        policy_id=foo.id,
+        name="foo",
         type="apm_app_metric",
         entities=[app.id],
         metric="apdex",
@@ -140,9 +141,10 @@ def get_application_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_newrelic as newrelic
 
     app = newrelic.get_application(name="my-app")
-    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-    foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
-        policy_id=foo_alert_policy.id,
+    foo = newrelic.AlertPolicy("foo", name="foo")
+    foo_alert_condition = newrelic.AlertCondition("foo",
+        policy_id=foo.id,
+        name="foo",
         type="apm_app_metric",
         entities=[app.id],
         metric="apdex",

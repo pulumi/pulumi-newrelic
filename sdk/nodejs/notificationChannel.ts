@@ -21,14 +21,15 @@ import * as utilities from "./utilities";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
  *     accountId: 12345678,
+ *     name: "webhook-example",
+ *     type: "WEBHOOK",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [{
  *         key: "payload",
- *         label: "Payload Template",
  *         value: "name: {{ foo }}",
+ *         label: "Payload Template",
  *     }],
- *     type: "WEBHOOK",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -48,6 +49,8 @@ import * as utilities from "./utilities";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
  *     accountId: 12345678,
+ *     name: "servicenow-incident-example",
+ *     type: "SERVICENOW_INCIDENTS",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -60,7 +63,6 @@ import * as utilities from "./utilities";
  *             value: "Short description",
  *         },
  *     ],
- *     type: "SERVICENOW_INCIDENTS",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -73,6 +75,8 @@ import * as utilities from "./utilities";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
  *     accountId: 12345678,
+ *     name: "email-example",
+ *     type: "EMAIL",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -85,7 +89,6 @@ import * as utilities from "./utilities";
  *             value: "issue id - {{issueId}}",
  *         },
  *     ],
- *     type: "EMAIL",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -98,6 +101,8 @@ import * as utilities from "./utilities";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
  *     accountId: 12345678,
+ *     name: "jira-example",
+ *     type: "JIRA_CLASSIC",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "ERROR_TRACKING",
  *     properties: [
@@ -118,7 +123,6 @@ import * as utilities from "./utilities";
  *             value: "{{ annotations.title.[0] }}",
  *         },
  *     ],
- *     type: "JIRA_CLASSIC",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -131,6 +135,8 @@ import * as utilities from "./utilities";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
  *     accountId: 12345678,
+ *     name: "pagerduty-account-example",
+ *     type: "PAGERDUTY_ACCOUNT_INTEGRATION",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -149,24 +155,22 @@ import * as utilities from "./utilities";
  *         },
  *         {
  *             key: "customDetails",
- *             value: `    {
- *     "id":{{json issueId}},
- *     "IssueURL":{{json issuePageUrl}},
- *     "NewRelic priority":{{json priority}},
- *     "Total Incidents":{{json totalIncidents}},
- *     "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "isCorrelated":{{json isCorrelated}},
- *     "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Workflow Name":{{json workflowName}}
- *     }
- *
+ *             value: `{
+ * "id":{{json issueId}},
+ * "IssueURL":{{json issuePageUrl}},
+ * "NewRelic priority":{{json priority}},
+ * "Total Incidents":{{json totalIncidents}},
+ * "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "isCorrelated":{{json isCorrelated}},
+ * "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Workflow Name":{{json workflowName}}
+ * }
  * `,
  *         },
  *     ],
- *     type: "PAGERDUTY_ACCOUNT_INTEGRATION",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -179,6 +183,8 @@ import * as utilities from "./utilities";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
  *     accountId: 12345678,
+ *     name: "pagerduty-account-example",
+ *     type: "PAGERDUTY_SERVICE_INTEGRATION",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -188,24 +194,22 @@ import * as utilities from "./utilities";
  *         },
  *         {
  *             key: "customDetails",
- *             value: `    {
- *     "id":{{json issueId}},
- *     "IssueURL":{{json issuePageUrl}},
- *     "NewRelic priority":{{json priority}},
- *     "Total Incidents":{{json totalIncidents}},
- *     "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "isCorrelated":{{json isCorrelated}},
- *     "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Workflow Name":{{json workflowName}}
- *     }
- *
+ *             value: `{
+ * "id":{{json issueId}},
+ * "IssueURL":{{json issuePageUrl}},
+ * "NewRelic priority":{{json priority}},
+ * "Total Incidents":{{json totalIncidents}},
+ * "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "isCorrelated":{{json isCorrelated}},
+ * "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Workflow Name":{{json workflowName}}
+ * }
  * `,
  *         },
  *     ],
- *     type: "PAGERDUTY_SERVICE_INTEGRATION",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -218,9 +222,10 @@ import * as utilities from "./utilities";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
  *     accountId: 12345678,
+ *     name: "mobile-push-example",
+ *     type: "MOBILE_PUSH",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
- *     type: "MOBILE_PUSH",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -233,6 +238,8 @@ import * as utilities from "./utilities";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
  *     accountId: 12345678,
+ *     name: "event-bridge-example",
+ *     type: "EVENT_BRIDGE",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -245,7 +252,6 @@ import * as utilities from "./utilities";
  *             value: "{ id: {{ json issueId }} }",
  *         },
  *     ],
- *     type: "EVENT_BRIDGE",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -258,6 +264,8 @@ import * as utilities from "./utilities";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
  *     accountId: 12345678,
+ *     name: "slack-example",
+ *     type: "SLACK",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -270,7 +278,6 @@ import * as utilities from "./utilities";
  *             value: "issue id - {{issueId}}",
  *         },
  *     ],
- *     type: "SLACK",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -289,15 +296,16 @@ import * as utilities from "./utilities";
  *
  * const webhook_destination = new newrelic.NotificationDestination("webhook-destination", {
  *     accountId: 12345678,
- *     authBasic: {
- *         password: "password",
- *         user: "username",
- *     },
+ *     name: "destination-webhook",
+ *     type: "WEBHOOK",
  *     properties: [{
  *         key: "url",
  *         value: "https://webhook.mywebhook.com",
  *     }],
- *     type: "WEBHOOK",
+ *     authBasic: {
+ *         user: "username",
+ *         password: "password",
+ *     },
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -310,8 +318,9 @@ import * as utilities from "./utilities";
  *
  * const webhook_channel = new newrelic.NotificationChannel("webhook-channel", {
  *     accountId: 12345678,
+ *     name: "channel-webhook",
  *     type: "WEBHOOK",
- *     destinationId: newrelic_notification_destination["webhook-destination"].id,
+ *     destinationId: webhook_destination.id,
  *     product: "IINT",
  *     properties: [{
  *         key: "payload",

@@ -33,6 +33,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Fetches the data for this policy from your New Relic account
+//			// and is referenced in the newrelic_alert_policy_channel block below.
 //			examplePolicy, err := newrelic.LookupAlertPolicy(ctx, &newrelic.LookupAlertPolicyArgs{
 //				Name: "my-alert-policy",
 //			}, nil)
@@ -40,7 +42,8 @@ import (
 //				return err
 //			}
 //			// Creates an email alert channel.
-//			emailChannel, err := newrelic.NewAlertChannel(ctx, "emailChannel", &newrelic.AlertChannelArgs{
+//			emailChannel, err := newrelic.NewAlertChannel(ctx, "email_channel", &newrelic.AlertChannelArgs{
+//				Name: pulumi.String("bar"),
 //				Type: pulumi.String("email"),
 //				Config: &newrelic.AlertChannelConfigArgs{
 //					Recipients:            pulumi.String("foo@example.com"),
@@ -51,7 +54,8 @@ import (
 //				return err
 //			}
 //			// Creates a Slack alert channel.
-//			slackChannel, err := newrelic.NewAlertChannel(ctx, "slackChannel", &newrelic.AlertChannelArgs{
+//			slackChannel, err := newrelic.NewAlertChannel(ctx, "slack_channel", &newrelic.AlertChannelArgs{
+//				Name: pulumi.String("slack-channel-example"),
 //				Type: pulumi.String("slack"),
 //				Config: &newrelic.AlertChannelConfigArgs{
 //					Channel: pulumi.String("#example-channel"),

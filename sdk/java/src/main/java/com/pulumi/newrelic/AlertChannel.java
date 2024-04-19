@@ -48,11 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new AlertChannel(&#34;foo&#34;, AlertChannelArgs.builder()        
- *             .config(AlertChannelConfigArgs.builder()
- *                 .includeJsonAttachment(&#34;true&#34;)
- *                 .recipients(&#34;foo@example.com&#34;)
- *                 .build())
+ *             .name(&#34;foo&#34;)
  *             .type(&#34;email&#34;)
+ *             .config(AlertChannelConfigArgs.builder()
+ *                 .recipients(&#34;foo@example.com&#34;)
+ *                 .includeJsonAttachment(&#34;true&#34;)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -87,11 +88,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new AlertChannel(&#34;foo&#34;, AlertChannelArgs.builder()        
- *             .config(AlertChannelConfigArgs.builder()
- *                 .channel(&#34;example-alerts-channel&#34;)
- *                 .url(&#34;https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX&#34;)
- *                 .build())
+ *             .name(&#34;slack-example&#34;)
  *             .type(&#34;slack&#34;)
+ *             .config(AlertChannelConfigArgs.builder()
+ *                 .url(&#34;https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX&#34;)
+ *                 .channel(&#34;example-alerts-channel&#34;)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -126,13 +128,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new AlertChannel(&#34;foo&#34;, AlertChannelArgs.builder()        
+ *             .name(&#34;opsgenie-example&#34;)
+ *             .type(&#34;opsgenie&#34;)
  *             .config(AlertChannelConfigArgs.builder()
  *                 .apiKey(&#34;abc123&#34;)
- *                 .recipients(&#34;user1@domain.com, user2@domain.com&#34;)
- *                 .tags(&#34;tag1, tag2&#34;)
  *                 .teams(&#34;team1, team2&#34;)
+ *                 .tags(&#34;tag1, tag2&#34;)
+ *                 .recipients(&#34;user1@domain.com, user2@domain.com&#34;)
  *                 .build())
- *             .type(&#34;opsgenie&#34;)
  *             .build());
  * 
  *     }
@@ -165,10 +168,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new AlertChannel(&#34;foo&#34;, AlertChannelArgs.builder()        
+ *             .name(&#34;pagerduty-example&#34;)
+ *             .type(&#34;pagerduty&#34;)
  *             .config(AlertChannelConfigArgs.builder()
  *                 .serviceKey(&#34;abc123&#34;)
  *                 .build())
- *             .type(&#34;pagerduty&#34;)
  *             .build());
  * 
  *     }
@@ -201,11 +205,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new AlertChannel(&#34;foo&#34;, AlertChannelArgs.builder()        
+ *             .name(&#34;victorops-example&#34;)
+ *             .type(&#34;victorops&#34;)
  *             .config(AlertChannelConfigArgs.builder()
  *                 .key(&#34;abc123&#34;)
  *                 .routeKey(&#34;/example&#34;)
  *                 .build())
- *             .type(&#34;victorops&#34;)
  *             .build());
  * 
  *     }
@@ -238,6 +243,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new AlertChannel(&#34;foo&#34;, AlertChannelArgs.builder()        
+ *             .name(&#34;webhook-example&#34;)
  *             .type(&#34;webhook&#34;)
  *             .config(AlertChannelConfigArgs.builder()
  *                 .baseUrl(&#34;http://www.test.com&#34;)
@@ -283,8 +289,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new AlertChannel(&#34;foo&#34;, AlertChannelArgs.builder()        
+ *             .name(&#34;webhook-example&#34;)
+ *             .type(&#34;webhook&#34;)
  *             .config(AlertChannelConfigArgs.builder()
  *                 .baseUrl(&#34;http://www.test.com&#34;)
+ *                 .payloadType(&#34;application/json&#34;)
  *                 .payloadString(&#34;&#34;&#34;
  * {
  *   &#34;my_custom_values&#34;: {
@@ -292,11 +301,8 @@ import javax.annotation.Nullable;
  *     &#34;policy_name&#34;: &#34;$POLICY_NAME&#34;
  *   }
  * }
- * 
  *                 &#34;&#34;&#34;)
- *                 .payloadType(&#34;application/json&#34;)
  *                 .build())
- *             .type(&#34;webhook&#34;)
  *             .build());
  * 
  *     }

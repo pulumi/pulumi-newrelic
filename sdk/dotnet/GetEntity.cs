@@ -29,10 +29,13 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // The entity returned by this configuration would have to 
+        ///     // belong to the account_id specified in the provider 
+        ///     // configuration, i.e. NEW_RELIC_ACCOUNT_ID.
         ///     var app = NewRelic.GetEntity.Invoke(new()
         ///     {
-        ///         Domain = "APM",
         ///         Name = "my-app",
+        ///         Domain = "APM",
         ///         Type = "APPLICATION",
         ///     });
         /// 
@@ -49,11 +52,14 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // The entity returned by this configuration, unlike in 
+        ///     // the above example, would have to belong to the account_id 
+        ///     // specified in the configuration below, i.e. 654321.
         ///     var app = NewRelic.GetEntity.Invoke(new()
         ///     {
+        ///         Name = "my-app",
         ///         AccountId = 654321,
         ///         Domain = "APM",
-        ///         Name = "my-app",
         ///         Type = "APPLICATION",
         ///     });
         /// 
@@ -76,8 +82,9 @@ namespace Pulumi.NewRelic
         /// {
         ///     var app = NewRelic.GetEntity.Invoke(new()
         ///     {
-        ///         Domain = "EXT",
         ///         Name = "my-otel-app",
+        ///         Domain = "EXT",
+        ///         Type = "SERVICE",
         ///         Tags = new[]
         ///         {
         ///             new NewRelic.Inputs.GetEntityTagInputArgs
@@ -86,7 +93,6 @@ namespace Pulumi.NewRelic
         ///                 Value = "12345",
         ///             },
         ///         },
-        ///         Type = "SERVICE",
         ///     });
         /// 
         /// });
@@ -135,10 +141,13 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // The entity returned by this configuration would have to 
+        ///     // belong to the account_id specified in the provider 
+        ///     // configuration, i.e. NEW_RELIC_ACCOUNT_ID.
         ///     var app = NewRelic.GetEntity.Invoke(new()
         ///     {
-        ///         Domain = "APM",
         ///         Name = "my-app",
+        ///         Domain = "APM",
         ///         Type = "APPLICATION",
         ///     });
         /// 
@@ -155,11 +164,14 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // The entity returned by this configuration, unlike in 
+        ///     // the above example, would have to belong to the account_id 
+        ///     // specified in the configuration below, i.e. 654321.
         ///     var app = NewRelic.GetEntity.Invoke(new()
         ///     {
+        ///         Name = "my-app",
         ///         AccountId = 654321,
         ///         Domain = "APM",
-        ///         Name = "my-app",
         ///         Type = "APPLICATION",
         ///     });
         /// 
@@ -182,8 +194,9 @@ namespace Pulumi.NewRelic
         /// {
         ///     var app = NewRelic.GetEntity.Invoke(new()
         ///     {
-        ///         Domain = "EXT",
         ///         Name = "my-otel-app",
+        ///         Domain = "EXT",
+        ///         Type = "SERVICE",
         ///         Tags = new[]
         ///         {
         ///             new NewRelic.Inputs.GetEntityTagInputArgs
@@ -192,7 +205,6 @@ namespace Pulumi.NewRelic
         ///                 Value = "12345",
         ///             },
         ///         },
-        ///         Type = "SERVICE",
         ///     });
         /// 
         /// });

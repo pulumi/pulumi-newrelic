@@ -18,9 +18,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const foo = new newrelic.AlertPolicy("foo", {});
- * const highDiskUsage = new newrelic.InfraAlertCondition("highDiskUsage", {
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * const highDiskUsage = new newrelic.InfraAlertCondition("high_disk_usage", {
  *     policyId: foo.id,
+ *     name: "High disk usage",
  *     description: "Warning if disk usage goes above 80% and critical alert if goes above 90%",
  *     type: "infra_metric",
  *     event: "StorageSample",
@@ -38,8 +39,9 @@ import * as utilities from "./utilities";
  *         timeFunction: "all",
  *     },
  * });
- * const highDbConnCount = new newrelic.InfraAlertCondition("highDbConnCount", {
+ * const highDbConnCount = new newrelic.InfraAlertCondition("high_db_conn_count", {
  *     policyId: foo.id,
+ *     name: "High database connection count",
  *     description: "Critical alert when the number of database connections goes above 90",
  *     type: "infra_metric",
  *     event: "DatastoreSample",
@@ -53,8 +55,9 @@ import * as utilities from "./utilities";
  *         timeFunction: "all",
  *     },
  * });
- * const processNotRunning = new newrelic.InfraAlertCondition("processNotRunning", {
+ * const processNotRunning = new newrelic.InfraAlertCondition("process_not_running", {
  *     policyId: foo.id,
+ *     name: "Process not running (/usr/bin/ruby)",
  *     description: "Critical alert when ruby isn't running",
  *     type: "infra_process_running",
  *     comparison: "equal",
@@ -65,8 +68,9 @@ import * as utilities from "./utilities";
  *         value: 0,
  *     },
  * });
- * const hostNotReporting = new newrelic.InfraAlertCondition("hostNotReporting", {
+ * const hostNotReporting = new newrelic.InfraAlertCondition("host_not_reporting", {
  *     policyId: foo.id,
+ *     name: "Host not reporting",
  *     description: "Critical alert when the host is not reporting",
  *     type: "infra_host_not_reporting",
  *     where: "(hostname LIKE '%frontend%')",
@@ -94,9 +98,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooInfraAlertCondition = new newrelic.InfraAlertCondition("fooInfraAlertCondition", {
- *     policyId: fooAlertPolicy.id,
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo policy"});
+ * const fooInfraAlertCondition = new newrelic.InfraAlertCondition("foo", {
+ *     policyId: foo.id,
+ *     name: "foo infra condition",
  *     description: "Warning if disk usage goes above 80% and critical alert if goes above 90%",
  *     type: "infra_metric",
  *     event: "StorageSample",
@@ -114,7 +119,7 @@ import * as utilities from "./utilities";
  *         timeFunction: "all",
  *     },
  * });
- * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
+ * const myConditionEntityTags = new newrelic.EntityTags("my_condition_entity_tags", {
  *     guid: fooInfraAlertCondition.entityGuid,
  *     tags: [
  *         {

@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooEntity, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+//			foo, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
 //				Name:   "Example application",
 //				Type:   pulumi.StringRef("APPLICATION"),
 //				Domain: pulumi.StringRef("APM"),
@@ -37,8 +37,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewEntityTags(ctx, "fooEntityTags", &newrelic.EntityTagsArgs{
-//				Guid: pulumi.String(fooEntity.Guid),
+//			_, err = newrelic.NewEntityTags(ctx, "foo", &newrelic.EntityTagsArgs{
+//				Guid: pulumi.String(foo.Guid),
 //				Tags: newrelic.EntityTagsTagArray{
 //					&newrelic.EntityTagsTagArgs{
 //						Key: pulumi.String("my-key"),

@@ -19,6 +19,7 @@ import * as utilities from "./utilities";
  *     name: "The expression",
  * });
  * const rule = new newrelic.ObfuscationRule("rule", {
+ *     name: "ruleName",
  *     description: "description of the rule",
  *     filter: "hostStatus=running",
  *     enabled: true,
@@ -80,6 +81,7 @@ export interface GetObfuscationExpressionResult {
  *     name: "The expression",
  * });
  * const rule = new newrelic.ObfuscationRule("rule", {
+ *     name: "ruleName",
  *     description: "description of the rule",
  *     filter: "hostStatus=running",
  *     enabled: true,

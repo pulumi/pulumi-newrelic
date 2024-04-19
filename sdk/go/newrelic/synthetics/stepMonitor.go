@@ -30,15 +30,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewStepMonitor(ctx, "foo", &synthetics.StepMonitorArgs{
+//				Name:                               pulumi.String("Sample Step Monitor"),
 //				EnableScreenshotOnFailureAndScript: pulumi.Bool(true),
 //				LocationsPublics: pulumi.StringArray{
 //					pulumi.String("US_EAST_1"),
 //					pulumi.String("US_EAST_2"),
 //				},
 //				Period:             pulumi.String("EVERY_6_HOURS"),
+//				Status:             pulumi.String("ENABLED"),
 //				RuntimeType:        pulumi.String("CHROME_BROWSER"),
 //				RuntimeTypeVersion: pulumi.String("100"),
-//				Status:             pulumi.String("ENABLED"),
 //				Steps: synthetics.StepMonitorStepArray{
 //					&synthetics.StepMonitorStepArgs{
 //						Ordinal: pulumi.Int(0),
@@ -89,19 +90,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooPrivateLocation, err := synthetics.NewPrivateLocation(ctx, "fooPrivateLocation", &synthetics.PrivateLocationArgs{
+//			foo, err := synthetics.NewPrivateLocation(ctx, "foo", &synthetics.PrivateLocationArgs{
+//				Name:                    pulumi.String("Sample Private Location"),
 //				Description:             pulumi.String("Sample Private Location Description"),
 //				VerifiedScriptExecution: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = synthetics.NewStepMonitor(ctx, "fooStepMonitor", &synthetics.StepMonitorArgs{
+//			_, err = synthetics.NewStepMonitor(ctx, "foo", &synthetics.StepMonitorArgs{
+//				Name:   pulumi.String("Sample Step Monitor"),
 //				Period: pulumi.String("EVERY_6_HOURS"),
 //				Status: pulumi.String("ENABLED"),
 //				LocationPrivates: synthetics.StepMonitorLocationPrivateArray{
 //					&synthetics.StepMonitorLocationPrivateArgs{
-//						Guid:        fooPrivateLocation.ID(),
+//						Guid:        foo.ID(),
 //						VsePassword: pulumi.String("secret"),
 //					},
 //				},

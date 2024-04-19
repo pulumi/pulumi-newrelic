@@ -207,9 +207,9 @@ class SecureCredential(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.synthetics.SecureCredential("foo",
-            description="My description",
             key="MY_KEY",
-            value="My value")
+            value="My value",
+            description="My description")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -246,9 +246,9 @@ class SecureCredential(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.synthetics.SecureCredential("foo",
-            description="My description",
             key="MY_KEY",
-            value="My value")
+            value="My value",
+            description="My description")
         ```
         <!--End PulumiCodeChooser -->
 
