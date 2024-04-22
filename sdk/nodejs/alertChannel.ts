@@ -142,8 +142,8 @@ import * as utilities from "./utilities";
  *         payloadType: "application/json",
  *         payloadString: `{
  *   "my_custom_values": {
- *     "condition_name": "$CONDITION_NAME",
- *     "policy_name": "$POLICY_NAME"
+ *     "condition_name": "CONDITION_NAME",
+ *     "policy_name": "POLICY_NAME"
  *   }
  * }
  * `,
