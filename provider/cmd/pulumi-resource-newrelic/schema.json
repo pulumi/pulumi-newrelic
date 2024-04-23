@@ -2873,14 +2873,33 @@
                 "user"
             ]
         },
+        "newrelic:index/NotificationDestinationAuthCustomHeader:NotificationDestinationAuthCustomHeader": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The notification property key.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The notification property value.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
         "newrelic:index/NotificationDestinationAuthToken:NotificationDestinationAuthToken": {
             "properties": {
                 "prefix": {
                     "type": "string",
-                    "description": "The prefix of the token auth.\n"
+                    "description": "The prefix of the URL.\n"
                 },
                 "token": {
                     "type": "string",
+                    "description": "Specifies the token for integrating.\n",
                     "secret": true
                 }
             },
@@ -2912,6 +2931,24 @@
             "required": [
                 "key",
                 "value"
+            ]
+        },
+        "newrelic:index/NotificationDestinationSecureUrl:NotificationDestinationSecureUrl": {
+            "properties": {
+                "prefix": {
+                    "type": "string",
+                    "description": "The prefix of the URL.\n"
+                },
+                "secureSuffix": {
+                    "type": "string",
+                    "description": "The suffix of the URL, which contains sensitive data.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "prefix",
+                "secureSuffix"
             ]
         },
         "newrelic:index/NrqlAlertConditionCritical:NrqlAlertConditionCritical": {
@@ -6782,6 +6819,17 @@
                     "requiredInputs": []
                 }
             }
+        },
+        "newrelic:index/getNotificationDestinationSecureUrl:getNotificationDestinationSecureUrl": {
+            "properties": {
+                "prefix": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "prefix"
+            ]
         },
         "newrelic:index/getTestGrokPatternTestGrok:getTestGrokPatternTestGrok": {
             "properties": {
@@ -11276,6 +11324,13 @@
                     "$ref": "#/types/newrelic:index/NotificationDestinationAuthBasic:NotificationDestinationAuthBasic",
                     "description": "A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.\n"
                 },
+                "authCustomHeaders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/NotificationDestinationAuthCustomHeader:NotificationDestinationAuthCustomHeader"
+                    },
+                    "description": "A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.\n"
+                },
                 "authToken": {
                     "$ref": "#/types/newrelic:index/NotificationDestinationAuthToken:NotificationDestinationAuthToken",
                     "description": "A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.\n"
@@ -11298,6 +11353,10 @@
                         "$ref": "#/types/newrelic:index/NotificationDestinationProperty:NotificationDestinationProperty"
                     },
                     "description": "A nested block that describes a notification destination property. See Nested property blocks below for details.\n"
+                },
+                "secureUrl": {
+                    "$ref": "#/types/newrelic:index/NotificationDestinationSecureUrl:NotificationDestinationSecureUrl",
+                    "description": "A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.\n"
                 },
                 "status": {
                     "type": "string",
@@ -11331,6 +11390,13 @@
                     "$ref": "#/types/newrelic:index/NotificationDestinationAuthBasic:NotificationDestinationAuthBasic",
                     "description": "A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.\n"
                 },
+                "authCustomHeaders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/NotificationDestinationAuthCustomHeader:NotificationDestinationAuthCustomHeader"
+                    },
+                    "description": "A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.\n"
+                },
                 "authToken": {
                     "$ref": "#/types/newrelic:index/NotificationDestinationAuthToken:NotificationDestinationAuthToken",
                     "description": "A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.\n"
@@ -11345,6 +11411,10 @@
                         "$ref": "#/types/newrelic:index/NotificationDestinationProperty:NotificationDestinationProperty"
                     },
                     "description": "A nested block that describes a notification destination property. See Nested property blocks below for details.\n"
+                },
+                "secureUrl": {
+                    "$ref": "#/types/newrelic:index/NotificationDestinationSecureUrl:NotificationDestinationSecureUrl",
+                    "description": "A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.\n"
                 },
                 "type": {
                     "type": "string",
@@ -11372,6 +11442,13 @@
                         "$ref": "#/types/newrelic:index/NotificationDestinationAuthBasic:NotificationDestinationAuthBasic",
                         "description": "A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.\n"
                     },
+                    "authCustomHeaders": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:index/NotificationDestinationAuthCustomHeader:NotificationDestinationAuthCustomHeader"
+                        },
+                        "description": "A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.\n"
+                    },
                     "authToken": {
                         "$ref": "#/types/newrelic:index/NotificationDestinationAuthToken:NotificationDestinationAuthToken",
                         "description": "A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.\n"
@@ -11394,6 +11471,10 @@
                             "$ref": "#/types/newrelic:index/NotificationDestinationProperty:NotificationDestinationProperty"
                         },
                         "description": "A nested block that describes a notification destination property. See Nested property blocks below for details.\n"
+                    },
+                    "secureUrl": {
+                        "$ref": "#/types/newrelic:index/NotificationDestinationSecureUrl:NotificationDestinationSecureUrl",
+                        "description": "A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.\n"
                     },
                     "status": {
                         "type": "string",
@@ -15059,6 +15140,13 @@
                     "name": {
                         "type": "string",
                         "description": "The name of the notification destination.\n\nOptional:\n"
+                    },
+                    "secureUrls": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:index/getNotificationDestinationSecureUrl:getNotificationDestinationSecureUrl"
+                        },
+                        "description": "The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.\n"
                     }
                 },
                 "type": "object"
@@ -15091,6 +15179,13 @@
                         },
                         "type": "array"
                     },
+                    "secureUrls": {
+                        "description": "The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.\n",
+                        "items": {
+                            "$ref": "#/types/newrelic:index/getNotificationDestinationSecureUrl:getNotificationDestinationSecureUrl"
+                        },
+                        "type": "array"
+                    },
                     "status": {
                         "description": "The status of the notification destination.\n",
                         "type": "string"
@@ -15105,6 +15200,7 @@
                     "active",
                     "guid",
                     "properties",
+                    "secureUrls",
                     "status",
                     "type"
                 ],
