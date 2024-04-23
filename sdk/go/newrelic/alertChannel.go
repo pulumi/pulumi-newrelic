@@ -268,7 +268,7 @@ type AlertChannel struct {
 	Config AlertChannelConfigPtrOutput `pulumi:"config"`
 	// (Required) The name of the channel.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// (Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).
+	// (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -311,7 +311,7 @@ type alertChannelState struct {
 	Config *AlertChannelConfig `pulumi:"config"`
 	// (Required) The name of the channel.
 	Name *string `pulumi:"name"`
-	// (Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).
+	// (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
 	Type *string `pulumi:"type"`
 }
 
@@ -322,7 +322,7 @@ type AlertChannelState struct {
 	Config AlertChannelConfigPtrInput
 	// (Required) The name of the channel.
 	Name pulumi.StringPtrInput
-	// (Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).
+	// (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
 	Type pulumi.StringPtrInput
 }
 
@@ -337,7 +337,7 @@ type alertChannelArgs struct {
 	Config *AlertChannelConfig `pulumi:"config"`
 	// (Required) The name of the channel.
 	Name *string `pulumi:"name"`
-	// (Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).
+	// (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
 	Type string `pulumi:"type"`
 }
 
@@ -349,7 +349,7 @@ type AlertChannelArgs struct {
 	Config AlertChannelConfigPtrInput
 	// (Required) The name of the channel.
 	Name pulumi.StringPtrInput
-	// (Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).
+	// (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
 	Type pulumi.StringInput
 }
 
@@ -455,7 +455,7 @@ func (o AlertChannelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertChannel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).
+// (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
 func (o AlertChannelOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertChannel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

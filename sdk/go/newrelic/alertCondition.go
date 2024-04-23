@@ -192,8 +192,8 @@ type AlertCondition struct {
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrOutput        `pulumi:"runbookUrl"`
 	Terms      AlertConditionTermArrayOutput `pulumi:"terms"`
-	// The type of condition. One of: (servers_metric, apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric,
-	// mobile_metric).
+	// The type of condition. One of: (apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric, mobile_metric,
+	// servers_metric).
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A custom metric to be evaluated.
 	UserDefinedMetric pulumi.StringPtrOutput `pulumi:"userDefinedMetric"`
@@ -270,8 +270,8 @@ type alertConditionState struct {
 	// Runbook URL to display in notifications.
 	RunbookUrl *string              `pulumi:"runbookUrl"`
 	Terms      []AlertConditionTerm `pulumi:"terms"`
-	// The type of condition. One of: (servers_metric, apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric,
-	// mobile_metric).
+	// The type of condition. One of: (apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric, mobile_metric,
+	// servers_metric).
 	Type *string `pulumi:"type"`
 	// A custom metric to be evaluated.
 	UserDefinedMetric *string `pulumi:"userDefinedMetric"`
@@ -304,8 +304,8 @@ type AlertConditionState struct {
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
 	Terms      AlertConditionTermArrayInput
-	// The type of condition. One of: (servers_metric, apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric,
-	// mobile_metric).
+	// The type of condition. One of: (apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric, mobile_metric,
+	// servers_metric).
 	Type pulumi.StringPtrInput
 	// A custom metric to be evaluated.
 	UserDefinedMetric pulumi.StringPtrInput
@@ -340,8 +340,8 @@ type alertConditionArgs struct {
 	// Runbook URL to display in notifications.
 	RunbookUrl *string              `pulumi:"runbookUrl"`
 	Terms      []AlertConditionTerm `pulumi:"terms"`
-	// The type of condition. One of: (servers_metric, apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric,
-	// mobile_metric).
+	// The type of condition. One of: (apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric, mobile_metric,
+	// servers_metric).
 	Type string `pulumi:"type"`
 	// A custom metric to be evaluated.
 	UserDefinedMetric *string `pulumi:"userDefinedMetric"`
@@ -373,8 +373,8 @@ type AlertConditionArgs struct {
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
 	Terms      AlertConditionTermArrayInput
-	// The type of condition. One of: (servers_metric, apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric,
-	// mobile_metric).
+	// The type of condition. One of: (apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric, mobile_metric,
+	// servers_metric).
 	Type pulumi.StringInput
 	// A custom metric to be evaluated.
 	UserDefinedMetric pulumi.StringPtrInput
@@ -523,8 +523,8 @@ func (o AlertConditionOutput) Terms() AlertConditionTermArrayOutput {
 	return o.ApplyT(func(v *AlertCondition) AlertConditionTermArrayOutput { return v.Terms }).(AlertConditionTermArrayOutput)
 }
 
-// The type of condition. One of: (servers_metric, apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric,
-// mobile_metric).
+// The type of condition. One of: (apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric, mobile_metric,
+// servers_metric).
 func (o AlertConditionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

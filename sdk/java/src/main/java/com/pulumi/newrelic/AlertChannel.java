@@ -366,14 +366,14 @@ public class AlertChannel extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * (Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).
+     * (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return (Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).
+     * @return (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
      * 
      */
     public Output<String> type() {

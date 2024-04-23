@@ -63,14 +63,14 @@ public final class AlertChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).
+     * (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return (Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).
+     * @return (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
      * 
      */
     public Optional<Output<String>> type() {
@@ -168,7 +168,7 @@ public final class AlertChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type (Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).
+         * @param type (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class AlertChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type (Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).
+         * @param type (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
          * 
          * @return builder
          * 

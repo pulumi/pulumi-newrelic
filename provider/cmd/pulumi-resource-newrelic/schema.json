@@ -9491,7 +9491,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "(Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).\n"
+                    "description": "(Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).\n"
                 }
             },
             "required": [
@@ -9516,7 +9516,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "(Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).\n",
+                    "description": "(Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -9542,7 +9542,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "(Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).\n",
+                        "description": "(Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).\n",
                         "willReplaceOnChanges": true
                     }
                 },
