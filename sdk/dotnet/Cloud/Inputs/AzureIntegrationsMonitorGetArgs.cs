@@ -13,9 +13,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
     public sealed class AzureIntegrationsMonitorGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
-        /// 
-        /// &gt; **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic's documentation on the Azure Monitor integration.
+        /// A flag that specifies if the integration is active
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -24,7 +22,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         private InputList<string>? _excludeTags;
 
         /// <summary>
-        /// A list of resource tags associated with the resources that need to be excluded from monitoring.
+        /// Specify resource tags in 'key:value' form to be excluded from monitoring
         /// </summary>
         public InputList<string> ExcludeTags
         {
@@ -36,7 +34,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         private InputList<string>? _includeTags;
 
         /// <summary>
-        /// A list of resource tags associated with the resources that need to be monitored, in a "key:value" format. If this is not specified, all resources will be monitored.
+        /// Specify resource tags in 'key:value' form to be monitored
         /// </summary>
         public InputList<string> IncludeTags
         {
@@ -45,7 +43,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         }
 
         /// <summary>
-        /// The data polling interval in seconds.
+        /// The data polling interval in seconds
         /// </summary>
         [Input("metricsPollingInterval")]
         public Input<int>? MetricsPollingInterval { get; set; }
@@ -55,8 +53,6 @@ namespace Pulumi.NewRelic.Cloud.Inputs
 
         /// <summary>
         /// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
-        /// 
-        /// Other integration type support an additional argument:
         /// </summary>
         public InputList<string> ResourceGroups
         {
@@ -68,7 +64,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         private InputList<string>? _resourceTypes;
 
         /// <summary>
-        /// A list of Azure resource types that need to be monitored.
+        /// Specify each Azure resource type that needs to be monitored
         /// </summary>
         public InputList<string> ResourceTypes
         {

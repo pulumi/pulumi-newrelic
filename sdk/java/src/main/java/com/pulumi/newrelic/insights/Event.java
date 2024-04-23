@@ -88,17 +88,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="newrelic:insights/event:Event")
 public class Event extends com.pulumi.resources.CustomResource {
-    /**
-     * An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-     * 
-     */
     @Export(name="events", refs={List.class,EventEvent.class}, tree="[0,1]")
     private Output<List<EventEvent>> events;
 
-    /**
-     * @return An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-     * 
-     */
     public Output<List<EventEvent>> events() {
         return this.events;
     }

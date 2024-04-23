@@ -32,7 +32,7 @@ namespace Pulumi.NewRelic.Inputs
         private Input<string>? _authPassword;
 
         /// <summary>
-        /// Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
+        /// Specifies an authentication password for use with a channel. Supported by the webhook channel type.
         /// </summary>
         public Input<string>? AuthPassword
         {
@@ -48,7 +48,7 @@ namespace Pulumi.NewRelic.Inputs
         private Input<string>? _authType;
 
         /// <summary>
-        /// Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
+        /// Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
         /// </summary>
         public Input<string>? AuthType
         {
@@ -61,7 +61,7 @@ namespace Pulumi.NewRelic.Inputs
         }
 
         /// <summary>
-        /// Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
+        /// Specifies an authentication username for use with a channel. Supported by the webhook channel type.
         /// </summary>
         [Input("authUsername")]
         public Input<string>? AuthUsername { get; set; }
@@ -108,7 +108,7 @@ namespace Pulumi.NewRelic.Inputs
         private Input<string>? _headersString;
 
         /// <summary>
-        /// Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
+        /// Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
         /// </summary>
         public Input<string>? HeadersString
         {
@@ -121,7 +121,7 @@ namespace Pulumi.NewRelic.Inputs
         }
 
         /// <summary>
-        /// `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+        /// true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
         /// </summary>
         [Input("includeJsonAttachment")]
         public Input<string>? IncludeJsonAttachment { get; set; }
@@ -146,7 +146,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputMap<string>? _payload;
 
         /// <summary>
-        /// A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
+        /// A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
         /// </summary>
         public InputMap<string> Payload
         {
@@ -162,7 +162,7 @@ namespace Pulumi.NewRelic.Inputs
         private Input<string>? _payloadString;
 
         /// <summary>
-        /// Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
+        /// Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
         /// </summary>
         public Input<string>? PayloadString
         {
@@ -175,19 +175,19 @@ namespace Pulumi.NewRelic.Inputs
         }
 
         /// <summary>
-        /// Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
+        /// Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
         /// </summary>
         [Input("payloadType")]
         public Input<string>? PayloadType { get; set; }
 
         /// <summary>
-        /// A set of recipients for targeting notifications.  Multiple values are comma separated.
+        /// A set of recipients for targeting notifications. Multiple values are comma separated.
         /// </summary>
         [Input("recipients")]
         public Input<string>? Recipients { get; set; }
 
         /// <summary>
-        /// The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
+        /// The data center region to store your data. Valid values are US and EU. Default is US.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -240,7 +240,7 @@ namespace Pulumi.NewRelic.Inputs
         private Input<string>? _url;
 
         /// <summary>
-        /// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+        /// Your organization's Slack URL.
         /// </summary>
         public Input<string>? Url
         {

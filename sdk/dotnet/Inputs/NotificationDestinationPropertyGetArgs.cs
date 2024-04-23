@@ -13,27 +13,25 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class NotificationDestinationPropertyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The notification property display value.
-        /// 
-        /// Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
+        /// Notification property display key.
         /// </summary>
         [Input("displayValue")]
         public Input<string>? DisplayValue { get; set; }
 
         /// <summary>
-        /// The notification property key.
+        /// Notification property key.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The notification property label.
+        /// Notification property label.
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// The notification property value.
+        /// Notification property value.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

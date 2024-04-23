@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
     public sealed class AzureIntegrationsCostManagementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data polling interval in seconds.
+        /// The data polling interval in seconds
         /// </summary>
         [Input("metricsPollingInterval")]
         public Input<int>? MetricsPollingInterval { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         private InputList<string>? _tagKeys;
 
         /// <summary>
-        /// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        /// Specify if additional cost data per tag should be collected. This field is case sensitive.
         /// </summary>
         public InputList<string> TagKeys
         {

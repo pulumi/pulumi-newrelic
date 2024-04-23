@@ -20,14 +20,14 @@ public final class WorkloadStatusConfigAutomaticRuleArgs extends com.pulumi.reso
     public static final WorkloadStatusConfigAutomaticRuleArgs Empty = new WorkloadStatusConfigAutomaticRuleArgs();
 
     /**
-     * A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
+     * A list of entity GUIDs composing the rule.
      * 
      */
     @Import(name="entityGuids")
     private @Nullable Output<List<String>> entityGuids;
 
     /**
-     * @return A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
+     * @return A list of entity GUIDs composing the rule.
      * 
      */
     public Optional<Output<List<String>>> entityGuids() {
@@ -35,14 +35,14 @@ public final class WorkloadStatusConfigAutomaticRuleArgs extends com.pulumi.reso
     }
 
     /**
-     * A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
+     * A list of entity search queries used to retrieve the entities that compose the rule.
      * 
      */
     @Import(name="nrqlQueries")
     private @Nullable Output<List<WorkloadStatusConfigAutomaticRuleNrqlQueryArgs>> nrqlQueries;
 
     /**
-     * @return A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
+     * @return A list of entity search queries used to retrieve the entities that compose the rule.
      * 
      */
     public Optional<Output<List<WorkloadStatusConfigAutomaticRuleNrqlQueryArgs>>> nrqlQueries() {
@@ -50,14 +50,14 @@ public final class WorkloadStatusConfigAutomaticRuleArgs extends com.pulumi.reso
     }
 
     /**
-     * The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
+     * The input object used to represent a rollup strategy.
      * 
      */
     @Import(name="rollup", required=true)
     private Output<WorkloadStatusConfigAutomaticRuleRollupArgs> rollup;
 
     /**
-     * @return The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
+     * @return The input object used to represent a rollup strategy.
      * 
      */
     public Output<WorkloadStatusConfigAutomaticRuleRollupArgs> rollup() {
@@ -91,7 +91,7 @@ public final class WorkloadStatusConfigAutomaticRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param entityGuids A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
+         * @param entityGuids A list of entity GUIDs composing the rule.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class WorkloadStatusConfigAutomaticRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param entityGuids A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
+         * @param entityGuids A list of entity GUIDs composing the rule.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class WorkloadStatusConfigAutomaticRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param entityGuids A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
+         * @param entityGuids A list of entity GUIDs composing the rule.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class WorkloadStatusConfigAutomaticRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param nrqlQueries A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
+         * @param nrqlQueries A list of entity search queries used to retrieve the entities that compose the rule.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class WorkloadStatusConfigAutomaticRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param nrqlQueries A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
+         * @param nrqlQueries A list of entity search queries used to retrieve the entities that compose the rule.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class WorkloadStatusConfigAutomaticRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param nrqlQueries A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
+         * @param nrqlQueries A list of entity search queries used to retrieve the entities that compose the rule.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class WorkloadStatusConfigAutomaticRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param rollup The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
+         * @param rollup The input object used to represent a rollup strategy.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class WorkloadStatusConfigAutomaticRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param rollup The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
+         * @param rollup The input object used to represent a rollup strategy.
          * 
          * @return builder
          * 

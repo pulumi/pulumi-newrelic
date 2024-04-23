@@ -12,18 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GcpIntegrationsFireBaseHosting {
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Other integration supports an additional argument:
+     * @return the data polling interval in seconds
      * 
      */
     private @Nullable Integer metricsPollingInterval;
 
     private GcpIntegrationsFireBaseHosting() {}
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Other integration supports an additional argument:
+     * @return the data polling interval in seconds
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

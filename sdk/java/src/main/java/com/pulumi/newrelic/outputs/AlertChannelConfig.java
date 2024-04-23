@@ -18,17 +18,17 @@ public final class AlertChannelConfig {
      */
     private @Nullable String apiKey;
     /**
-     * @return Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
+     * @return Specifies an authentication password for use with a channel. Supported by the webhook channel type.
      * 
      */
     private @Nullable String authPassword;
     /**
-     * @return Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
+     * @return Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
      * 
      */
     private @Nullable String authType;
     /**
-     * @return Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
+     * @return Specifies an authentication username for use with a channel. Supported by the webhook channel type.
      * 
      */
     private @Nullable String authUsername;
@@ -48,12 +48,12 @@ public final class AlertChannelConfig {
      */
     private @Nullable Map<String,String> headers;
     /**
-     * @return Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
+     * @return Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
      * 
      */
     private @Nullable String headersString;
     /**
-     * @return `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+     * @return true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
      * 
      */
     private @Nullable String includeJsonAttachment;
@@ -63,27 +63,27 @@ public final class AlertChannelConfig {
      */
     private @Nullable String key;
     /**
-     * @return A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
+     * @return A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
      * 
      */
     private @Nullable Map<String,String> payload;
     /**
-     * @return Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
+     * @return Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
      * 
      */
     private @Nullable String payloadString;
     /**
-     * @return Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
+     * @return Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
      * 
      */
     private @Nullable String payloadType;
     /**
-     * @return A set of recipients for targeting notifications.  Multiple values are comma separated.
+     * @return A set of recipients for targeting notifications. Multiple values are comma separated.
      * 
      */
     private @Nullable String recipients;
     /**
-     * @return The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
+     * @return The data center region to store your data. Valid values are US and EU. Default is US.
      * 
      */
     private @Nullable String region;
@@ -108,7 +108,7 @@ public final class AlertChannelConfig {
      */
     private @Nullable String teams;
     /**
-     * @return [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+     * @return Your organization&#39;s Slack URL.
      * 
      */
     private @Nullable String url;
@@ -127,21 +127,21 @@ public final class AlertChannelConfig {
         return Optional.ofNullable(this.apiKey);
     }
     /**
-     * @return Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
+     * @return Specifies an authentication password for use with a channel. Supported by the webhook channel type.
      * 
      */
     public Optional<String> authPassword() {
         return Optional.ofNullable(this.authPassword);
     }
     /**
-     * @return Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
+     * @return Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
      * 
      */
     public Optional<String> authType() {
         return Optional.ofNullable(this.authType);
     }
     /**
-     * @return Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
+     * @return Specifies an authentication username for use with a channel. Supported by the webhook channel type.
      * 
      */
     public Optional<String> authUsername() {
@@ -169,14 +169,14 @@ public final class AlertChannelConfig {
         return this.headers == null ? Map.of() : this.headers;
     }
     /**
-     * @return Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
+     * @return Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
      * 
      */
     public Optional<String> headersString() {
         return Optional.ofNullable(this.headersString);
     }
     /**
-     * @return `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+     * @return true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
      * 
      */
     public Optional<String> includeJsonAttachment() {
@@ -190,35 +190,35 @@ public final class AlertChannelConfig {
         return Optional.ofNullable(this.key);
     }
     /**
-     * @return A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
+     * @return A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
      * 
      */
     public Map<String,String> payload() {
         return this.payload == null ? Map.of() : this.payload;
     }
     /**
-     * @return Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
+     * @return Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
      * 
      */
     public Optional<String> payloadString() {
         return Optional.ofNullable(this.payloadString);
     }
     /**
-     * @return Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
+     * @return Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
      * 
      */
     public Optional<String> payloadType() {
         return Optional.ofNullable(this.payloadType);
     }
     /**
-     * @return A set of recipients for targeting notifications.  Multiple values are comma separated.
+     * @return A set of recipients for targeting notifications. Multiple values are comma separated.
      * 
      */
     public Optional<String> recipients() {
         return Optional.ofNullable(this.recipients);
     }
     /**
-     * @return The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
+     * @return The data center region to store your data. Valid values are US and EU. Default is US.
      * 
      */
     public Optional<String> region() {
@@ -253,7 +253,7 @@ public final class AlertChannelConfig {
         return Optional.ofNullable(this.teams);
     }
     /**
-     * @return [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+     * @return Your organization&#39;s Slack URL.
      * 
      */
     public Optional<String> url() {

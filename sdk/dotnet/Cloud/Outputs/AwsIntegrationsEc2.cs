@@ -14,23 +14,19 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     public sealed class AwsIntegrationsEc2
     {
         /// <summary>
-        /// Specify each AWS region that includes the resources that you want to monitor.  
-        /// &lt;/details&gt;
+        /// Specify each AWS region that includes the resources that you want to monitor.
         /// </summary>
         public readonly ImmutableArray<string> AwsRegions;
         /// <summary>
-        /// Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
+        /// Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size
         /// </summary>
         public readonly bool? DuplicateEc2Tags;
         /// <summary>
-        /// Specify if IP addresses of ec2 instance should be collected.
+        /// Specify if IP addresses of ec2 instance should be collected
         /// </summary>
         public readonly bool? FetchIpAddresses;
         /// <summary>
         /// The data polling interval in seconds.
-        /// 
-        /// &lt;details&gt;
-        /// &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
         /// </summary>
         public readonly int? MetricsPollingInterval;
         /// <summary>

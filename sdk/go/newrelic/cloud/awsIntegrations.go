@@ -26,7 +26,6 @@ import (
 //
 // Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -422,7 +421,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -442,7 +440,7 @@ type AwsIntegrations struct {
 	Alb AwsIntegrationsAlbPtrOutput `pulumi:"alb"`
 	// API Gateway integration
 	ApiGateway AwsIntegrationsApiGatewayPtrOutput `pulumi:"apiGateway"`
-	// ,`awsAppSync`,`awsAthena`,`awsCognito`,`awsConnect`,`awsDirectConnect`,`awsFsx`,`awsGlue`,`awsKinesisAnalytics`,`awsMediaConvert`,`awsMediaPackageVod`,`awsMq`,`awsMsk`,`awsNeptune`,`awsQldb`,`awsRoute53resolver`,`awsStates`,`awsTransitGateway`,`awsWaf`,`awsWafv2`,`iot`,`kinesisFirehose` and `ses`.
+	// AutoScaling integration
 	AutoScaling AwsIntegrationsAutoScalingPtrOutput `pulumi:"autoScaling"`
 	// Aws Appsync integration
 	AwsAppSync AwsIntegrationsAwsAppSyncPtrOutput `pulumi:"awsAppSync"`
@@ -646,7 +644,7 @@ type awsIntegrationsState struct {
 	Alb *AwsIntegrationsAlb `pulumi:"alb"`
 	// API Gateway integration
 	ApiGateway *AwsIntegrationsApiGateway `pulumi:"apiGateway"`
-	// ,`awsAppSync`,`awsAthena`,`awsCognito`,`awsConnect`,`awsDirectConnect`,`awsFsx`,`awsGlue`,`awsKinesisAnalytics`,`awsMediaConvert`,`awsMediaPackageVod`,`awsMq`,`awsMsk`,`awsNeptune`,`awsQldb`,`awsRoute53resolver`,`awsStates`,`awsTransitGateway`,`awsWaf`,`awsWafv2`,`iot`,`kinesisFirehose` and `ses`.
+	// AutoScaling integration
 	AutoScaling *AwsIntegrationsAutoScaling `pulumi:"autoScaling"`
 	// Aws Appsync integration
 	AwsAppSync *AwsIntegrationsAwsAppSync `pulumi:"awsAppSync"`
@@ -818,7 +816,7 @@ type AwsIntegrationsState struct {
 	Alb AwsIntegrationsAlbPtrInput
 	// API Gateway integration
 	ApiGateway AwsIntegrationsApiGatewayPtrInput
-	// ,`awsAppSync`,`awsAthena`,`awsCognito`,`awsConnect`,`awsDirectConnect`,`awsFsx`,`awsGlue`,`awsKinesisAnalytics`,`awsMediaConvert`,`awsMediaPackageVod`,`awsMq`,`awsMsk`,`awsNeptune`,`awsQldb`,`awsRoute53resolver`,`awsStates`,`awsTransitGateway`,`awsWaf`,`awsWafv2`,`iot`,`kinesisFirehose` and `ses`.
+	// AutoScaling integration
 	AutoScaling AwsIntegrationsAutoScalingPtrInput
 	// Aws Appsync integration
 	AwsAppSync AwsIntegrationsAwsAppSyncPtrInput
@@ -994,7 +992,7 @@ type awsIntegrationsArgs struct {
 	Alb *AwsIntegrationsAlb `pulumi:"alb"`
 	// API Gateway integration
 	ApiGateway *AwsIntegrationsApiGateway `pulumi:"apiGateway"`
-	// ,`awsAppSync`,`awsAthena`,`awsCognito`,`awsConnect`,`awsDirectConnect`,`awsFsx`,`awsGlue`,`awsKinesisAnalytics`,`awsMediaConvert`,`awsMediaPackageVod`,`awsMq`,`awsMsk`,`awsNeptune`,`awsQldb`,`awsRoute53resolver`,`awsStates`,`awsTransitGateway`,`awsWaf`,`awsWafv2`,`iot`,`kinesisFirehose` and `ses`.
+	// AutoScaling integration
 	AutoScaling *AwsIntegrationsAutoScaling `pulumi:"autoScaling"`
 	// Aws Appsync integration
 	AwsAppSync *AwsIntegrationsAwsAppSync `pulumi:"awsAppSync"`
@@ -1167,7 +1165,7 @@ type AwsIntegrationsArgs struct {
 	Alb AwsIntegrationsAlbPtrInput
 	// API Gateway integration
 	ApiGateway AwsIntegrationsApiGatewayPtrInput
-	// ,`awsAppSync`,`awsAthena`,`awsCognito`,`awsConnect`,`awsDirectConnect`,`awsFsx`,`awsGlue`,`awsKinesisAnalytics`,`awsMediaConvert`,`awsMediaPackageVod`,`awsMq`,`awsMsk`,`awsNeptune`,`awsQldb`,`awsRoute53resolver`,`awsStates`,`awsTransitGateway`,`awsWaf`,`awsWafv2`,`iot`,`kinesisFirehose` and `ses`.
+	// AutoScaling integration
 	AutoScaling AwsIntegrationsAutoScalingPtrInput
 	// Aws Appsync integration
 	AwsAppSync AwsIntegrationsAwsAppSyncPtrInput
@@ -1434,7 +1432,7 @@ func (o AwsIntegrationsOutput) ApiGateway() AwsIntegrationsApiGatewayPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsApiGatewayPtrOutput { return v.ApiGateway }).(AwsIntegrationsApiGatewayPtrOutput)
 }
 
-// ,`awsAppSync`,`awsAthena`,`awsCognito`,`awsConnect`,`awsDirectConnect`,`awsFsx`,`awsGlue`,`awsKinesisAnalytics`,`awsMediaConvert`,`awsMediaPackageVod`,`awsMq`,`awsMsk`,`awsNeptune`,`awsQldb`,`awsRoute53resolver`,`awsStates`,`awsTransitGateway`,`awsWaf`,`awsWafv2`,`iot`,`kinesisFirehose` and `ses`.
+// AutoScaling integration
 func (o AwsIntegrationsOutput) AutoScaling() AwsIntegrationsAutoScalingPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAutoScalingPtrOutput { return v.AutoScaling }).(AwsIntegrationsAutoScalingPtrOutput)
 }

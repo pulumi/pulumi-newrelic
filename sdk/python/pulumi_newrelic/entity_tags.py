@@ -21,7 +21,7 @@ class EntityTagsArgs:
         """
         The set of arguments for constructing a EntityTags resource.
         :param pulumi.Input[str] guid: The guid of the entity to tag.
-        :param pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]] tags: A set of key-value pairs to represent a tag. For example: Team:TeamName
         """
         pulumi.set(__self__, "guid", guid)
         pulumi.set(__self__, "tags", tags)
@@ -42,7 +42,7 @@ class EntityTagsArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]:
         """
-        A nested block that describes an entity tag. See Nested tag blocks below for details.
+        A set of key-value pairs to represent a tag. For example: Team:TeamName
         """
         return pulumi.get(self, "tags")
 
@@ -59,7 +59,7 @@ class _EntityTagsState:
         """
         Input properties used for looking up and filtering EntityTags resources.
         :param pulumi.Input[str] guid: The guid of the entity to tag.
-        :param pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]] tags: A set of key-value pairs to represent a tag. For example: Team:TeamName
         """
         if guid is not None:
             pulumi.set(__self__, "guid", guid)
@@ -82,7 +82,7 @@ class _EntityTagsState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]]:
         """
-        A nested block that describes an entity tag. See Nested tag blocks below for details.
+        A set of key-value pairs to represent a tag. For example: Team:TeamName
         """
         return pulumi.get(self, "tags")
 
@@ -104,7 +104,6 @@ class EntityTags(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -128,7 +127,6 @@ class EntityTags(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -145,7 +143,7 @@ class EntityTags(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] guid: The guid of the entity to tag.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityTagsTagArgs']]]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityTagsTagArgs']]]] tags: A set of key-value pairs to represent a tag. For example: Team:TeamName
         """
         ...
     @overload
@@ -158,7 +156,6 @@ class EntityTags(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -182,7 +179,6 @@ class EntityTags(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -248,7 +244,7 @@ class EntityTags(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] guid: The guid of the entity to tag.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityTagsTagArgs']]]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityTagsTagArgs']]]] tags: A set of key-value pairs to represent a tag. For example: Team:TeamName
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -270,7 +266,7 @@ class EntityTags(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Sequence['outputs.EntityTagsTag']]:
         """
-        A nested block that describes an entity tag. See Nested tag blocks below for details.
+        A set of key-value pairs to represent a tag. For example: Team:TeamName
         """
         return pulumi.get(self, "tags")
 

@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     public sealed class AwsGovcloudIntegrationsEmr
     {
         /// <summary>
-        /// Specify each AWS region that includes the resources that you want to monitor.
+        /// Specify each AWS region that includes the resources that you want to monitor
         /// </summary>
         public readonly string? AwsRegions;
         /// <summary>
@@ -22,9 +22,7 @@ namespace Pulumi.NewRelic.Cloud.Outputs
         /// </summary>
         public readonly bool? FetchTags;
         /// <summary>
-        /// The data polling interval in seconds.
-        /// 
-        /// Some integration types support an additional set of arguments:
+        /// The data polling interval in seconds
         /// </summary>
         public readonly int? MetricsPollingInterval;
         /// <summary>

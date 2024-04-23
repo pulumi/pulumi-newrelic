@@ -32,18 +32,14 @@ public final class AwsGovcloudIntegrationsRoute53Args extends com.pulumi.resourc
     }
 
     /**
-     * The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * The data polling interval in seconds
      * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * @return The data polling interval in seconds
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -97,9 +93,7 @@ public final class AwsGovcloudIntegrationsRoute53Args extends com.pulumi.resourc
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * Some integration types support an additional set of arguments:
+         * @param metricsPollingInterval The data polling interval in seconds
          * 
          * @return builder
          * 
@@ -110,9 +104,7 @@ public final class AwsGovcloudIntegrationsRoute53Args extends com.pulumi.resourc
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * Some integration types support an additional set of arguments:
+         * @param metricsPollingInterval The data polling interval in seconds
          * 
          * @return builder
          * 

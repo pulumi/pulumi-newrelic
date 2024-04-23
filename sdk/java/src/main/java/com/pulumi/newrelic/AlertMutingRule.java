@@ -93,28 +93,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/alertMutingRule:AlertMutingRule")
 public class AlertMutingRule extends com.pulumi.resources.CustomResource {
     /**
-     * The account id of the MutingRule.
+     * The account id of the MutingRule..
      * 
      */
     @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
-     * @return The account id of the MutingRule.
+     * @return The account id of the MutingRule..
      * 
      */
     public Output<Integer> accountId() {
         return this.accountId;
     }
     /**
-     * The condition that defines which incidents to target. See Nested condition blocks below for details.
+     * The condition that defines which incidents to target.
      * 
      */
     @Export(name="condition", refs={AlertMutingRuleCondition.class}, tree="[0]")
     private Output<AlertMutingRuleCondition> condition;
 
     /**
-     * @return The condition that defines which incidents to target. See Nested condition blocks below for details.
+     * @return The condition that defines which incidents to target.
      * 
      */
     public Output<AlertMutingRuleCondition> condition() {
@@ -163,14 +163,14 @@ public class AlertMutingRule extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specify a schedule for enabling the MutingRule. See Schedule below for details
+     * The time window when the MutingRule should actively mute incidents.
      * 
      */
     @Export(name="schedule", refs={AlertMutingRuleSchedule.class}, tree="[0]")
     private Output</* @Nullable */ AlertMutingRuleSchedule> schedule;
 
     /**
-     * @return Specify a schedule for enabling the MutingRule. See Schedule below for details
+     * @return The time window when the MutingRule should actively mute incidents.
      * 
      */
     public Output<Optional<AlertMutingRuleSchedule>> schedule() {

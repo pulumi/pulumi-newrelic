@@ -26,7 +26,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardVariableItem> Items;
         /// <summary>
-        /// The title of the dashboard.
+        /// (Required) The variable identifier.
         /// </summary>
         public readonly string Name;
         /// <summary>

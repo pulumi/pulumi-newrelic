@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,7 +62,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -81,7 +79,7 @@ type EntityTags struct {
 
 	// The guid of the entity to tag.
 	Guid pulumi.StringOutput `pulumi:"guid"`
-	// A nested block that describes an entity tag. See Nested tag blocks below for details.
+	// A set of key-value pairs to represent a tag. For example: Team:TeamName
 	Tags EntityTagsTagArrayOutput `pulumi:"tags"`
 }
 
@@ -123,14 +121,14 @@ func GetEntityTags(ctx *pulumi.Context,
 type entityTagsState struct {
 	// The guid of the entity to tag.
 	Guid *string `pulumi:"guid"`
-	// A nested block that describes an entity tag. See Nested tag blocks below for details.
+	// A set of key-value pairs to represent a tag. For example: Team:TeamName
 	Tags []EntityTagsTag `pulumi:"tags"`
 }
 
 type EntityTagsState struct {
 	// The guid of the entity to tag.
 	Guid pulumi.StringPtrInput
-	// A nested block that describes an entity tag. See Nested tag blocks below for details.
+	// A set of key-value pairs to represent a tag. For example: Team:TeamName
 	Tags EntityTagsTagArrayInput
 }
 
@@ -141,7 +139,7 @@ func (EntityTagsState) ElementType() reflect.Type {
 type entityTagsArgs struct {
 	// The guid of the entity to tag.
 	Guid string `pulumi:"guid"`
-	// A nested block that describes an entity tag. See Nested tag blocks below for details.
+	// A set of key-value pairs to represent a tag. For example: Team:TeamName
 	Tags []EntityTagsTag `pulumi:"tags"`
 }
 
@@ -149,7 +147,7 @@ type entityTagsArgs struct {
 type EntityTagsArgs struct {
 	// The guid of the entity to tag.
 	Guid pulumi.StringInput
-	// A nested block that describes an entity tag. See Nested tag blocks below for details.
+	// A set of key-value pairs to represent a tag. For example: Team:TeamName
 	Tags EntityTagsTagArrayInput
 }
 
@@ -245,7 +243,7 @@ func (o EntityTagsOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *EntityTags) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }
 
-// A nested block that describes an entity tag. See Nested tag blocks below for details.
+// A set of key-value pairs to represent a tag. For example: Team:TeamName
 func (o EntityTagsOutput) Tags() EntityTagsTagArrayOutput {
 	return o.ApplyT(func(v *EntityTags) EntityTagsTagArrayOutput { return v.Tags }).(EntityTagsTagArrayOutput)
 }

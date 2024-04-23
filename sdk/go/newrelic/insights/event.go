@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,7 +60,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Events
 //
@@ -81,7 +79,6 @@ import (
 type Event struct {
 	pulumi.CustomResourceState
 
-	// An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
 	Events EventEventArrayOutput `pulumi:"events"`
 }
 
@@ -118,12 +115,10 @@ func GetEvent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Event resources.
 type eventState struct {
-	// An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
 	Events []EventEvent `pulumi:"events"`
 }
 
 type EventState struct {
-	// An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
 	Events EventEventArrayInput
 }
 
@@ -132,13 +127,11 @@ func (EventState) ElementType() reflect.Type {
 }
 
 type eventArgs struct {
-	// An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
 	Events []EventEvent `pulumi:"events"`
 }
 
 // The set of arguments for constructing a Event resource.
 type EventArgs struct {
-	// An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
 	Events EventEventArrayInput
 }
 
@@ -229,7 +222,6 @@ func (o EventOutput) ToEventOutputWithContext(ctx context.Context) EventOutput {
 	return o
 }
 
-// An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
 func (o EventOutput) Events() EventEventArrayOutput {
 	return o.ApplyT(func(v *Event) EventEventArrayOutput { return v.Events }).(EventEventArrayOutput)
 }

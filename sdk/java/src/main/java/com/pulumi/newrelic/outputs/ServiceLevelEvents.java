@@ -15,55 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceLevelEvents {
-    /**
-     * @return The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
-     * and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
-     * 
-     */
     private Integer accountId;
-    /**
-     * @return The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
-     * 
-     */
     private @Nullable ServiceLevelEventsBadEvents badEvents;
-    /**
-     * @return The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
-     * 
-     */
     private @Nullable ServiceLevelEventsGoodEvents goodEvents;
-    /**
-     * @return The definition of valid requests.
-     * 
-     */
     private ServiceLevelEventsValidEvents validEvents;
 
     private ServiceLevelEvents() {}
-    /**
-     * @return The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
-     * and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
-     * 
-     */
     public Integer accountId() {
         return this.accountId;
     }
-    /**
-     * @return The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
-     * 
-     */
     public Optional<ServiceLevelEventsBadEvents> badEvents() {
         return Optional.ofNullable(this.badEvents);
     }
-    /**
-     * @return The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
-     * 
-     */
     public Optional<ServiceLevelEventsGoodEvents> goodEvents() {
         return Optional.ofNullable(this.goodEvents);
     }
-    /**
-     * @return The definition of valid requests.
-     * 
-     */
     public ServiceLevelEventsValidEvents validEvents() {
         return this.validEvents;
     }

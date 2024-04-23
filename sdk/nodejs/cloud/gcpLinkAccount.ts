@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  *
  * You can also use the full example, including the GCP set up, found in our guides.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -34,7 +33,6 @@ import * as utilities from "../utilities";
  *     name: "account name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

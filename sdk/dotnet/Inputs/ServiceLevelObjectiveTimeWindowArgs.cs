@@ -12,9 +12,6 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class ServiceLevelObjectiveTimeWindowArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Rolling window.
-        /// </summary>
         [Input("rolling", required: true)]
         public Input<Inputs.ServiceLevelObjectiveTimeWindowRollingArgs> Rolling { get; set; } = null!;
 

@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * Use this example to create the log parse rule.
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -24,13 +23,11 @@ import * as utilities from "./utilities";
  *     nrql: "SELECT * FROM Log WHERE logtype = 'linux_messages'",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Additional Example
  *
  * Use this example to validate a grok pattern and create the log parse rule.  More
  * information on grok pattern can be found [here](https://docs.newrelic.com/docs/logs/ui-data/parsing/#grok)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -49,7 +46,6 @@ import * as utilities from "./utilities";
  *     matched: grok.then(grok => grok.testGroks?.[0]?.matched),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

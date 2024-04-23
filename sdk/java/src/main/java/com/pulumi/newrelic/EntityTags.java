@@ -101,14 +101,14 @@ public class EntityTags extends com.pulumi.resources.CustomResource {
         return this.guid;
     }
     /**
-     * A nested block that describes an entity tag. See Nested tag blocks below for details.
+     * A set of key-value pairs to represent a tag. For example: Team:TeamName
      * 
      */
     @Export(name="tags", refs={List.class,EntityTagsTag.class}, tree="[0,1]")
     private Output<List<EntityTagsTag>> tags;
 
     /**
-     * @return A nested block that describes an entity tag. See Nested tag blocks below for details.
+     * @return A set of key-value pairs to represent a tag. For example: Team:TeamName
      * 
      */
     public Output<List<EntityTagsTag>> tags() {

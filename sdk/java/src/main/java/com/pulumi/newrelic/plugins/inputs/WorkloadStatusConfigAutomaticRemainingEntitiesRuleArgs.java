@@ -15,14 +15,14 @@ public final class WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs extend
     public static final WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs Empty = new WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs();
 
     /**
-     * The input object used to represent a rollup strategy. See Nested remaining_entities_rule_rollup blocks below for details.
+     * The input object used to represent a rollup strategy.
      * 
      */
     @Import(name="remainingEntitiesRuleRollup", required=true)
     private Output<WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs> remainingEntitiesRuleRollup;
 
     /**
-     * @return The input object used to represent a rollup strategy. See Nested remaining_entities_rule_rollup blocks below for details.
+     * @return The input object used to represent a rollup strategy.
      * 
      */
     public Output<WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs> remainingEntitiesRuleRollup() {
@@ -54,7 +54,7 @@ public final class WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs extend
         }
 
         /**
-         * @param remainingEntitiesRuleRollup The input object used to represent a rollup strategy. See Nested remaining_entities_rule_rollup blocks below for details.
+         * @param remainingEntitiesRuleRollup The input object used to represent a rollup strategy.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs extend
         }
 
         /**
-         * @param remainingEntitiesRuleRollup The input object used to represent a rollup strategy. See Nested remaining_entities_rule_rollup blocks below for details.
+         * @param remainingEntitiesRuleRollup The input object used to represent a rollup strategy.
          * 
          * @return builder
          * 

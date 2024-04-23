@@ -13,13 +13,7 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class ServiceLevelObjectiveTimeWindowRolling
     {
-        /// <summary>
-        /// Valid values are `1`, `7` and `28`.
-        /// </summary>
         public readonly int Count;
-        /// <summary>
-        /// The only supported value is `DAY`.
-        /// </summary>
         public readonly string Unit;
 
         [OutputConstructor]

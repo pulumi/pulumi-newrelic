@@ -16,8 +16,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         private InputList<string>? _awsRegions;
 
         /// <summary>
-        /// Specify each AWS region that includes the resources that you want to monitor.  
-        /// &lt;/details&gt;
+        /// Specify each AWS region that includes the resources that you want to monitor.
         /// </summary>
         public InputList<string> AwsRegions
         {
@@ -26,16 +25,13 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         }
 
         /// <summary>
-        /// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        /// Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         /// </summary>
         [Input("fetchTags")]
         public Input<bool>? FetchTags { get; set; }
 
         /// <summary>
         /// The data polling interval in seconds.
-        /// 
-        /// &lt;details&gt;
-        /// &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
         /// </summary>
         [Input("metricsPollingInterval")]
         public Input<int>? MetricsPollingInterval { get; set; }

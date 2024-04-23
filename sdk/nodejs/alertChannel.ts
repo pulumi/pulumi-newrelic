@@ -14,7 +14,6 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * ### Email
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -28,12 +27,10 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Additional Examples
  *
  * ##### Slack
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -47,12 +44,10 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * > **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
  *
  * ### OpsGenie
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -68,10 +63,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### PagerDuty
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -84,10 +77,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### VictorOps
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -101,10 +92,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Webhook
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -126,10 +115,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Webhook with complex payload
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -142,15 +129,14 @@ import * as utilities from "./utilities";
  *         payloadType: "application/json",
  *         payloadString: `{
  *   "my_custom_values": {
- *     "condition_name": "$CONDITION_NAME",
- *     "policy_name": "$POLICY_NAME"
+ *     "condition_name": "CONDITION_NAME",
+ *     "policy_name": "POLICY_NAME"
  *   }
  * }
  * `,
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -191,19 +177,19 @@ export class AlertChannel extends pulumi.CustomResource {
     }
 
     /**
-     * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+     * The New Relic account ID where you want to create alert channels.
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
-     * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+     * The configuration block for the alert channel.
      */
     public readonly config!: pulumi.Output<outputs.AlertChannelConfig | undefined>;
     /**
-     * The name of the channel.
+     * (Required) The name of the channel.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+     * (Required) The type of channel. One of: (slack, user, victorops, webhook, email, opsgenie, pagerduty).
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -244,19 +230,19 @@ export class AlertChannel extends pulumi.CustomResource {
  */
 export interface AlertChannelState {
     /**
-     * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+     * The New Relic account ID where you want to create alert channels.
      */
     accountId?: pulumi.Input<number>;
     /**
-     * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+     * The configuration block for the alert channel.
      */
     config?: pulumi.Input<inputs.AlertChannelConfig>;
     /**
-     * The name of the channel.
+     * (Required) The name of the channel.
      */
     name?: pulumi.Input<string>;
     /**
-     * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+     * (Required) The type of channel. One of: (slack, user, victorops, webhook, email, opsgenie, pagerduty).
      */
     type?: pulumi.Input<string>;
 }
@@ -266,19 +252,19 @@ export interface AlertChannelState {
  */
 export interface AlertChannelArgs {
     /**
-     * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+     * The New Relic account ID where you want to create alert channels.
      */
     accountId?: pulumi.Input<number>;
     /**
-     * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+     * The configuration block for the alert channel.
      */
     config?: pulumi.Input<inputs.AlertChannelConfig>;
     /**
-     * The name of the channel.
+     * (Required) The name of the channel.
      */
     name?: pulumi.Input<string>;
     /**
-     * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+     * (Required) The type of channel. One of: (slack, user, victorops, webhook, email, opsgenie, pagerduty).
      */
     type: pulumi.Input<string>;
 }

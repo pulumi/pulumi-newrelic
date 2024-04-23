@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -42,12 +41,10 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * ## Tags
  *
  * Manage synthetics multilocation alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -104,7 +101,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -147,15 +143,15 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
     }
 
     /**
-     * A condition term with the priority set to critical.
+     * A condition term with priority set to critical.
      */
     public readonly critical!: pulumi.Output<outputs.synthetics.MultiLocationAlertConditionCritical>;
     /**
-     * Set whether to enable the alert condition.  Defaults to true.
+     * Set whether to enable the alert condition. Defaults to true.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The Monitor GUID's of the Synthetics monitors to alert on.
+     * The GUIDs of the Synthetics monitors to alert on.
      */
     public readonly entities!: pulumi.Output<string[]>;
     /**
@@ -163,7 +159,7 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
      */
     public /*out*/ readonly entityGuid!: pulumi.Output<string>;
     /**
-     * The title of the condition.
+     * The title of this condition.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -175,14 +171,12 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
      */
     public readonly runbookUrl!: pulumi.Output<string | undefined>;
     /**
-     * The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
+     * Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
+     * select. Must be in the range of 300 to 2592000 (inclusive)
      */
     public readonly violationTimeLimitSeconds!: pulumi.Output<number | undefined>;
     /**
-     * A condition term with the priority set to warning.
-     *
-     *
-     * > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * A condition term with priority set to warning.
      */
     public readonly warning!: pulumi.Output<outputs.synthetics.MultiLocationAlertConditionWarning | undefined>;
 
@@ -239,15 +233,15 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
  */
 export interface MultiLocationAlertConditionState {
     /**
-     * A condition term with the priority set to critical.
+     * A condition term with priority set to critical.
      */
     critical?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionCritical>;
     /**
-     * Set whether to enable the alert condition.  Defaults to true.
+     * Set whether to enable the alert condition. Defaults to true.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The Monitor GUID's of the Synthetics monitors to alert on.
+     * The GUIDs of the Synthetics monitors to alert on.
      */
     entities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -255,7 +249,7 @@ export interface MultiLocationAlertConditionState {
      */
     entityGuid?: pulumi.Input<string>;
     /**
-     * The title of the condition.
+     * The title of this condition.
      */
     name?: pulumi.Input<string>;
     /**
@@ -267,14 +261,12 @@ export interface MultiLocationAlertConditionState {
      */
     runbookUrl?: pulumi.Input<string>;
     /**
-     * The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
+     * Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
+     * select. Must be in the range of 300 to 2592000 (inclusive)
      */
     violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
-     * A condition term with the priority set to warning.
-     *
-     *
-     * > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * A condition term with priority set to warning.
      */
     warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
 }
@@ -284,19 +276,19 @@ export interface MultiLocationAlertConditionState {
  */
 export interface MultiLocationAlertConditionArgs {
     /**
-     * A condition term with the priority set to critical.
+     * A condition term with priority set to critical.
      */
     critical: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionCritical>;
     /**
-     * Set whether to enable the alert condition.  Defaults to true.
+     * Set whether to enable the alert condition. Defaults to true.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The Monitor GUID's of the Synthetics monitors to alert on.
+     * The GUIDs of the Synthetics monitors to alert on.
      */
     entities: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The title of the condition.
+     * The title of this condition.
      */
     name?: pulumi.Input<string>;
     /**
@@ -308,14 +300,12 @@ export interface MultiLocationAlertConditionArgs {
      */
     runbookUrl?: pulumi.Input<string>;
     /**
-     * The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
+     * Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
+     * select. Must be in the range of 300 to 2592000 (inclusive)
      */
     violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
-     * A condition term with the priority set to warning.
-     *
-     *
-     * > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * A condition term with priority set to warning.
      */
     warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
 }

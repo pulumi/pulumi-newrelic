@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * Include entities with a certain string on the name.
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -31,10 +30,8 @@ import * as utilities from "../utilities";
  *     scopeAccountIds: [12345678],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Include entities with a set of tags.
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -49,10 +46,8 @@ import * as utilities from "../utilities";
  *     scopeAccountIds: [12345678],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Include entities with a set of tags.
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -67,13 +62,11 @@ import * as utilities from "../utilities";
  *     scopeAccountIds: [12345678],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Include automatic status
  *
  * > The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -111,13 +104,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Include static status
  *
  * > You can use this during maintenance tasks or any other time you want to provide a fixed status for your workload. This overrides all automatic rules. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status#configure-static)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -139,7 +130,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -194,11 +184,11 @@ export class Workload extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
+     * A list of entity GUIDs manually assigned to this workload.
      */
     public readonly entityGuids!: pulumi.Output<string[]>;
     /**
-     * A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
+     * A list of search queries that define a dynamic workload.
      */
     public readonly entitySearchQueries!: pulumi.Output<outputs.plugins.WorkloadEntitySearchQuery[] | undefined>;
     /**
@@ -218,11 +208,11 @@ export class Workload extends pulumi.CustomResource {
      */
     public readonly scopeAccountIds!: pulumi.Output<number[]>;
     /**
-     * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
+     * An input object used to represent an automatic status configuration.
      */
     public readonly statusConfigAutomatic!: pulumi.Output<outputs.plugins.WorkloadStatusConfigAutomatic | undefined>;
     /**
-     * A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
+     * A list of static status configurations. You can only configure one static status for a workload.
      */
     public readonly statusConfigStatic!: pulumi.Output<outputs.plugins.WorkloadStatusConfigStatic | undefined>;
     /**
@@ -292,11 +282,11 @@ export interface WorkloadState {
      */
     description?: pulumi.Input<string>;
     /**
-     * A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
+     * A list of entity GUIDs manually assigned to this workload.
      */
     entityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
+     * A list of search queries that define a dynamic workload.
      */
     entitySearchQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadEntitySearchQuery>[]>;
     /**
@@ -316,11 +306,11 @@ export interface WorkloadState {
      */
     scopeAccountIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
+     * An input object used to represent an automatic status configuration.
      */
     statusConfigAutomatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomatic>;
     /**
-     * A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
+     * A list of static status configurations. You can only configure one static status for a workload.
      */
     statusConfigStatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigStatic>;
     /**
@@ -342,11 +332,11 @@ export interface WorkloadArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
+     * A list of entity GUIDs manually assigned to this workload.
      */
     entityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
+     * A list of search queries that define a dynamic workload.
      */
     entitySearchQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadEntitySearchQuery>[]>;
     /**
@@ -358,11 +348,11 @@ export interface WorkloadArgs {
      */
     scopeAccountIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
+     * An input object used to represent an automatic status configuration.
      */
     statusConfigAutomatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomatic>;
     /**
-     * A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
+     * A list of static status configurations. You can only configure one static status for a workload.
      */
     statusConfigStatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigStatic>;
 }

@@ -81,14 +81,14 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The unique identifier for the Synthetics private location in New Relic.
+     * The unique entity identifier of the monitor in New Relic.
      * 
      */
     @Import(name="guid")
     private @Nullable Output<String> guid;
 
     /**
-     * @return The unique identifier for the Synthetics private location in New Relic.
+     * @return The unique entity identifier of the monitor in New Relic.
      * 
      */
     public Optional<Output<String>> guid() {
@@ -404,7 +404,7 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param guid The unique identifier for the Synthetics private location in New Relic.
+         * @param guid The unique entity identifier of the monitor in New Relic.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param guid The unique identifier for the Synthetics private location in New Relic.
+         * @param guid The unique entity identifier of the monitor in New Relic.
          * 
          * @return builder
          * 

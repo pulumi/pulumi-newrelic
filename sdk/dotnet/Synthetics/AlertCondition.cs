@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +34,11 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Tags
     /// 
     /// Manage synthetics alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -126,7 +123,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -140,11 +136,7 @@ namespace Pulumi.NewRelic.Synthetics
     public partial class AlertCondition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Set whether to enable the alert condition. Defaults to `true`.
-        /// 
-        /// ```
-        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-        /// ```
+        /// Set whether to enable the alert condition. Defaults to true.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -156,7 +148,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string> EntityGuid { get; private set; } = null!;
 
         /// <summary>
-        /// The GUID of the Synthetics monitor to be referenced in the alert condition.
+        /// The ID of the Synthetics monitor to be referenced in the alert condition.
         /// </summary>
         [Output("monitorId")]
         public Output<string> MonitorId { get; private set; } = null!;
@@ -226,17 +218,13 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class AlertConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set whether to enable the alert condition. Defaults to `true`.
-        /// 
-        /// ```
-        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-        /// ```
+        /// Set whether to enable the alert condition. Defaults to true.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The GUID of the Synthetics monitor to be referenced in the alert condition.
+        /// The ID of the Synthetics monitor to be referenced in the alert condition.
         /// </summary>
         [Input("monitorId", required: true)]
         public Input<string> MonitorId { get; set; } = null!;
@@ -268,11 +256,7 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class AlertConditionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set whether to enable the alert condition. Defaults to `true`.
-        /// 
-        /// ```
-        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-        /// ```
+        /// Set whether to enable the alert condition. Defaults to true.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -284,7 +268,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? EntityGuid { get; set; }
 
         /// <summary>
-        /// The GUID of the Synthetics monitor to be referenced in the alert condition.
+        /// The ID of the Synthetics monitor to be referenced in the alert condition.
         /// </summary>
         [Input("monitorId")]
         public Input<string>? MonitorId { get; set; }

@@ -15,66 +15,60 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AzureIntegrationsMonitor {
     /**
-     * @return A boolean value, that specifies if the integration needs to be active. Defaults to &#39;true&#39; if not specified.
-     * 
-     * &gt; **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic&#39;s documentation on the Azure Monitor integration.
+     * @return A flag that specifies if the integration is active
      * 
      */
     private @Nullable Boolean enabled;
     /**
-     * @return A list of resource tags associated with the resources that need to be excluded from monitoring.
+     * @return Specify resource tags in &#39;key:value&#39; form to be excluded from monitoring
      * 
      */
     private @Nullable List<String> excludeTags;
     /**
-     * @return A list of resource tags associated with the resources that need to be monitored, in a &#34;key:value&#34; format. If this is not specified, all resources will be monitored.
+     * @return Specify resource tags in &#39;key:value&#39; form to be monitored
      * 
      */
     private @Nullable List<String> includeTags;
     /**
-     * @return The data polling interval in seconds.
+     * @return The data polling interval in seconds
      * 
      */
     private @Nullable Integer metricsPollingInterval;
     /**
      * @return Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
      * 
-     * Other integration type support an additional argument:
-     * 
      */
     private @Nullable List<String> resourceGroups;
     /**
-     * @return A list of Azure resource types that need to be monitored.
+     * @return Specify each Azure resource type that needs to be monitored
      * 
      */
     private @Nullable List<String> resourceTypes;
 
     private AzureIntegrationsMonitor() {}
     /**
-     * @return A boolean value, that specifies if the integration needs to be active. Defaults to &#39;true&#39; if not specified.
-     * 
-     * &gt; **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic&#39;s documentation on the Azure Monitor integration.
+     * @return A flag that specifies if the integration is active
      * 
      */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return A list of resource tags associated with the resources that need to be excluded from monitoring.
+     * @return Specify resource tags in &#39;key:value&#39; form to be excluded from monitoring
      * 
      */
     public List<String> excludeTags() {
         return this.excludeTags == null ? List.of() : this.excludeTags;
     }
     /**
-     * @return A list of resource tags associated with the resources that need to be monitored, in a &#34;key:value&#34; format. If this is not specified, all resources will be monitored.
+     * @return Specify resource tags in &#39;key:value&#39; form to be monitored
      * 
      */
     public List<String> includeTags() {
         return this.includeTags == null ? List.of() : this.includeTags;
     }
     /**
-     * @return The data polling interval in seconds.
+     * @return The data polling interval in seconds
      * 
      */
     public Optional<Integer> metricsPollingInterval() {
@@ -83,14 +77,12 @@ public final class AzureIntegrationsMonitor {
     /**
      * @return Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
      * 
-     * Other integration type support an additional argument:
-     * 
      */
     public List<String> resourceGroups() {
         return this.resourceGroups == null ? List.of() : this.resourceGroups;
     }
     /**
-     * @return A list of Azure resource types that need to be monitored.
+     * @return Specify each Azure resource type that needs to be monitored
      * 
      */
     public List<String> resourceTypes() {

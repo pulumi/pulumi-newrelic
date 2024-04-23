@@ -17,7 +17,6 @@ import (
 //
 // Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,14 +64,12 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
 // Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
 // If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
 //
 // Here is an example of a `slowBurn` alert.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -125,11 +122,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Here is an example of a custom alert:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -184,7 +179,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetServiceLevelAlertHelper(ctx *pulumi.Context, args *GetServiceLevelAlertHelperArgs, opts ...pulumi.InvokeOption) (*GetServiceLevelAlertHelperResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceLevelAlertHelperResult
@@ -197,20 +191,13 @@ func GetServiceLevelAlertHelper(ctx *pulumi.Context, args *GetServiceLevelAlertH
 
 // A collection of arguments for invoking getServiceLevelAlertHelper.
 type GetServiceLevelAlertHelperArgs struct {
-	// The type of alert we want to set. Valid values are:
-	AlertType string `pulumi:"alertType"`
-	// Aggregation window taken into consideration in seconds. Mandatory if `alertType` is `custom`.
-	CustomEvaluationPeriod *int `pulumi:"customEvaluationPeriod"`
-	// How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
+	AlertType                        string   `pulumi:"alertType"`
+	CustomEvaluationPeriod           *int     `pulumi:"customEvaluationPeriod"`
 	CustomToleratedBudgetConsumption *float64 `pulumi:"customToleratedBudgetConsumption"`
-	// If the SLI is defined using bad events. Defaults to `false`
-	IsBadEvents *bool `pulumi:"isBadEvents"`
-	// The guid of the sli we want to set the alert on.
-	SliGuid string `pulumi:"sliGuid"`
-	// The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
-	SloPeriod int `pulumi:"sloPeriod"`
-	// The target of the Service Level Objective, valid values between `0` and `100`.
-	SloTarget float64 `pulumi:"sloTarget"`
+	IsBadEvents                      *bool    `pulumi:"isBadEvents"`
+	SliGuid                          string   `pulumi:"sliGuid"`
+	SloPeriod                        int      `pulumi:"sloPeriod"`
+	SloTarget                        float64  `pulumi:"sloTarget"`
 }
 
 // A collection of values returned by getServiceLevelAlertHelper.
@@ -249,20 +236,13 @@ func GetServiceLevelAlertHelperOutput(ctx *pulumi.Context, args GetServiceLevelA
 
 // A collection of arguments for invoking getServiceLevelAlertHelper.
 type GetServiceLevelAlertHelperOutputArgs struct {
-	// The type of alert we want to set. Valid values are:
-	AlertType pulumi.StringInput `pulumi:"alertType"`
-	// Aggregation window taken into consideration in seconds. Mandatory if `alertType` is `custom`.
-	CustomEvaluationPeriod pulumi.IntPtrInput `pulumi:"customEvaluationPeriod"`
-	// How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
+	AlertType                        pulumi.StringInput     `pulumi:"alertType"`
+	CustomEvaluationPeriod           pulumi.IntPtrInput     `pulumi:"customEvaluationPeriod"`
 	CustomToleratedBudgetConsumption pulumi.Float64PtrInput `pulumi:"customToleratedBudgetConsumption"`
-	// If the SLI is defined using bad events. Defaults to `false`
-	IsBadEvents pulumi.BoolPtrInput `pulumi:"isBadEvents"`
-	// The guid of the sli we want to set the alert on.
-	SliGuid pulumi.StringInput `pulumi:"sliGuid"`
-	// The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
-	SloPeriod pulumi.IntInput `pulumi:"sloPeriod"`
-	// The target of the Service Level Objective, valid values between `0` and `100`.
-	SloTarget pulumi.Float64Input `pulumi:"sloTarget"`
+	IsBadEvents                      pulumi.BoolPtrInput    `pulumi:"isBadEvents"`
+	SliGuid                          pulumi.StringInput     `pulumi:"sliGuid"`
+	SloPeriod                        pulumi.IntInput        `pulumi:"sloPeriod"`
+	SloTarget                        pulumi.Float64Input    `pulumi:"sloTarget"`
 }
 
 func (GetServiceLevelAlertHelperOutputArgs) ElementType() reflect.Type {

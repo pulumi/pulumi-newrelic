@@ -14,11 +14,11 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class AlertMutingRuleConditionCondition
     {
         /// <summary>
-        /// The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.&lt;NAME&gt;`, `targetId`, `targetName`
+        /// The attribute on an incident.
         /// </summary>
         public readonly string Attribute;
         /// <summary>
-        /// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
+        /// The operator used to compare the attribute's value with the supplied value(s).
         /// </summary>
         public readonly string Operator;
         /// <summary>

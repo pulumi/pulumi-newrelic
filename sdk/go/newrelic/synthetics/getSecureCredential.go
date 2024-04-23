@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupSecureCredential(ctx *pulumi.Context, args *LookupSecureCredentialArgs, opts ...pulumi.InvokeOption) (*LookupSecureCredentialResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecureCredentialResult
@@ -54,10 +52,8 @@ func LookupSecureCredential(ctx *pulumi.Context, args *LookupSecureCredentialArg
 
 // A collection of arguments for invoking getSecureCredential.
 type LookupSecureCredentialArgs struct {
-	// The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
-	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
-	Key string `pulumi:"key"`
+	AccountId *int   `pulumi:"accountId"`
+	Key       string `pulumi:"key"`
 }
 
 // A collection of values returned by getSecureCredential.
@@ -87,10 +83,8 @@ func LookupSecureCredentialOutput(ctx *pulumi.Context, args LookupSecureCredenti
 
 // A collection of arguments for invoking getSecureCredential.
 type LookupSecureCredentialOutputArgs struct {
-	// The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
-	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key       pulumi.StringInput `pulumi:"key"`
 }
 
 func (LookupSecureCredentialOutputArgs) ElementType() reflect.Type {

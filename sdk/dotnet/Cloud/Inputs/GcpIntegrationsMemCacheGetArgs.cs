@@ -13,9 +13,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
     public sealed class GcpIntegrationsMemCacheGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data polling interval in seconds.
-        /// 
-        /// Other integration supports an additional argument:
+        /// the data polling interval in seconds
         /// </summary>
         [Input("metricsPollingInterval")]
         public Input<int>? MetricsPollingInterval { get; set; }

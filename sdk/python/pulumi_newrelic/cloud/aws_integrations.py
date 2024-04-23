@@ -137,7 +137,7 @@ class AwsIntegrationsArgs:
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsIntegrationsAlbArgs'] alb: ALB integration
         :param pulumi.Input['AwsIntegrationsApiGatewayArgs'] api_gateway: API Gateway integration
-        :param pulumi.Input['AwsIntegrationsAutoScalingArgs'] auto_scaling: ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
+        :param pulumi.Input['AwsIntegrationsAutoScalingArgs'] auto_scaling: AutoScaling integration
         :param pulumi.Input['AwsIntegrationsAwsAppSyncArgs'] aws_app_sync: Aws Appsync integration
         :param pulumi.Input['AwsIntegrationsAwsAthenaArgs'] aws_athena: Aws Athena integration
         :param pulumi.Input['AwsIntegrationsAwsCognitoArgs'] aws_cognito: Aws Cognito integration
@@ -409,7 +409,7 @@ class AwsIntegrationsArgs:
     @pulumi.getter(name="autoScaling")
     def auto_scaling(self) -> Optional[pulumi.Input['AwsIntegrationsAutoScalingArgs']]:
         """
-        ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
+        AutoScaling integration
         """
         return pulumi.get(self, "auto_scaling")
 
@@ -1068,7 +1068,7 @@ class _AwsIntegrationsState:
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsIntegrationsAlbArgs'] alb: ALB integration
         :param pulumi.Input['AwsIntegrationsApiGatewayArgs'] api_gateway: API Gateway integration
-        :param pulumi.Input['AwsIntegrationsAutoScalingArgs'] auto_scaling: ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
+        :param pulumi.Input['AwsIntegrationsAutoScalingArgs'] auto_scaling: AutoScaling integration
         :param pulumi.Input['AwsIntegrationsAwsAppSyncArgs'] aws_app_sync: Aws Appsync integration
         :param pulumi.Input['AwsIntegrationsAwsAthenaArgs'] aws_athena: Aws Athena integration
         :param pulumi.Input['AwsIntegrationsAwsCognitoArgs'] aws_cognito: Aws Cognito integration
@@ -1330,7 +1330,7 @@ class _AwsIntegrationsState:
     @pulumi.getter(name="autoScaling")
     def auto_scaling(self) -> Optional[pulumi.Input['AwsIntegrationsAutoScalingArgs']]:
         """
-        ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
+        AutoScaling integration
         """
         return pulumi.get(self, "auto_scaling")
 
@@ -2075,7 +2075,6 @@ class AwsIntegrations(pulumi.CustomResource):
 
         Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -2363,7 +2362,6 @@ class AwsIntegrations(pulumi.CustomResource):
                 metrics_polling_interval=6000,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -2380,7 +2378,7 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']] alb: ALB integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']] api_gateway: API Gateway integration
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']] auto_scaling: ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']] auto_scaling: AutoScaling integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAppSyncArgs']] aws_app_sync: Aws Appsync integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAthenaArgs']] aws_athena: Aws Athena integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsCognitoArgs']] aws_cognito: Aws Cognito integration
@@ -2514,7 +2512,6 @@ class AwsIntegrations(pulumi.CustomResource):
 
         Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -2802,7 +2799,6 @@ class AwsIntegrations(pulumi.CustomResource):
                 metrics_polling_interval=6000,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -3022,7 +3018,7 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']] alb: ALB integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']] api_gateway: API Gateway integration
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']] auto_scaling: ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']] auto_scaling: AutoScaling integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAppSyncArgs']] aws_app_sync: Aws Appsync integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAthenaArgs']] aws_athena: Aws Athena integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsCognitoArgs']] aws_cognito: Aws Cognito integration
@@ -3223,7 +3219,7 @@ class AwsIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="autoScaling")
     def auto_scaling(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAutoScaling']]:
         """
-        ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
+        AutoScaling integration
         """
         return pulumi.get(self, "auto_scaling")
 

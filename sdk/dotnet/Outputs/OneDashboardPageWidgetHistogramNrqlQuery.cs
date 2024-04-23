@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class OneDashboardPageWidgetHistogramNrqlQuery
     {
         /// <summary>
-        /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        /// The account id used for the NRQL query.
         /// </summary>
         public readonly int? AccountId;
         /// <summary>

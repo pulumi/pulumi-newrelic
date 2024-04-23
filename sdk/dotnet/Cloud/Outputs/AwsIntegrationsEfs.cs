@@ -14,19 +14,15 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     public sealed class AwsIntegrationsEfs
     {
         /// <summary>
-        /// Specify each AWS region that includes the resources that you want to monitor.  
-        /// &lt;/details&gt;
+        /// Specify each AWS region that includes the resources that you want to monitor.
         /// </summary>
         public readonly ImmutableArray<string> AwsRegions;
         /// <summary>
-        /// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        /// Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         /// </summary>
         public readonly bool? FetchTags;
         /// <summary>
         /// The data polling interval in seconds.
-        /// 
-        /// &lt;details&gt;
-        /// &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
         /// </summary>
         public readonly int? MetricsPollingInterval;
         /// <summary>

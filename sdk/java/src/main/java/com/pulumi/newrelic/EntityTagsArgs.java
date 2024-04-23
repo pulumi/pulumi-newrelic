@@ -32,14 +32,14 @@ public final class EntityTagsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A nested block that describes an entity tag. See Nested tag blocks below for details.
+     * A set of key-value pairs to represent a tag. For example: Team:TeamName
      * 
      */
     @Import(name="tags", required=true)
     private Output<List<EntityTagsTagArgs>> tags;
 
     /**
-     * @return A nested block that describes an entity tag. See Nested tag blocks below for details.
+     * @return A set of key-value pairs to represent a tag. For example: Team:TeamName
      * 
      */
     public Output<List<EntityTagsTagArgs>> tags() {
@@ -93,7 +93,7 @@ public final class EntityTagsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A nested block that describes an entity tag. See Nested tag blocks below for details.
+         * @param tags A set of key-value pairs to represent a tag. For example: Team:TeamName
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class EntityTagsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A nested block that describes an entity tag. See Nested tag blocks below for details.
+         * @param tags A set of key-value pairs to represent a tag. For example: Team:TeamName
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class EntityTagsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A nested block that describes an entity tag. See Nested tag blocks below for details.
+         * @param tags A set of key-value pairs to represent a tag. For example: Team:TeamName
          * 
          * @return builder
          * 

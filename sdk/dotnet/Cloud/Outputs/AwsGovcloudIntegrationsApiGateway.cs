@@ -14,17 +14,15 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     public sealed class AwsGovcloudIntegrationsApiGateway
     {
         /// <summary>
-        /// Specify each AWS region that includes the resources that you want to monitor.
+        /// Specify each AWS region that includes the resources that you want to monitor
         /// </summary>
         public readonly ImmutableArray<string> AwsRegions;
         /// <summary>
-        /// The data polling interval in seconds.
-        /// 
-        /// Some integration types support an additional set of arguments:
+        /// The data polling interval in seconds
         /// </summary>
         public readonly int? MetricsPollingInterval;
         /// <summary>
-        /// Specify each name or prefix for the Stages that you want to monitor. Filter values are case-sensitive.
+        /// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         /// </summary>
         public readonly ImmutableArray<string> StagePrefixes;
         /// <summary>

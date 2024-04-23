@@ -19,16 +19,12 @@ class EventArgs:
                  events: pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]]):
         """
         The set of arguments for constructing a Event resource.
-        :param pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """
         pulumi.set(__self__, "events", events)
 
     @property
     @pulumi.getter
     def events(self) -> pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]]:
-        """
-        An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-        """
         return pulumi.get(self, "events")
 
     @events.setter
@@ -42,7 +38,6 @@ class _EventState:
                  events: Optional[pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]]] = None):
         """
         Input properties used for looking up and filtering Event resources.
-        :param pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """
         if events is not None:
             pulumi.set(__self__, "events", events)
@@ -50,9 +45,6 @@ class _EventState:
     @property
     @pulumi.getter
     def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]]]:
-        """
-        An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-        """
         return pulumi.get(self, "events")
 
     @events.setter
@@ -72,7 +64,6 @@ class Event(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -98,7 +89,6 @@ class Event(pulumi.CustomResource):
             ],
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Events
 
@@ -118,7 +108,6 @@ class Event(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventEventArgs']]]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """
         ...
     @overload
@@ -131,7 +120,6 @@ class Event(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -157,7 +145,6 @@ class Event(pulumi.CustomResource):
             ],
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Events
 
@@ -221,7 +208,6 @@ class Event(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventEventArgs']]]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -233,8 +219,5 @@ class Event(pulumi.CustomResource):
     @property
     @pulumi.getter
     def events(self) -> pulumi.Output[Sequence['outputs.EventEvent']]:
-        """
-        An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-        """
         return pulumi.get(self, "events")
 

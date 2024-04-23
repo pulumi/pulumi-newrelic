@@ -13,21 +13,9 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class ServiceLevelObjective
     {
-        /// <summary>
-        /// The description of the SLI.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// A short name for the SLI that will help anyone understand what it is about.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
-        /// </summary>
         public readonly double Target;
-        /// <summary>
-        /// Time window is the period of the objective.
-        /// </summary>
         public readonly Outputs.ServiceLevelObjectiveTimeWindow TimeWindow;
 
         [OutputConstructor]

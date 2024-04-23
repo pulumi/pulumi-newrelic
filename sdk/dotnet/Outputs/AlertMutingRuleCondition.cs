@@ -14,11 +14,11 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class AlertMutingRuleCondition
     {
         /// <summary>
-        /// The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
+        /// The individual MutingRuleConditions within the group.
         /// </summary>
         public readonly ImmutableArray<Outputs.AlertMutingRuleConditionCondition> Conditions;
         /// <summary>
-        /// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
+        /// The operator used to combine all the MutingRuleConditions within the group.
         /// </summary>
         public readonly string Operator;
 

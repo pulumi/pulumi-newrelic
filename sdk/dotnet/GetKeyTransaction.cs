@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,7 +60,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetKeyTransactionResult> InvokeAsync(GetKeyTransactionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? new GetKeyTransactionArgs(), options.WithDefaults());
@@ -71,7 +69,6 @@ namespace Pulumi.NewRelic
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -116,7 +113,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetKeyTransactionResult> Invoke(GetKeyTransactionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? new GetKeyTransactionInvokeArgs(), options.WithDefaults());

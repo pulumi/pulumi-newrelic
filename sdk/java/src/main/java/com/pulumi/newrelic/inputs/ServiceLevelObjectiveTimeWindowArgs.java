@@ -14,17 +14,9 @@ public final class ServiceLevelObjectiveTimeWindowArgs extends com.pulumi.resour
 
     public static final ServiceLevelObjectiveTimeWindowArgs Empty = new ServiceLevelObjectiveTimeWindowArgs();
 
-    /**
-     * Rolling window.
-     * 
-     */
     @Import(name="rolling", required=true)
     private Output<ServiceLevelObjectiveTimeWindowRollingArgs> rolling;
 
-    /**
-     * @return Rolling window.
-     * 
-     */
     public Output<ServiceLevelObjectiveTimeWindowRollingArgs> rolling() {
         return this.rolling;
     }
@@ -53,23 +45,11 @@ public final class ServiceLevelObjectiveTimeWindowArgs extends com.pulumi.resour
             $ = new ServiceLevelObjectiveTimeWindowArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param rolling Rolling window.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rolling(Output<ServiceLevelObjectiveTimeWindowRollingArgs> rolling) {
             $.rolling = rolling;
             return this;
         }
 
-        /**
-         * @param rolling Rolling window.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rolling(ServiceLevelObjectiveTimeWindowRollingArgs rolling) {
             return rolling(Output.of(rolling));
         }

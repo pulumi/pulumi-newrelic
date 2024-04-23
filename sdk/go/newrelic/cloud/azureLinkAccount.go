@@ -26,7 +26,6 @@ import (
 //
 // You can also use the full example, including the Azure set up, found in our guides.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,7 +54,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

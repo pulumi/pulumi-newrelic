@@ -114,14 +114,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
+     * AutoScaling integration
      * 
      */
     @Import(name="autoScaling")
     private @Nullable Output<AwsIntegrationsAutoScalingArgs> autoScaling;
 
     /**
-     * @return ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
+     * @return AutoScaling integration
      * 
      */
     public Optional<Output<AwsIntegrationsAutoScalingArgs>> autoScaling() {
@@ -1141,7 +1141,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param autoScaling ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
+         * @param autoScaling AutoScaling integration
          * 
          * @return builder
          * 
@@ -1152,7 +1152,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param autoScaling ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
+         * @param autoScaling AutoScaling integration
          * 
          * @return builder
          * 

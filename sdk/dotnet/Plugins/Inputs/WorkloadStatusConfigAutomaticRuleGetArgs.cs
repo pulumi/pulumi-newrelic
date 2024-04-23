@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Plugins.Inputs
         private InputList<string>? _entityGuids;
 
         /// <summary>
-        /// A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
+        /// A list of entity GUIDs composing the rule.
         /// </summary>
         public InputList<string> EntityGuids
         {
@@ -28,7 +28,7 @@ namespace Pulumi.NewRelic.Plugins.Inputs
         private InputList<Inputs.WorkloadStatusConfigAutomaticRuleNrqlQueryGetArgs>? _nrqlQueries;
 
         /// <summary>
-        /// A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
+        /// A list of entity search queries used to retrieve the entities that compose the rule.
         /// </summary>
         public InputList<Inputs.WorkloadStatusConfigAutomaticRuleNrqlQueryGetArgs> NrqlQueries
         {
@@ -37,7 +37,7 @@ namespace Pulumi.NewRelic.Plugins.Inputs
         }
 
         /// <summary>
-        /// The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
+        /// The input object used to represent a rollup strategy.
         /// </summary>
         [Input("rollup", required: true)]
         public Input<Inputs.WorkloadStatusConfigAutomaticRuleRollupGetArgs> Rollup { get; set; } = null!;

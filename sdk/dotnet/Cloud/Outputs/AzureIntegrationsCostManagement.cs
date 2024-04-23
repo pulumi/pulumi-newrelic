@@ -14,11 +14,11 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     public sealed class AzureIntegrationsCostManagement
     {
         /// <summary>
-        /// The data polling interval in seconds.
+        /// The data polling interval in seconds
         /// </summary>
         public readonly int? MetricsPollingInterval;
         /// <summary>
-        /// Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        /// Specify if additional cost data per tag should be collected. This field is case sensitive.
         /// </summary>
         public readonly ImmutableArray<string> TagKeys;
 

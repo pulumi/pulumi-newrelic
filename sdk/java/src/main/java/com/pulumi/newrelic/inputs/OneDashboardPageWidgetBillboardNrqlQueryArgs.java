@@ -18,14 +18,14 @@ public final class OneDashboardPageWidgetBillboardNrqlQueryArgs extends com.pulu
     public static final OneDashboardPageWidgetBillboardNrqlQueryArgs Empty = new OneDashboardPageWidgetBillboardNrqlQueryArgs();
 
     /**
-     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     * The account id used for the NRQL query.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<Integer> accountId;
 
     /**
-     * @return Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     * @return The account id used for the NRQL query.
      * 
      */
     public Optional<Output<Integer>> accountId() {
@@ -73,7 +73,7 @@ public final class OneDashboardPageWidgetBillboardNrqlQueryArgs extends com.pulu
         }
 
         /**
-         * @param accountId Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+         * @param accountId The account id used for the NRQL query.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class OneDashboardPageWidgetBillboardNrqlQueryArgs extends com.pulu
         }
 
         /**
-         * @param accountId Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+         * @param accountId The account id used for the NRQL query.
          * 
          * @return builder
          * 

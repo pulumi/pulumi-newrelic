@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -23,7 +22,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTestGrokPattern(args: GetTestGrokPatternArgs, opts?: pulumi.InvokeOptions): Promise<GetTestGrokPatternResult> {
 
@@ -72,7 +70,6 @@ export interface GetTestGrokPatternResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -86,7 +83,6 @@ export interface GetTestGrokPatternResult {
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTestGrokPatternOutput(args: GetTestGrokPatternOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestGrokPatternResult> {
     return pulumi.output(args).apply((a: any) => getTestGrokPattern(a, opts))

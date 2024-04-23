@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -30,7 +29,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getObfuscationExpression(args: GetObfuscationExpressionArgs, opts?: pulumi.InvokeOptions): Promise<GetObfuscationExpressionResult> {
 
@@ -71,7 +69,6 @@ export interface GetObfuscationExpressionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -92,7 +89,6 @@ export interface GetObfuscationExpressionResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getObfuscationExpressionOutput(args: GetObfuscationExpressionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObfuscationExpressionResult> {
     return pulumi.output(args).apply((a: any) => getObfuscationExpression(a, opts))

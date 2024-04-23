@@ -24,7 +24,6 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -321,7 +320,6 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -44,14 +43,12 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
  * Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
  * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
  *
  * Here is an example of a `slowBurn` alert.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -86,11 +83,9 @@ import * as utilities from "./utilities";
  *     slideBy: 900,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Here is an example of a custom alert:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -127,7 +122,6 @@ import * as utilities from "./utilities";
  *     slideBy: 60,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServiceLevelAlertHelper(args: GetServiceLevelAlertHelperArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLevelAlertHelperResult> {
 
@@ -147,33 +141,12 @@ export function getServiceLevelAlertHelper(args: GetServiceLevelAlertHelperArgs,
  * A collection of arguments for invoking getServiceLevelAlertHelper.
  */
 export interface GetServiceLevelAlertHelperArgs {
-    /**
-     * The type of alert we want to set. Valid values are:
-     */
     alertType: string;
-    /**
-     * Aggregation window taken into consideration in seconds. Mandatory if `alertType` is `custom`.
-     */
     customEvaluationPeriod?: number;
-    /**
-     * How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
-     */
     customToleratedBudgetConsumption?: number;
-    /**
-     * If the SLI is defined using bad events. Defaults to `false`
-     */
     isBadEvents?: boolean;
-    /**
-     * The guid of the sli we want to set the alert on.
-     */
     sliGuid: string;
-    /**
-     * The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
-     */
     sloPeriod: number;
-    /**
-     * The target of the Service Level Objective, valid values between `0` and `100`.
-     */
     sloTarget: number;
 }
 
@@ -216,7 +189,6 @@ export interface GetServiceLevelAlertHelperResult {
  *
  * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -249,14 +221,12 @@ export interface GetServiceLevelAlertHelperResult {
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
  * Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
  * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
  *
  * Here is an example of a `slowBurn` alert.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -291,11 +261,9 @@ export interface GetServiceLevelAlertHelperResult {
  *     slideBy: 900,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Here is an example of a custom alert:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -332,7 +300,6 @@ export interface GetServiceLevelAlertHelperResult {
  *     slideBy: 60,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServiceLevelAlertHelperOutput(args: GetServiceLevelAlertHelperOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLevelAlertHelperResult> {
     return pulumi.output(args).apply((a: any) => getServiceLevelAlertHelper(a, opts))
@@ -342,32 +309,11 @@ export function getServiceLevelAlertHelperOutput(args: GetServiceLevelAlertHelpe
  * A collection of arguments for invoking getServiceLevelAlertHelper.
  */
 export interface GetServiceLevelAlertHelperOutputArgs {
-    /**
-     * The type of alert we want to set. Valid values are:
-     */
     alertType: pulumi.Input<string>;
-    /**
-     * Aggregation window taken into consideration in seconds. Mandatory if `alertType` is `custom`.
-     */
     customEvaluationPeriod?: pulumi.Input<number>;
-    /**
-     * How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
-     */
     customToleratedBudgetConsumption?: pulumi.Input<number>;
-    /**
-     * If the SLI is defined using bad events. Defaults to `false`
-     */
     isBadEvents?: pulumi.Input<boolean>;
-    /**
-     * The guid of the sli we want to set the alert on.
-     */
     sliGuid: pulumi.Input<string>;
-    /**
-     * The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
-     */
     sloPeriod: pulumi.Input<number>;
-    /**
-     * The target of the Service Level Objective, valid values between `0` and `100`.
-     */
     sloTarget: pulumi.Input<number>;
 }

@@ -19,7 +19,6 @@ namespace Pulumi.NewRelic.Plugins
     /// ## Example Usage
     /// 
     /// Include entities with a certain string on the name.
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,10 +50,8 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Include entities with a set of tags.
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -86,10 +83,8 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Include entities with a set of tags.
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -121,13 +116,11 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Include automatic status
     /// 
     /// &gt; The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -197,13 +190,11 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Include static status
     /// 
     /// &gt; You can use this during maintenance tasks or any other time you want to provide a fixed status for your workload. This overrides all automatic rules. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status#configure-static)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -243,7 +234,6 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -279,13 +269,13 @@ namespace Pulumi.NewRelic.Plugins
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+        /// A list of entity GUIDs manually assigned to this workload.
         /// </summary>
         [Output("entityGuids")]
         public Output<ImmutableArray<string>> EntityGuids { get; private set; } = null!;
 
         /// <summary>
-        /// A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+        /// A list of search queries that define a dynamic workload.
         /// </summary>
         [Output("entitySearchQueries")]
         public Output<ImmutableArray<Outputs.WorkloadEntitySearchQuery>> EntitySearchQueries { get; private set; } = null!;
@@ -315,13 +305,13 @@ namespace Pulumi.NewRelic.Plugins
         public Output<ImmutableArray<int>> ScopeAccountIds { get; private set; } = null!;
 
         /// <summary>
-        /// An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        /// An input object used to represent an automatic status configuration.
         /// </summary>
         [Output("statusConfigAutomatic")]
         public Output<Outputs.WorkloadStatusConfigAutomatic?> StatusConfigAutomatic { get; private set; } = null!;
 
         /// <summary>
-        /// A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        /// A list of static status configurations. You can only configure one static status for a workload.
         /// </summary>
         [Output("statusConfigStatic")]
         public Output<Outputs.WorkloadStatusConfigStatic?> StatusConfigStatic { get; private set; } = null!;
@@ -394,7 +384,7 @@ namespace Pulumi.NewRelic.Plugins
         private InputList<string>? _entityGuids;
 
         /// <summary>
-        /// A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+        /// A list of entity GUIDs manually assigned to this workload.
         /// </summary>
         public InputList<string> EntityGuids
         {
@@ -406,7 +396,7 @@ namespace Pulumi.NewRelic.Plugins
         private InputList<Inputs.WorkloadEntitySearchQueryArgs>? _entitySearchQueries;
 
         /// <summary>
-        /// A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+        /// A list of search queries that define a dynamic workload.
         /// </summary>
         public InputList<Inputs.WorkloadEntitySearchQueryArgs> EntitySearchQueries
         {
@@ -433,13 +423,13 @@ namespace Pulumi.NewRelic.Plugins
         }
 
         /// <summary>
-        /// An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        /// An input object used to represent an automatic status configuration.
         /// </summary>
         [Input("statusConfigAutomatic")]
         public Input<Inputs.WorkloadStatusConfigAutomaticArgs>? StatusConfigAutomatic { get; set; }
 
         /// <summary>
-        /// A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        /// A list of static status configurations. You can only configure one static status for a workload.
         /// </summary>
         [Input("statusConfigStatic")]
         public Input<Inputs.WorkloadStatusConfigStaticArgs>? StatusConfigStatic { get; set; }
@@ -474,7 +464,7 @@ namespace Pulumi.NewRelic.Plugins
         private InputList<string>? _entityGuids;
 
         /// <summary>
-        /// A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+        /// A list of entity GUIDs manually assigned to this workload.
         /// </summary>
         public InputList<string> EntityGuids
         {
@@ -486,7 +476,7 @@ namespace Pulumi.NewRelic.Plugins
         private InputList<Inputs.WorkloadEntitySearchQueryGetArgs>? _entitySearchQueries;
 
         /// <summary>
-        /// A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+        /// A list of search queries that define a dynamic workload.
         /// </summary>
         public InputList<Inputs.WorkloadEntitySearchQueryGetArgs> EntitySearchQueries
         {
@@ -525,13 +515,13 @@ namespace Pulumi.NewRelic.Plugins
         }
 
         /// <summary>
-        /// An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        /// An input object used to represent an automatic status configuration.
         /// </summary>
         [Input("statusConfigAutomatic")]
         public Input<Inputs.WorkloadStatusConfigAutomaticGetArgs>? StatusConfigAutomatic { get; set; }
 
         /// <summary>
-        /// A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        /// A list of static status configurations. You can only configure one static status for a workload.
         /// </summary>
         [Input("statusConfigStatic")]
         public Input<Inputs.WorkloadStatusConfigStaticGetArgs>? StatusConfigStatic { get; set; }

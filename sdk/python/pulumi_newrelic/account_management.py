@@ -18,8 +18,8 @@ class AccountManagementArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AccountManagement resource.
-        :param pulumi.Input[str] region: The region code of the account.  One of: `us01`, `eu01`.
-        :param pulumi.Input[str] name: The name of the Account.
+        :param pulumi.Input[str] region: A description of what this parsing rule represents.
+        :param pulumi.Input[str] name: Name of the account to be created
         """
         pulumi.set(__self__, "region", region)
         if name is not None:
@@ -29,7 +29,7 @@ class AccountManagementArgs:
     @pulumi.getter
     def region(self) -> pulumi.Input[str]:
         """
-        The region code of the account.  One of: `us01`, `eu01`.
+        A description of what this parsing rule represents.
         """
         return pulumi.get(self, "region")
 
@@ -41,7 +41,7 @@ class AccountManagementArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Account.
+        Name of the account to be created
         """
         return pulumi.get(self, "name")
 
@@ -57,8 +57,8 @@ class _AccountManagementState:
                  region: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AccountManagement resources.
-        :param pulumi.Input[str] name: The name of the Account.
-        :param pulumi.Input[str] region: The region code of the account.  One of: `us01`, `eu01`.
+        :param pulumi.Input[str] name: Name of the account to be created
+        :param pulumi.Input[str] region: A description of what this parsing rule represents.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -69,7 +69,7 @@ class _AccountManagementState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Account.
+        Name of the account to be created
         """
         return pulumi.get(self, "name")
 
@@ -81,7 +81,7 @@ class _AccountManagementState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
         """
-        The region code of the account.  One of: `us01`, `eu01`.
+        A description of what this parsing rule represents.
         """
         return pulumi.get(self, "region")
 
@@ -106,7 +106,6 @@ class AccountManagement(pulumi.CustomResource):
         ## Example Usage
 
         ##### Create Account
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -115,7 +114,6 @@ class AccountManagement(pulumi.CustomResource):
             name="Test Account Name",
             region="us01")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -129,8 +127,8 @@ class AccountManagement(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the Account.
-        :param pulumi.Input[str] region: The region code of the account.  One of: `us01`, `eu01`.
+        :param pulumi.Input[str] name: Name of the account to be created
+        :param pulumi.Input[str] region: A description of what this parsing rule represents.
         """
         ...
     @overload
@@ -146,7 +144,6 @@ class AccountManagement(pulumi.CustomResource):
         ## Example Usage
 
         ##### Create Account
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -155,7 +152,6 @@ class AccountManagement(pulumi.CustomResource):
             name="Test Account Name",
             region="us01")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -216,8 +212,8 @@ class AccountManagement(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the Account.
-        :param pulumi.Input[str] region: The region code of the account.  One of: `us01`, `eu01`.
+        :param pulumi.Input[str] name: Name of the account to be created
+        :param pulumi.Input[str] region: A description of what this parsing rule represents.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -231,7 +227,7 @@ class AccountManagement(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Account.
+        Name of the account to be created
         """
         return pulumi.get(self, "name")
 
@@ -239,7 +235,7 @@ class AccountManagement(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[str]:
         """
-        The region code of the account.  One of: `us01`, `eu01`.
+        A description of what this parsing rule represents.
         """
         return pulumi.get(self, "region")
 

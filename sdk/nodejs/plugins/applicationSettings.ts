@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  *     enableRealUserMonitoring: false,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Notes
  *

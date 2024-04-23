@@ -14,7 +14,6 @@ namespace Pulumi.NewRelic.Insights
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,7 +56,6 @@ namespace Pulumi.NewRelic.Insights
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Events
     /// 
@@ -78,9 +76,6 @@ namespace Pulumi.NewRelic.Insights
     [NewRelicResourceType("newrelic:insights/event:Event")]
     public partial class Event : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-        /// </summary>
         [Output("events")]
         public Output<ImmutableArray<Outputs.EventEvent>> Events { get; private set; } = null!;
 
@@ -132,10 +127,6 @@ namespace Pulumi.NewRelic.Insights
     {
         [Input("events", required: true)]
         private InputList<Inputs.EventEventArgs>? _events;
-
-        /// <summary>
-        /// An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-        /// </summary>
         public InputList<Inputs.EventEventArgs> Events
         {
             get => _events ?? (_events = new InputList<Inputs.EventEventArgs>());
@@ -152,10 +143,6 @@ namespace Pulumi.NewRelic.Insights
     {
         [Input("events")]
         private InputList<Inputs.EventEventGetArgs>? _events;
-
-        /// <summary>
-        /// An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-        /// </summary>
         public InputList<Inputs.EventEventGetArgs> Events
         {
             get => _events ?? (_events = new InputList<Inputs.EventEventGetArgs>());

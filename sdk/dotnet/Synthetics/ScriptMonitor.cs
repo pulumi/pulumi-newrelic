@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ##### Type: `SCRIPT_API`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,10 +54,8 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// ##### Type: `SCRIPT_BROWSER`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -98,7 +95,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// See additional examples.
     /// 
     /// ## Additional Examples
@@ -111,7 +107,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ##### Type: `SCRIPT_API`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -160,10 +155,8 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// ##### Type: `SCRIPT_BROWSER`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -213,7 +206,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -253,7 +245,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<bool?> EnableScreenshotOnFailureAndScript { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the Synthetics private location in New Relic.
+        /// The unique entity identifier of the monitor in New Relic.
         /// </summary>
         [Output("guid")]
         public Output<string> Guid { get; private set; } = null!;
@@ -521,7 +513,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<bool>? EnableScreenshotOnFailureAndScript { get; set; }
 
         /// <summary>
-        /// The unique identifier for the Synthetics private location in New Relic.
+        /// The unique entity identifier of the monitor in New Relic.
         /// </summary>
         [Input("guid")]
         public Input<string>? Guid { get; set; }

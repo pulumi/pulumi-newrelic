@@ -18,7 +18,6 @@ import (
 //
 // ##### Type: `SCRIPT_API`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,10 +60,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // ##### Type: `SCRIPT_BROWSER`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -108,7 +105,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // See additional examples.
 //
 // ## Additional Examples
@@ -121,7 +117,6 @@ import (
 //
 // ##### Type: `SCRIPT_API`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -174,10 +169,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // ##### Type: `SCRIPT_BROWSER`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -231,7 +224,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -253,7 +245,7 @@ type ScriptMonitor struct {
 	DeviceType pulumi.StringPtrOutput `pulumi:"deviceType"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrOutput `pulumi:"enableScreenshotOnFailureAndScript"`
-	// The unique identifier for the Synthetics private location in New Relic.
+	// The unique entity identifier of the monitor in New Relic.
 	Guid pulumi.StringOutput `pulumi:"guid"`
 	// The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
 	LocationPrivates ScriptMonitorLocationPrivateArrayOutput `pulumi:"locationPrivates"`
@@ -330,7 +322,7 @@ type scriptMonitorState struct {
 	DeviceType *string `pulumi:"deviceType"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
-	// The unique identifier for the Synthetics private location in New Relic.
+	// The unique entity identifier of the monitor in New Relic.
 	Guid *string `pulumi:"guid"`
 	// The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
 	LocationPrivates []ScriptMonitorLocationPrivate `pulumi:"locationPrivates"`
@@ -369,7 +361,7 @@ type ScriptMonitorState struct {
 	DeviceType pulumi.StringPtrInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
-	// The unique identifier for the Synthetics private location in New Relic.
+	// The unique entity identifier of the monitor in New Relic.
 	Guid pulumi.StringPtrInput
 	// The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
 	LocationPrivates ScriptMonitorLocationPrivateArrayInput
@@ -581,7 +573,7 @@ func (o ScriptMonitorOutput) EnableScreenshotOnFailureAndScript() pulumi.BoolPtr
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.BoolPtrOutput { return v.EnableScreenshotOnFailureAndScript }).(pulumi.BoolPtrOutput)
 }
 
-// The unique identifier for the Synthetics private location in New Relic.
+// The unique entity identifier of the monitor in New Relic.
 func (o ScriptMonitorOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }

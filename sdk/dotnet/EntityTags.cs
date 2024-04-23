@@ -14,7 +14,6 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,7 +56,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -81,7 +79,7 @@ namespace Pulumi.NewRelic
         public Output<string> Guid { get; private set; } = null!;
 
         /// <summary>
-        /// A nested block that describes an entity tag. See Nested tag blocks below for details.
+        /// A set of key-value pairs to represent a tag. For example: Team:TeamName
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.EntityTagsTag>> Tags { get; private set; } = null!;
@@ -142,7 +140,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.EntityTagsTagArgs>? _tags;
 
         /// <summary>
-        /// A nested block that describes an entity tag. See Nested tag blocks below for details.
+        /// A set of key-value pairs to represent a tag. For example: Team:TeamName
         /// </summary>
         public InputList<Inputs.EntityTagsTagArgs> Tags
         {
@@ -168,7 +166,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.EntityTagsTagGetArgs>? _tags;
 
         /// <summary>
-        /// A nested block that describes an entity tag. See Nested tag blocks below for details.
+        /// A set of key-value pairs to represent a tag. For example: Team:TeamName
         /// </summary>
         public InputList<Inputs.EntityTagsTagGetArgs> Tags
         {

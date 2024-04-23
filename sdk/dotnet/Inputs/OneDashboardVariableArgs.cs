@@ -43,7 +43,7 @@ namespace Pulumi.NewRelic.Inputs
         }
 
         /// <summary>
-        /// The title of the dashboard.
+        /// (Required) The variable identifier.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

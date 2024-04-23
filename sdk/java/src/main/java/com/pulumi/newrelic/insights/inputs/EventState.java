@@ -16,17 +16,9 @@ public final class EventState extends com.pulumi.resources.ResourceArgs {
 
     public static final EventState Empty = new EventState();
 
-    /**
-     * An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-     * 
-     */
     @Import(name="events")
     private @Nullable Output<List<EventEventArgs>> events;
 
-    /**
-     * @return An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-     * 
-     */
     public Optional<Output<List<EventEventArgs>>> events() {
         return Optional.ofNullable(this.events);
     }
@@ -55,33 +47,15 @@ public final class EventState extends com.pulumi.resources.ResourceArgs {
             $ = new EventState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param events An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(@Nullable Output<List<EventEventArgs>> events) {
             $.events = events;
             return this;
         }
 
-        /**
-         * @param events An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(List<EventEventArgs> events) {
             return events(Output.of(events));
         }
 
-        /**
-         * @param events An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(EventEventArgs... events) {
             return events(List.of(events));
         }

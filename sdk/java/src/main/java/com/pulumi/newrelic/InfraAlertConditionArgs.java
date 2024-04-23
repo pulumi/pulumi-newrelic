@@ -21,14 +21,16 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     public static final InfraAlertConditionArgs Empty = new InfraAlertConditionArgs();
 
     /**
-     * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
+     * The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
+     * infra_metric and infra_process_running condition types.
      * 
      */
     @Import(name="comparison")
     private @Nullable Output<String> comparison;
 
     /**
-     * @return The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
+     * @return The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
+     * infra_metric and infra_process_running condition types.
      * 
      */
     public Optional<Output<String>> comparison() {
@@ -36,14 +38,14 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a critical alert incident.
      * 
      */
     @Import(name="critical")
     private @Nullable Output<InfraAlertConditionCriticalArgs> critical;
 
     /**
-     * @return Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
+     * @return Identifies the threshold parameters for opening a critical alert incident.
      * 
      */
     public Optional<Output<InfraAlertConditionCriticalArgs>> critical() {
@@ -66,14 +68,14 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
+     * Whether the condition is turned on or off. Valid values are true and false. Defaults to true.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
+     * @return Whether the condition is turned on or off. Valid values are true and false. Defaults to true.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -81,14 +83,14 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
+     * The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
      * 
      */
     @Import(name="event")
     private @Nullable Output<String> event;
 
     /**
-     * @return The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
+     * @return The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
      * 
      */
     public Optional<Output<String>> event() {
@@ -96,14 +98,14 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
+     * For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
      * 
      */
     @Import(name="integrationProvider")
     private @Nullable Output<String> integrationProvider;
 
     /**
-     * @return For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
+     * @return For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
      * 
      */
     public Optional<Output<String>> integrationProvider() {
@@ -141,14 +143,16 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infra_process_running` condition type.
+     * Any filters applied to processes; for example: commandName = &#39;java&#39;. Supported by the infra_process_running condition
+     * type.
      * 
      */
     @Import(name="processWhere")
     private @Nullable Output<String> processWhere;
 
     /**
-     * @return Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infra_process_running` condition type.
+     * @return Any filters applied to processes; for example: commandName = &#39;java&#39;. Supported by the infra_process_running condition
+     * type.
      * 
      */
     public Optional<Output<String>> processWhere() {
@@ -171,14 +175,20 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
+     * The attribute name to identify the metric being targeted; for example, cpuPercent, diskFreePercent, or
+     * memoryResidentSizeBytes. The underlying API will automatically populate this value for Infrastructure integrations (for
+     * example diskFreePercent), so make sure to explicitly include this value to avoid diff issues. Supported by the
+     * infra_metric condition type.
      * 
      */
     @Import(name="select")
     private @Nullable Output<String> select;
 
     /**
-     * @return The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
+     * @return The attribute name to identify the metric being targeted; for example, cpuPercent, diskFreePercent, or
+     * memoryResidentSizeBytes. The underlying API will automatically populate this value for Infrastructure integrations (for
+     * example diskFreePercent), so make sure to explicitly include this value to avoid diff issues. Supported by the
+     * infra_metric condition type.
      * 
      */
     public Optional<Output<String>> select() {
@@ -186,14 +196,16 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+     * The type of Infrastructure alert condition. Valid values are infra_process_running, infra_metric, and
+     * infra_host_not_reporting.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+     * @return The type of Infrastructure alert condition. Valid values are infra_process_running, infra_metric, and
+     * infra_host_not_reporting.
      * 
      */
     public Output<String> type() {
@@ -201,14 +213,16 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     * Determines how much time, in hours, will pass before an incident is automatically closed. Valid values are 1, 2, 4, 8,
+     * 12, 24, 48, or 72
      * 
      */
     @Import(name="violationCloseTimer")
     private @Nullable Output<Integer> violationCloseTimer;
 
     /**
-     * @return Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     * @return Determines how much time, in hours, will pass before an incident is automatically closed. Valid values are 1, 2, 4, 8,
+     * 12, 24, 48, or 72
      * 
      */
     public Optional<Output<Integer>> violationCloseTimer() {
@@ -216,14 +230,14 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a warning alert incident.
      * 
      */
     @Import(name="warning")
     private @Nullable Output<InfraAlertConditionWarningArgs> warning;
 
     /**
-     * @return Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
+     * @return Identifies the threshold parameters for opening a warning alert incident.
      * 
      */
     public Optional<Output<InfraAlertConditionWarningArgs>> warning() {
@@ -231,14 +245,14 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
+     * If applicable, this identifies any Infrastructure host filters used; for example: hostname LIKE &#39;%cassandra%&#39;.
      * 
      */
     @Import(name="where")
     private @Nullable Output<String> where;
 
     /**
-     * @return If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
+     * @return If applicable, this identifies any Infrastructure host filters used; for example: hostname LIKE &#39;%cassandra%&#39;.
      * 
      */
     public Optional<Output<String>> where() {
@@ -284,7 +298,8 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param comparison The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
+         * @param comparison The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
+         * infra_metric and infra_process_running condition types.
          * 
          * @return builder
          * 
@@ -295,7 +310,8 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param comparison The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
+         * @param comparison The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
+         * infra_metric and infra_process_running condition types.
          * 
          * @return builder
          * 
@@ -305,7 +321,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param critical Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
+         * @param critical Identifies the threshold parameters for opening a critical alert incident.
          * 
          * @return builder
          * 
@@ -316,7 +332,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param critical Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
+         * @param critical Identifies the threshold parameters for opening a critical alert incident.
          * 
          * @return builder
          * 
@@ -347,7 +363,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enabled Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
+         * @param enabled Whether the condition is turned on or off. Valid values are true and false. Defaults to true.
          * 
          * @return builder
          * 
@@ -358,7 +374,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enabled Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
+         * @param enabled Whether the condition is turned on or off. Valid values are true and false. Defaults to true.
          * 
          * @return builder
          * 
@@ -368,7 +384,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param event The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
+         * @param event The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
          * 
          * @return builder
          * 
@@ -379,7 +395,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param event The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
+         * @param event The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
          * 
          * @return builder
          * 
@@ -389,7 +405,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param integrationProvider For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
+         * @param integrationProvider For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
          * 
          * @return builder
          * 
@@ -400,7 +416,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param integrationProvider For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
+         * @param integrationProvider For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
          * 
          * @return builder
          * 
@@ -452,7 +468,8 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param processWhere Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infra_process_running` condition type.
+         * @param processWhere Any filters applied to processes; for example: commandName = &#39;java&#39;. Supported by the infra_process_running condition
+         * type.
          * 
          * @return builder
          * 
@@ -463,7 +480,8 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param processWhere Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infra_process_running` condition type.
+         * @param processWhere Any filters applied to processes; for example: commandName = &#39;java&#39;. Supported by the infra_process_running condition
+         * type.
          * 
          * @return builder
          * 
@@ -494,7 +512,10 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param select The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
+         * @param select The attribute name to identify the metric being targeted; for example, cpuPercent, diskFreePercent, or
+         * memoryResidentSizeBytes. The underlying API will automatically populate this value for Infrastructure integrations (for
+         * example diskFreePercent), so make sure to explicitly include this value to avoid diff issues. Supported by the
+         * infra_metric condition type.
          * 
          * @return builder
          * 
@@ -505,7 +526,10 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param select The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
+         * @param select The attribute name to identify the metric being targeted; for example, cpuPercent, diskFreePercent, or
+         * memoryResidentSizeBytes. The underlying API will automatically populate this value for Infrastructure integrations (for
+         * example diskFreePercent), so make sure to explicitly include this value to avoid diff issues. Supported by the
+         * infra_metric condition type.
          * 
          * @return builder
          * 
@@ -515,7 +539,8 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+         * @param type The type of Infrastructure alert condition. Valid values are infra_process_running, infra_metric, and
+         * infra_host_not_reporting.
          * 
          * @return builder
          * 
@@ -526,7 +551,8 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+         * @param type The type of Infrastructure alert condition. Valid values are infra_process_running, infra_metric, and
+         * infra_host_not_reporting.
          * 
          * @return builder
          * 
@@ -536,7 +562,8 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param violationCloseTimer Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+         * @param violationCloseTimer Determines how much time, in hours, will pass before an incident is automatically closed. Valid values are 1, 2, 4, 8,
+         * 12, 24, 48, or 72
          * 
          * @return builder
          * 
@@ -547,7 +574,8 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param violationCloseTimer Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+         * @param violationCloseTimer Determines how much time, in hours, will pass before an incident is automatically closed. Valid values are 1, 2, 4, 8,
+         * 12, 24, 48, or 72
          * 
          * @return builder
          * 
@@ -557,7 +585,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param warning Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
+         * @param warning Identifies the threshold parameters for opening a warning alert incident.
          * 
          * @return builder
          * 
@@ -568,7 +596,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param warning Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
+         * @param warning Identifies the threshold parameters for opening a warning alert incident.
          * 
          * @return builder
          * 
@@ -578,7 +606,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param where If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
+         * @param where If applicable, this identifies any Infrastructure host filters used; for example: hostname LIKE &#39;%cassandra%&#39;.
          * 
          * @return builder
          * 
@@ -589,7 +617,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param where If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
+         * @param where If applicable, this identifies any Infrastructure host filters used; for example: hostname LIKE &#39;%cassandra%&#39;.
          * 
          * @return builder
          * 

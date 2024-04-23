@@ -24,12 +24,12 @@ class OneDashboardArgs:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]] = None):
         """
         The set of arguments for constructing a OneDashboard resource.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]] pages: A nested block that describes a page. See Nested page blocks below for details.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[str] description: Brief text describing the dashboard.
-        :param pulumi.Input[str] name: The title of the dashboard.
-        :param pulumi.Input[str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]] variables: A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+        :param pulumi.Input[int] account_id: The New Relic account ID where you want to create the dashboard.
+        :param pulumi.Input[str] description: (Optional) Brief text describing the page.
+        :param pulumi.Input[str] name: (Required) The variable identifier.
+        :param pulumi.Input[str] permissions: Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
+               public_read_only.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]] variables: Dashboard-local variable definitions.
         """
         pulumi.set(__self__, "pages", pages)
         if account_id is not None:
@@ -46,9 +46,6 @@ class OneDashboardArgs:
     @property
     @pulumi.getter
     def pages(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]]:
-        """
-        A nested block that describes a page. See Nested page blocks below for details.
-        """
         return pulumi.get(self, "pages")
 
     @pages.setter
@@ -59,7 +56,7 @@ class OneDashboardArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[int]]:
         """
-        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        The New Relic account ID where you want to create the dashboard.
         """
         return pulumi.get(self, "account_id")
 
@@ -71,7 +68,7 @@ class OneDashboardArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Brief text describing the dashboard.
+        (Optional) Brief text describing the page.
         """
         return pulumi.get(self, "description")
 
@@ -83,7 +80,7 @@ class OneDashboardArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The title of the dashboard.
+        (Required) The variable identifier.
         """
         return pulumi.get(self, "name")
 
@@ -95,7 +92,8 @@ class OneDashboardArgs:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+        Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
+        public_read_only.
         """
         return pulumi.get(self, "permissions")
 
@@ -107,7 +105,7 @@ class OneDashboardArgs:
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]]:
         """
-        A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+        Dashboard-local variable definitions.
         """
         return pulumi.get(self, "variables")
 
@@ -129,14 +127,14 @@ class _OneDashboardState:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering OneDashboard resources.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[str] description: Brief text describing the dashboard.
+        :param pulumi.Input[int] account_id: The New Relic account ID where you want to create the dashboard.
+        :param pulumi.Input[str] description: (Optional) Brief text describing the page.
         :param pulumi.Input[str] guid: The unique entity identifier of the dashboard page in New Relic.
-        :param pulumi.Input[str] name: The title of the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]] pages: A nested block that describes a page. See Nested page blocks below for details.
+        :param pulumi.Input[str] name: (Required) The variable identifier.
         :param pulumi.Input[str] permalink: The URL for viewing the dashboard.
-        :param pulumi.Input[str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]] variables: A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+        :param pulumi.Input[str] permissions: Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
+               public_read_only.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]] variables: Dashboard-local variable definitions.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -159,7 +157,7 @@ class _OneDashboardState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[int]]:
         """
-        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        The New Relic account ID where you want to create the dashboard.
         """
         return pulumi.get(self, "account_id")
 
@@ -171,7 +169,7 @@ class _OneDashboardState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Brief text describing the dashboard.
+        (Optional) Brief text describing the page.
         """
         return pulumi.get(self, "description")
 
@@ -195,7 +193,7 @@ class _OneDashboardState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The title of the dashboard.
+        (Required) The variable identifier.
         """
         return pulumi.get(self, "name")
 
@@ -206,9 +204,6 @@ class _OneDashboardState:
     @property
     @pulumi.getter
     def pages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]]]:
-        """
-        A nested block that describes a page. See Nested page blocks below for details.
-        """
         return pulumi.get(self, "pages")
 
     @pages.setter
@@ -231,7 +226,8 @@ class _OneDashboardState:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+        Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
+        public_read_only.
         """
         return pulumi.get(self, "permissions")
 
@@ -243,7 +239,7 @@ class _OneDashboardState:
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]]:
         """
-        A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+        Dashboard-local variable definitions.
         """
         return pulumi.get(self, "variables")
 
@@ -277,12 +273,12 @@ class OneDashboard(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[str] description: Brief text describing the dashboard.
-        :param pulumi.Input[str] name: The title of the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardPageArgs']]]] pages: A nested block that describes a page. See Nested page blocks below for details.
-        :param pulumi.Input[str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardVariableArgs']]]] variables: A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+        :param pulumi.Input[int] account_id: The New Relic account ID where you want to create the dashboard.
+        :param pulumi.Input[str] description: (Optional) Brief text describing the page.
+        :param pulumi.Input[str] name: (Required) The variable identifier.
+        :param pulumi.Input[str] permissions: Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
+               public_read_only.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardVariableArgs']]]] variables: Dashboard-local variable definitions.
         """
         ...
     @overload
@@ -366,14 +362,14 @@ class OneDashboard(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[str] description: Brief text describing the dashboard.
+        :param pulumi.Input[int] account_id: The New Relic account ID where you want to create the dashboard.
+        :param pulumi.Input[str] description: (Optional) Brief text describing the page.
         :param pulumi.Input[str] guid: The unique entity identifier of the dashboard page in New Relic.
-        :param pulumi.Input[str] name: The title of the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardPageArgs']]]] pages: A nested block that describes a page. See Nested page blocks below for details.
+        :param pulumi.Input[str] name: (Required) The variable identifier.
         :param pulumi.Input[str] permalink: The URL for viewing the dashboard.
-        :param pulumi.Input[str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardVariableArgs']]]] variables: A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+        :param pulumi.Input[str] permissions: Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
+               public_read_only.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardVariableArgs']]]] variables: Dashboard-local variable definitions.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -393,7 +389,7 @@ class OneDashboard(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[int]:
         """
-        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        The New Relic account ID where you want to create the dashboard.
         """
         return pulumi.get(self, "account_id")
 
@@ -401,7 +397,7 @@ class OneDashboard(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Brief text describing the dashboard.
+        (Optional) Brief text describing the page.
         """
         return pulumi.get(self, "description")
 
@@ -417,16 +413,13 @@ class OneDashboard(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The title of the dashboard.
+        (Required) The variable identifier.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def pages(self) -> pulumi.Output[Sequence['outputs.OneDashboardPage']]:
-        """
-        A nested block that describes a page. See Nested page blocks below for details.
-        """
         return pulumi.get(self, "pages")
 
     @property
@@ -441,7 +434,8 @@ class OneDashboard(pulumi.CustomResource):
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[str]]:
         """
-        Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+        Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
+        public_read_only.
         """
         return pulumi.get(self, "permissions")
 
@@ -449,7 +443,7 @@ class OneDashboard(pulumi.CustomResource):
     @pulumi.getter
     def variables(self) -> pulumi.Output[Optional[Sequence['outputs.OneDashboardVariable']]]:
         """
-        A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+        Dashboard-local variable definitions.
         """
         return pulumi.get(self, "variables")
 

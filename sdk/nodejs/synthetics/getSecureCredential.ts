@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     key: "MY_KEY",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetSecureCredentialResult> {
 
@@ -35,13 +33,7 @@ export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi
  * A collection of arguments for invoking getSecureCredential.
  */
 export interface GetSecureCredentialArgs {
-    /**
-     * The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
-     */
     accountId?: number;
-    /**
-     * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
-     */
     key: string;
 }
 
@@ -71,7 +63,6 @@ export interface GetSecureCredentialResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -80,7 +71,6 @@ export interface GetSecureCredentialResult {
  *     key: "MY_KEY",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSecureCredentialOutput(args: GetSecureCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecureCredentialResult> {
     return pulumi.output(args).apply((a: any) => getSecureCredential(a, opts))
@@ -90,12 +80,6 @@ export function getSecureCredentialOutput(args: GetSecureCredentialOutputArgs, o
  * A collection of arguments for invoking getSecureCredential.
  */
 export interface GetSecureCredentialOutputArgs {
-    /**
-     * The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
-     */
     accountId?: pulumi.Input<number>;
-    /**
-     * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
-     */
     key: pulumi.Input<string>;
 }

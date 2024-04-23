@@ -81,7 +81,6 @@ def get_user(authentication_domain_id: Optional[str] = None,
     ## Example Usage
 
     The below example illustrates fetching a the ID of a user (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -92,7 +91,6 @@ def get_user(authentication_domain_id: Optional[str] = None,
     user_two = newrelic.get_user(authentication_domain_id=foo.id,
         email_id="test_user@random.com")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str authentication_domain_id: The ID of the authentication domain the user to be searched for belongs to.
@@ -130,7 +128,6 @@ def get_user_output(authentication_domain_id: Optional[pulumi.Input[str]] = None
     ## Example Usage
 
     The below example illustrates fetching a the ID of a user (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -141,7 +138,6 @@ def get_user_output(authentication_domain_id: Optional[pulumi.Input[str]] = None
     user_two = newrelic.get_user(authentication_domain_id=foo.id,
         email_id="test_user@random.com")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str authentication_domain_id: The ID of the authentication domain the user to be searched for belongs to.

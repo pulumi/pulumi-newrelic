@@ -12,7 +12,6 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * ##### Create Account
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -22,7 +21,6 @@ import * as utilities from "./utilities";
  *     region: "us01",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -63,11 +61,11 @@ export class AccountManagement extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the Account.
+     * Name of the account to be created
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The region code of the account.  One of: `us01`, `eu01`.
+     * A description of what this parsing rule represents.
      */
     public readonly region!: pulumi.Output<string>;
 
@@ -104,11 +102,11 @@ export class AccountManagement extends pulumi.CustomResource {
  */
 export interface AccountManagementState {
     /**
-     * The name of the Account.
+     * Name of the account to be created
      */
     name?: pulumi.Input<string>;
     /**
-     * The region code of the account.  One of: `us01`, `eu01`.
+     * A description of what this parsing rule represents.
      */
     region?: pulumi.Input<string>;
 }
@@ -118,11 +116,11 @@ export interface AccountManagementState {
  */
 export interface AccountManagementArgs {
     /**
-     * The name of the Account.
+     * Name of the account to be created
      */
     name?: pulumi.Input<string>;
     /**
-     * The region code of the account.  One of: `us01`, `eu01`.
+     * A description of what this parsing rule represents.
      */
     region: pulumi.Input<string>;
 }

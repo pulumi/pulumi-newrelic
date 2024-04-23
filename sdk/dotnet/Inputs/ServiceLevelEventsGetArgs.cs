@@ -12,28 +12,15 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class ServiceLevelEventsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
-        /// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<int> AccountId { get; set; } = null!;
 
-        /// <summary>
-        /// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
-        /// </summary>
         [Input("badEvents")]
         public Input<Inputs.ServiceLevelEventsBadEventsGetArgs>? BadEvents { get; set; }
 
-        /// <summary>
-        /// The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
-        /// </summary>
         [Input("goodEvents")]
         public Input<Inputs.ServiceLevelEventsGoodEventsGetArgs>? GoodEvents { get; set; }
 
-        /// <summary>
-        /// The definition of valid requests.
-        /// </summary>
         [Input("validEvents", required: true)]
         public Input<Inputs.ServiceLevelEventsValidEventsGetArgs> ValidEvents { get; set; } = null!;
 

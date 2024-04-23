@@ -18,7 +18,6 @@ namespace Pulumi.NewRelic
         /// 
         /// The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
         ///     
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -40,7 +39,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ## Additional Examples
         /// 
@@ -48,7 +46,6 @@ namespace Pulumi.NewRelic
         /// 
         /// In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -84,7 +81,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("newrelic:index/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
@@ -96,7 +92,6 @@ namespace Pulumi.NewRelic
         /// 
         /// The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
         ///     
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -118,7 +113,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ## Additional Examples
         /// 
@@ -126,7 +120,6 @@ namespace Pulumi.NewRelic
         /// 
         /// In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -162,7 +155,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("newrelic:index/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());

@@ -19,18 +19,14 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
     public static final AzureIntegrationsMonitorArgs Empty = new AzureIntegrationsMonitorArgs();
 
     /**
-     * A boolean value, that specifies if the integration needs to be active. Defaults to &#39;true&#39; if not specified.
-     * 
-     * &gt; **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic&#39;s documentation on the Azure Monitor integration.
+     * A flag that specifies if the integration is active
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return A boolean value, that specifies if the integration needs to be active. Defaults to &#39;true&#39; if not specified.
-     * 
-     * &gt; **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic&#39;s documentation on the Azure Monitor integration.
+     * @return A flag that specifies if the integration is active
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -38,14 +34,14 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A list of resource tags associated with the resources that need to be excluded from monitoring.
+     * Specify resource tags in &#39;key:value&#39; form to be excluded from monitoring
      * 
      */
     @Import(name="excludeTags")
     private @Nullable Output<List<String>> excludeTags;
 
     /**
-     * @return A list of resource tags associated with the resources that need to be excluded from monitoring.
+     * @return Specify resource tags in &#39;key:value&#39; form to be excluded from monitoring
      * 
      */
     public Optional<Output<List<String>>> excludeTags() {
@@ -53,14 +49,14 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A list of resource tags associated with the resources that need to be monitored, in a &#34;key:value&#34; format. If this is not specified, all resources will be monitored.
+     * Specify resource tags in &#39;key:value&#39; form to be monitored
      * 
      */
     @Import(name="includeTags")
     private @Nullable Output<List<String>> includeTags;
 
     /**
-     * @return A list of resource tags associated with the resources that need to be monitored, in a &#34;key:value&#34; format. If this is not specified, all resources will be monitored.
+     * @return Specify resource tags in &#39;key:value&#39; form to be monitored
      * 
      */
     public Optional<Output<List<String>>> includeTags() {
@@ -68,14 +64,14 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The data polling interval in seconds.
+     * The data polling interval in seconds
      * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
-     * @return The data polling interval in seconds.
+     * @return The data polling interval in seconds
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -85,8 +81,6 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
     /**
      * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
      * 
-     * Other integration type support an additional argument:
-     * 
      */
     @Import(name="resourceGroups")
     private @Nullable Output<List<String>> resourceGroups;
@@ -94,22 +88,20 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
     /**
      * @return Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
      * 
-     * Other integration type support an additional argument:
-     * 
      */
     public Optional<Output<List<String>>> resourceGroups() {
         return Optional.ofNullable(this.resourceGroups);
     }
 
     /**
-     * A list of Azure resource types that need to be monitored.
+     * Specify each Azure resource type that needs to be monitored
      * 
      */
     @Import(name="resourceTypes")
     private @Nullable Output<List<String>> resourceTypes;
 
     /**
-     * @return A list of Azure resource types that need to be monitored.
+     * @return Specify each Azure resource type that needs to be monitored
      * 
      */
     public Optional<Output<List<String>>> resourceTypes() {
@@ -146,9 +138,7 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled A boolean value, that specifies if the integration needs to be active. Defaults to &#39;true&#39; if not specified.
-         * 
-         * &gt; **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic&#39;s documentation on the Azure Monitor integration.
+         * @param enabled A flag that specifies if the integration is active
          * 
          * @return builder
          * 
@@ -159,9 +149,7 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled A boolean value, that specifies if the integration needs to be active. Defaults to &#39;true&#39; if not specified.
-         * 
-         * &gt; **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic&#39;s documentation on the Azure Monitor integration.
+         * @param enabled A flag that specifies if the integration is active
          * 
          * @return builder
          * 
@@ -171,7 +159,7 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param excludeTags A list of resource tags associated with the resources that need to be excluded from monitoring.
+         * @param excludeTags Specify resource tags in &#39;key:value&#39; form to be excluded from monitoring
          * 
          * @return builder
          * 
@@ -182,7 +170,7 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param excludeTags A list of resource tags associated with the resources that need to be excluded from monitoring.
+         * @param excludeTags Specify resource tags in &#39;key:value&#39; form to be excluded from monitoring
          * 
          * @return builder
          * 
@@ -192,7 +180,7 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param excludeTags A list of resource tags associated with the resources that need to be excluded from monitoring.
+         * @param excludeTags Specify resource tags in &#39;key:value&#39; form to be excluded from monitoring
          * 
          * @return builder
          * 
@@ -202,7 +190,7 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includeTags A list of resource tags associated with the resources that need to be monitored, in a &#34;key:value&#34; format. If this is not specified, all resources will be monitored.
+         * @param includeTags Specify resource tags in &#39;key:value&#39; form to be monitored
          * 
          * @return builder
          * 
@@ -213,7 +201,7 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includeTags A list of resource tags associated with the resources that need to be monitored, in a &#34;key:value&#34; format. If this is not specified, all resources will be monitored.
+         * @param includeTags Specify resource tags in &#39;key:value&#39; form to be monitored
          * 
          * @return builder
          * 
@@ -223,7 +211,7 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includeTags A list of resource tags associated with the resources that need to be monitored, in a &#34;key:value&#34; format. If this is not specified, all resources will be monitored.
+         * @param includeTags Specify resource tags in &#39;key:value&#39; form to be monitored
          * 
          * @return builder
          * 
@@ -233,7 +221,7 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
+         * @param metricsPollingInterval The data polling interval in seconds
          * 
          * @return builder
          * 
@@ -244,7 +232,7 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
+         * @param metricsPollingInterval The data polling interval in seconds
          * 
          * @return builder
          * 
@@ -255,8 +243,6 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
 
         /**
          * @param resourceGroups Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
-         * 
-         * Other integration type support an additional argument:
          * 
          * @return builder
          * 
@@ -269,8 +255,6 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         /**
          * @param resourceGroups Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          * 
-         * Other integration type support an additional argument:
-         * 
          * @return builder
          * 
          */
@@ -281,8 +265,6 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         /**
          * @param resourceGroups Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          * 
-         * Other integration type support an additional argument:
-         * 
          * @return builder
          * 
          */
@@ -291,7 +273,7 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceTypes A list of Azure resource types that need to be monitored.
+         * @param resourceTypes Specify each Azure resource type that needs to be monitored
          * 
          * @return builder
          * 
@@ -302,7 +284,7 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceTypes A list of Azure resource types that need to be monitored.
+         * @param resourceTypes Specify each Azure resource type that needs to be monitored
          * 
          * @return builder
          * 
@@ -312,7 +294,7 @@ public final class AzureIntegrationsMonitorArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceTypes A list of Azure resource types that need to be monitored.
+         * @param resourceTypes Specify each Azure resource type that needs to be monitored
          * 
          * @return builder
          * 
