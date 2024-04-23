@@ -189,7 +189,7 @@ export class AlertChannel extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * (Required) The type of channel. One of: (slack, user, victorops, webhook, email, opsgenie, pagerduty).
+     * (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -242,7 +242,7 @@ export interface AlertChannelState {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Required) The type of channel. One of: (slack, user, victorops, webhook, email, opsgenie, pagerduty).
+     * (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
      */
     type?: pulumi.Input<string>;
 }
@@ -264,7 +264,7 @@ export interface AlertChannelArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Required) The type of channel. One of: (slack, user, victorops, webhook, email, opsgenie, pagerduty).
+     * (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
      */
     type: pulumi.Input<string>;
 }

@@ -22,7 +22,7 @@ class AlertChannelArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AlertChannel resource.
-        :param pulumi.Input[str] type: (Required) The type of channel. One of: (user, victorops, webhook, email, opsgenie, pagerduty, slack).
+        :param pulumi.Input[str] type: (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
         :param pulumi.Input[int] account_id: The New Relic account ID where you want to create alert channels.
         :param pulumi.Input['AlertChannelConfigArgs'] config: The configuration block for the alert channel.
         :param pulumi.Input[str] name: (Required) The name of the channel.
@@ -39,7 +39,7 @@ class AlertChannelArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        (Required) The type of channel. One of: (user, victorops, webhook, email, opsgenie, pagerduty, slack).
+        (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
         """
         return pulumi.get(self, "type")
 
@@ -96,7 +96,7 @@ class _AlertChannelState:
         :param pulumi.Input[int] account_id: The New Relic account ID where you want to create alert channels.
         :param pulumi.Input['AlertChannelConfigArgs'] config: The configuration block for the alert channel.
         :param pulumi.Input[str] name: (Required) The name of the channel.
-        :param pulumi.Input[str] type: (Required) The type of channel. One of: (user, victorops, webhook, email, opsgenie, pagerduty, slack).
+        :param pulumi.Input[str] type: (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -147,7 +147,7 @@ class _AlertChannelState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) The type of channel. One of: (user, victorops, webhook, email, opsgenie, pagerduty, slack).
+        (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
         """
         return pulumi.get(self, "type")
 
@@ -306,7 +306,7 @@ class AlertChannel(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: The New Relic account ID where you want to create alert channels.
         :param pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']] config: The configuration block for the alert channel.
         :param pulumi.Input[str] name: (Required) The name of the channel.
-        :param pulumi.Input[str] type: (Required) The type of channel. One of: (user, victorops, webhook, email, opsgenie, pagerduty, slack).
+        :param pulumi.Input[str] type: (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
         """
         ...
     @overload
@@ -507,7 +507,7 @@ class AlertChannel(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: The New Relic account ID where you want to create alert channels.
         :param pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']] config: The configuration block for the alert channel.
         :param pulumi.Input[str] name: (Required) The name of the channel.
-        :param pulumi.Input[str] type: (Required) The type of channel. One of: (user, victorops, webhook, email, opsgenie, pagerduty, slack).
+        :param pulumi.Input[str] type: (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -547,7 +547,7 @@ class AlertChannel(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        (Required) The type of channel. One of: (user, victorops, webhook, email, opsgenie, pagerduty, slack).
+        (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
         """
         return pulumi.get(self, "type")
 

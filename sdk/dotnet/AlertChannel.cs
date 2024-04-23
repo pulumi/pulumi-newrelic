@@ -231,7 +231,7 @@ namespace Pulumi.NewRelic
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// (Required) The type of channel. One of: (victorops, webhook, email, opsgenie, pagerduty, slack, user).
+        /// (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Required) The type of channel. One of: (victorops, webhook, email, opsgenie, pagerduty, slack, user).
+        /// (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -333,7 +333,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Required) The type of channel. One of: (victorops, webhook, email, opsgenie, pagerduty, slack, user).
+        /// (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
