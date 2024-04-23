@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AwsGovcloudIntegrationsAlb {
     /**
-     * @return Specify each AWS region that includes the resources that you want to monitor.
+     * @return Specify each AWS region that includes the resources that you want to monitor
      * 
      */
     private @Nullable List<String> awsRegions;
@@ -35,9 +35,7 @@ public final class AwsGovcloudIntegrationsAlb {
      */
     private @Nullable List<String> loadBalancerPrefixes;
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * @return The data polling interval in seconds
      * 
      */
     private @Nullable Integer metricsPollingInterval;
@@ -54,7 +52,7 @@ public final class AwsGovcloudIntegrationsAlb {
 
     private AwsGovcloudIntegrationsAlb() {}
     /**
-     * @return Specify each AWS region that includes the resources that you want to monitor.
+     * @return Specify each AWS region that includes the resources that you want to monitor
      * 
      */
     public List<String> awsRegions() {
@@ -82,9 +80,7 @@ public final class AwsGovcloudIntegrationsAlb {
         return this.loadBalancerPrefixes == null ? List.of() : this.loadBalancerPrefixes;
     }
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * @return The data polling interval in seconds
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

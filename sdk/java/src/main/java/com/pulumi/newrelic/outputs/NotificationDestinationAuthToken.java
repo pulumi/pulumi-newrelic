@@ -12,18 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NotificationDestinationAuthToken {
-    /**
-     * @return The prefix of the token auth.
-     * 
-     */
     private @Nullable String prefix;
     private String token;
 
     private NotificationDestinationAuthToken() {}
-    /**
-     * @return The prefix of the token auth.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

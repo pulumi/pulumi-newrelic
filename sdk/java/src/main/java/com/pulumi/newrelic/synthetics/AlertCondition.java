@@ -156,14 +156,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:synthetics/alertCondition:AlertCondition")
 public class AlertCondition extends com.pulumi.resources.CustomResource {
     /**
-     * Set whether to enable the alert condition. Defaults to `true`.
+     * Set whether to enable the alert condition. Defaults to true.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Set whether to enable the alert condition. Defaults to `true`.
+     * @return Set whether to enable the alert condition. Defaults to true.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -184,14 +184,14 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
         return this.entityGuid;
     }
     /**
-     * The GUID of the Synthetics monitor to be referenced in the alert condition.
+     * The ID of the Synthetics monitor to be referenced in the alert condition.
      * 
      */
     @Export(name="monitorId", refs={String.class}, tree="[0]")
     private Output<String> monitorId;
 
     /**
-     * @return The GUID of the Synthetics monitor to be referenced in the alert condition.
+     * @return The ID of the Synthetics monitor to be referenced in the alert condition.
      * 
      */
     public Output<String> monitorId() {

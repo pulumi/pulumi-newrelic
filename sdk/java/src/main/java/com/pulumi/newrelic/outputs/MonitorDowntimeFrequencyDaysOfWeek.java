@@ -11,30 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class MonitorDowntimeFrequencyDaysOfWeek {
     /**
-     * @return The occurrence of `week_day` in a month (one of `&#34;FIRST&#34;`, `&#34;SECOND&#34;`, `&#34;THIRD&#34;`, `&#34;FOURTH&#34;`, `&#34;LAST&#34;`).
-     * 
-     * &gt; **NOTE:** `frequency` **can only be used with the mode** `MONTHLY`, and **is a required argument** with monthly monitor downtimes (if the `mode` is `MONTHLY`). Additionally, **either** `days_of_month` or `days_of_week` **are required to be specified with** `frequency`, but not both, as `days_of_month` and `days_of_week` are mutually exclusive. If `days_of_week` is specified, values of **both** of its nested arguments, `week_day` and `ordinal_day_of_month` **would need to be specified** too.
+     * @return An occurrence of the day selected within the month.
      * 
      */
     private String ordinalDayOfMonth;
     /**
-     * @return A day of the week (one of `&#34;SUNDAY&#34;`, `&#34;MONDAY&#34;`, `&#34;TUESDAY&#34;`, `&#34;WEDNESDAY&#34;`, `&#34;THURSDAY&#34;`, `&#34;FRIDAY&#34;` or `&#34;SATURDAY&#34;`).
+     * @return The day of the week on which the Monitor Downtime would run.
      * 
      */
     private String weekDay;
 
     private MonitorDowntimeFrequencyDaysOfWeek() {}
     /**
-     * @return The occurrence of `week_day` in a month (one of `&#34;FIRST&#34;`, `&#34;SECOND&#34;`, `&#34;THIRD&#34;`, `&#34;FOURTH&#34;`, `&#34;LAST&#34;`).
-     * 
-     * &gt; **NOTE:** `frequency` **can only be used with the mode** `MONTHLY`, and **is a required argument** with monthly monitor downtimes (if the `mode` is `MONTHLY`). Additionally, **either** `days_of_month` or `days_of_week` **are required to be specified with** `frequency`, but not both, as `days_of_month` and `days_of_week` are mutually exclusive. If `days_of_week` is specified, values of **both** of its nested arguments, `week_day` and `ordinal_day_of_month` **would need to be specified** too.
+     * @return An occurrence of the day selected within the month.
      * 
      */
     public String ordinalDayOfMonth() {
         return this.ordinalDayOfMonth;
     }
     /**
-     * @return A day of the week (one of `&#34;SUNDAY&#34;`, `&#34;MONDAY&#34;`, `&#34;TUESDAY&#34;`, `&#34;WEDNESDAY&#34;`, `&#34;THURSDAY&#34;`, `&#34;FRIDAY&#34;` or `&#34;SATURDAY&#34;`).
+     * @return The day of the week on which the Monitor Downtime would run.
      * 
      */
     public String weekDay() {

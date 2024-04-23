@@ -14,8 +14,7 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class WorkflowDestination
     {
         /// <summary>
-        /// Id of a notification_channel to use for notifications. Please note that you have to use a 
-        /// **notification** channel, not an `alert_channel`.
+        /// (Required) Destination's channel id.
         /// </summary>
         public readonly string ChannelId;
         /// <summary>
@@ -23,11 +22,11 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+        /// List of triggers to notify about in this destination configuration.
         /// </summary>
         public readonly ImmutableArray<string> NotificationTriggers;
         /// <summary>
-        /// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+        /// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
         /// </summary>
         public readonly string? Type;
 

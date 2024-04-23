@@ -20,10 +20,10 @@ class NrqlDropRuleArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NrqlDropRule resource.
-        :param pulumi.Input[str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
-        :param pulumi.Input[str] nrql: A NRQL string that specifies what data types to drop.
-        :param pulumi.Input[int] account_id: Account where the drop rule will be put. Defaults to the account associated with the API key used.
-        :param pulumi.Input[str] description: The description of the drop rule.
+        :param pulumi.Input[str] action: The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
+        :param pulumi.Input[str] nrql: Explains which data to apply the drop rule to.
+        :param pulumi.Input[int] account_id: Account with the NRQL drop rule will be put.
+        :param pulumi.Input[str] description: Provides additional information about the rule.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "nrql", nrql)
@@ -36,7 +36,7 @@ class NrqlDropRuleArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
         """
-        An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
+        The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
         """
         return pulumi.get(self, "action")
 
@@ -48,7 +48,7 @@ class NrqlDropRuleArgs:
     @pulumi.getter
     def nrql(self) -> pulumi.Input[str]:
         """
-        A NRQL string that specifies what data types to drop.
+        Explains which data to apply the drop rule to.
         """
         return pulumi.get(self, "nrql")
 
@@ -60,7 +60,7 @@ class NrqlDropRuleArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[int]]:
         """
-        Account where the drop rule will be put. Defaults to the account associated with the API key used.
+        Account with the NRQL drop rule will be put.
         """
         return pulumi.get(self, "account_id")
 
@@ -72,7 +72,7 @@ class NrqlDropRuleArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the drop rule.
+        Provides additional information about the rule.
         """
         return pulumi.get(self, "description")
 
@@ -91,10 +91,10 @@ class _NrqlDropRuleState:
                  rule_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NrqlDropRule resources.
-        :param pulumi.Input[int] account_id: Account where the drop rule will be put. Defaults to the account associated with the API key used.
-        :param pulumi.Input[str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
-        :param pulumi.Input[str] description: The description of the drop rule.
-        :param pulumi.Input[str] nrql: A NRQL string that specifies what data types to drop.
+        :param pulumi.Input[int] account_id: Account with the NRQL drop rule will be put.
+        :param pulumi.Input[str] action: The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
+        :param pulumi.Input[str] description: Provides additional information about the rule.
+        :param pulumi.Input[str] nrql: Explains which data to apply the drop rule to.
         :param pulumi.Input[str] rule_id: The id, uniquely identifying the rule.
         """
         if account_id is not None:
@@ -112,7 +112,7 @@ class _NrqlDropRuleState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[int]]:
         """
-        Account where the drop rule will be put. Defaults to the account associated with the API key used.
+        Account with the NRQL drop rule will be put.
         """
         return pulumi.get(self, "account_id")
 
@@ -124,7 +124,7 @@ class _NrqlDropRuleState:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
         """
-        An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
+        The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
         """
         return pulumi.get(self, "action")
 
@@ -136,7 +136,7 @@ class _NrqlDropRuleState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the drop rule.
+        Provides additional information about the rule.
         """
         return pulumi.get(self, "description")
 
@@ -148,7 +148,7 @@ class _NrqlDropRuleState:
     @pulumi.getter
     def nrql(self) -> Optional[pulumi.Input[str]]:
         """
-        A NRQL string that specifies what data types to drop.
+        Explains which data to apply the drop rule to.
         """
         return pulumi.get(self, "nrql")
 
@@ -182,7 +182,6 @@ class NrqlDropRule(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -203,7 +202,6 @@ class NrqlDropRule(pulumi.CustomResource):
             action="drop_attributes_from_metric_aggregates",
             nrql="SELECT containerId FROM Metric")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Using `newrelic-cli` to List Out Drop Rules
 
@@ -230,10 +228,10 @@ class NrqlDropRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Account where the drop rule will be put. Defaults to the account associated with the API key used.
-        :param pulumi.Input[str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
-        :param pulumi.Input[str] description: The description of the drop rule.
-        :param pulumi.Input[str] nrql: A NRQL string that specifies what data types to drop.
+        :param pulumi.Input[int] account_id: Account with the NRQL drop rule will be put.
+        :param pulumi.Input[str] action: The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
+        :param pulumi.Input[str] description: Provides additional information about the rule.
+        :param pulumi.Input[str] nrql: Explains which data to apply the drop rule to.
         """
         ...
     @overload
@@ -244,7 +242,6 @@ class NrqlDropRule(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -265,7 +262,6 @@ class NrqlDropRule(pulumi.CustomResource):
             action="drop_attributes_from_metric_aggregates",
             nrql="SELECT containerId FROM Metric")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Using `newrelic-cli` to List Out Drop Rules
 
@@ -349,10 +345,10 @@ class NrqlDropRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Account where the drop rule will be put. Defaults to the account associated with the API key used.
-        :param pulumi.Input[str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
-        :param pulumi.Input[str] description: The description of the drop rule.
-        :param pulumi.Input[str] nrql: A NRQL string that specifies what data types to drop.
+        :param pulumi.Input[int] account_id: Account with the NRQL drop rule will be put.
+        :param pulumi.Input[str] action: The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
+        :param pulumi.Input[str] description: Provides additional information about the rule.
+        :param pulumi.Input[str] nrql: Explains which data to apply the drop rule to.
         :param pulumi.Input[str] rule_id: The id, uniquely identifying the rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -370,7 +366,7 @@ class NrqlDropRule(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[int]:
         """
-        Account where the drop rule will be put. Defaults to the account associated with the API key used.
+        Account with the NRQL drop rule will be put.
         """
         return pulumi.get(self, "account_id")
 
@@ -378,7 +374,7 @@ class NrqlDropRule(pulumi.CustomResource):
     @pulumi.getter
     def action(self) -> pulumi.Output[str]:
         """
-        An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
+        The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
         """
         return pulumi.get(self, "action")
 
@@ -386,7 +382,7 @@ class NrqlDropRule(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the drop rule.
+        Provides additional information about the rule.
         """
         return pulumi.get(self, "description")
 
@@ -394,7 +390,7 @@ class NrqlDropRule(pulumi.CustomResource):
     @pulumi.getter
     def nrql(self) -> pulumi.Output[str]:
         """
-        A NRQL string that specifies what data types to drop.
+        Explains which data to apply the drop rule to.
         """
         return pulumi.get(self, "nrql")
 

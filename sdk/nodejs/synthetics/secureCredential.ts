@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     description: "My description",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -59,7 +57,7 @@ export class SecureCredential extends pulumi.CustomResource {
     }
 
     /**
-     * Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+     * The New Relic account ID where you want to create the secure credential.
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
@@ -67,7 +65,8 @@ export class SecureCredential extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+     * The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
+     * key to the underlying API.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -123,7 +122,7 @@ export class SecureCredential extends pulumi.CustomResource {
  */
 export interface SecureCredentialState {
     /**
-     * Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+     * The New Relic account ID where you want to create the secure credential.
      */
     accountId?: pulumi.Input<number>;
     /**
@@ -131,7 +130,8 @@ export interface SecureCredentialState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+     * The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
+     * key to the underlying API.
      */
     key?: pulumi.Input<string>;
     /**
@@ -149,7 +149,7 @@ export interface SecureCredentialState {
  */
 export interface SecureCredentialArgs {
     /**
-     * Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+     * The New Relic account ID where you want to create the secure credential.
      */
     accountId?: pulumi.Input<number>;
     /**
@@ -157,7 +157,8 @@ export interface SecureCredentialArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+     * The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
+     * key to the underlying API.
      */
     key: pulumi.Input<string>;
     /**

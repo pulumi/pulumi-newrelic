@@ -19,7 +19,6 @@ public final class AwsIntegrationsRedshiftArgs extends com.pulumi.resources.Reso
 
     /**
      * Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     @Import(name="awsRegions")
@@ -27,7 +26,6 @@ public final class AwsIntegrationsRedshiftArgs extends com.pulumi.resources.Reso
 
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
@@ -37,18 +35,12 @@ public final class AwsIntegrationsRedshiftArgs extends com.pulumi.resources.Reso
     /**
      * The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
-     * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
      * @return The data polling interval in seconds.
-     * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -114,7 +106,6 @@ public final class AwsIntegrationsRedshiftArgs extends com.pulumi.resources.Reso
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -126,7 +117,6 @@ public final class AwsIntegrationsRedshiftArgs extends com.pulumi.resources.Reso
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -137,7 +127,6 @@ public final class AwsIntegrationsRedshiftArgs extends com.pulumi.resources.Reso
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -149,9 +138,6 @@ public final class AwsIntegrationsRedshiftArgs extends com.pulumi.resources.Reso
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
-         * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
-         * 
          * @return builder
          * 
          */
@@ -162,9 +148,6 @@ public final class AwsIntegrationsRedshiftArgs extends com.pulumi.resources.Reso
 
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
          * 
          * @return builder
          * 

@@ -18,14 +18,14 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
     public static final AwsGovcloudIntegrationsApiGatewayArgs Empty = new AwsGovcloudIntegrationsApiGatewayArgs();
 
     /**
-     * Specify each AWS region that includes the resources that you want to monitor.
+     * Specify each AWS region that includes the resources that you want to monitor
      * 
      */
     @Import(name="awsRegions")
     private @Nullable Output<List<String>> awsRegions;
 
     /**
-     * @return Specify each AWS region that includes the resources that you want to monitor.
+     * @return Specify each AWS region that includes the resources that you want to monitor
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
@@ -33,18 +33,14 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
     }
 
     /**
-     * The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * The data polling interval in seconds
      * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * @return The data polling interval in seconds
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -52,14 +48,14 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
     }
 
     /**
-     * Specify each name or prefix for the Stages that you want to monitor. Filter values are case-sensitive.
+     * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
      * 
      */
     @Import(name="stagePrefixes")
     private @Nullable Output<List<String>> stagePrefixes;
 
     /**
-     * @return Specify each name or prefix for the Stages that you want to monitor. Filter values are case-sensitive.
+     * @return Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
      * 
      */
     public Optional<Output<List<String>>> stagePrefixes() {
@@ -125,7 +121,7 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
         }
 
         /**
-         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
+         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor
          * 
          * @return builder
          * 
@@ -136,7 +132,7 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
         }
 
         /**
-         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
+         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor
          * 
          * @return builder
          * 
@@ -146,7 +142,7 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
         }
 
         /**
-         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
+         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor
          * 
          * @return builder
          * 
@@ -156,9 +152,7 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * Some integration types support an additional set of arguments:
+         * @param metricsPollingInterval The data polling interval in seconds
          * 
          * @return builder
          * 
@@ -169,9 +163,7 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * Some integration types support an additional set of arguments:
+         * @param metricsPollingInterval The data polling interval in seconds
          * 
          * @return builder
          * 
@@ -181,7 +173,7 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
         }
 
         /**
-         * @param stagePrefixes Specify each name or prefix for the Stages that you want to monitor. Filter values are case-sensitive.
+         * @param stagePrefixes Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          * 
          * @return builder
          * 
@@ -192,7 +184,7 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
         }
 
         /**
-         * @param stagePrefixes Specify each name or prefix for the Stages that you want to monitor. Filter values are case-sensitive.
+         * @param stagePrefixes Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          * 
          * @return builder
          * 
@@ -202,7 +194,7 @@ public final class AwsGovcloudIntegrationsApiGatewayArgs extends com.pulumi.reso
         }
 
         /**
-         * @param stagePrefixes Specify each name or prefix for the Stages that you want to monitor. Filter values are case-sensitive.
+         * @param stagePrefixes Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          * 
          * @return builder
          * 

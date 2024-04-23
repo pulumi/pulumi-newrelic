@@ -315,14 +315,14 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableScreenshotOnFailureAndScript);
     }
     /**
-     * The unique identifier for the Synthetics private location in New Relic.
+     * The unique entity identifier of the monitor in New Relic.
      * 
      */
     @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
     /**
-     * @return The unique identifier for the Synthetics private location in New Relic.
+     * @return The unique entity identifier of the monitor in New Relic.
      * 
      */
     public Output<String> guid() {

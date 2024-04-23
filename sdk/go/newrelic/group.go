@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,7 +50,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Additional Examples
 //
@@ -59,7 +57,6 @@ import (
 //
 // The following example illustrates the creation of a group using the `Group` resource, to which users created using the `User` resource are added.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -112,13 +109,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Addition of Existing Users to a New Group
 //
 // The following example demonstrates the usage of the `Group` resource to create a group, wherein the `User` data source is employed to associate existing users with the newly formed group.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -167,7 +162,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // > **NOTE** Please note that the addition of users to groups is only possible when both the group and the users to be added to it belong to the _same authentication domain_. If the group being created and the users being added to it belong to different authentication domains, an error indicating `user not found` or an equivalent error will be thrown.
 //

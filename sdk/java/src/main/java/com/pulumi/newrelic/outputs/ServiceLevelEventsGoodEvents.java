@@ -13,43 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceLevelEventsGoodEvents {
-    /**
-     * @return The event type where NRDB data will be fetched from.
-     * 
-     */
     private String from;
-    /**
-     * @return The NRQL SELECT clause to aggregate events.
-     * 
-     */
     private @Nullable ServiceLevelEventsGoodEventsSelect select;
-    /**
-     * @return A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-     * a particular entity and returned an error).
-     * 
-     */
     private @Nullable String where;
 
     private ServiceLevelEventsGoodEvents() {}
-    /**
-     * @return The event type where NRDB data will be fetched from.
-     * 
-     */
     public String from() {
         return this.from;
     }
-    /**
-     * @return The NRQL SELECT clause to aggregate events.
-     * 
-     */
     public Optional<ServiceLevelEventsGoodEventsSelect> select() {
         return Optional.ofNullable(this.select);
     }
-    /**
-     * @return A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-     * a particular entity and returned an error).
-     * 
-     */
     public Optional<String> where() {
         return Optional.ofNullable(this.where);
     }

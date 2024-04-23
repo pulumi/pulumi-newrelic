@@ -28,7 +28,6 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// You can also use the full example, including the GCP set up, found in our guides.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,7 +45,6 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

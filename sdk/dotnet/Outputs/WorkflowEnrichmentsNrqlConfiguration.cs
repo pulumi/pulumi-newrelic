@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class WorkflowEnrichmentsNrqlConfiguration
     {
         /// <summary>
-        /// An NRQL query to run
+        /// enrichment's NRQL query
         /// </summary>
         public readonly string Query;
 

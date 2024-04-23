@@ -324,56 +324,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/alertChannel:AlertChannel")
 public class AlertChannel extends com.pulumi.resources.CustomResource {
     /**
-     * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+     * The New Relic account ID where you want to create alert channels.
      * 
      */
     @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
-     * @return Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+     * @return The New Relic account ID where you want to create alert channels.
      * 
      */
     public Output<Integer> accountId() {
         return this.accountId;
     }
     /**
-     * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+     * The configuration block for the alert channel.
      * 
      */
     @Export(name="config", refs={AlertChannelConfig.class}, tree="[0]")
     private Output</* @Nullable */ AlertChannelConfig> config;
 
     /**
-     * @return A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+     * @return The configuration block for the alert channel.
      * 
      */
     public Output<Optional<AlertChannelConfig>> config() {
         return Codegen.optional(this.config);
     }
     /**
-     * The name of the channel.
+     * (Required) The name of the channel.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the channel.
+     * @return (Required) The name of the channel.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+     * (Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+     * @return (Required) The type of channel. One of: (opsgenie, pagerduty, slack, user, victorops, webhook, email).
      * 
      */
     public Output<String> type() {

@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -38,7 +37,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -85,7 +83,7 @@ export class EntityTags extends pulumi.CustomResource {
      */
     public readonly guid!: pulumi.Output<string>;
     /**
-     * A nested block that describes an entity tag. See Nested tag blocks below for details.
+     * A set of key-value pairs to represent a tag. For example: Team:TeamName
      */
     public readonly tags!: pulumi.Output<outputs.EntityTagsTag[]>;
 
@@ -129,7 +127,7 @@ export interface EntityTagsState {
      */
     guid?: pulumi.Input<string>;
     /**
-     * A nested block that describes an entity tag. See Nested tag blocks below for details.
+     * A set of key-value pairs to represent a tag. For example: Team:TeamName
      */
     tags?: pulumi.Input<pulumi.Input<inputs.EntityTagsTag>[]>;
 }
@@ -143,7 +141,7 @@ export interface EntityTagsArgs {
      */
     guid: pulumi.Input<string>;
     /**
-     * A nested block that describes an entity tag. See Nested tag blocks below for details.
+     * A set of key-value pairs to represent a tag. For example: Team:TeamName
      */
     tags: pulumi.Input<pulumi.Input<inputs.EntityTagsTag>[]>;
 }

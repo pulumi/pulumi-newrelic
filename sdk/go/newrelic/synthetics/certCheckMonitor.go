@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,7 +56,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // See additional examples.
 //
 // ## Additional Examples
@@ -68,7 +66,6 @@ import (
 //
 // > **NOTE:** It can take up to 10 minutes for a private location to become available.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -115,7 +112,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

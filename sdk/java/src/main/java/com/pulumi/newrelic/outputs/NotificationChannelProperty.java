@@ -13,54 +13,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NotificationChannelProperty {
     /**
-     * @return The notification property display value.
-     * 
-     * Each notification channel type supports a specific set of arguments for the `property` block:
+     * @return Notification property display key.
      * 
      */
     private @Nullable String displayValue;
     /**
-     * @return The notification property key.
+     * @return Notification property key.
      * 
      */
     private String key;
     /**
-     * @return The notification property label.
+     * @return Notification property label.
      * 
      */
     private @Nullable String label;
     /**
-     * @return The notification property value.
+     * @return Notification property value.
      * 
      */
     private String value;
 
     private NotificationChannelProperty() {}
     /**
-     * @return The notification property display value.
-     * 
-     * Each notification channel type supports a specific set of arguments for the `property` block:
+     * @return Notification property display key.
      * 
      */
     public Optional<String> displayValue() {
         return Optional.ofNullable(this.displayValue);
     }
     /**
-     * @return The notification property key.
+     * @return Notification property key.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return The notification property label.
+     * @return Notification property label.
      * 
      */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
     /**
-     * @return The notification property value.
+     * @return Notification property value.
      * 
      */
     public String value() {

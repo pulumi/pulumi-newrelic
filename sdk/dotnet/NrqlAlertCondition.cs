@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic
     /// 
     /// ### Type: `static` (default)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,7 +70,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## NRQL
     /// 
@@ -111,7 +109,6 @@ namespace Pulumi.NewRelic
     /// 
     /// [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -166,13 +163,11 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Tags
     /// 
     /// Manage NRQL alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check `newrelic.EntityTags`.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -252,7 +247,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**/policies/**\&lt;policy_id\&gt;**/conditions/**\&lt;condition_id\&gt;**/edit&lt;/small&gt;
     /// 
@@ -264,7 +258,6 @@ namespace Pulumi.NewRelic
     /// 
     /// An example resource from 1.x might look like the following.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -296,12 +289,10 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// After making the appropriate adjustments mentioned in the deprecation warnings,
     /// the resource now looks like the following.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -337,7 +328,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

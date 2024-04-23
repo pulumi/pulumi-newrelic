@@ -13,30 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GcpIntegrationsStorage {
     /**
-     * @return Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+     * @return to fetch tags of the resource
      * 
      */
     private @Nullable Boolean fetchTags;
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Other integration supports an additional argument:
+     * @return the data polling interval in seconds
      * 
      */
     private @Nullable Integer metricsPollingInterval;
 
     private GcpIntegrationsStorage() {}
     /**
-     * @return Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+     * @return to fetch tags of the resource
      * 
      */
     public Optional<Boolean> fetchTags() {
         return Optional.ofNullable(this.fetchTags);
     }
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Other integration supports an additional argument:
+     * @return the data polling interval in seconds
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

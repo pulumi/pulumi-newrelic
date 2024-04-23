@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -24,7 +23,6 @@ import * as utilities from "./utilities";
  *     name: "Test Group",
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Additional Examples
  *
@@ -32,7 +30,6 @@ import * as utilities from "./utilities";
  *
  * In order to directly reference the attributes `id` and `userIds` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `userIds` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -51,7 +48,6 @@ import * as utilities from "./utilities";
  *     input: fooGetGroup.userIds,
  * }))]).then(([length, invoke]) => length > 0 ? invoke.result : "");
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
 
@@ -100,7 +96,6 @@ export interface GetGroupResult {
  *
  * The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -113,7 +108,6 @@ export interface GetGroupResult {
  *     name: "Test Group",
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Additional Examples
  *
@@ -121,7 +115,6 @@ export interface GetGroupResult {
  *
  * In order to directly reference the attributes `id` and `userIds` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `userIds` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -140,7 +133,6 @@ export interface GetGroupResult {
  *     input: fooGetGroup.userIds,
  * }))]).then(([length, invoke]) => length > 0 ? invoke.result : "");
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
     return pulumi.output(args).apply((a: any) => getGroup(a, opts))

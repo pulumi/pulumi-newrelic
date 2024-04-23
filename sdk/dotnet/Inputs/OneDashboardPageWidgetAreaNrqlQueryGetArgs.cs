@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class OneDashboardPageWidgetAreaNrqlQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        /// The account id used for the NRQL query.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }

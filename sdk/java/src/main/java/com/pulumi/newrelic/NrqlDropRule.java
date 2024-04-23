@@ -93,56 +93,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/nrqlDropRule:NrqlDropRule")
 public class NrqlDropRule extends com.pulumi.resources.CustomResource {
     /**
-     * Account where the drop rule will be put. Defaults to the account associated with the API key used.
+     * Account with the NRQL drop rule will be put.
      * 
      */
     @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
-     * @return Account where the drop rule will be put. Defaults to the account associated with the API key used.
+     * @return Account with the NRQL drop rule will be put.
      * 
      */
     public Output<Integer> accountId() {
         return this.accountId;
     }
     /**
-     * An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
+     * The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
      * 
      */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
-     * @return An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
+     * @return The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
      * 
      */
     public Output<String> action() {
         return this.action;
     }
     /**
-     * The description of the drop rule.
+     * Provides additional information about the rule.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the drop rule.
+     * @return Provides additional information about the rule.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * A NRQL string that specifies what data types to drop.
+     * Explains which data to apply the drop rule to.
      * 
      */
     @Export(name="nrql", refs={String.class}, tree="[0]")
     private Output<String> nrql;
 
     /**
-     * @return A NRQL string that specifies what data types to drop.
+     * @return Explains which data to apply the drop rule to.
      * 
      */
     public Output<String> nrql() {

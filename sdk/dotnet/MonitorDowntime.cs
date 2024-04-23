@@ -14,7 +14,6 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,7 +47,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// Monitor Downtimes are of four types; **one-time**, **daily**, **weekly** and **monthly**. For more details on each type and the right arguments that go with them, check out the argument reference and examples sections below.
     /// 
     /// ## Examples
@@ -57,7 +55,6 @@ namespace Pulumi.NewRelic
     /// 
     /// The below example illustrates creating a **one-time** monitor downtime.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,7 +79,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Daily Monitor Downtime
     /// 
@@ -90,7 +86,6 @@ namespace Pulumi.NewRelic
     /// 
     /// Note that `end_repeat` has been specified in the configuration; however, this is optional, in accordance with the rules of `end_repeat` specified in the argument reference section above. This example uses the `on_date` nested argument of `end_repeat`, however, the other nested argument, `on_repeat` may also be used _instead_, as you may see in some of the other examples below; though both `on_date` and `on_repeat` cannot be specified together, as they are mutually exclusive.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -119,7 +114,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Weekly Monitor Downtime
     /// 
@@ -127,7 +121,6 @@ namespace Pulumi.NewRelic
     /// 
     /// Note that `maintenance_days` has been specified in the configuration as it is required with weekly monitor downtimes; and `end_repeat` has not been specified as it is optional, all in accordance with the rules of these arguments specified in the argument reference section above.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -157,7 +150,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Monthly Monitor Downtime
     /// 
@@ -165,7 +157,6 @@ namespace Pulumi.NewRelic
     /// 
     /// Note that `frequency` has been specified in the configuration as it is required with monthly monitor downtimes, and `end_repeat` has been specified too, though it is optional. `frequency` has been specified with `days_of_week` comprising both of its nested arguments, `ordinal_day_of_month` and `week_day`; all in accordance with the rules of these arguments specified in the argument reference section above.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -202,9 +193,7 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// However, the `frequency` block in monthly monitor downtimes may also be specified with its other nested argument, `days_of_month`, as shown in the example below - though both `days_of_month` and `days_of_week` cannot be specified together, as they are mutually exclusive.
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -243,7 +232,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -259,57 +247,56 @@ namespace Pulumi.NewRelic
     public partial class MonitorDowntime : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
+        /// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+        /// provider{} configuration if not specified.
         /// </summary>
         [Output("accountId")]
         public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
+        /// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
         /// </summary>
         [Output("endRepeat")]
         public Output<Outputs.MonitorDowntimeEndRepeat?> EndRepeat { get; private set; } = null!;
 
         /// <summary>
-        /// The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
+        /// A datetime stamp signifying the end of the Monitor Downtime.
         /// </summary>
         [Output("endTime")]
         public Output<string> EndTime { get; private set; } = null!;
 
         /// <summary>
-        /// Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
+        /// Configuration options for which days of the month a monitor downtime will occur
         /// </summary>
         [Output("frequency")]
         public Output<Outputs.MonitorDowntimeFrequency?> Frequency { get; private set; } = null!;
 
         /// <summary>
-        /// A list of days on which weekly monitor downtimes would function. Valid values which go into this list would be `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` and/or `"SATURDAY"`.
-        /// 
-        /// &gt; **NOTE:** `maintenance_days` **can only be used with the mode** `WEEKLY`, and **is a required argument** with weekly monitor downtimes (i.e. if the `mode` is `WEEKLY`).
+        /// A list of maintenance days to be included with the created weekly Monitor Downtime.
         /// </summary>
         [Output("maintenanceDays")]
         public Output<ImmutableArray<string>> MaintenanceDays { get; private set; } = null!;
 
         /// <summary>
-        /// One of the four modes of operation of monitor downtimes - `ONE_TIME`, `DAILY`, `MONTHLY` or `WEEKLY`.
+        /// An identifier of the type of Monitor Downtime to be created.
         /// </summary>
         [Output("mode")]
         public Output<string> Mode { get; private set; } = null!;
 
         /// <summary>
-        /// A list of GUIDs of synthetic monitors the monitor downtime would need to be applied to.
+        /// A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
         /// </summary>
         [Output("monitorGuids")]
         public Output<ImmutableArray<string>> MonitorGuids { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the monitor downtime to be created.
+        /// A name to identify the Monitor Downtime to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The time at which the monitor downtime would begin to operate, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2023-12-20T10:48:53`.
+        /// A datetime stamp signifying the start of the Monitor Downtime.
         /// </summary>
         [Output("startTime")]
         public Output<string> StartTime { get; private set; } = null!;
@@ -367,25 +354,26 @@ namespace Pulumi.NewRelic
     public sealed class MonitorDowntimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
+        /// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+        /// provider{} configuration if not specified.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
+        /// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
         /// </summary>
         [Input("endRepeat")]
         public Input<Inputs.MonitorDowntimeEndRepeatArgs>? EndRepeat { get; set; }
 
         /// <summary>
-        /// The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
+        /// A datetime stamp signifying the end of the Monitor Downtime.
         /// </summary>
         [Input("endTime", required: true)]
         public Input<string> EndTime { get; set; } = null!;
 
         /// <summary>
-        /// Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
+        /// Configuration options for which days of the month a monitor downtime will occur
         /// </summary>
         [Input("frequency")]
         public Input<Inputs.MonitorDowntimeFrequencyArgs>? Frequency { get; set; }
@@ -394,9 +382,7 @@ namespace Pulumi.NewRelic
         private InputList<string>? _maintenanceDays;
 
         /// <summary>
-        /// A list of days on which weekly monitor downtimes would function. Valid values which go into this list would be `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` and/or `"SATURDAY"`.
-        /// 
-        /// &gt; **NOTE:** `maintenance_days` **can only be used with the mode** `WEEKLY`, and **is a required argument** with weekly monitor downtimes (i.e. if the `mode` is `WEEKLY`).
+        /// A list of maintenance days to be included with the created weekly Monitor Downtime.
         /// </summary>
         public InputList<string> MaintenanceDays
         {
@@ -405,7 +391,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// One of the four modes of operation of monitor downtimes - `ONE_TIME`, `DAILY`, `MONTHLY` or `WEEKLY`.
+        /// An identifier of the type of Monitor Downtime to be created.
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
@@ -414,7 +400,7 @@ namespace Pulumi.NewRelic
         private InputList<string>? _monitorGuids;
 
         /// <summary>
-        /// A list of GUIDs of synthetic monitors the monitor downtime would need to be applied to.
+        /// A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
         /// </summary>
         public InputList<string> MonitorGuids
         {
@@ -423,13 +409,13 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// Name of the monitor downtime to be created.
+        /// A name to identify the Monitor Downtime to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The time at which the monitor downtime would begin to operate, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2023-12-20T10:48:53`.
+        /// A datetime stamp signifying the start of the Monitor Downtime.
         /// </summary>
         [Input("startTime", required: true)]
         public Input<string> StartTime { get; set; } = null!;
@@ -449,25 +435,26 @@ namespace Pulumi.NewRelic
     public sealed class MonitorDowntimeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
+        /// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+        /// provider{} configuration if not specified.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
+        /// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
         /// </summary>
         [Input("endRepeat")]
         public Input<Inputs.MonitorDowntimeEndRepeatGetArgs>? EndRepeat { get; set; }
 
         /// <summary>
-        /// The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
+        /// A datetime stamp signifying the end of the Monitor Downtime.
         /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
 
         /// <summary>
-        /// Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
+        /// Configuration options for which days of the month a monitor downtime will occur
         /// </summary>
         [Input("frequency")]
         public Input<Inputs.MonitorDowntimeFrequencyGetArgs>? Frequency { get; set; }
@@ -476,9 +463,7 @@ namespace Pulumi.NewRelic
         private InputList<string>? _maintenanceDays;
 
         /// <summary>
-        /// A list of days on which weekly monitor downtimes would function. Valid values which go into this list would be `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` and/or `"SATURDAY"`.
-        /// 
-        /// &gt; **NOTE:** `maintenance_days` **can only be used with the mode** `WEEKLY`, and **is a required argument** with weekly monitor downtimes (i.e. if the `mode` is `WEEKLY`).
+        /// A list of maintenance days to be included with the created weekly Monitor Downtime.
         /// </summary>
         public InputList<string> MaintenanceDays
         {
@@ -487,7 +472,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// One of the four modes of operation of monitor downtimes - `ONE_TIME`, `DAILY`, `MONTHLY` or `WEEKLY`.
+        /// An identifier of the type of Monitor Downtime to be created.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -496,7 +481,7 @@ namespace Pulumi.NewRelic
         private InputList<string>? _monitorGuids;
 
         /// <summary>
-        /// A list of GUIDs of synthetic monitors the monitor downtime would need to be applied to.
+        /// A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
         /// </summary>
         public InputList<string> MonitorGuids
         {
@@ -505,13 +490,13 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// Name of the monitor downtime to be created.
+        /// A name to identify the Monitor Downtime to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The time at which the monitor downtime would begin to operate, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2023-12-20T10:48:53`.
+        /// A datetime stamp signifying the start of the Monitor Downtime.
         /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }

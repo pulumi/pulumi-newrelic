@@ -13,15 +13,13 @@ namespace Pulumi.NewRelic.Cloud.Inputs
     public sealed class GcpIntegrationsBigQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        /// to fetch tags of the resource
         /// </summary>
         [Input("fetchTags")]
         public Input<bool>? FetchTags { get; set; }
 
         /// <summary>
-        /// The data polling interval in seconds.
-        /// 
-        /// Other integration supports an additional argument:
+        /// the data polling interval in seconds
         /// </summary>
         [Input("metricsPollingInterval")]
         public Input<int>? MetricsPollingInterval { get; set; }

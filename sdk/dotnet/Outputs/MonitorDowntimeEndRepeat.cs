@@ -14,13 +14,11 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class MonitorDowntimeEndRepeat
     {
         /// <summary>
-        /// The date on which the monitor downtime's repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
+        /// A date, on which the Monitor Downtime's repeat cycle is expected to end.
         /// </summary>
         public readonly string? OnDate;
         /// <summary>
-        /// An integer that specifies the number of occurrences, after which the monitor downtime's repeat cycle would need to come to an end.
-        /// 
-        /// &gt; **NOTE:** `end_repeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `on_date` or `on_repeat` **are required to be specified with** `end_repeat`, but not both, as `on_date` and `on_repeat` are mutually exclusive.
+        /// Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
         /// </summary>
         public readonly int? OnRepeat;
 

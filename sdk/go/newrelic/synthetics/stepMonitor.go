@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,7 +65,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // See additional examples.
 //
 // ## Additional Examples
@@ -77,7 +75,6 @@ import (
 //
 // > **NOTE:** It can take up to 10 minutes for a private location to become available.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -134,7 +131,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -152,7 +148,7 @@ type StepMonitor struct {
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrOutput `pulumi:"enableScreenshotOnFailureAndScript"`
-	// The unique identifier for the Synthetics private location in New Relic.
+	// The unique entity identifier of the monitor in New Relic.
 	Guid pulumi.StringOutput `pulumi:"guid"`
 	// The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
 	LocationPrivates StepMonitorLocationPrivateArrayOutput `pulumi:"locationPrivates"`
@@ -221,7 +217,7 @@ type stepMonitorState struct {
 	AccountId *int `pulumi:"accountId"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
-	// The unique identifier for the Synthetics private location in New Relic.
+	// The unique entity identifier of the monitor in New Relic.
 	Guid *string `pulumi:"guid"`
 	// The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
 	LocationPrivates []StepMonitorLocationPrivate `pulumi:"locationPrivates"`
@@ -252,7 +248,7 @@ type StepMonitorState struct {
 	AccountId pulumi.IntPtrInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
-	// The unique identifier for the Synthetics private location in New Relic.
+	// The unique entity identifier of the monitor in New Relic.
 	Guid pulumi.StringPtrInput
 	// The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
 	LocationPrivates StepMonitorLocationPrivateArrayInput
@@ -434,7 +430,7 @@ func (o StepMonitorOutput) EnableScreenshotOnFailureAndScript() pulumi.BoolPtrOu
 	return o.ApplyT(func(v *StepMonitor) pulumi.BoolPtrOutput { return v.EnableScreenshotOnFailureAndScript }).(pulumi.BoolPtrOutput)
 }
 
-// The unique identifier for the Synthetics private location in New Relic.
+// The unique entity identifier of the monitor in New Relic.
 func (o StepMonitorOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }

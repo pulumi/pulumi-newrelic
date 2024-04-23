@@ -17,7 +17,6 @@ import (
 //
 // The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,7 +47,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Additional Examples
 //
@@ -56,7 +54,6 @@ import (
 //
 // In order to directly reference the attributes `id` and `userIds` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `userIds` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,7 +96,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGroupResult

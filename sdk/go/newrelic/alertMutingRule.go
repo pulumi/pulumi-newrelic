@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,7 +70,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -83,9 +81,9 @@ import (
 type AlertMutingRule struct {
 	pulumi.CustomResourceState
 
-	// The account id of the MutingRule.
+	// The account id of the MutingRule..
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
-	// The condition that defines which incidents to target. See Nested condition blocks below for details.
+	// The condition that defines which incidents to target.
 	Condition AlertMutingRuleConditionOutput `pulumi:"condition"`
 	// The description of the MutingRule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -93,7 +91,7 @@ type AlertMutingRule struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The name of the MutingRule.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specify a schedule for enabling the MutingRule. See Schedule below for details
+	// The time window when the MutingRule should actively mute incidents.
 	Schedule AlertMutingRuleSchedulePtrOutput `pulumi:"schedule"`
 }
 
@@ -133,9 +131,9 @@ func GetAlertMutingRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertMutingRule resources.
 type alertMutingRuleState struct {
-	// The account id of the MutingRule.
+	// The account id of the MutingRule..
 	AccountId *int `pulumi:"accountId"`
-	// The condition that defines which incidents to target. See Nested condition blocks below for details.
+	// The condition that defines which incidents to target.
 	Condition *AlertMutingRuleCondition `pulumi:"condition"`
 	// The description of the MutingRule.
 	Description *string `pulumi:"description"`
@@ -143,14 +141,14 @@ type alertMutingRuleState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the MutingRule.
 	Name *string `pulumi:"name"`
-	// Specify a schedule for enabling the MutingRule. See Schedule below for details
+	// The time window when the MutingRule should actively mute incidents.
 	Schedule *AlertMutingRuleSchedule `pulumi:"schedule"`
 }
 
 type AlertMutingRuleState struct {
-	// The account id of the MutingRule.
+	// The account id of the MutingRule..
 	AccountId pulumi.IntPtrInput
-	// The condition that defines which incidents to target. See Nested condition blocks below for details.
+	// The condition that defines which incidents to target.
 	Condition AlertMutingRuleConditionPtrInput
 	// The description of the MutingRule.
 	Description pulumi.StringPtrInput
@@ -158,7 +156,7 @@ type AlertMutingRuleState struct {
 	Enabled pulumi.BoolPtrInput
 	// The name of the MutingRule.
 	Name pulumi.StringPtrInput
-	// Specify a schedule for enabling the MutingRule. See Schedule below for details
+	// The time window when the MutingRule should actively mute incidents.
 	Schedule AlertMutingRuleSchedulePtrInput
 }
 
@@ -167,9 +165,9 @@ func (AlertMutingRuleState) ElementType() reflect.Type {
 }
 
 type alertMutingRuleArgs struct {
-	// The account id of the MutingRule.
+	// The account id of the MutingRule..
 	AccountId *int `pulumi:"accountId"`
-	// The condition that defines which incidents to target. See Nested condition blocks below for details.
+	// The condition that defines which incidents to target.
 	Condition AlertMutingRuleCondition `pulumi:"condition"`
 	// The description of the MutingRule.
 	Description *string `pulumi:"description"`
@@ -177,15 +175,15 @@ type alertMutingRuleArgs struct {
 	Enabled bool `pulumi:"enabled"`
 	// The name of the MutingRule.
 	Name *string `pulumi:"name"`
-	// Specify a schedule for enabling the MutingRule. See Schedule below for details
+	// The time window when the MutingRule should actively mute incidents.
 	Schedule *AlertMutingRuleSchedule `pulumi:"schedule"`
 }
 
 // The set of arguments for constructing a AlertMutingRule resource.
 type AlertMutingRuleArgs struct {
-	// The account id of the MutingRule.
+	// The account id of the MutingRule..
 	AccountId pulumi.IntPtrInput
-	// The condition that defines which incidents to target. See Nested condition blocks below for details.
+	// The condition that defines which incidents to target.
 	Condition AlertMutingRuleConditionInput
 	// The description of the MutingRule.
 	Description pulumi.StringPtrInput
@@ -193,7 +191,7 @@ type AlertMutingRuleArgs struct {
 	Enabled pulumi.BoolInput
 	// The name of the MutingRule.
 	Name pulumi.StringPtrInput
-	// Specify a schedule for enabling the MutingRule. See Schedule below for details
+	// The time window when the MutingRule should actively mute incidents.
 	Schedule AlertMutingRuleSchedulePtrInput
 }
 
@@ -284,12 +282,12 @@ func (o AlertMutingRuleOutput) ToAlertMutingRuleOutputWithContext(ctx context.Co
 	return o
 }
 
-// The account id of the MutingRule.
+// The account id of the MutingRule..
 func (o AlertMutingRuleOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *AlertMutingRule) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
 
-// The condition that defines which incidents to target. See Nested condition blocks below for details.
+// The condition that defines which incidents to target.
 func (o AlertMutingRuleOutput) Condition() AlertMutingRuleConditionOutput {
 	return o.ApplyT(func(v *AlertMutingRule) AlertMutingRuleConditionOutput { return v.Condition }).(AlertMutingRuleConditionOutput)
 }
@@ -309,7 +307,7 @@ func (o AlertMutingRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertMutingRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specify a schedule for enabling the MutingRule. See Schedule below for details
+// The time window when the MutingRule should actively mute incidents.
 func (o AlertMutingRuleOutput) Schedule() AlertMutingRuleSchedulePtrOutput {
 	return o.ApplyT(func(v *AlertMutingRule) AlertMutingRuleSchedulePtrOutput { return v.Schedule }).(AlertMutingRuleSchedulePtrOutput)
 }

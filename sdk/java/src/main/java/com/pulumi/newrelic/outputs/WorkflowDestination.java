@@ -14,8 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkflowDestination {
     /**
-     * @return Id of a notification_channel to use for notifications. Please note that you have to use a
-     * **notification** channel, not an `alert_channel`.
+     * @return (Required) Destination&#39;s channel id.
      * 
      */
     private String channelId;
@@ -25,20 +24,19 @@ public final class WorkflowDestination {
      */
     private @Nullable String name;
     /**
-     * @return Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+     * @return List of triggers to notify about in this destination configuration.
      * 
      */
     private @Nullable List<String> notificationTriggers;
     /**
-     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+     * @return (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
      * 
      */
     private @Nullable String type;
 
     private WorkflowDestination() {}
     /**
-     * @return Id of a notification_channel to use for notifications. Please note that you have to use a
-     * **notification** channel, not an `alert_channel`.
+     * @return (Required) Destination&#39;s channel id.
      * 
      */
     public String channelId() {
@@ -52,14 +50,14 @@ public final class WorkflowDestination {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+     * @return List of triggers to notify about in this destination configuration.
      * 
      */
     public List<String> notificationTriggers() {
         return this.notificationTriggers == null ? List.of() : this.notificationTriggers;
     }
     /**
-     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+     * @return (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
      * 
      */
     public Optional<String> type() {

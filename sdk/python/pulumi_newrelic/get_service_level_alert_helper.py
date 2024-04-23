@@ -170,7 +170,6 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
 
     Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -202,14 +201,12 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
             ),
         ))
     ```
-    <!--End PulumiCodeChooser -->
     Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
     Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
     If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
 
     Here is an example of a `slow_burn` alert.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -241,11 +238,9 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
         aggregation_delay="120",
         slide_by=900)
     ```
-    <!--End PulumiCodeChooser -->
 
     Here is an example of a custom alert:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -279,16 +274,6 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
         aggregation_delay="120",
         slide_by=60)
     ```
-    <!--End PulumiCodeChooser -->
-
-
-    :param str alert_type: The type of alert we want to set. Valid values are:
-    :param int custom_evaluation_period: Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
-    :param float custom_tolerated_budget_consumption: How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
-    :param bool is_bad_events: If the SLI is defined using bad events. Defaults to `false`
-    :param str sli_guid: The guid of the sli we want to set the alert on.
-    :param int slo_period: The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
-    :param float slo_target: The target of the Service Level Objective, valid values between `0` and `100`.
     """
     __args__ = dict()
     __args__['alertType'] = alert_type
@@ -332,7 +317,6 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
 
     Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -364,14 +348,12 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
             ),
         ))
     ```
-    <!--End PulumiCodeChooser -->
     Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
     Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
     If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
 
     Here is an example of a `slow_burn` alert.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -403,11 +385,9 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
         aggregation_delay="120",
         slide_by=900)
     ```
-    <!--End PulumiCodeChooser -->
 
     Here is an example of a custom alert:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -441,15 +421,5 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
         aggregation_delay="120",
         slide_by=60)
     ```
-    <!--End PulumiCodeChooser -->
-
-
-    :param str alert_type: The type of alert we want to set. Valid values are:
-    :param int custom_evaluation_period: Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
-    :param float custom_tolerated_budget_consumption: How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
-    :param bool is_bad_events: If the SLI is defined using bad events. Defaults to `false`
-    :param str sli_guid: The guid of the sli we want to set the alert on.
-    :param int slo_period: The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
-    :param float slo_target: The target of the Service Level Objective, valid values between `0` and `100`.
     """
     ...

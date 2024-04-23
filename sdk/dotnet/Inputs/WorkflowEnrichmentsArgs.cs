@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<Inputs.WorkflowEnrichmentsNrqlArgs>? _nrqls;
 
         /// <summary>
-        /// a wrapper block
+        /// (Required) Nrql type Enrichments.
         /// </summary>
         public InputList<Inputs.WorkflowEnrichmentsNrqlArgs> Nrqls
         {

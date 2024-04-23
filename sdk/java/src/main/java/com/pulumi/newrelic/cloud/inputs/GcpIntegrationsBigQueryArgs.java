@@ -17,14 +17,14 @@ public final class GcpIntegrationsBigQueryArgs extends com.pulumi.resources.Reso
     public static final GcpIntegrationsBigQueryArgs Empty = new GcpIntegrationsBigQueryArgs();
 
     /**
-     * Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+     * to fetch tags of the resource
      * 
      */
     @Import(name="fetchTags")
     private @Nullable Output<Boolean> fetchTags;
 
     /**
-     * @return Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+     * @return to fetch tags of the resource
      * 
      */
     public Optional<Output<Boolean>> fetchTags() {
@@ -32,18 +32,14 @@ public final class GcpIntegrationsBigQueryArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The data polling interval in seconds.
-     * 
-     * Other integration supports an additional argument:
+     * the data polling interval in seconds
      * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Other integration supports an additional argument:
+     * @return the data polling interval in seconds
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -76,7 +72,7 @@ public final class GcpIntegrationsBigQueryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param fetchTags Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * @param fetchTags to fetch tags of the resource
          * 
          * @return builder
          * 
@@ -87,7 +83,7 @@ public final class GcpIntegrationsBigQueryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param fetchTags Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * @param fetchTags to fetch tags of the resource
          * 
          * @return builder
          * 
@@ -97,9 +93,7 @@ public final class GcpIntegrationsBigQueryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * Other integration supports an additional argument:
+         * @param metricsPollingInterval the data polling interval in seconds
          * 
          * @return builder
          * 
@@ -110,9 +104,7 @@ public final class GcpIntegrationsBigQueryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * Other integration supports an additional argument:
+         * @param metricsPollingInterval the data polling interval in seconds
          * 
          * @return builder
          * 

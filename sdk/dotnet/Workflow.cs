@@ -15,7 +15,6 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// ##### Workflow
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,13 +55,11 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Policy-Based Workflow Example
     /// 
     /// This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -148,11 +145,9 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### An example of a workflow with enrichments
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -210,11 +205,9 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### An example of a workflow with notification triggers
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -259,7 +252,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Additional Information
     /// 

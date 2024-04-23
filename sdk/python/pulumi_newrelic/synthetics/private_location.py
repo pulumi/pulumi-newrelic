@@ -233,7 +233,6 @@ class PrivateLocation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -242,7 +241,6 @@ class PrivateLocation(pulumi.CustomResource):
             description="The private location description",
             name="The name of the private location")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -270,7 +268,6 @@ class PrivateLocation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -279,7 +276,6 @@ class PrivateLocation(pulumi.CustomResource):
             description="The private location description",
             name="The name of the private location")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

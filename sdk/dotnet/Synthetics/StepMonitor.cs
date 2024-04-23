@@ -14,7 +14,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,7 +62,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// See additional examples.
     /// 
     /// ## Additional Examples
@@ -74,7 +72,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -130,7 +127,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -158,7 +154,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<bool?> EnableScreenshotOnFailureAndScript { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the Synthetics private location in New Relic.
+        /// The unique entity identifier of the monitor in New Relic.
         /// </summary>
         [Output("guid")]
         public Output<string> Guid { get; private set; } = null!;
@@ -384,7 +380,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<bool>? EnableScreenshotOnFailureAndScript { get; set; }
 
         /// <summary>
-        /// The unique identifier for the Synthetics private location in New Relic.
+        /// The unique entity identifier of the monitor in New Relic.
         /// </summary>
         [Input("guid")]
         public Input<string>? Guid { get; set; }

@@ -17,45 +17,29 @@ public final class ServiceLevelEventsBadEventsSelectArgs extends com.pulumi.reso
 
     public static final ServiceLevelEventsBadEventsSelectArgs Empty = new ServiceLevelEventsBadEventsSelectArgs();
 
-    /**
-     * The event attribute to use in the SELECT clause.
-     * 
-     */
     @Import(name="attribute")
     private @Nullable Output<String> attribute;
 
-    /**
-     * @return The event attribute to use in the SELECT clause.
-     * 
-     */
     public Optional<Output<String>> attribute() {
         return Optional.ofNullable(this.attribute);
     }
 
-    /**
-     * The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
-     * 
-     */
     @Import(name="function", required=true)
     private Output<String> function;
 
-    /**
-     * @return The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
-     * 
-     */
     public Output<String> function() {
         return this.function;
     }
 
     /**
-     * Limit for values to be counter by `GET_CDF_COUNT` function.
+     * The event threshold to use in the SELECT clause
      * 
      */
     @Import(name="threshold")
     private @Nullable Output<Double> threshold;
 
     /**
-     * @return Limit for values to be counter by `GET_CDF_COUNT` function.
+     * @return The event threshold to use in the SELECT clause
      * 
      */
     public Optional<Output<Double>> threshold() {
@@ -88,50 +72,26 @@ public final class ServiceLevelEventsBadEventsSelectArgs extends com.pulumi.reso
             $ = new ServiceLevelEventsBadEventsSelectArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attribute The event attribute to use in the SELECT clause.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attribute(@Nullable Output<String> attribute) {
             $.attribute = attribute;
             return this;
         }
 
-        /**
-         * @param attribute The event attribute to use in the SELECT clause.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attribute(String attribute) {
             return attribute(Output.of(attribute));
         }
 
-        /**
-         * @param function The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder function(Output<String> function) {
             $.function = function;
             return this;
         }
 
-        /**
-         * @param function The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder function(String function) {
             return function(Output.of(function));
         }
 
         /**
-         * @param threshold Limit for values to be counter by `GET_CDF_COUNT` function.
+         * @param threshold The event threshold to use in the SELECT clause
          * 
          * @return builder
          * 
@@ -142,7 +102,7 @@ public final class ServiceLevelEventsBadEventsSelectArgs extends com.pulumi.reso
         }
 
         /**
-         * @param threshold Limit for values to be counter by `GET_CDF_COUNT` function.
+         * @param threshold The event threshold to use in the SELECT clause
          * 
          * @return builder
          * 

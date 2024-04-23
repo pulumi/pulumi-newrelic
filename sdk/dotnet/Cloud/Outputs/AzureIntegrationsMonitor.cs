@@ -14,31 +14,27 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     public sealed class AzureIntegrationsMonitor
     {
         /// <summary>
-        /// A boolean value, that specifies if the integration needs to be active. Defaults to 'true' if not specified.
-        /// 
-        /// &gt; **IMPORTANT!** Using the `monitor` integration along with other polling integrations in this resource might lead to duplication of metrics. More information about this scenario may be found in the note in [this section](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/#migration-from-polling) of New Relic's documentation on the Azure Monitor integration.
+        /// A flag that specifies if the integration is active
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// A list of resource tags associated with the resources that need to be excluded from monitoring.
+        /// Specify resource tags in 'key:value' form to be excluded from monitoring
         /// </summary>
         public readonly ImmutableArray<string> ExcludeTags;
         /// <summary>
-        /// A list of resource tags associated with the resources that need to be monitored, in a "key:value" format. If this is not specified, all resources will be monitored.
+        /// Specify resource tags in 'key:value' form to be monitored
         /// </summary>
         public readonly ImmutableArray<string> IncludeTags;
         /// <summary>
-        /// The data polling interval in seconds.
+        /// The data polling interval in seconds
         /// </summary>
         public readonly int? MetricsPollingInterval;
         /// <summary>
         /// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
-        /// 
-        /// Other integration type support an additional argument:
         /// </summary>
         public readonly ImmutableArray<string> ResourceGroups;
         /// <summary>
-        /// A list of Azure resource types that need to be monitored.
+        /// Specify each Azure resource type that needs to be monitored
         /// </summary>
         public readonly ImmutableArray<string> ResourceTypes;
 

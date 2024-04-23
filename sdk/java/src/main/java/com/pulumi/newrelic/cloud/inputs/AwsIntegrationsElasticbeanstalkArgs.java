@@ -20,7 +20,6 @@ public final class AwsIntegrationsElasticbeanstalkArgs extends com.pulumi.resour
 
     /**
      * Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     @Import(name="awsRegions")
@@ -28,7 +27,6 @@ public final class AwsIntegrationsElasticbeanstalkArgs extends com.pulumi.resour
 
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
@@ -38,8 +36,6 @@ public final class AwsIntegrationsElasticbeanstalkArgs extends com.pulumi.resour
     /**
      * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
      * 
-     * Furthermore, below integration types supports the following common arguments.
-     * 
      */
     @Import(name="fetchExtendedInventory")
     private @Nullable Output<Boolean> fetchExtendedInventory;
@@ -47,22 +43,20 @@ public final class AwsIntegrationsElasticbeanstalkArgs extends com.pulumi.resour
     /**
      * @return Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
      * 
-     * Furthermore, below integration types supports the following common arguments.
-     * 
      */
     public Optional<Output<Boolean>> fetchExtendedInventory() {
         return Optional.ofNullable(this.fetchExtendedInventory);
     }
 
     /**
-     * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+     * Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
      * 
      */
     @Import(name="fetchTags")
     private @Nullable Output<Boolean> fetchTags;
 
     /**
-     * @return Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+     * @return Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
      * 
      */
     public Optional<Output<Boolean>> fetchTags() {
@@ -72,18 +66,12 @@ public final class AwsIntegrationsElasticbeanstalkArgs extends com.pulumi.resour
     /**
      * The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
-     * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
      * @return The data polling interval in seconds.
-     * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -151,7 +139,6 @@ public final class AwsIntegrationsElasticbeanstalkArgs extends com.pulumi.resour
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -163,7 +150,6 @@ public final class AwsIntegrationsElasticbeanstalkArgs extends com.pulumi.resour
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -174,7 +160,6 @@ public final class AwsIntegrationsElasticbeanstalkArgs extends com.pulumi.resour
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -185,8 +170,6 @@ public final class AwsIntegrationsElasticbeanstalkArgs extends com.pulumi.resour
 
         /**
          * @param fetchExtendedInventory Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * 
-         * Furthermore, below integration types supports the following common arguments.
          * 
          * @return builder
          * 
@@ -199,8 +182,6 @@ public final class AwsIntegrationsElasticbeanstalkArgs extends com.pulumi.resour
         /**
          * @param fetchExtendedInventory Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          * 
-         * Furthermore, below integration types supports the following common arguments.
-         * 
          * @return builder
          * 
          */
@@ -209,7 +190,7 @@ public final class AwsIntegrationsElasticbeanstalkArgs extends com.pulumi.resour
         }
 
         /**
-         * @param fetchTags Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * @param fetchTags Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          * 
          * @return builder
          * 
@@ -220,7 +201,7 @@ public final class AwsIntegrationsElasticbeanstalkArgs extends com.pulumi.resour
         }
 
         /**
-         * @param fetchTags Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * @param fetchTags Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          * 
          * @return builder
          * 
@@ -232,9 +213,6 @@ public final class AwsIntegrationsElasticbeanstalkArgs extends com.pulumi.resour
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
-         * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
-         * 
          * @return builder
          * 
          */
@@ -245,9 +223,6 @@ public final class AwsIntegrationsElasticbeanstalkArgs extends com.pulumi.resour
 
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
          * 
          * @return builder
          * 

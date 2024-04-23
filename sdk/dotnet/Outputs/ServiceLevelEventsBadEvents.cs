@@ -13,18 +13,8 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class ServiceLevelEventsBadEvents
     {
-        /// <summary>
-        /// The event type where NRDB data will be fetched from.
-        /// </summary>
         public readonly string From;
-        /// <summary>
-        /// The NRQL SELECT clause to aggregate events.
-        /// </summary>
         public readonly Outputs.ServiceLevelEventsBadEventsSelect? Select;
-        /// <summary>
-        /// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-        /// a particular entity and returned an error).
-        /// </summary>
         public readonly string? Where;
 
         [OutputConstructor]

@@ -13,13 +13,13 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class AlertMutingRuleConditionConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.&lt;NAME&gt;`, `targetId`, `targetName`
+        /// The attribute on an incident.
         /// </summary>
         [Input("attribute", required: true)]
         public Input<string> Attribute { get; set; } = null!;
 
         /// <summary>
-        /// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
+        /// The operator used to compare the attribute's value with the supplied value(s).
         /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class WorkloadStatusConfigAutomaticRemainingEntitiesRule {
     /**
-     * @return The input object used to represent a rollup strategy. See Nested remaining_entities_rule_rollup blocks below for details.
+     * @return The input object used to represent a rollup strategy.
      * 
      */
     private WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup remainingEntitiesRuleRollup;
 
     private WorkloadStatusConfigAutomaticRemainingEntitiesRule() {}
     /**
-     * @return The input object used to represent a rollup strategy. See Nested remaining_entities_rule_rollup blocks below for details.
+     * @return The input object used to represent a rollup strategy.
      * 
      */
     public WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup remainingEntitiesRuleRollup() {

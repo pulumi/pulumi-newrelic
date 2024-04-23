@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class AlertMutingRuleConditionCondition {
     /**
-     * @return The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.&lt;NAME&gt;`, `targetId`, `targetName`
+     * @return The attribute on an incident.
      * 
      */
     private String attribute;
     /**
-     * @return The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
+     * @return The operator used to compare the attribute&#39;s value with the supplied value(s).
      * 
      */
     private String operator;
@@ -29,14 +29,14 @@ public final class AlertMutingRuleConditionCondition {
 
     private AlertMutingRuleConditionCondition() {}
     /**
-     * @return The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.&lt;NAME&gt;`, `targetId`, `targetName`
+     * @return The attribute on an incident.
      * 
      */
     public String attribute() {
         return this.attribute;
     }
     /**
-     * @return The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
+     * @return The operator used to compare the attribute&#39;s value with the supplied value(s).
      * 
      */
     public String operator() {

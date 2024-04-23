@@ -17,7 +17,6 @@ namespace Pulumi.NewRelic
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCloudAccountResult> InvokeAsync(GetCloudAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudAccountResult>("newrelic:index/getCloudAccount:getCloudAccount", args ?? new GetCloudAccountArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.NewRelic
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCloudAccountResult> Invoke(GetCloudAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudAccountResult>("newrelic:index/getCloudAccount:getCloudAccount", args ?? new GetCloudAccountInvokeArgs(), options.WithDefaults());

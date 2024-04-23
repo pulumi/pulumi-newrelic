@@ -16,18 +16,14 @@ public final class GcpIntegrationsFireStoreArgs extends com.pulumi.resources.Res
     public static final GcpIntegrationsFireStoreArgs Empty = new GcpIntegrationsFireStoreArgs();
 
     /**
-     * The data polling interval in seconds.
-     * 
-     * Other integration supports an additional argument:
+     * the data polling interval in seconds
      * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Other integration supports an additional argument:
+     * @return the data polling interval in seconds
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -59,9 +55,7 @@ public final class GcpIntegrationsFireStoreArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * Other integration supports an additional argument:
+         * @param metricsPollingInterval the data polling interval in seconds
          * 
          * @return builder
          * 
@@ -72,9 +66,7 @@ public final class GcpIntegrationsFireStoreArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * Other integration supports an additional argument:
+         * @param metricsPollingInterval the data polling interval in seconds
          * 
          * @return builder
          * 

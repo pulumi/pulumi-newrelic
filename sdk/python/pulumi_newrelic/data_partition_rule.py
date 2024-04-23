@@ -248,7 +248,6 @@ class DataPartitionRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -260,7 +259,6 @@ class DataPartitionRule(pulumi.CustomResource):
             retention_policy="STANDARD",
             target_data_partition="Log_name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Additional Information
 
@@ -296,7 +294,6 @@ class DataPartitionRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -308,7 +305,6 @@ class DataPartitionRule(pulumi.CustomResource):
             retention_policy="STANDARD",
             target_data_partition="Log_name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Additional Information
 

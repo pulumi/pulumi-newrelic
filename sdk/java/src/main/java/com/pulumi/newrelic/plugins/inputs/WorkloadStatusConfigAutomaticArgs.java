@@ -20,14 +20,14 @@ public final class WorkloadStatusConfigAutomaticArgs extends com.pulumi.resource
     public static final WorkloadStatusConfigAutomaticArgs Empty = new WorkloadStatusConfigAutomaticArgs();
 
     /**
-     * Whether the static status configuration is enabled or not.
+     * Whether the automatic status configuration is enabled or not.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Whether the static status configuration is enabled or not.
+     * @return Whether the automatic status configuration is enabled or not.
      * 
      */
     public Output<Boolean> enabled() {
@@ -35,14 +35,14 @@ public final class WorkloadStatusConfigAutomaticArgs extends com.pulumi.resource
     }
 
     /**
-     * An additional meta-rule that can consider all entities that haven&#39;t been evaluated by any other rule. See Nested remaining_entities_rule blocks below for details.
+     * An additional meta-rule that can consider all entities that haven&#39;t been evaluated by any other rule.
      * 
      */
     @Import(name="remainingEntitiesRule")
     private @Nullable Output<WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs> remainingEntitiesRule;
 
     /**
-     * @return An additional meta-rule that can consider all entities that haven&#39;t been evaluated by any other rule. See Nested remaining_entities_rule blocks below for details.
+     * @return An additional meta-rule that can consider all entities that haven&#39;t been evaluated by any other rule.
      * 
      */
     public Optional<Output<WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs>> remainingEntitiesRule() {
@@ -50,14 +50,14 @@ public final class WorkloadStatusConfigAutomaticArgs extends com.pulumi.resource
     }
 
     /**
-     * The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+     * A list of rules.
      * 
      */
     @Import(name="rules")
     private @Nullable Output<List<WorkloadStatusConfigAutomaticRuleArgs>> rules;
 
     /**
-     * @return The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+     * @return A list of rules.
      * 
      */
     public Optional<Output<List<WorkloadStatusConfigAutomaticRuleArgs>>> rules() {
@@ -91,7 +91,7 @@ public final class WorkloadStatusConfigAutomaticArgs extends com.pulumi.resource
         }
 
         /**
-         * @param enabled Whether the static status configuration is enabled or not.
+         * @param enabled Whether the automatic status configuration is enabled or not.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class WorkloadStatusConfigAutomaticArgs extends com.pulumi.resource
         }
 
         /**
-         * @param enabled Whether the static status configuration is enabled or not.
+         * @param enabled Whether the automatic status configuration is enabled or not.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class WorkloadStatusConfigAutomaticArgs extends com.pulumi.resource
         }
 
         /**
-         * @param remainingEntitiesRule An additional meta-rule that can consider all entities that haven&#39;t been evaluated by any other rule. See Nested remaining_entities_rule blocks below for details.
+         * @param remainingEntitiesRule An additional meta-rule that can consider all entities that haven&#39;t been evaluated by any other rule.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class WorkloadStatusConfigAutomaticArgs extends com.pulumi.resource
         }
 
         /**
-         * @param remainingEntitiesRule An additional meta-rule that can consider all entities that haven&#39;t been evaluated by any other rule. See Nested remaining_entities_rule blocks below for details.
+         * @param remainingEntitiesRule An additional meta-rule that can consider all entities that haven&#39;t been evaluated by any other rule.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class WorkloadStatusConfigAutomaticArgs extends com.pulumi.resource
         }
 
         /**
-         * @param rules The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+         * @param rules A list of rules.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class WorkloadStatusConfigAutomaticArgs extends com.pulumi.resource
         }
 
         /**
-         * @param rules The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+         * @param rules A list of rules.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class WorkloadStatusConfigAutomaticArgs extends com.pulumi.resource
         }
 
         /**
-         * @param rules The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+         * @param rules A list of rules.
          * 
          * @return builder
          * 

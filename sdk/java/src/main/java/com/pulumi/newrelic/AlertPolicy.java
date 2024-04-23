@@ -193,21 +193,23 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/alertPolicy:AlertPolicy")
 public class AlertPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The New Relic account ID to operate on.
      * 
      */
     @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
-     * @return The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * @return The New Relic account ID to operate on.
      * 
      */
     public Output<Integer> accountId() {
         return this.accountId;
     }
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+     * imported via terraform import.
      * 
      * @deprecated
      * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
@@ -218,21 +220,25 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<Integer>> channelIds;
 
     /**
-     * @return An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+     * @return An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+     * imported via terraform import.
      * 
      */
     public Output<Optional<List<Integer>>> channelIds() {
         return Codegen.optional(this.channelIds);
     }
     /**
-     * The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+     * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
+     * is PER_POLICY.
      * 
      */
     @Export(name="incidentPreference", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> incidentPreference;
 
     /**
-     * @return The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+     * @return The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
+     * is PER_POLICY.
      * 
      */
     public Output<Optional<String>> incidentPreference() {

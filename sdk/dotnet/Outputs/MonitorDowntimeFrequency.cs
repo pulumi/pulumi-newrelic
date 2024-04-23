@@ -14,11 +14,11 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class MonitorDowntimeFrequency
     {
         /// <summary>
-        /// A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
+        /// A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
         /// </summary>
         public readonly ImmutableArray<int> DaysOfMonths;
         /// <summary>
-        /// An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
+        /// A list of days of the week on which the Monitor Downtime is scheduled to run.
         /// </summary>
         public readonly Outputs.MonitorDowntimeFrequencyDaysOfWeek? DaysOfWeek;
 

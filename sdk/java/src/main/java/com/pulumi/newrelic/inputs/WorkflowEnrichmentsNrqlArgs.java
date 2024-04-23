@@ -35,14 +35,14 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Another wrapper block
+     * A set of key-value pairs to represent a enrichment configuration.
      * 
      */
     @Import(name="configurations", required=true)
     private Output<List<WorkflowEnrichmentsNrqlConfigurationArgs>> configurations;
 
     /**
-     * @return Another wrapper block
+     * @return A set of key-value pairs to represent a enrichment configuration.
      * 
      */
     public Output<List<WorkflowEnrichmentsNrqlConfigurationArgs>> configurations() {
@@ -80,14 +80,14 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+     * The type of the enrichment. One of: (NRQL).
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+     * @return The type of the enrichment. One of: (NRQL).
      * 
      */
     public Optional<Output<String>> type() {
@@ -144,7 +144,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param configurations Another wrapper block
+         * @param configurations A set of key-value pairs to represent a enrichment configuration.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param configurations Another wrapper block
+         * @param configurations A set of key-value pairs to represent a enrichment configuration.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param configurations Another wrapper block
+         * @param configurations A set of key-value pairs to represent a enrichment configuration.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+         * @param type The type of the enrichment. One of: (NRQL).
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+         * @param type The type of the enrichment. One of: (NRQL).
          * 
          * @return builder
          * 

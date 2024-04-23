@@ -15,32 +15,16 @@ public final class ServiceLevelObjectiveTimeWindowRollingArgs extends com.pulumi
 
     public static final ServiceLevelObjectiveTimeWindowRollingArgs Empty = new ServiceLevelObjectiveTimeWindowRollingArgs();
 
-    /**
-     * Valid values are `1`, `7` and `28`.
-     * 
-     */
     @Import(name="count", required=true)
     private Output<Integer> count;
 
-    /**
-     * @return Valid values are `1`, `7` and `28`.
-     * 
-     */
     public Output<Integer> count() {
         return this.count;
     }
 
-    /**
-     * The only supported value is `DAY`.
-     * 
-     */
     @Import(name="unit", required=true)
     private Output<String> unit;
 
-    /**
-     * @return The only supported value is `DAY`.
-     * 
-     */
     public Output<String> unit() {
         return this.unit;
     }
@@ -70,44 +54,20 @@ public final class ServiceLevelObjectiveTimeWindowRollingArgs extends com.pulumi
             $ = new ServiceLevelObjectiveTimeWindowRollingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param count Valid values are `1`, `7` and `28`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(Output<Integer> count) {
             $.count = count;
             return this;
         }
 
-        /**
-         * @param count Valid values are `1`, `7` and `28`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(Integer count) {
             return count(Output.of(count));
         }
 
-        /**
-         * @param unit The only supported value is `DAY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
-        /**
-         * @param unit The only supported value is `DAY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }

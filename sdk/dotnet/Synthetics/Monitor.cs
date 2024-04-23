@@ -14,7 +14,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,10 +60,8 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// ##### Type: `SIMPLE BROWSER`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -110,7 +107,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// See additional examples.
     /// 
     /// ## Additional Examples
@@ -123,7 +119,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ##### Type: `SIMPLE`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -177,10 +172,8 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// ##### Type: `BROWSER`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -236,7 +229,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

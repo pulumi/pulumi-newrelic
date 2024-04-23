@@ -14,15 +14,15 @@ namespace Pulumi.NewRelic.Plugins.Outputs
     public sealed class WorkloadStatusConfigAutomatic
     {
         /// <summary>
-        /// Whether the static status configuration is enabled or not.
+        /// Whether the automatic status configuration is enabled or not.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remaining_entities_rule blocks below for details.
+        /// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule.
         /// </summary>
         public readonly Outputs.WorkloadStatusConfigAutomaticRemainingEntitiesRule? RemainingEntitiesRule;
         /// <summary>
-        /// The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+        /// A list of rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkloadStatusConfigAutomaticRule> Rules;
 

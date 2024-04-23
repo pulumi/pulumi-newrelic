@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OneDashboardPageWidgetFunnelNrqlQuery {
     /**
-     * @return Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     * @return The account id used for the NRQL query.
      * 
      */
     private @Nullable Integer accountId;
@@ -26,7 +26,7 @@ public final class OneDashboardPageWidgetFunnelNrqlQuery {
 
     private OneDashboardPageWidgetFunnelNrqlQuery() {}
     /**
-     * @return Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     * @return The account id used for the NRQL query.
      * 
      */
     public Optional<Integer> accountId() {

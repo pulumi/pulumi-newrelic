@@ -14,21 +14,19 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AzureIntegrationsSqlManaged {
     /**
-     * @return The data polling interval in seconds.
+     * @return The data polling interval in seconds
      * 
      */
     private @Nullable Integer metricsPollingInterval;
     /**
      * @return Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
      * 
-     * Other integration type support an additional argument:
-     * 
      */
     private @Nullable List<String> resourceGroups;
 
     private AzureIntegrationsSqlManaged() {}
     /**
-     * @return The data polling interval in seconds.
+     * @return The data polling interval in seconds
      * 
      */
     public Optional<Integer> metricsPollingInterval() {
@@ -36,8 +34,6 @@ public final class AzureIntegrationsSqlManaged {
     }
     /**
      * @return Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
-     * 
-     * Other integration type support an additional argument:
      * 
      */
     public List<String> resourceGroups() {

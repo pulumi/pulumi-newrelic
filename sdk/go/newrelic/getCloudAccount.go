@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,7 +41,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetCloudAccount(ctx *pulumi.Context, args *GetCloudAccountArgs, opts ...pulumi.InvokeOption) (*GetCloudAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCloudAccountResult

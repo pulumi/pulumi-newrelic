@@ -14,21 +14,19 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class NotificationChannelProperty
     {
         /// <summary>
-        /// The notification property display value.
-        /// 
-        /// Each notification channel type supports a specific set of arguments for the `property` block:
+        /// Notification property display key.
         /// </summary>
         public readonly string? DisplayValue;
         /// <summary>
-        /// The notification property key.
+        /// Notification property key.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The notification property label.
+        /// Notification property label.
         /// </summary>
         public readonly string? Label;
         /// <summary>
-        /// The notification property value.
+        /// Notification property value.
         /// </summary>
         public readonly string Value;
 

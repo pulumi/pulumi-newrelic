@@ -67,28 +67,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/accountManagement:AccountManagement")
 public class AccountManagement extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the Account.
+     * Name of the account to be created
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Account.
+     * @return Name of the account to be created
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The region code of the account.  One of: `us01`, `eu01`.
+     * A description of what this parsing rule represents.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The region code of the account.  One of: `us01`, `eu01`.
+     * @return A description of what this parsing rule represents.
      * 
      */
     public Output<String> region() {

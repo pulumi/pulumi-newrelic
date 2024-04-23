@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
     public sealed class AzureIntegrationsAppServiceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data polling interval in seconds.
+        /// The data polling interval in seconds
         /// </summary>
         [Input("metricsPollingInterval")]
         public Input<int>? MetricsPollingInterval { get; set; }
@@ -23,8 +23,6 @@ namespace Pulumi.NewRelic.Cloud.Inputs
 
         /// <summary>
         /// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
-        /// 
-        /// Other integration type support an additional argument:
         /// </summary>
         public InputList<string> ResourceGroups
         {

@@ -21,7 +21,7 @@ public final class WorkflowEnrichmentsNrql {
      */
     private @Nullable Integer accountId;
     /**
-     * @return Another wrapper block
+     * @return A set of key-value pairs to represent a enrichment configuration.
      * 
      */
     private List<WorkflowEnrichmentsNrqlConfiguration> configurations;
@@ -36,7 +36,7 @@ public final class WorkflowEnrichmentsNrql {
      */
     private String name;
     /**
-     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+     * @return The type of the enrichment. One of: (NRQL).
      * 
      */
     private @Nullable String type;
@@ -50,7 +50,7 @@ public final class WorkflowEnrichmentsNrql {
         return Optional.ofNullable(this.accountId);
     }
     /**
-     * @return Another wrapper block
+     * @return A set of key-value pairs to represent a enrichment configuration.
      * 
      */
     public List<WorkflowEnrichmentsNrqlConfiguration> configurations() {
@@ -71,7 +71,7 @@ public final class WorkflowEnrichmentsNrql {
         return this.name;
     }
     /**
-     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+     * @return The type of the enrichment. One of: (NRQL).
      * 
      */
     public Optional<String> type() {

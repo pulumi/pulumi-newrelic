@@ -399,7 +399,6 @@ class Workflow(pulumi.CustomResource):
         ## Example Usage
 
         ##### Workflow
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -420,13 +419,11 @@ class Workflow(pulumi.CustomResource):
                 channel_id=some_channel["id"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Policy-Based Workflow Example
 
         This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -473,11 +470,9 @@ class Workflow(pulumi.CustomResource):
                 channel_id=webhook_channel.id,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### An example of a workflow with enrichments
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -506,11 +501,9 @@ class Workflow(pulumi.CustomResource):
                 channel_id=webhook_channel["id"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### An example of a workflow with notification triggers
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -532,7 +525,6 @@ class Workflow(pulumi.CustomResource):
                 notification_triggers=["ACTIVATED"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Additional Information
 
@@ -584,7 +576,6 @@ class Workflow(pulumi.CustomResource):
         ## Example Usage
 
         ##### Workflow
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -605,13 +596,11 @@ class Workflow(pulumi.CustomResource):
                 channel_id=some_channel["id"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Policy-Based Workflow Example
 
         This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -658,11 +647,9 @@ class Workflow(pulumi.CustomResource):
                 channel_id=webhook_channel.id,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### An example of a workflow with enrichments
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -691,11 +678,9 @@ class Workflow(pulumi.CustomResource):
                 channel_id=webhook_channel["id"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### An example of a workflow with notification triggers
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -717,7 +702,6 @@ class Workflow(pulumi.CustomResource):
                 notification_triggers=["ACTIVATED"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Additional Information
 
