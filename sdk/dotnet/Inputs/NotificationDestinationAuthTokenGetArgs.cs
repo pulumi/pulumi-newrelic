@@ -13,13 +13,17 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class NotificationDestinationAuthTokenGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The prefix of the token auth.
+        /// The prefix of the URL.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
         [Input("token", required: true)]
         private Input<string>? _token;
+
+        /// <summary>
+        /// Specifies the token for integrating.
+        /// </summary>
         public Input<string>? Token
         {
             get => _token;

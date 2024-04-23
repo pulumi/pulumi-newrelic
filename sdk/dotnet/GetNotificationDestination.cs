@@ -41,6 +41,18 @@ namespace Pulumi.NewRelic
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("secureUrls")]
+        private List<Inputs.GetNotificationDestinationSecureUrlArgs>? _secureUrls;
+
+        /// <summary>
+        /// The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+        /// </summary>
+        public List<Inputs.GetNotificationDestinationSecureUrlArgs> SecureUrls
+        {
+            get => _secureUrls ?? (_secureUrls = new List<Inputs.GetNotificationDestinationSecureUrlArgs>());
+            set => _secureUrls = value;
+        }
+
         public GetNotificationDestinationArgs()
         {
         }
@@ -68,6 +80,18 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("secureUrls")]
+        private InputList<Inputs.GetNotificationDestinationSecureUrlInputArgs>? _secureUrls;
+
+        /// <summary>
+        /// The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+        /// </summary>
+        public InputList<Inputs.GetNotificationDestinationSecureUrlInputArgs> SecureUrls
+        {
+            get => _secureUrls ?? (_secureUrls = new InputList<Inputs.GetNotificationDestinationSecureUrlInputArgs>());
+            set => _secureUrls = value;
+        }
 
         public GetNotificationDestinationInvokeArgs()
         {
@@ -98,6 +122,10 @@ namespace Pulumi.NewRelic
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNotificationDestinationPropertyResult> Properties;
         /// <summary>
+        /// The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetNotificationDestinationSecureUrlResult> SecureUrls;
+        /// <summary>
         /// The status of the notification destination.
         /// </summary>
         public readonly string Status;
@@ -120,6 +148,8 @@ namespace Pulumi.NewRelic
 
             ImmutableArray<Outputs.GetNotificationDestinationPropertyResult> properties,
 
+            ImmutableArray<Outputs.GetNotificationDestinationSecureUrlResult> secureUrls,
+
             string status,
 
             string type)
@@ -130,6 +160,7 @@ namespace Pulumi.NewRelic
             Id = id;
             Name = name;
             Properties = properties;
+            SecureUrls = secureUrls;
             Status = status;
             Type = type;
         }

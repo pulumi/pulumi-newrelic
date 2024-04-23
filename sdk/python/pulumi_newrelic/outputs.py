@@ -24,8 +24,10 @@ __all__ = [
     'MonitorDowntimeFrequencyDaysOfWeek',
     'NotificationChannelProperty',
     'NotificationDestinationAuthBasic',
+    'NotificationDestinationAuthCustomHeader',
     'NotificationDestinationAuthToken',
     'NotificationDestinationProperty',
+    'NotificationDestinationSecureUrl',
     'NrqlAlertConditionCritical',
     'NrqlAlertConditionNrql',
     'NrqlAlertConditionTerm',
@@ -168,6 +170,7 @@ __all__ = [
     'GetAlertChannelConfigResult',
     'GetEntityTagResult',
     'GetNotificationDestinationPropertyResult',
+    'GetNotificationDestinationSecureUrlResult',
     'GetTestGrokPatternTestGrokResult',
     'GetTestGrokPatternTestGrokAttributeResult',
 ]
@@ -1116,12 +1119,42 @@ class NotificationDestinationAuthBasic(dict):
 
 
 @pulumi.output_type
+class NotificationDestinationAuthCustomHeader(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The notification property key.
+        :param str value: The notification property value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The notification property key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The notification property value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class NotificationDestinationAuthToken(dict):
     def __init__(__self__, *,
                  token: str,
                  prefix: Optional[str] = None):
         """
-        :param str prefix: The prefix of the token auth.
+        :param str token: Specifies the token for integrating.
+        :param str prefix: The prefix of the URL.
         """
         pulumi.set(__self__, "token", token)
         if prefix is not None:
@@ -1130,13 +1163,16 @@ class NotificationDestinationAuthToken(dict):
     @property
     @pulumi.getter
     def token(self) -> str:
+        """
+        Specifies the token for integrating.
+        """
         return pulumi.get(self, "token")
 
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        The prefix of the token auth.
+        The prefix of the URL.
         """
         return pulumi.get(self, "prefix")
 
@@ -1213,6 +1249,52 @@ class NotificationDestinationProperty(dict):
         The notification property label.
         """
         return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class NotificationDestinationSecureUrl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secureSuffix":
+            suggest = "secure_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationDestinationSecureUrl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationDestinationSecureUrl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationDestinationSecureUrl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prefix: str,
+                 secure_suffix: str):
+        """
+        :param str prefix: The prefix of the URL.
+        :param str secure_suffix: The suffix of the URL, which contains sensitive data.
+        """
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "secure_suffix", secure_suffix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        """
+        The prefix of the URL.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="secureSuffix")
+    def secure_suffix(self) -> str:
+        """
+        The suffix of the URL, which contains sensitive data.
+        """
+        return pulumi.get(self, "secure_suffix")
 
 
 @pulumi.output_type
@@ -11169,6 +11251,18 @@ class GetNotificationDestinationPropertyResult(dict):
         Notification property label.
         """
         return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class GetNotificationDestinationSecureUrlResult(dict):
+    def __init__(__self__, *,
+                 prefix: str):
+        pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        return pulumi.get(self, "prefix")
 
 
 @pulumi.output_type

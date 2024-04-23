@@ -11,25 +11,14 @@ namespace Pulumi.NewRelic.Outputs
 {
 
     [OutputType]
-    public sealed class NotificationDestinationAuthToken
+    public sealed class GetNotificationDestinationSecureUrlResult
     {
-        /// <summary>
-        /// The prefix of the URL.
-        /// </summary>
-        public readonly string? Prefix;
-        /// <summary>
-        /// Specifies the token for integrating.
-        /// </summary>
-        public readonly string Token;
+        public readonly string Prefix;
 
         [OutputConstructor]
-        private NotificationDestinationAuthToken(
-            string? prefix,
-
-            string token)
+        private GetNotificationDestinationSecureUrlResult(string prefix)
         {
             Prefix = prefix;
-            Token = token;
         }
     }
 }

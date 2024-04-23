@@ -2387,10 +2387,117 @@ func (o NotificationDestinationAuthBasicPtrOutput) User() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type NotificationDestinationAuthCustomHeader struct {
+	// The notification property key.
+	Key string `pulumi:"key"`
+	// The notification property value.
+	Value string `pulumi:"value"`
+}
+
+// NotificationDestinationAuthCustomHeaderInput is an input type that accepts NotificationDestinationAuthCustomHeaderArgs and NotificationDestinationAuthCustomHeaderOutput values.
+// You can construct a concrete instance of `NotificationDestinationAuthCustomHeaderInput` via:
+//
+//	NotificationDestinationAuthCustomHeaderArgs{...}
+type NotificationDestinationAuthCustomHeaderInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationAuthCustomHeaderOutput() NotificationDestinationAuthCustomHeaderOutput
+	ToNotificationDestinationAuthCustomHeaderOutputWithContext(context.Context) NotificationDestinationAuthCustomHeaderOutput
+}
+
+type NotificationDestinationAuthCustomHeaderArgs struct {
+	// The notification property key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The notification property value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (NotificationDestinationAuthCustomHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationAuthCustomHeader)(nil)).Elem()
+}
+
+func (i NotificationDestinationAuthCustomHeaderArgs) ToNotificationDestinationAuthCustomHeaderOutput() NotificationDestinationAuthCustomHeaderOutput {
+	return i.ToNotificationDestinationAuthCustomHeaderOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationAuthCustomHeaderArgs) ToNotificationDestinationAuthCustomHeaderOutputWithContext(ctx context.Context) NotificationDestinationAuthCustomHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationAuthCustomHeaderOutput)
+}
+
+// NotificationDestinationAuthCustomHeaderArrayInput is an input type that accepts NotificationDestinationAuthCustomHeaderArray and NotificationDestinationAuthCustomHeaderArrayOutput values.
+// You can construct a concrete instance of `NotificationDestinationAuthCustomHeaderArrayInput` via:
+//
+//	NotificationDestinationAuthCustomHeaderArray{ NotificationDestinationAuthCustomHeaderArgs{...} }
+type NotificationDestinationAuthCustomHeaderArrayInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationAuthCustomHeaderArrayOutput() NotificationDestinationAuthCustomHeaderArrayOutput
+	ToNotificationDestinationAuthCustomHeaderArrayOutputWithContext(context.Context) NotificationDestinationAuthCustomHeaderArrayOutput
+}
+
+type NotificationDestinationAuthCustomHeaderArray []NotificationDestinationAuthCustomHeaderInput
+
+func (NotificationDestinationAuthCustomHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationDestinationAuthCustomHeader)(nil)).Elem()
+}
+
+func (i NotificationDestinationAuthCustomHeaderArray) ToNotificationDestinationAuthCustomHeaderArrayOutput() NotificationDestinationAuthCustomHeaderArrayOutput {
+	return i.ToNotificationDestinationAuthCustomHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationAuthCustomHeaderArray) ToNotificationDestinationAuthCustomHeaderArrayOutputWithContext(ctx context.Context) NotificationDestinationAuthCustomHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationAuthCustomHeaderArrayOutput)
+}
+
+type NotificationDestinationAuthCustomHeaderOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationAuthCustomHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationAuthCustomHeader)(nil)).Elem()
+}
+
+func (o NotificationDestinationAuthCustomHeaderOutput) ToNotificationDestinationAuthCustomHeaderOutput() NotificationDestinationAuthCustomHeaderOutput {
+	return o
+}
+
+func (o NotificationDestinationAuthCustomHeaderOutput) ToNotificationDestinationAuthCustomHeaderOutputWithContext(ctx context.Context) NotificationDestinationAuthCustomHeaderOutput {
+	return o
+}
+
+// The notification property key.
+func (o NotificationDestinationAuthCustomHeaderOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationDestinationAuthCustomHeader) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The notification property value.
+func (o NotificationDestinationAuthCustomHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationDestinationAuthCustomHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type NotificationDestinationAuthCustomHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationAuthCustomHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationDestinationAuthCustomHeader)(nil)).Elem()
+}
+
+func (o NotificationDestinationAuthCustomHeaderArrayOutput) ToNotificationDestinationAuthCustomHeaderArrayOutput() NotificationDestinationAuthCustomHeaderArrayOutput {
+	return o
+}
+
+func (o NotificationDestinationAuthCustomHeaderArrayOutput) ToNotificationDestinationAuthCustomHeaderArrayOutputWithContext(ctx context.Context) NotificationDestinationAuthCustomHeaderArrayOutput {
+	return o
+}
+
+func (o NotificationDestinationAuthCustomHeaderArrayOutput) Index(i pulumi.IntInput) NotificationDestinationAuthCustomHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationDestinationAuthCustomHeader {
+		return vs[0].([]NotificationDestinationAuthCustomHeader)[vs[1].(int)]
+	}).(NotificationDestinationAuthCustomHeaderOutput)
+}
+
 type NotificationDestinationAuthToken struct {
-	// The prefix of the token auth.
+	// The prefix of the URL.
 	Prefix *string `pulumi:"prefix"`
-	Token  string  `pulumi:"token"`
+	// Specifies the token for integrating.
+	Token string `pulumi:"token"`
 }
 
 // NotificationDestinationAuthTokenInput is an input type that accepts NotificationDestinationAuthTokenArgs and NotificationDestinationAuthTokenOutput values.
@@ -2405,9 +2512,10 @@ type NotificationDestinationAuthTokenInput interface {
 }
 
 type NotificationDestinationAuthTokenArgs struct {
-	// The prefix of the token auth.
+	// The prefix of the URL.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	Token  pulumi.StringInput    `pulumi:"token"`
+	// Specifies the token for integrating.
+	Token pulumi.StringInput `pulumi:"token"`
 }
 
 func (NotificationDestinationAuthTokenArgs) ElementType() reflect.Type {
@@ -2487,11 +2595,12 @@ func (o NotificationDestinationAuthTokenOutput) ToNotificationDestinationAuthTok
 	}).(NotificationDestinationAuthTokenPtrOutput)
 }
 
-// The prefix of the token auth.
+// The prefix of the URL.
 func (o NotificationDestinationAuthTokenOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthToken) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the token for integrating.
 func (o NotificationDestinationAuthTokenOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthToken) string { return v.Token }).(pulumi.StringOutput)
 }
@@ -2520,7 +2629,7 @@ func (o NotificationDestinationAuthTokenPtrOutput) Elem() NotificationDestinatio
 	}).(NotificationDestinationAuthTokenOutput)
 }
 
-// The prefix of the token auth.
+// The prefix of the URL.
 func (o NotificationDestinationAuthTokenPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationAuthToken) *string {
 		if v == nil {
@@ -2530,6 +2639,7 @@ func (o NotificationDestinationAuthTokenPtrOutput) Prefix() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the token for integrating.
 func (o NotificationDestinationAuthTokenPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationAuthToken) *string {
 		if v == nil {
@@ -2667,6 +2777,162 @@ func (o NotificationDestinationPropertyArrayOutput) Index(i pulumi.IntInput) Not
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationDestinationProperty {
 		return vs[0].([]NotificationDestinationProperty)[vs[1].(int)]
 	}).(NotificationDestinationPropertyOutput)
+}
+
+type NotificationDestinationSecureUrl struct {
+	// The prefix of the URL.
+	Prefix string `pulumi:"prefix"`
+	// The suffix of the URL, which contains sensitive data.
+	SecureSuffix string `pulumi:"secureSuffix"`
+}
+
+// NotificationDestinationSecureUrlInput is an input type that accepts NotificationDestinationSecureUrlArgs and NotificationDestinationSecureUrlOutput values.
+// You can construct a concrete instance of `NotificationDestinationSecureUrlInput` via:
+//
+//	NotificationDestinationSecureUrlArgs{...}
+type NotificationDestinationSecureUrlInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationSecureUrlOutput() NotificationDestinationSecureUrlOutput
+	ToNotificationDestinationSecureUrlOutputWithContext(context.Context) NotificationDestinationSecureUrlOutput
+}
+
+type NotificationDestinationSecureUrlArgs struct {
+	// The prefix of the URL.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// The suffix of the URL, which contains sensitive data.
+	SecureSuffix pulumi.StringInput `pulumi:"secureSuffix"`
+}
+
+func (NotificationDestinationSecureUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (i NotificationDestinationSecureUrlArgs) ToNotificationDestinationSecureUrlOutput() NotificationDestinationSecureUrlOutput {
+	return i.ToNotificationDestinationSecureUrlOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationSecureUrlArgs) ToNotificationDestinationSecureUrlOutputWithContext(ctx context.Context) NotificationDestinationSecureUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationSecureUrlOutput)
+}
+
+func (i NotificationDestinationSecureUrlArgs) ToNotificationDestinationSecureUrlPtrOutput() NotificationDestinationSecureUrlPtrOutput {
+	return i.ToNotificationDestinationSecureUrlPtrOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationSecureUrlArgs) ToNotificationDestinationSecureUrlPtrOutputWithContext(ctx context.Context) NotificationDestinationSecureUrlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationSecureUrlOutput).ToNotificationDestinationSecureUrlPtrOutputWithContext(ctx)
+}
+
+// NotificationDestinationSecureUrlPtrInput is an input type that accepts NotificationDestinationSecureUrlArgs, NotificationDestinationSecureUrlPtr and NotificationDestinationSecureUrlPtrOutput values.
+// You can construct a concrete instance of `NotificationDestinationSecureUrlPtrInput` via:
+//
+//	        NotificationDestinationSecureUrlArgs{...}
+//
+//	or:
+//
+//	        nil
+type NotificationDestinationSecureUrlPtrInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationSecureUrlPtrOutput() NotificationDestinationSecureUrlPtrOutput
+	ToNotificationDestinationSecureUrlPtrOutputWithContext(context.Context) NotificationDestinationSecureUrlPtrOutput
+}
+
+type notificationDestinationSecureUrlPtrType NotificationDestinationSecureUrlArgs
+
+func NotificationDestinationSecureUrlPtr(v *NotificationDestinationSecureUrlArgs) NotificationDestinationSecureUrlPtrInput {
+	return (*notificationDestinationSecureUrlPtrType)(v)
+}
+
+func (*notificationDestinationSecureUrlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (i *notificationDestinationSecureUrlPtrType) ToNotificationDestinationSecureUrlPtrOutput() NotificationDestinationSecureUrlPtrOutput {
+	return i.ToNotificationDestinationSecureUrlPtrOutputWithContext(context.Background())
+}
+
+func (i *notificationDestinationSecureUrlPtrType) ToNotificationDestinationSecureUrlPtrOutputWithContext(ctx context.Context) NotificationDestinationSecureUrlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationSecureUrlPtrOutput)
+}
+
+type NotificationDestinationSecureUrlOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationSecureUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (o NotificationDestinationSecureUrlOutput) ToNotificationDestinationSecureUrlOutput() NotificationDestinationSecureUrlOutput {
+	return o
+}
+
+func (o NotificationDestinationSecureUrlOutput) ToNotificationDestinationSecureUrlOutputWithContext(ctx context.Context) NotificationDestinationSecureUrlOutput {
+	return o
+}
+
+func (o NotificationDestinationSecureUrlOutput) ToNotificationDestinationSecureUrlPtrOutput() NotificationDestinationSecureUrlPtrOutput {
+	return o.ToNotificationDestinationSecureUrlPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationDestinationSecureUrlOutput) ToNotificationDestinationSecureUrlPtrOutputWithContext(ctx context.Context) NotificationDestinationSecureUrlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationDestinationSecureUrl) *NotificationDestinationSecureUrl {
+		return &v
+	}).(NotificationDestinationSecureUrlPtrOutput)
+}
+
+// The prefix of the URL.
+func (o NotificationDestinationSecureUrlOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationDestinationSecureUrl) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+// The suffix of the URL, which contains sensitive data.
+func (o NotificationDestinationSecureUrlOutput) SecureSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationDestinationSecureUrl) string { return v.SecureSuffix }).(pulumi.StringOutput)
+}
+
+type NotificationDestinationSecureUrlPtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationSecureUrlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (o NotificationDestinationSecureUrlPtrOutput) ToNotificationDestinationSecureUrlPtrOutput() NotificationDestinationSecureUrlPtrOutput {
+	return o
+}
+
+func (o NotificationDestinationSecureUrlPtrOutput) ToNotificationDestinationSecureUrlPtrOutputWithContext(ctx context.Context) NotificationDestinationSecureUrlPtrOutput {
+	return o
+}
+
+func (o NotificationDestinationSecureUrlPtrOutput) Elem() NotificationDestinationSecureUrlOutput {
+	return o.ApplyT(func(v *NotificationDestinationSecureUrl) NotificationDestinationSecureUrl {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationDestinationSecureUrl
+		return ret
+	}).(NotificationDestinationSecureUrlOutput)
+}
+
+// The prefix of the URL.
+func (o NotificationDestinationSecureUrlPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationDestinationSecureUrl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The suffix of the URL, which contains sensitive data.
+func (o NotificationDestinationSecureUrlPtrOutput) SecureSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationDestinationSecureUrl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecureSuffix
+	}).(pulumi.StringPtrOutput)
 }
 
 type NrqlAlertConditionCritical struct {
@@ -21201,6 +21467,100 @@ func (o GetNotificationDestinationPropertyArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetNotificationDestinationPropertyOutput)
 }
 
+type GetNotificationDestinationSecureUrl struct {
+	Prefix string `pulumi:"prefix"`
+}
+
+// GetNotificationDestinationSecureUrlInput is an input type that accepts GetNotificationDestinationSecureUrlArgs and GetNotificationDestinationSecureUrlOutput values.
+// You can construct a concrete instance of `GetNotificationDestinationSecureUrlInput` via:
+//
+//	GetNotificationDestinationSecureUrlArgs{...}
+type GetNotificationDestinationSecureUrlInput interface {
+	pulumi.Input
+
+	ToGetNotificationDestinationSecureUrlOutput() GetNotificationDestinationSecureUrlOutput
+	ToGetNotificationDestinationSecureUrlOutputWithContext(context.Context) GetNotificationDestinationSecureUrlOutput
+}
+
+type GetNotificationDestinationSecureUrlArgs struct {
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+}
+
+func (GetNotificationDestinationSecureUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (i GetNotificationDestinationSecureUrlArgs) ToGetNotificationDestinationSecureUrlOutput() GetNotificationDestinationSecureUrlOutput {
+	return i.ToGetNotificationDestinationSecureUrlOutputWithContext(context.Background())
+}
+
+func (i GetNotificationDestinationSecureUrlArgs) ToGetNotificationDestinationSecureUrlOutputWithContext(ctx context.Context) GetNotificationDestinationSecureUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationSecureUrlOutput)
+}
+
+// GetNotificationDestinationSecureUrlArrayInput is an input type that accepts GetNotificationDestinationSecureUrlArray and GetNotificationDestinationSecureUrlArrayOutput values.
+// You can construct a concrete instance of `GetNotificationDestinationSecureUrlArrayInput` via:
+//
+//	GetNotificationDestinationSecureUrlArray{ GetNotificationDestinationSecureUrlArgs{...} }
+type GetNotificationDestinationSecureUrlArrayInput interface {
+	pulumi.Input
+
+	ToGetNotificationDestinationSecureUrlArrayOutput() GetNotificationDestinationSecureUrlArrayOutput
+	ToGetNotificationDestinationSecureUrlArrayOutputWithContext(context.Context) GetNotificationDestinationSecureUrlArrayOutput
+}
+
+type GetNotificationDestinationSecureUrlArray []GetNotificationDestinationSecureUrlInput
+
+func (GetNotificationDestinationSecureUrlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (i GetNotificationDestinationSecureUrlArray) ToGetNotificationDestinationSecureUrlArrayOutput() GetNotificationDestinationSecureUrlArrayOutput {
+	return i.ToGetNotificationDestinationSecureUrlArrayOutputWithContext(context.Background())
+}
+
+func (i GetNotificationDestinationSecureUrlArray) ToGetNotificationDestinationSecureUrlArrayOutputWithContext(ctx context.Context) GetNotificationDestinationSecureUrlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationSecureUrlArrayOutput)
+}
+
+type GetNotificationDestinationSecureUrlOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationDestinationSecureUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (o GetNotificationDestinationSecureUrlOutput) ToGetNotificationDestinationSecureUrlOutput() GetNotificationDestinationSecureUrlOutput {
+	return o
+}
+
+func (o GetNotificationDestinationSecureUrlOutput) ToGetNotificationDestinationSecureUrlOutputWithContext(ctx context.Context) GetNotificationDestinationSecureUrlOutput {
+	return o
+}
+
+func (o GetNotificationDestinationSecureUrlOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNotificationDestinationSecureUrl) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+type GetNotificationDestinationSecureUrlArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationDestinationSecureUrlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (o GetNotificationDestinationSecureUrlArrayOutput) ToGetNotificationDestinationSecureUrlArrayOutput() GetNotificationDestinationSecureUrlArrayOutput {
+	return o
+}
+
+func (o GetNotificationDestinationSecureUrlArrayOutput) ToGetNotificationDestinationSecureUrlArrayOutputWithContext(ctx context.Context) GetNotificationDestinationSecureUrlArrayOutput {
+	return o
+}
+
+func (o GetNotificationDestinationSecureUrlArrayOutput) Index(i pulumi.IntInput) GetNotificationDestinationSecureUrlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNotificationDestinationSecureUrl {
+		return vs[0].([]GetNotificationDestinationSecureUrl)[vs[1].(int)]
+	}).(GetNotificationDestinationSecureUrlOutput)
+}
+
 type GetTestGrokPatternTestGrok struct {
 	// Nested list containing information about any attributes that were extracted.
 	Attributes []GetTestGrokPatternTestGrokAttribute `pulumi:"attributes"`
@@ -21449,10 +21809,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelPropertyArrayInput)(nil)).Elem(), NotificationChannelPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthBasicInput)(nil)).Elem(), NotificationDestinationAuthBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthBasicPtrInput)(nil)).Elem(), NotificationDestinationAuthBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthCustomHeaderInput)(nil)).Elem(), NotificationDestinationAuthCustomHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthCustomHeaderArrayInput)(nil)).Elem(), NotificationDestinationAuthCustomHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthTokenInput)(nil)).Elem(), NotificationDestinationAuthTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthTokenPtrInput)(nil)).Elem(), NotificationDestinationAuthTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationPropertyInput)(nil)).Elem(), NotificationDestinationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationPropertyArrayInput)(nil)).Elem(), NotificationDestinationPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationSecureUrlInput)(nil)).Elem(), NotificationDestinationSecureUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationSecureUrlPtrInput)(nil)).Elem(), NotificationDestinationSecureUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionCriticalInput)(nil)).Elem(), NrqlAlertConditionCriticalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionCriticalPtrInput)(nil)).Elem(), NrqlAlertConditionCriticalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionNrqlInput)(nil)).Elem(), NrqlAlertConditionNrqlArgs{})
@@ -21736,6 +22100,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagArrayInput)(nil)).Elem(), GetEntityTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationPropertyInput)(nil)).Elem(), GetNotificationDestinationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationPropertyArrayInput)(nil)).Elem(), GetNotificationDestinationPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationSecureUrlInput)(nil)).Elem(), GetNotificationDestinationSecureUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationSecureUrlArrayInput)(nil)).Elem(), GetNotificationDestinationSecureUrlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTestGrokPatternTestGrokInput)(nil)).Elem(), GetTestGrokPatternTestGrokArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTestGrokPatternTestGrokArrayInput)(nil)).Elem(), GetTestGrokPatternTestGrokArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTestGrokPatternTestGrokAttributeInput)(nil)).Elem(), GetTestGrokPatternTestGrokAttributeArgs{})
@@ -21766,10 +22132,14 @@ func init() {
 	pulumi.RegisterOutputType(NotificationChannelPropertyArrayOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationAuthBasicOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationAuthBasicPtrOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationAuthCustomHeaderOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationAuthCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationAuthTokenOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationAuthTokenPtrOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationPropertyOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationPropertyArrayOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationSecureUrlOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationSecureUrlPtrOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionCriticalOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionCriticalPtrOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionNrqlOutput{})
@@ -22053,6 +22423,8 @@ func init() {
 	pulumi.RegisterOutputType(GetEntityTagArrayOutput{})
 	pulumi.RegisterOutputType(GetNotificationDestinationPropertyOutput{})
 	pulumi.RegisterOutputType(GetNotificationDestinationPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetNotificationDestinationSecureUrlOutput{})
+	pulumi.RegisterOutputType(GetNotificationDestinationSecureUrlArrayOutput{})
 	pulumi.RegisterOutputType(GetTestGrokPatternTestGrokOutput{})
 	pulumi.RegisterOutputType(GetTestGrokPatternTestGrokArrayOutput{})
 	pulumi.RegisterOutputType(GetTestGrokPatternTestGrokAttributeOutput{})

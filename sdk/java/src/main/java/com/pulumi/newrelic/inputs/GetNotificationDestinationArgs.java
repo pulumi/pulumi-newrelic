@@ -5,8 +5,10 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.newrelic.inputs.GetNotificationDestinationSecureUrlArgs;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -65,12 +67,28 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+     * 
+     */
+    @Import(name="secureUrls")
+    private @Nullable Output<List<GetNotificationDestinationSecureUrlArgs>> secureUrls;
+
+    /**
+     * @return The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+     * 
+     */
+    public Optional<Output<List<GetNotificationDestinationSecureUrlArgs>>> secureUrls() {
+        return Optional.ofNullable(this.secureUrls);
+    }
+
     private GetNotificationDestinationArgs() {}
 
     private GetNotificationDestinationArgs(GetNotificationDestinationArgs $) {
         this.accountId = $.accountId;
         this.id = $.id;
         this.name = $.name;
+        this.secureUrls = $.secureUrls;
     }
 
     public static Builder builder() {
@@ -156,6 +174,37 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secureUrls(@Nullable Output<List<GetNotificationDestinationSecureUrlArgs>> secureUrls) {
+            $.secureUrls = secureUrls;
+            return this;
+        }
+
+        /**
+         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secureUrls(List<GetNotificationDestinationSecureUrlArgs> secureUrls) {
+            return secureUrls(Output.of(secureUrls));
+        }
+
+        /**
+         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secureUrls(GetNotificationDestinationSecureUrlArgs... secureUrls) {
+            return secureUrls(List.of(secureUrls));
         }
 
         public GetNotificationDestinationArgs build() {

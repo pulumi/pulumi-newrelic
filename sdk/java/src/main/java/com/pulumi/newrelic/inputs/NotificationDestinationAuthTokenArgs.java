@@ -17,23 +17,31 @@ public final class NotificationDestinationAuthTokenArgs extends com.pulumi.resou
     public static final NotificationDestinationAuthTokenArgs Empty = new NotificationDestinationAuthTokenArgs();
 
     /**
-     * The prefix of the token auth.
+     * The prefix of the URL.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return The prefix of the token auth.
+     * @return The prefix of the URL.
      * 
      */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
 
+    /**
+     * Specifies the token for integrating.
+     * 
+     */
     @Import(name="token", required=true)
     private Output<String> token;
 
+    /**
+     * @return Specifies the token for integrating.
+     * 
+     */
     public Output<String> token() {
         return this.token;
     }
@@ -64,7 +72,7 @@ public final class NotificationDestinationAuthTokenArgs extends com.pulumi.resou
         }
 
         /**
-         * @param prefix The prefix of the token auth.
+         * @param prefix The prefix of the URL.
          * 
          * @return builder
          * 
@@ -75,7 +83,7 @@ public final class NotificationDestinationAuthTokenArgs extends com.pulumi.resou
         }
 
         /**
-         * @param prefix The prefix of the token auth.
+         * @param prefix The prefix of the URL.
          * 
          * @return builder
          * 
@@ -84,11 +92,23 @@ public final class NotificationDestinationAuthTokenArgs extends com.pulumi.resou
             return prefix(Output.of(prefix));
         }
 
+        /**
+         * @param token Specifies the token for integrating.
+         * 
+         * @return builder
+         * 
+         */
         public Builder token(Output<String> token) {
             $.token = token;
             return this;
         }
 
+        /**
+         * @param token Specifies the token for integrating.
+         * 
+         * @return builder
+         * 
+         */
         public Builder token(String token) {
             return token(Output.of(token));
         }

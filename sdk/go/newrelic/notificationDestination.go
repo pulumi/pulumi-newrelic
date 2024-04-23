@@ -86,6 +86,8 @@ type NotificationDestination struct {
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
 	AuthBasic NotificationDestinationAuthBasicPtrOutput `pulumi:"authBasic"`
+	// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+	AuthCustomHeaders NotificationDestinationAuthCustomHeaderArrayOutput `pulumi:"authCustomHeaders"`
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken NotificationDestinationAuthTokenPtrOutput `pulumi:"authToken"`
 	// The unique entity identifier of the destination in New Relic.
@@ -96,6 +98,8 @@ type NotificationDestination struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A nested block that describes a notification destination property. See Nested property blocks below for details.
 	Properties NotificationDestinationPropertyArrayOutput `pulumi:"properties"`
+	// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
+	SecureUrl NotificationDestinationSecureUrlPtrOutput `pulumi:"secureUrl"`
 	// The status of the destination.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
@@ -145,6 +149,8 @@ type notificationDestinationState struct {
 	Active *bool `pulumi:"active"`
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
 	AuthBasic *NotificationDestinationAuthBasic `pulumi:"authBasic"`
+	// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+	AuthCustomHeaders []NotificationDestinationAuthCustomHeader `pulumi:"authCustomHeaders"`
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken *NotificationDestinationAuthToken `pulumi:"authToken"`
 	// The unique entity identifier of the destination in New Relic.
@@ -155,6 +161,8 @@ type notificationDestinationState struct {
 	Name *string `pulumi:"name"`
 	// A nested block that describes a notification destination property. See Nested property blocks below for details.
 	Properties []NotificationDestinationProperty `pulumi:"properties"`
+	// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
+	SecureUrl *NotificationDestinationSecureUrl `pulumi:"secureUrl"`
 	// The status of the destination.
 	Status *string `pulumi:"status"`
 	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
@@ -169,6 +177,8 @@ type NotificationDestinationState struct {
 	Active pulumi.BoolPtrInput
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
 	AuthBasic NotificationDestinationAuthBasicPtrInput
+	// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+	AuthCustomHeaders NotificationDestinationAuthCustomHeaderArrayInput
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken NotificationDestinationAuthTokenPtrInput
 	// The unique entity identifier of the destination in New Relic.
@@ -179,6 +189,8 @@ type NotificationDestinationState struct {
 	Name pulumi.StringPtrInput
 	// A nested block that describes a notification destination property. See Nested property blocks below for details.
 	Properties NotificationDestinationPropertyArrayInput
+	// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
+	SecureUrl NotificationDestinationSecureUrlPtrInput
 	// The status of the destination.
 	Status pulumi.StringPtrInput
 	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
@@ -197,12 +209,16 @@ type notificationDestinationArgs struct {
 	Active *bool `pulumi:"active"`
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
 	AuthBasic *NotificationDestinationAuthBasic `pulumi:"authBasic"`
+	// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+	AuthCustomHeaders []NotificationDestinationAuthCustomHeader `pulumi:"authCustomHeaders"`
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken *NotificationDestinationAuthToken `pulumi:"authToken"`
 	// The name of the destination.
 	Name *string `pulumi:"name"`
 	// A nested block that describes a notification destination property. See Nested property blocks below for details.
 	Properties []NotificationDestinationProperty `pulumi:"properties"`
+	// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
+	SecureUrl *NotificationDestinationSecureUrl `pulumi:"secureUrl"`
 	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
 	// PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
 	Type string `pulumi:"type"`
@@ -216,12 +232,16 @@ type NotificationDestinationArgs struct {
 	Active pulumi.BoolPtrInput
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
 	AuthBasic NotificationDestinationAuthBasicPtrInput
+	// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+	AuthCustomHeaders NotificationDestinationAuthCustomHeaderArrayInput
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken NotificationDestinationAuthTokenPtrInput
 	// The name of the destination.
 	Name pulumi.StringPtrInput
 	// A nested block that describes a notification destination property. See Nested property blocks below for details.
 	Properties NotificationDestinationPropertyArrayInput
+	// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
+	SecureUrl NotificationDestinationSecureUrlPtrInput
 	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
 	// PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
 	Type pulumi.StringInput
@@ -329,6 +349,13 @@ func (o NotificationDestinationOutput) AuthBasic() NotificationDestinationAuthBa
 	return o.ApplyT(func(v *NotificationDestination) NotificationDestinationAuthBasicPtrOutput { return v.AuthBasic }).(NotificationDestinationAuthBasicPtrOutput)
 }
 
+// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+func (o NotificationDestinationOutput) AuthCustomHeaders() NotificationDestinationAuthCustomHeaderArrayOutput {
+	return o.ApplyT(func(v *NotificationDestination) NotificationDestinationAuthCustomHeaderArrayOutput {
+		return v.AuthCustomHeaders
+	}).(NotificationDestinationAuthCustomHeaderArrayOutput)
+}
+
 // A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 func (o NotificationDestinationOutput) AuthToken() NotificationDestinationAuthTokenPtrOutput {
 	return o.ApplyT(func(v *NotificationDestination) NotificationDestinationAuthTokenPtrOutput { return v.AuthToken }).(NotificationDestinationAuthTokenPtrOutput)
@@ -352,6 +379,11 @@ func (o NotificationDestinationOutput) Name() pulumi.StringOutput {
 // A nested block that describes a notification destination property. See Nested property blocks below for details.
 func (o NotificationDestinationOutput) Properties() NotificationDestinationPropertyArrayOutput {
 	return o.ApplyT(func(v *NotificationDestination) NotificationDestinationPropertyArrayOutput { return v.Properties }).(NotificationDestinationPropertyArrayOutput)
+}
+
+// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
+func (o NotificationDestinationOutput) SecureUrl() NotificationDestinationSecureUrlPtrOutput {
+	return o.ApplyT(func(v *NotificationDestination) NotificationDestinationSecureUrlPtrOutput { return v.SecureUrl }).(NotificationDestinationSecureUrlPtrOutput)
 }
 
 // The status of the destination.

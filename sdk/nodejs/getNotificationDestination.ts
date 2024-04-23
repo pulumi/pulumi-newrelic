@@ -14,6 +14,7 @@ export function getNotificationDestination(args?: GetNotificationDestinationArgs
         "accountId": args.accountId,
         "id": args.id,
         "name": args.name,
+        "secureUrls": args.secureUrls,
     }, opts);
 }
 
@@ -35,6 +36,10 @@ export interface GetNotificationDestinationArgs {
      * Optional:
      */
     name?: string;
+    /**
+     * The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
+     */
+    secureUrls?: inputs.GetNotificationDestinationSecureUrl[];
 }
 
 /**
@@ -59,6 +64,10 @@ export interface GetNotificationDestinationResult {
      * A nested block that describes a notification destination property.
      */
     readonly properties: outputs.GetNotificationDestinationProperty[];
+    /**
+     * The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
+     */
+    readonly secureUrls: outputs.GetNotificationDestinationSecureUrl[];
     /**
      * The status of the notification destination.
      */
@@ -90,4 +99,8 @@ export interface GetNotificationDestinationOutputArgs {
      * Optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
+     */
+    secureUrls?: pulumi.Input<pulumi.Input<inputs.GetNotificationDestinationSecureUrlArgs>[]>;
 }
