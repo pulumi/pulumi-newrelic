@@ -18,7 +18,6 @@ import (
 //
 // ### Create A New Relic One Dashboard With RawConfiguration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,7 +95,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type OneDashboardRaw struct {
 	pulumi.CustomResourceState
 

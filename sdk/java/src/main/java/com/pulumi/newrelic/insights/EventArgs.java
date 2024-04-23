@@ -15,17 +15,9 @@ public final class EventArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EventArgs Empty = new EventArgs();
 
-    /**
-     * An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-     * 
-     */
     @Import(name="events", required=true)
     private Output<List<EventEventArgs>> events;
 
-    /**
-     * @return An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-     * 
-     */
     public Output<List<EventEventArgs>> events() {
         return this.events;
     }
@@ -54,33 +46,15 @@ public final class EventArgs extends com.pulumi.resources.ResourceArgs {
             $ = new EventArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param events An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(Output<List<EventEventArgs>> events) {
             $.events = events;
             return this;
         }
 
-        /**
-         * @param events An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(List<EventEventArgs> events) {
             return events(Output.of(events));
         }
 
-        /**
-         * @param events An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(EventEventArgs... events) {
             return events(List.of(events));
         }

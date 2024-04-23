@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -37,7 +36,6 @@ import * as utilities from "../utilities";
  *     ],
  * }]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Events
  *
@@ -83,9 +81,6 @@ export class Event extends pulumi.CustomResource {
         return obj['__pulumiType'] === Event.__pulumiType;
     }
 
-    /**
-     * An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-     */
     public readonly events!: pulumi.Output<outputs.insights.EventEvent[]>;
 
     /**
@@ -118,9 +113,6 @@ export class Event extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Event resources.
  */
 export interface EventState {
-    /**
-     * An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-     */
     events?: pulumi.Input<pulumi.Input<inputs.insights.EventEvent>[]>;
 }
 
@@ -128,8 +120,5 @@ export interface EventState {
  * The set of arguments for constructing a Event resource.
  */
 export interface EventArgs {
-    /**
-     * An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-     */
     events: pulumi.Input<pulumi.Input<inputs.insights.EventEvent>[]>;
 }

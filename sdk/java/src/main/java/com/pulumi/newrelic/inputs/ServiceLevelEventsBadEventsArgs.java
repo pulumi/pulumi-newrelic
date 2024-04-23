@@ -17,49 +17,23 @@ public final class ServiceLevelEventsBadEventsArgs extends com.pulumi.resources.
 
     public static final ServiceLevelEventsBadEventsArgs Empty = new ServiceLevelEventsBadEventsArgs();
 
-    /**
-     * The event type where NRDB data will be fetched from.
-     * 
-     */
     @Import(name="from", required=true)
     private Output<String> from;
 
-    /**
-     * @return The event type where NRDB data will be fetched from.
-     * 
-     */
     public Output<String> from() {
         return this.from;
     }
 
-    /**
-     * The NRQL SELECT clause to aggregate events.
-     * 
-     */
     @Import(name="select")
     private @Nullable Output<ServiceLevelEventsBadEventsSelectArgs> select;
 
-    /**
-     * @return The NRQL SELECT clause to aggregate events.
-     * 
-     */
     public Optional<Output<ServiceLevelEventsBadEventsSelectArgs>> select() {
         return Optional.ofNullable(this.select);
     }
 
-    /**
-     * A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-     * a particular entity and returned an error).
-     * 
-     */
     @Import(name="where")
     private @Nullable Output<String> where;
 
-    /**
-     * @return A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-     * a particular entity and returned an error).
-     * 
-     */
     public Optional<Output<String>> where() {
         return Optional.ofNullable(this.where);
     }
@@ -90,67 +64,29 @@ public final class ServiceLevelEventsBadEventsArgs extends com.pulumi.resources.
             $ = new ServiceLevelEventsBadEventsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param from The event type where NRDB data will be fetched from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder from(Output<String> from) {
             $.from = from;
             return this;
         }
 
-        /**
-         * @param from The event type where NRDB data will be fetched from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder from(String from) {
             return from(Output.of(from));
         }
 
-        /**
-         * @param select The NRQL SELECT clause to aggregate events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder select(@Nullable Output<ServiceLevelEventsBadEventsSelectArgs> select) {
             $.select = select;
             return this;
         }
 
-        /**
-         * @param select The NRQL SELECT clause to aggregate events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder select(ServiceLevelEventsBadEventsSelectArgs select) {
             return select(Output.of(select));
         }
 
-        /**
-         * @param where A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-         * a particular entity and returned an error).
-         * 
-         * @return builder
-         * 
-         */
         public Builder where(@Nullable Output<String> where) {
             $.where = where;
             return this;
         }
 
-        /**
-         * @param where A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-         * a particular entity and returned an error).
-         * 
-         * @return builder
-         * 
-         */
         public Builder where(String where) {
             return where(Output.of(where));
         }

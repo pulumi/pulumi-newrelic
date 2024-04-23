@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,12 +74,10 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // ## Tags
 //
 // Manage synthetics multilocation alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -176,7 +173,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -192,25 +188,24 @@ import (
 type MultiLocationAlertCondition struct {
 	pulumi.CustomResourceState
 
-	// A condition term with the priority set to critical.
+	// A condition term with priority set to critical.
 	Critical MultiLocationAlertConditionCriticalOutput `pulumi:"critical"`
-	// Set whether to enable the alert condition.  Defaults to true.
+	// Set whether to enable the alert condition. Defaults to true.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The Monitor GUID's of the Synthetics monitors to alert on.
+	// The GUIDs of the Synthetics monitors to alert on.
 	Entities pulumi.StringArrayOutput `pulumi:"entities"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
-	// The title of the condition.
+	// The title of this condition.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the policy where this condition will be used.
 	PolicyId pulumi.IntOutput `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
-	// The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
+	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
+	// select. Must be in the range of 300 to 2592000 (inclusive)
 	ViolationTimeLimitSeconds pulumi.IntPtrOutput `pulumi:"violationTimeLimitSeconds"`
-	// A condition term with the priority set to warning.
-	//
-	// > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+	// A condition term with priority set to warning.
 	Warning MultiLocationAlertConditionWarningPtrOutput `pulumi:"warning"`
 }
 
@@ -253,48 +248,46 @@ func GetMultiLocationAlertCondition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MultiLocationAlertCondition resources.
 type multiLocationAlertConditionState struct {
-	// A condition term with the priority set to critical.
+	// A condition term with priority set to critical.
 	Critical *MultiLocationAlertConditionCritical `pulumi:"critical"`
-	// Set whether to enable the alert condition.  Defaults to true.
+	// Set whether to enable the alert condition. Defaults to true.
 	Enabled *bool `pulumi:"enabled"`
-	// The Monitor GUID's of the Synthetics monitors to alert on.
+	// The GUIDs of the Synthetics monitors to alert on.
 	Entities []string `pulumi:"entities"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid *string `pulumi:"entityGuid"`
-	// The title of the condition.
+	// The title of this condition.
 	Name *string `pulumi:"name"`
 	// The ID of the policy where this condition will be used.
 	PolicyId *int `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
-	// The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
+	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
+	// select. Must be in the range of 300 to 2592000 (inclusive)
 	ViolationTimeLimitSeconds *int `pulumi:"violationTimeLimitSeconds"`
-	// A condition term with the priority set to warning.
-	//
-	// > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+	// A condition term with priority set to warning.
 	Warning *MultiLocationAlertConditionWarning `pulumi:"warning"`
 }
 
 type MultiLocationAlertConditionState struct {
-	// A condition term with the priority set to critical.
+	// A condition term with priority set to critical.
 	Critical MultiLocationAlertConditionCriticalPtrInput
-	// Set whether to enable the alert condition.  Defaults to true.
+	// Set whether to enable the alert condition. Defaults to true.
 	Enabled pulumi.BoolPtrInput
-	// The Monitor GUID's of the Synthetics monitors to alert on.
+	// The GUIDs of the Synthetics monitors to alert on.
 	Entities pulumi.StringArrayInput
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringPtrInput
-	// The title of the condition.
+	// The title of this condition.
 	Name pulumi.StringPtrInput
 	// The ID of the policy where this condition will be used.
 	PolicyId pulumi.IntPtrInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
-	// The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
+	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
+	// select. Must be in the range of 300 to 2592000 (inclusive)
 	ViolationTimeLimitSeconds pulumi.IntPtrInput
-	// A condition term with the priority set to warning.
-	//
-	// > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+	// A condition term with priority set to warning.
 	Warning MultiLocationAlertConditionWarningPtrInput
 }
 
@@ -303,45 +296,43 @@ func (MultiLocationAlertConditionState) ElementType() reflect.Type {
 }
 
 type multiLocationAlertConditionArgs struct {
-	// A condition term with the priority set to critical.
+	// A condition term with priority set to critical.
 	Critical MultiLocationAlertConditionCritical `pulumi:"critical"`
-	// Set whether to enable the alert condition.  Defaults to true.
+	// Set whether to enable the alert condition. Defaults to true.
 	Enabled *bool `pulumi:"enabled"`
-	// The Monitor GUID's of the Synthetics monitors to alert on.
+	// The GUIDs of the Synthetics monitors to alert on.
 	Entities []string `pulumi:"entities"`
-	// The title of the condition.
+	// The title of this condition.
 	Name *string `pulumi:"name"`
 	// The ID of the policy where this condition will be used.
 	PolicyId int `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
-	// The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
+	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
+	// select. Must be in the range of 300 to 2592000 (inclusive)
 	ViolationTimeLimitSeconds *int `pulumi:"violationTimeLimitSeconds"`
-	// A condition term with the priority set to warning.
-	//
-	// > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+	// A condition term with priority set to warning.
 	Warning *MultiLocationAlertConditionWarning `pulumi:"warning"`
 }
 
 // The set of arguments for constructing a MultiLocationAlertCondition resource.
 type MultiLocationAlertConditionArgs struct {
-	// A condition term with the priority set to critical.
+	// A condition term with priority set to critical.
 	Critical MultiLocationAlertConditionCriticalInput
-	// Set whether to enable the alert condition.  Defaults to true.
+	// Set whether to enable the alert condition. Defaults to true.
 	Enabled pulumi.BoolPtrInput
-	// The Monitor GUID's of the Synthetics monitors to alert on.
+	// The GUIDs of the Synthetics monitors to alert on.
 	Entities pulumi.StringArrayInput
-	// The title of the condition.
+	// The title of this condition.
 	Name pulumi.StringPtrInput
 	// The ID of the policy where this condition will be used.
 	PolicyId pulumi.IntInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
-	// The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
+	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
+	// select. Must be in the range of 300 to 2592000 (inclusive)
 	ViolationTimeLimitSeconds pulumi.IntPtrInput
-	// A condition term with the priority set to warning.
-	//
-	// > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+	// A condition term with priority set to warning.
 	Warning MultiLocationAlertConditionWarningPtrInput
 }
 
@@ -432,17 +423,17 @@ func (o MultiLocationAlertConditionOutput) ToMultiLocationAlertConditionOutputWi
 	return o
 }
 
-// A condition term with the priority set to critical.
+// A condition term with priority set to critical.
 func (o MultiLocationAlertConditionOutput) Critical() MultiLocationAlertConditionCriticalOutput {
 	return o.ApplyT(func(v *MultiLocationAlertCondition) MultiLocationAlertConditionCriticalOutput { return v.Critical }).(MultiLocationAlertConditionCriticalOutput)
 }
 
-// Set whether to enable the alert condition.  Defaults to true.
+// Set whether to enable the alert condition. Defaults to true.
 func (o MultiLocationAlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Monitor GUID's of the Synthetics monitors to alert on.
+// The GUIDs of the Synthetics monitors to alert on.
 func (o MultiLocationAlertConditionOutput) Entities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.StringArrayOutput { return v.Entities }).(pulumi.StringArrayOutput)
 }
@@ -452,7 +443,7 @@ func (o MultiLocationAlertConditionOutput) EntityGuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.StringOutput { return v.EntityGuid }).(pulumi.StringOutput)
 }
 
-// The title of the condition.
+// The title of this condition.
 func (o MultiLocationAlertConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -467,14 +458,13 @@ func (o MultiLocationAlertConditionOutput) RunbookUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.StringPtrOutput { return v.RunbookUrl }).(pulumi.StringPtrOutput)
 }
 
-// The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
+// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
+// select. Must be in the range of 300 to 2592000 (inclusive)
 func (o MultiLocationAlertConditionOutput) ViolationTimeLimitSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.IntPtrOutput { return v.ViolationTimeLimitSeconds }).(pulumi.IntPtrOutput)
 }
 
-// A condition term with the priority set to warning.
-//
-// > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+// A condition term with priority set to warning.
 func (o MultiLocationAlertConditionOutput) Warning() MultiLocationAlertConditionWarningPtrOutput {
 	return o.ApplyT(func(v *MultiLocationAlertCondition) MultiLocationAlertConditionWarningPtrOutput { return v.Warning }).(MultiLocationAlertConditionWarningPtrOutput)
 }

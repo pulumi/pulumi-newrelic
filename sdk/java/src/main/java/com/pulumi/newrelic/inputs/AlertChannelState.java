@@ -18,14 +18,14 @@ public final class AlertChannelState extends com.pulumi.resources.ResourceArgs {
     public static final AlertChannelState Empty = new AlertChannelState();
 
     /**
-     * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+     * The New Relic account ID where you want to create alert channels.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<Integer> accountId;
 
     /**
-     * @return Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+     * @return The New Relic account ID where you want to create alert channels.
      * 
      */
     public Optional<Output<Integer>> accountId() {
@@ -33,14 +33,14 @@ public final class AlertChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+     * The configuration block for the alert channel.
      * 
      */
     @Import(name="config")
     private @Nullable Output<AlertChannelConfigArgs> config;
 
     /**
-     * @return A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+     * @return The configuration block for the alert channel.
      * 
      */
     public Optional<Output<AlertChannelConfigArgs>> config() {
@@ -48,14 +48,14 @@ public final class AlertChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the channel.
+     * (Required) The name of the channel.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the channel.
+     * @return (Required) The name of the channel.
      * 
      */
     public Optional<Output<String>> name() {
@@ -63,14 +63,14 @@ public final class AlertChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+     * (Required) The type of channel. One of: (victorops, webhook, email, opsgenie, pagerduty, slack, user).
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+     * @return (Required) The type of channel. One of: (victorops, webhook, email, opsgenie, pagerduty, slack, user).
      * 
      */
     public Optional<Output<String>> type() {
@@ -105,7 +105,7 @@ public final class AlertChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+         * @param accountId The New Relic account ID where you want to create alert channels.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class AlertChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+         * @param accountId The New Relic account ID where you want to create alert channels.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class AlertChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+         * @param config The configuration block for the alert channel.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class AlertChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+         * @param config The configuration block for the alert channel.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class AlertChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the channel.
+         * @param name (Required) The name of the channel.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class AlertChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the channel.
+         * @param name (Required) The name of the channel.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class AlertChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+         * @param type (Required) The type of channel. One of: (victorops, webhook, email, opsgenie, pagerduty, slack, user).
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class AlertChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+         * @param type (Required) The type of channel. One of: (victorops, webhook, email, opsgenie, pagerduty, slack, user).
          * 
          * @return builder
          * 

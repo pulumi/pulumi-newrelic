@@ -20,7 +20,6 @@ import (
 //
 // The example below will apply multiple alert channels to an existing New Relic alert policy.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,7 +81,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

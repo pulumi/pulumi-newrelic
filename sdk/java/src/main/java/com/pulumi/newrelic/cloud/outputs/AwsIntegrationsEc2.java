@@ -16,25 +16,21 @@ import javax.annotation.Nullable;
 public final class AwsIntegrationsEc2 {
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     private @Nullable List<String> awsRegions;
     /**
-     * @return Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
+     * @return Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size
      * 
      */
     private @Nullable Boolean duplicateEc2Tags;
     /**
-     * @return Specify if IP addresses of ec2 instance should be collected.
+     * @return Specify if IP addresses of ec2 instance should be collected
      * 
      */
     private @Nullable Boolean fetchIpAddresses;
     /**
      * @return The data polling interval in seconds.
-     * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
      * 
      */
     private @Nullable Integer metricsPollingInterval;
@@ -52,21 +48,20 @@ public final class AwsIntegrationsEc2 {
     private AwsIntegrationsEc2() {}
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     public List<String> awsRegions() {
         return this.awsRegions == null ? List.of() : this.awsRegions;
     }
     /**
-     * @return Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
+     * @return Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size
      * 
      */
     public Optional<Boolean> duplicateEc2Tags() {
         return Optional.ofNullable(this.duplicateEc2Tags);
     }
     /**
-     * @return Specify if IP addresses of ec2 instance should be collected.
+     * @return Specify if IP addresses of ec2 instance should be collected
      * 
      */
     public Optional<Boolean> fetchIpAddresses() {
@@ -74,9 +69,6 @@ public final class AwsIntegrationsEc2 {
     }
     /**
      * @return The data polling interval in seconds.
-     * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

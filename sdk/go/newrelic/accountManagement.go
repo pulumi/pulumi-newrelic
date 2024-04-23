@@ -19,7 +19,6 @@ import (
 // ## Example Usage
 //
 // ##### Create Account
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -58,9 +56,9 @@ import (
 type AccountManagement struct {
 	pulumi.CustomResourceState
 
-	// The name of the Account.
+	// Name of the account to be created
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The region code of the account.  One of: `us01`, `eu01`.
+	// A description of what this parsing rule represents.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -97,16 +95,16 @@ func GetAccountManagement(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountManagement resources.
 type accountManagementState struct {
-	// The name of the Account.
+	// Name of the account to be created
 	Name *string `pulumi:"name"`
-	// The region code of the account.  One of: `us01`, `eu01`.
+	// A description of what this parsing rule represents.
 	Region *string `pulumi:"region"`
 }
 
 type AccountManagementState struct {
-	// The name of the Account.
+	// Name of the account to be created
 	Name pulumi.StringPtrInput
-	// The region code of the account.  One of: `us01`, `eu01`.
+	// A description of what this parsing rule represents.
 	Region pulumi.StringPtrInput
 }
 
@@ -115,17 +113,17 @@ func (AccountManagementState) ElementType() reflect.Type {
 }
 
 type accountManagementArgs struct {
-	// The name of the Account.
+	// Name of the account to be created
 	Name *string `pulumi:"name"`
-	// The region code of the account.  One of: `us01`, `eu01`.
+	// A description of what this parsing rule represents.
 	Region string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AccountManagement resource.
 type AccountManagementArgs struct {
-	// The name of the Account.
+	// Name of the account to be created
 	Name pulumi.StringPtrInput
-	// The region code of the account.  One of: `us01`, `eu01`.
+	// A description of what this parsing rule represents.
 	Region pulumi.StringInput
 }
 
@@ -216,12 +214,12 @@ func (o AccountManagementOutput) ToAccountManagementOutputWithContext(ctx contex
 	return o
 }
 
-// The name of the Account.
+// Name of the account to be created
 func (o AccountManagementOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountManagement) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The region code of the account.  One of: `us01`, `eu01`.
+// A description of what this parsing rule represents.
 func (o AccountManagementOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountManagement) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

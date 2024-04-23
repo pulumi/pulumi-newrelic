@@ -18,16 +18,14 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
     public static final WorkflowDestinationArgs Empty = new WorkflowDestinationArgs();
 
     /**
-     * Id of a notification_channel to use for notifications. Please note that you have to use a
-     * **notification** channel, not an `alert_channel`.
+     * (Required) Destination&#39;s channel id.
      * 
      */
     @Import(name="channelId", required=true)
     private Output<String> channelId;
 
     /**
-     * @return Id of a notification_channel to use for notifications. Please note that you have to use a
-     * **notification** channel, not an `alert_channel`.
+     * @return (Required) Destination&#39;s channel id.
      * 
      */
     public Output<String> channelId() {
@@ -50,14 +48,14 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+     * List of triggers to notify about in this destination configuration.
      * 
      */
     @Import(name="notificationTriggers")
     private @Nullable Output<List<String>> notificationTriggers;
 
     /**
-     * @return Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+     * @return List of triggers to notify about in this destination configuration.
      * 
      */
     public Optional<Output<List<String>>> notificationTriggers() {
@@ -65,14 +63,14 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+     * (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+     * @return (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
      * 
      */
     public Optional<Output<String>> type() {
@@ -107,8 +105,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param channelId Id of a notification_channel to use for notifications. Please note that you have to use a
-         * **notification** channel, not an `alert_channel`.
+         * @param channelId (Required) Destination&#39;s channel id.
          * 
          * @return builder
          * 
@@ -119,8 +116,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param channelId Id of a notification_channel to use for notifications. Please note that you have to use a
-         * **notification** channel, not an `alert_channel`.
+         * @param channelId (Required) Destination&#39;s channel id.
          * 
          * @return builder
          * 
@@ -151,7 +147,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param notificationTriggers Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+         * @param notificationTriggers List of triggers to notify about in this destination configuration.
          * 
          * @return builder
          * 
@@ -162,7 +158,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param notificationTriggers Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+         * @param notificationTriggers List of triggers to notify about in this destination configuration.
          * 
          * @return builder
          * 
@@ -172,7 +168,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param notificationTriggers Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+         * @param notificationTriggers List of triggers to notify about in this destination configuration.
          * 
          * @return builder
          * 
@@ -182,7 +178,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+         * @param type (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
          * 
          * @return builder
          * 
@@ -193,7 +189,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+         * @param type (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
          * 
          * @return builder
          * 

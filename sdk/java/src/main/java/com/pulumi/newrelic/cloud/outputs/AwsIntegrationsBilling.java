@@ -14,18 +14,12 @@ public final class AwsIntegrationsBilling {
     /**
      * @return The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
-     * 
      */
     private @Nullable Integer metricsPollingInterval;
 
     private AwsIntegrationsBilling() {}
     /**
      * @return The data polling interval in seconds.
-     * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

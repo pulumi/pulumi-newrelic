@@ -17,7 +17,6 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// ##### Create Account
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -50,13 +48,13 @@ namespace Pulumi.NewRelic
     public partial class AccountManagement : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the Account.
+        /// Name of the account to be created
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The region code of the account.  One of: `us01`, `eu01`.
+        /// A description of what this parsing rule represents.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -108,13 +106,13 @@ namespace Pulumi.NewRelic
     public sealed class AccountManagementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Account.
+        /// Name of the account to be created
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The region code of the account.  One of: `us01`, `eu01`.
+        /// A description of what this parsing rule represents.
         /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
@@ -128,13 +126,13 @@ namespace Pulumi.NewRelic
     public sealed class AccountManagementState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Account.
+        /// Name of the account to be created
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The region code of the account.  One of: `us01`, `eu01`.
+        /// A description of what this parsing rule represents.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

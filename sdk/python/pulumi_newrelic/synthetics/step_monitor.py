@@ -218,7 +218,7 @@ class _StepMonitorState:
         Input properties used for looking up and filtering StepMonitor resources.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
-        :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
+        :param pulumi.Input[str] guid: The unique entity identifier of the monitor in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorLocationPrivateArgs']]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
@@ -287,7 +287,7 @@ class _StepMonitorState:
     @pulumi.getter
     def guid(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique identifier for the Synthetics private location in New Relic.
+        The unique entity identifier of the monitor in New Relic.
         """
         return pulumi.get(self, "guid")
 
@@ -440,7 +440,6 @@ class StepMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -466,7 +465,6 @@ class StepMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         See additional examples.
 
         ## Additional Examples
@@ -477,7 +475,6 @@ class StepMonitor(pulumi.CustomResource):
 
         > **NOTE:** It can take up to 10 minutes for a private location to become available.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -504,7 +501,6 @@ class StepMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -543,7 +539,6 @@ class StepMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -569,7 +564,6 @@ class StepMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         See additional examples.
 
         ## Additional Examples
@@ -580,7 +574,6 @@ class StepMonitor(pulumi.CustomResource):
 
         > **NOTE:** It can take up to 10 minutes for a private location to become available.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -607,7 +600,6 @@ class StepMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -705,7 +697,7 @@ class StepMonitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
-        :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
+        :param pulumi.Input[str] guid: The unique entity identifier of the monitor in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
@@ -758,7 +750,7 @@ class StepMonitor(pulumi.CustomResource):
     @pulumi.getter
     def guid(self) -> pulumi.Output[str]:
         """
-        The unique identifier for the Synthetics private location in New Relic.
+        The unique entity identifier of the monitor in New Relic.
         """
         return pulumi.get(self, "guid")
 

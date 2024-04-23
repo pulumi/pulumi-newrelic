@@ -15,19 +15,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AwsGovcloudIntegrationsElasticSearch {
     /**
-     * @return Specify each AWS region that includes the resources that you want to monitor.
+     * @return Specify each AWS region that includes the resources that you want to monitor
      * 
      */
     private @Nullable List<String> awsRegions;
     /**
-     * @return Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
+     * @return Specify if IP addresses of ec2 instance should be collected
      * 
      */
     private @Nullable Boolean fetchNodes;
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * @return The data polling interval in seconds
      * 
      */
     private @Nullable Integer metricsPollingInterval;
@@ -44,23 +42,21 @@ public final class AwsGovcloudIntegrationsElasticSearch {
 
     private AwsGovcloudIntegrationsElasticSearch() {}
     /**
-     * @return Specify each AWS region that includes the resources that you want to monitor.
+     * @return Specify each AWS region that includes the resources that you want to monitor
      * 
      */
     public List<String> awsRegions() {
         return this.awsRegions == null ? List.of() : this.awsRegions;
     }
     /**
-     * @return Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
+     * @return Specify if IP addresses of ec2 instance should be collected
      * 
      */
     public Optional<Boolean> fetchNodes() {
         return Optional.ofNullable(this.fetchNodes);
     }
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * @return The data polling interval in seconds
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

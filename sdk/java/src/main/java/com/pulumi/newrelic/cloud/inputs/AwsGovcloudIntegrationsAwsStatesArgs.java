@@ -18,14 +18,14 @@ public final class AwsGovcloudIntegrationsAwsStatesArgs extends com.pulumi.resou
     public static final AwsGovcloudIntegrationsAwsStatesArgs Empty = new AwsGovcloudIntegrationsAwsStatesArgs();
 
     /**
-     * Specify each AWS region that includes the resources that you want to monitor.
+     * Specify each AWS region that includes the resources that you want to monitor
      * 
      */
     @Import(name="awsRegions")
     private @Nullable Output<List<String>> awsRegions;
 
     /**
-     * @return Specify each AWS region that includes the resources that you want to monitor.
+     * @return Specify each AWS region that includes the resources that you want to monitor
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
@@ -33,18 +33,14 @@ public final class AwsGovcloudIntegrationsAwsStatesArgs extends com.pulumi.resou
     }
 
     /**
-     * The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * The data polling interval in seconds
      * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * @return The data polling interval in seconds
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -77,7 +73,7 @@ public final class AwsGovcloudIntegrationsAwsStatesArgs extends com.pulumi.resou
         }
 
         /**
-         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
+         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor
          * 
          * @return builder
          * 
@@ -88,7 +84,7 @@ public final class AwsGovcloudIntegrationsAwsStatesArgs extends com.pulumi.resou
         }
 
         /**
-         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
+         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor
          * 
          * @return builder
          * 
@@ -98,7 +94,7 @@ public final class AwsGovcloudIntegrationsAwsStatesArgs extends com.pulumi.resou
         }
 
         /**
-         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
+         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor
          * 
          * @return builder
          * 
@@ -108,9 +104,7 @@ public final class AwsGovcloudIntegrationsAwsStatesArgs extends com.pulumi.resou
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * Some integration types support an additional set of arguments:
+         * @param metricsPollingInterval The data polling interval in seconds
          * 
          * @return builder
          * 
@@ -121,9 +115,7 @@ public final class AwsGovcloudIntegrationsAwsStatesArgs extends com.pulumi.resou
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * Some integration types support an additional set of arguments:
+         * @param metricsPollingInterval The data polling interval in seconds
          * 
          * @return builder
          * 

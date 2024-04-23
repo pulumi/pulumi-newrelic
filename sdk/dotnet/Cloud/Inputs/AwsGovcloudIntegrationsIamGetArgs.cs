@@ -13,9 +13,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
     public sealed class AwsGovcloudIntegrationsIamGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data polling interval in seconds.
-        /// 
-        /// Some integration types support an additional set of arguments:
+        /// The data polling interval in seconds
         /// </summary>
         [Input("metricsPollingInterval")]
         public Input<int>? MetricsPollingInterval { get; set; }

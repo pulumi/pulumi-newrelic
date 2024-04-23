@@ -81,7 +81,6 @@ def get_cloud_account(account_id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -90,7 +89,6 @@ def get_cloud_account(account_id: Optional[int] = None,
         cloud_provider="aws",
         name="my aws account")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int account_id: The account ID in New Relic.
@@ -122,7 +120,6 @@ def get_cloud_account_output(account_id: Optional[pulumi.Input[Optional[int]]] =
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -131,7 +128,6 @@ def get_cloud_account_output(account_id: Optional[pulumi.Input[Optional[int]]] =
         cloud_provider="aws",
         name="my aws account")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int account_id: The account ID in New Relic.

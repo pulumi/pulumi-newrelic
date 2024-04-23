@@ -14,9 +14,7 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     public sealed class AwsGovcloudIntegrationsIam
     {
         /// <summary>
-        /// The data polling interval in seconds.
-        /// 
-        /// Some integration types support an additional set of arguments:
+        /// The data polling interval in seconds
         /// </summary>
         public readonly int? MetricsPollingInterval;
         /// <summary>

@@ -24,7 +24,6 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -509,7 +508,6 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -543,7 +541,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AwsIntegrationsApiGateway?> ApiGateway { get; private set; } = null!;
 
         /// <summary>
-        /// ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
+        /// AutoScaling integration
         /// </summary>
         [Output("autoScaling")]
         public Output<Outputs.AwsIntegrationsAutoScaling?> AutoScaling { get; private set; } = null!;
@@ -974,7 +972,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsIntegrationsApiGatewayArgs>? ApiGateway { get; set; }
 
         /// <summary>
-        /// ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
+        /// AutoScaling integration
         /// </summary>
         [Input("autoScaling")]
         public Input<Inputs.AwsIntegrationsAutoScalingArgs>? AutoScaling { get; set; }
@@ -1367,7 +1365,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsIntegrationsApiGatewayGetArgs>? ApiGateway { get; set; }
 
         /// <summary>
-        /// ,`aws_app_sync`,`aws_athena`,`aws_cognito`,`aws_connect`,`aws_direct_connect`,`aws_fsx`,`aws_glue`,`aws_kinesis_analytics`,`aws_media_convert`,`aws_media_package_vod`,`aws_mq`,`aws_msk`,`aws_neptune`,`aws_qldb`,`aws_route53resolver`,`aws_states`,`aws_transit_gateway`,`aws_waf`,`aws_wafv2`,`iot`,`kinesis_firehose` and `ses`.
+        /// AutoScaling integration
         /// </summary>
         [Input("autoScaling")]
         public Input<Inputs.AwsIntegrationsAutoScalingGetArgs>? AutoScaling { get; set; }

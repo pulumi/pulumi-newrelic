@@ -19,14 +19,14 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
     public static final AlertConditionArgs Empty = new AlertConditionArgs();
 
     /**
-     * Set whether to enable the alert condition. Defaults to `true`.
+     * Set whether to enable the alert condition. Defaults to true.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Set whether to enable the alert condition. Defaults to `true`.
+     * @return Set whether to enable the alert condition. Defaults to true.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -34,14 +34,14 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The GUID of the Synthetics monitor to be referenced in the alert condition.
+     * The ID of the Synthetics monitor to be referenced in the alert condition.
      * 
      */
     @Import(name="monitorId", required=true)
     private Output<String> monitorId;
 
     /**
-     * @return The GUID of the Synthetics monitor to be referenced in the alert condition.
+     * @return The ID of the Synthetics monitor to be referenced in the alert condition.
      * 
      */
     public Output<String> monitorId() {
@@ -122,7 +122,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param enabled Set whether to enable the alert condition. Defaults to `true`.
+         * @param enabled Set whether to enable the alert condition. Defaults to true.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param enabled Set whether to enable the alert condition. Defaults to `true`.
+         * @param enabled Set whether to enable the alert condition. Defaults to true.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param monitorId The GUID of the Synthetics monitor to be referenced in the alert condition.
+         * @param monitorId The ID of the Synthetics monitor to be referenced in the alert condition.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param monitorId The GUID of the Synthetics monitor to be referenced in the alert condition.
+         * @param monitorId The ID of the Synthetics monitor to be referenced in the alert condition.
          * 
          * @return builder
          * 

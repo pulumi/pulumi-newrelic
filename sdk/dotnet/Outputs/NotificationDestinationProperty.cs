@@ -14,21 +14,19 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class NotificationDestinationProperty
     {
         /// <summary>
-        /// The notification property display value.
-        /// 
-        /// Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
+        /// Notification property display key.
         /// </summary>
         public readonly string? DisplayValue;
         /// <summary>
-        /// The notification property key.
+        /// Notification property key.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The notification property label.
+        /// Notification property label.
         /// </summary>
         public readonly string? Label;
         /// <summary>
-        /// The notification property value.
+        /// Notification property value.
         /// </summary>
         public readonly string Value;
 

@@ -32,14 +32,14 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
     public static final OneDashboardPageArgs Empty = new OneDashboardPageArgs();
 
     /**
-     * Brief text describing the dashboard.
+     * (Optional) Brief text describing the page.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Brief text describing the dashboard.
+     * @return (Optional) Brief text describing the page.
      * 
      */
     public Optional<Output<String>> description() {
@@ -62,14 +62,14 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The title of the dashboard.
+     * (Required) The variable identifier.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The title of the dashboard.
+     * @return (Required) The variable identifier.
      * 
      */
     public Output<String> name() {
@@ -327,7 +327,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Brief text describing the dashboard.
+         * @param description (Optional) Brief text describing the page.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Brief text describing the dashboard.
+         * @param description (Optional) Brief text describing the page.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The title of the dashboard.
+         * @param name (Required) The variable identifier.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The title of the dashboard.
+         * @param name (Required) The variable identifier.
          * 
          * @return builder
          * 

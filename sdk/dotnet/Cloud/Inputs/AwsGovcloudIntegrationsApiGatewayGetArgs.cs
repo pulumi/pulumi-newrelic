@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         private InputList<string>? _awsRegions;
 
         /// <summary>
-        /// Specify each AWS region that includes the resources that you want to monitor.
+        /// Specify each AWS region that includes the resources that you want to monitor
         /// </summary>
         public InputList<string> AwsRegions
         {
@@ -25,9 +25,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         }
 
         /// <summary>
-        /// The data polling interval in seconds.
-        /// 
-        /// Some integration types support an additional set of arguments:
+        /// The data polling interval in seconds
         /// </summary>
         [Input("metricsPollingInterval")]
         public Input<int>? MetricsPollingInterval { get; set; }
@@ -36,7 +34,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         private InputList<string>? _stagePrefixes;
 
         /// <summary>
-        /// Specify each name or prefix for the Stages that you want to monitor. Filter values are case-sensitive.
+        /// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         /// </summary>
         public InputList<string> StagePrefixes
         {

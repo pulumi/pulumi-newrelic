@@ -17,7 +17,6 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// ### Email
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,12 +38,10 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Additional Examples
     /// 
     /// ##### Slack
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,12 +63,10 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
     /// 
     /// ### OpsGenie
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -95,10 +90,8 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### PagerDuty
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -119,10 +112,8 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### VictorOps
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -144,10 +135,8 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Webhook
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -179,10 +168,8 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Webhook with complex payload
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -211,7 +198,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -227,25 +213,25 @@ namespace Pulumi.NewRelic
     public partial class AlertChannel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+        /// The New Relic account ID where you want to create alert channels.
         /// </summary>
         [Output("accountId")]
         public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        /// The configuration block for the alert channel.
         /// </summary>
         [Output("config")]
         public Output<Outputs.AlertChannelConfig?> Config { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the channel.
+        /// (Required) The name of the channel.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        /// (Required) The type of channel. One of: (slack, user, victorops, webhook, email, opsgenie, pagerduty).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -297,25 +283,25 @@ namespace Pulumi.NewRelic
     public sealed class AlertChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+        /// The New Relic account ID where you want to create alert channels.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        /// The configuration block for the alert channel.
         /// </summary>
         [Input("config")]
         public Input<Inputs.AlertChannelConfigArgs>? Config { get; set; }
 
         /// <summary>
-        /// The name of the channel.
+        /// (Required) The name of the channel.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        /// (Required) The type of channel. One of: (slack, user, victorops, webhook, email, opsgenie, pagerduty).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -329,25 +315,25 @@ namespace Pulumi.NewRelic
     public sealed class AlertChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+        /// The New Relic account ID where you want to create alert channels.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        /// The configuration block for the alert channel.
         /// </summary>
         [Input("config")]
         public Input<Inputs.AlertChannelConfigGetArgs>? Config { get; set; }
 
         /// <summary>
-        /// The name of the channel.
+        /// (Required) The name of the channel.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        /// (Required) The type of channel. One of: (slack, user, victorops, webhook, email, opsgenie, pagerduty).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

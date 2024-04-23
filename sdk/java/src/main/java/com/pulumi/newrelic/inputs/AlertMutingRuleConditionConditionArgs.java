@@ -16,14 +16,14 @@ public final class AlertMutingRuleConditionConditionArgs extends com.pulumi.reso
     public static final AlertMutingRuleConditionConditionArgs Empty = new AlertMutingRuleConditionConditionArgs();
 
     /**
-     * The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.&lt;NAME&gt;`, `targetId`, `targetName`
+     * The attribute on an incident.
      * 
      */
     @Import(name="attribute", required=true)
     private Output<String> attribute;
 
     /**
-     * @return The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.&lt;NAME&gt;`, `targetId`, `targetName`
+     * @return The attribute on an incident.
      * 
      */
     public Output<String> attribute() {
@@ -31,14 +31,14 @@ public final class AlertMutingRuleConditionConditionArgs extends com.pulumi.reso
     }
 
     /**
-     * The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
+     * The operator used to compare the attribute&#39;s value with the supplied value(s).
      * 
      */
     @Import(name="operator", required=true)
     private Output<String> operator;
 
     /**
-     * @return The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
+     * @return The operator used to compare the attribute&#39;s value with the supplied value(s).
      * 
      */
     public Output<String> operator() {
@@ -87,7 +87,7 @@ public final class AlertMutingRuleConditionConditionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param attribute The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.&lt;NAME&gt;`, `targetId`, `targetName`
+         * @param attribute The attribute on an incident.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class AlertMutingRuleConditionConditionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param attribute The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.&lt;NAME&gt;`, `targetId`, `targetName`
+         * @param attribute The attribute on an incident.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class AlertMutingRuleConditionConditionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param operator The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
+         * @param operator The operator used to compare the attribute&#39;s value with the supplied value(s).
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class AlertMutingRuleConditionConditionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param operator The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
+         * @param operator The operator used to compare the attribute&#39;s value with the supplied value(s).
          * 
          * @return builder
          * 

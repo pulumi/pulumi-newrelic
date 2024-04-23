@@ -235,7 +235,6 @@ class ObfuscationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -255,7 +254,6 @@ class ObfuscationRule(pulumi.CustomResource):
                 method="MASK",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -287,7 +285,6 @@ class ObfuscationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -307,7 +304,6 @@ class ObfuscationRule(pulumi.CustomResource):
                 method="MASK",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

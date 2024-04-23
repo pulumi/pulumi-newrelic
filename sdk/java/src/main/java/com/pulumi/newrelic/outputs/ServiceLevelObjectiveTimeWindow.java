@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceLevelObjectiveTimeWindow {
-    /**
-     * @return Rolling window.
-     * 
-     */
     private ServiceLevelObjectiveTimeWindowRolling rolling;
 
     private ServiceLevelObjectiveTimeWindow() {}
-    /**
-     * @return Rolling window.
-     * 
-     */
     public ServiceLevelObjectiveTimeWindowRolling rolling() {
         return this.rolling;
     }

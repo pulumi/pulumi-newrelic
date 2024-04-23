@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceLevelObjectiveTimeWindowRolling {
-    /**
-     * @return Valid values are `1`, `7` and `28`.
-     * 
-     */
     private Integer count;
-    /**
-     * @return The only supported value is `DAY`.
-     * 
-     */
     private String unit;
 
     private ServiceLevelObjectiveTimeWindowRolling() {}
-    /**
-     * @return Valid values are `1`, `7` and `28`.
-     * 
-     */
     public Integer count() {
         return this.count;
     }
-    /**
-     * @return The only supported value is `DAY`.
-     * 
-     */
     public String unit() {
         return this.unit;
     }

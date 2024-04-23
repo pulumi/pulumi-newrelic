@@ -18,14 +18,14 @@ public final class AzureIntegrationsFirewallsArgs extends com.pulumi.resources.R
     public static final AzureIntegrationsFirewallsArgs Empty = new AzureIntegrationsFirewallsArgs();
 
     /**
-     * The data polling interval in seconds.
+     * The data polling interval in seconds
      * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
-     * @return The data polling interval in seconds.
+     * @return The data polling interval in seconds
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -35,16 +35,12 @@ public final class AzureIntegrationsFirewallsArgs extends com.pulumi.resources.R
     /**
      * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
      * 
-     * Other integration type support an additional argument:
-     * 
      */
     @Import(name="resourceGroups")
     private @Nullable Output<List<String>> resourceGroups;
 
     /**
      * @return Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
-     * 
-     * Other integration type support an additional argument:
      * 
      */
     public Optional<Output<List<String>>> resourceGroups() {
@@ -77,7 +73,7 @@ public final class AzureIntegrationsFirewallsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
+         * @param metricsPollingInterval The data polling interval in seconds
          * 
          * @return builder
          * 
@@ -88,7 +84,7 @@ public final class AzureIntegrationsFirewallsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
+         * @param metricsPollingInterval The data polling interval in seconds
          * 
          * @return builder
          * 
@@ -99,8 +95,6 @@ public final class AzureIntegrationsFirewallsArgs extends com.pulumi.resources.R
 
         /**
          * @param resourceGroups Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
-         * 
-         * Other integration type support an additional argument:
          * 
          * @return builder
          * 
@@ -113,8 +107,6 @@ public final class AzureIntegrationsFirewallsArgs extends com.pulumi.resources.R
         /**
          * @param resourceGroups Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          * 
-         * Other integration type support an additional argument:
-         * 
          * @return builder
          * 
          */
@@ -124,8 +116,6 @@ public final class AzureIntegrationsFirewallsArgs extends com.pulumi.resources.R
 
         /**
          * @param resourceGroups Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
-         * 
-         * Other integration type support an additional argument:
          * 
          * @return builder
          * 

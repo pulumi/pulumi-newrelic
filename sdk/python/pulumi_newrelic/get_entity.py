@@ -162,7 +162,6 @@ def get_entity(account_id: Optional[int] = None,
 
     This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -174,9 +173,7 @@ def get_entity(account_id: Optional[int] = None,
         domain="APM",
         type="APPLICATION")
     ```
-    <!--End PulumiCodeChooser -->
     However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `account_id` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `account_id` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `account_id`.
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -189,13 +186,11 @@ def get_entity(account_id: Optional[int] = None,
         domain="APM",
         type="APPLICATION")
     ```
-    <!--End PulumiCodeChooser -->
     The following example explains a use case along the lines of the aforementioned; using the `account_id` argument in the data source to allow the filtering criteria to be the `account_id` specified (of the subaccount), and not the account ID in the provider configuration.
 
     In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `account_id` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `account_id`.
     ### Query for an OTEL entity
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -208,11 +203,9 @@ def get_entity(account_id: Optional[int] = None,
             value="12345",
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Query for an entity by type (AWS Lambda entity in this example)
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -220,7 +213,6 @@ def get_entity(account_id: Optional[int] = None,
     app = newrelic.get_entity(name="my_lambda_trace",
         type="AWSLAMBDAFUNCTION")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int account_id: The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
@@ -276,7 +268,6 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
 
     This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -288,9 +279,7 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
         domain="APM",
         type="APPLICATION")
     ```
-    <!--End PulumiCodeChooser -->
     However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `account_id` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `account_id` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `account_id`.
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -303,13 +292,11 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
         domain="APM",
         type="APPLICATION")
     ```
-    <!--End PulumiCodeChooser -->
     The following example explains a use case along the lines of the aforementioned; using the `account_id` argument in the data source to allow the filtering criteria to be the `account_id` specified (of the subaccount), and not the account ID in the provider configuration.
 
     In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `account_id` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `account_id`.
     ### Query for an OTEL entity
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -322,11 +309,9 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
             value="12345",
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Query for an entity by type (AWS Lambda entity in this example)
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -334,7 +319,6 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
     app = newrelic.get_entity(name="my_lambda_trace",
         type="AWSLAMBDAFUNCTION")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int account_id: The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.

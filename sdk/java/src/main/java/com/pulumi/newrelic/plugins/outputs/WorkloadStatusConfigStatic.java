@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkloadStatusConfigStatic {
     /**
-     * @return Relevant information about the workload.
+     * @return A description that provides additional details about the status of the workload.
      * 
      */
     private @Nullable String description;
@@ -36,7 +36,7 @@ public final class WorkloadStatusConfigStatic {
 
     private WorkloadStatusConfigStatic() {}
     /**
-     * @return Relevant information about the workload.
+     * @return A description that provides additional details about the status of the workload.
      * 
      */
     public Optional<String> description() {

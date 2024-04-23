@@ -199,42 +199,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition")
 public class MultiLocationAlertCondition extends com.pulumi.resources.CustomResource {
     /**
-     * A condition term with the priority set to critical.
+     * A condition term with priority set to critical.
      * 
      */
     @Export(name="critical", refs={MultiLocationAlertConditionCritical.class}, tree="[0]")
     private Output<MultiLocationAlertConditionCritical> critical;
 
     /**
-     * @return A condition term with the priority set to critical.
+     * @return A condition term with priority set to critical.
      * 
      */
     public Output<MultiLocationAlertConditionCritical> critical() {
         return this.critical;
     }
     /**
-     * Set whether to enable the alert condition.  Defaults to true.
+     * Set whether to enable the alert condition. Defaults to true.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Set whether to enable the alert condition.  Defaults to true.
+     * @return Set whether to enable the alert condition. Defaults to true.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * The Monitor GUID&#39;s of the Synthetics monitors to alert on.
+     * The GUIDs of the Synthetics monitors to alert on.
      * 
      */
     @Export(name="entities", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> entities;
 
     /**
-     * @return The Monitor GUID&#39;s of the Synthetics monitors to alert on.
+     * @return The GUIDs of the Synthetics monitors to alert on.
      * 
      */
     public Output<List<String>> entities() {
@@ -255,14 +255,14 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
         return this.entityGuid;
     }
     /**
-     * The title of the condition.
+     * The title of this condition.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The title of the condition.
+     * @return The title of this condition.
      * 
      */
     public Output<String> name() {
@@ -297,32 +297,30 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.runbookUrl);
     }
     /**
-     * The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
+     * Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
+     * select. Must be in the range of 300 to 2592000 (inclusive)
      * 
      */
     @Export(name="violationTimeLimitSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> violationTimeLimitSeconds;
 
     /**
-     * @return The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
+     * @return Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
+     * select. Must be in the range of 300 to 2592000 (inclusive)
      * 
      */
     public Output<Optional<Integer>> violationTimeLimitSeconds() {
         return Codegen.optional(this.violationTimeLimitSeconds);
     }
     /**
-     * A condition term with the priority set to warning.
-     * 
-     * &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * A condition term with priority set to warning.
      * 
      */
     @Export(name="warning", refs={MultiLocationAlertConditionWarning.class}, tree="[0]")
     private Output</* @Nullable */ MultiLocationAlertConditionWarning> warning;
 
     /**
-     * @return A condition term with the priority set to warning.
-     * 
-     * &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * @return A condition term with priority set to warning.
      * 
      */
     public Output<Optional<MultiLocationAlertConditionWarning>> warning() {

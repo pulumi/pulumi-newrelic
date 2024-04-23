@@ -187,7 +187,6 @@ class ApplicationSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -198,7 +197,6 @@ class ApplicationSettings(pulumi.CustomResource):
             end_user_apdex_threshold=0.8,
             enable_real_user_monitoring=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Notes
 
@@ -239,7 +237,6 @@ class ApplicationSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -250,7 +247,6 @@ class ApplicationSettings(pulumi.CustomResource):
             end_user_apdex_threshold=0.8,
             enable_real_user_monitoring=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Notes
 

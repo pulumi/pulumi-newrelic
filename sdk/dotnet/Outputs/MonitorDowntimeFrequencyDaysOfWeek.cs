@@ -14,13 +14,11 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class MonitorDowntimeFrequencyDaysOfWeek
     {
         /// <summary>
-        /// The occurrence of `week_day` in a month (one of `"FIRST"`, `"SECOND"`, `"THIRD"`, `"FOURTH"`, `"LAST"`).
-        /// 
-        /// &gt; **NOTE:** `frequency` **can only be used with the mode** `MONTHLY`, and **is a required argument** with monthly monitor downtimes (if the `mode` is `MONTHLY`). Additionally, **either** `days_of_month` or `days_of_week` **are required to be specified with** `frequency`, but not both, as `days_of_month` and `days_of_week` are mutually exclusive. If `days_of_week` is specified, values of **both** of its nested arguments, `week_day` and `ordinal_day_of_month` **would need to be specified** too.
+        /// An occurrence of the day selected within the month.
         /// </summary>
         public readonly string OrdinalDayOfMonth;
         /// <summary>
-        /// A day of the week (one of `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` or `"SATURDAY"`).
+        /// The day of the week on which the Monitor Downtime would run.
         /// </summary>
         public readonly string WeekDay;
 

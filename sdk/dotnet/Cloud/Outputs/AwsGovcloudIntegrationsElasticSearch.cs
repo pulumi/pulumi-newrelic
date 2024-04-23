@@ -14,17 +14,15 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     public sealed class AwsGovcloudIntegrationsElasticSearch
     {
         /// <summary>
-        /// Specify each AWS region that includes the resources that you want to monitor.
+        /// Specify each AWS region that includes the resources that you want to monitor
         /// </summary>
         public readonly ImmutableArray<string> AwsRegions;
         /// <summary>
-        /// Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
+        /// Specify if IP addresses of ec2 instance should be collected
         /// </summary>
         public readonly bool? FetchNodes;
         /// <summary>
-        /// The data polling interval in seconds.
-        /// 
-        /// Some integration types support an additional set of arguments:
+        /// The data polling interval in seconds
         /// </summary>
         public readonly int? MetricsPollingInterval;
         /// <summary>

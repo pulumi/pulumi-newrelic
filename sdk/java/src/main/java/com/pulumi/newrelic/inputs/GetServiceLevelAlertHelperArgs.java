@@ -19,107 +19,51 @@ public final class GetServiceLevelAlertHelperArgs extends com.pulumi.resources.I
 
     public static final GetServiceLevelAlertHelperArgs Empty = new GetServiceLevelAlertHelperArgs();
 
-    /**
-     * The type of alert we want to set. Valid values are:
-     * 
-     */
     @Import(name="alertType", required=true)
     private Output<String> alertType;
 
-    /**
-     * @return The type of alert we want to set. Valid values are:
-     * 
-     */
     public Output<String> alertType() {
         return this.alertType;
     }
 
-    /**
-     * Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
-     * 
-     */
     @Import(name="customEvaluationPeriod")
     private @Nullable Output<Integer> customEvaluationPeriod;
 
-    /**
-     * @return Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
-     * 
-     */
     public Optional<Output<Integer>> customEvaluationPeriod() {
         return Optional.ofNullable(this.customEvaluationPeriod);
     }
 
-    /**
-     * How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
-     * 
-     */
     @Import(name="customToleratedBudgetConsumption")
     private @Nullable Output<Double> customToleratedBudgetConsumption;
 
-    /**
-     * @return How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
-     * 
-     */
     public Optional<Output<Double>> customToleratedBudgetConsumption() {
         return Optional.ofNullable(this.customToleratedBudgetConsumption);
     }
 
-    /**
-     * If the SLI is defined using bad events. Defaults to `false`
-     * 
-     */
     @Import(name="isBadEvents")
     private @Nullable Output<Boolean> isBadEvents;
 
-    /**
-     * @return If the SLI is defined using bad events. Defaults to `false`
-     * 
-     */
     public Optional<Output<Boolean>> isBadEvents() {
         return Optional.ofNullable(this.isBadEvents);
     }
 
-    /**
-     * The guid of the sli we want to set the alert on.
-     * 
-     */
     @Import(name="sliGuid", required=true)
     private Output<String> sliGuid;
 
-    /**
-     * @return The guid of the sli we want to set the alert on.
-     * 
-     */
     public Output<String> sliGuid() {
         return this.sliGuid;
     }
 
-    /**
-     * The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
-     * 
-     */
     @Import(name="sloPeriod", required=true)
     private Output<Integer> sloPeriod;
 
-    /**
-     * @return The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
-     * 
-     */
     public Output<Integer> sloPeriod() {
         return this.sloPeriod;
     }
 
-    /**
-     * The target of the Service Level Objective, valid values between `0` and `100`.
-     * 
-     */
     @Import(name="sloTarget", required=true)
     private Output<Double> sloTarget;
 
-    /**
-     * @return The target of the Service Level Objective, valid values between `0` and `100`.
-     * 
-     */
     public Output<Double> sloTarget() {
         return this.sloTarget;
     }
@@ -154,149 +98,65 @@ public final class GetServiceLevelAlertHelperArgs extends com.pulumi.resources.I
             $ = new GetServiceLevelAlertHelperArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alertType The type of alert we want to set. Valid values are:
-         * 
-         * @return builder
-         * 
-         */
         public Builder alertType(Output<String> alertType) {
             $.alertType = alertType;
             return this;
         }
 
-        /**
-         * @param alertType The type of alert we want to set. Valid values are:
-         * 
-         * @return builder
-         * 
-         */
         public Builder alertType(String alertType) {
             return alertType(Output.of(alertType));
         }
 
-        /**
-         * @param customEvaluationPeriod Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customEvaluationPeriod(@Nullable Output<Integer> customEvaluationPeriod) {
             $.customEvaluationPeriod = customEvaluationPeriod;
             return this;
         }
 
-        /**
-         * @param customEvaluationPeriod Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customEvaluationPeriod(Integer customEvaluationPeriod) {
             return customEvaluationPeriod(Output.of(customEvaluationPeriod));
         }
 
-        /**
-         * @param customToleratedBudgetConsumption How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customToleratedBudgetConsumption(@Nullable Output<Double> customToleratedBudgetConsumption) {
             $.customToleratedBudgetConsumption = customToleratedBudgetConsumption;
             return this;
         }
 
-        /**
-         * @param customToleratedBudgetConsumption How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customToleratedBudgetConsumption(Double customToleratedBudgetConsumption) {
             return customToleratedBudgetConsumption(Output.of(customToleratedBudgetConsumption));
         }
 
-        /**
-         * @param isBadEvents If the SLI is defined using bad events. Defaults to `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder isBadEvents(@Nullable Output<Boolean> isBadEvents) {
             $.isBadEvents = isBadEvents;
             return this;
         }
 
-        /**
-         * @param isBadEvents If the SLI is defined using bad events. Defaults to `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder isBadEvents(Boolean isBadEvents) {
             return isBadEvents(Output.of(isBadEvents));
         }
 
-        /**
-         * @param sliGuid The guid of the sli we want to set the alert on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sliGuid(Output<String> sliGuid) {
             $.sliGuid = sliGuid;
             return this;
         }
 
-        /**
-         * @param sliGuid The guid of the sli we want to set the alert on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sliGuid(String sliGuid) {
             return sliGuid(Output.of(sliGuid));
         }
 
-        /**
-         * @param sloPeriod The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sloPeriod(Output<Integer> sloPeriod) {
             $.sloPeriod = sloPeriod;
             return this;
         }
 
-        /**
-         * @param sloPeriod The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sloPeriod(Integer sloPeriod) {
             return sloPeriod(Output.of(sloPeriod));
         }
 
-        /**
-         * @param sloTarget The target of the Service Level Objective, valid values between `0` and `100`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sloTarget(Output<Double> sloTarget) {
             $.sloTarget = sloTarget;
             return this;
         }
 
-        /**
-         * @param sloTarget The target of the Service Level Objective, valid values between `0` and `100`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sloTarget(Double sloTarget) {
             return sloTarget(Output.of(sloTarget));
         }

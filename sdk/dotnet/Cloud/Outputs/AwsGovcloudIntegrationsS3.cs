@@ -22,9 +22,7 @@ namespace Pulumi.NewRelic.Cloud.Outputs
         /// </summary>
         public readonly bool? FetchTags;
         /// <summary>
-        /// The data polling interval in seconds.
-        /// 
-        /// Some integration types support an additional set of arguments:
+        /// The data polling interval in seconds
         /// </summary>
         public readonly int? MetricsPollingInterval;
         /// <summary>

@@ -67,14 +67,14 @@ public final class OneDashboardVariableArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The title of the dashboard.
+     * (Required) The variable identifier.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The title of the dashboard.
+     * @return (Required) The variable identifier.
      * 
      */
     public Output<String> name() {
@@ -272,7 +272,7 @@ public final class OneDashboardVariableArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The title of the dashboard.
+         * @param name (Required) The variable identifier.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class OneDashboardVariableArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The title of the dashboard.
+         * @param name (Required) The variable identifier.
          * 
          * @return builder
          * 

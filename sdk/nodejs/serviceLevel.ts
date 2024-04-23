@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -50,13 +49,11 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Additional Example
  *
  * Service level with tags:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -103,11 +100,9 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Using `select` for events
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -147,7 +142,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  *
@@ -193,27 +187,10 @@ export class ServiceLevel extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceLevel.__pulumiType;
     }
 
-    /**
-     * The description of the SLI.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The events that define the NRDB data for the SLI/SLO calculations.
-     * See Events below for details.
-     */
     public readonly events!: pulumi.Output<outputs.ServiceLevelEvents>;
-    /**
-     * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
-     */
     public readonly guid!: pulumi.Output<string>;
-    /**
-     * A short name for the SLI that will help anyone understand what it is about.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The objective of the SLI, only one can be defined.
-     * See Objective below for details.
-     */
     public readonly objective!: pulumi.Output<outputs.ServiceLevelObjective>;
     /**
      * The unique entity identifier of the Service Level Indicator in New Relic.
@@ -272,27 +249,10 @@ export class ServiceLevel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceLevel resources.
  */
 export interface ServiceLevelState {
-    /**
-     * The description of the SLI.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The events that define the NRDB data for the SLI/SLO calculations.
-     * See Events below for details.
-     */
     events?: pulumi.Input<inputs.ServiceLevelEvents>;
-    /**
-     * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
-     */
     guid?: pulumi.Input<string>;
-    /**
-     * A short name for the SLI that will help anyone understand what it is about.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The objective of the SLI, only one can be defined.
-     * See Objective below for details.
-     */
     objective?: pulumi.Input<inputs.ServiceLevelObjective>;
     /**
      * The unique entity identifier of the Service Level Indicator in New Relic.
@@ -308,26 +268,9 @@ export interface ServiceLevelState {
  * The set of arguments for constructing a ServiceLevel resource.
  */
 export interface ServiceLevelArgs {
-    /**
-     * The description of the SLI.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The events that define the NRDB data for the SLI/SLO calculations.
-     * See Events below for details.
-     */
     events: pulumi.Input<inputs.ServiceLevelEvents>;
-    /**
-     * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
-     */
     guid: pulumi.Input<string>;
-    /**
-     * A short name for the SLI that will help anyone understand what it is about.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The objective of the SLI, only one can be defined.
-     * See Objective below for details.
-     */
     objective: pulumi.Input<inputs.ServiceLevelObjective>;
 }

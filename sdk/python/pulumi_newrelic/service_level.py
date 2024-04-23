@@ -23,13 +23,6 @@ class ServiceLevelArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceLevel resource.
-        :param pulumi.Input['ServiceLevelEventsArgs'] events: The events that define the NRDB data for the SLI/SLO calculations.
-               See Events below for details.
-        :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
-        :param pulumi.Input['ServiceLevelObjectiveArgs'] objective: The objective of the SLI, only one can be defined.
-               See Objective below for details.
-        :param pulumi.Input[str] description: The description of the SLI.
-        :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
         """
         pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "guid", guid)
@@ -42,10 +35,6 @@ class ServiceLevelArgs:
     @property
     @pulumi.getter
     def events(self) -> pulumi.Input['ServiceLevelEventsArgs']:
-        """
-        The events that define the NRDB data for the SLI/SLO calculations.
-        See Events below for details.
-        """
         return pulumi.get(self, "events")
 
     @events.setter
@@ -55,9 +44,6 @@ class ServiceLevelArgs:
     @property
     @pulumi.getter
     def guid(self) -> pulumi.Input[str]:
-        """
-        The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
-        """
         return pulumi.get(self, "guid")
 
     @guid.setter
@@ -67,10 +53,6 @@ class ServiceLevelArgs:
     @property
     @pulumi.getter
     def objective(self) -> pulumi.Input['ServiceLevelObjectiveArgs']:
-        """
-        The objective of the SLI, only one can be defined.
-        See Objective below for details.
-        """
         return pulumi.get(self, "objective")
 
     @objective.setter
@@ -80,9 +62,6 @@ class ServiceLevelArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the SLI.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -92,9 +71,6 @@ class ServiceLevelArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A short name for the SLI that will help anyone understand what it is about.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -114,13 +90,6 @@ class _ServiceLevelState:
                  sli_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceLevel resources.
-        :param pulumi.Input[str] description: The description of the SLI.
-        :param pulumi.Input['ServiceLevelEventsArgs'] events: The events that define the NRDB data for the SLI/SLO calculations.
-               See Events below for details.
-        :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
-        :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
-        :param pulumi.Input['ServiceLevelObjectiveArgs'] objective: The objective of the SLI, only one can be defined.
-               See Objective below for details.
         :param pulumi.Input[str] sli_guid: The unique entity identifier of the Service Level Indicator in New Relic.
         :param pulumi.Input[str] sli_id: The unique entity identifier of the Service Level Indicator.
         """
@@ -142,9 +111,6 @@ class _ServiceLevelState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the SLI.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -154,10 +120,6 @@ class _ServiceLevelState:
     @property
     @pulumi.getter
     def events(self) -> Optional[pulumi.Input['ServiceLevelEventsArgs']]:
-        """
-        The events that define the NRDB data for the SLI/SLO calculations.
-        See Events below for details.
-        """
         return pulumi.get(self, "events")
 
     @events.setter
@@ -167,9 +129,6 @@ class _ServiceLevelState:
     @property
     @pulumi.getter
     def guid(self) -> Optional[pulumi.Input[str]]:
-        """
-        The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
-        """
         return pulumi.get(self, "guid")
 
     @guid.setter
@@ -179,9 +138,6 @@ class _ServiceLevelState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A short name for the SLI that will help anyone understand what it is about.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -191,10 +147,6 @@ class _ServiceLevelState:
     @property
     @pulumi.getter
     def objective(self) -> Optional[pulumi.Input['ServiceLevelObjectiveArgs']]:
-        """
-        The objective of the SLI, only one can be defined.
-        See Objective below for details.
-        """
         return pulumi.get(self, "objective")
 
     @objective.setter
@@ -250,7 +202,6 @@ class ServiceLevel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -280,13 +231,11 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Additional Example
 
         Service level with tags:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -331,11 +280,9 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         Using `select` for events
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -374,7 +321,6 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         For up-to-date documentation about the tagging resource, please check EntityTags
 
@@ -394,13 +340,6 @@ class ServiceLevel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the SLI.
-        :param pulumi.Input[pulumi.InputType['ServiceLevelEventsArgs']] events: The events that define the NRDB data for the SLI/SLO calculations.
-               See Events below for details.
-        :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
-        :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
-        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']] objective: The objective of the SLI, only one can be defined.
-               See Objective below for details.
         """
         ...
     @overload
@@ -421,7 +360,6 @@ class ServiceLevel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -451,13 +389,11 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Additional Example
 
         Service level with tags:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -502,11 +438,9 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         Using `select` for events
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -545,7 +479,6 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         For up-to-date documentation about the tagging resource, please check EntityTags
 
@@ -629,13 +562,6 @@ class ServiceLevel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the SLI.
-        :param pulumi.Input[pulumi.InputType['ServiceLevelEventsArgs']] events: The events that define the NRDB data for the SLI/SLO calculations.
-               See Events below for details.
-        :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
-        :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
-        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']] objective: The objective of the SLI, only one can be defined.
-               See Objective below for details.
         :param pulumi.Input[str] sli_guid: The unique entity identifier of the Service Level Indicator in New Relic.
         :param pulumi.Input[str] sli_id: The unique entity identifier of the Service Level Indicator.
         """
@@ -655,43 +581,26 @@ class ServiceLevel(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description of the SLI.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def events(self) -> pulumi.Output['outputs.ServiceLevelEvents']:
-        """
-        The events that define the NRDB data for the SLI/SLO calculations.
-        See Events below for details.
-        """
         return pulumi.get(self, "events")
 
     @property
     @pulumi.getter
     def guid(self) -> pulumi.Output[str]:
-        """
-        The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
-        """
         return pulumi.get(self, "guid")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        A short name for the SLI that will help anyone understand what it is about.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def objective(self) -> pulumi.Output['outputs.ServiceLevelObjective']:
-        """
-        The objective of the SLI, only one can be defined.
-        See Objective below for details.
-        """
         return pulumi.get(self, "objective")
 
     @property

@@ -13,13 +13,13 @@ namespace Pulumi.NewRelic.Plugins.Inputs
     public sealed class WorkloadStatusConfigAutomaticArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the static status configuration is enabled or not.
+        /// Whether the automatic status configuration is enabled or not.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remaining_entities_rule blocks below for details.
+        /// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule.
         /// </summary>
         [Input("remainingEntitiesRule")]
         public Input<Inputs.WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs>? RemainingEntitiesRule { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.NewRelic.Plugins.Inputs
         private InputList<Inputs.WorkloadStatusConfigAutomaticRuleArgs>? _rules;
 
         /// <summary>
-        /// The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+        /// A list of rules.
         /// </summary>
         public InputList<Inputs.WorkloadStatusConfigAutomaticRuleArgs> Rules
         {

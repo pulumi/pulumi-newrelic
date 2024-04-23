@@ -17,14 +17,14 @@ public final class AccountManagementArgs extends com.pulumi.resources.ResourceAr
     public static final AccountManagementArgs Empty = new AccountManagementArgs();
 
     /**
-     * The name of the Account.
+     * Name of the account to be created
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Account.
+     * @return Name of the account to be created
      * 
      */
     public Optional<Output<String>> name() {
@@ -32,14 +32,14 @@ public final class AccountManagementArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The region code of the account.  One of: `us01`, `eu01`.
+     * A description of what this parsing rule represents.
      * 
      */
     @Import(name="region", required=true)
     private Output<String> region;
 
     /**
-     * @return The region code of the account.  One of: `us01`, `eu01`.
+     * @return A description of what this parsing rule represents.
      * 
      */
     public Output<String> region() {
@@ -72,7 +72,7 @@ public final class AccountManagementArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name of the Account.
+         * @param name Name of the account to be created
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AccountManagementArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name of the Account.
+         * @param name Name of the account to be created
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AccountManagementArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param region The region code of the account.  One of: `us01`, `eu01`.
+         * @param region A description of what this parsing rule represents.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AccountManagementArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param region The region code of the account.  One of: `us01`, `eu01`.
+         * @param region A description of what this parsing rule represents.
          * 
          * @return builder
          * 

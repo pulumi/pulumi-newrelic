@@ -66,14 +66,14 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+     * A list of entity GUIDs manually assigned to this workload.
      * 
      */
     @Import(name="entityGuids")
     private @Nullable Output<List<String>> entityGuids;
 
     /**
-     * @return A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+     * @return A list of entity GUIDs manually assigned to this workload.
      * 
      */
     public Optional<Output<List<String>>> entityGuids() {
@@ -81,14 +81,14 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+     * A list of search queries that define a dynamic workload.
      * 
      */
     @Import(name="entitySearchQueries")
     private @Nullable Output<List<WorkloadEntitySearchQueryArgs>> entitySearchQueries;
 
     /**
-     * @return A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+     * @return A list of search queries that define a dynamic workload.
      * 
      */
     public Optional<Output<List<WorkloadEntitySearchQueryArgs>>> entitySearchQueries() {
@@ -156,14 +156,14 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+     * An input object used to represent an automatic status configuration.
      * 
      */
     @Import(name="statusConfigAutomatic")
     private @Nullable Output<WorkloadStatusConfigAutomaticArgs> statusConfigAutomatic;
 
     /**
-     * @return An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+     * @return An input object used to represent an automatic status configuration.
      * 
      */
     public Optional<Output<WorkloadStatusConfigAutomaticArgs>> statusConfigAutomatic() {
@@ -171,14 +171,14 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+     * A list of static status configurations. You can only configure one static status for a workload.
      * 
      */
     @Import(name="statusConfigStatic")
     private @Nullable Output<WorkloadStatusConfigStaticArgs> statusConfigStatic;
 
     /**
-     * @return A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+     * @return A list of static status configurations. You can only configure one static status for a workload.
      * 
      */
     public Optional<Output<WorkloadStatusConfigStaticArgs>> statusConfigStatic() {
@@ -299,7 +299,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityGuids A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+         * @param entityGuids A list of entity GUIDs manually assigned to this workload.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityGuids A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+         * @param entityGuids A list of entity GUIDs manually assigned to this workload.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityGuids A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+         * @param entityGuids A list of entity GUIDs manually assigned to this workload.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entitySearchQueries A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+         * @param entitySearchQueries A list of search queries that define a dynamic workload.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entitySearchQueries A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+         * @param entitySearchQueries A list of search queries that define a dynamic workload.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entitySearchQueries A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+         * @param entitySearchQueries A list of search queries that define a dynamic workload.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statusConfigAutomatic An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+         * @param statusConfigAutomatic An input object used to represent an automatic status configuration.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statusConfigAutomatic An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+         * @param statusConfigAutomatic An input object used to represent an automatic status configuration.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statusConfigStatic A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+         * @param statusConfigStatic A list of static status configurations. You can only configure one static status for a workload.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statusConfigStatic A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+         * @param statusConfigStatic A list of static status configurations. You can only configure one static status for a workload.
          * 
          * @return builder
          * 

@@ -111,11 +111,11 @@ func (o WorkloadEntitySearchQueryArrayOutput) Index(i pulumi.IntInput) WorkloadE
 }
 
 type WorkloadStatusConfigAutomatic struct {
-	// Whether the static status configuration is enabled or not.
+	// Whether the automatic status configuration is enabled or not.
 	Enabled bool `pulumi:"enabled"`
-	// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remainingEntitiesRule blocks below for details.
+	// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule.
 	RemainingEntitiesRule *WorkloadStatusConfigAutomaticRemainingEntitiesRule `pulumi:"remainingEntitiesRule"`
-	// The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+	// A list of rules.
 	Rules []WorkloadStatusConfigAutomaticRule `pulumi:"rules"`
 }
 
@@ -131,11 +131,11 @@ type WorkloadStatusConfigAutomaticInput interface {
 }
 
 type WorkloadStatusConfigAutomaticArgs struct {
-	// Whether the static status configuration is enabled or not.
+	// Whether the automatic status configuration is enabled or not.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remainingEntitiesRule blocks below for details.
+	// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule.
 	RemainingEntitiesRule WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrInput `pulumi:"remainingEntitiesRule"`
-	// The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+	// A list of rules.
 	Rules WorkloadStatusConfigAutomaticRuleArrayInput `pulumi:"rules"`
 }
 
@@ -216,19 +216,19 @@ func (o WorkloadStatusConfigAutomaticOutput) ToWorkloadStatusConfigAutomaticPtrO
 	}).(WorkloadStatusConfigAutomaticPtrOutput)
 }
 
-// Whether the static status configuration is enabled or not.
+// Whether the automatic status configuration is enabled or not.
 func (o WorkloadStatusConfigAutomaticOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v WorkloadStatusConfigAutomatic) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remainingEntitiesRule blocks below for details.
+// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule.
 func (o WorkloadStatusConfigAutomaticOutput) RemainingEntitiesRule() WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput {
 	return o.ApplyT(func(v WorkloadStatusConfigAutomatic) *WorkloadStatusConfigAutomaticRemainingEntitiesRule {
 		return v.RemainingEntitiesRule
 	}).(WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput)
 }
 
-// The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+// A list of rules.
 func (o WorkloadStatusConfigAutomaticOutput) Rules() WorkloadStatusConfigAutomaticRuleArrayOutput {
 	return o.ApplyT(func(v WorkloadStatusConfigAutomatic) []WorkloadStatusConfigAutomaticRule { return v.Rules }).(WorkloadStatusConfigAutomaticRuleArrayOutput)
 }
@@ -257,7 +257,7 @@ func (o WorkloadStatusConfigAutomaticPtrOutput) Elem() WorkloadStatusConfigAutom
 	}).(WorkloadStatusConfigAutomaticOutput)
 }
 
-// Whether the static status configuration is enabled or not.
+// Whether the automatic status configuration is enabled or not.
 func (o WorkloadStatusConfigAutomaticPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkloadStatusConfigAutomatic) *bool {
 		if v == nil {
@@ -267,7 +267,7 @@ func (o WorkloadStatusConfigAutomaticPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remainingEntitiesRule blocks below for details.
+// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule.
 func (o WorkloadStatusConfigAutomaticPtrOutput) RemainingEntitiesRule() WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput {
 	return o.ApplyT(func(v *WorkloadStatusConfigAutomatic) *WorkloadStatusConfigAutomaticRemainingEntitiesRule {
 		if v == nil {
@@ -277,7 +277,7 @@ func (o WorkloadStatusConfigAutomaticPtrOutput) RemainingEntitiesRule() Workload
 	}).(WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput)
 }
 
-// The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+// A list of rules.
 func (o WorkloadStatusConfigAutomaticPtrOutput) Rules() WorkloadStatusConfigAutomaticRuleArrayOutput {
 	return o.ApplyT(func(v *WorkloadStatusConfigAutomatic) []WorkloadStatusConfigAutomaticRule {
 		if v == nil {
@@ -288,7 +288,7 @@ func (o WorkloadStatusConfigAutomaticPtrOutput) Rules() WorkloadStatusConfigAuto
 }
 
 type WorkloadStatusConfigAutomaticRemainingEntitiesRule struct {
-	// The input object used to represent a rollup strategy. See Nested remainingEntitiesRuleRollup blocks below for details.
+	// The input object used to represent a rollup strategy.
 	RemainingEntitiesRuleRollup WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup `pulumi:"remainingEntitiesRuleRollup"`
 }
 
@@ -304,7 +304,7 @@ type WorkloadStatusConfigAutomaticRemainingEntitiesRuleInput interface {
 }
 
 type WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs struct {
-	// The input object used to represent a rollup strategy. See Nested remainingEntitiesRuleRollup blocks below for details.
+	// The input object used to represent a rollup strategy.
 	RemainingEntitiesRuleRollup WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupInput `pulumi:"remainingEntitiesRuleRollup"`
 }
 
@@ -385,7 +385,7 @@ func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput) ToWorkloadStat
 	}).(WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput)
 }
 
-// The input object used to represent a rollup strategy. See Nested remainingEntitiesRuleRollup blocks below for details.
+// The input object used to represent a rollup strategy.
 func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput) RemainingEntitiesRuleRollup() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput {
 	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRemainingEntitiesRule) WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup {
 		return v.RemainingEntitiesRuleRollup
@@ -416,7 +416,7 @@ func (o WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput) Elem() Work
 	}).(WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput)
 }
 
-// The input object used to represent a rollup strategy. See Nested remainingEntitiesRuleRollup blocks below for details.
+// The input object used to represent a rollup strategy.
 func (o WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput) RemainingEntitiesRuleRollup() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput {
 	return o.ApplyT(func(v *WorkloadStatusConfigAutomaticRemainingEntitiesRule) *WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup {
 		if v == nil {
@@ -629,11 +629,11 @@ func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleR
 }
 
 type WorkloadStatusConfigAutomaticRule struct {
-	// A list of entity GUIDs composing the rule. At least one of `entityGuids` or `nrqlQuery` must be defined.
+	// A list of entity GUIDs composing the rule.
 	EntityGuids []string `pulumi:"entityGuids"`
-	// A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrqlQuery blocks below for details. At least one of `entityGuids` or `nrqlQuery` must be defined.
+	// A list of entity search queries used to retrieve the entities that compose the rule.
 	NrqlQueries []WorkloadStatusConfigAutomaticRuleNrqlQuery `pulumi:"nrqlQueries"`
-	// The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
+	// The input object used to represent a rollup strategy.
 	Rollup WorkloadStatusConfigAutomaticRuleRollup `pulumi:"rollup"`
 }
 
@@ -649,11 +649,11 @@ type WorkloadStatusConfigAutomaticRuleInput interface {
 }
 
 type WorkloadStatusConfigAutomaticRuleArgs struct {
-	// A list of entity GUIDs composing the rule. At least one of `entityGuids` or `nrqlQuery` must be defined.
+	// A list of entity GUIDs composing the rule.
 	EntityGuids pulumi.StringArrayInput `pulumi:"entityGuids"`
-	// A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrqlQuery blocks below for details. At least one of `entityGuids` or `nrqlQuery` must be defined.
+	// A list of entity search queries used to retrieve the entities that compose the rule.
 	NrqlQueries WorkloadStatusConfigAutomaticRuleNrqlQueryArrayInput `pulumi:"nrqlQueries"`
-	// The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
+	// The input object used to represent a rollup strategy.
 	Rollup WorkloadStatusConfigAutomaticRuleRollupInput `pulumi:"rollup"`
 }
 
@@ -708,19 +708,19 @@ func (o WorkloadStatusConfigAutomaticRuleOutput) ToWorkloadStatusConfigAutomatic
 	return o
 }
 
-// A list of entity GUIDs composing the rule. At least one of `entityGuids` or `nrqlQuery` must be defined.
+// A list of entity GUIDs composing the rule.
 func (o WorkloadStatusConfigAutomaticRuleOutput) EntityGuids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRule) []string { return v.EntityGuids }).(pulumi.StringArrayOutput)
 }
 
-// A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrqlQuery blocks below for details. At least one of `entityGuids` or `nrqlQuery` must be defined.
+// A list of entity search queries used to retrieve the entities that compose the rule.
 func (o WorkloadStatusConfigAutomaticRuleOutput) NrqlQueries() WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput {
 	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRule) []WorkloadStatusConfigAutomaticRuleNrqlQuery {
 		return v.NrqlQueries
 	}).(WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput)
 }
 
-// The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
+// The input object used to represent a rollup strategy.
 func (o WorkloadStatusConfigAutomaticRuleOutput) Rollup() WorkloadStatusConfigAutomaticRuleRollupOutput {
 	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRule) WorkloadStatusConfigAutomaticRuleRollup { return v.Rollup }).(WorkloadStatusConfigAutomaticRuleRollupOutput)
 }
@@ -913,7 +913,7 @@ func (o WorkloadStatusConfigAutomaticRuleRollupOutput) ThresholdValue() pulumi.I
 }
 
 type WorkloadStatusConfigStatic struct {
-	// Relevant information about the workload.
+	// A description that provides additional details about the status of the workload.
 	Description *string `pulumi:"description"`
 	// Whether the static status configuration is enabled or not.
 	Enabled bool `pulumi:"enabled"`
@@ -935,7 +935,7 @@ type WorkloadStatusConfigStaticInput interface {
 }
 
 type WorkloadStatusConfigStaticArgs struct {
-	// Relevant information about the workload.
+	// A description that provides additional details about the status of the workload.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Whether the static status configuration is enabled or not.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -1022,7 +1022,7 @@ func (o WorkloadStatusConfigStaticOutput) ToWorkloadStatusConfigStaticPtrOutputW
 	}).(WorkloadStatusConfigStaticPtrOutput)
 }
 
-// Relevant information about the workload.
+// A description that provides additional details about the status of the workload.
 func (o WorkloadStatusConfigStaticOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadStatusConfigStatic) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -1066,7 +1066,7 @@ func (o WorkloadStatusConfigStaticPtrOutput) Elem() WorkloadStatusConfigStaticOu
 	}).(WorkloadStatusConfigStaticOutput)
 }
 
-// Relevant information about the workload.
+// A description that provides additional details about the status of the workload.
 func (o WorkloadStatusConfigStaticPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkloadStatusConfigStatic) *string {
 		if v == nil {

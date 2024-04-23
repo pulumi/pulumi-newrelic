@@ -150,7 +150,6 @@ class GcpLinkAccount(pulumi.CustomResource):
 
         You can also use the full example, including the GCP set up, found in our guides.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -160,7 +159,6 @@ class GcpLinkAccount(pulumi.CustomResource):
             project_id="id of the Project",
             name="account name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -203,7 +201,6 @@ class GcpLinkAccount(pulumi.CustomResource):
 
         You can also use the full example, including the GCP set up, found in our guides.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -213,7 +210,6 @@ class GcpLinkAccount(pulumi.CustomResource):
             project_id="id of the Project",
             name="account name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

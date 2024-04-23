@@ -14,7 +14,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -46,7 +44,7 @@ namespace Pulumi.NewRelic.Synthetics
     public partial class SecureCredential : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+        /// The New Relic account ID where you want to create the secure credential.
         /// </summary>
         [Output("accountId")]
         public Output<int> AccountId { get; private set; } = null!;
@@ -58,7 +56,8 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+        /// The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
+        /// key to the underlying API.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -126,7 +125,7 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class SecureCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+        /// The New Relic account ID where you want to create the secure credential.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
@@ -138,7 +137,8 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+        /// The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
+        /// key to the underlying API.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class SecureCredentialState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+        /// The New Relic account ID where you want to create the secure credential.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
@@ -186,7 +186,8 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+        /// The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
+        /// key to the underlying API.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

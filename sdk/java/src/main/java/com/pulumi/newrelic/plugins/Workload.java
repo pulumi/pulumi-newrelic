@@ -321,28 +321,28 @@ public class Workload extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+     * A list of entity GUIDs manually assigned to this workload.
      * 
      */
     @Export(name="entityGuids", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> entityGuids;
 
     /**
-     * @return A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+     * @return A list of entity GUIDs manually assigned to this workload.
      * 
      */
     public Output<List<String>> entityGuids() {
         return this.entityGuids;
     }
     /**
-     * A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+     * A list of search queries that define a dynamic workload.
      * 
      */
     @Export(name="entitySearchQueries", refs={List.class,WorkloadEntitySearchQuery.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WorkloadEntitySearchQuery>> entitySearchQueries;
 
     /**
-     * @return A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+     * @return A list of search queries that define a dynamic workload.
      * 
      */
     public Output<Optional<List<WorkloadEntitySearchQuery>>> entitySearchQueries() {
@@ -405,28 +405,28 @@ public class Workload extends com.pulumi.resources.CustomResource {
         return this.scopeAccountIds;
     }
     /**
-     * An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+     * An input object used to represent an automatic status configuration.
      * 
      */
     @Export(name="statusConfigAutomatic", refs={WorkloadStatusConfigAutomatic.class}, tree="[0]")
     private Output</* @Nullable */ WorkloadStatusConfigAutomatic> statusConfigAutomatic;
 
     /**
-     * @return An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+     * @return An input object used to represent an automatic status configuration.
      * 
      */
     public Output<Optional<WorkloadStatusConfigAutomatic>> statusConfigAutomatic() {
         return Codegen.optional(this.statusConfigAutomatic);
     }
     /**
-     * A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+     * A list of static status configurations. You can only configure one static status for a workload.
      * 
      */
     @Export(name="statusConfigStatic", refs={WorkloadStatusConfigStatic.class}, tree="[0]")
     private Output</* @Nullable */ WorkloadStatusConfigStatic> statusConfigStatic;
 
     /**
-     * @return A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+     * @return A list of static status configurations. You can only configure one static status for a workload.
      * 
      */
     public Output<Optional<WorkloadStatusConfigStatic>> statusConfigStatic() {

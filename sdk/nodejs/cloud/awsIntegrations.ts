@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  *
  * Leave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -311,7 +310,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -364,7 +362,7 @@ export class AwsIntegrations extends pulumi.CustomResource {
      */
     public readonly apiGateway!: pulumi.Output<outputs.cloud.AwsIntegrationsApiGateway | undefined>;
     /**
-     * ,`awsAppSync`,`awsAthena`,`awsCognito`,`awsConnect`,`awsDirectConnect`,`awsFsx`,`awsGlue`,`awsKinesisAnalytics`,`awsMediaConvert`,`awsMediaPackageVod`,`awsMq`,`awsMsk`,`awsNeptune`,`awsQldb`,`awsRoute53resolver`,`awsStates`,`awsTransitGateway`,`awsWaf`,`awsWafv2`,`iot`,`kinesisFirehose` and `ses`.
+     * AutoScaling integration
      */
     public readonly autoScaling!: pulumi.Output<outputs.cloud.AwsIntegrationsAutoScaling | undefined>;
     /**
@@ -778,7 +776,7 @@ export interface AwsIntegrationsState {
      */
     apiGateway?: pulumi.Input<inputs.cloud.AwsIntegrationsApiGateway>;
     /**
-     * ,`awsAppSync`,`awsAthena`,`awsCognito`,`awsConnect`,`awsDirectConnect`,`awsFsx`,`awsGlue`,`awsKinesisAnalytics`,`awsMediaConvert`,`awsMediaPackageVod`,`awsMq`,`awsMsk`,`awsNeptune`,`awsQldb`,`awsRoute53resolver`,`awsStates`,`awsTransitGateway`,`awsWaf`,`awsWafv2`,`iot`,`kinesisFirehose` and `ses`.
+     * AutoScaling integration
      */
     autoScaling?: pulumi.Input<inputs.cloud.AwsIntegrationsAutoScaling>;
     /**
@@ -1061,7 +1059,7 @@ export interface AwsIntegrationsArgs {
      */
     apiGateway?: pulumi.Input<inputs.cloud.AwsIntegrationsApiGateway>;
     /**
-     * ,`awsAppSync`,`awsAthena`,`awsCognito`,`awsConnect`,`awsDirectConnect`,`awsFsx`,`awsGlue`,`awsKinesisAnalytics`,`awsMediaConvert`,`awsMediaPackageVod`,`awsMq`,`awsMsk`,`awsNeptune`,`awsQldb`,`awsRoute53resolver`,`awsStates`,`awsTransitGateway`,`awsWaf`,`awsWafv2`,`iot`,`kinesisFirehose` and `ses`.
+     * AutoScaling integration
      */
     autoScaling?: pulumi.Input<inputs.cloud.AwsIntegrationsAutoScaling>;
     /**

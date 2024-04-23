@@ -18,14 +18,14 @@ public final class MonitorDowntimeFrequencyArgs extends com.pulumi.resources.Res
     public static final MonitorDowntimeFrequencyArgs Empty = new MonitorDowntimeFrequencyArgs();
 
     /**
-     * A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
+     * A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
      * 
      */
     @Import(name="daysOfMonths")
     private @Nullable Output<List<Integer>> daysOfMonths;
 
     /**
-     * @return A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
+     * @return A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
      * 
      */
     public Optional<Output<List<Integer>>> daysOfMonths() {
@@ -33,14 +33,14 @@ public final class MonitorDowntimeFrequencyArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
+     * A list of days of the week on which the Monitor Downtime is scheduled to run.
      * 
      */
     @Import(name="daysOfWeek")
     private @Nullable Output<MonitorDowntimeFrequencyDaysOfWeekArgs> daysOfWeek;
 
     /**
-     * @return An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
+     * @return A list of days of the week on which the Monitor Downtime is scheduled to run.
      * 
      */
     public Optional<Output<MonitorDowntimeFrequencyDaysOfWeekArgs>> daysOfWeek() {
@@ -73,7 +73,7 @@ public final class MonitorDowntimeFrequencyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param daysOfMonths A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
+         * @param daysOfMonths A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class MonitorDowntimeFrequencyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param daysOfMonths A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
+         * @param daysOfMonths A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class MonitorDowntimeFrequencyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param daysOfMonths A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
+         * @param daysOfMonths A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class MonitorDowntimeFrequencyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param daysOfWeek An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
+         * @param daysOfWeek A list of days of the week on which the Monitor Downtime is scheduled to run.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class MonitorDowntimeFrequencyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param daysOfWeek An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
+         * @param daysOfWeek A list of days of the week on which the Monitor Downtime is scheduled to run.
          * 
          * @return builder
          * 

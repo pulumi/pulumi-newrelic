@@ -33,28 +33,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/oneDashboard:OneDashboard")
 public class OneDashboard extends com.pulumi.resources.CustomResource {
     /**
-     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     * The New Relic account ID where you want to create the dashboard.
      * 
      */
     @Export(name="accountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> accountId;
 
     /**
-     * @return Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     * @return The New Relic account ID where you want to create the dashboard.
      * 
      */
     public Output<Integer> accountId() {
         return this.accountId;
     }
     /**
-     * Brief text describing the dashboard.
+     * (Optional) Brief text describing the page.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Brief text describing the dashboard.
+     * @return (Optional) Brief text describing the page.
      * 
      */
     public Output<Optional<String>> description() {
@@ -75,30 +75,22 @@ public class OneDashboard extends com.pulumi.resources.CustomResource {
         return this.guid;
     }
     /**
-     * The title of the dashboard.
+     * (Required) The variable identifier.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The title of the dashboard.
+     * @return (Required) The variable identifier.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A nested block that describes a page. See Nested page blocks below for details.
-     * 
-     */
     @Export(name="pages", refs={List.class,OneDashboardPage.class}, tree="[0,1]")
     private Output<List<OneDashboardPage>> pages;
 
-    /**
-     * @return A nested block that describes a page. See Nested page blocks below for details.
-     * 
-     */
     public Output<List<OneDashboardPage>> pages() {
         return this.pages;
     }
@@ -117,28 +109,30 @@ public class OneDashboard extends com.pulumi.resources.CustomResource {
         return this.permalink;
     }
     /**
-     * Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+     * Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
+     * public_read_only.
      * 
      */
     @Export(name="permissions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> permissions;
 
     /**
-     * @return Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+     * @return Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
+     * public_read_only.
      * 
      */
     public Output<Optional<String>> permissions() {
         return Codegen.optional(this.permissions);
     }
     /**
-     * A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+     * Dashboard-local variable definitions.
      * 
      */
     @Export(name="variables", refs={List.class,OneDashboardVariable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OneDashboardVariable>> variables;
 
     /**
-     * @return A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+     * @return Dashboard-local variable definitions.
      * 
      */
     public Output<Optional<List<OneDashboardVariable>>> variables() {

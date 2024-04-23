@@ -17,14 +17,14 @@ public final class MonitorDowntimeEndRepeatArgs extends com.pulumi.resources.Res
     public static final MonitorDowntimeEndRepeatArgs Empty = new MonitorDowntimeEndRepeatArgs();
 
     /**
-     * The date on which the monitor downtime&#39;s repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
+     * A date, on which the Monitor Downtime&#39;s repeat cycle is expected to end.
      * 
      */
     @Import(name="onDate")
     private @Nullable Output<String> onDate;
 
     /**
-     * @return The date on which the monitor downtime&#39;s repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
+     * @return A date, on which the Monitor Downtime&#39;s repeat cycle is expected to end.
      * 
      */
     public Optional<Output<String>> onDate() {
@@ -32,18 +32,14 @@ public final class MonitorDowntimeEndRepeatArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * An integer that specifies the number of occurrences, after which the monitor downtime&#39;s repeat cycle would need to come to an end.
-     * 
-     * &gt; **NOTE:** `end_repeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `on_date` or `on_repeat` **are required to be specified with** `end_repeat`, but not both, as `on_date` and `on_repeat` are mutually exclusive.
+     * Number of repetitions after which the Monitor Downtime&#39;s repeat cycle is expected to end.
      * 
      */
     @Import(name="onRepeat")
     private @Nullable Output<Integer> onRepeat;
 
     /**
-     * @return An integer that specifies the number of occurrences, after which the monitor downtime&#39;s repeat cycle would need to come to an end.
-     * 
-     * &gt; **NOTE:** `end_repeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `on_date` or `on_repeat` **are required to be specified with** `end_repeat`, but not both, as `on_date` and `on_repeat` are mutually exclusive.
+     * @return Number of repetitions after which the Monitor Downtime&#39;s repeat cycle is expected to end.
      * 
      */
     public Optional<Output<Integer>> onRepeat() {
@@ -76,7 +72,7 @@ public final class MonitorDowntimeEndRepeatArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param onDate The date on which the monitor downtime&#39;s repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
+         * @param onDate A date, on which the Monitor Downtime&#39;s repeat cycle is expected to end.
          * 
          * @return builder
          * 
@@ -87,7 +83,7 @@ public final class MonitorDowntimeEndRepeatArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param onDate The date on which the monitor downtime&#39;s repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
+         * @param onDate A date, on which the Monitor Downtime&#39;s repeat cycle is expected to end.
          * 
          * @return builder
          * 
@@ -97,9 +93,7 @@ public final class MonitorDowntimeEndRepeatArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param onRepeat An integer that specifies the number of occurrences, after which the monitor downtime&#39;s repeat cycle would need to come to an end.
-         * 
-         * &gt; **NOTE:** `end_repeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `on_date` or `on_repeat` **are required to be specified with** `end_repeat`, but not both, as `on_date` and `on_repeat` are mutually exclusive.
+         * @param onRepeat Number of repetitions after which the Monitor Downtime&#39;s repeat cycle is expected to end.
          * 
          * @return builder
          * 
@@ -110,9 +104,7 @@ public final class MonitorDowntimeEndRepeatArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param onRepeat An integer that specifies the number of occurrences, after which the monitor downtime&#39;s repeat cycle would need to come to an end.
-         * 
-         * &gt; **NOTE:** `end_repeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `on_date` or `on_repeat` **are required to be specified with** `end_repeat`, but not both, as `on_date` and `on_repeat` are mutually exclusive.
+         * @param onRepeat Number of repetitions after which the Monitor Downtime&#39;s repeat cycle is expected to end.
          * 
          * @return builder
          * 
