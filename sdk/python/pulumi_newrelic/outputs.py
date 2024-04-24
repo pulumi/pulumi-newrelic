@@ -24,8 +24,10 @@ __all__ = [
     'MonitorDowntimeFrequencyDaysOfWeek',
     'NotificationChannelProperty',
     'NotificationDestinationAuthBasic',
+    'NotificationDestinationAuthCustomHeader',
     'NotificationDestinationAuthToken',
     'NotificationDestinationProperty',
+    'NotificationDestinationSecureUrl',
     'NrqlAlertConditionCritical',
     'NrqlAlertConditionNrql',
     'NrqlAlertConditionTerm',
@@ -168,6 +170,7 @@ __all__ = [
     'GetAlertChannelConfigResult',
     'GetEntityTagResult',
     'GetNotificationDestinationPropertyResult',
+    'GetNotificationDestinationSecureUrlResult',
     'GetTestGrokPatternTestGrokResult',
     'GetTestGrokPatternTestGrokAttributeResult',
 ]
@@ -1094,6 +1097,25 @@ class NotificationDestinationAuthBasic(dict):
 
 
 @pulumi.output_type
+class NotificationDestinationAuthCustomHeader(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class NotificationDestinationAuthToken(dict):
     def __init__(__self__, *,
                  token: str,
@@ -1181,6 +1203,42 @@ class NotificationDestinationProperty(dict):
         Notification property label.
         """
         return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class NotificationDestinationSecureUrl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secureSuffix":
+            suggest = "secure_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationDestinationSecureUrl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationDestinationSecureUrl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationDestinationSecureUrl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prefix: str,
+                 secure_suffix: str):
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "secure_suffix", secure_suffix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="secureSuffix")
+    def secure_suffix(self) -> str:
+        return pulumi.get(self, "secure_suffix")
 
 
 @pulumi.output_type
@@ -11009,6 +11067,18 @@ class GetNotificationDestinationPropertyResult(dict):
         Notification property label.
         """
         return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class GetNotificationDestinationSecureUrlResult(dict):
+    def __init__(__self__, *,
+                 prefix: str):
+        pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        return pulumi.get(self, "prefix")
 
 
 @pulumi.output_type

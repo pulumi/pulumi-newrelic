@@ -6,8 +6,10 @@ package com.pulumi.newrelic.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.inputs.NotificationDestinationAuthBasicArgs;
+import com.pulumi.newrelic.inputs.NotificationDestinationAuthCustomHeaderArgs;
 import com.pulumi.newrelic.inputs.NotificationDestinationAuthTokenArgs;
 import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
+import com.pulumi.newrelic.inputs.NotificationDestinationSecureUrlArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -64,6 +66,21 @@ public final class NotificationDestinationState extends com.pulumi.resources.Res
      */
     public Optional<Output<NotificationDestinationAuthBasicArgs>> authBasic() {
         return Optional.ofNullable(this.authBasic);
+    }
+
+    /**
+     * A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+     * 
+     */
+    @Import(name="authCustomHeaders")
+    private @Nullable Output<List<NotificationDestinationAuthCustomHeaderArgs>> authCustomHeaders;
+
+    /**
+     * @return A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+     * 
+     */
+    public Optional<Output<List<NotificationDestinationAuthCustomHeaderArgs>>> authCustomHeaders() {
+        return Optional.ofNullable(this.authCustomHeaders);
     }
 
     /**
@@ -142,6 +159,21 @@ public final class NotificationDestinationState extends com.pulumi.resources.Res
     }
 
     /**
+     * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+     * 
+     */
+    @Import(name="secureUrl")
+    private @Nullable Output<NotificationDestinationSecureUrlArgs> secureUrl;
+
+    /**
+     * @return A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+     * 
+     */
+    public Optional<Output<NotificationDestinationSecureUrlArgs>> secureUrl() {
+        return Optional.ofNullable(this.secureUrl);
+    }
+
+    /**
      * The status of the destination.
      * 
      */
@@ -179,11 +211,13 @@ public final class NotificationDestinationState extends com.pulumi.resources.Res
         this.accountId = $.accountId;
         this.active = $.active;
         this.authBasic = $.authBasic;
+        this.authCustomHeaders = $.authCustomHeaders;
         this.authToken = $.authToken;
         this.guid = $.guid;
         this.lastSent = $.lastSent;
         this.name = $.name;
         this.properties = $.properties;
+        this.secureUrl = $.secureUrl;
         this.status = $.status;
         this.type = $.type;
     }
@@ -267,6 +301,37 @@ public final class NotificationDestinationState extends com.pulumi.resources.Res
          */
         public Builder authBasic(NotificationDestinationAuthBasicArgs authBasic) {
             return authBasic(Output.of(authBasic));
+        }
+
+        /**
+         * @param authCustomHeaders A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authCustomHeaders(@Nullable Output<List<NotificationDestinationAuthCustomHeaderArgs>> authCustomHeaders) {
+            $.authCustomHeaders = authCustomHeaders;
+            return this;
+        }
+
+        /**
+         * @param authCustomHeaders A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authCustomHeaders(List<NotificationDestinationAuthCustomHeaderArgs> authCustomHeaders) {
+            return authCustomHeaders(Output.of(authCustomHeaders));
+        }
+
+        /**
+         * @param authCustomHeaders A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authCustomHeaders(NotificationDestinationAuthCustomHeaderArgs... authCustomHeaders) {
+            return authCustomHeaders(List.of(authCustomHeaders));
         }
 
         /**
@@ -382,6 +447,27 @@ public final class NotificationDestinationState extends com.pulumi.resources.Res
          */
         public Builder properties(NotificationDestinationPropertyArgs... properties) {
             return properties(List.of(properties));
+        }
+
+        /**
+         * @param secureUrl A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secureUrl(@Nullable Output<NotificationDestinationSecureUrlArgs> secureUrl) {
+            $.secureUrl = secureUrl;
+            return this;
+        }
+
+        /**
+         * @param secureUrl A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secureUrl(NotificationDestinationSecureUrlArgs secureUrl) {
+            return secureUrl(Output.of(secureUrl));
         }
 
         /**

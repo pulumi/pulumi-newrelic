@@ -21,8 +21,10 @@ class NotificationDestinationArgs:
                  account_id: Optional[pulumi.Input[int]] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  auth_basic: Optional[pulumi.Input['NotificationDestinationAuthBasicArgs']] = None,
+                 auth_custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]]] = None,
                  auth_token: Optional[pulumi.Input['NotificationDestinationAuthTokenArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 secure_url: Optional[pulumi.Input['NotificationDestinationSecureUrlArgs']] = None):
         """
         The set of arguments for constructing a NotificationDestination resource.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
@@ -31,8 +33,10 @@ class NotificationDestinationArgs:
         :param pulumi.Input[int] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[bool] active: Indicates whether the destination is active.
         :param pulumi.Input['NotificationDestinationAuthBasicArgs'] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]] auth_custom_headers: A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
         :param pulumi.Input['NotificationDestinationAuthTokenArgs'] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
         :param pulumi.Input[str] name: The name of the destination.
+        :param pulumi.Input['NotificationDestinationSecureUrlArgs'] secure_url: A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
         """
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "type", type)
@@ -42,10 +46,14 @@ class NotificationDestinationArgs:
             pulumi.set(__self__, "active", active)
         if auth_basic is not None:
             pulumi.set(__self__, "auth_basic", auth_basic)
+        if auth_custom_headers is not None:
+            pulumi.set(__self__, "auth_custom_headers", auth_custom_headers)
         if auth_token is not None:
             pulumi.set(__self__, "auth_token", auth_token)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if secure_url is not None:
+            pulumi.set(__self__, "secure_url", secure_url)
 
     @property
     @pulumi.getter
@@ -109,6 +117,18 @@ class NotificationDestinationArgs:
         pulumi.set(self, "auth_basic", value)
 
     @property
+    @pulumi.getter(name="authCustomHeaders")
+    def auth_custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]]]:
+        """
+        A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        """
+        return pulumi.get(self, "auth_custom_headers")
+
+    @auth_custom_headers.setter
+    def auth_custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]]]):
+        pulumi.set(self, "auth_custom_headers", value)
+
+    @property
     @pulumi.getter(name="authToken")
     def auth_token(self) -> Optional[pulumi.Input['NotificationDestinationAuthTokenArgs']]:
         """
@@ -132,6 +152,18 @@ class NotificationDestinationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="secureUrl")
+    def secure_url(self) -> Optional[pulumi.Input['NotificationDestinationSecureUrlArgs']]:
+        """
+        A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+        """
+        return pulumi.get(self, "secure_url")
+
+    @secure_url.setter
+    def secure_url(self, value: Optional[pulumi.Input['NotificationDestinationSecureUrlArgs']]):
+        pulumi.set(self, "secure_url", value)
+
 
 @pulumi.input_type
 class _NotificationDestinationState:
@@ -139,11 +171,13 @@ class _NotificationDestinationState:
                  account_id: Optional[pulumi.Input[int]] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  auth_basic: Optional[pulumi.Input['NotificationDestinationAuthBasicArgs']] = None,
+                 auth_custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]]] = None,
                  auth_token: Optional[pulumi.Input['NotificationDestinationAuthTokenArgs']] = None,
                  guid: Optional[pulumi.Input[str]] = None,
                  last_sent: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]]] = None,
+                 secure_url: Optional[pulumi.Input['NotificationDestinationSecureUrlArgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -151,11 +185,13 @@ class _NotificationDestinationState:
         :param pulumi.Input[int] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[bool] active: Indicates whether the destination is active.
         :param pulumi.Input['NotificationDestinationAuthBasicArgs'] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]] auth_custom_headers: A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
         :param pulumi.Input['NotificationDestinationAuthTokenArgs'] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
         :param pulumi.Input[str] guid: The unique entity identifier of the destination in New Relic.
         :param pulumi.Input[str] last_sent: The last time a notification was sent.
         :param pulumi.Input[str] name: The name of the destination.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
+        :param pulumi.Input['NotificationDestinationSecureUrlArgs'] secure_url: A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
         :param pulumi.Input[str] status: The status of the destination.
         :param pulumi.Input[str] type: (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
                PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
@@ -166,6 +202,8 @@ class _NotificationDestinationState:
             pulumi.set(__self__, "active", active)
         if auth_basic is not None:
             pulumi.set(__self__, "auth_basic", auth_basic)
+        if auth_custom_headers is not None:
+            pulumi.set(__self__, "auth_custom_headers", auth_custom_headers)
         if auth_token is not None:
             pulumi.set(__self__, "auth_token", auth_token)
         if guid is not None:
@@ -176,6 +214,8 @@ class _NotificationDestinationState:
             pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if secure_url is not None:
+            pulumi.set(__self__, "secure_url", secure_url)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if type is not None:
@@ -216,6 +256,18 @@ class _NotificationDestinationState:
     @auth_basic.setter
     def auth_basic(self, value: Optional[pulumi.Input['NotificationDestinationAuthBasicArgs']]):
         pulumi.set(self, "auth_basic", value)
+
+    @property
+    @pulumi.getter(name="authCustomHeaders")
+    def auth_custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]]]:
+        """
+        A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        """
+        return pulumi.get(self, "auth_custom_headers")
+
+    @auth_custom_headers.setter
+    def auth_custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]]]):
+        pulumi.set(self, "auth_custom_headers", value)
 
     @property
     @pulumi.getter(name="authToken")
@@ -278,6 +330,18 @@ class _NotificationDestinationState:
         pulumi.set(self, "properties", value)
 
     @property
+    @pulumi.getter(name="secureUrl")
+    def secure_url(self) -> Optional[pulumi.Input['NotificationDestinationSecureUrlArgs']]:
+        """
+        A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+        """
+        return pulumi.get(self, "secure_url")
+
+    @secure_url.setter
+    def secure_url(self, value: Optional[pulumi.Input['NotificationDestinationSecureUrlArgs']]):
+        pulumi.set(self, "secure_url", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -311,9 +375,11 @@ class NotificationDestination(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[int]] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  auth_basic: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationAuthBasicArgs']]] = None,
+                 auth_custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationDestinationAuthCustomHeaderArgs']]]]] = None,
                  auth_token: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationAuthTokenArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationDestinationPropertyArgs']]]]] = None,
+                 secure_url: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationSecureUrlArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -388,9 +454,11 @@ class NotificationDestination(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[bool] active: Indicates whether the destination is active.
         :param pulumi.Input[pulumi.InputType['NotificationDestinationAuthBasicArgs']] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationDestinationAuthCustomHeaderArgs']]]] auth_custom_headers: A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
         :param pulumi.Input[pulumi.InputType['NotificationDestinationAuthTokenArgs']] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
         :param pulumi.Input[str] name: The name of the destination.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationDestinationPropertyArgs']]]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
+        :param pulumi.Input[pulumi.InputType['NotificationDestinationSecureUrlArgs']] secure_url: A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
         :param pulumi.Input[str] type: (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
                PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
         """
@@ -485,9 +553,11 @@ class NotificationDestination(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[int]] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  auth_basic: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationAuthBasicArgs']]] = None,
+                 auth_custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationDestinationAuthCustomHeaderArgs']]]]] = None,
                  auth_token: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationAuthTokenArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationDestinationPropertyArgs']]]]] = None,
+                 secure_url: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationSecureUrlArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -501,11 +571,13 @@ class NotificationDestination(pulumi.CustomResource):
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["active"] = active
             __props__.__dict__["auth_basic"] = auth_basic
+            __props__.__dict__["auth_custom_headers"] = auth_custom_headers
             __props__.__dict__["auth_token"] = auth_token
             __props__.__dict__["name"] = name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
+            __props__.__dict__["secure_url"] = secure_url
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
@@ -525,11 +597,13 @@ class NotificationDestination(pulumi.CustomResource):
             account_id: Optional[pulumi.Input[int]] = None,
             active: Optional[pulumi.Input[bool]] = None,
             auth_basic: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationAuthBasicArgs']]] = None,
+            auth_custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationDestinationAuthCustomHeaderArgs']]]]] = None,
             auth_token: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationAuthTokenArgs']]] = None,
             guid: Optional[pulumi.Input[str]] = None,
             last_sent: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationDestinationPropertyArgs']]]]] = None,
+            secure_url: Optional[pulumi.Input[pulumi.InputType['NotificationDestinationSecureUrlArgs']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'NotificationDestination':
         """
@@ -542,11 +616,13 @@ class NotificationDestination(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[bool] active: Indicates whether the destination is active.
         :param pulumi.Input[pulumi.InputType['NotificationDestinationAuthBasicArgs']] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationDestinationAuthCustomHeaderArgs']]]] auth_custom_headers: A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
         :param pulumi.Input[pulumi.InputType['NotificationDestinationAuthTokenArgs']] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
         :param pulumi.Input[str] guid: The unique entity identifier of the destination in New Relic.
         :param pulumi.Input[str] last_sent: The last time a notification was sent.
         :param pulumi.Input[str] name: The name of the destination.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationDestinationPropertyArgs']]]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
+        :param pulumi.Input[pulumi.InputType['NotificationDestinationSecureUrlArgs']] secure_url: A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
         :param pulumi.Input[str] status: The status of the destination.
         :param pulumi.Input[str] type: (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
                PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
@@ -558,11 +634,13 @@ class NotificationDestination(pulumi.CustomResource):
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["active"] = active
         __props__.__dict__["auth_basic"] = auth_basic
+        __props__.__dict__["auth_custom_headers"] = auth_custom_headers
         __props__.__dict__["auth_token"] = auth_token
         __props__.__dict__["guid"] = guid
         __props__.__dict__["last_sent"] = last_sent
         __props__.__dict__["name"] = name
         __props__.__dict__["properties"] = properties
+        __props__.__dict__["secure_url"] = secure_url
         __props__.__dict__["status"] = status
         __props__.__dict__["type"] = type
         return NotificationDestination(resource_name, opts=opts, __props__=__props__)
@@ -590,6 +668,14 @@ class NotificationDestination(pulumi.CustomResource):
         A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
         """
         return pulumi.get(self, "auth_basic")
+
+    @property
+    @pulumi.getter(name="authCustomHeaders")
+    def auth_custom_headers(self) -> pulumi.Output[Optional[Sequence['outputs.NotificationDestinationAuthCustomHeader']]]:
+        """
+        A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        """
+        return pulumi.get(self, "auth_custom_headers")
 
     @property
     @pulumi.getter(name="authToken")
@@ -630,6 +716,14 @@ class NotificationDestination(pulumi.CustomResource):
         A nested block that describes a notification destination property. See Nested property blocks below for details.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="secureUrl")
+    def secure_url(self) -> pulumi.Output[Optional['outputs.NotificationDestinationSecureUrl']]:
+        """
+        A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+        """
+        return pulumi.get(self, "secure_url")
 
     @property
     @pulumi.getter

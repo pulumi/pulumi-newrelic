@@ -31,6 +31,8 @@ type LookupNotificationDestinationArgs struct {
 	//
 	// Optional:
 	Name *string `pulumi:"name"`
+	// The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
+	SecureUrls []GetNotificationDestinationSecureUrl `pulumi:"secureUrls"`
 }
 
 // A collection of values returned by getNotificationDestination.
@@ -45,6 +47,8 @@ type LookupNotificationDestinationResult struct {
 	Name *string `pulumi:"name"`
 	// A nested block that describes a notification destination property.
 	Properties []GetNotificationDestinationProperty `pulumi:"properties"`
+	// The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
+	SecureUrls []GetNotificationDestinationSecureUrl `pulumi:"secureUrls"`
 	// The status of the notification destination.
 	Status string `pulumi:"status"`
 	// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
@@ -74,6 +78,8 @@ type LookupNotificationDestinationOutputArgs struct {
 	//
 	// Optional:
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
+	SecureUrls GetNotificationDestinationSecureUrlArrayInput `pulumi:"secureUrls"`
 }
 
 func (LookupNotificationDestinationOutputArgs) ElementType() reflect.Type {
@@ -121,6 +127,11 @@ func (o LookupNotificationDestinationResultOutput) Name() pulumi.StringPtrOutput
 // A nested block that describes a notification destination property.
 func (o LookupNotificationDestinationResultOutput) Properties() GetNotificationDestinationPropertyArrayOutput {
 	return o.ApplyT(func(v LookupNotificationDestinationResult) []GetNotificationDestinationProperty { return v.Properties }).(GetNotificationDestinationPropertyArrayOutput)
+}
+
+// The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
+func (o LookupNotificationDestinationResultOutput) SecureUrls() GetNotificationDestinationSecureUrlArrayOutput {
+	return o.ApplyT(func(v LookupNotificationDestinationResult) []GetNotificationDestinationSecureUrl { return v.SecureUrls }).(GetNotificationDestinationSecureUrlArrayOutput)
 }
 
 // The status of the notification destination.

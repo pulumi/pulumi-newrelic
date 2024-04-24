@@ -167,7 +167,7 @@ require (
 	github.com/muesli/termenv v0.15.2 // indirect
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/newrelic/go-insights v1.0.3 // indirect
-	github.com/newrelic/newrelic-client-go/v2 v2.27.0 // indirect
+	github.com/newrelic/newrelic-client-go/v2 v2.31.0 // indirect
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
@@ -232,7 +232,7 @@ require (
 	golang.org/x/crypto v0.21.0 // indirect
 	golang.org/x/exp v0.0.0-20240325151524-a685a6edb6d8 // indirect
 	golang.org/x/mod v0.16.0 // indirect
-	golang.org/x/net v0.22.0 // indirect
+	golang.org/x/net v0.23.0 // indirect
 	golang.org/x/oauth2 v0.18.0 // indirect
 	golang.org/x/sync v0.6.0 // indirect
 	golang.org/x/sys v0.18.0 // indirect

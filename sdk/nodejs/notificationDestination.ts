@@ -114,6 +114,10 @@ export class NotificationDestination extends pulumi.CustomResource {
      */
     public readonly authBasic!: pulumi.Output<outputs.NotificationDestinationAuthBasic | undefined>;
     /**
+     * A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+     */
+    public readonly authCustomHeaders!: pulumi.Output<outputs.NotificationDestinationAuthCustomHeader[] | undefined>;
+    /**
      * A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
      */
     public readonly authToken!: pulumi.Output<outputs.NotificationDestinationAuthToken | undefined>;
@@ -133,6 +137,10 @@ export class NotificationDestination extends pulumi.CustomResource {
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
      */
     public readonly properties!: pulumi.Output<outputs.NotificationDestinationProperty[]>;
+    /**
+     * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
+     */
+    public readonly secureUrl!: pulumi.Output<outputs.NotificationDestinationSecureUrl | undefined>;
     /**
      * The status of the destination.
      */
@@ -159,11 +167,13 @@ export class NotificationDestination extends pulumi.CustomResource {
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["active"] = state ? state.active : undefined;
             resourceInputs["authBasic"] = state ? state.authBasic : undefined;
+            resourceInputs["authCustomHeaders"] = state ? state.authCustomHeaders : undefined;
             resourceInputs["authToken"] = state ? state.authToken : undefined;
             resourceInputs["guid"] = state ? state.guid : undefined;
             resourceInputs["lastSent"] = state ? state.lastSent : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["properties"] = state ? state.properties : undefined;
+            resourceInputs["secureUrl"] = state ? state.secureUrl : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
@@ -177,9 +187,11 @@ export class NotificationDestination extends pulumi.CustomResource {
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["active"] = args ? args.active : undefined;
             resourceInputs["authBasic"] = args ? args.authBasic : undefined;
+            resourceInputs["authCustomHeaders"] = args ? args.authCustomHeaders : undefined;
             resourceInputs["authToken"] = args ? args.authToken : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["secureUrl"] = args ? args.secureUrl : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["lastSent"] = undefined /*out*/;
@@ -207,6 +219,10 @@ export interface NotificationDestinationState {
      */
     authBasic?: pulumi.Input<inputs.NotificationDestinationAuthBasic>;
     /**
+     * A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+     */
+    authCustomHeaders?: pulumi.Input<pulumi.Input<inputs.NotificationDestinationAuthCustomHeader>[]>;
+    /**
      * A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
      */
     authToken?: pulumi.Input<inputs.NotificationDestinationAuthToken>;
@@ -226,6 +242,10 @@ export interface NotificationDestinationState {
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
      */
     properties?: pulumi.Input<pulumi.Input<inputs.NotificationDestinationProperty>[]>;
+    /**
+     * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
+     */
+    secureUrl?: pulumi.Input<inputs.NotificationDestinationSecureUrl>;
     /**
      * The status of the destination.
      */
@@ -254,6 +274,10 @@ export interface NotificationDestinationArgs {
      */
     authBasic?: pulumi.Input<inputs.NotificationDestinationAuthBasic>;
     /**
+     * A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+     */
+    authCustomHeaders?: pulumi.Input<pulumi.Input<inputs.NotificationDestinationAuthCustomHeader>[]>;
+    /**
      * A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
      */
     authToken?: pulumi.Input<inputs.NotificationDestinationAuthToken>;
@@ -265,6 +289,10 @@ export interface NotificationDestinationArgs {
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
      */
     properties: pulumi.Input<pulumi.Input<inputs.NotificationDestinationProperty>[]>;
+    /**
+     * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
+     */
+    secureUrl?: pulumi.Input<inputs.NotificationDestinationSecureUrl>;
     /**
      * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
      * PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).

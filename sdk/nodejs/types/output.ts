@@ -236,6 +236,10 @@ export interface GetNotificationDestinationProperty {
     value: string;
 }
 
+export interface GetNotificationDestinationSecureUrl {
+    prefix: string;
+}
+
 export interface GetTestGrokPatternTestGrok {
     /**
      * Nested list containing information about any attributes that were extracted.
@@ -331,6 +335,11 @@ export interface NotificationDestinationAuthBasic {
     user: string;
 }
 
+export interface NotificationDestinationAuthCustomHeader {
+    key: string;
+    value: string;
+}
+
 export interface NotificationDestinationAuthToken {
     prefix?: string;
     token: string;
@@ -353,6 +362,11 @@ export interface NotificationDestinationProperty {
      * Notification property value.
      */
     value: string;
+}
+
+export interface NotificationDestinationSecureUrl {
+    prefix: string;
+    secureSuffix: string;
 }
 
 export interface NrqlAlertConditionCritical {
