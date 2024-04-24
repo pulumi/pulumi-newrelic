@@ -4,8 +4,10 @@
 package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.newrelic.inputs.GetNotificationDestinationSecureUrl;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -64,12 +66,28 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+     * 
+     */
+    @Import(name="secureUrls")
+    private @Nullable List<GetNotificationDestinationSecureUrl> secureUrls;
+
+    /**
+     * @return The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+     * 
+     */
+    public Optional<List<GetNotificationDestinationSecureUrl>> secureUrls() {
+        return Optional.ofNullable(this.secureUrls);
+    }
+
     private GetNotificationDestinationPlainArgs() {}
 
     private GetNotificationDestinationPlainArgs(GetNotificationDestinationPlainArgs $) {
         this.accountId = $.accountId;
         this.id = $.id;
         this.name = $.name;
+        this.secureUrls = $.secureUrls;
     }
 
     public static Builder builder() {
@@ -123,6 +141,27 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
+        }
+
+        /**
+         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secureUrls(@Nullable List<GetNotificationDestinationSecureUrl> secureUrls) {
+            $.secureUrls = secureUrls;
+            return this;
+        }
+
+        /**
+         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secureUrls(GetNotificationDestinationSecureUrl... secureUrls) {
+            return secureUrls(List.of(secureUrls));
         }
 
         public GetNotificationDestinationPlainArgs build() {

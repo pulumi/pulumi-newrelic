@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetNotificationDestinationResult',
@@ -22,7 +23,7 @@ class GetNotificationDestinationResult:
     """
     A collection of values returned by getNotificationDestination.
     """
-    def __init__(__self__, account_id=None, active=None, guid=None, id=None, name=None, properties=None, status=None, type=None):
+    def __init__(__self__, account_id=None, active=None, guid=None, id=None, name=None, properties=None, secure_urls=None, status=None, type=None):
         if account_id and not isinstance(account_id, int):
             raise TypeError("Expected argument 'account_id' to be a int")
         pulumi.set(__self__, "account_id", account_id)
@@ -41,6 +42,9 @@ class GetNotificationDestinationResult:
         if properties and not isinstance(properties, list):
             raise TypeError("Expected argument 'properties' to be a list")
         pulumi.set(__self__, "properties", properties)
+        if secure_urls and not isinstance(secure_urls, list):
+            raise TypeError("Expected argument 'secure_urls' to be a list")
+        pulumi.set(__self__, "secure_urls", secure_urls)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -91,6 +95,14 @@ class GetNotificationDestinationResult:
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter(name="secureUrls")
+    def secure_urls(self) -> Sequence['outputs.GetNotificationDestinationSecureUrlResult']:
+        """
+        The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+        """
+        return pulumi.get(self, "secure_urls")
+
+    @property
     @pulumi.getter
     def status(self) -> str:
         """
@@ -119,6 +131,7 @@ class AwaitableGetNotificationDestinationResult(GetNotificationDestinationResult
             id=self.id,
             name=self.name,
             properties=self.properties,
+            secure_urls=self.secure_urls,
             status=self.status,
             type=self.type)
 
@@ -126,6 +139,7 @@ class AwaitableGetNotificationDestinationResult(GetNotificationDestinationResult
 def get_notification_destination(account_id: Optional[int] = None,
                                  id: Optional[str] = None,
                                  name: Optional[str] = None,
+                                 secure_urls: Optional[Sequence[pulumi.InputType['GetNotificationDestinationSecureUrlArgs']]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationDestinationResult:
     """
     Use this data source to access information about an existing resource.
@@ -135,11 +149,13 @@ def get_notification_destination(account_id: Optional[int] = None,
     :param str name: The name of the notification destination.
            
            Optional:
+    :param Sequence[pulumi.InputType['GetNotificationDestinationSecureUrlArgs']] secure_urls: The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
     __args__['id'] = id
     __args__['name'] = name
+    __args__['secureUrls'] = secure_urls
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('newrelic:index/getNotificationDestination:getNotificationDestination', __args__, opts=opts, typ=GetNotificationDestinationResult).value
 
@@ -150,6 +166,7 @@ def get_notification_destination(account_id: Optional[int] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
+        secure_urls=pulumi.get(__ret__, 'secure_urls'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
 
@@ -158,6 +175,7 @@ def get_notification_destination(account_id: Optional[int] = None,
 def get_notification_destination_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
                                         id: Optional[pulumi.Input[Optional[str]]] = None,
                                         name: Optional[pulumi.Input[Optional[str]]] = None,
+                                        secure_urls: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNotificationDestinationSecureUrlArgs']]]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationDestinationResult]:
     """
     Use this data source to access information about an existing resource.
@@ -167,5 +185,6 @@ def get_notification_destination_output(account_id: Optional[pulumi.Input[Option
     :param str name: The name of the notification destination.
            
            Optional:
+    :param Sequence[pulumi.InputType['GetNotificationDestinationSecureUrlArgs']] secure_urls: The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
     """
     ...

@@ -6,6 +6,7 @@ package com.pulumi.newrelic.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.GetNotificationDestinationProperty;
+import com.pulumi.newrelic.outputs.GetNotificationDestinationSecureUrl;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -38,6 +39,11 @@ public final class GetNotificationDestinationResult {
      * 
      */
     private List<GetNotificationDestinationProperty> properties;
+    /**
+     * @return The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+     * 
+     */
+    private List<GetNotificationDestinationSecureUrl> secureUrls;
     /**
      * @return The status of the notification destination.
      * 
@@ -85,6 +91,13 @@ public final class GetNotificationDestinationResult {
         return this.properties;
     }
     /**
+     * @return The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+     * 
+     */
+    public List<GetNotificationDestinationSecureUrl> secureUrls() {
+        return this.secureUrls;
+    }
+    /**
      * @return The status of the notification destination.
      * 
      */
@@ -114,6 +127,7 @@ public final class GetNotificationDestinationResult {
         private @Nullable String id;
         private @Nullable String name;
         private List<GetNotificationDestinationProperty> properties;
+        private List<GetNotificationDestinationSecureUrl> secureUrls;
         private String status;
         private String type;
         public Builder() {}
@@ -125,6 +139,7 @@ public final class GetNotificationDestinationResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.properties = defaults.properties;
+    	      this.secureUrls = defaults.secureUrls;
     	      this.status = defaults.status;
     	      this.type = defaults.type;
         }
@@ -177,6 +192,17 @@ public final class GetNotificationDestinationResult {
             return properties(List.of(properties));
         }
         @CustomType.Setter
+        public Builder secureUrls(List<GetNotificationDestinationSecureUrl> secureUrls) {
+            if (secureUrls == null) {
+              throw new MissingRequiredPropertyException("GetNotificationDestinationResult", "secureUrls");
+            }
+            this.secureUrls = secureUrls;
+            return this;
+        }
+        public Builder secureUrls(GetNotificationDestinationSecureUrl... secureUrls) {
+            return secureUrls(List.of(secureUrls));
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetNotificationDestinationResult", "status");
@@ -200,6 +226,7 @@ public final class GetNotificationDestinationResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.properties = properties;
+            _resultValue.secureUrls = secureUrls;
             _resultValue.status = status;
             _resultValue.type = type;
             return _resultValue;

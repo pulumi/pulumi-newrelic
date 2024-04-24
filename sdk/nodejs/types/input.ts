@@ -205,6 +205,14 @@ export interface GetEntityTagArgs {
     value: pulumi.Input<string>;
 }
 
+export interface GetNotificationDestinationSecureUrl {
+    prefix: string;
+}
+
+export interface GetNotificationDestinationSecureUrlArgs {
+    prefix: pulumi.Input<string>;
+}
+
 export interface InfraAlertConditionCritical {
     duration: pulumi.Input<number>;
     timeFunction?: pulumi.Input<string>;
@@ -274,6 +282,11 @@ export interface NotificationDestinationAuthBasic {
     user: pulumi.Input<string>;
 }
 
+export interface NotificationDestinationAuthCustomHeader {
+    key: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
 export interface NotificationDestinationAuthToken {
     prefix?: pulumi.Input<string>;
     token: pulumi.Input<string>;
@@ -296,6 +309,11 @@ export interface NotificationDestinationProperty {
      * Notification property value.
      */
     value: pulumi.Input<string>;
+}
+
+export interface NotificationDestinationSecureUrl {
+    prefix: pulumi.Input<string>;
+    secureSuffix: pulumi.Input<string>;
 }
 
 export interface NrqlAlertConditionCritical {
