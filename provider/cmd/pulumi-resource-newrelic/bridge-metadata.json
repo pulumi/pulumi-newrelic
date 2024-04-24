@@ -1306,11 +1306,17 @@
                     "auth_basic": {
                         "maxItemsOne": true
                     },
+                    "auth_custom_header": {
+                        "maxItemsOne": false
+                    },
                     "auth_token": {
                         "maxItemsOne": true
                     },
                     "property": {
                         "maxItemsOne": false
+                    },
+                    "secure_url": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -2375,6 +2381,9 @@
                 "majorVersion": 5,
                 "fields": {
                     "property": {
+                        "maxItemsOne": false
+                    },
+                    "secure_url": {
                         "maxItemsOne": false
                     }
                 }
