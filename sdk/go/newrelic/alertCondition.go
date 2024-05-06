@@ -180,8 +180,8 @@ type AlertCondition struct {
 	Entities pulumi.IntArrayOutput `pulumi:"entities"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
-	// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apm_jvm_metric with
-	// gc_cpu_time condition type.
+	// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
+	// gcCpuTime condition type.
 	GcMetric pulumi.StringPtrOutput `pulumi:"gcMetric"`
 	// The metric field accepts parameters based on the type set.
 	Metric pulumi.StringOutput `pulumi:"metric"`
@@ -258,8 +258,8 @@ type alertConditionState struct {
 	Entities []int `pulumi:"entities"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid *string `pulumi:"entityGuid"`
-	// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apm_jvm_metric with
-	// gc_cpu_time condition type.
+	// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
+	// gcCpuTime condition type.
 	GcMetric *string `pulumi:"gcMetric"`
 	// The metric field accepts parameters based on the type set.
 	Metric *string `pulumi:"metric"`
@@ -292,8 +292,8 @@ type AlertConditionState struct {
 	Entities pulumi.IntArrayInput
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringPtrInput
-	// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apm_jvm_metric with
-	// gc_cpu_time condition type.
+	// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
+	// gcCpuTime condition type.
 	GcMetric pulumi.StringPtrInput
 	// The metric field accepts parameters based on the type set.
 	Metric pulumi.StringPtrInput
@@ -328,8 +328,8 @@ type alertConditionArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The instance IDs associated with this condition.
 	Entities []int `pulumi:"entities"`
-	// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apm_jvm_metric with
-	// gc_cpu_time condition type.
+	// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
+	// gcCpuTime condition type.
 	GcMetric *string `pulumi:"gcMetric"`
 	// The metric field accepts parameters based on the type set.
 	Metric string `pulumi:"metric"`
@@ -361,8 +361,8 @@ type AlertConditionArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The instance IDs associated with this condition.
 	Entities pulumi.IntArrayInput
-	// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apm_jvm_metric with
-	// gc_cpu_time condition type.
+	// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
+	// gcCpuTime condition type.
 	GcMetric pulumi.StringPtrInput
 	// The metric field accepts parameters based on the type set.
 	Metric pulumi.StringInput
@@ -493,8 +493,8 @@ func (o AlertConditionOutput) EntityGuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.EntityGuid }).(pulumi.StringOutput)
 }
 
-// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apm_jvm_metric with
-// gc_cpu_time condition type.
+// A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
+// gcCpuTime condition type.
 func (o AlertConditionOutput) GcMetric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.StringPtrOutput { return v.GcMetric }).(pulumi.StringPtrOutput)
 }

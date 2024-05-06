@@ -279,7 +279,7 @@ import (
 type MonitorDowntime struct {
 	pulumi.CustomResourceState
 
-	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
 	// provider{} configuration if not specified.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
@@ -344,7 +344,7 @@ func GetMonitorDowntime(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MonitorDowntime resources.
 type monitorDowntimeState struct {
-	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
 	// provider{} configuration if not specified.
 	AccountId *int `pulumi:"accountId"`
 	// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
@@ -368,7 +368,7 @@ type monitorDowntimeState struct {
 }
 
 type MonitorDowntimeState struct {
-	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
 	// provider{} configuration if not specified.
 	AccountId pulumi.IntPtrInput
 	// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
@@ -396,7 +396,7 @@ func (MonitorDowntimeState) ElementType() reflect.Type {
 }
 
 type monitorDowntimeArgs struct {
-	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
 	// provider{} configuration if not specified.
 	AccountId *int `pulumi:"accountId"`
 	// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
@@ -421,7 +421,7 @@ type monitorDowntimeArgs struct {
 
 // The set of arguments for constructing a MonitorDowntime resource.
 type MonitorDowntimeArgs struct {
-	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
 	// provider{} configuration if not specified.
 	AccountId pulumi.IntPtrInput
 	// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
@@ -531,7 +531,7 @@ func (o MonitorDowntimeOutput) ToMonitorDowntimeOutputWithContext(ctx context.Co
 	return o
 }
 
-// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
 // provider{} configuration if not specified.
 func (o MonitorDowntimeOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *MonitorDowntime) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
