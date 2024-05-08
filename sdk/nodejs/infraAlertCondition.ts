@@ -172,7 +172,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
 
     /**
      * The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
-     * infra_metric and infra_process_running condition types.
+     * infraMetric and infraProcessRunning condition types.
      */
     public readonly comparison!: pulumi.Output<string | undefined>;
     /**
@@ -196,11 +196,11 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public /*out*/ readonly entityGuid!: pulumi.Output<string>;
     /**
-     * The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
+     * The metric event; for example, SystemSample or StorageSample. Supported by the infraMetric condition type.
      */
     public readonly event!: pulumi.Output<string>;
     /**
-     * For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
+     * For alerts on integrations, use this instead of event. Supported by the infraMetric condition type.
      */
     public readonly integrationProvider!: pulumi.Output<string | undefined>;
     /**
@@ -212,7 +212,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public readonly policyId!: pulumi.Output<number>;
     /**
-     * Any filters applied to processes; for example: commandName = 'java'. Supported by the infra_process_running condition
+     * Any filters applied to processes; for example: commandName = 'java'. Supported by the infraProcessRunning condition
      * type.
      */
     public readonly processWhere!: pulumi.Output<string | undefined>;
@@ -224,7 +224,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      * The attribute name to identify the metric being targeted; for example, cpuPercent, diskFreePercent, or
      * memoryResidentSizeBytes. The underlying API will automatically populate this value for Infrastructure integrations (for
      * example diskFreePercent), so make sure to explicitly include this value to avoid diff issues. Supported by the
-     * infra_metric condition type.
+     * infraMetric condition type.
      */
     public readonly select!: pulumi.Output<string | undefined>;
     /**
@@ -319,7 +319,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
 export interface InfraAlertConditionState {
     /**
      * The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
-     * infra_metric and infra_process_running condition types.
+     * infraMetric and infraProcessRunning condition types.
      */
     comparison?: pulumi.Input<string>;
     /**
@@ -343,11 +343,11 @@ export interface InfraAlertConditionState {
      */
     entityGuid?: pulumi.Input<string>;
     /**
-     * The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
+     * The metric event; for example, SystemSample or StorageSample. Supported by the infraMetric condition type.
      */
     event?: pulumi.Input<string>;
     /**
-     * For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
+     * For alerts on integrations, use this instead of event. Supported by the infraMetric condition type.
      */
     integrationProvider?: pulumi.Input<string>;
     /**
@@ -359,7 +359,7 @@ export interface InfraAlertConditionState {
      */
     policyId?: pulumi.Input<number>;
     /**
-     * Any filters applied to processes; for example: commandName = 'java'. Supported by the infra_process_running condition
+     * Any filters applied to processes; for example: commandName = 'java'. Supported by the infraProcessRunning condition
      * type.
      */
     processWhere?: pulumi.Input<string>;
@@ -371,7 +371,7 @@ export interface InfraAlertConditionState {
      * The attribute name to identify the metric being targeted; for example, cpuPercent, diskFreePercent, or
      * memoryResidentSizeBytes. The underlying API will automatically populate this value for Infrastructure integrations (for
      * example diskFreePercent), so make sure to explicitly include this value to avoid diff issues. Supported by the
-     * infra_metric condition type.
+     * infraMetric condition type.
      */
     select?: pulumi.Input<string>;
     /**
@@ -404,7 +404,7 @@ export interface InfraAlertConditionState {
 export interface InfraAlertConditionArgs {
     /**
      * The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
-     * infra_metric and infra_process_running condition types.
+     * infraMetric and infraProcessRunning condition types.
      */
     comparison?: pulumi.Input<string>;
     /**
@@ -420,11 +420,11 @@ export interface InfraAlertConditionArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
+     * The metric event; for example, SystemSample or StorageSample. Supported by the infraMetric condition type.
      */
     event?: pulumi.Input<string>;
     /**
-     * For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
+     * For alerts on integrations, use this instead of event. Supported by the infraMetric condition type.
      */
     integrationProvider?: pulumi.Input<string>;
     /**
@@ -436,7 +436,7 @@ export interface InfraAlertConditionArgs {
      */
     policyId: pulumi.Input<number>;
     /**
-     * Any filters applied to processes; for example: commandName = 'java'. Supported by the infra_process_running condition
+     * Any filters applied to processes; for example: commandName = 'java'. Supported by the infraProcessRunning condition
      * type.
      */
     processWhere?: pulumi.Input<string>;
@@ -448,7 +448,7 @@ export interface InfraAlertConditionArgs {
      * The attribute name to identify the metric being targeted; for example, cpuPercent, diskFreePercent, or
      * memoryResidentSizeBytes. The underlying API will automatically populate this value for Infrastructure integrations (for
      * example diskFreePercent), so make sure to explicitly include this value to avoid diff issues. Supported by the
-     * infra_metric condition type.
+     * infraMetric condition type.
      */
     select?: pulumi.Input<string>;
     /**

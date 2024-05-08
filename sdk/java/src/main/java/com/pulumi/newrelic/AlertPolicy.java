@@ -207,10 +207,6 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-     * imported via terraform import.
-     * 
      * @deprecated
      * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
      * 
@@ -219,12 +215,6 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
     @Export(name="channelIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> channelIds;
 
-    /**
-     * @return An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-     * imported via terraform import.
-     * 
-     */
     public Output<Optional<List<Integer>>> channelIds() {
         return Codegen.optional(this.channelIds);
     }

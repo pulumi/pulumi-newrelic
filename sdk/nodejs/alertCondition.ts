@@ -151,8 +151,8 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public /*out*/ readonly entityGuid!: pulumi.Output<string>;
     /**
-     * A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apm_jvm_metric with
-     * gc_cpu_time condition type.
+     * A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
+     * gcCpuTime condition type.
      */
     public readonly gcMetric!: pulumi.Output<string | undefined>;
     /**
@@ -277,8 +277,8 @@ export interface AlertConditionState {
      */
     entityGuid?: pulumi.Input<string>;
     /**
-     * A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apm_jvm_metric with
-     * gc_cpu_time condition type.
+     * A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
+     * gcCpuTime condition type.
      */
     gcMetric?: pulumi.Input<string>;
     /**
@@ -336,8 +336,8 @@ export interface AlertConditionArgs {
      */
     entities: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apm_jvm_metric with
-     * gc_cpu_time condition type.
+     * A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
+     * gcCpuTime condition type.
      */
     gcMetric?: pulumi.Input<string>;
     /**
