@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/newrelic/terraform-provider-newrelic/v2 v2.2.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.81.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.81.1-0.20240508204503-c0c57794d7bb
 	github.com/pulumi/pulumi/sdk/v3 v3.113.0
 )
 
