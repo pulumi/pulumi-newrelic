@@ -204,7 +204,7 @@ type InfraAlertCondition struct {
 	pulumi.CustomResourceState
 
 	// The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
-	// infra_metric and infra_process_running condition types.
+	// infraMetric and infraProcessRunning condition types.
 	Comparison pulumi.StringPtrOutput `pulumi:"comparison"`
 	// The timestamp the alert condition was created.
 	CreatedAt pulumi.IntOutput `pulumi:"createdAt"`
@@ -216,15 +216,15 @@ type InfraAlertCondition struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
-	// The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
+	// The metric event; for example, SystemSample or StorageSample. Supported by the infraMetric condition type.
 	Event pulumi.StringOutput `pulumi:"event"`
-	// For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
+	// For alerts on integrations, use this instead of event. Supported by the infraMetric condition type.
 	IntegrationProvider pulumi.StringPtrOutput `pulumi:"integrationProvider"`
 	// The Infrastructure alert condition's name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the alert policy where this condition should be used.
 	PolicyId pulumi.IntOutput `pulumi:"policyId"`
-	// Any filters applied to processes; for example: commandName = 'java'. Supported by the infra_process_running condition
+	// Any filters applied to processes; for example: commandName = 'java'. Supported by the infraProcessRunning condition
 	// type.
 	ProcessWhere pulumi.StringPtrOutput `pulumi:"processWhere"`
 	// Runbook URL to display in notifications.
@@ -232,7 +232,7 @@ type InfraAlertCondition struct {
 	// The attribute name to identify the metric being targeted; for example, cpuPercent, diskFreePercent, or
 	// memoryResidentSizeBytes. The underlying API will automatically populate this value for Infrastructure integrations (for
 	// example diskFreePercent), so make sure to explicitly include this value to avoid diff issues. Supported by the
-	// infra_metric condition type.
+	// infraMetric condition type.
 	Select pulumi.StringPtrOutput `pulumi:"select"`
 	// The type of Infrastructure alert condition. Valid values are infra_process_running, infra_metric, and
 	// infra_host_not_reporting.
@@ -285,7 +285,7 @@ func GetInfraAlertCondition(ctx *pulumi.Context,
 // Input properties used for looking up and filtering InfraAlertCondition resources.
 type infraAlertConditionState struct {
 	// The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
-	// infra_metric and infra_process_running condition types.
+	// infraMetric and infraProcessRunning condition types.
 	Comparison *string `pulumi:"comparison"`
 	// The timestamp the alert condition was created.
 	CreatedAt *int `pulumi:"createdAt"`
@@ -297,15 +297,15 @@ type infraAlertConditionState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid *string `pulumi:"entityGuid"`
-	// The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
+	// The metric event; for example, SystemSample or StorageSample. Supported by the infraMetric condition type.
 	Event *string `pulumi:"event"`
-	// For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
+	// For alerts on integrations, use this instead of event. Supported by the infraMetric condition type.
 	IntegrationProvider *string `pulumi:"integrationProvider"`
 	// The Infrastructure alert condition's name.
 	Name *string `pulumi:"name"`
 	// The ID of the alert policy where this condition should be used.
 	PolicyId *int `pulumi:"policyId"`
-	// Any filters applied to processes; for example: commandName = 'java'. Supported by the infra_process_running condition
+	// Any filters applied to processes; for example: commandName = 'java'. Supported by the infraProcessRunning condition
 	// type.
 	ProcessWhere *string `pulumi:"processWhere"`
 	// Runbook URL to display in notifications.
@@ -313,7 +313,7 @@ type infraAlertConditionState struct {
 	// The attribute name to identify the metric being targeted; for example, cpuPercent, diskFreePercent, or
 	// memoryResidentSizeBytes. The underlying API will automatically populate this value for Infrastructure integrations (for
 	// example diskFreePercent), so make sure to explicitly include this value to avoid diff issues. Supported by the
-	// infra_metric condition type.
+	// infraMetric condition type.
 	Select *string `pulumi:"select"`
 	// The type of Infrastructure alert condition. Valid values are infra_process_running, infra_metric, and
 	// infra_host_not_reporting.
@@ -331,7 +331,7 @@ type infraAlertConditionState struct {
 
 type InfraAlertConditionState struct {
 	// The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
-	// infra_metric and infra_process_running condition types.
+	// infraMetric and infraProcessRunning condition types.
 	Comparison pulumi.StringPtrInput
 	// The timestamp the alert condition was created.
 	CreatedAt pulumi.IntPtrInput
@@ -343,15 +343,15 @@ type InfraAlertConditionState struct {
 	Enabled pulumi.BoolPtrInput
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringPtrInput
-	// The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
+	// The metric event; for example, SystemSample or StorageSample. Supported by the infraMetric condition type.
 	Event pulumi.StringPtrInput
-	// For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
+	// For alerts on integrations, use this instead of event. Supported by the infraMetric condition type.
 	IntegrationProvider pulumi.StringPtrInput
 	// The Infrastructure alert condition's name.
 	Name pulumi.StringPtrInput
 	// The ID of the alert policy where this condition should be used.
 	PolicyId pulumi.IntPtrInput
-	// Any filters applied to processes; for example: commandName = 'java'. Supported by the infra_process_running condition
+	// Any filters applied to processes; for example: commandName = 'java'. Supported by the infraProcessRunning condition
 	// type.
 	ProcessWhere pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
@@ -359,7 +359,7 @@ type InfraAlertConditionState struct {
 	// The attribute name to identify the metric being targeted; for example, cpuPercent, diskFreePercent, or
 	// memoryResidentSizeBytes. The underlying API will automatically populate this value for Infrastructure integrations (for
 	// example diskFreePercent), so make sure to explicitly include this value to avoid diff issues. Supported by the
-	// infra_metric condition type.
+	// infraMetric condition type.
 	Select pulumi.StringPtrInput
 	// The type of Infrastructure alert condition. Valid values are infra_process_running, infra_metric, and
 	// infra_host_not_reporting.
@@ -381,7 +381,7 @@ func (InfraAlertConditionState) ElementType() reflect.Type {
 
 type infraAlertConditionArgs struct {
 	// The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
-	// infra_metric and infra_process_running condition types.
+	// infraMetric and infraProcessRunning condition types.
 	Comparison *string `pulumi:"comparison"`
 	// Identifies the threshold parameters for opening a critical alert incident.
 	Critical *InfraAlertConditionCritical `pulumi:"critical"`
@@ -389,15 +389,15 @@ type infraAlertConditionArgs struct {
 	Description *string `pulumi:"description"`
 	// Whether the condition is turned on or off. Valid values are true and false. Defaults to true.
 	Enabled *bool `pulumi:"enabled"`
-	// The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
+	// The metric event; for example, SystemSample or StorageSample. Supported by the infraMetric condition type.
 	Event *string `pulumi:"event"`
-	// For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
+	// For alerts on integrations, use this instead of event. Supported by the infraMetric condition type.
 	IntegrationProvider *string `pulumi:"integrationProvider"`
 	// The Infrastructure alert condition's name.
 	Name *string `pulumi:"name"`
 	// The ID of the alert policy where this condition should be used.
 	PolicyId int `pulumi:"policyId"`
-	// Any filters applied to processes; for example: commandName = 'java'. Supported by the infra_process_running condition
+	// Any filters applied to processes; for example: commandName = 'java'. Supported by the infraProcessRunning condition
 	// type.
 	ProcessWhere *string `pulumi:"processWhere"`
 	// Runbook URL to display in notifications.
@@ -405,7 +405,7 @@ type infraAlertConditionArgs struct {
 	// The attribute name to identify the metric being targeted; for example, cpuPercent, diskFreePercent, or
 	// memoryResidentSizeBytes. The underlying API will automatically populate this value for Infrastructure integrations (for
 	// example diskFreePercent), so make sure to explicitly include this value to avoid diff issues. Supported by the
-	// infra_metric condition type.
+	// infraMetric condition type.
 	Select *string `pulumi:"select"`
 	// The type of Infrastructure alert condition. Valid values are infra_process_running, infra_metric, and
 	// infra_host_not_reporting.
@@ -422,7 +422,7 @@ type infraAlertConditionArgs struct {
 // The set of arguments for constructing a InfraAlertCondition resource.
 type InfraAlertConditionArgs struct {
 	// The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
-	// infra_metric and infra_process_running condition types.
+	// infraMetric and infraProcessRunning condition types.
 	Comparison pulumi.StringPtrInput
 	// Identifies the threshold parameters for opening a critical alert incident.
 	Critical InfraAlertConditionCriticalPtrInput
@@ -430,15 +430,15 @@ type InfraAlertConditionArgs struct {
 	Description pulumi.StringPtrInput
 	// Whether the condition is turned on or off. Valid values are true and false. Defaults to true.
 	Enabled pulumi.BoolPtrInput
-	// The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
+	// The metric event; for example, SystemSample or StorageSample. Supported by the infraMetric condition type.
 	Event pulumi.StringPtrInput
-	// For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
+	// For alerts on integrations, use this instead of event. Supported by the infraMetric condition type.
 	IntegrationProvider pulumi.StringPtrInput
 	// The Infrastructure alert condition's name.
 	Name pulumi.StringPtrInput
 	// The ID of the alert policy where this condition should be used.
 	PolicyId pulumi.IntInput
-	// Any filters applied to processes; for example: commandName = 'java'. Supported by the infra_process_running condition
+	// Any filters applied to processes; for example: commandName = 'java'. Supported by the infraProcessRunning condition
 	// type.
 	ProcessWhere pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
@@ -446,7 +446,7 @@ type InfraAlertConditionArgs struct {
 	// The attribute name to identify the metric being targeted; for example, cpuPercent, diskFreePercent, or
 	// memoryResidentSizeBytes. The underlying API will automatically populate this value for Infrastructure integrations (for
 	// example diskFreePercent), so make sure to explicitly include this value to avoid diff issues. Supported by the
-	// infra_metric condition type.
+	// infraMetric condition type.
 	Select pulumi.StringPtrInput
 	// The type of Infrastructure alert condition. Valid values are infra_process_running, infra_metric, and
 	// infra_host_not_reporting.
@@ -548,7 +548,7 @@ func (o InfraAlertConditionOutput) ToInfraAlertConditionOutputWithContext(ctx co
 }
 
 // The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
-// infra_metric and infra_process_running condition types.
+// infraMetric and infraProcessRunning condition types.
 func (o InfraAlertConditionOutput) Comparison() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringPtrOutput { return v.Comparison }).(pulumi.StringPtrOutput)
 }
@@ -578,12 +578,12 @@ func (o InfraAlertConditionOutput) EntityGuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringOutput { return v.EntityGuid }).(pulumi.StringOutput)
 }
 
-// The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
+// The metric event; for example, SystemSample or StorageSample. Supported by the infraMetric condition type.
 func (o InfraAlertConditionOutput) Event() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringOutput { return v.Event }).(pulumi.StringOutput)
 }
 
-// For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
+// For alerts on integrations, use this instead of event. Supported by the infraMetric condition type.
 func (o InfraAlertConditionOutput) IntegrationProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringPtrOutput { return v.IntegrationProvider }).(pulumi.StringPtrOutput)
 }
@@ -598,7 +598,7 @@ func (o InfraAlertConditionOutput) PolicyId() pulumi.IntOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
 }
 
-// Any filters applied to processes; for example: commandName = 'java'. Supported by the infra_process_running condition
+// Any filters applied to processes; for example: commandName = 'java'. Supported by the infraProcessRunning condition
 // type.
 func (o InfraAlertConditionOutput) ProcessWhere() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringPtrOutput { return v.ProcessWhere }).(pulumi.StringPtrOutput)
@@ -612,7 +612,7 @@ func (o InfraAlertConditionOutput) RunbookUrl() pulumi.StringPtrOutput {
 // The attribute name to identify the metric being targeted; for example, cpuPercent, diskFreePercent, or
 // memoryResidentSizeBytes. The underlying API will automatically populate this value for Infrastructure integrations (for
 // example diskFreePercent), so make sure to explicitly include this value to avoid diff issues. Supported by the
-// infra_metric condition type.
+// infraMetric condition type.
 func (o InfraAlertConditionOutput) Select() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringPtrOutput { return v.Select }).(pulumi.StringPtrOutput)
 }
